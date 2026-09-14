@@ -1,0 +1,28 @@
+{
+  "id": "enosis-solutions",
+  "slug": "enosis-solutions",
+  "name": "Enosis Solutions",
+  "website": "https://www.enosisbd.com/",
+  "category": "software-services",
+  "businessAreas": [
+    "software development",
+    "software testing",
+    "dedicated teams"
+  ],
+  "careerAreas": [
+    "software-engineer",
+    "frontend-engineer",
+    "backend-engineer",
+    "qa-engineer",
+    "fullstack-engineer"
+  ],
+  "headquarters": "Dhaka, Bangladesh",
+  "summary": "Enosis Solutions is a Bangladesh software development and testing partner that builds and grows client engineering teams across front-end, backend, database, and related application work.",
+  "selectionCriteria": "Featured based on official company site and inclusion among BASIS top IT/ITES exporters for FY 2024–25; not a market ranking of employers.",
+  "lastVerified": "2026-09-14",
+  "sources": [
+    "src-enosis-home",
+    "src-basis-exporters-fe",
+    "src-basis-exporters-tbs"
+  ]
+}

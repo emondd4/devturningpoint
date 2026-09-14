@@ -1,0 +1,33 @@
+{
+  "id": "bkash",
+  "slug": "bkash",
+  "name": "bKash",
+  "website": "https://www.bkash.com/en",
+  "category": "fintech-mfs",
+  "businessAreas": [
+    "mobile financial services",
+    "payments",
+    "remittance",
+    "merchant payments"
+  ],
+  "careerAreas": [
+    "software-engineer",
+    "backend-engineer",
+    "fullstack-engineer",
+    "mobile",
+    "qa-engineer",
+    "devops-engineer",
+    "cybersecurity-engineer",
+    "product-manager",
+    "data-analyst"
+  ],
+  "headquarters": "Shadhinata Tower, Dhaka Cantonment, Dhaka 1206, Bangladesh",
+  "summary": "bKash is a Bangladesh Bank–licensed mobile financial services provider offering send money, payments, bill pay, remittance, and related digital finance products through app, USSD, and merchant channels.",
+  "selectionCriteria": "Featured because it is a large, widely used regulated fintech employer in Bangladesh with a public product platform and ongoing engineering hiring signals across mobile, backend, and payments systems—not because of any ranking.",
+  "lastVerified": "2026-09-14",
+  "sources": [
+    "src-bkash-home",
+    "src-bkash-help",
+    "src-bkash-tbs-revenue-2024"
+  ]
+}

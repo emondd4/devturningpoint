@@ -1,0 +1,28 @@
+{
+  "id": "iv-docker-layers-cache",
+  "question": "Your CI Docker build is slow. How do you structure a Dockerfile to maximize layer caching for a Node.js API?",
+  "careerIds": [
+    "devops-engineer",
+    "backend-engineer"
+  ],
+  "technology": [
+    "Docker",
+    "CI/CD",
+    "Node.js"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Copy package manifests and install dependencies before copying source so dependency layers reuse when code-only changes.",
+  "strongAnswer": "Order from least to most frequently changing: base image → package.json/lock → npm ci → copy source → build. Use .dockerignore to exclude node_modules and secrets. Pin base digests when reproducibility matters. In CI, enable BuildKit cache mounts or registry cache.",
+  "advancedAnswer": "Multi-stage builds to ship only runtime artifacts; separate builder and runner users; SBOM/scanning briefly.",
+  "followUps": [
+    "Why is `COPY . .` before npm install harmful?",
+    "What belongs in .dockerignore?"
+  ],
+  "commonWrongAnswer": "Always rebuild with --no-cache to be safe.",
+  "productionRelevance": "Faster pipelines improve iteration speed for export-oriented BD engineering teams using containers.",
+  "relatedTopics": [
+    "devops",
+    "docker"
+  ],
+  "lastVerified": "2026-09-14"
+}

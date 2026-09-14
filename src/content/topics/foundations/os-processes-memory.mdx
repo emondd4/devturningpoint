@@ -1,0 +1,101 @@
+---
+id: FOUNDATIONS-OS-PROCESSES-MEMORY
+title: "OS Processes and Memory"
+titleBn: "অপারেটিং সিস্টেম: প্রসেস ও মেমোরি"
+description: "How operating systems isolate programs, schedule CPU time, and virtualize memory."
+descriptionBn: "অপারেটিং সিস্টেম কীভাবে প্রোগ্রাম আলাদা রাখে, CPU সময় শিডিউল করে, এবং মেমোরি ভার্চুয়ালাইজ করে।"
+track: foundations
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites: 
+  - "FOUNDATIONS-CPU-MEMORY-STORAGE"
+unlocks: 
+  - "DEVOPS-LINUX-FUNDAMENTALS"
+  - "DEVOPS-DOCKER-FUNDAMENTALS"
+  - "BACKEND-NODE-RUNTIME-EVENT-LOOP"
+related: 
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+careers: 
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+tags: 
+  - "os"
+  - "processes"
+  - "memory"
+  - "linux"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "LINUX-MAN-PAGES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why OS concepts unlock Docker and production debugging
+
+Containers, process managers, and “why is my Node service OOMKilled?” all sit on **process isolation + virtual memory**.
+
+## Mental model
+
+<Callout type="mental-model">
+  A process is a running program with its own address space and resources. Threads share that address space. The kernel schedules CPU time and enforces isolation.
+</Callout>
+
+## Processes vs threads
+
+- **Process**: strong isolation, separate memory (usually), costlier to start.
+- **Thread**: shared memory, cheaper context, needs synchronization.
+
+Node.js is often one main thread + worker pool for some I/O/CPU tasks—event loop details come later.
+
+## Virtual memory (developer view)
+
+Each process sees a private virtual address space. The kernel maps pages to physical RAM or swap. Page faults and thrashing explain sudden freezes under memory pressure.
+
+## Useful Linux observables
+
+```bash
+ps aux | head
+# memory / cpu top-ish views
+# (tooling varies: top, htop, ps)
+kill -TERM <pid>   # graceful first
+```
+
+Signals (`SIGTERM`, `SIGKILL`) matter for graceful shutdown in containers.
+
+
+## Common mistakes
+
+- **Assuming kill -9 is normal shutdown** — SIGKILL skips cleanup; prefer TERM with a timeout.
+- **Ignoring memory limits in containers** — Apps that “work on my laptop” die under cgroup limits.
+- **Sharing mutable state across threads carelessly** — Data races are Heisenbugs.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain what a process ID is, what happens on fork/exec at a high level, and why containers still show processes as PID 1.
+</Callout>
+
+## Practice checklist
+
+- [ ] Start a process, find it with `ps`, send SIGTERM.
+- [ ] Read about OOM killer behavior conceptually.
+- [ ] Compare threads vs processes for a CPU-heavy job queue.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `LINUX-MAN-PAGES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

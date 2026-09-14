@@ -1,0 +1,20 @@
+{
+  "id": "hist-eniac-unveiled",
+  "year": "1946",
+  "title": "ENIAC publicly unveiled",
+  "titleBn": "ENIAC-এর প্রকাশ্য উদ্বোধন",
+  "before": "Large-scale calculation relied heavily on human computers, mechanical calculators, and specialized wartime machines with limited publicity and programmability models.",
+  "problem": "Scientific and military computation needed much faster automatic electronic calculation.",
+  "change": "ENIAC, designed by J. Presper Eckert and John Mauchly, was unveiled at the University of Pennsylvania on 14 February 1946 (IEEE Computer Society timeline).",
+  "whyItMattered": "It demonstrated large-scale electronic digital computation to a wide audience and influenced subsequent stored-program computer designs.",
+  "enabled": "Accelerated investment and research in general-purpose electronic computers.",
+  "modernDescendants": [
+    "General-purpose digital computers",
+    "Electronic arithmetic units"
+  ],
+  "concreteExample": "ENIAC performed ballistic trajectory calculations far faster than manual methods of the era.",
+  "caveat": "Other wartime machines (e.g. Colossus) were operational earlier in specialized contexts. 'First computer' claims depend on definitions and were legally contested later.",
+  "sources": [
+    "src-ieee-timeline"
+  ]
+}

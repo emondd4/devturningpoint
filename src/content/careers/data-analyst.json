@@ -1,0 +1,105 @@
+{
+  "id": "data-analyst",
+  "slug": "data-analyst",
+  "name": "Data Analyst",
+  "nameBn": "ডেটা অ্যানালিস্ট",
+  "alternativeNames": [
+    "Business Analyst (Data)",
+    "Reporting Analyst",
+    "BI Analyst",
+    "Insights Analyst"
+  ],
+  "summary": "Turns operational and product data into decision-ready metrics, dashboards, and analyses.",
+  "whatTheyDo": "Clean and query datasets, build reports/dashboards, and communicate insights to product, ops, or business stakeholders.",
+  "typicalDailyWork": [
+    "Write SQL analyses",
+    "Build dashboards",
+    "Validate metric definitions",
+    "Present findings",
+    "Partner with engineers on instrumentation"
+  ],
+  "responsibilities": [
+    "Keep metrics definitions consistent",
+    "Flag data quality issues",
+    "Avoid overclaiming causality"
+  ],
+  "prerequisites": [
+    "Statistics literacy basics",
+    "Excel/Sheets",
+    "SQL fundamentals",
+    "Clear writing"
+  ],
+  "technicalSkills": [
+    "SQL",
+    "Data visualization",
+    "Exploratory analysis",
+    "Basic Python/R (sometimes)"
+  ],
+  "tools": [
+    "SQL clients",
+    "Metabase/Power BI/Looker/Tableau (varies)",
+    "Excel/Sheets",
+    "Python notebooks (sometimes)"
+  ],
+  "softSkills": [
+    "Stakeholder interviewing",
+    "Narrative with charts",
+    "Skepticism about dirty data"
+  ],
+  "juniorExpectations": [
+    "Reliable scheduled reports",
+    "Clean SQL joins",
+    "Document assumptions"
+  ],
+  "midExpectations": [
+    "Own metric frameworks",
+    "Self-serve dashboards",
+    "A/B readout support"
+  ],
+  "seniorExpectations": [
+    "Analytics strategy",
+    "Experiment design partnership",
+    "Mentor analysts"
+  ],
+  "relatedCareers": [
+    "product-manager",
+    "backend-engineer",
+    "software-engineer"
+  ],
+  "careerTransitions": [
+    "May move toward analytics engineering or product analytics"
+  ],
+  "learningTracks": [
+    "database",
+    "foundations"
+  ],
+  "projectIds": [
+    "proj-sql-metrics",
+    "proj-dashboard-spa"
+  ],
+  "interviewCategories": [
+    "sql",
+    "metrics",
+    "case-analysis"
+  ],
+  "bangladeshNotes": "Data Analyst openings appear in fintech, logistics/consumer tech, and enterprise contexts, but they are typically fewer than pure software-developer roles on general boards. Related titles blur with Business Analyst. SQL and dashboard tools are the safest baseline; advanced ML titles are a different track and should not be conflated. Salary and tool requirements are employer-specific and were not generalized here.",
+  "commonQualifications": [
+    "SQL portfolio queries",
+    "Dashboard samples",
+    "Domain curiosity (fintech/ops/etc.)"
+  ],
+  "commonlyRequestedTech": [
+    "SQL",
+    "Excel",
+    "BI tools",
+    "Python (sometimes)"
+  ],
+  "experienceExpectations": "Varies widely; many roles emphasize domain + SQL over advanced modeling.",
+  "sources": [
+    "src-pathao-about",
+    "src-bkash-home",
+    "src-postgres-docs"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

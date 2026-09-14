@@ -1,0 +1,24 @@
+{
+  "id": "issue-react-strictmode-double-effect",
+  "title": "useEffect runs twice in development with React Strict Mode",
+  "technology": "React",
+  "platform": "Web",
+  "symptoms": [
+    "Network requests fire twice on mount in dev",
+    "Subscriptions appear duplicated in logs",
+    "Only happens in development builds"
+  ],
+  "cause": "React 18+ Strict Mode intentionally double-invokes certain lifecycles in development to surface missing cleanup.",
+  "solution": "Make effects idempotent: return a cleanup that aborts fetch/cancels subscriptions. Do not disable Strict Mode just to hide the symptom.",
+  "workaround": "Confirm production build runs once; use AbortController in effects.",
+  "affectedVersions": "React 18+ with <StrictMode>",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "frontend",
+    "react"
+  ],
+  "sources": [
+    "src-react-docs"
+  ],
+  "lastVerified": "2026-09-14"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "iv-system-design-feed",
+  "question": "Design a simple news-feed API for 100k DAU: what do you store, how do you paginate, and what would you explicitly not build on day one?",
+  "careerIds": [
+    "software-engineer",
+    "backend-engineer",
+    "fullstack-engineer"
+  ],
+  "technology": [
+    "System Design",
+    "PostgreSQL",
+    "Redis"
+  ],
+  "difficulty": "senior",
+  "shortAnswer": "Start with a relational post table, keyset pagination, and a straightforward follower query or fan-out-on-read; avoid multi-region complexity early.",
+  "strongAnswer": "Model users, follows, posts. Use keyset pagination (created_at, id) not OFFSET for feeds. For 100k DAU, fan-out-on-read with indexed queries may suffice initially; add caching for hot timelines if measured slow. Authz checks, rate limits, and abuse basics matter early. Defer: global ML ranking, multi-region active-active, bespoke graph DBs—until metrics demand them.",
+  "advancedAnswer": "Compare fan-out-on-write vs read, cache invalidation, and celebrity-user hot keys.",
+  "followUps": [
+    "Why is OFFSET pagination problematic?",
+    "How do you hide blocked authors?"
+  ],
+  "commonWrongAnswer": "Jump straight to Kafka + Cassandra + custom ranker for a class project scale.",
+  "productionRelevance": "Interviewers look for proportionate design—valuable for mid/senior BD product roles.",
+  "relatedTopics": [
+    "system-design",
+    "backend"
+  ],
+  "lastVerified": "2026-09-14"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "pathao",
+  "slug": "pathao",
+  "name": "Pathao",
+  "website": "https://pathao.com/",
+  "category": "consumer-tech",
+  "businessAreas": [
+    "ride-hailing",
+    "food delivery",
+    "courier/logistics",
+    "e-commerce",
+    "fintech"
+  ],
+  "careerAreas": [
+    "software-engineer",
+    "frontend-engineer",
+    "backend-engineer",
+    "fullstack-engineer",
+    "flutter-developer",
+    "devops-engineer",
+    "data-analyst",
+    "product-manager",
+    "ui-ux-designer"
+  ],
+  "headquarters": "Dhaka, Bangladesh (Banani contact address listed on official contact page)",
+  "summary": "Pathao is a Bangladesh consumer technology company operating ride-hailing, food delivery, courier/logistics, and expanding fintech offerings such as Pathao Pay and Pay Later.",
+  "selectionCriteria": "Featured as a prominent product-engineering employer in Bangladesh's consumer tech sector with official careers presence and publicly reported product/funding milestones; featured, not ranked.",
+  "lastVerified": "2026-09-14",
+  "sources": [
+    "src-pathao-home",
+    "src-pathao-about",
+    "src-pathao-contact",
+    "src-pathao-funding-press"
+  ]
+}

@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const events = (await getCollection('history')).sort((a, b) => String(a.data.year).localeCompare(String(b.data.year)));
+---
+
+<BaseLayout
+  locale={locale}
+  title={isBn ? 'কম্পিউটিং-এর বিবর্তন' : 'Computing evolution'}
+  description={isBn ? 'গণিত থেকে আধুনিক AI পর্যন্ত প্রধান রূপান্তর।' : 'Major transitions from mathematics to modern AI.'}
+>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold">
+      {isBn ? 'কম্পিউটিং-এর বিবর্তন' : 'Computing evolution'}
+    </h1>
+    <p class="mt-3 text-[var(--color-ink-muted)]">
+      {
+        isBn
+          ? 'প্রতিটি ধাপে আগে কী ছিল, কোন সীমাবদ্ধতা ছিল, কী বদলাল এবং আজকের কোন প্রযুক্তি এসেছে তা দেখানো হয়েছে। বিতর্কিত “প্রথম” দাবি এড়ানো হয়েছে।'
+          : 'Each stage covers what came before, the limitation, what changed, and modern descendants. Disputed “first ever” claims are avoided.'
+      }
+    </p>
+
+    <ol class="mt-10 space-y-6">
+      {
+        events.map((event) => (
+          <li class="surface-card">
+            <p class="text-sm font-semibold text-[var(--color-accent)]">{event.data.year}</p>
+            <h2 class="mt-1 text-xl font-semibold text-[var(--color-ink)]">
+              {isBn && event.data.titleBn ? event.data.titleBn : event.data.title}
+            </h2>
+            <dl class="mt-4 space-y-2 text-sm text-[var(--color-ink-muted)]">
+              <div><dt class="font-semibold text-[var(--color-ink)]">{isBn ? 'আগে' : 'Before'}</dt><dd>{event.data.before}</dd></div>
+              <div><dt class="font-semibold text-[var(--color-ink)]">{isBn ? 'সমস্যা' : 'Problem'}</dt><dd>{event.data.problem}</dd></div>
+              <div><dt class="font-semibold text-[var(--color-ink)]">{isBn ? 'পরিবর্তন' : 'What changed'}</dt><dd>{event.data.change}</dd></div>
+              <div><dt class="font-semibold text-[var(--color-ink)]">{isBn ? 'কেন গুরুত্বপূর্ণ' : 'Why it mattered'}</dt><dd>{event.data.whyItMattered}</dd></div>
+              <div><dt class="font-semibold text-[var(--color-ink)]">{isBn ? 'কী সম্ভব হলো' : 'What it enabled'}</dt><dd>{event.data.enabled}</dd></div>
+              <div><dt class="font-semibold text-[var(--color-ink)]">{isBn ? 'উদাহরণ' : 'Example'}</dt><dd>{event.data.concreteExample}</dd></div>
+              {event.data.caveat && (
+                <div><dt class="font-semibold text-[var(--color-ink)]">{isBn ? 'সতর্কতা' : 'Caveat'}</dt><dd>{event.data.caveat}</dd></div>
+              )}
+            </dl>
+            {event.data.modernDescendants.length > 0 && (
+              <p class="mt-3 text-xs text-[var(--color-ink-subtle)]">
+                {isBn ? 'আধুনিক বংশধর' : 'Modern descendants'}: {event.data.modernDescendants.join(', ')}
+              </p>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</BaseLayout>

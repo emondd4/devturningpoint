@@ -1,0 +1,114 @@
+---
+id: FOUNDATIONS-SQL-FUNDAMENTALS
+title: "SQL Fundamentals"
+titleBn: "SQL এর মৌলিক বিষয়"
+description: "Relational tables, SELECT/WHERE/JOIN basics, and why SQL remains the shared language of data."
+descriptionBn: "রিলেশনাল টেবিল, SELECT/WHERE/JOIN বেসিক, এবং ডেটার ভাষা হিসেবে SQL কেন টিকে আছে।"
+track: foundations
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites: 
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+unlocks: 
+  - "DATABASE-RELATIONAL-MODELING"
+  - "DATABASE-SQL-JOINS-AGGREGATION"
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+related: 
+  - "FOUNDATIONS-ALGORITHMS-COMPLEXITY"
+  - "DATABASE-POSTGRESQL-TRANSACTIONS"
+careers: 
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "sql"
+  - "databases"
+  - "relational"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why SQL survives every framework fashion
+
+SQL describes **what** data you want; the database decides **how** (indexes, join order). That separation is why ORMs still speak SQL underneath.
+
+## Mental model
+
+<Callout type="mental-model">
+  Tables are relations (sets of rows with named columns). A query builds a new relation from old ones via filter, project, join, and aggregate.
+</Callout>
+
+## Core verbs
+
+```sql
+CREATE TABLE users (
+  id BIGSERIAL PRIMARY KEY,
+  email TEXT NOT NULL UNIQUE,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+INSERT INTO users (email) VALUES ('learner@example.com');
+
+SELECT id, email
+FROM users
+WHERE email LIKE '%@example.com'
+ORDER BY created_at DESC
+LIMIT 20;
+```
+
+## Join as “match rows”
+
+```sql
+SELECT u.email, p.title
+FROM users u
+JOIN posts p ON p.author_id = u.id
+WHERE u.id = 42;
+```
+
+Inner join keeps matches; left join keeps all left rows even without matches (padding with NULL).
+
+## NULL is not zero
+
+```sql
+-- Unknown propagates; use IS NULL, not = NULL
+SELECT * FROM users WHERE deleted_at IS NULL;
+```
+
+
+## Common mistakes
+
+- **SELECT * in APIs** — Over-fetches data, couples clients to schema churn, and can leak columns.
+- **Filtering in application after fetching everything** — Push predicates to SQL so indexes can help.
+- **String-building SQL with user input** — Use parameterized queries to prevent injection.
+
+## Interview angle
+
+<Callout type="interview">
+  Write a query for “users who placed more than 3 orders in the last 30 days” and discuss indexes you would consider.
+</Callout>
+
+## Practice checklist
+
+- [ ] Create two tables and join them.
+- [ ] Rewrite a loop-of-queries idea as one SQL statement.
+- [ ] Practice parameterized queries in your language of choice.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

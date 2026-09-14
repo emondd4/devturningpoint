@@ -1,0 +1,113 @@
+{
+  "id": "backend-engineer",
+  "slug": "backend-engineer",
+  "name": "Backend Engineer",
+  "nameBn": "ব্যাকএন্ড ইঞ্জিনিয়ার",
+  "alternativeNames": [
+    "Backend Developer",
+    "API Developer",
+    "Server-Side Engineer",
+    "Java Developer",
+    "Node.js Developer",
+    "NestJS Developer"
+  ],
+  "summary": "Designs and builds server-side APIs, data models, and integrations that power products reliably.",
+  "whatTheyDo": "Model domains, expose secure APIs, optimize queries, integrate third-party services, and keep services operable in production.",
+  "typicalDailyWork": [
+    "Design/implement API endpoints",
+    "Write migrations and queries",
+    "Add authz checks",
+    "Debug latency or data issues",
+    "Improve logging/metrics"
+  ],
+  "responsibilities": [
+    "Protect data integrity and security",
+    "Define clear API contracts",
+    "Handle failure modes and retries",
+    "Support deployments and rollbacks"
+  ],
+  "prerequisites": [
+    "Programming fundamentals",
+    "SQL",
+    "HTTP and auth basics",
+    "Git"
+  ],
+  "technicalSkills": [
+    "API design",
+    "Relational modeling",
+    "Caching concepts",
+    "Background jobs/queues",
+    "Testing services"
+  ],
+  "tools": [
+    "Postman",
+    "Docker (increasingly)",
+    "DB clients",
+    "CI pipelines",
+    "Cloud consoles (varies)"
+  ],
+  "softSkills": [
+    "Threat modeling lite",
+    "Clear API docs",
+    "Incident communication"
+  ],
+  "juniorExpectations": [
+    "Implement CRUD APIs safely",
+    "Write basic tests",
+    "Understand transactions"
+  ],
+  "midExpectations": [
+    "Design modules and schemas",
+    "Tune queries",
+    "Own integrations"
+  ],
+  "seniorExpectations": [
+    "Architect service boundaries",
+    "Capacity and reliability planning",
+    "Mentor backend practices"
+  ],
+  "relatedCareers": [
+    "fullstack-engineer",
+    "devops-engineer",
+    "database-engineer"
+  ],
+  "careerTransitions": [
+    "Common path into platform, data, or security-focused engineering"
+  ],
+  "learningTracks": [
+    "backend",
+    "database",
+    "foundations"
+  ],
+  "projectIds": [
+    "proj-task-api",
+    "proj-payment-sandbox"
+  ],
+  "interviewCategories": [
+    "api-design",
+    "sql",
+    "system-design-lite",
+    "security-basics"
+  ],
+  "bangladeshNotes": "Recent Bangladesh career pages and aggregators show NestJS/Node/TypeScript (e.g. Innospace, Fanfare) and long-standing Java/Spring demand (e.g. Nagad SSE). PHP/Laravel also appears in many service-company ads. Titles may say Backend Developer or language-specific names (Java Developer). Do not treat any one stack as universal.",
+  "commonQualifications": [
+    "Demonstrable API projects",
+    "Understanding of auth and SQL"
+  ],
+  "commonlyRequestedTech": [
+    "Node.js / NestJS",
+    "Java / Spring",
+    "SQL (PostgreSQL/MySQL)",
+    "Redis",
+    "Docker",
+    "REST"
+  ],
+  "experienceExpectations": "Senior backend ads reviewed often ask for roughly 5–7 years; junior/mid ranges vary widely by employer.",
+  "sources": [
+    "src-job-innospace-backend",
+    "src-job-fanfare-backend",
+    "src-job-nagad-sse"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

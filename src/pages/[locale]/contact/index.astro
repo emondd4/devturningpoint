@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const title = isBn ? 'যোগাযোগ' : 'Contact';
+const body = isBn ? 'কন্টেন্ট ত্রুটি ও পরামর্শের জন্য GitHub issues ব্যবহার করুন: https://github.com/emondd4/devturningpoint' : 'Prefer GitHub issues for content errors, outdated material, and topic suggestions. Repository: https://github.com/emondd4/devturningpoint';
+---
+
+<BaseLayout locale={locale} title={title} description={body}>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 prose-reading">
+    <h1>{title}</h1>
+    <p>{body}</p>
+  </div>
+</BaseLayout>

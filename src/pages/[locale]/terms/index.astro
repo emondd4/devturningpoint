@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const title = isBn ? 'ব্যবহারের শর্তাবলি' : 'Terms of Use';
+const body = isBn ? 'কন্টেন্ট শিক্ষামূলক। লাইসেন্স দেখুন (কোড MIT, শিক্ষামূলক কন্টেন্ট সাধারণত CC BY 4.0)। পেশাদার পরামর্শের বিকল্প নয়।' : 'Content is provided for education. Review licenses (MIT for code, CC BY 4.0 for educational content unless noted). Not a substitute for professional advice.';
+---
+
+<BaseLayout locale={locale} title={title} description={body}>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 prose-reading">
+    <h1>{title}</h1>
+    <p>{body}</p>
+  </div>
+</BaseLayout>

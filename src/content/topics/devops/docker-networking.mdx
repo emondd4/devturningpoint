@@ -1,0 +1,92 @@
+---
+id: DEVOPS-DOCKER-NETWORKING
+title: "Docker Networking"
+titleBn: "Docker নেটওয়ার্কিং"
+description: "Bridge networks, DNS between containers, publishing ports, and Compose service names."
+descriptionBn: "ব্রিজ নেটওয়ার্ক, কন্টেইনারদের DNS, পোর্ট পাবলিশ, এবং Compose সার্ভিস নাম।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites: 
+  - "DEVOPS-DOCKER-FUNDAMENTALS"
+  - "DEVOPS-NETWORKING-FOR-DEVOPS"
+unlocks: 
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+related: 
+  - "BACKEND-DOCKER-DEPLOY"
+careers: 
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+tags: 
+  - "docker"
+  - "networking"
+  - "compose"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "DOCKER-NETWORKING"
+  - "DOCKER-BRIDGE"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why containers need networks
+
+Isolation is useless if services cannot discover each other safely. Docker’s bridge networks provide per-network DNS using service/container names.
+
+## Mental model
+
+<Callout type="mental-model">
+  User-defined bridge: containers talk via private IPs/DNS names. Published ports map container ports to the host for external access.
+</Callout>
+
+```yaml
+# compose sketch
+services:
+  api:
+    build: .
+    ports: ['3000:3000']
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: example
+```
+
+API connects to `db:5432` on the Compose network—not localhost from inside the api container.
+
+
+## Common mistakes
+
+- **Using localhost for sibling containers** — Use service DNS names.
+- **Publishing every port publicly** — Only expose what must be external.
+- **Assuming host network is default everywhere** — Behavior differs by OS/engine.
+
+## Interview angle
+
+<Callout type="interview">
+  How do two Compose services discover each other, and when do you publish ports?
+</Callout>
+
+## Practice checklist
+
+- [ ] Run API + Postgres on a user-defined bridge.
+- [ ] Inspect `docker network ls`.
+- [ ] Break and fix a localhost misconfig.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `DOCKER-NETWORKING`
+- `DOCKER-BRIDGE`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

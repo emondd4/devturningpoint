@@ -1,0 +1,22 @@
+{
+  "id": "hist-transistor",
+  "year": "1947",
+  "title": "Point-contact transistor demonstrated",
+  "titleBn": "ট্রানজিস্টরের প্রদর্শন",
+  "before": "Vacuum tubes amplified and switched signals but were bulky, hot, and relatively fragile for dense computing.",
+  "problem": "Electronics needed smaller, more reliable switching elements to scale computing hardware.",
+  "change": "Bell Labs researchers demonstrated the point-contact transistor in 1947 (widely documented in computing history timelines and semiconductor histories such as the Computer History Museum's Silicon Engine).",
+  "whyItMattered": "Solid-state switching made miniaturization and energy efficiency practical over the following decades.",
+  "enabled": "Transistor radios, then transistorized computers, then integrated circuits.",
+  "modernDescendants": [
+    "CMOS logic",
+    "Microprocessors",
+    "Mobile SoCs"
+  ],
+  "concreteExample": "A phone SoC packing billions of transistors would be impossible with vacuum-tube switches.",
+  "caveat": "Commercial and junction-transistor developments continued after 1947; the date marks a pivotal demonstration, not the end of the story.",
+  "sources": [
+    "src-ieee-timeline",
+    "src-chm-silicon"
+  ]
+}

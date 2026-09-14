@@ -1,0 +1,114 @@
+---
+id: FLUTTER-DART-ASYNC-FUTURES-STREAMS
+title: "Dart Async: Futures and Streams"
+titleBn: "Dart অ্যাসিঙ্ক: Future ও Stream"
+description: "Single-shot Futures vs event Streams—async patterns that power Flutter networking and input."
+descriptionBn: "একবারের Future বনাম ইভেন্ট Stream—Flutter নেটওয়ার্কিং ও ইনপুটের অ্যাসিঙ্ক প্যাটার্ন।"
+track: mobile-flutter
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites: 
+  - "FLUTTER-DART-FUNDAMENTALS"
+unlocks: 
+  - "FLUTTER-NETWORKING-REST"
+  - "FLUTTER-STATE-MANAGEMENT"
+related: 
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+  - "FRONTEND-JAVASCRIPT-ASYNC-EVENT-LOOP"
+careers: 
+  - "CAREER-MOBILE-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "dart"
+  - "async"
+  - "futures"
+  - "streams"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "DART-ASYNC"
+  - "DART-STREAMS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why async is not optional on mobile
+
+Disk, network, and animations must not block the UI isolate. Dart’s `Future` and `Stream` are the core vocabulary.
+
+## Mental model
+
+<Callout type="mental-model">
+  A Future is a single value-or-error that completes later. A Stream is a sequence of events over time (chunks, clicks, Firestore snapshots).
+</Callout>
+
+## Futures with async/await
+
+```dart
+Future<String> fetchTitle() async {
+  await Future<void>.delayed(const Duration(milliseconds: 200));
+  return 'Topics';
+}
+
+Future<void> main() async {
+  try {
+    final title = await fetchTitle();
+    print(title);
+  } catch (e) {
+    print('failed: $e');
+  }
+}
+```
+
+## Streams
+
+```dart
+Stream<int> countThree() async* {
+  for (var i = 1; i <= 3; i++) {
+    await Future<void>.delayed(const Duration(milliseconds: 100));
+    yield i;
+  }
+}
+```
+
+In Flutter, `FutureBuilder` / `StreamBuilder` bridge async data to widgets—but larger apps often lift state into dedicated state management.
+
+<Callout type="warning">
+  Forgetting to cancel stream subscriptions leaks work and can call `setState` after dispose.
+</Callout>
+
+
+## Common mistakes
+
+- **Using async without awaiting** — Errors become unhandled; ordering becomes wrong.
+- **Heavy work on the UI isolate** — CPU-bound loops jank frames; consider isolates for heavy compute.
+- **Nested then-chains** — Prefer async/await for readability and catch blocks.
+
+## Interview angle
+
+<Callout type="interview">
+  Contrast Future vs Stream and describe how you would handle loading and error UI for each.
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a Future that fails and handle it.
+- [ ] Consume a Stream with await for.
+- [ ] Sketch when to use StreamBuilder vs a state manager.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `DART-ASYNC`
+- `DART-STREAMS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

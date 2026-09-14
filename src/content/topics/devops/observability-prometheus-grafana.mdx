@@ -1,0 +1,78 @@
+---
+id: DEVOPS-OBSERVABILITY-PROMETHEUS-GRAFANA
+title: "Observability with Prometheus and Grafana"
+titleBn: "Prometheus ও Grafana দিয়ে অবজারভেবিলিটি"
+description: "Metrics, labels, PromQL basics, and dashboards that answer production questions."
+descriptionBn: "মেট্রিক্স, লেবেল, PromQL বেসিক, এবং প্রোডাকশন প্রশ্নের উত্তর দেয় এমন ড্যাশবোর্ড।"
+track: devops
+difficulty: advanced
+estimatedMinutes: 42
+prerequisites: 
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+  - "BACKEND-HTTP-REST-API-DESIGN"
+unlocks: []
+related: 
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+careers: 
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+tags: 
+  - "observability"
+  - "prometheus"
+  - "grafana"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "PROMETHEUS-DOCS"
+  - "GRAFANA-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why logs alone are not enough
+
+Logs tell stories; metrics tell trends and trigger alerts. Traces connect requests. Start with golden signals: latency, traffic, errors, saturation.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prometheus pulls metrics from targets. Time series are identified by metric name + labels. Grafana visualizes and alerts on queries.
+</Callout>
+
+Instrument RED/USE methods thoughtfully; high-cardinality labels (user ids) can explode storage.
+
+
+## Common mistakes
+
+- **Alerting on raw noisy metrics** — Alert on symptoms/SLOs.
+- **Unbounded label cardinality** — Breaks Prometheus.
+- **Dashboards without runbooks** — Pages that nobody can act on.
+
+## Interview angle
+
+<Callout type="interview">
+  What four golden signals would you monitor for a NestJS API and why?
+</Callout>
+
+## Practice checklist
+
+- [ ] Expose a /metrics endpoint conceptually.
+- [ ] Write a simple PromQL rate() query.
+- [ ] Sketch a Grafana dashboard for API latency.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `PROMETHEUS-DOCS`
+- `GRAFANA-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

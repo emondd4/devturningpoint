@@ -1,0 +1,92 @@
+---
+id: FRONTEND-CSS-CASCADE-BOX-MODEL
+title: "CSS Cascade and Box Model"
+titleBn: "CSS ক্যাসকেড ও বক্স মডেল"
+description: "Origin, specificity, inheritance, and box sizing—the rules behind “why is my margin weird?”"
+descriptionBn: "Origin, specificity, inheritance ও box sizing—“মার্জিন অদ্ভুত কেন?” এর নিয়ম।"
+track: frontend
+difficulty: beginner
+estimatedMinutes: 36
+prerequisites: 
+  - "FRONTEND-HTML-SEMANTICS-A11Y"
+unlocks: 
+  - "FRONTEND-CSS-FLEXBOX-GRID"
+related: 
+  - "FRONTEND-JAVASCRIPT-FUNDAMENTALS"
+careers: 
+  - "CAREER-FRONTEND-ENGINEER"
+tags: 
+  - "css"
+  - "cascade"
+  - "box-model"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "MDN-CSS-CASCADE"
+  - "MDN-CSS-BOX"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why cascade literacy beats `!important`
+
+When styles fight, the cascade decides. Guessing leads to specificity wars.
+
+## Mental model
+
+<Callout type="mental-model">
+  Cascade sorts competing declarations by origin/importance, then specificity, then order. Inheritance passes certain properties to children. The box model is content + padding + border (+ margin outside).
+</Callout>
+
+```css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.card {
+  width: 20rem;
+  padding: 1rem;
+  border: 1px solid #d8dee8;
+  margin-block: 1rem;
+}
+```
+
+With `border-box`, width includes padding and border—layouts become predictable.
+
+
+## Common mistakes
+
+- **Overusing !important** — Fixes one fight; creates ten.
+- **Confusing margin collapse** — Vertical margins can collapse between blocks.
+- **Inline styles for everything** — Loses cascade reuse and theming.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain specificity for an ID vs class vs element selector and how cascade layers change the story.
+</Callout>
+
+## Practice checklist
+
+- [ ] Predict which rule wins in a small conflict demo.
+- [ ] Set border-box globally in a project.
+- [ ] Inspect computed styles in DevTools.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `MDN-CSS-CASCADE`
+- `MDN-CSS-BOX`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

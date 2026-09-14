@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const title = isBn ? 'AI-সহায়ক কন্টেন্ট প্রকাশ' : 'AI-assisted content disclosure';
+const body = isBn ? 'V1 কন্টেন্ট ডেভেলপমেন্টে AI সহায়তায় খসড়া হতে পারে, তারপর Git-এ সম্পাদিত হয়। ডিপ্লয়ড সাইট পেজ তৈরির জন্য LLM API কল করে না।' : 'V1 content may be drafted with AI assistance during development (e.g. Cursor) and then edited into the Git repository. The deployed site does not call LLM APIs to generate pages.';
+---
+
+<BaseLayout locale={locale} title={title} description={body}>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 prose-reading">
+    <h1>{title}</h1>
+    <p>{body}</p>
+  </div>
+</BaseLayout>

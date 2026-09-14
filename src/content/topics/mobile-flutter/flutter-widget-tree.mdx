@@ -1,0 +1,99 @@
+---
+id: FLUTTER-WIDGET-TREE
+title: "Flutter Widget Tree"
+titleBn: "Flutter Widget ট্রি"
+description: "Widgets, Elements, and RenderObjects—how Flutter rebuilds UI efficiently."
+descriptionBn: "Widget, Element ও RenderObject—Flutter কীভাবে UI দক্ষভাবে রিবিল্ড করে।"
+track: mobile-flutter
+difficulty: beginner
+estimatedMinutes: 36
+prerequisites: 
+  - "FLUTTER-DART-FUNDAMENTALS"
+unlocks: 
+  - "FLUTTER-CONSTRAINTS-LAYOUT"
+  - "FLUTTER-STATE-MANAGEMENT"
+related: 
+  - "FLUTTER-PERFORMANCE-DEVTOOLS"
+careers: 
+  - "CAREER-MOBILE-ENGINEER"
+tags: 
+  - "flutter"
+  - "widgets"
+  - "ui"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "FLUTTER-WIDGETS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why “everything is a widget” is a useful exaggeration
+
+Composition of small widgets is Flutter’s UI model. Understanding the **widget tree** prevents giant `build` methods and accidental rebuild storms.
+
+## Mental model
+
+<Callout type="mental-model">
+  Widgets are immutable configuration. Elements hold the living instance mounting widgets to the tree. RenderObjects handle layout and paint. Rebuilds swap widget configs; Flutter reuses elements when types/keys match.
+</Callout>
+
+## A minimal tree
+
+```dart
+import 'package:flutter/material.dart';
+
+class HelloPage extends StatelessWidget {
+  const HelloPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Dev Turning Point')),
+      body: const Center(child: Text('Learn Flutter')),
+    );
+  }
+}
+```
+
+## Stateless vs Stateful
+
+- `StatelessWidget`: UI from constructor inputs + inherited context.
+- `StatefulWidget`: mutable `State` object that can `setState`.
+
+Prefer lifting state up and keeping leaf widgets dumb.
+
+
+## Common mistakes
+
+- **Huge build methods** — Extract widgets; improves rebuild locality and readability.
+- **Creating new objects that break equality carelessly** — Unstable keys and inline lambdas can hurt performance patterns.
+- **Using BuildContext across async gaps unsafely** — Check `mounted` before using context after await.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain the relationship between Widget, Element, and RenderObject at a high level.
+</Callout>
+
+## Practice checklist
+
+- [ ] Build a screen from nested rows/columns.
+- [ ] Convert a StatelessWidget to StatefulWidget with a counter.
+- [ ] Split a large build into smaller widgets.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-WIDGETS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

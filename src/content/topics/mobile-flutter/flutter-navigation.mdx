@@ -1,0 +1,90 @@
+---
+id: FLUTTER-NAVIGATION
+title: "Flutter Navigation"
+titleBn: "Flutter ন্যাভিগেশন"
+description: "Stacks, routes, and deep links—moving between screens with a clear back stack model."
+descriptionBn: "স্ট্যাক, রুট ও ডিপ লিংক—স্পষ্ট ব্যাক-স্ট্যাক মডেল নিয়ে স্ক্রিনে চলাচল।"
+track: mobile-flutter
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites: 
+  - "FLUTTER-WIDGET-TREE"
+  - "FLUTTER-STATE-MANAGEMENT"
+unlocks: 
+  - "FLUTTER-DEPLOYMENT"
+related: 
+  - "FLUTTER-NETWORKING-REST"
+careers: 
+  - "CAREER-MOBILE-ENGINEER"
+tags: 
+  - "flutter"
+  - "navigation"
+  - "routing"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "FLUTTER-NAV"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why navigation is state
+
+The back stack *is* user-visible state. Losing it on rebuild or mishandling deep links creates broken UX.
+
+## Mental model
+
+<Callout type="mental-model">
+  Imperative `Navigator.push` manipulates a stack of routes. Declarative routers map URL/app state → stack. Pick one primary style per app layer.
+</Callout>
+
+## Basic stack navigation
+
+```dart
+Navigator.of(context).push(
+  MaterialPageRoute(builder: (_) => const DetailsPage()),
+);
+
+Navigator.of(context).pop(result);
+```
+
+Pass results back intentionally; don’t rely on globals for “selected item.”
+
+## Deep linking mindset
+
+Even if you start without URLs, design screens so arguments are serializable (ids, not whole objects) to ease `go_router` / Router API later.
+
+
+## Common mistakes
+
+- **Passing huge objects as route args** — Prefer ids + repository fetch for freshness and deep links.
+- **Multiple Navigators without clarity** — Nested nav can be correct for tabs—but document which stack pops.
+- **Ignoring system back on Android** — Back must match user expectation for nested scaffolds.
+
+## Interview angle
+
+<Callout type="interview">
+  Compare Navigator 1.0 push/pop with a declarative router and when you would migrate.
+</Callout>
+
+## Practice checklist
+
+- [ ] Build two screens with push/pop and a returned result.
+- [ ] Sketch tab navigation with a nested navigator.
+- [ ] List arguments needed for a deep link to a topic page.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-NAV`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

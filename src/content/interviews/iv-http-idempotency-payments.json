@@ -1,0 +1,29 @@
+{
+  "id": "iv-http-idempotency-payments",
+  "question": "A mobile client retries a 'create payment' POST after a network timeout. How do you design the API so the user is not charged twice?",
+  "careerIds": [
+    "backend-engineer",
+    "fullstack-engineer",
+    "software-engineer"
+  ],
+  "technology": [
+    "HTTP",
+    "APIs",
+    "PostgreSQL"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Use client-generated idempotency keys stored server-side so retries return the original result instead of creating a new charge.",
+  "strongAnswer": "Require an Idempotency-Key (or equivalent) unique per user intent. Persist the key with the resulting payment id and response. On retry, return the stored outcome inside a uniqueness transaction. Make the payment provider call itself idempotent where supported. Distinguish timeouts from unknown outcomes with a status query endpoint.",
+  "advancedAnswer": "Cover key TTL, concurrent duplicate requests (row lock/unique constraint), and exactly-once vs at-least-once delivery realities across queues.",
+  "followUps": [
+    "What if two different keys intentionally create two payments?",
+    "How do you reconcile with a PSP webhook?"
+  ],
+  "commonWrongAnswer": "Tell the client to never retry POST, without server-side protection.",
+  "productionRelevance": "Critical for MFS/fintech and checkout flows common in Bangladesh product companies.",
+  "relatedTopics": [
+    "backend",
+    "api-design"
+  ],
+  "lastVerified": "2026-09-14"
+}

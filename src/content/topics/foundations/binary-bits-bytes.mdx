@@ -1,0 +1,126 @@
+---
+id: FOUNDATIONS-BINARY-BITS-BYTES
+title: "Binary, Bits, and Bytes"
+titleBn: "বাইনারি, বিট ও বাইট"
+description: "Why computers use binary, how bits compose bytes, and how that maps to numbers, text, and memory sizes."
+descriptionBn: "কম্পিউটার কেন বাইনারি ব্যবহার করে, বিট থেকে বাইট কীভাবে তৈরি হয়, এবং সংখ্যা·টেক্সট·মেমোরি সাইজে তার মানে কী।"
+track: foundations
+difficulty: beginner
+estimatedMinutes: 28
+prerequisites: []
+unlocks: 
+  - "FOUNDATIONS-CPU-MEMORY-STORAGE"
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+related: 
+  - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+careers: 
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-DEVOPS-ENGINEER"
+tags: 
+  - "binary"
+  - "bits"
+  - "bytes"
+  - "encoding"
+  - "foundations"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "TC39-ECMASCRIPT"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters before tools
+
+Every file, network packet, and variable ultimately becomes a pattern of **on/off states**. If you skip this mental model, later topics (memory, networking, encryption, image formats) feel like magic words instead of engineering tradeoffs.
+
+## Mental model
+
+<Callout type="mental-model">
+  Think of a bit as a light switch. One switch → 2 states. Two switches → 4 states. Eight switches (a byte) → 256 states. Programs invent *meanings* for those states: numbers, letters, colors, instructions.
+</Callout>
+
+### Powers of two (the vocabulary of size)
+
+| Bits | Distinct values | Common name |
+| --- | --- | --- |
+| 1 | 2 | bit |
+| 8 | 256 | byte |
+| 10 | 1024 | often “about a kilobyte of addresses” in older talk |
+| 16 | 65,536 | often `uint16` range |
+| 32 | ~4.3 billion | classic `uint32` / IPv4 address space |
+| 64 | enormous | modern pointers / `bigint` territory |
+
+Memory and disk marketing uses **KB/MB/GB** (decimal powers of 1000) while engineers often think in **KiB/MiB/GiB** (powers of 1024). Ambiguity causes real bugs in capacity planning.
+
+## From switches to numbers
+
+Unsigned integers are the simplest mapping: interpret the bit pattern as base-2.
+
+```js
+// 0b prefix = binary literal in JavaScript
+const n = 0b1101; // 13 in decimal
+console.log(n); // 13
+console.log(n.toString(2)); // "1101"
+console.log((255).toString(16)); // "ff" — hex is shorthand for nibbles (4 bits)
+```
+
+Two’s complement (how signed integers work on almost all CPUs) is the reason `-1` is “all bits 1” in a fixed width—useful when debugging overflow and casting.
+
+## Text is also bits
+
+ASCII maps bytes to characters for English-centric history. **UTF-8** maps Unicode code points to 1–4 bytes so Bangla, emoji, and Latin share one encoding.
+
+```js
+const text = 'বাংলা';
+const bytes = new TextEncoder().encode(text);
+console.log(bytes); // Uint8Array of UTF-8 bytes
+console.log(new TextDecoder().decode(bytes));
+```
+
+<Callout type="warning">
+  Never assume “one character = one byte.” Bangla graphemes and emoji can be multiple code points and multiple UTF-8 bytes.
+</Callout>
+
+## Units you will see every week
+
+- **Bandwidth**: bits per second (Mbps) on ISP plans vs **bytes per second** in download UIs.
+- **Memory**: process RSS in MiB; container limits in MiB/GiB.
+- **Hashes**: SHA-256 output is 256 **bits** (32 bytes), often shown as 64 hex characters.
+
+
+## Common mistakes
+
+- **Confusing bits and bytes** — A “100 Mbps” link is ~12.5 MB/s in ideal conditions, not 100 MB/s.
+- **Assuming ASCII everywhere** — Bangla and emoji break naive length/substring logic based on bytes.
+- **Ignoring endianness** — Multi-byte integers on the wire need an agreed byte order (network byte order is big-endian).
+
+## Interview angle
+
+<Callout type="interview">
+  Explain why UTF-8 is variable-width and how you would safely truncate a user-visible string without cutting a multi-byte character in half.
+</Callout>
+
+## Practice checklist
+
+- [ ] Convert a few decimals to binary and hex by hand, then verify with code.
+- [ ] Encode a Bangla sentence to UTF-8 and count bytes vs code points.
+- [ ] Read a file size in bytes and express it in MiB and MB.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `TC39-ECMASCRIPT`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

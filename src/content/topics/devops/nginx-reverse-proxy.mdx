@@ -1,0 +1,89 @@
+---
+id: DEVOPS-NGINX-REVERSE-PROXY
+title: "NGINX Reverse Proxy"
+titleBn: "NGINX রিভার্স প্রক্সি"
+description: "Terminate TLS, route paths, and add headers in front of app servers."
+descriptionBn: "অ্যাপ সার্ভারের সামনে TLS টার্মিনেট, পাথ রাউট, এবং হেডার যোগ করা।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites: 
+  - "DEVOPS-NETWORKING-FOR-DEVOPS"
+unlocks: 
+  - "DEVOPS-AWS-CLOUD-FUNDAMENTALS"
+related: 
+  - "BACKEND-SECURITY-BASICS"
+careers: 
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+tags: 
+  - "nginx"
+  - "proxy"
+  - "tls"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "NGINX-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why reverse proxies exist
+
+Apps speak HTTP on internal ports. Proxies handle TLS, compression, static files, and routing without rewriting app code.
+
+## Mental model
+
+<Callout type="mental-model">
+  Client → NGINX (public) → upstream (Node/Nest). NGINX can rewrite paths, set headers, and buffer responses.
+</Callout>
+
+```nginx
+server {
+  listen 80;
+  server_name example.com;
+  location /api/ {
+    proxy_pass http://127.0.0.1:3000/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+}
+```
+
+Apps must trust forwarded proto/host carefully to generate correct URLs and cookies.
+
+
+## Common mistakes
+
+- **Forgetting X-Forwarded-Proto** — Broken HTTPS redirects/cookies.
+- **Proxying without timeouts** — Hung upstreams pile up.
+- **Exposing upstream ports publicly** — Bypass the proxy controls.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you configure TLS termination and pass client IP information to NestJS?
+</Callout>
+
+## Practice checklist
+
+- [ ] Front a local app with NGINX.
+- [ ] Add a simple rate limit or static location.
+- [ ] Verify forwarded headers in the app.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NGINX-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

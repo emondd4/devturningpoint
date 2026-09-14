@@ -1,0 +1,2827 @@
+{
+  "nodes": [
+    {
+      "id": "TRACK-FOUNDATIONS",
+      "title": "Foundations Track",
+      "titleBn": "মৌলিক ট্র্যাক",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Track hub node for graph membership edges."
+    },
+    {
+      "id": "TRACK-MOBILE",
+      "title": "Mobile Track",
+      "titleBn": "মোবাইল ট্র্যাক",
+      "track": "mobile-flutter",
+      "difficulty": "beginner",
+      "description": "Track hub node for graph membership edges."
+    },
+    {
+      "id": "TRACK-FRONTEND",
+      "title": "Frontend Track",
+      "titleBn": "ফ্রন্টএন্ড ট্র্যাক",
+      "track": "frontend",
+      "difficulty": "beginner",
+      "description": "Track hub node for graph membership edges."
+    },
+    {
+      "id": "TRACK-BACKEND",
+      "title": "Backend Track",
+      "titleBn": "ব্যাকএন্ড ট্র্যাক",
+      "track": "backend",
+      "difficulty": "beginner",
+      "description": "Track hub node for graph membership edges."
+    },
+    {
+      "id": "TRACK-FULLSTACK",
+      "title": "Full-Stack Track",
+      "titleBn": "ফুল-স্ট্যাক ট্র্যাক",
+      "track": "fullstack",
+      "difficulty": "beginner",
+      "description": "Track hub node for graph membership edges."
+    },
+    {
+      "id": "TRACK-DEVOPS",
+      "title": "DevOps Track",
+      "titleBn": "DevOps ট্র্যাক",
+      "track": "devops",
+      "difficulty": "beginner",
+      "description": "Track hub node for graph membership edges."
+    },
+    {
+      "id": "TRACK-DATABASE",
+      "title": "Database Track",
+      "titleBn": "ডেটাবেস ট্র্যাক",
+      "track": "database",
+      "difficulty": "beginner",
+      "description": "Track hub node for graph membership edges."
+    },
+    {
+      "id": "TRACK-QA",
+      "title": "QA Track",
+      "titleBn": "QA ট্র্যাক",
+      "track": "qa",
+      "difficulty": "beginner",
+      "description": "Track hub node for graph membership edges."
+    },
+    {
+      "id": "TRACK-UIUX",
+      "title": "UI/UX Track",
+      "titleBn": "UI/UX ট্র্যাক",
+      "track": "uiux",
+      "difficulty": "beginner",
+      "description": "Track hub node for graph membership edges."
+    },
+    {
+      "id": "TRACK-PM",
+      "title": "Project Management Track",
+      "titleBn": "প্রজেক্ট ম্যানেজমেন্ট ট্র্যাক",
+      "track": "project-management",
+      "difficulty": "beginner",
+      "description": "Track hub node for graph membership edges."
+    },
+    {
+      "id": "CAREER-SOFTWARE-ENGINEER",
+      "title": "Software Engineer",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "CAREER-FRONTEND-ENGINEER",
+      "title": "Frontend Engineer",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "CAREER-BACKEND-ENGINEER",
+      "title": "Backend Engineer",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "CAREER-FULLSTACK-ENGINEER",
+      "title": "Full-Stack Engineer",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "CAREER-MOBILE-ENGINEER",
+      "title": "Mobile Engineer",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "CAREER-FLUTTER-DEVELOPER",
+      "title": "Flutter Developer",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "CAREER-DEVOPS-ENGINEER",
+      "title": "DevOps Engineer",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "CAREER-SRE",
+      "title": "Site Reliability Engineer",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "CAREER-DATABASE-ENGINEER",
+      "title": "Database Engineer",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "CAREER-QA-ENGINEER",
+      "title": "QA Engineer",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "CAREER-UIUX-DESIGNER",
+      "title": "UI/UX Designer",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "CAREER-PROJECT-MANAGER",
+      "title": "Project Manager",
+      "difficulty": "intermediate",
+      "description": "Career target node for usefulForCareer edges."
+    },
+    {
+      "id": "FOUNDATIONS-BINARY",
+      "title": "Binary & Number Systems",
+      "titleBn": "বাইনারি ও সংখ্যা পদ্ধতি",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "How computers represent numbers in binary and related bases."
+    },
+    {
+      "id": "FOUNDATIONS-BITS-BYTES",
+      "title": "Bits, Bytes & Encoding",
+      "titleBn": "বিট, বাইট ও এনকোডিং",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Units of digital information and text encodings such as UTF-8."
+    },
+    {
+      "id": "FOUNDATIONS-CPU",
+      "title": "CPU & Instruction Basics",
+      "titleBn": "CPU ও নির্দেশনা",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "How a CPU fetches and executes instructions."
+    },
+    {
+      "id": "FOUNDATIONS-MEMORY",
+      "title": "Memory Hierarchy",
+      "titleBn": "মেমোরি হাইয়ারার্কি",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Registers, cache, RAM, and how programs use memory."
+    },
+    {
+      "id": "FOUNDATIONS-STORAGE",
+      "title": "Persistent Storage",
+      "titleBn": "পারসিস্টেন্ট স্টোরেজ",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Disks, SSDs, and durability trade-offs."
+    },
+    {
+      "id": "FOUNDATIONS-PROCESSES",
+      "title": "Processes & Threads",
+      "titleBn": "প্রসেস ও থ্রেড",
+      "track": "foundations",
+      "difficulty": "intermediate",
+      "description": "OS process model, concurrency basics, and scheduling."
+    },
+    {
+      "id": "FOUNDATIONS-FILESYSTEMS",
+      "title": "Filesystems",
+      "titleBn": "ফাইলসিস্টেম",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Paths, permissions model overview, and file organization."
+    },
+    {
+      "id": "FOUNDATIONS-OS-PERMISSIONS",
+      "title": "OS Permissions",
+      "titleBn": "OS পারমিশন",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Users, groups, and access control on files and processes."
+    },
+    {
+      "id": "FOUNDATIONS-VARIABLES",
+      "title": "Variables & Binding",
+      "titleBn": "ভেরিয়েবল ও বাইন্ডিং",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Names, values, scope, and mutability."
+    },
+    {
+      "id": "FOUNDATIONS-DATA-TYPES",
+      "title": "Data Types",
+      "titleBn": "ডেটা টাইপ",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Primitive and composite types across languages."
+    },
+    {
+      "id": "FOUNDATIONS-CONTROL-FLOW",
+      "title": "Control Flow",
+      "titleBn": "কন্ট্রোল ফ্লো",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Conditionals, loops, and branching."
+    },
+    {
+      "id": "FOUNDATIONS-FUNCTIONS",
+      "title": "Functions",
+      "titleBn": "ফাংশন",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Parameters, return values, and decomposition."
+    },
+    {
+      "id": "FOUNDATIONS-DATA-STRUCTURES",
+      "title": "Data Structures",
+      "titleBn": "ডেটা স্ট্রাকচার",
+      "track": "foundations",
+      "difficulty": "intermediate",
+      "description": "Arrays, lists, maps, stacks, queues, and trees."
+    },
+    {
+      "id": "FOUNDATIONS-ALGORITHMS",
+      "title": "Algorithms",
+      "titleBn": "অ্যালগরিদম",
+      "track": "foundations",
+      "difficulty": "intermediate",
+      "description": "Searching, sorting, and common algorithmic patterns."
+    },
+    {
+      "id": "FOUNDATIONS-COMPLEXITY",
+      "title": "Time & Space Complexity",
+      "titleBn": "সময় ও স্থান জটিলতা",
+      "track": "foundations",
+      "difficulty": "intermediate",
+      "description": "Big-O intuition for algorithm cost."
+    },
+    {
+      "id": "FOUNDATIONS-DEBUGGING",
+      "title": "Debugging",
+      "titleBn": "ডিবাগিং",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Reproduce, isolate, and fix defects systematically."
+    },
+    {
+      "id": "FOUNDATIONS-ERROR-HANDLING",
+      "title": "Error Handling",
+      "titleBn": "এরর হ্যান্ডলিং",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Exceptions, error values, and failure modes."
+    },
+    {
+      "id": "FOUNDATIONS-GIT",
+      "title": "Git Version Control",
+      "titleBn": "Git ভার্সন কন্ট্রোল",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Commits, branches, merges, and collaboration basics."
+    },
+    {
+      "id": "FOUNDATIONS-TCP-IP",
+      "title": "TCP/IP Networking",
+      "titleBn": "TCP/IP নেটওয়ার্কিং",
+      "track": "foundations",
+      "difficulty": "intermediate",
+      "description": "Packets, ports, IP addressing, and transport basics."
+    },
+    {
+      "id": "FOUNDATIONS-DNS",
+      "title": "DNS",
+      "titleBn": "DNS",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Name resolution from hostname to IP."
+    },
+    {
+      "id": "FOUNDATIONS-HTTP",
+      "title": "HTTP",
+      "titleBn": "HTTP",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Methods, status codes, headers, and request/response."
+    },
+    {
+      "id": "FOUNDATIONS-HTTPS-TLS",
+      "title": "HTTPS & TLS",
+      "titleBn": "HTTPS ও TLS",
+      "track": "foundations",
+      "difficulty": "intermediate",
+      "description": "Encryption in transit and certificate trust."
+    },
+    {
+      "id": "FOUNDATIONS-API-CONCEPTS",
+      "title": "API Concepts",
+      "titleBn": "API ধারণা",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Interfaces between systems: contracts and consumers."
+    },
+    {
+      "id": "FOUNDATIONS-SECURITY-BASICS",
+      "title": "Security Fundamentals",
+      "titleBn": "সিকিউরিটি মৌলিক",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Authn vs authz, secrets, and common web risks."
+    },
+    {
+      "id": "FOUNDATIONS-SQL-INTRO",
+      "title": "SQL Introduction",
+      "titleBn": "SQL পরিচিতি",
+      "track": "foundations",
+      "difficulty": "beginner",
+      "description": "Relational tables and basic SELECT/INSERT/UPDATE."
+    },
+    {
+      "id": "FRONTEND-HTML",
+      "title": "HTML Fundamentals",
+      "titleBn": "HTML মৌলিক",
+      "track": "frontend",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "FRONTEND-HTML-SEMANTICS",
+      "title": "Semantic HTML",
+      "titleBn": "সিম্যান্টিক HTML",
+      "track": "frontend",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "FRONTEND-HTML-FORMS",
+      "title": "HTML Forms",
+      "titleBn": "HTML ফর্ম",
+      "track": "frontend",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "FRONTEND-CSS",
+      "title": "CSS Fundamentals",
+      "titleBn": "CSS মৌলিক",
+      "track": "frontend",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "FRONTEND-CSS-BOX-MODEL",
+      "title": "CSS Box Model",
+      "titleBn": "CSS বক্স মডেল",
+      "track": "frontend",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "FRONTEND-CSS-LAYOUT",
+      "title": "Flexbox & Grid",
+      "titleBn": "Flexbox ও Grid",
+      "track": "frontend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "FRONTEND-CSS-RESPONSIVE",
+      "title": "Responsive CSS",
+      "titleBn": "রেসপন্সিভ CSS",
+      "track": "frontend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "FRONTEND-JAVASCRIPT",
+      "title": "JavaScript Fundamentals",
+      "titleBn": "JavaScript মৌলিক",
+      "track": "frontend",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "FRONTEND-JS-OBJECTS",
+      "title": "JS Objects & Prototypes",
+      "titleBn": "JS অবজেক্ট ও প্রোটোটাইপ",
+      "track": "frontend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "FRONTEND-JS-DOM",
+      "title": "DOM Manipulation",
+      "titleBn": "DOM ম্যানিপুলেশন",
+      "track": "frontend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "FRONTEND-JS-ASYNC",
+      "title": "Async JavaScript",
+      "titleBn": "অ্যাসিঙ্ক JavaScript",
+      "track": "frontend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "FRONTEND-JS-MODULES",
+      "title": "JavaScript Modules",
+      "titleBn": "JavaScript মডিউল",
+      "track": "frontend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "FRONTEND-TYPESCRIPT",
+      "title": "TypeScript Fundamentals",
+      "titleBn": "TypeScript মৌলিক",
+      "track": "frontend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "FRONTEND-TS-ADVANCED",
+      "title": "Advanced TypeScript",
+      "titleBn": "অ্যাডভান্সড TypeScript",
+      "track": "frontend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "FRONTEND-REACT",
+      "title": "React Fundamentals",
+      "titleBn": "React মৌলিক",
+      "track": "frontend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "FRONTEND-REACT-HOOKS",
+      "title": "React Hooks",
+      "titleBn": "React Hooks",
+      "track": "frontend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "FRONTEND-REACT-STATE",
+      "title": "React State Architecture",
+      "titleBn": "React স্টেট আর্কিটেকচার",
+      "track": "frontend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "FRONTEND-REACT-TESTING",
+      "title": "React Testing",
+      "titleBn": "React টেস্টিং",
+      "track": "frontend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "FRONTEND-NEXTJS",
+      "title": "Next.js Fundamentals",
+      "titleBn": "Next.js মৌলিক",
+      "track": "frontend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "FRONTEND-NEXTJS-ROUTING",
+      "title": "Next.js Routing & Data",
+      "titleBn": "Next.js রাউটিং ও ডেটা",
+      "track": "frontend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "FRONTEND-A11Y",
+      "title": "Frontend Accessibility",
+      "titleBn": "ফ্রন্টএন্ড অ্যাক্সেসিবিলিটি",
+      "track": "frontend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "FRONTEND-PERFORMANCE",
+      "title": "Frontend Performance",
+      "titleBn": "ফ্রন্টএন্ড পারফরম্যান্স",
+      "track": "frontend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "MOBILE-DART-BASICS",
+      "title": "Dart Basics",
+      "titleBn": "Dart মৌলিক",
+      "track": "mobile-flutter",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "MOBILE-DART-OOP",
+      "title": "Dart OOP",
+      "titleBn": "Dart OOP",
+      "track": "mobile-flutter",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "MOBILE-DART-ASYNC",
+      "title": "Dart Async (Future/Stream)",
+      "titleBn": "Dart অ্যাসিঙ্ক",
+      "track": "mobile-flutter",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "MOBILE-FLUTTER-WIDGETS",
+      "title": "Flutter Widgets",
+      "titleBn": "Flutter Widgets",
+      "track": "mobile-flutter",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "MOBILE-FLUTTER-LAYOUT",
+      "title": "Flutter Layout & Constraints",
+      "titleBn": "Flutter লেআউট",
+      "track": "mobile-flutter",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "MOBILE-FLUTTER-NAVIGATION",
+      "title": "Flutter Navigation",
+      "titleBn": "Flutter নেভিগেশন",
+      "track": "mobile-flutter",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "MOBILE-FLUTTER-STATE",
+      "title": "Flutter State Management",
+      "titleBn": "Flutter স্টেট ম্যানেজমেন্ট",
+      "track": "mobile-flutter",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "MOBILE-FLUTTER-FORMS",
+      "title": "Flutter Forms",
+      "titleBn": "Flutter ফর্ম",
+      "track": "mobile-flutter",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "MOBILE-FLUTTER-NETWORKING",
+      "title": "Flutter Networking",
+      "titleBn": "Flutter নেটওয়ার্কিং",
+      "track": "mobile-flutter",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "MOBILE-FLUTTER-STORAGE",
+      "title": "Flutter Local Storage",
+      "titleBn": "Flutter লোকাল স্টোরেজ",
+      "track": "mobile-flutter",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "MOBILE-FLUTTER-TESTING",
+      "title": "Flutter Testing",
+      "titleBn": "Flutter টেস্টিং",
+      "track": "mobile-flutter",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "MOBILE-FLUTTER-PERFORMANCE",
+      "title": "Flutter Performance",
+      "titleBn": "Flutter পারফরম্যান্স",
+      "track": "mobile-flutter",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "MOBILE-FLUTTER-PLATFORM",
+      "title": "Platform Channels",
+      "titleBn": "প্ল্যাটফর্ম চ্যানেল",
+      "track": "mobile-flutter",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "MOBILE-FLUTTER-DEPLOYMENT",
+      "title": "Flutter Deployment",
+      "titleBn": "Flutter ডিপ্লয়মেন্ট",
+      "track": "mobile-flutter",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "BACKEND-NODE",
+      "title": "Node.js Runtime",
+      "titleBn": "Node.js রানটাইম",
+      "track": "backend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "BACKEND-HTTP-SERVER",
+      "title": "HTTP Servers",
+      "titleBn": "HTTP সার্ভার",
+      "track": "backend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "BACKEND-REST",
+      "title": "REST API Design",
+      "titleBn": "REST API ডিজাইন",
+      "track": "backend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "BACKEND-NESTJS",
+      "title": "NestJS Fundamentals",
+      "titleBn": "NestJS মৌলিক",
+      "track": "backend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "BACKEND-NESTJS-DI",
+      "title": "NestJS Modules & DI",
+      "titleBn": "NestJS Modules ও DI",
+      "track": "backend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "BACKEND-VALIDATION",
+      "title": "Input Validation",
+      "titleBn": "ইনপুট ভ্যালিডেশন",
+      "track": "backend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "BACKEND-AUTH",
+      "title": "Authentication & Authorization",
+      "titleBn": "অথেন্টিকেশন ও অথরাইজেশন",
+      "track": "backend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "BACKEND-JWT",
+      "title": "JWT & Session Tokens",
+      "titleBn": "JWT ও সেশন টোকেন",
+      "track": "backend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "BACKEND-POSTGRES",
+      "title": "PostgreSQL for Backend",
+      "titleBn": "ব্যাকএন্ডে PostgreSQL",
+      "track": "backend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "BACKEND-ORM",
+      "title": "ORM & Query Builders",
+      "titleBn": "ORM ও Query Builder",
+      "track": "backend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "BACKEND-REDIS",
+      "title": "Redis Caching",
+      "titleBn": "Redis ক্যাশিং",
+      "track": "backend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "BACKEND-QUEUES",
+      "title": "Background Jobs & Queues",
+      "titleBn": "ব্যাকগ্রাউন্ড জব ও কিউ",
+      "track": "backend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "BACKEND-WEBSOCKETS",
+      "title": "WebSockets",
+      "titleBn": "WebSockets",
+      "track": "backend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "BACKEND-LOGGING",
+      "title": "Logging & Error Handling",
+      "titleBn": "লগিং ও এরর হ্যান্ডলিং",
+      "track": "backend",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "BACKEND-TESTING",
+      "title": "Backend Testing",
+      "titleBn": "ব্যাকএন্ড টেস্টিং",
+      "track": "backend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "BACKEND-SECURITY",
+      "title": "API Security",
+      "titleBn": "API সিকিউরিটি",
+      "track": "backend",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "FULLSTACK-INTEGRATION",
+      "title": "Frontend–Backend Integration",
+      "titleBn": "ফ্রন্টএন্ড–ব্যাকএন্ড ইন্টিগ্রেশন",
+      "track": "fullstack",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "FULLSTACK-AUTH-FLOWS",
+      "title": "End-to-End Auth Flows",
+      "titleBn": "এন্ড-টু-এন্ড Auth ফ্লো",
+      "track": "fullstack",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "FULLSTACK-CORS-CSRF",
+      "title": "CORS & CSRF",
+      "titleBn": "CORS ও CSRF",
+      "track": "fullstack",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "FULLSTACK-SSR-BOUNDARIES",
+      "title": "SSR & Client Boundaries",
+      "titleBn": "SSR ও ক্লায়েন্ট সীমানা",
+      "track": "fullstack",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "FULLSTACK-E2E-TESTING",
+      "title": "Full-Stack E2E Testing",
+      "titleBn": "ফুল-স্ট্যাক E2E টেস্টিং",
+      "track": "fullstack",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DEVOPS-LINUX",
+      "title": "Linux Fundamentals",
+      "titleBn": "Linux মৌলিক",
+      "track": "devops",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "DEVOPS-BASH",
+      "title": "Bash Scripting",
+      "titleBn": "Bash স্ক্রিপ্টিং",
+      "track": "devops",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "DEVOPS-NETWORKING",
+      "title": "Server Networking",
+      "titleBn": "সার্ভার নেটওয়ার্কিং",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-SYSTEMD",
+      "title": "Processes & systemd",
+      "titleBn": "প্রসেস ও systemd",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-NGINX",
+      "title": "Nginx & Reverse Proxies",
+      "titleBn": "Nginx ও রিভার্স প্রক্সি",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-DOCKER",
+      "title": "Docker Containers",
+      "titleBn": "Docker কন্টেইনার",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-DOCKER-COMPOSE",
+      "title": "Docker Compose",
+      "titleBn": "Docker Compose",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-CICD",
+      "title": "CI/CD Pipelines",
+      "titleBn": "CI/CD পাইপলাইন",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-CLOUD-FUNDAMENTALS",
+      "title": "Cloud Fundamentals",
+      "titleBn": "ক্লাউড মৌলিক",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-AWS",
+      "title": "AWS Core Services",
+      "titleBn": "AWS মূল সার্ভিস",
+      "track": "devops",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DEVOPS-TERRAFORM",
+      "title": "Infrastructure as Code (Terraform)",
+      "titleBn": "Infrastructure as Code (Terraform)",
+      "track": "devops",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DEVOPS-KUBERNETES",
+      "title": "Kubernetes Basics",
+      "titleBn": "Kubernetes মৌলিক",
+      "track": "devops",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DEVOPS-OBSERVABILITY",
+      "title": "Logging, Metrics & Tracing",
+      "titleBn": "লগ, মেট্রিক্স ও ট্রেসিং",
+      "track": "devops",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DATABASE-RELATIONAL",
+      "title": "Relational Modeling",
+      "titleBn": "রিলেশনাল মডেলিং",
+      "track": "database",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "DATABASE-SQL",
+      "title": "SQL Fundamentals",
+      "titleBn": "SQL মৌলিক",
+      "track": "database",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "DATABASE-JOINS",
+      "title": "SQL Joins & Aggregation",
+      "titleBn": "SQL Join ও Aggregation",
+      "track": "database",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DATABASE-CTES",
+      "title": "CTEs & Window Functions",
+      "titleBn": "CTE ও Window Function",
+      "track": "database",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DATABASE-POSTGRES-TYPES",
+      "title": "PostgreSQL Types & Constraints",
+      "titleBn": "PostgreSQL টাইপ ও কনস্ট্রেইন্ট",
+      "track": "database",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DATABASE-POSTGRES-INDEXING",
+      "title": "PostgreSQL Indexing",
+      "titleBn": "PostgreSQL ইনডেক্সিং",
+      "track": "database",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DATABASE-TRANSACTIONS",
+      "title": "Transactions & Isolation",
+      "titleBn": "ট্রানজ্যাকশন ও আইসোলেশন",
+      "track": "database",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DATABASE-EXPLAIN",
+      "title": "EXPLAIN & Query Plans",
+      "titleBn": "EXPLAIN ও Query Plan",
+      "track": "database",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DATABASE-REDIS",
+      "title": "Redis Data Structures",
+      "titleBn": "Redis ডেটা স্ট্রাকচার",
+      "track": "database",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DATABASE-MONGODB",
+      "title": "Document Modeling (MongoDB)",
+      "titleBn": "ডকুমেন্ট মডেলিং (MongoDB)",
+      "track": "database",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DATABASE-BACKUP-REPLICATION",
+      "title": "Backup & Replication Concepts",
+      "titleBn": "ব্যাকআপ ও রেপ্লিকেশন",
+      "track": "database",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "QA-STLC",
+      "title": "Software Testing Life Cycle",
+      "titleBn": "সফটওয়্যার টেস্টিং লাইফসাইকেল",
+      "track": "qa",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "QA-TEST-DESIGN",
+      "title": "Test Design Techniques",
+      "titleBn": "টেস্ট ডিজাইন টেকনিক",
+      "track": "qa",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "QA-MANUAL-TESTING",
+      "title": "Manual Testing Practice",
+      "titleBn": "ম্যানুয়াল টেস্টিং",
+      "track": "qa",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "QA-BUG-REPORTING",
+      "title": "Bug Reporting",
+      "titleBn": "বাগ রিপোর্টিং",
+      "track": "qa",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "QA-API-TESTING",
+      "title": "API Testing",
+      "titleBn": "API টেস্টিং",
+      "track": "qa",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "QA-PLAYWRIGHT",
+      "title": "Playwright Automation",
+      "titleBn": "Playwright অটোমেশন",
+      "track": "qa",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "QA-PERFORMANCE",
+      "title": "Performance Testing Basics",
+      "titleBn": "পারফরম্যান্স টেস্টিং",
+      "track": "qa",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "QA-CI-INTEGRATION",
+      "title": "Testing in CI",
+      "titleBn": "CI-তে টেস্টিং",
+      "track": "qa",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "UIUX-VISUAL-FUNDAMENTALS",
+      "title": "Visual Fundamentals",
+      "titleBn": "ভিজ্যুয়াল মৌলিক",
+      "track": "uiux",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "UIUX-TYPOGRAPHY",
+      "title": "Typography",
+      "titleBn": "টাইপোগ্রাফি",
+      "track": "uiux",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "UIUX-COLOR",
+      "title": "Color & Contrast",
+      "titleBn": "রঙ ও কনট্রাস্ট",
+      "track": "uiux",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "UIUX-UX-RESEARCH",
+      "title": "UX Research Basics",
+      "titleBn": "UX রিসার্চ মৌলিক",
+      "track": "uiux",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "UIUX-WIREFRAMING",
+      "title": "Wireframing & Flows",
+      "titleBn": "ওয়ারফ্রেম ও ফ্লো",
+      "track": "uiux",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "UIUX-FIGMA",
+      "title": "Figma Fundamentals",
+      "titleBn": "Figma মৌলিক",
+      "track": "uiux",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "UIUX-PROTOTYPING",
+      "title": "Prototyping",
+      "titleBn": "প্রোটোটাইপিং",
+      "track": "uiux",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "UIUX-DESIGN-SYSTEMS",
+      "title": "Design Systems",
+      "titleBn": "ডিজাইন সিস্টেম",
+      "track": "uiux",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "UIUX-A11Y",
+      "title": "Inclusive Design",
+      "titleBn": "ইনক্লুসিভ ডিজাইন",
+      "track": "uiux",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "PM-SDLC",
+      "title": "Software Delivery Lifecycle",
+      "titleBn": "সফটওয়্যার ডেলিভারি লাইফসাইকেল",
+      "track": "pm",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "PM-REQUIREMENTS",
+      "title": "Requirements & Scope",
+      "titleBn": "রিকোয়ারমেন্ট ও স্কোপ",
+      "track": "pm",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "PM-AGILE",
+      "title": "Agile Principles",
+      "titleBn": "Agile নীতি",
+      "track": "pm",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "PM-SCRUM",
+      "title": "Scrum Framework",
+      "titleBn": "Scrum ফ্রেমওয়ার্ক",
+      "track": "pm",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "PM-KANBAN",
+      "title": "Kanban",
+      "titleBn": "Kanban",
+      "track": "pm",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "PM-ESTIMATION",
+      "title": "Estimation & Planning",
+      "titleBn": "এস্টিমেশন ও প্ল্যানিং",
+      "track": "pm",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "PM-JIRA",
+      "title": "Jira & Delivery Tooling",
+      "titleBn": "Jira ও ডেলিভারি টুলিং",
+      "track": "pm",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "PM-RISK",
+      "title": "Risk Management",
+      "titleBn": "ঝুঁকি ব্যবস্থাপনা",
+      "track": "pm",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "PM-STAKEHOLDERS",
+      "title": "Stakeholder Communication",
+      "titleBn": "Stakeholder যোগাযোগ",
+      "track": "pm",
+      "difficulty": "intermediate"
+    }
+  ],
+  "edges": [
+    {
+      "from": "FOUNDATIONS-BINARY",
+      "to": "FOUNDATIONS-BITS-BYTES",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-BITS-BYTES",
+      "to": "FOUNDATIONS-CPU",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-CPU",
+      "to": "FOUNDATIONS-MEMORY",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-MEMORY",
+      "to": "FOUNDATIONS-STORAGE",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-MEMORY",
+      "to": "FOUNDATIONS-PROCESSES",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-STORAGE",
+      "to": "FOUNDATIONS-FILESYSTEMS",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-FILESYSTEMS",
+      "to": "FOUNDATIONS-OS-PERMISSIONS",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-VARIABLES",
+      "to": "FOUNDATIONS-DATA-TYPES",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-DATA-TYPES",
+      "to": "FOUNDATIONS-CONTROL-FLOW",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-CONTROL-FLOW",
+      "to": "FOUNDATIONS-FUNCTIONS",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-FUNCTIONS",
+      "to": "FOUNDATIONS-DATA-STRUCTURES",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-DATA-STRUCTURES",
+      "to": "FOUNDATIONS-ALGORITHMS",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-ALGORITHMS",
+      "to": "FOUNDATIONS-COMPLEXITY",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-FUNCTIONS",
+      "to": "FOUNDATIONS-DEBUGGING",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-DEBUGGING",
+      "to": "FOUNDATIONS-ERROR-HANDLING",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-FUNCTIONS",
+      "to": "FOUNDATIONS-GIT",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-TCP-IP",
+      "to": "FOUNDATIONS-DNS",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-TCP-IP",
+      "to": "FOUNDATIONS-HTTP",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-HTTP",
+      "to": "FOUNDATIONS-HTTPS-TLS",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-HTTP",
+      "to": "FOUNDATIONS-API-CONCEPTS",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-HTTPS-TLS",
+      "to": "FOUNDATIONS-SECURITY-BASICS",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-API-CONCEPTS",
+      "to": "FOUNDATIONS-SQL-INTRO",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-BINARY",
+      "to": "FOUNDATIONS-VARIABLES",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "FOUNDATIONS-GIT",
+      "to": "FOUNDATIONS-HTTP",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "FOUNDATIONS-PROCESSES",
+      "to": "FOUNDATIONS-OS-PERMISSIONS",
+      "type": "related"
+    },
+    {
+      "from": "FOUNDATIONS-GIT",
+      "to": "DEVOPS-LINUX",
+      "type": "unlocks"
+    },
+    {
+      "from": "FOUNDATIONS-HTTP",
+      "to": "FRONTEND-HTML",
+      "type": "unlocks"
+    },
+    {
+      "from": "FOUNDATIONS-HTTP",
+      "to": "BACKEND-HTTP-SERVER",
+      "type": "unlocks"
+    },
+    {
+      "from": "FOUNDATIONS-HTTP",
+      "to": "FRONTEND-HTML",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-HTML",
+      "to": "FRONTEND-HTML-SEMANTICS",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-HTML",
+      "to": "FRONTEND-HTML-FORMS",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-HTML",
+      "to": "FRONTEND-CSS",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-CSS",
+      "to": "FRONTEND-CSS-BOX-MODEL",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-CSS-BOX-MODEL",
+      "to": "FRONTEND-CSS-LAYOUT",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-CSS-LAYOUT",
+      "to": "FRONTEND-CSS-RESPONSIVE",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-FUNCTIONS",
+      "to": "FRONTEND-JAVASCRIPT",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-HTML",
+      "to": "FRONTEND-JAVASCRIPT",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-JAVASCRIPT",
+      "to": "FRONTEND-JS-OBJECTS",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-JAVASCRIPT",
+      "to": "FRONTEND-JS-DOM",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-JAVASCRIPT",
+      "to": "FRONTEND-JS-ASYNC",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-JAVASCRIPT",
+      "to": "FRONTEND-JS-MODULES",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-JS-MODULES",
+      "to": "FRONTEND-TYPESCRIPT",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-TYPESCRIPT",
+      "to": "FRONTEND-TS-ADVANCED",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-JS-DOM",
+      "to": "FRONTEND-REACT",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-TYPESCRIPT",
+      "to": "FRONTEND-REACT",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-REACT",
+      "to": "FRONTEND-REACT-HOOKS",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-REACT-HOOKS",
+      "to": "FRONTEND-REACT-STATE",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-REACT-HOOKS",
+      "to": "FRONTEND-REACT-TESTING",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-REACT",
+      "to": "FRONTEND-NEXTJS",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-NEXTJS",
+      "to": "FRONTEND-NEXTJS-ROUTING",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-HTML-SEMANTICS",
+      "to": "FRONTEND-A11Y",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-REACT",
+      "to": "FRONTEND-PERFORMANCE",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-CSS-RESPONSIVE",
+      "to": "FRONTEND-REACT",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "FRONTEND-A11Y",
+      "to": "UIUX-A11Y",
+      "type": "related"
+    },
+    {
+      "from": "FRONTEND-REACT",
+      "to": "FRONTEND-NEXTJS",
+      "type": "unlocks"
+    },
+    {
+      "from": "FOUNDATIONS-FUNCTIONS",
+      "to": "MOBILE-DART-BASICS",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-DART-BASICS",
+      "to": "MOBILE-DART-OOP",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-DART-OOP",
+      "to": "MOBILE-DART-ASYNC",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-DART-BASICS",
+      "to": "MOBILE-FLUTTER-WIDGETS",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-WIDGETS",
+      "to": "MOBILE-FLUTTER-LAYOUT",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-LAYOUT",
+      "to": "MOBILE-FLUTTER-NAVIGATION",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-WIDGETS",
+      "to": "MOBILE-FLUTTER-STATE",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-DART-ASYNC",
+      "to": "MOBILE-FLUTTER-STATE",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-STATE",
+      "to": "MOBILE-FLUTTER-FORMS",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-HTTP",
+      "to": "MOBILE-FLUTTER-NETWORKING",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-DART-ASYNC",
+      "to": "MOBILE-FLUTTER-NETWORKING",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-NETWORKING",
+      "to": "MOBILE-FLUTTER-STORAGE",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-WIDGETS",
+      "to": "MOBILE-FLUTTER-TESTING",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-LAYOUT",
+      "to": "MOBILE-FLUTTER-PERFORMANCE",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-STATE",
+      "to": "MOBILE-FLUTTER-PLATFORM",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-TESTING",
+      "to": "MOBILE-FLUTTER-DEPLOYMENT",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-FORMS",
+      "to": "MOBILE-FLUTTER-NETWORKING",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "MOBILE-FLUTTER-STATE",
+      "to": "FRONTEND-REACT-STATE",
+      "type": "related"
+    },
+    {
+      "from": "MOBILE-FLUTTER-WIDGETS",
+      "to": "MOBILE-FLUTTER-STATE",
+      "type": "unlocks"
+    },
+    {
+      "from": "FRONTEND-TYPESCRIPT",
+      "to": "BACKEND-NODE",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-HTTP",
+      "to": "BACKEND-NODE",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-NODE",
+      "to": "BACKEND-HTTP-SERVER",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-HTTP-SERVER",
+      "to": "BACKEND-REST",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-API-CONCEPTS",
+      "to": "BACKEND-REST",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-REST",
+      "to": "BACKEND-NESTJS",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-NODE",
+      "to": "BACKEND-NESTJS",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-NESTJS",
+      "to": "BACKEND-NESTJS-DI",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-REST",
+      "to": "BACKEND-VALIDATION",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-NESTJS",
+      "to": "BACKEND-VALIDATION",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-SECURITY-BASICS",
+      "to": "BACKEND-AUTH",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-NESTJS",
+      "to": "BACKEND-AUTH",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-AUTH",
+      "to": "BACKEND-JWT",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-SQL-INTRO",
+      "to": "BACKEND-POSTGRES",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-REST",
+      "to": "BACKEND-POSTGRES",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-POSTGRES",
+      "to": "BACKEND-ORM",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-POSTGRES",
+      "to": "BACKEND-REDIS",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-REDIS",
+      "to": "BACKEND-QUEUES",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-HTTP-SERVER",
+      "to": "BACKEND-WEBSOCKETS",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-NESTJS",
+      "to": "BACKEND-LOGGING",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-NESTJS",
+      "to": "BACKEND-TESTING",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-AUTH",
+      "to": "BACKEND-SECURITY",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-VALIDATION",
+      "to": "BACKEND-SECURITY",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-LOGGING",
+      "to": "BACKEND-TESTING",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "BACKEND-POSTGRES",
+      "to": "DATABASE-SQL",
+      "type": "related"
+    },
+    {
+      "from": "BACKEND-REDIS",
+      "to": "DATABASE-REDIS",
+      "type": "related"
+    },
+    {
+      "from": "BACKEND-REST",
+      "to": "BACKEND-NESTJS",
+      "type": "unlocks"
+    },
+    {
+      "from": "FRONTEND-NEXTJS",
+      "to": "FULLSTACK-INTEGRATION",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-NESTJS",
+      "to": "FULLSTACK-INTEGRATION",
+      "type": "requires"
+    },
+    {
+      "from": "FULLSTACK-INTEGRATION",
+      "to": "FULLSTACK-AUTH-FLOWS",
+      "type": "requires"
+    },
+    {
+      "from": "BACKEND-AUTH",
+      "to": "FULLSTACK-AUTH-FLOWS",
+      "type": "requires"
+    },
+    {
+      "from": "FULLSTACK-INTEGRATION",
+      "to": "FULLSTACK-CORS-CSRF",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-SECURITY-BASICS",
+      "to": "FULLSTACK-CORS-CSRF",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-NEXTJS-ROUTING",
+      "to": "FULLSTACK-SSR-BOUNDARIES",
+      "type": "requires"
+    },
+    {
+      "from": "FULLSTACK-INTEGRATION",
+      "to": "FULLSTACK-SSR-BOUNDARIES",
+      "type": "requires"
+    },
+    {
+      "from": "FULLSTACK-AUTH-FLOWS",
+      "to": "FULLSTACK-E2E-TESTING",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-REACT-TESTING",
+      "to": "FULLSTACK-E2E-TESTING",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-DOCKER",
+      "to": "FULLSTACK-E2E-TESTING",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "FULLSTACK-AUTH-FLOWS",
+      "to": "BACKEND-JWT",
+      "type": "related"
+    },
+    {
+      "from": "FOUNDATIONS-OS-PERMISSIONS",
+      "to": "DEVOPS-LINUX",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-PROCESSES",
+      "to": "DEVOPS-LINUX",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-LINUX",
+      "to": "DEVOPS-BASH",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-TCP-IP",
+      "to": "DEVOPS-NETWORKING",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-LINUX",
+      "to": "DEVOPS-NETWORKING",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-LINUX",
+      "to": "DEVOPS-SYSTEMD",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-DNS",
+      "to": "DEVOPS-NGINX",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-HTTPS-TLS",
+      "to": "DEVOPS-NGINX",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-NETWORKING",
+      "to": "DEVOPS-NGINX",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-LINUX",
+      "to": "DEVOPS-DOCKER",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-DOCKER",
+      "to": "DEVOPS-DOCKER-COMPOSE",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-GIT",
+      "to": "DEVOPS-CICD",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-DOCKER",
+      "to": "DEVOPS-CICD",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-NETWORKING",
+      "to": "DEVOPS-CLOUD-FUNDAMENTALS",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-CLOUD-FUNDAMENTALS",
+      "to": "DEVOPS-AWS",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-AWS",
+      "to": "DEVOPS-TERRAFORM",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-DOCKER",
+      "to": "DEVOPS-KUBERNETES",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-CLOUD-FUNDAMENTALS",
+      "to": "DEVOPS-KUBERNETES",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-CICD",
+      "to": "DEVOPS-OBSERVABILITY",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-KUBERNETES",
+      "to": "DEVOPS-OBSERVABILITY",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-BASH",
+      "to": "DEVOPS-DOCKER",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "DEVOPS-NGINX",
+      "to": "DEVOPS-DOCKER",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "DEVOPS-OBSERVABILITY",
+      "to": "BACKEND-LOGGING",
+      "type": "related"
+    },
+    {
+      "from": "DEVOPS-DOCKER",
+      "to": "DEVOPS-KUBERNETES",
+      "type": "unlocks"
+    },
+    {
+      "from": "FOUNDATIONS-SQL-INTRO",
+      "to": "DATABASE-RELATIONAL",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-RELATIONAL",
+      "to": "DATABASE-SQL",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-SQL",
+      "to": "DATABASE-JOINS",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-JOINS",
+      "to": "DATABASE-CTES",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-SQL",
+      "to": "DATABASE-POSTGRES-TYPES",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-POSTGRES-TYPES",
+      "to": "DATABASE-POSTGRES-INDEXING",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-SQL",
+      "to": "DATABASE-TRANSACTIONS",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-POSTGRES-INDEXING",
+      "to": "DATABASE-EXPLAIN",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-TRANSACTIONS",
+      "to": "DATABASE-EXPLAIN",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-DATA-STRUCTURES",
+      "to": "DATABASE-REDIS",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-RELATIONAL",
+      "to": "DATABASE-MONGODB",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-POSTGRES-INDEXING",
+      "to": "DATABASE-BACKUP-REPLICATION",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-TRANSACTIONS",
+      "to": "DATABASE-BACKUP-REPLICATION",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-JOINS",
+      "to": "DATABASE-POSTGRES-TYPES",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "DATABASE-REDIS",
+      "to": "BACKEND-REDIS",
+      "type": "related"
+    },
+    {
+      "from": "DATABASE-SQL",
+      "to": "BACKEND-POSTGRES",
+      "type": "related"
+    },
+    {
+      "from": "DATABASE-SQL",
+      "to": "DATABASE-POSTGRES-INDEXING",
+      "type": "unlocks"
+    },
+    {
+      "from": "FOUNDATIONS-DEBUGGING",
+      "to": "QA-STLC",
+      "type": "requires"
+    },
+    {
+      "from": "QA-STLC",
+      "to": "QA-TEST-DESIGN",
+      "type": "requires"
+    },
+    {
+      "from": "QA-TEST-DESIGN",
+      "to": "QA-MANUAL-TESTING",
+      "type": "requires"
+    },
+    {
+      "from": "QA-MANUAL-TESTING",
+      "to": "QA-BUG-REPORTING",
+      "type": "requires"
+    },
+    {
+      "from": "FOUNDATIONS-HTTP",
+      "to": "QA-API-TESTING",
+      "type": "requires"
+    },
+    {
+      "from": "QA-TEST-DESIGN",
+      "to": "QA-API-TESTING",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-HTML",
+      "to": "QA-PLAYWRIGHT",
+      "type": "requires"
+    },
+    {
+      "from": "QA-TEST-DESIGN",
+      "to": "QA-PLAYWRIGHT",
+      "type": "requires"
+    },
+    {
+      "from": "QA-API-TESTING",
+      "to": "QA-PERFORMANCE",
+      "type": "requires"
+    },
+    {
+      "from": "QA-PLAYWRIGHT",
+      "to": "QA-CI-INTEGRATION",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-CICD",
+      "to": "QA-CI-INTEGRATION",
+      "type": "requires"
+    },
+    {
+      "from": "QA-BUG-REPORTING",
+      "to": "QA-API-TESTING",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "QA-PLAYWRIGHT",
+      "to": "FRONTEND-REACT-TESTING",
+      "type": "related"
+    },
+    {
+      "from": "QA-STLC",
+      "to": "QA-PLAYWRIGHT",
+      "type": "unlocks"
+    },
+    {
+      "from": "UIUX-VISUAL-FUNDAMENTALS",
+      "to": "UIUX-TYPOGRAPHY",
+      "type": "requires"
+    },
+    {
+      "from": "UIUX-VISUAL-FUNDAMENTALS",
+      "to": "UIUX-COLOR",
+      "type": "requires"
+    },
+    {
+      "from": "UIUX-UX-RESEARCH",
+      "to": "UIUX-WIREFRAMING",
+      "type": "requires"
+    },
+    {
+      "from": "UIUX-TYPOGRAPHY",
+      "to": "UIUX-FIGMA",
+      "type": "requires"
+    },
+    {
+      "from": "UIUX-COLOR",
+      "to": "UIUX-FIGMA",
+      "type": "requires"
+    },
+    {
+      "from": "UIUX-WIREFRAMING",
+      "to": "UIUX-FIGMA",
+      "type": "requires"
+    },
+    {
+      "from": "UIUX-FIGMA",
+      "to": "UIUX-PROTOTYPING",
+      "type": "requires"
+    },
+    {
+      "from": "UIUX-FIGMA",
+      "to": "UIUX-DESIGN-SYSTEMS",
+      "type": "requires"
+    },
+    {
+      "from": "UIUX-COLOR",
+      "to": "UIUX-A11Y",
+      "type": "requires"
+    },
+    {
+      "from": "FRONTEND-A11Y",
+      "to": "UIUX-A11Y",
+      "type": "requires"
+    },
+    {
+      "from": "UIUX-UX-RESEARCH",
+      "to": "UIUX-VISUAL-FUNDAMENTALS",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "UIUX-DESIGN-SYSTEMS",
+      "to": "FRONTEND-CSS",
+      "type": "related"
+    },
+    {
+      "from": "UIUX-FIGMA",
+      "to": "UIUX-DESIGN-SYSTEMS",
+      "type": "unlocks"
+    },
+    {
+      "from": "PM-SDLC",
+      "to": "PM-REQUIREMENTS",
+      "type": "requires"
+    },
+    {
+      "from": "PM-SDLC",
+      "to": "PM-AGILE",
+      "type": "requires"
+    },
+    {
+      "from": "PM-AGILE",
+      "to": "PM-SCRUM",
+      "type": "requires"
+    },
+    {
+      "from": "PM-AGILE",
+      "to": "PM-KANBAN",
+      "type": "requires"
+    },
+    {
+      "from": "PM-REQUIREMENTS",
+      "to": "PM-ESTIMATION",
+      "type": "requires"
+    },
+    {
+      "from": "PM-SCRUM",
+      "to": "PM-ESTIMATION",
+      "type": "requires"
+    },
+    {
+      "from": "PM-SCRUM",
+      "to": "PM-JIRA",
+      "type": "requires"
+    },
+    {
+      "from": "PM-KANBAN",
+      "to": "PM-JIRA",
+      "type": "requires"
+    },
+    {
+      "from": "PM-REQUIREMENTS",
+      "to": "PM-RISK",
+      "type": "requires"
+    },
+    {
+      "from": "PM-ESTIMATION",
+      "to": "PM-RISK",
+      "type": "requires"
+    },
+    {
+      "from": "PM-REQUIREMENTS",
+      "to": "PM-STAKEHOLDERS",
+      "type": "requires"
+    },
+    {
+      "from": "PM-SCRUM",
+      "to": "PM-STAKEHOLDERS",
+      "type": "requires"
+    },
+    {
+      "from": "QA-STLC",
+      "to": "PM-SDLC",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "PM-JIRA",
+      "to": "QA-BUG-REPORTING",
+      "type": "related"
+    },
+    {
+      "from": "PM-AGILE",
+      "to": "PM-SCRUM",
+      "type": "unlocks"
+    },
+    {
+      "from": "FOUNDATIONS-BINARY",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-BITS-BYTES",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-CPU",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-MEMORY",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-STORAGE",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-PROCESSES",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-FILESYSTEMS",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-OS-PERMISSIONS",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-VARIABLES",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-DATA-TYPES",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-CONTROL-FLOW",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-FUNCTIONS",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-DATA-STRUCTURES",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-ALGORITHMS",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-COMPLEXITY",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-DEBUGGING",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-ERROR-HANDLING",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-GIT",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-TCP-IP",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-DNS",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-HTTP",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-HTTPS-TLS",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-API-CONCEPTS",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-SECURITY-BASICS",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FOUNDATIONS-SQL-INTRO",
+      "to": "TRACK-FOUNDATIONS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-HTML",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-HTML-SEMANTICS",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-HTML-FORMS",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-CSS",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-CSS-BOX-MODEL",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-CSS-LAYOUT",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-CSS-RESPONSIVE",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-JAVASCRIPT",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-JS-OBJECTS",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-JS-DOM",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-JS-ASYNC",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-JS-MODULES",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-TYPESCRIPT",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-TS-ADVANCED",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-REACT",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-REACT-HOOKS",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-REACT-STATE",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-REACT-TESTING",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-NEXTJS",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-NEXTJS-ROUTING",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-A11Y",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-PERFORMANCE",
+      "to": "TRACK-FRONTEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-DART-BASICS",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-DART-OOP",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-DART-ASYNC",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-FLUTTER-WIDGETS",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-FLUTTER-LAYOUT",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-FLUTTER-NAVIGATION",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-FLUTTER-STATE",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-FLUTTER-FORMS",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-FLUTTER-NETWORKING",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-FLUTTER-STORAGE",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-FLUTTER-TESTING",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-FLUTTER-PERFORMANCE",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-FLUTTER-PLATFORM",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "MOBILE-FLUTTER-DEPLOYMENT",
+      "to": "TRACK-MOBILE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-NODE",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-HTTP-SERVER",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-REST",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-NESTJS",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-NESTJS-DI",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-VALIDATION",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-AUTH",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-JWT",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-POSTGRES",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-ORM",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-REDIS",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-QUEUES",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-WEBSOCKETS",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-LOGGING",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-TESTING",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "BACKEND-SECURITY",
+      "to": "TRACK-BACKEND",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FULLSTACK-INTEGRATION",
+      "to": "TRACK-FULLSTACK",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FULLSTACK-AUTH-FLOWS",
+      "to": "TRACK-FULLSTACK",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FULLSTACK-CORS-CSRF",
+      "to": "TRACK-FULLSTACK",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FULLSTACK-SSR-BOUNDARIES",
+      "to": "TRACK-FULLSTACK",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FULLSTACK-E2E-TESTING",
+      "to": "TRACK-FULLSTACK",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-LINUX",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-BASH",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-NETWORKING",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-SYSTEMD",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-NGINX",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-DOCKER",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-DOCKER-COMPOSE",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-CICD",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-CLOUD-FUNDAMENTALS",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-AWS",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-TERRAFORM",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-KUBERNETES",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DEVOPS-OBSERVABILITY",
+      "to": "TRACK-DEVOPS",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DATABASE-RELATIONAL",
+      "to": "TRACK-DATABASE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DATABASE-SQL",
+      "to": "TRACK-DATABASE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DATABASE-JOINS",
+      "to": "TRACK-DATABASE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DATABASE-CTES",
+      "to": "TRACK-DATABASE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DATABASE-POSTGRES-TYPES",
+      "to": "TRACK-DATABASE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DATABASE-POSTGRES-INDEXING",
+      "to": "TRACK-DATABASE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DATABASE-TRANSACTIONS",
+      "to": "TRACK-DATABASE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DATABASE-EXPLAIN",
+      "to": "TRACK-DATABASE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DATABASE-REDIS",
+      "to": "TRACK-DATABASE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DATABASE-MONGODB",
+      "to": "TRACK-DATABASE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "DATABASE-BACKUP-REPLICATION",
+      "to": "TRACK-DATABASE",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "QA-STLC",
+      "to": "TRACK-QA",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "QA-TEST-DESIGN",
+      "to": "TRACK-QA",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "QA-MANUAL-TESTING",
+      "to": "TRACK-QA",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "QA-BUG-REPORTING",
+      "to": "TRACK-QA",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "QA-API-TESTING",
+      "to": "TRACK-QA",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "QA-PLAYWRIGHT",
+      "to": "TRACK-QA",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "QA-PERFORMANCE",
+      "to": "TRACK-QA",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "QA-CI-INTEGRATION",
+      "to": "TRACK-QA",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "UIUX-VISUAL-FUNDAMENTALS",
+      "to": "TRACK-UIUX",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "UIUX-TYPOGRAPHY",
+      "to": "TRACK-UIUX",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "UIUX-COLOR",
+      "to": "TRACK-UIUX",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "UIUX-UX-RESEARCH",
+      "to": "TRACK-UIUX",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "UIUX-WIREFRAMING",
+      "to": "TRACK-UIUX",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "UIUX-FIGMA",
+      "to": "TRACK-UIUX",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "UIUX-PROTOTYPING",
+      "to": "TRACK-UIUX",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "UIUX-DESIGN-SYSTEMS",
+      "to": "TRACK-UIUX",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "UIUX-A11Y",
+      "to": "TRACK-UIUX",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "PM-SDLC",
+      "to": "TRACK-PM",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "PM-REQUIREMENTS",
+      "to": "TRACK-PM",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "PM-AGILE",
+      "to": "TRACK-PM",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "PM-SCRUM",
+      "to": "TRACK-PM",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "PM-KANBAN",
+      "to": "TRACK-PM",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "PM-ESTIMATION",
+      "to": "TRACK-PM",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "PM-JIRA",
+      "to": "TRACK-PM",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "PM-RISK",
+      "to": "TRACK-PM",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "PM-STAKEHOLDERS",
+      "to": "TRACK-PM",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "FRONTEND-REACT",
+      "to": "CAREER-FRONTEND-ENGINEER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "FRONTEND-NEXTJS",
+      "to": "CAREER-FRONTEND-ENGINEER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "FRONTEND-NEXTJS",
+      "to": "CAREER-FULLSTACK-ENGINEER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "BACKEND-NESTJS",
+      "to": "CAREER-BACKEND-ENGINEER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "BACKEND-POSTGRES",
+      "to": "CAREER-BACKEND-ENGINEER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "FULLSTACK-INTEGRATION",
+      "to": "CAREER-FULLSTACK-ENGINEER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "MOBILE-FLUTTER-WIDGETS",
+      "to": "CAREER-FLUTTER-DEVELOPER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "MOBILE-FLUTTER-DEPLOYMENT",
+      "to": "CAREER-MOBILE-ENGINEER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "DEVOPS-KUBERNETES",
+      "to": "CAREER-DEVOPS-ENGINEER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "DEVOPS-OBSERVABILITY",
+      "to": "CAREER-SRE",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "DATABASE-POSTGRES-INDEXING",
+      "to": "CAREER-DATABASE-ENGINEER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "QA-PLAYWRIGHT",
+      "to": "CAREER-QA-ENGINEER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "UIUX-FIGMA",
+      "to": "CAREER-UIUX-DESIGNER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "PM-SCRUM",
+      "to": "CAREER-PROJECT-MANAGER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "FOUNDATIONS-ALGORITHMS",
+      "to": "CAREER-SOFTWARE-ENGINEER",
+      "type": "usefulForCareer"
+    },
+    {
+      "from": "FOUNDATIONS-GIT",
+      "to": "CAREER-SOFTWARE-ENGINEER",
+      "type": "usefulForCareer"
+    }
+  ]
+}

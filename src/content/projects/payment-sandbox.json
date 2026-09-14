@@ -1,0 +1,37 @@
+{
+  "id": "proj-payment-sandbox",
+  "slug": "payment-sandbox",
+  "title": "Payments Sandbox Integration",
+  "track": "backend",
+  "difficulty": "advanced",
+  "summary": "Integrate a sandbox payment provider with idempotent charges, webhook verification, and reconciliation jobs.",
+  "requiredKnowledge": [
+    "APIs",
+    "Webhooks",
+    "DB transactions"
+  ],
+  "features": [
+    "Idempotent charge",
+    "Webhook signature verify",
+    "Payment state machine",
+    "Admin reconciliation view"
+  ],
+  "suggestedArchitecture": "Backend service with explicit payment statuses; never trust client-paid flags alone; store provider references.",
+  "milestones": [
+    "Sandbox keys flow",
+    "Charge + idempotency",
+    "Webhooks",
+    "Reconciliation"
+  ],
+  "extensions": [
+    "Partial refunds",
+    "Ledger table"
+  ],
+  "portfolioProof": "Sequence diagram + test evidence for retry safety.",
+  "relatedTopics": [
+    "backend",
+    "fintech",
+    "security"
+  ],
+  "estimatedHours": 36
+}

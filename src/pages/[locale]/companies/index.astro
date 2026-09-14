@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { localePath, locales, type Locale, isLocale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const companies = (await getCollection('companies')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+---
+
+<BaseLayout
+  locale={locale}
+  title={isBn ? 'ফিচার্ড প্রযুক্তি কোম্পানি' : 'Featured technology companies'}
+  description={isBn ? 'বাংলাদেশের উল্লেখযোগ্য প্রযুক্তি নিয়োগকর্তা—র‍্যাঙ্কিং নয়।' : 'Notable Bangladesh technology employers—not a ranking.'}
+>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+    <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold">
+      {isBn ? 'ফিচার্ড প্রযুক্তি কোম্পানি' : 'Featured technology companies'}
+    </h1>
+    <p class="mt-3 max-w-2xl text-[var(--color-ink-muted)]">
+      {
+        isBn
+          ? 'এটি “সেরা কোম্পানি” তালিকা নয়। প্রতিটি এন্ট্রিতে স্বচ্ছ নির্বাচন মানদণ্ড ও সূত্র আছে।'
+          : 'This is not a “best companies” ranking. Each entry includes transparent selection criteria and sources.'
+      }
+    </p>
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+      {
+        companies.map((company) => (
+          <a href={localePath(locale, `companies/${company.data.slug}`)} class="surface-card block no-underline hover:border-[var(--color-accent)]">
+            <h2 class="text-lg font-semibold text-[var(--color-ink)]">{company.data.name}</h2>
+            <p class="mt-2 text-sm text-[var(--color-ink-muted)]">{company.data.summary}</p>
+            <p class="mt-3 text-xs text-[var(--color-ink-subtle)]">{company.data.category} · {company.data.headquarters ?? ''}</p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,22 @@
+{
+  "id": "hist-gpt-pretraining",
+  "year": "2018",
+  "title": "GPT generative pre-training approach",
+  "titleBn": "GPT জেনারেটিভ প্রি-ট্রেনিং",
+  "before": "Many high-performing NLP systems depended heavily on supervised datasets for each task.",
+  "problem": "Labeling enough data for every language task is expensive.",
+  "change": "OpenAI's 2018 GPT-1 paper described generative pre-training on large text followed by discriminative fine-tuning, using a transformer decoder-style model.",
+  "whyItMattered": "It popularized a recipe—pretrain then adapt—that scaled into later GPT generations and the broader LLM ecosystem.",
+  "enabled": "Few-shot and instruction-tuned assistants used in software engineering workflows.",
+  "modernDescendants": [
+    "LLM APIs",
+    "Coding copilots",
+    "RAG applications"
+  ],
+  "concreteExample": "An engineer pastes an error log into an LLM chat to get debugging hypotheses—downstream of pretrain/finetune ideas.",
+  "caveat": "Later models differ substantially in scale, data, and alignment methods; GPT-1 is an early milestone, not today's systems.",
+  "sources": [
+    "src-openai-gpt1",
+    "src-attention-paper"
+  ]
+}

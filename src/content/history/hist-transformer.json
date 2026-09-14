@@ -1,0 +1,21 @@
+{
+  "id": "hist-transformer",
+  "year": "2017",
+  "title": "Transformer architecture published",
+  "titleBn": "ট্রান্সফরমার আর্কিটেকচার",
+  "before": "Strong NLP models often relied on recurrent or convolutional sequence architectures that were harder to parallelize at extreme scale.",
+  "problem": "Sequence modeling needed better parallel training and long-range dependency handling.",
+  "change": "The paper 'Attention Is All You Need' introduced the transformer, centering multi-head self-attention and feed-forward blocks.",
+  "whyItMattered": "It became the dominant backbone for modern large language and multimodal models.",
+  "enabled": "Large-scale pretraining, generative assistants, and many production NLP systems.",
+  "modernDescendants": [
+    "GPT-style LLMs",
+    "BERT-style encoders",
+    "Vision transformers"
+  ],
+  "concreteExample": "Chat-style coding assistants are typically powered by transformer-based models.",
+  "caveat": "Transformers did not invent AI; they improved a scalable architecture within a much longer AI history.",
+  "sources": [
+    "src-attention-paper"
+  ]
+}

@@ -1,0 +1,81 @@
+---
+id: FLUTTER-PERFORMANCE-DEVTOOLS
+title: "Flutter Performance and DevTools"
+titleBn: "Flutter পারফরম্যান্স ও DevTools"
+description: "Jank, rebuilds, and profiling with Flutter DevTools—measure before optimizing."
+descriptionBn: "Jank, রিবিল্ড ও Flutter DevTools দিয়ে প্রোফাইলিং—অপটিমাইজের আগে মাপুন।"
+track: mobile-flutter
+difficulty: advanced
+estimatedMinutes: 38
+prerequisites: 
+  - "FLUTTER-CONSTRAINTS-LAYOUT"
+  - "FLUTTER-STATE-MANAGEMENT"
+unlocks: 
+  - "FLUTTER-DEPLOYMENT"
+related: 
+  - "FLUTTER-WIDGET-TREE"
+careers: 
+  - "CAREER-MOBILE-ENGINEER"
+tags: 
+  - "flutter"
+  - "performance"
+  - "devtools"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "FLUTTER-PERF"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why 16ms matters
+
+Smooth UI targets ~60fps → about 16ms per frame for build/layout/paint work on the UI isolate. Jank is a frame budget miss.
+
+## Mental model
+
+<Callout type="mental-model">
+  First make it correct, then profile. DevTools shows whether you are CPU-bound building widgets, laying out, or painting.
+</Callout>
+
+## Practical habits
+
+- Avoid rebuilding giant subtrees; `const` widgets help when inputs are const.
+- Use `ListView.builder` for long lists.
+- Move heavy JSON parse / image work off critical path.
+- Profile **profile/release-like** modes; debug mode is slower by design.
+
+
+## Common mistakes
+
+- **Optimizing without timelines** — Guessing wastes time; measure with DevTools.
+- **setState at the root for tiny changes** — Narrow the rebuild scope.
+- **Giant opacity/saveLayer effects everywhere** — Some effects are expensive; use deliberately.
+
+## Interview angle
+
+<Callout type="interview">
+  A list scrolls jankily—what measurements and code changes do you try first?
+</Callout>
+
+## Practice checklist
+
+- [ ] Open DevTools Performance view on a sample app.
+- [ ] Replace ListView(children: ...) with builder.
+- [ ] Identify a rebuild hotspot and shrink it.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-PERF`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

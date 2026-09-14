@@ -1,0 +1,36 @@
+{
+  "id": "proj-flutter-offline-notes",
+  "slug": "flutter-offline-notes",
+  "title": "Offline-First Notes (Flutter)",
+  "track": "mobile",
+  "difficulty": "advanced",
+  "summary": "Notes app with optimistic UI, conflict-safe sync stubs, and queue for pending mutations.",
+  "requiredKnowledge": [
+    "Flutter state management",
+    "HTTP",
+    "Local DB"
+  ],
+  "features": [
+    "CRUD notes offline",
+    "Sync queue",
+    "Conflict marker UI",
+    "Search"
+  ],
+  "suggestedArchitecture": "Local source of truth + sync worker; clearly separate domain models from DTOs.",
+  "milestones": [
+    "Local CRUD",
+    "Outbox queue",
+    "Fake API sync",
+    "Conflict UX"
+  ],
+  "extensions": [
+    "Real backend",
+    "Attachments"
+  ],
+  "portfolioProof": "Demo airplane-mode workflow in a recorded walkthrough.",
+  "relatedTopics": [
+    "mobile",
+    "sync"
+  ],
+  "estimatedHours": 40
+}

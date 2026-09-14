@@ -1,0 +1,120 @@
+{
+  "id": "software-engineer",
+  "slug": "software-engineer",
+  "name": "Software Engineer",
+  "nameBn": "সফটওয়্যার ইঞ্জিনিয়ার",
+  "alternativeNames": [
+    "Software Developer",
+    "Application Developer",
+    "Programmer",
+    "SSE",
+    "Junior Software Engineer",
+    "Senior Software Engineer"
+  ],
+  "summary": "Builds and maintains production software across web, mobile, or services, collaborating with product and QA to ship reliable features.",
+  "whatTheyDo": "Design, implement, test, and maintain application features and services while participating in code review, debugging, and release cycles.",
+  "typicalDailyWork": [
+    "Implement user stories or tickets",
+    "Review pull requests",
+    "Debug production or staging issues",
+    "Write or update tests",
+    "Coordinate with designers/QA/product"
+  ],
+  "responsibilities": [
+    "Deliver features with acceptable quality bars",
+    "Own assigned modules end-to-end when asked",
+    "Document non-obvious decisions",
+    "Follow team security and coding standards"
+  ],
+  "prerequisites": [
+    "Programming fundamentals",
+    "Git and collaborative workflows",
+    "Basic data structures and SQL awareness",
+    "HTTP/API basics"
+  ],
+  "technicalSkills": [
+    "One primary language deeply (e.g. Java, TypeScript, PHP, Python, Dart)",
+    "REST APIs",
+    "Relational databases",
+    "Unit/integration testing basics",
+    "Debugging"
+  ],
+  "tools": [
+    "Git/GitHub/GitLab",
+    "IDE (VS Code/IntelliJ)",
+    "Postman or similar",
+    "CI familiarity",
+    "Issue tracker (Jira etc.)"
+  ],
+  "softSkills": [
+    "Clear written updates",
+    "Estimation honesty",
+    "Code-review etiquette",
+    "Learning from feedback"
+  ],
+  "juniorExpectations": [
+    "Ship small features with guidance",
+    "Write readable code",
+    "Fix bugs with supervision",
+    "Ask clarifying questions early"
+  ],
+  "midExpectations": [
+    "Own medium features independently",
+    "Improve tests and observability",
+    "Mentor juniors lightly",
+    "Spot design trade-offs"
+  ],
+  "seniorExpectations": [
+    "Lead design for complex features",
+    "Set quality standards",
+    "Drive incident learnings",
+    "Influence roadmap feasibility"
+  ],
+  "relatedCareers": [
+    "fullstack-engineer",
+    "backend-engineer",
+    "frontend-engineer"
+  ],
+  "careerTransitions": [
+    "Can specialize into backend, frontend, mobile, or platform roles"
+  ],
+  "learningTracks": [
+    "foundations",
+    "backend",
+    "frontend",
+    "fullstack"
+  ],
+  "projectIds": [
+    "proj-task-api",
+    "proj-expense-tracker"
+  ],
+  "interviewCategories": [
+    "dsa-basics",
+    "system-design-lite",
+    "debugging",
+    "api-design"
+  ],
+  "bangladeshNotes": "In Bangladesh job ads (e.g. Bdjobs fintech and product roles reviewed around 2026-09), titles often appear as Software Engineer / Senior Software Engineer with stacks varying by employer—Java/Spring and React/Flutter appear in fintech ads such as Nagad's SSE posting, while service companies frequently list JavaScript/TypeScript, PHP/Laravel, or .NET. Many ads prefer a CS-related degree or equivalent experience, but wording varies; do not assume a single required stack or salary band.",
+  "commonQualifications": [
+    "BSc in CSE/Software Engineering or related (often preferred)",
+    "Portfolio or GitHub with real projects",
+    "Internship or prior shipping experience for junior roles"
+  ],
+  "commonlyRequestedTech": [
+    "Java / Spring",
+    "JavaScript / TypeScript",
+    "React",
+    "SQL",
+    "Git",
+    "REST"
+  ],
+  "experienceExpectations": "Public ads commonly state ranges from ~1–3 years for mid-junior through 3–7+ for senior titles; always read the specific posting.",
+  "sources": [
+    "src-job-nagad-sse",
+    "src-job-systemone",
+    "src-job-zmc-lead",
+    "src-basis-exporters-fe"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

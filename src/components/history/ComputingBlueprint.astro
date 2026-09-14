@@ -1,0 +1,96 @@
+---
+import type { Locale } from '../../i18n/config';
+import { localePath } from '../../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const isBn = locale === 'bn';
+
+const areas = [
+  { id: 'hardware', label: isBn ? 'হার্ডওয়্যার' : 'Hardware', x: 20, y: 18 },
+  { id: 'os', label: isBn ? 'অপারেটিং সিস্টেম' : 'Operating systems', x: 50, y: 12 },
+  { id: 'networking', label: isBn ? 'নেটওয়ার্কিং' : 'Networking', x: 78, y: 18 },
+  { id: 'software', label: isBn ? 'সফটওয়্যার' : 'Software', x: 35, y: 38 },
+  { id: 'databases', label: isBn ? 'ডাটাবেস' : 'Databases', x: 65, y: 38 },
+  { id: 'web', label: 'Web', x: 22, y: 58 },
+  { id: 'mobile', label: 'Mobile', x: 42, y: 58 },
+  { id: 'cloud', label: 'Cloud / DevOps', x: 62, y: 58 },
+  { id: 'security', label: isBn ? 'সিকিউরিটি' : 'Security', x: 82, y: 58 },
+  { id: 'data', label: isBn ? 'ডেটা / AI' : 'Data / AI', x: 30, y: 78 },
+  { id: 'qa', label: 'QA', x: 50, y: 78 },
+  { id: 'product', label: isBn ? 'প্রোডাক্ট / ডিজাইন' : 'Product / Design', x: 70, y: 78 },
+];
+---
+
+<figure class="overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-1)] p-4">
+  <svg viewBox="0 0 100 100" class="diagram mx-auto h-auto w-full min-w-[20rem] max-w-3xl" role="img" aria-labelledby="blueprint-title blueprint-desc">
+    <title id="blueprint-title">{isBn ? 'কম্পিউটিং ব্লুপ্রিন্ট' : 'Computing blueprint'}</title>
+    <desc id="blueprint-desc">
+      {
+        isBn
+          ? 'হার্ডওয়্যার, OS, নেটওয়ার্কিং থেকে অ্যাপ্লিকেশন, ক্লাউড, সিকিউরিটি ও প্রোডাক্ট এলাকার সম্পর্ক।'
+          : 'Relationships from hardware, OS, and networking up through applications, cloud, security, and product areas.'
+      }
+    </desc>
+    <defs>
+      <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="var(--color-border)"></path>
+      </marker>
+    </defs>
+    <rect x="2" y="2" width="96" height="96" rx="3" fill="var(--color-surface-0)" stroke="var(--color-border)"></rect>
+    <line x1="50" y1="18" x2="50" y2="34" stroke="var(--color-border)" stroke-width="0.4" marker-end="url(#arrow)"></line>
+    <line x1="35" y1="44" x2="22" y2="54" stroke="var(--color-border)" stroke-width="0.4"></line>
+    <line x1="35" y1="44" x2="42" y2="54" stroke="var(--color-border)" stroke-width="0.4"></line>
+    <line x1="65" y1="44" x2="62" y2="54" stroke="var(--color-border)" stroke-width="0.4"></line>
+    <line x1="65" y1="44" x2="82" y2="54" stroke="var(--color-border)" stroke-width="0.4"></line>
+    <line x1="50" y1="64" x2="50" y2="74" stroke="var(--color-border)" stroke-width="0.4"></line>
+    {
+      areas.map((area) => (
+        <g>
+          <rect
+            x={area.x - 10}
+            y={area.y - 4}
+            width="20"
+            height="8"
+            rx="1.5"
+            fill="var(--color-surface-1)"
+            stroke="var(--color-accent)"
+            stroke-width="0.35"
+          />
+          <text
+            x={area.x}
+            y={area.y + 1.2}
+            text-anchor="middle"
+            font-size="2.4"
+            fill="var(--color-ink)"
+            style="font-family: var(--font-sans)"
+          >
+            {area.label}
+          </text>
+        </g>
+      ))
+    }
+  </svg>
+  <figcaption class="mt-3 text-sm text-[var(--color-ink-subtle)]">
+    {
+      isBn
+        ? 'ইন্টারঅ্যাকটিভ ট্র্যাক ও ক্যারিয়ার পেজে প্রতিটি এলাকা গভীরে দেখুন।'
+        : 'Explore each area in depth via learning tracks and career pages.'
+    }
+    {' '}
+    <a href={localePath(locale, 'tracks')}>{isBn ? 'ট্র্যাক দেখুন' : 'Browse tracks'}</a>
+  </figcaption>
+</figure>
+
+<div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+  {
+    areas.map((area) => (
+      <div class="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-1)] px-3 py-2 text-sm text-[var(--color-ink-muted)]">
+        <span class="font-semibold text-[var(--color-ink)]">{area.label}</span>
+      </div>
+    ))
+  }
+</div>

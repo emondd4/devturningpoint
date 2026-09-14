@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const title = isBn ? 'গোপনীয়তা নীতি' : 'Privacy Policy';
+const body = isBn ? 'এটি মালিকের পর্যালোচনার জন্য একটি টেমপ্লেট—আনুষ্ঠানিক আইনি পরামর্শ নয়। V1-এ থিম/ভাষা localStorage-এ এবং লার্নিং প্রগ্রেস IndexedDB-তে আপনার ডিভাইসে থাকে।' : 'This is a template for site owners to review—not formal legal advice. V1 stores theme/language in localStorage and learning progress in IndexedDB on your device. No account server collects profiles. Optional analytics/ads load only when configured.';
+---
+
+<BaseLayout locale={locale} title={title} description={body}>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 prose-reading">
+    <h1>{title}</h1>
+    <p>{body}</p>
+  </div>
+</BaseLayout>

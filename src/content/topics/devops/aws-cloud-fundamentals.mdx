@@ -1,0 +1,78 @@
+---
+id: DEVOPS-AWS-CLOUD-FUNDAMENTALS
+title: "AWS Cloud Fundamentals"
+titleBn: "AWS ক্লাউড মৌলিক"
+description: "Regions, IAM, VPC, compute, and storage—shared responsibility in the cloud."
+descriptionBn: "রিজিয়ন, IAM, VPC, কম্পিউট ও স্টোরেজ—ক্লাউডে শেয়ার্ড রেসপন্সিবিলিটি।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 42
+prerequisites: 
+  - "DEVOPS-NETWORKING-FOR-DEVOPS"
+  - "DEVOPS-LINUX-FUNDAMENTALS"
+unlocks: 
+  - "DEVOPS-TERRAFORM-BASICS"
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+related: 
+  - "DEVOPS-OBSERVABILITY-PROMETHEUS-GRAFANA"
+careers: 
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+tags: 
+  - "aws"
+  - "cloud"
+  - "iam"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "AWS-CLOUD-CONCEPTS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why cloud is APIs + blast radius
+
+AWS is not “someone else’s computer” only—it is programmable infrastructure with **IAM** as the real security boundary.
+
+## Mental model
+
+<Callout type="mental-model">
+  Account/region → network (VPC) → compute (EC2/ECS/EKS/Lambda) → data (S3/RDS). IAM decides who can call which APIs.
+</Callout>
+
+Prefer least privilege roles over long-lived access keys on laptops. Understand shared responsibility: AWS secures the cloud; you secure *in* the cloud (config, data, access).
+
+
+## Common mistakes
+
+- **Root account for daily work** — Use IAM users/roles + MFA.
+- **Public S3 buckets by accident** — Block public access defaults.
+- **One giant VPC with no tiers** — Segment subnets and SGs.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain shared responsibility and how you would expose a web app securely on AWS at a high level.
+</Callout>
+
+## Practice checklist
+
+- [ ] Diagram a VPC with public/private subnets.
+- [ ] Create a least-privilege IAM policy sketch.
+- [ ] Compare S3 vs EBS vs RDS purposes.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `AWS-CLOUD-CONCEPTS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

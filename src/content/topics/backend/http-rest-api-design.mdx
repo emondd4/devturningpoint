@@ -1,0 +1,89 @@
+---
+id: BACKEND-HTTP-REST-API-DESIGN
+title: "HTTP and REST API Design"
+titleBn: "HTTP ও REST API ডিজাইন"
+description: "Resources, status codes, idempotency, pagination, and versioning that clients can trust."
+descriptionBn: "রিসোর্স, স্ট্যাটাস কোড, আইডেমপোটেন্সি, পেজিনেশন ও ভার্সনিং—ক্লায়েন্ট বিশ্বাস করতে পারে এমন API।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+  - "BACKEND-NODE-RUNTIME-EVENT-LOOP"
+unlocks: 
+  - "BACKEND-NESTJS-ARCHITECTURE"
+  - "FLUTTER-NETWORKING-REST"
+related: 
+  - "BACKEND-SECURITY-BASICS"
+  - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "rest"
+  - "http"
+  - "api-design"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "RFC-9110-HTTP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why API design is product design
+
+Clients (web, mobile, partners) couple to your URLs and semantics for years. Consistency beats cleverness.
+
+## Mental model
+
+<Callout type="mental-model">
+  Resources are nouns (`/topics/{id}`). Methods carry intent. Status codes are machine-readable outcomes. Idempotency makes retries safe.
+</Callout>
+
+```http
+GET /topics?track=foundations&limit=20 HTTP/1.1
+Authorization: Bearer …
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
+
+- `GET`/`PUT`/`DELETE` should be idempotent in spirit.
+- Use `201` on create when a new resource appears; `204` when empty success fits.
+- Paginate list endpoints; never return unbounded tables.
+
+
+## Common mistakes
+
+- **RPC-only URLs with verbs everywhere** — Harder caching and uniformity—though RPC can be fine if consistent.
+- **Always HTTP 200 with error payloads** — Breaks generic clients and monitors.
+- **Breaking changes without versioning strategy** — Coordinate deprecations.
+
+## Interview angle
+
+<Callout type="interview">
+  Design endpoints for creating and listing topics with pagination and auth errors.
+</Callout>
+
+## Practice checklist
+
+- [ ] Document 5 endpoints with status codes.
+- [ ] Add idempotency keys for a payment-like POST.
+- [ ] Define error body schema.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `RFC-9110-HTTP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

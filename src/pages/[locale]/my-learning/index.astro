@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale } from '../../../i18n/config';
+import MyLearningDashboard from '../../../components/progress/MyLearningDashboard';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+---
+
+<BaseLayout
+  locale={locale}
+  title={isBn ? 'আমার শেখা' : 'My Learning'}
+  description={isBn ? 'স্থানীয় ব্রাউজার প্রগ্রেস।' : 'Local browser learning progress.'}
+>
+  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+    <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold">{isBn ? 'আমার শেখা' : 'My Learning'}</h1>
+    <p class="mt-3 text-[var(--color-ink-muted)]">
+      {isBn ? 'প্রগ্রেস এই ব্রাউজারে সংরক্ষিত থাকে। অ্যাকাউন্ট নেই।' : 'Progress is stored in this browser. There are no accounts in V1.'}
+    </p>
+    <div class="mt-8">
+      <MyLearningDashboard client:load locale={locale} />
+    </div>
+  </div>
+</BaseLayout>

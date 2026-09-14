@@ -1,0 +1,80 @@
+---
+id: BACKEND-NESTJS-AUTH-JWT
+title: "NestJS Auth with JWT"
+titleBn: "NestJS-এ JWT অথেন্টিকেশন"
+description: "Guards, strategies, and token hygiene for protecting NestJS routes."
+descriptionBn: "NestJS রুট রক্ষায় গার্ড, স্ট্র্যাটেজি ও টোকেন হাইজিন।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 42
+prerequisites: 
+  - "BACKEND-NESTJS-ARCHITECTURE"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+unlocks: 
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+  - "BACKEND-SECURITY-BASICS"
+related: 
+  - "FRONTEND-FORMS-VALIDATION"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "nestjs"
+  - "jwt"
+  - "auth"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "NESTJS-AUTH"
+  - "OWASP-TOP10"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why auth is a cross-cutting concern
+
+Authentication answers “who”; authorization answers “what may they do.” Nest Guards are the natural choke point.
+
+## Mental model
+
+<Callout type="mental-model">
+  Issue short-lived access tokens (and preferably rotating refresh tokens). Verify signature + claims on every protected request. Never treat JWT presence as proof without verification.
+</Callout>
+
+Follow official Nest authentication docs for Passport JWT strategies and `@UseGuards`. Prefer httpOnly cookies for browser apps when aligned with your threat model; mobile apps often use secure storage + bearer tokens.
+
+
+## Common mistakes
+
+- **Long-lived JWTs in localStorage** — XSS becomes account takeover.
+- **Putting permissions only on the client** — Server must enforce authz.
+- **Weak secrets / none alg confusion** — Use vetted libraries and algorithms.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you implement role-based access for admin routes in NestJS?
+</Callout>
+
+## Practice checklist
+
+- [ ] Protect a route with a JWT guard.
+- [ ] Add a roles decorator + guard.
+- [ ] Document token lifetimes and refresh flow.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-AUTH`
+- `OWASP-TOP10`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

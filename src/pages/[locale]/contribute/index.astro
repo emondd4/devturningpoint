@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const title = isBn ? 'অবদান' : 'Contribute';
+const body = isBn ? 'CONTRIBUTING.md ও কন্টেন্ট/অনুবাদ গাইড পড়ুন, তারপর pull request খুলুন।' : 'Read CONTRIBUTING.md, follow content and translation guides, and open a pull request. Edit links on content pages point to GitHub.';
+---
+
+<BaseLayout locale={locale} title={title} description={body}>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 prose-reading">
+    <h1>{title}</h1>
+    <p>{body}</p>
+  </div>
+</BaseLayout>

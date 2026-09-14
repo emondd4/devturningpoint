@@ -1,0 +1,29 @@
+{
+  "id": "iv-sql-n-plus-one",
+  "question": "You see an endpoint that loads 50 orders then runs a query per order for line items. How do you detect and fix this N+1 pattern?",
+  "careerIds": [
+    "backend-engineer",
+    "database-engineer",
+    "fullstack-engineer"
+  ],
+  "technology": [
+    "SQL",
+    "PostgreSQL"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Detect via query logs/APM, then fetch children in one query (JOIN or WHERE IN / JOIN FETCH) and assemble in memory.",
+  "strongAnswer": "Confirm with DB logs or an APM showing 1+N queries. Replace with a single JOIN or two-query approach: select orders, then select items where order_id IN (...), group in the app. Add indexes supporting the lookup. Prefer explicit queries over accidental ORM lazy loads in hot paths.",
+  "advancedAnswer": "Discuss dataloader patterns, pagination interaction, and when denormalized read models help.",
+  "followUps": [
+    "How do ORMs cause accidental N+1?",
+    "What index helps `WHERE order_id IN (...)`?"
+  ],
+  "commonWrongAnswer": "Cache each per-order query in Redis without reducing query count at the source.",
+  "codeExample": "-- better: one query for items\nSELECT * FROM order_items WHERE order_id = ANY($1::uuid[]);",
+  "productionRelevance": "N+1 silently kills latency as datasets grow—common interview and production topic.",
+  "relatedTopics": [
+    "database",
+    "backend"
+  ],
+  "lastVerified": "2026-09-14"
+}

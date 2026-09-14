@@ -1,0 +1,109 @@
+---
+id: FOUNDATIONS-SECURITY-FUNDAMENTALS
+title: "Security Fundamentals"
+titleBn: "সিকিউরিটির মৌলিক ধারণা"
+description: "Threats, trust boundaries, and OWASP-aligned habits every developer needs before shipping features."
+descriptionBn: "হুমকি, ট্রাস্ট বাউন্ডারি, এবং ফিচার শিপের আগে প্রতিটি ডেভেলপারের OWASP-সংশ্লিষ্ট অভ্যাস।"
+track: foundations
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites: 
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+unlocks: 
+  - "BACKEND-SECURITY-BASICS"
+  - "BACKEND-NESTJS-AUTH-JWT"
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+related: 
+  - "FOUNDATIONS-SQL-FUNDAMENTALS"
+  - "BACKEND-SECURITY-BASICS"
+careers: 
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-FRONTEND-ENGINEER"
+tags: 
+  - "security"
+  - "owasp"
+  - "auth"
+  - "fundamentals"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "OWASP-TOP10"
+  - "RFC-9110-HTTP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why security is a design constraint, not a plugin
+
+Attackers automate. Your app’s **trust boundaries**—browser, API, database, admin tools—must assume hostile input and limited privilege.
+
+## Mental model
+
+<Callout type="mental-model">
+  Security is reducing expected loss: identify assets, threats, and controls. Perfect safety is impossible; intentional tradeoffs are mandatory.
+</Callout>
+
+## Starter controls mapped to common failures
+
+| Risk theme | Habit |
+| --- | --- |
+| Injection | Parameterize SQL; sanitize HTML carefully; avoid `eval` |
+| Broken auth | Hash passwords (modern KDF); short-lived sessions/tokens; MFA where needed |
+| XSS | Encode output; Content-Security-Policy; framework safe defaults |
+| CSRF | SameSite cookies; anti-CSRF tokens for cookie sessions |
+| Misconfig | No default secrets; least privilege IAM; turn off debug in prod |
+| Vulnerable deps | Lockfiles + audits + timely upgrades |
+
+## Secrets handling
+
+- Never commit API keys; use environment / secret managers.
+- Scope keys; rotate on leak.
+- Log carefully—tokens in logs are breaches.
+
+```js
+// Parameterized query shape (library-specific APIs vary)
+// db.query('SELECT id FROM users WHERE email = $1', [email]);
+```
+
+<Callout type="danger">
+  “We only store JWTs in localStorage” is a common XSS-amplified account takeover pattern for SPAs. Prefer httpOnly secure cookies or hardened BFF patterns when possible.
+</Callout>
+
+
+## Common mistakes
+
+- **Security through obscurity** — Hidden admin URLs are not authz.
+- **Rolling your own crypto** — Use vetted libraries and protocols.
+- **All-powerful service accounts** — Breach blast radius becomes the whole company.
+
+## Interview angle
+
+<Callout type="interview">
+  Pick one OWASP Top Ten risk and explain a concrete prevention in a NestJS or Next.js app you have built.
+</Callout>
+
+## Practice checklist
+
+- [ ] Threat-model a login form on a whiteboard.
+- [ ] Check a personal project for secrets in git history.
+- [ ] Enable dependency auditing in CI.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `OWASP-TOP10`
+- `RFC-9110-HTTP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

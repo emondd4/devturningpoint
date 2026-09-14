@@ -1,0 +1,27 @@
+{
+  "id": "iv-ux-accessibility-forms",
+  "question": "A signup form 'looks fine' in Figma but fails keyboard and screen-reader use. What concrete checks do you run before handoff?",
+  "careerIds": [
+    "ui-ux-designer",
+    "frontend-engineer"
+  ],
+  "technology": [
+    "Accessibility",
+    "Figma",
+    "HTML"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Verify labels, focus order, error announcements, contrast, and visible focus states—not only visual layout.",
+  "strongAnswer": "Ensure every input has a persistent label (not placeholder-only), logical tab order, descriptive error text tied to fields, sufficient color contrast, and non-color-only cues. Spec focus states and hit target sizes. Call out ARIA only when native semantics are insufficient. Partner with eng on semantic HTML first.",
+  "followUps": [
+    "Why are placeholder-only labels problematic?",
+    "How do you test with a screen reader basics?"
+  ],
+  "commonWrongAnswer": "Accessibility is an engineering-only concern after pixels are done.",
+  "productionRelevance": "Accessible forms reduce support burden and exclusion—often neglected in rush shipping.",
+  "relatedTopics": [
+    "uiux",
+    "a11y"
+  ],
+  "lastVerified": "2026-09-14"
+}

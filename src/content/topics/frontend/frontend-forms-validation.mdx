@@ -1,0 +1,85 @@
+---
+id: FRONTEND-FORMS-VALIDATION
+title: "Frontend Forms and Validation"
+titleBn: "ফ্রন্টএন্ড ফর্ম ও ভ্যালিডেশন"
+description: "Accessible forms, client validation UX, and never trusting the browser alone."
+descriptionBn: "অ্যাক্সেসিবল ফর্ম, ক্লায়েন্ট ভ্যালিডেশন UX, এবং শুধু ব্রাউজারকে বিশ্বাস না করা।"
+track: frontend
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites: 
+  - "FRONTEND-HTML-SEMANTICS-A11Y"
+  - "FRONTEND-REACT-HOOKS"
+unlocks: 
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+related: 
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+  - "BACKEND-SECURITY-BASICS"
+careers: 
+  - "CAREER-FRONTEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "forms"
+  - "validation"
+  - "a11y"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "W3C-HTML"
+  - "W3C-WCAG"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why forms are product-critical
+
+Signup, checkout, and admin tools all fail through forms. Validation UX and accessibility decide conversion and inclusion.
+
+## Mental model
+
+<Callout type="mental-model">
+  Browser checks help humans. Server checks protect the system. Client validation is a courtesy and performance optimization—not a security boundary.
+</Callout>
+
+```tsx
+<label htmlFor="email">Email</label>
+<input id="email" name="email" type="email" autoComplete="email" required />
+```
+
+Associate errors with `aria-describedby`. Don’t rely only on color to signal invalid fields.
+
+
+## Common mistakes
+
+- **Validating only on the client** — Attackers bypass UI easily.
+- **Missing labels** — Placeholder is not a label.
+- **Blocking paste on password fields** — Hurts password managers and security.
+
+## Interview angle
+
+<Callout type="interview">
+  Describe a secure, accessible login form strategy spanning client UX and server verification.
+</Callout>
+
+## Practice checklist
+
+- [ ] Build a form with visible labels and error text.
+- [ ] Add server-side validation mirror rules.
+- [ ] Test with keyboard only.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `W3C-HTML`
+- `W3C-WCAG`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

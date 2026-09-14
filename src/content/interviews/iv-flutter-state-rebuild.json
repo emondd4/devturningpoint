@@ -1,0 +1,27 @@
+{
+  "id": "iv-flutter-state-rebuild",
+  "question": "In Flutter, when would you choose Riverpod/Bloc over setState for app-wide auth and cart state, and what failure mode does setState alone create?",
+  "careerIds": [
+    "flutter-developer",
+    "fullstack-engineer"
+  ],
+  "technology": [
+    "Flutter",
+    "Dart"
+  ],
+  "difficulty": "junior",
+  "shortAnswer": "Use a state-management approach when state is shared across routes or needs testable separation; setState alone does not scale across the widget tree cleanly.",
+  "strongAnswer": "setState is fine for local ephemeral UI. Auth tokens, cart, and remote-config-driven flags need lifting beyond a single StatefulWidget—typically via Riverpod, Bloc, or similar—so rebuilds are targeted and business logic is testable without widgets. Without this, teams prop-drill callbacks or recreate state on navigation.",
+  "advancedAnswer": "Compare rebuild granularity, side-effect timing (listeners), and testing pure notifiers/cubits.",
+  "followUps": [
+    "How do you avoid rebuilding the entire app on cart changes?",
+    "Where should API calls live?"
+  ],
+  "commonWrongAnswer": "Always put all state in a giant root StatefulWidget.",
+  "productionRelevance": "Bangladesh Flutter ads commonly list Bloc/Riverpod/Provider—interviewers expect reasoned choice, not buzzwords.",
+  "relatedTopics": [
+    "mobile",
+    "flutter"
+  ],
+  "lastVerified": "2026-09-14"
+}

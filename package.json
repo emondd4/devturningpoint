@@ -1,0 +1,62 @@
+{
+  "name": "devturningpoint",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bilingual computer engineering careers and learning platform for Bangladesh",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "pnpm@11.24.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "eslint src scripts tests --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate:content": "node scripts/validate-content.mjs",
+    "validate:graph": "node scripts/validate-graph.mjs",
+    "validate:links": "node scripts/validate-links.mjs",
+    "search:index": "pagefind --site dist",
+    "ci": "pnpm check && pnpm validate:graph && pnpm validate:content && pnpm test && pnpm build"
+  },
+  "dependencies": {
+    "@astrojs/markdown-satteri": "^0.4.1",
+    "@astrojs/mdx": "^8.0.1",
+    "@astrojs/react": "^6.0.5",
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@xyflow/react": "^12.11.6",
+    "astro": "^7.3.2",
+    "idb": "^8.0.3",
+    "lucide-react": "^1.45.0",
+    "pagefind": "^1.5.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.3",
+    "zod": "^4.6.4"
+  },
+  "allowScripts": {
+    "esbuild": true
+  },
+  "devDependencies": {
+    "@types/node": "^26.5.1",
+    "@typescript-eslint/eslint-plugin": "^8.70.0",
+    "@typescript-eslint/parser": "^8.70.0",
+    "@vitest/coverage-v8": "^5.0.0",
+    "eslint": "^10.10.0",
+    "eslint-plugin-astro": "^3.1.0",
+    "jsdom": "^30.0.1",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^1.0.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "issue-docker-node-bind-mount-macos",
+  "title": "Node file watching inside Docker misses changes on macOS bind mounts",
+  "technology": "Docker",
+  "platform": "macOS",
+  "symptoms": [
+    "Hot reload does not detect edits",
+    "Container serves stale code",
+    "Works on native Node outside Docker"
+  ],
+  "cause": "Filesystem event propagation across Docker Desktop bind mounts can be unreliable; watchers relying on inotify-style events may not see host writes.",
+  "solution": "Use polling-based watch (e.g. CHOKIDAR_USEPOLLING/WATCHPACK_POLLING) or develop Node on host and only containerize runtime. Keep bind mounts narrow.",
+  "workaround": "Manual restart on change for small tasks.",
+  "status": "KNOWN_BUG",
+  "relatedTopics": [
+    "devops",
+    "docker"
+  ],
+  "sources": [
+    "src-docker-docs"
+  ],
+  "lastVerified": "2026-09-14"
+}

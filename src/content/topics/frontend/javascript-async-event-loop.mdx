@@ -1,0 +1,94 @@
+---
+id: FRONTEND-JAVASCRIPT-ASYNC-EVENT-LOOP
+title: "JavaScript Async and the Event Loop"
+titleBn: "JavaScript অ্যাসিঙ্ক ও ইভেন্ট লুপ"
+description: "Tasks, microtasks, and promises—why UI stays responsive and race conditions appear."
+descriptionBn: "টাস্ক, মাইক্রোটাস্ক ও প্রমিস—UI কেন রেসপন্সিভ থাকে এবং রেস কন্ডিশন কেন আসে।"
+track: frontend
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FRONTEND-JAVASCRIPT-FUNDAMENTALS"
+unlocks: 
+  - "FRONTEND-REACT-HOOKS"
+  - "BACKEND-NODE-RUNTIME-EVENT-LOOP"
+related: 
+  - "FLUTTER-DART-ASYNC-FUTURES-STREAMS"
+careers: 
+  - "CAREER-FRONTEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "javascript"
+  - "async"
+  - "event-loop"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "MDN-JS-EVENT-LOOP"
+  - "NODE-EVENT-LOOP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why single-threaded ≠ blocking forever
+
+JS runs one turn at a time on a main thread (in browsers). Async I/O and timers queue work so rendering can continue.
+
+## Mental model
+
+<Callout type="mental-model">
+  The event loop pulls tasks (timers, I/O callbacks) and also drains microtasks (promise reactions) between them. `await` schedules continuations as microtasks.
+</Callout>
+
+```js
+console.log('A');
+Promise.resolve().then(() => console.log('B'));
+setTimeout(() => console.log('C'), 0);
+console.log('D');
+// Typical order: A D B C
+```
+
+```js
+async function load() {
+  const res = await fetch('/api/topics');
+  if (!res.ok) throw new Error(String(res.status));
+  return res.json();
+}
+```
+
+
+## Common mistakes
+
+- **Assuming setTimeout(0) runs “immediately”** — It waits for the next task turn.
+- **Unhandled promise rejections** — Always catch or return promises to handlers.
+- **Race conditions on rapid input** — AbortController / sequence numbers help.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain microtasks vs tasks and predict log order in a short snippet.
+</Callout>
+
+## Practice checklist
+
+- [ ] Predict then verify console order demos.
+- [ ] Add AbortController to a fetch.
+- [ ] Convert promise chains to async/await.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `MDN-JS-EVENT-LOOP`
+- `NODE-EVENT-LOOP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1,0 +1,129 @@
+---
+id: FOUNDATIONS-DATA-STRUCTURES-INTRO
+title: "Data Structures: Arrays, Maps, and Trees"
+titleBn: "ডেটা স্ট্রাকচার: অ্যারে, ম্যাপ ও ট্রি"
+description: "Choose structures by access pattern: ordered lists, key lookups, and hierarchical trees."
+descriptionBn: "অ্যাক্সেস প্যাটার্ন অনুযায়ী স্ট্রাকচার বাছুন: সাজানো তালিকা, কী লুকআপ, এবং শ্রেণিবিন্যাস ট্রি।"
+track: foundations
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites: 
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+unlocks: 
+  - "FOUNDATIONS-ALGORITHMS-COMPLEXITY"
+  - "DATABASE-RELATIONAL-MODELING"
+related: 
+  - "FOUNDATIONS-SQL-FUNDAMENTALS"
+  - "BACKEND-REDIS-CACHING"
+careers: 
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FRONTEND-ENGINEER"
+tags: 
+  - "data-structures"
+  - "arrays"
+  - "hashmaps"
+  - "trees"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "TC39-ECMASCRIPT"
+  - "REDIS-DATA-TYPES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why structure choice is a product decision
+
+The “right” structure is the one that matches **how you query and update** data under real constraints (memory, concurrency, API shape)—not the fanciest name on a flashcard.
+
+## Mental model
+
+<Callout type="mental-model">
+  Arrays = seats in a row (index by position). Hash maps = labeled lockers (index by key). Trees = org charts (parent/child navigation). Graphs = city maps (many-to-many links).
+</Callout>
+
+## Arrays / lists
+
+Strengths: ordered iteration, cache-friendly contiguous storage (in many runtimes), index access (O(1)).
+
+Weaknesses: inserting/removing at the front can be (O(n)); searching unsorted data is (O(n)).
+
+```js
+const ids = [10, 20, 30];
+ids.push(40); // amortised O(1) at end
+ids.includes(20); // O(n)
+```
+
+## Hash maps / dictionaries
+
+Strengths: average (O(1)) get/set by key.
+
+Weaknesses: no inherent order (unless insertion-ordered like JS `Map`); poor for range queries; memory overhead.
+
+```js
+const sessions = new Map();
+sessions.set('user:42', { exp: Date.now() + 3600_000 });
+console.log(sessions.get('user:42'));
+```
+
+## Trees
+
+Use when hierarchy matters: file systems, UI widget trees, DOM, org data, indexes (B-trees in databases).
+
+```js
+const nav = {
+  title: 'Docs',
+  children: [
+    { title: 'Foundations', children: [] },
+    { title: 'Frontend', children: [{ title: 'React', children: [] }] },
+  ],
+};
+```
+
+## Selection cheat sheet
+
+| Need | Reach for |
+| --- | --- |
+| Ordered collection, scan often | Array |
+| Frequent lookup by id | Hash map |
+| Hierarchy / nested docs | Tree |
+| FIFO jobs | Queue |
+| Undo stack | Stack |
+| Unique membership tests | Set |
+
+
+## Common mistakes
+
+- **Using arrays for hot key lookups** — Repeated `find` on large arrays becomes a latency bug; use a Map.
+- **Over-normalizing in memory** — Deep trees of tiny objects can hurt locality; sometimes a flat table is faster.
+- **Ignoring uniqueness needs** — Sets prevent duplicate work; arrays silently accumulate dupes.
+
+## Interview angle
+
+<Callout type="interview">
+  Given a feed of events keyed by userId, which structure would you use to count events per user in one pass—and why?
+</Callout>
+
+## Practice checklist
+
+- [ ] Implement frequency counting with Map.
+- [ ] Model a simple file tree and write a recursive print.
+- [ ] Compare array `includes` vs Set `has` for membership.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `TC39-ECMASCRIPT`
+- `REDIS-DATA-TYPES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

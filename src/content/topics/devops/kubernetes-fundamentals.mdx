@@ -1,0 +1,76 @@
+---
+id: DEVOPS-KUBERNETES-FUNDAMENTALS
+title: "Kubernetes Fundamentals"
+titleBn: "Kubernetes মৌলিক"
+description: "Pods, Deployments, Services, and desired-state reconciliation—before advanced charts."
+descriptionBn: "Pod, Deployment, Service ও desired-state reconciliation—অ্যাডভান্সড চার্টের আগে।"
+track: devops
+difficulty: advanced
+estimatedMinutes: 45
+prerequisites: 
+  - "DEVOPS-DOCKER-NETWORKING"
+  - "DEVOPS-AWS-CLOUD-FUNDAMENTALS"
+unlocks: 
+  - "DEVOPS-OBSERVABILITY-PROMETHEUS-GRAFANA"
+related: 
+  - "DEVOPS-TERRAFORM-BASICS"
+careers: 
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+tags: 
+  - "kubernetes"
+  - "orchestration"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "K8S-CONCEPTS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why orchestrators exist
+
+Containers on one host do not self-heal across a fleet. Kubernetes continuously reconciles declared desired state.
+
+## Mental model
+
+<Callout type="mental-model">
+  Pod: schedulable unit of containers. Deployment: replica + rollout controller. Service: stable virtual IP/DNS to pods. Ingress/Gateway: HTTP entry.
+</Callout>
+
+Learn `kubectl get/describe/logs` before Helm complexity. Resource requests/limits prevent noisy neighbors.
+
+
+## Common mistakes
+
+- **Running latest tags in prod** — Pin digests/versions.
+- **No probes** — Traffic hits broken pods.
+- **Secrets in plain ConfigMaps** — Use Secrets/KMS patterns carefully.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain how a Deployment rollback works at a high level and what a Service selects.
+</Callout>
+
+## Practice checklist
+
+- [ ] Run a local cluster (kind/minikube) and deploy NGINX.
+- [ ] Expose it via Service.
+- [ ] Break a probe and watch restarts.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `K8S-CONCEPTS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

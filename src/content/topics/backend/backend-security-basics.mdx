@@ -1,0 +1,80 @@
+---
+id: BACKEND-SECURITY-BASICS
+title: "Backend Security Basics"
+titleBn: "ব্যাকএন্ড সিকিউরিটি বেসিক"
+description: "Input validation, authz, headers, rate limits, and dependency hygiene for APIs."
+descriptionBn: "API-এর জন্য ইনপুট ভ্যালিডেশন, অথরাইজেশন, হেডার, রেট লিমিট ও ডিপেন্ডেন্সি হাইজিন।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+  - "BACKEND-HTTP-REST-API-DESIGN"
+unlocks: 
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+related: 
+  - "BACKEND-NESTJS-AUTH-JWT"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+  - "CAREER-DEVOPS-ENGINEER"
+tags: 
+  - "security"
+  - "backend"
+  - "owasp"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "OWASP-TOP10"
+  - "NESTJS-AUTH"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why backends are the real gate
+
+Browsers lie. Mobile apps get reverse engineered. Authorization and validation must be enforced server-side—every time.
+
+## Mental model
+
+<Callout type="mental-model">
+  Authenticate identity, authorize action on resource, validate input, minimize data returned, rate-limit abuse, observe anomalies.
+</Callout>
+
+Checklist: parameterized SQL, CSRF strategy for cookie sessions, security headers behind your proxy, least-privilege DB roles, secret rotation.
+
+
+## Common mistakes
+
+- **IDOR (ignore object ownership)** — Check resource belongs to caller.
+- **Verbose prod errors** — Leak stack traces and schema hints.
+- **Admin endpoints without audit logs** — You cannot investigate incidents.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain IDOR and how you would prevent it in a NestJS topics API.
+</Callout>
+
+## Practice checklist
+
+- [ ] Add ownership checks to an update endpoint.
+- [ ] Rate-limit login attempts.
+- [ ] Run a dependency audit in CI.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `OWASP-TOP10`
+- `NESTJS-AUTH`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

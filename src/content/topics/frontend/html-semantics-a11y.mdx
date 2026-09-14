@@ -1,0 +1,93 @@
+---
+id: FRONTEND-HTML-SEMANTICS-A11Y
+title: "HTML Semantics and Accessibility"
+titleBn: "HTML সেমantics ও অ্যাক্সেসিবিলিটি"
+description: "Meaningful markup and WCAG-minded UI so assistive tech and SEO share the same structure."
+descriptionBn: "অর্থবহ মার্কআপ ও WCAG-সচেতন UI—অ্যাসিস্টিভ টেক ও SEO একই কাঠামো ভাগ করে।"
+track: frontend
+difficulty: beginner
+estimatedMinutes: 34
+prerequisites: []
+unlocks: 
+  - "FRONTEND-CSS-CASCADE-BOX-MODEL"
+  - "FRONTEND-FORMS-VALIDATION"
+related: 
+  - "UIUX-USABILITY-HEURISTICS"
+careers: 
+  - "CAREER-FRONTEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "html"
+  - "a11y"
+  - "semantics"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "W3C-HTML"
+  - "W3C-WCAG"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why semantics beat `div` soup
+
+Screen readers, keyboards, and search engines infer structure from elements and names. Pretty CSS cannot replace a missing heading hierarchy or unlabeled button.
+
+## Mental model
+
+<Callout type="mental-model">
+  HTML is the document’s outline and interaction contract. CSS is presentation. JS is behavior. Accessibility is mostly good semantics + focus + names + contrast.
+</Callout>
+
+```html
+<header>
+  <nav aria-label="Primary">
+    <a href="/en/topics">Topics</a>
+  </nav>
+</header>
+<main>
+  <article>
+    <h1>HTML Semantics</h1>
+    <p>Lead with meaning.</p>
+    <button type="button">Save</button>
+  </article>
+</main>
+```
+
+Prefer native controls (`button`, `a`, `input`) before ARIA. If you use ARIA, you own keyboard behavior.
+
+
+## Common mistakes
+
+- **Clickable divs** — No keyboard semantics; use button/link.
+- **Empty buttons/icons without names** — Provide accessible names.
+- **Skipping heading levels** — Do not jump h1→h4 for style.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you make a custom dropdown accessible? What native element would you start from?
+</Callout>
+
+## Practice checklist
+
+- [ ] Navigate a page with keyboard only.
+- [ ] Fix a missing label on a form control.
+- [ ] Check color contrast on text.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `W3C-HTML`
+- `W3C-WCAG`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

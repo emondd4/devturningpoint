@@ -1,0 +1,109 @@
+{
+  "id": "flutter-developer",
+  "slug": "flutter-developer",
+  "name": "Flutter Developer",
+  "nameBn": "ফ্লাটার ডেভেলপার",
+  "alternativeNames": [
+    "Mobile App Developer (Flutter)",
+    "Flutter Engineer",
+    "Cross-Platform Mobile Developer",
+    "Mobile Application Developer"
+  ],
+  "summary": "Builds cross-platform mobile (and sometimes web) apps with Flutter/Dart, shipping to Play Store and App Store.",
+  "whatTheyDo": "Implement UI and app logic, integrate APIs, manage state, handle offline/cache concerns, and maintain store releases.",
+  "typicalDailyWork": [
+    "Build Flutter screens and navigation",
+    "Integrate REST APIs",
+    "Manage app state",
+    "Debug device-specific issues",
+    "Prepare store releases"
+  ],
+  "responsibilities": [
+    "Maintain release quality",
+    "Handle permissions and secure storage carefully",
+    "Collaborate with designers and backend"
+  ],
+  "prerequisites": [
+    "Dart/Flutter basics",
+    "Git",
+    "REST/JSON",
+    "Mobile UX awareness"
+  ],
+  "technicalSkills": [
+    "Flutter widgets & navigation",
+    "State management (Bloc/Riverpod/Provider/GetX)",
+    "API integration",
+    "Local storage",
+    "App store publishing"
+  ],
+  "tools": [
+    "Android Studio / VS Code",
+    "Xcode (for iOS builds)",
+    "Firebase (often)",
+    "Git",
+    "Postman"
+  ],
+  "softSkills": [
+    "Attention to polish",
+    "Release checklist discipline",
+    "Async debugging patience"
+  ],
+  "juniorExpectations": [
+    "Implement screens and simple API calls",
+    "Fix UI bugs",
+    "Follow architecture templates"
+  ],
+  "midExpectations": [
+    "Own modules and release pipelines",
+    "Optimize performance",
+    "Handle deep links/push"
+  ],
+  "seniorExpectations": [
+    "Define app architecture",
+    "Lead store strategy and quality gates",
+    "Mentor mobile practices"
+  ],
+  "relatedCareers": [
+    "fullstack-engineer",
+    "frontend-engineer",
+    "qa-engineer"
+  ],
+  "careerTransitions": [
+    "Can expand into fullstack mobile+backend or platform mobile roles"
+  ],
+  "learningTracks": [
+    "mobile",
+    "foundations"
+  ],
+  "projectIds": [
+    "proj-flutter-habit",
+    "proj-flutter-offline-notes"
+  ],
+  "interviewCategories": [
+    "flutter-dart",
+    "mobile-architecture",
+    "api-integration"
+  ],
+  "bangladeshNotes": "Flutter hiring is active in Bangladesh product and agency contexts. Reviewed 2025–2026 postings and career ads commonly request Dart/Flutter, REST, state management (Bloc/Riverpod/Provider/GetX), Firebase, and Play/App Store publishing experience. Titles include Mobile App Developer (Flutter) and Full-stack Engineer (Flutter...). Experience asks vary from ~1 year to 5+ years depending on seniority.",
+  "commonQualifications": [
+    "Published or demo apps",
+    "GitHub with clean Flutter structure"
+  ],
+  "commonlyRequestedTech": [
+    "Flutter",
+    "Dart",
+    "REST",
+    "Firebase",
+    "Bloc/Riverpod/Provider",
+    "Git"
+  ],
+  "experienceExpectations": "Mid-level ads often cite ~2–3 years of production Flutter; senior/lead roles ask for more.",
+  "sources": [
+    "src-job-kisti-flutter",
+    "src-job-zmc-lead",
+    "src-job-zentix-fullstack",
+    "src-flutter-docs"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

@@ -1,0 +1,119 @@
+---
+id: FOUNDATIONS-CPU-MEMORY-STORAGE
+title: "CPU, Memory, and Storage"
+titleBn: "সিপিইউ, মেমোরি ও স্টোরেজ"
+description: "A practical hierarchy of compute and data locality: CPU caches, RAM, SSD/HDD, and why latency dominates design."
+descriptionBn: "কম্পিউট ও ডেটা লোক্যালিটির ব্যবহারিক স্তর: CPU ক্যাশ, RAM, SSD/HDD—এবং ল্যাটেন্সি কেন ডিজাইন নির্ধারণ করে।"
+track: foundations
+difficulty: beginner
+estimatedMinutes: 32
+prerequisites: 
+  - "FOUNDATIONS-BINARY-BITS-BYTES"
+unlocks: 
+  - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+  - "FOUNDATIONS-ALGORITHMS-COMPLEXITY"
+related: 
+  - "DEVOPS-LINUX-FUNDAMENTALS"
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+careers: 
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-DEVOPS-ENGINEER"
+tags: 
+  - "cpu"
+  - "memory"
+  - "storage"
+  - "latency"
+  - "foundations"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "LINUX-MAN-PAGES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why hierarchy beats “just buy more RAM”
+
+Programs feel fast or slow because of **where data lives** when the CPU needs it. Algorithms that look “O(n)” on paper can thrash caches and lose to a tighter “worse” algorithm that stays hot in L1.
+
+## Mental model: distance to data
+
+<Callout type="mental-model">
+  Imagine the CPU as a chef. Registers are ingredients in hand. L1/L2 cache is the counter. RAM is the pantry. SSD is the garage freezer. Network storage is a store across town. Cooking (compute) is cheap compared to walking.
+</Callout>
+
+### Rough latency intuition (orders of magnitude)
+
+You do not need exact nanoseconds memorized—you need the **gaps**:
+
+1. Register / L1: essentially free relative to everything else
+2. Main memory (DRAM): hundreds of times slower than L1
+3. NVMe SSD: thousands of times slower than RAM
+4. Spinning disk / cold cloud object storage: another huge jump
+5. Cross-region network: human-perceptible
+
+## What the CPU actually does
+
+Fetch instruction → decode → execute → (maybe) read/write memory. Modern CPUs pipeline and speculate, but your mental model can stay: **instruction stream + data accesses**.
+
+Branch-heavy code and random memory access fight the hardware’s preferences (predictable branches, sequential scans).
+
+## Memory vs storage
+
+| Layer | Volatile? | Typical role |
+| --- | --- | --- |
+| Registers / caches | yes | speed |
+| RAM | yes | working set |
+| SSD/HDD | no | persistence |
+| Object storage | no | durability / archives |
+
+Persistence requires writing past RAM. Databases carefully order writes (WAL, fsync) because “saved in memory” is not “safe on disk.”
+
+## Practical engineering consequences
+
+- Prefer sequential scans and batching over pointer-chasing when datasets are large.
+- Keep hot paths allocation-light.
+- Measure before blaming the language—often the bottleneck is I/O or chatty RPCs.
+
+```bash
+# Linux: quick peek at memory pressure (read man pages for fields)
+free -h
+# Rough CPU / run-queue sense
+uptime
+```
+
+
+## Common mistakes
+
+- **Equating core count with speed** — Extra cores help parallel work; single-thread latency still matters for many APIs.
+- **Treating SSD like RAM** — Persisting every keystroke or chatty fsync patterns destroy throughput.
+- **Ignoring locality in data structures** — Linked lists look elegant but can be cache-hostile compared to arrays.
+
+## Interview angle
+
+<Callout type="interview">
+  Walk through why adding an in-memory cache can make a service faster yet introduce consistency bugs—and when you would still do it.
+</Callout>
+
+## Practice checklist
+
+- [ ] Sketch the storage hierarchy for a mobile app offline cache.
+- [ ] Compare reading 100MB sequentially vs many tiny random reads (conceptually).
+- [ ] Explain volatile vs durable storage to a non-engineer in one minute.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `LINUX-MAN-PAGES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

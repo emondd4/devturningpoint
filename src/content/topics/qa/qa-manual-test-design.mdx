@@ -1,0 +1,76 @@
+---
+id: QA-MANUAL-TEST-DESIGN
+title: "Manual Test Design"
+titleBn: "ম্যানুয়াল টেস্ট ডিজাইন"
+description: "Charters, boundary cases, and exploratory testing that find real bugs."
+descriptionBn: "চার্টার, বাউন্ডারি কেস ও এক্সপ্লোরেটরি টেস্টিং যা আসল বাগ খুঁজে পায়।"
+track: qa
+difficulty: beginner
+estimatedMinutes: 32
+prerequisites: 
+  - "QA-TESTING-PYRAMID"
+unlocks: 
+  - "QA-API-TESTING"
+  - "QA-PLAYWRIGHT-E2E"
+related: 
+  - "FRONTEND-FORMS-VALIDATION"
+careers: 
+  - "CAREER-QA-ENGINEER"
+tags: 
+  - "qa"
+  - "manual-testing"
+  - "exploratory"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "W3C-WCAG"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why manual skill still matters
+
+Automation cannot invent product sense. Exploratory testing finds weird states, unclear copy, and accessibility gaps.
+
+## Mental model
+
+<Callout type="mental-model">
+  Design tests from risks: money loss, data loss, auth bypass, corruption, embarrassment. Use boundaries, empty states, and permission matrices.
+</Callout>
+
+Write charters: “Explore password reset as a user with 2FA enabled for 60 minutes; note security and UX risks.”
+
+
+## Common mistakes
+
+- **Only happy-path scripts** — Bugs live on edges.
+- **No bug report structure** — Steps/expected/actual/env missing.
+- **Ignoring accessibility** — Keyboard and SR issues are defects.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you prioritize what to test when a release window is four hours?
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a test charter for login.
+- [ ] Build a boundary table for age/quantity fields.
+- [ ] Log a bug with clear reproduction.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `W3C-WCAG`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

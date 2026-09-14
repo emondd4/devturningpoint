@@ -1,0 +1,25 @@
+{
+  "id": "iv-pm-scope-cut",
+  "question": "Engineering estimates your 'must-have' launch scope at 10 weeks but the market window is 4 weeks. Walk through how you cut scope without hiding risk.",
+  "careerIds": [
+    "product-manager"
+  ],
+  "technology": [
+    "Product Management"
+  ],
+  "difficulty": "senior",
+  "shortAnswer": "Separate outcome from output, keep a thin vertical slice that validates the riskiest assumption, and explicitly defer non-critical polish with stakeholder agreement.",
+  "strongAnswer": "Restate the user/business outcome and the riskiest assumption. Propose an MVP path: one persona, one happy path, measurable success metric. Use MoSCoW or similar transparently. Document deferred items and quality risks (support load, security). Align eng/design on sequencing and communicate trade-offs to leadership with options (delay vs cut vs extra staffing)—not a silent death march.",
+  "advancedAnswer": "Discuss opportunity cost, feature flags, and staged rollouts as risk valves.",
+  "followUps": [
+    "How do you handle a founder who refuses cuts?",
+    "Which metric proves the MVP worked?"
+  ],
+  "commonWrongAnswer": "Ask engineers to 'just work harder' without changing scope.",
+  "productionRelevance": "Scope honesty separates effective PMs in startup and product environments.",
+  "relatedTopics": [
+    "product",
+    "execution"
+  ],
+  "lastVerified": "2026-09-14"
+}

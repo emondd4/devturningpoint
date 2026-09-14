@@ -1,0 +1,85 @@
+---
+id: FLUTTER-DEPLOYMENT
+title: "Flutter Deployment"
+titleBn: "Flutter ডিপ্লয়মেন্ট"
+description: "Release builds, signing, store checklist, and environment configuration for Android/iOS."
+descriptionBn: "রিলিজ বিল্ড, সাইনিং, স্টোর চেকলিস্ট, এবং Android/iOS এনভায়রনমেন্ট কনফিগ।"
+track: mobile-flutter
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FLUTTER-TESTING"
+  - "FLUTTER-NAVIGATION"
+unlocks: []
+related: 
+  - "FLUTTER-PERFORMANCE-DEVTOOLS"
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+careers: 
+  - "CAREER-MOBILE-ENGINEER"
+  - undefined
+tags: 
+  - "flutter"
+  - "deployment"
+  - "release"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "FLUTTER-DEPLOY"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why debug ≠ release
+
+Debug builds assert and are not performance-representative. Stores require signed release artifacts with correct package ids and permissions.
+
+## Mental model
+
+<Callout type="mental-model">
+  Deployment is a pipeline: version bump → run tests → build release → sign → distribute (Play/App Store/internal) → monitor crashes.
+</Callout>
+
+## Android sketch
+
+Follow official docs for keystores and App Bundle (`appbundle`) uploads. Never commit keystore passwords.
+
+```bash
+flutter build appbundle --release
+```
+
+Use flavors/Dart defines for staging vs production API bases.
+
+
+## Common mistakes
+
+- **Shipping with debug API URLs** — Use flavors or compile-time defines.
+- **Committing signing keys** — Treat as secrets; rotate if leaked.
+- **Skipping crash reporting** — You cannot fix what you cannot see post-release.
+
+## Interview angle
+
+<Callout type="interview">
+  Walk through an Android release checklist from versioning to Play Console upload.
+</Callout>
+
+## Practice checklist
+
+- [ ] Produce a release build locally.
+- [ ] Document env vars for staging/prod.
+- [ ] Sketch a GitHub Actions job that runs tests then builds.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-DEPLOY`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

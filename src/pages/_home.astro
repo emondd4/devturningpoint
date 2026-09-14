@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getDictionary } from '../i18n/ui';
+import type { Locale } from '../i18n/config';
+import { localePath } from '../i18n/config';
+import ComputingBlueprint from '../components/history/ComputingBlueprint.astro';
+import AdSlot from '../components/ads/AdSlot.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+
+const isBn = locale === 'bn';
+const heroTitle = isBn
+  ? 'কম্পিউটার ইঞ্জিনিয়ারিং বুঝুন। সঠিক স্কিল শিখুন। ক্যারিয়ার গড়ুন।'
+  : 'Understand computing. Learn the right skills. Build a career.';
+const heroBody = isBn
+  ? 'Dev Turning Point বাংলাদেশের শিক্ষার্থী, জুনিয়র ইঞ্জিনিয়ার ও ক্যারিয়ার সুইচারদের জন্য একটি দ্বিভাষিক, সোর্স-ভিত্তিক লার্নিং প্ল্যাটফর্ম—prerequisite-first রোডম্যাপ, assessment ও স্থানীয় প্রগ্রেস সহ।'
+  : 'A bilingual, source-backed learning platform for students, junior engineers, and career switchers in Bangladesh—with prerequisite-first roadmaps, skills assessments, and local browser progress.';
+---
+
+<BaseLayout
+  locale={locale}
+  title={t.siteName}
+  description={t.tagline}
+>
+  <section class="relative overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-surface-1)]">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-70"
+      style="background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 10%, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 50%),
+        linear-gradient(180deg, var(--color-surface-1), var(--color-surface-0));"
+      aria-hidden="true"
+    ></div>
+    <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:py-20">
+      <div>
+        <p class="mb-3 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[var(--color-ink)] sm:text-4xl">
+          {t.siteName}
+        </p>
+        <h1 class="max-w-2xl text-2xl font-semibold leading-snug text-[var(--color-ink-muted)] sm:text-3xl">
+          {heroTitle}
+        </h1>
+        <p class="mt-4 max-w-xl text-base text-[var(--color-ink-muted)] sm:text-lg">{heroBody}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="btn btn-primary" href={localePath(locale, 'careers')}>{t.actions.exploreCareers}</a>
+          <a class="btn btn-secondary" href={localePath(locale, 'tracks')}>{t.actions.findPath}</a>
+          <a class="btn btn-ghost" href={localePath(locale, 'blueprint')}>{t.actions.exploreComputing}</a>
+        </div>
+        <p class="mt-6 text-sm text-[var(--color-ink-subtle)]">{t.progress.localOnly}</p>
+      </div>
+      <div class="surface-card self-center">
+        <h2 class="font-[family-name:var(--font-display)] text-lg font-semibold text-[var(--color-ink)]">
+          {isBn ? 'আপনি যা করতে পারবেন' : 'What you can do here'}
+        </h2>
+        <ol class="mt-4 space-y-3 text-sm text-[var(--color-ink-muted)]">
+          <li>1. {isBn ? 'কম্পিউটিং-এর ব্লুপ্রিন্ট ও ইতিহাস দেখুন' : 'Explore the computing blueprint and history'}</li>
+          <li>2. {isBn ? 'বাংলাদেশ-প্রাসঙ্গিক ক্যারিয়ার বুঝুন' : 'Browse Bangladesh-relevant technology careers'}</li>
+          <li>3. {isBn ? 'ট্র্যাক বেছে assessment দিন' : 'Pick a track and take a skills assessment'}</li>
+          <li>4. {isBn ? 'ব্যক্তিগত prerequisite-first রোডম্যাপ পান' : 'Get a personalized prerequisite-first roadmap'}</li>
+          <li>5. {isBn ? 'টপিক শিখে প্রগ্রেস সংরক্ষণ করুন' : 'Study topics and keep progress in this browser'}</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6">
+    <h2 class="font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--color-ink)]">
+      {isBn ? 'কম্পিউটার ইঞ্জিনিয়ারিং ব্লুপ্রিন্ট' : 'Computer engineering blueprint'}
+    </h2>
+    <p class="mt-2 max-w-2xl text-[var(--color-ink-muted)]">
+      {
+        isBn
+          ? 'হার্ডওয়্যার থেকে ক্লাউড, সিকিউরিটি ও প্রোডাক্ট পর্যন্ত—কীভাবে ক্ষেত্রগুলো যুক্ত।'
+          : 'How hardware, software, networks, data, cloud, security, and product roles connect.'
+      }
+    </p>
+    <div class="mt-8">
+      <ComputingBlueprint locale={locale} />
+    </div>
+  </section>
+
+  <section class="border-y border-[var(--color-border)] bg-[var(--color-surface-1)]">
+    <div class="mx-auto grid max-w-7xl gap-6 px-4 py-14 sm:px-6 md:grid-cols-3">
+      {
+        [
+          {
+            title: isBn ? 'Prerequisite-first শেখা' : 'Prerequisite-first learning',
+            body: isBn
+              ? 'Kubernetes আগে Linux/networking; React আগে HTML/CSS/JS—স্পষ্ট করে দেখানো হয়।'
+              : 'Kubernetes after Linux and networking; React after HTML, CSS, and JavaScript—made explicit.',
+            href: localePath(locale, 'tracks'),
+          },
+          {
+            title: isBn ? 'বাংলাদেশ ক্যারিয়ার কনটেক্সট' : 'Bangladesh career context',
+            body: isBn
+              ? 'রোল, টুল ও মার্কেট নোট—স্যাম্পল ও সূত্রসহ; অতিরিক্ত দাবি নয়।'
+              : 'Roles, tools, and market notes with sample methodology—not overclaimed statistics.',
+            href: localePath(locale, 'careers'),
+          },
+          {
+            title: isBn ? 'স্থানীয় ব্যক্তিগত অগ্রগতি' : 'Private local progress',
+            body: isBn
+              ? 'অ্যাকাউন্ট ছাড়াই assessment, রোডম্যাপ ও completion—export/import সহ।'
+              : 'Assessments, roadmaps, and completion without accounts—plus export/import.',
+            href: localePath(locale, 'my-learning'),
+          },
+        ].map((item) => (
+          <a href={item.href} class="surface-card block no-underline transition hover:border-[var(--color-accent)]">
+            <h3 class="font-semibold text-[var(--color-ink)]">{item.title}</h3>
+            <p class="mt-2 text-sm text-[var(--color-ink-muted)]">{item.body}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6">
+    <AdSlot slotId="home-inline" />
+  </div>
+</BaseLayout>

@@ -1,0 +1,33 @@
+{
+  "id": "proj-sql-metrics",
+  "slug": "sql-metrics",
+  "title": "SQL Metrics Playbook",
+  "track": "database",
+  "difficulty": "beginner",
+  "summary": "Using a sample retail/fintech-like schema, write documented SQL for funnels, retention lite, and data-quality checks.",
+  "requiredKnowledge": [
+    "SQL joins",
+    "GROUP BY"
+  ],
+  "features": [
+    "Schema README",
+    "10+ queries",
+    "EXPLAINs for two heavy queries",
+    "Metric dictionary"
+  ],
+  "suggestedArchitecture": "PostgreSQL sample DB in compose; markdown metric definitions with owner/grain/caveats.",
+  "milestones": [
+    "Load sample data",
+    "Core KPIs",
+    "Data quality queries"
+  ],
+  "extensions": [
+    "dbt-style models later"
+  ],
+  "portfolioProof": "Metric dictionary that explicitly lists assumptions and limitations.",
+  "relatedTopics": [
+    "database",
+    "analytics"
+  ],
+  "estimatedHours": 16
+}

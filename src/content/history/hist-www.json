@@ -1,0 +1,23 @@
+{
+  "id": "hist-www",
+  "year": "1989-1991",
+  "title": "World Wide Web proposed and released",
+  "titleBn": "ওয়ার্ল্ড ওয়াইড ওয়েব",
+  "before": "Internet services existed (FTP, email, etc.), but linking multimedia documents across servers lacked a simple universal hypertext system for the general public.",
+  "problem": "CERN and the research world needed easier information sharing across different computers.",
+  "change": "Tim Berners-Lee proposed the Web at CERN (1989) and the first website/HTTP/HTML stack emerged soon after; CERN documents a short history of these steps.",
+  "whyItMattered": "URL + HTTP + HTML made distributed hypertext practical for everyone, not only networking specialists.",
+  "enabled": "Browsers, web applications, e-commerce, and web-mediated software distribution.",
+  "modernDescendants": [
+    "Web apps",
+    "REST APIs over HTTP",
+    "Browser engines"
+  ],
+  "concreteExample": "Opening a documentation site in a browser uses the same core Web architecture ideas.",
+  "caveat": "The Internet and the Web are not the same; the Web is an application layer built on internet protocols.",
+  "sources": [
+    "src-w3c-www",
+    "src-mdn-web",
+    "src-ieee-timeline"
+  ]
+}

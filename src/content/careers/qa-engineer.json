@@ -1,0 +1,107 @@
+{
+  "id": "qa-engineer",
+  "slug": "qa-engineer",
+  "name": "QA Engineer",
+  "nameBn": "কিউএ ইঞ্জিনিয়ার",
+  "alternativeNames": [
+    "SQA Engineer",
+    "Software Test Engineer",
+    "Quality Assurance Engineer",
+    "QA Analyst",
+    "SDET"
+  ],
+  "summary": "Protects product quality through exploratory testing, test design, automation, and release validation.",
+  "whatTheyDo": "Plan and execute tests across UI/API/mobile, report defects clearly, and increasingly automate regression suites.",
+  "typicalDailyWork": [
+    "Write/execute test cases",
+    "API testing in Postman",
+    "Regression before release",
+    "Log reproducible bugs",
+    "Maintain automation scripts"
+  ],
+  "responsibilities": [
+    "Risk-based test coverage",
+    "Clear defect reports",
+    "Gate releases with evidence",
+    "Advocate for testability"
+  ],
+  "prerequisites": [
+    "SDLC/STLC awareness",
+    "Basic SQL helpful",
+    "Attention to detail",
+    "Git basics for automation roles"
+  ],
+  "technicalSkills": [
+    "Test design",
+    "API testing",
+    "Automation frameworks (Selenium/Cypress/Playwright)",
+    "Basic performance testing concepts"
+  ],
+  "tools": [
+    "Postman",
+    "Jira/TestRail",
+    "Selenium/Cypress/Playwright",
+    "JMeter (sometimes)",
+    "Browser DevTools"
+  ],
+  "softSkills": [
+    "Skeptical curiosity",
+    "Diplomatic bug advocacy",
+    "Clear reproduction steps"
+  ],
+  "juniorExpectations": [
+    "Execute manual suites well",
+    "Learn API testing",
+    "Write precise bug reports"
+  ],
+  "midExpectations": [
+    "Own feature test strategy",
+    "Build automation for critical paths",
+    "Mentor juniors"
+  ],
+  "seniorExpectations": [
+    "Quality strategy across teams",
+    "CI quality gates",
+    "Risk communication to leads"
+  ],
+  "relatedCareers": [
+    "software-engineer",
+    "devops-engineer",
+    "product-manager"
+  ],
+  "careerTransitions": [
+    "Automation-heavy QA may move toward SDET or backend testing roles"
+  ],
+  "learningTracks": [
+    "qa",
+    "foundations"
+  ],
+  "projectIds": [
+    "proj-api-test-suite",
+    "proj-playwright-smoke"
+  ],
+  "interviewCategories": [
+    "test-design",
+    "api-testing",
+    "automation"
+  ],
+  "bangladeshNotes": "Local titles frequently use SQA Engineer or Software Test Engineer. Skills mentioned across Bangladesh QA profiles and openings commonly include manual testing, Postman API testing, Selenium/Cypress, JMeter, and Jira. Product companies and exporters (services/SaaS) both hire QA; automation expectations rise with seniority. Avoid assuming every role requires full automation on day one.",
+  "commonQualifications": [
+    "ISTQB optional (sometimes preferred)",
+    "Sample test cases / bug reports portfolio"
+  ],
+  "commonlyRequestedTech": [
+    "Manual testing",
+    "Postman",
+    "Selenium/Cypress",
+    "SQL basics",
+    "Jira"
+  ],
+  "experienceExpectations": "Junior SQA roles exist; automation-focused mid roles typically expect prior project experience.",
+  "sources": [
+    "src-job-nagad-sse",
+    "src-basis-exporters-fe"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

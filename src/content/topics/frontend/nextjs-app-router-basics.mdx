@@ -1,0 +1,92 @@
+---
+id: FRONTEND-NEXTJS-APP-ROUTER-BASICS
+title: "Next.js App Router Basics"
+titleBn: "Next.js App Router বেসিক"
+description: "Server Components, file-system routing, and data fetching patterns in the App Router."
+descriptionBn: "App Router-এ Server Components, ফাইল-সিস্টেম রাউটিং ও ডেটা ফেচিং প্যাটার্ন।"
+track: frontend
+difficulty: intermediate
+estimatedMinutes: 42
+prerequisites: 
+  - "FRONTEND-REACT-HOOKS"
+unlocks: 
+  - "FULLSTACK-ARCHITECTURE-OVERVIEW"
+  - "FRONTEND-FORMS-VALIDATION"
+related: 
+  - "BACKEND-HTTP-REST-API-DESIGN"
+careers: 
+  - "CAREER-FRONTEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "nextjs"
+  - "app-router"
+  - "react"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "NEXTJS-APP-ROUTER"
+  - "NEXTJS-AUTH"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why App Router changes defaults
+
+The `app/` directory defaults toward **Server Components**: less client JS by default, colocated data fetching, nested layouts.
+
+## Mental model
+
+<Callout type="mental-model">
+  Server Components render on the server and ship HTML/payload with minimal client bundle. Add `'use client'` only for interactivity (state, effects, browser APIs).
+</Callout>
+
+```tsx
+// app/topics/[slug]/page.tsx (Server Component by default)
+export default async function TopicPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const topic = await getTopic(slug); // server-side
+  return <article><h1>{topic.title}</h1></article>;
+}
+```
+
+Layouts nest and preserve state across sibling navigations—design chrome (nav) as layouts.
+
+
+## Common mistakes
+
+- **Making everything client** — Loses SSR benefits and ships more JS.
+- **Fetching secrets in client components** — Keep secrets server-only.
+- **Ignoring caching semantics** — Learn fetch cache options for your Next version.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you decide Server vs Client Components for a dashboard widget that polls every 10s?
+</Callout>
+
+## Practice checklist
+
+- [ ] Create a nested layout with a shared header.
+- [ ] Fetch data in a Server Component.
+- [ ] Add one small Client Component for a toggle.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NEXTJS-APP-ROUTER`
+- `NEXTJS-AUTH`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

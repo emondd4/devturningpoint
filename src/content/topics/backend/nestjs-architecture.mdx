@@ -1,0 +1,99 @@
+---
+id: BACKEND-NESTJS-ARCHITECTURE
+title: "NestJS Architecture"
+titleBn: "NestJS আর্কিটেকচার"
+description: "Modules, providers, controllers, and dependency injection for structured Node APIs."
+descriptionBn: "মডিউল, প্রোভাইডার, কন্ট্রোলার ও ডিপেন্ডেন্সি ইনজেকশন—গঠনময় Node API-এর জন্য।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 42
+prerequisites: 
+  - "BACKEND-TYPESCRIPT-FOR-BACKEND"
+  - "BACKEND-HTTP-REST-API-DESIGN"
+unlocks: 
+  - "BACKEND-NESTJS-AUTH-JWT"
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+related: 
+  - "BACKEND-TESTING"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "nestjs"
+  - "architecture"
+  - "di"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "NESTJS-ARCHITECTURE"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why NestJS exists
+
+Unstructured Express apps grow into spaghetti. Nest borrows Angular-like modules/DI to keep boundaries explicit.
+
+## Mental model
+
+<Callout type="mental-model">
+  Controllers adapt HTTP. Providers hold business logic. Modules group and export providers. DI wires constructors instead of manual singletons.
+</Callout>
+
+```ts
+import { Controller, Get, Injectable, Module } from '@nestjs/common';
+
+@Injectable()
+class TopicsService {
+  list() {
+    return [{ id: 'FOUNDATIONS-GIT-FUNDAMENTALS' }];
+  }
+}
+
+@Controller('topics')
+class TopicsController {
+  constructor(private readonly topics: TopicsService) {}
+  @Get()
+  list() {
+    return this.topics.list();
+  }
+}
+
+@Module({ controllers: [TopicsController], providers: [TopicsService] })
+export class TopicsModule {}
+```
+
+
+## Common mistakes
+
+- **Fat controllers** — Move logic to services.
+- **Circular module imports** — Revisit boundaries; use forwardRef sparingly.
+- **Hidden new Service() calls** — Breaks DI and testing.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain Nest modules and how you would structure auth vs topics domains.
+</Callout>
+
+## Practice checklist
+
+- [ ] Create a module with controller + service.
+- [ ] Inject a config provider.
+- [ ] Write a unit test with a mocked service.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-ARCHITECTURE`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

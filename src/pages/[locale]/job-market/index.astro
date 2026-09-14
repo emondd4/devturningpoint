@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale } from '../../../i18n/config';
+import sample from '../../../data/job-market/bangladesh-sample-2026-09.json';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+---
+
+<BaseLayout
+  locale={locale}
+  title={isBn ? 'বাংলাদেশ জব মার্কেট নোট' : 'Bangladesh job-market notes'}
+  description="Static summarized sample of publicly reviewed technology job listings."
+>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 prose-reading">
+    <h1>{isBn ? 'বাংলাদেশ জব মার্কেট নোট' : 'Bangladesh job-market notes'}</h1>
+    <div class="callout callout-warning">
+      <p>
+        {isBn
+          ? `এটি স্বয়ংক্রিয় scraper নয়। পর্যালোচিত পাবলিক লিস্টিং স্যাম্পল: ${sample.sampleSize} · সময়কাল: ${sample.observationPeriod}`
+          : `Not an automated scraper. Public listings reviewed in this sample: ${sample.sampleSize} · period: ${sample.observationPeriod}`}
+      </p>
+    </div>
+    <h2>{isBn ? 'পদ্ধতি' : 'Methodology'}</h2>
+    <p>{sample.methodology}</p>
+    <h2>{isBn ? 'সীমাবদ্ধতা' : 'Limitations'}</h2>
+    <p>{sample.limitations}</p>
+    <h2>{isBn ? 'প্রবণতা (সতর্ক ভাষায়)' : 'Trends (careful wording)'}</h2>
+    <ul>
+      <li>{sample.aggregateTrends.wordingDisclaimer}</li>
+      {sample.aggregateTrends.withinSampleObservations.map((trend: string) => <li>{trend}</li>)}
+    </ul>
+    <h2>{isBn ? 'স্যাম্পল এন্ট্রি' : 'Sample entries'}</h2>
+    <ul>
+      {
+        (sample.listings ?? []).map((listing: { title: string; normalizedRole?: string; company?: string; sourceUrl?: string }) => (
+          <li>
+            <strong>{listing.title}</strong>
+            {listing.normalizedRole ? ` → ${listing.normalizedRole}` : ''}
+            {listing.company ? ` · ${listing.company}` : ''}
+            {listing.sourceUrl && (
+              <>
+                {' '}
+                <a href={listing.sourceUrl} rel="noopener noreferrer" target="_blank">
+                  source
+                </a>
+              </>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

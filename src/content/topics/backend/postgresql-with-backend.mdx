@@ -1,0 +1,88 @@
+---
+id: BACKEND-POSTGRESQL-WITH-BACKEND
+title: "PostgreSQL with a Backend"
+titleBn: "ব্যাকএন্ডের সাথে PostgreSQL"
+description: "Connection pooling, migrations, and mapping queries to Nest/Node services."
+descriptionBn: "কানেকশন পুলিং, মাইগ্রেশন, এবং Nest/Node সার্ভিসে কোয়েরি ম্যাপিং।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FOUNDATIONS-SQL-FUNDAMENTALS"
+  - "BACKEND-NESTJS-ARCHITECTURE"
+unlocks: 
+  - "BACKEND-REDIS-CACHING"
+  - "DATABASE-POSTGRESQL-TRANSACTIONS"
+related: 
+  - "DATABASE-POSTGRESQL-INDEXING"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "postgresql"
+  - "backend"
+  - "migrations"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why the database is part of your API
+
+Schema and constraints are your last line of integrity. App code should cooperate with them—not fight them.
+
+## Mental model
+
+<Callout type="mental-model">
+  One request → short DB transactions. Pool connections. Migrate schema forward with reviewable SQL/ORM migrations.
+</Callout>
+
+```sql
+CREATE TABLE topics (
+  id TEXT PRIMARY KEY,
+  track TEXT NOT NULL,
+  title TEXT NOT NULL,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX topics_track_idx ON topics (track);
+```
+
+Use parameterized queries / ORM bind parameters always.
+
+
+## Common mistakes
+
+- **New connection per query** — Exhausts Postgres; use a pool.
+- **No migrations** — Snowflake prod schemas drift.
+- **N+1 ORM queries** — Eager-load or join consciously.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you run migrations safely in production with a NestJS service?
+</Callout>
+
+## Practice checklist
+
+- [ ] Add a migration that creates an index.
+- [ ] Configure a pool size thoughtfully.
+- [ ] Log slow queries in development.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

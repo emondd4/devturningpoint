@@ -1,0 +1,86 @@
+---
+id: DEVOPS-LINUX-FUNDAMENTALS
+title: "Linux Fundamentals for Engineers"
+titleBn: "ইঞ্জিনিয়ারদের জন্য Linux মৌলিক"
+description: "Shell, files, permissions, processes, and logs—the daily OS literacy for servers."
+descriptionBn: "শেল, ফাইল, পারমিশন, প্রসেস ও লগ—সার্ভারের দৈনন্দিন OS সাক্ষরতা।"
+track: devops
+difficulty: beginner
+estimatedMinutes: 40
+prerequisites: 
+  - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+unlocks: 
+  - "DEVOPS-DOCKER-FUNDAMENTALS"
+  - "DEVOPS-NETWORKING-FOR-DEVOPS"
+related: 
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+careers: 
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "linux"
+  - "shell"
+  - "devops"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "LINUX-MAN-PAGES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why Linux fluency is non-negotiable
+
+Cloud VMs, containers, and CI runners are Linux. GUI-only workflows stall the moment SSH is the only door.
+
+## Mental model
+
+<Callout type="mental-model">
+  Everything is a file-ish interface: processes, logs, devices. The shell composes small tools with pipes. Permissions gate who can read/write/execute.
+</Callout>
+
+```bash
+pwd
+ls -la
+cd /var/log
+man ps
+chmod u+x script.sh
+```
+
+Learn redirection (`>`, `>>`, `2>`) and pipes (`|`). Read `journalctl`/`syslog` depending on distro.
+
+
+## Common mistakes
+
+- **Running everything as root** — Use sudo intentionally.
+- **chmod 777 “to make it work”** — Creates security holes.
+- **Ignoring exit codes in scripts** — Failures become silent.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you find which process listens on port 8080 and inspect its open files?
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a bash script with `set -euo pipefail`.
+- [ ] Practice navigating the FHS (/etc, /var, /home).
+- [ ] Use `ps` and `kill` safely on a test process.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `LINUX-MAN-PAGES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1,0 +1,41 @@
+{
+  "id": "proj-task-api",
+  "slug": "task-api",
+  "title": "Authenticated Task API",
+  "titleBn": "অথেন্টিকেটেড টাস্ক API",
+  "track": "backend",
+  "difficulty": "intermediate",
+  "summary": "Build a NestJS or Express API with JWT auth, PostgreSQL tasks CRUD, ownership checks, and integration tests.",
+  "requiredKnowledge": [
+    "TypeScript or Node basics",
+    "SQL",
+    "HTTP/REST",
+    "Git"
+  ],
+  "features": [
+    "Register/login",
+    "CRUD tasks scoped to user",
+    "Pagination",
+    "Input validation",
+    "Automated tests"
+  ],
+  "suggestedArchitecture": "HTTP API + service layer + Prisma/Drizzle or SQL migrations + PostgreSQL. Keep auth middleware separate from domain logic.",
+  "milestones": [
+    "Schema + migrations",
+    "Auth endpoints",
+    "Task CRUD with authz",
+    "Tests + README"
+  ],
+  "extensions": [
+    "Refresh tokens",
+    "Redis rate limiting",
+    "OpenAPI spec"
+  ],
+  "portfolioProof": "Public repo with docker-compose, seed data, and Postman/OpenAPI collection.",
+  "relatedTopics": [
+    "backend",
+    "auth",
+    "postgresql"
+  ],
+  "estimatedHours": 25
+}

@@ -1,0 +1,82 @@
+---
+id: FULLSTACK-DATA-FLOW
+title: "Full-Stack Data Flow"
+titleBn: "ফুলস্ট্যাক ডেটা ফ্লো"
+description: "Reads/writes from UI to DB—caching, invalidation, and consistency UX."
+descriptionBn: "UI থেকে DB পর্যন্ত রিড/রাইট—ক্যাশিং, ইনভ্যালিডেশন ও কনসিস্টেন্সি UX।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites: 
+  - "FULLSTACK-ARCHITECTURE-OVERVIEW"
+  - "BACKEND-REDIS-CACHING"
+unlocks: 
+  - "FULLSTACK-DEPLOYMENT-PIPELINE"
+related: 
+  - "DATABASE-POSTGRESQL-TRANSACTIONS"
+careers: 
+  - "CAREER-FULLSTACK-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FRONTEND-ENGINEER"
+tags: 
+  - "data-flow"
+  - "caching"
+  - "fullstack"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "REDIS-DATA-TYPES"
+  - "POSTGRES-DOCS"
+  - "NEXTJS-APP-ROUTER"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why data flow diagrams prevent bugs
+
+Most production bugs are stale reads, double writes, or optimistic UI that never reconciles.
+
+## Mental model
+
+<Callout type="mental-model">
+  Write path: validate → persist transactionally → invalidate caches → return DTO → update client state. Read path: try cache → DB → optionally populate cache.
+</Callout>
+
+Show pending/success/error states; reconcile with server truth after mutations.
+
+
+## Common mistakes
+
+- **Optimistic UI without rollback** — Users see lies forever.
+- **Cache invalidation as afterthought** — Editors see old content.
+- **Duplicate writes from double submits** — Idempotency keys help.
+
+## Interview angle
+
+<Callout type="interview">
+  Describe cache invalidation after an editor updates a topic title.
+</Callout>
+
+## Practice checklist
+
+- [ ] Sequence-diagram a create-topic flow.
+- [ ] Add idempotency to a POST.
+- [ ] List client states for a mutation.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `REDIS-DATA-TYPES`
+- `POSTGRES-DOCS`
+- `NEXTJS-APP-ROUTER`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

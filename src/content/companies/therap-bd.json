@@ -1,0 +1,29 @@
+{
+  "id": "therap-bd",
+  "slug": "therap-bd",
+  "name": "Therap (BD) Ltd",
+  "website": "https://therapbd.com/",
+  "category": "saas-product",
+  "businessAreas": [
+    "healthcare SaaS",
+    "disability services software",
+    "enterprise product engineering"
+  ],
+  "careerAreas": [
+    "software-engineer",
+    "backend-engineer",
+    "fullstack-engineer",
+    "qa-engineer",
+    "devops-engineer",
+    "database-engineer"
+  ],
+  "headquarters": "Banani, Dhaka-1213, Bangladesh (multiple Road 4 Block C offices listed)",
+  "summary": "Therap (BD) Ltd is a US-based software company registered in Bangladesh (operating since 2004) that builds SaaS for organizations serving people with intellectual and developmental disabilities.",
+  "selectionCriteria": "Featured as a long-running product/SaaS engineering employer in Dhaka with a clear official careers site and recognition among top BASIS IT exporters for FY 2024–25; not ranked.",
+  "lastVerified": "2026-09-14",
+  "sources": [
+    "src-therap-home",
+    "src-basis-exporters-fe",
+    "src-basis-exporters-tbs"
+  ]
+}

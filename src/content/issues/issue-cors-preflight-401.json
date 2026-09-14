@@ -1,0 +1,23 @@
+{
+  "id": "issue-cors-preflight-401",
+  "title": "Browser shows CORS error when API actually returned 401 on preflight or credentialed request",
+  "technology": "HTTP",
+  "platform": "Web",
+  "symptoms": [
+    "Console CORS error on login API",
+    "Server logs show 401/403",
+    "Postman call 'works' without CORS"
+  ],
+  "cause": "Browsers hide many error bodies when Access-Control-* headers are missing/mismatched; credentialed requests require explicit origin (not *) and correct Allow-Credentials.",
+  "solution": "Configure API CORS for the real web origin, allow required headers/methods, and ensure preflight (OPTIONS) succeeds. Align cookie SameSite/secure settings with frontend origin.",
+  "workaround": "Temporary local proxy in Vite/Next rewrites for development only.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "backend",
+    "frontend"
+  ],
+  "sources": [
+    "src-mdn-web"
+  ],
+  "lastVerified": "2026-09-14"
+}

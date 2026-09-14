@@ -1,0 +1,84 @@
+---
+id: QA-PLAYWRIGHT-E2E
+title: "Playwright End-to-End Testing"
+titleBn: "Playwright এন্ড-টু-এন্ড টেস্টিং"
+description: "Reliable browser automation with Playwright: locators, traces, and CI."
+descriptionBn: "Playwright দিয়ে নির্ভরযোগ্য ব্রাউজার অটোমেশন: লোকেটর, ট্রেস ও CI।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites: 
+  - "QA-MANUAL-TEST-DESIGN"
+  - "FRONTEND-HTML-SEMANTICS-A11Y"
+unlocks: []
+related: 
+  - "QA-TESTING-PYRAMID"
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+careers: 
+  - "CAREER-QA-ENGINEER"
+  - "CAREER-FRONTEND-ENGINEER"
+tags: 
+  - "playwright"
+  - "e2e"
+  - "qa"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "PLAYWRIGHT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why Playwright
+
+Modern web apps need auto-waiting locators, traces for debugging, and multi-browser coverage. Playwright is a strong default for many teams.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prefer user-facing locators (role/text/label) over CSS/XPath. Keep E2E flows few and critical. Use traces on failure.
+</Callout>
+
+```ts
+import { test, expect } from '@playwright/test';
+
+test('topics page shows heading', async ({ page }) => {
+  await page.goto('/en/topics');
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+});
+```
+
+
+## Common mistakes
+
+- **Sleeping instead of waiting for conditions** — Use Playwright assertions/auto-wait.
+- **Selectors tied to styling classes** — Prefer roles and test ids sparingly.
+- **Huge end-to-end coverage goals** — Keep the top of the pyramid small.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you keep Playwright tests stable in CI?
+</Callout>
+
+## Practice checklist
+
+- [ ] Install Playwright and write one smoke test.
+- [ ] Capture a trace on failure.
+- [ ] Run headed vs headless locally.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `PLAYWRIGHT-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

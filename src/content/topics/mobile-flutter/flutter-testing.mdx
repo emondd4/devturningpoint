@@ -1,0 +1,89 @@
+---
+id: FLUTTER-TESTING
+title: "Flutter Testing"
+titleBn: "Flutter টেস্টিং"
+description: "Unit, widget, and integration tests—confidence without slowing delivery."
+descriptionBn: "ইউনিট, উইজেট ও ইন্টিগ্রেশন টেস্ট—ডেলিভারি না কমিয়ে আত্মবিশ্বাস।"
+track: mobile-flutter
+difficulty: intermediate
+estimatedMinutes: 35
+prerequisites: 
+  - "FLUTTER-WIDGET-TREE"
+  - "FLUTTER-STATE-MANAGEMENT"
+unlocks: 
+  - "FLUTTER-DEPLOYMENT"
+related: 
+  - "FLUTTER-NETWORKING-REST"
+  - "QA-PLAYWRIGHT-E2E"
+careers: 
+  - "CAREER-MOBILE-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "flutter"
+  - "testing"
+  - "quality"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "FLUTTER-TESTING"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why three layers
+
+Different bugs live at different altitudes. Unit tests catch pure logic; widget tests catch UI wiring; integration tests catch navigation and platform seams.
+
+## Mental model
+
+<Callout type="mental-model">
+  Test pyramid: many fast unit tests, fewer widget tests, few end-to-end flows for critical paths (login, checkout, publish).
+</Callout>
+
+## Widget test sketch
+
+```dart
+testWidgets('counter increments', (tester) async {
+  await tester.pumpWidget(const MaterialApp(home: Counter()));
+  await tester.tap(find.text('Count 0'));
+  await tester.pump();
+  expect(find.text('Count 1'), findsOneWidget);
+});
+```
+
+Keep tests deterministic: fake clocks, fake HTTP, no live network in CI unit/widget jobs.
+
+
+## Common mistakes
+
+- **Only manual QA on device** — Regressions return every sprint.
+- **Brittle finders on exact pixels/text** — Prefer keys for stable element finding.
+- **Testing implementation details** — Assert user-visible behavior.
+
+## Interview angle
+
+<Callout type="interview">
+  Describe what belongs in unit vs widget vs integration tests for a Flutter feature.
+</Callout>
+
+## Practice checklist
+
+- [ ] Add a unit test for a parser.
+- [ ] Add a widget test with a ValueKey.
+- [ ] Run `flutter test` in CI mindset.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-TESTING`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1,0 +1,96 @@
+---
+id: DATABASE-RELATIONAL-MODELING
+title: "Relational Modeling"
+titleBn: "রিলেশনাল মডেলিং"
+description: "Entities, keys, normalization tradeoffs, and modeling for real product constraints."
+descriptionBn: "এনটিটি, কী, নরমালাইজেশন ট্রেডঅফ, এবং আসল প্রোডাক্ট সীমাবদ্ধতার জন্য মডেলিং।"
+track: database
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FOUNDATIONS-SQL-FUNDAMENTALS"
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+unlocks: 
+  - "DATABASE-SQL-JOINS-AGGREGATION"
+  - "DATABASE-POSTGRESQL-INDEXING"
+related: 
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+  - "CAREER-DATA-ENGINEER"
+tags: 
+  - "database"
+  - "modeling"
+  - "normalization"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why modeling mistakes haunt forever
+
+Schema changes are migrations, downtime risks, and broken reports. A clear model is cheaper than heroic SQL later.
+
+## Mental model
+
+<Callout type="mental-model">
+  Identify entities and relationships (1:1, 1:N, M:N). Primary keys identity rows; foreign keys enforce relationships. Normalize to reduce update anomalies—denormalize deliberately for read performance.
+</Callout>
+
+```sql
+CREATE TABLE tracks (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL
+);
+
+CREATE TABLE topics (
+  id TEXT PRIMARY KEY,
+  track_id TEXT NOT NULL REFERENCES tracks(id),
+  title TEXT NOT NULL
+);
+
+CREATE TABLE topic_tags (
+  topic_id TEXT REFERENCES topics(id),
+  tag TEXT NOT NULL,
+  PRIMARY KEY (topic_id, tag)
+);
+```
+
+
+## Common mistakes
+
+- **Encoding lists as CSV columns** — Breaks querying; use bridge tables or arrays thoughtfully.
+- **No explicit keys** — Duplicates and fragile joins.
+- **Over-normalizing UI preferences** — Sometimes a JSONB bag is fine.
+
+## Interview angle
+
+<Callout type="interview">
+  Model users, roles, and permissions—when is a join table required?
+</Callout>
+
+## Practice checklist
+
+- [ ] Draw an ERD for a learning platform.
+- [ ] Convert an M:N into a bridge table.
+- [ ] List normalization anomalies you avoided.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

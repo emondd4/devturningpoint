@@ -1,0 +1,80 @@
+---
+id: DEVOPS-TERRAFORM-BASICS
+title: "Terraform Basics"
+titleBn: "Terraform বেসিক"
+description: "Infrastructure as code: providers, state, plans, and safe apply workflows."
+descriptionBn: "Infrastructure as code: প্রোভাইডার, স্টেট, প্ল্যান ও নিরাপদ apply ওয়ার্কফ্লো।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "DEVOPS-AWS-CLOUD-FUNDAMENTALS"
+unlocks: 
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+related: 
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+careers: 
+  - "CAREER-DEVOPS-ENGINEER"
+tags: 
+  - "terraform"
+  - "iac"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "TERRAFORM-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why IaC beats click-ops
+
+Clicking consoles does not review, diff, or reproduce. Terraform configs are reviewable history—with state as the mapping to real resources.
+
+## Mental model
+
+<Callout type="mental-model">
+  Write desired state → `plan` shows delta → `apply` mutates cloud APIs → remote state stores mapping. State is sensitive.
+</Callout>
+
+```hcl
+resource "aws_s3_bucket" "artifacts" {
+  bucket = "dtp-artifacts-example"
+}
+```
+
+Use remote state locking (e.g., S3+DynamoDB patterns) for teams; never commit secrets.
+
+
+## Common mistakes
+
+- **Local state on laptops for teams** — Conflicts and loss risk.
+- **Apply without reading plan** — Destroy surprises.
+- **Hardcoding secrets in .tf** — Use secret stores / CI secrets.
+
+## Interview angle
+
+<Callout type="interview">
+  What is Terraform state and why must it be protected?
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a tiny config and plan it (even locally with a mock/provider you can use).
+- [ ] Organize modules by environment.
+- [ ] Add a CI plan on PR.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `TERRAFORM-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

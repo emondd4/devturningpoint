@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+import { getDictionary } from '../i18n/ui';
+import type { Locale } from '../i18n/config';
+import { localePath, getAlternateLocale, withBase } from '../i18n/config';
+import SiteHeader from '../components/navigation/SiteHeader.astro';
+import SiteFooter from '../components/navigation/SiteFooter.astro';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description?: string;
+  canonicalPath?: string;
+  ogType?: string;
+  noindex?: boolean;
+}
+
+const {
+  locale,
+  title,
+  description = 'Bilingual computer engineering careers and learning platform for Bangladesh.',
+  canonicalPath,
+  ogType = 'website',
+  noindex = false,
+} = Astro.props;
+
+const t = getDictionary(locale);
+const siteName = t.siteName;
+const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const path = canonicalPath ?? Astro.url.pathname;
+const canonicalUrl = `${site}${path.startsWith(base) ? path : `${base}${path}`}`;
+const alternateLocale = getAlternateLocale(locale);
+const alternatePath = path.replace(`/${locale}/`, `/${alternateLocale}/`);
+const alternateUrl = `${site}${alternatePath.startsWith(base) ? alternatePath : `${base}${alternatePath}`}`;
+const ogImage = `${site}${withBase('/images/og-default.svg')}`;
+---
+
+<!doctype html>
+<html lang={locale} data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={locale} href={canonicalUrl} />
+    <link rel="alternate" hreflang={alternateLocale} href={alternateUrl} />
+    <link rel="alternate" hreflang="x-default" href={`${site}${localePath('en')}`} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content={locale === 'bn' ? 'bn_BD' : 'en_US'} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      (function () {
+        try {
+          var key = 'dtp:theme';
+          var pref = localStorage.getItem(key) || 'system';
+          var dark =
+            pref === 'dark' ||
+            (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a class="skip-link" href="#main">{t.skipToContent}</a>
+    <SiteHeader locale={locale} />
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <SiteFooter locale={locale} />
+    <script>
+      import { CURRENT_STORAGE_VERSION, STORAGE_VERSION_KEY } from '../utils/theme';
+      try {
+        if (!localStorage.getItem(STORAGE_VERSION_KEY)) {
+          localStorage.setItem(STORAGE_VERSION_KEY, String(CURRENT_STORAGE_VERSION));
+        }
+      } catch {
+        /* ignore */
+      }
+    </script>
+  </body>
+</html>

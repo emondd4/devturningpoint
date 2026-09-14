@@ -1,0 +1,28 @@
+{
+  "id": "softbd",
+  "slug": "softbd",
+  "name": "SoftBD Ltd",
+  "website": "https://softbdltd.com/",
+  "category": "software-services",
+  "businessAreas": [
+    "custom software",
+    "digital solutions",
+    "enterprise systems"
+  ],
+  "careerAreas": [
+    "software-engineer",
+    "fullstack-engineer",
+    "frontend-engineer",
+    "backend-engineer",
+    "qa-engineer",
+    "ui-ux-designer"
+  ],
+  "headquarters": "52/1 Hasan Holdings, New Eskaton Road, Dhaka, Bangladesh",
+  "summary": "SoftBD Ltd is a Bangladesh software company offering custom software and digital solutions from its Dhaka head office, with additional listed offices including Joypurhat and Canada.",
+  "selectionCriteria": "Featured for its verified official presence and role as a domestic software delivery employer commonly referenced in Bangladesh IT discussions; featured set is not ranked.",
+  "lastVerified": "2026-09-14",
+  "sources": [
+    "src-softbd-home",
+    "src-softbd-about"
+  ]
+}

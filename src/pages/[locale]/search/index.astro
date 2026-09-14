@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale, localePath } from '../../../i18n/config';
+import SearchUI from '../../../components/common/SearchUI';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+---
+
+<BaseLayout
+  locale={locale}
+  title={isBn ? 'সার্চ' : 'Search'}
+  description={isBn ? 'স্ট্যাটিক সার্চ (Pagefind)।' : 'Static search powered by Pagefind.'}
+>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold">{isBn ? 'সার্চ' : 'Search'}</h1>
+    <p class="mt-3 text-[var(--color-ink-muted)]">
+      {isBn ? 'সার্ভার ছাড়াই স্ট্যাটিক ইনডেক্স।' : 'No server required—static index after build.'}
+    </p>
+    <div class="mt-8">
+      <SearchUI client:load locale={locale} />
+    </div>
+    <p class="mt-6 text-sm text-[var(--color-ink-subtle)]">
+      <a href={localePath(locale, 'tracks')}>{isBn ? 'ট্র্যাক ব্রাউজ' : 'Browse tracks'}</a>
+      {' · '}
+      <a href={localePath(locale, 'careers')}>{isBn ? 'ক্যারিয়ার' : 'Careers'}</a>
+    </p>
+  </div>
+</BaseLayout>

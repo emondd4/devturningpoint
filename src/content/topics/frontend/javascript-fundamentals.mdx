@@ -1,0 +1,90 @@
+---
+id: FRONTEND-JAVASCRIPT-FUNDAMENTALS
+title: "JavaScript Fundamentals"
+titleBn: "JavaScript এর মৌলিক বিষয়"
+description: "Values, functions, objects, modules—the language of the browser and much of the backend."
+descriptionBn: "ভ্যালু, ফাংশন, অবজেক্ট, মডিউল—ব্রাউজার ও অনেক ব্যাকএন্ডের ভাষা।"
+track: frontend
+difficulty: beginner
+estimatedMinutes: 40
+prerequisites: 
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+unlocks: 
+  - "FRONTEND-JAVASCRIPT-ASYNC-EVENT-LOOP"
+  - "FRONTEND-TYPESCRIPT-FUNDAMENTALS"
+related: 
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+careers: 
+  - "CAREER-FRONTEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "javascript"
+  - "fundamentals"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "TC39-ECMASCRIPT"
+  - "MDN-JS-EVENT-LOOP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why JS fluency transfers everywhere
+
+Syntax quirks matter less than values, references, closures, and modules—skills that transfer to Node, Deno, and tooling.
+
+## Mental model
+
+<Callout type="mental-model">
+  Primitives are copied by value; objects are referenced. Closures capture bindings. Modules create scoped boundaries with explicit exports.
+</Callout>
+
+```js
+export function titleCase(s) {
+  return s
+    .split(' ')
+    .filter(Boolean)
+    .map((w) => w[0].toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
+const user = { id: 1, roles: ['learner'] };
+const copy = { ...user, roles: [...user.roles, 'mentor'] };
+```
+
+
+## Common mistakes
+
+- **Mutating props/state-like objects casually** — Shared refs cause spooky action.
+- **var and accidental globals** — Prefer const/let and modules.
+- **Callback pyramids** — Use functions and later async/await.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain closures with a practical example (e.g., making a function with private counters).
+</Callout>
+
+## Practice checklist
+
+- [ ] Rewrite a script into ES modules.
+- [ ] Implement deep-ish clone carefully for a small object.
+- [ ] Practice array methods map/filter/reduce.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `TC39-ECMASCRIPT`
+- `MDN-JS-EVENT-LOOP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

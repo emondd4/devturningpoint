@@ -1,0 +1,83 @@
+---
+id: FULLSTACK-AUTH-ACROSS-STACK
+title: "Auth Across the Stack"
+titleBn: "স্ট্যাক জুড়ে অথেন্টিকেশন"
+description: "Sessions/JWT, BFF cookies, and server-side verification spanning Next and Nest."
+descriptionBn: "Session/JWT, BFF কুকি, এবং Next ও Nest জুড়ে সার্ভার-সাইড ভেরিফিকেশন।"
+track: fullstack
+difficulty: advanced
+estimatedMinutes: 42
+prerequisites: 
+  - "FULLSTACK-ARCHITECTURE-OVERVIEW"
+  - "BACKEND-NESTJS-AUTH-JWT"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+unlocks: 
+  - "FULLSTACK-DEPLOYMENT-PIPELINE"
+related: 
+  - "FRONTEND-FORMS-VALIDATION"
+careers: 
+  - "CAREER-FULLSTACK-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FRONTEND-ENGINEER"
+tags: 
+  - "auth"
+  - "fullstack"
+  - "security"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "NEXTJS-AUTH"
+  - "NESTJS-AUTH"
+  - "OWASP-TOP10"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why auth spans every layer
+
+A token in the browser is not security. Verification and authorization must happen on trusted servers—repeatedly.
+
+## Mental model
+
+<Callout type="mental-model">
+  Common web pattern: browser talks to Next route handlers; tokens live in httpOnly cookies; Nest verifies JWTs on API calls; authorization checks resource ownership.
+</Callout>
+
+Follow Next.js authentication guidance for server-side session checks; follow Nest auth docs for guards/strategies. Prefer short-lived access tokens.
+
+
+## Common mistakes
+
+- **Trusting middleware alone** — Re-verify in data access paths.
+- **Storing long-lived tokens in localStorage** — XSS amplification.
+- **Authz only on UI routes** — APIs must enforce too.
+
+## Interview angle
+
+<Callout type="interview">
+  Design login for Next + Nest with refresh tokens and CSRF considerations.
+</Callout>
+
+## Practice checklist
+
+- [ ] Map where verification occurs in your app.
+- [ ] List cookie flags you need (HttpOnly, Secure, SameSite).
+- [ ] Write an IDOR test case.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NEXTJS-AUTH`
+- `NESTJS-AUTH`
+- `OWASP-TOP10`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

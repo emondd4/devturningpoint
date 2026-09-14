@@ -1,0 +1,103 @@
+---
+id: FLUTTER-DART-FUNDAMENTALS
+title: "Dart Fundamentals"
+titleBn: "Dart এর মৌলিক বিষয়"
+description: "Null safety, types, classes, and collections—the language Flutter apps are written in."
+descriptionBn: "Null safety, টাইপ, ক্লাস ও কালেকশন—যে ভাষায় Flutter অ্যাপ লেখা হয়।"
+track: mobile-flutter
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites: 
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+unlocks: 
+  - "FLUTTER-DART-ASYNC-FUTURES-STREAMS"
+  - "FLUTTER-WIDGET-TREE"
+related: 
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+careers: 
+  - "CAREER-MOBILE-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "dart"
+  - "flutter"
+  - "null-safety"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "DART-LANGUAGE"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why Dart before widgets
+
+Flutter UI is declarative Dart. Weak language foundations show up as null crashes, awkward APIs, and state bugs—not as “I need another package.”
+
+## Mental model
+
+<Callout type="mental-model">
+  Dart is sound null-safe: types track whether `null` is allowed. Prefer making illegal states unrepresentable with types and sealed-like modeling.
+</Callout>
+
+## Types and null safety
+
+```dart
+String title = 'Dev Turning Point'; // non-nullable
+String? subtitle; // nullable
+print(subtitle?.length ?? 0);
+
+final numbers = <int>[1, 2, 3];
+final ages = <String, int>{'Nila': 22};
+```
+
+## Classes and immutability habits
+
+```dart
+class User {
+  const User({required this.id, required this.email});
+  final String id;
+  final String email;
+}
+
+void main() {
+  const user = User(id: 'u1', email: 'a@b.com');
+  print(user.email);
+}
+```
+
+Prefer `final` fields and const constructors for value-like objects used in Flutter widgets.
+
+
+## Common mistakes
+
+- **Sprinkling `!` everywhere** — Null assertion hides bugs; fix types or handle null explicitly.
+- **Mutable public fields** — Harder to reason about rebuilds and equality.
+- **Ignoring `var` vs explicit types** — Be deliberate at API boundaries.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain sound null safety and how you would model a loading/success/error UI state in Dart.
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a small Dart CLI using lists and maps.
+- [ ] Refactor nullable fields into clearer types.
+- [ ] Read the Dart language tour sections on types and classes.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `DART-LANGUAGE`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

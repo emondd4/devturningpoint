@@ -1,0 +1,114 @@
+---
+id: FOUNDATIONS-GIT-FUNDAMENTALS
+title: "Git Fundamentals"
+titleBn: "Git এর মৌলিক ধারণা"
+description: "Snapshots, branches, and collaboration workflows—why Git models history the way it does."
+descriptionBn: "স্ন্যাপশট, ব্রাঞ্চ ও সহযোগিতার ওয়ার্কফ্লো—Git ইতিহাসকে যেভাবে মডেল করে তার কারণ।"
+track: foundations
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites: 
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+unlocks: 
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+  - "FULLSTACK-DEPLOYMENT-PIPELINE"
+related: 
+  - "DEVOPS-LINUX-FUNDAMENTALS"
+  - "PM-SOFTWARE-DELIVERY"
+careers: 
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-FRONTEND-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-MOBILE-ENGINEER"
+tags: 
+  - "git"
+  - "version-control"
+  - "collaboration"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "GIT-SCM-BOOK"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why version control is a team prosthetic
+
+Git is not “save with extras.” It is a **content-addressed history graph** that lets many people experiment safely and reconstruct how code evolved.
+
+## Mental model
+
+<Callout type="mental-model">
+  Commits are snapshots of the project (via trees of files), linked to parents. A branch is a movable pointer to a commit. `HEAD` is “where I am now.”
+</Callout>
+
+## Daily loop
+
+```bash
+git status
+git add path/to/file
+git commit -m "Explain why this change exists"
+git push -u origin HEAD
+```
+
+Write commit messages for future readers: **why**, not a restatement of the diff.
+
+## Branching without fear
+
+```bash
+git switch -c feature/topic-page
+# ...work...
+git switch main
+git merge feature/topic-page
+```
+
+Prefer small branches. Huge long-lived branches increase merge pain and review fatigue.
+
+## Undoing safely
+
+| Goal | Prefer |
+| --- | --- |
+| Unstage a file | `git restore --staged <file>` |
+| Discard local uncommitted changes | `git restore <file>` (destructive) |
+| New commit that reverses a published commit | `git revert <sha>` |
+| Rewrite local-only history | `git reset` (never rewrite shared main casually) |
+
+<Callout type="danger">
+  Force-pushing rewritten history on shared branches breaks collaborators. Treat `main` as append-only unless the team explicitly agrees otherwise.
+</Callout>
+
+
+## Common mistakes
+
+- **Giant opaque commits** — Reviewers cannot reason about risk; bisect becomes useless.
+- **Committing secrets** — Rotate keys immediately; use ignore rules and secret scanning.
+- **Merging without reading the diff** — Conflicts marked “resolved” can still be logically wrong.
+
+## Interview angle
+
+<Callout type="interview">
+  Describe the difference between merge and rebase, and when you would avoid rebasing a shared branch.
+</Callout>
+
+## Practice checklist
+
+- [ ] Create a branch, commit twice, open a PR mentally (review your own diff).
+- [ ] Practice `git revert` on a throwaway repo.
+- [ ] Read Pro Git chapter on branching and sketch the graph.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `GIT-SCM-BOOK`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

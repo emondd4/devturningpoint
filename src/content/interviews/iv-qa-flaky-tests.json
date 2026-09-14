@@ -1,0 +1,27 @@
+{
+  "id": "iv-qa-flaky-tests",
+  "question": "A Playwright suite fails ~20% of the time on CI but passes locally. How do you systematically debug flakiness?",
+  "careerIds": [
+    "qa-engineer",
+    "frontend-engineer"
+  ],
+  "technology": [
+    "Playwright",
+    "CI"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Treat flakes as product bugs in tests: capture traces, eliminate timing assumptions, isolate shared state, and quarantine only temporarily.",
+  "strongAnswer": "Collect CI artifacts (trace, video, network). Replace hard sleeps with expect polling/locator assertions. Ensure test data isolation (unique users, transactional resets). Check parallelism collisions and environment differences (viewport, CPU, feature flags). Fix root causes before increasing retries; retries hide defects.",
+  "advancedAnswer": "Discuss deterministic seeding, contract tests reducing UI surface, and flake dashboards with ownership.",
+  "followUps": [
+    "When are retries acceptable?",
+    "How do you test animations and toasts?"
+  ],
+  "commonWrongAnswer": "Add arbitrary sleep(5000) everywhere.",
+  "productionRelevance": "Flaky suites erode trust and slow releases—common pain in automation-adopting BD teams.",
+  "relatedTopics": [
+    "qa",
+    "testing"
+  ],
+  "lastVerified": "2026-09-14"
+}

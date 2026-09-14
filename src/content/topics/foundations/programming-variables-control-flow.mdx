@@ -1,0 +1,134 @@
+---
+id: FOUNDATIONS-PROGRAMMING-VARIABLES
+title: "Variables, Types, and Control Flow"
+titleBn: "ভেরিয়েবল, টাইপ ও কন্ট্রোল ফ্লো"
+description: "Names, values, branching, and loops—the grammar every language shares, with JavaScript examples."
+descriptionBn: "নাম, মান, শাখা ও লুপ—প্রতিটি ভাষার সাধারণ ব্যাকরণ; JavaScript উদাহরণসহ।"
+track: foundations
+difficulty: beginner
+estimatedMinutes: 30
+prerequisites: 
+  - "FOUNDATIONS-BINARY-BITS-BYTES"
+unlocks: 
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+  - "FRONTEND-JAVASCRIPT-FUNDAMENTALS"
+related: 
+  - "FOUNDATIONS-ALGORITHMS-COMPLEXITY"
+  - "FLUTTER-DART-FUNDAMENTALS"
+careers: 
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-FRONTEND-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-MOBILE-ENGINEER"
+tags: 
+  - "programming"
+  - "variables"
+  - "control-flow"
+  - "foundations"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "MDN-JS-EVENT-LOOP"
+  - "TC39-ECMASCRIPT"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why “variables” are not just boxes
+
+A variable is a **binding**: a name that refers to a value (or to a mutable storage location, depending on language rules). Bugs often come from misunderstanding *what* is shared when you assign or pass data.
+
+## Mental model
+
+<Callout type="mental-model">
+  Expressions produce values. Statements do work (assign, branch, loop, return). Control flow is the road network those statements travel—straight lines, forks (`if`), and roundabouts (`for`/`while`).
+</Callout>
+
+## Bindings in JavaScript
+
+```js
+const pi = 3.14159; // binding cannot be reassigned
+let count = 0; // reassignable
+count += 1;
+
+// Primitive values are copied by value
+let a = 1;
+let b = a;
+b = 2;
+console.log(a); // 1
+
+// Objects are references to shared heap values
+const user = { name: 'Nila' };
+const alias = user;
+alias.name = 'Rafi';
+console.log(user.name); // "Rafi"
+```
+
+## Control flow patterns
+
+```js
+function grade(score) {
+  if (score >= 80) return 'A';
+  if (score >= 60) return 'B';
+  return 'C';
+}
+
+const nums = [1, 2, 3];
+let sum = 0;
+for (const n of nums) sum += n;
+
+// Prefer early returns over deep nesting
+function canPublish(post, user) {
+  if (!user) return false;
+  if (!post.title) return false;
+  return user.role === 'editor' || post.authorId === user.id;
+}
+```
+
+<Callout type="tip">
+  Readable control flow beats clever one-liners in production. Interviewers notice clear branching more than golfed code.
+</Callout>
+
+## Truthiness and equality traps
+
+```js
+console.log(0 == false); // true (avoid)
+console.log(0 === false); // false (prefer)
+console.log('' || 'fallback'); // "fallback"
+```
+
+
+## Common mistakes
+
+- **Mutating shared objects unintentionally** — Passing an object into a function and modifying it surprises callers.
+- **Deeply nested if/else** — Use guard clauses; nested pyramids hide bugs.
+- **Using == in JS** — Coercion makes equality surprising; default to ===.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain pass-by-value vs pass-by-reference using a small code snippet, and how immutability patterns reduce bugs.
+</Callout>
+
+## Practice checklist
+
+- [ ] Rewrite a nested if/else using early returns.
+- [ ] Write a loop and an equivalent array reduce; compare readability.
+- [ ] Trace a bug caused by shared object mutation.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `TC39-ECMASCRIPT`
+- `MDN-JS-EVENT-LOOP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

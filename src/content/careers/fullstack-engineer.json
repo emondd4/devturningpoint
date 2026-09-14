@@ -1,0 +1,106 @@
+{
+  "id": "fullstack-engineer",
+  "slug": "fullstack-engineer",
+  "name": "Full-Stack Engineer",
+  "nameBn": "ফুলস্ট্যাক ইঞ্জিনিয়ার",
+  "alternativeNames": [
+    "Full Stack Developer",
+    "Full-stack Developer",
+    "MERN Developer",
+    "Software Engineer (Full Stack)"
+  ],
+  "summary": "Delivers features spanning UI and server layers, useful in startups and product teams with lean staffing.",
+  "whatTheyDo": "Implement end-to-end features: UI, API, persistence, and basic deployment concerns with pragmatic trade-offs.",
+  "typicalDailyWork": [
+    "Ship vertical slices of product",
+    "Align frontend and API contracts",
+    "Fix bugs across the stack",
+    "Participate in release checks"
+  ],
+  "responsibilities": [
+    "Balance UX and backend correctness",
+    "Avoid leaking secrets or insecure patterns",
+    "Keep feature scope realistic"
+  ],
+  "prerequisites": [
+    "Frontend and backend fundamentals",
+    "SQL",
+    "Git",
+    "HTTP"
+  ],
+  "technicalSkills": [
+    "One frontend framework",
+    "One backend framework",
+    "Relational DB",
+    "Auth flows",
+    "Basic DevOps awareness"
+  ],
+  "tools": [
+    "Git",
+    "Postman",
+    "Docker",
+    "Cloud hosting (varies)",
+    "Figma handoff"
+  ],
+  "softSkills": [
+    "Prioritization",
+    "Product sense",
+    "Cross-discipline communication"
+  ],
+  "juniorExpectations": [
+    "Complete small end-to-end tickets",
+    "Follow established patterns"
+  ],
+  "midExpectations": [
+    "Own features without hand-holding",
+    "Improve DX and tests"
+  ],
+  "seniorExpectations": [
+    "Shape architecture across layers",
+    "Reduce operational risk",
+    "Mentor generalists"
+  ],
+  "relatedCareers": [
+    "frontend-engineer",
+    "backend-engineer",
+    "product-manager"
+  ],
+  "careerTransitions": [
+    "May specialize or move into tech lead roles"
+  ],
+  "learningTracks": [
+    "fullstack",
+    "frontend",
+    "backend"
+  ],
+  "projectIds": [
+    "proj-expense-tracker",
+    "proj-marketplace-mvp"
+  ],
+  "interviewCategories": [
+    "fullstack-scenario",
+    "api-design",
+    "js-fundamentals"
+  ],
+  "bangladeshNotes": "Full Stack / Full-stack Engineer is a frequent title on Bangladesh boards. Observed stacks in reviewed listings include React/Next + NestJS + PostgreSQL (e.g. ZMC technical lead posting) and Flutter plus backend combinations. MERN still appears in some ads. Expect hybrid ownership more than deep specialization at smaller firms.",
+  "commonQualifications": [
+    "Portfolio showing UI + API work",
+    "Comfort integrating third-party APIs (payments, maps)"
+  ],
+  "commonlyRequestedTech": [
+    "React",
+    "Node.js",
+    "NestJS",
+    "PostgreSQL/MySQL",
+    "Flutter (sometimes)",
+    "Git"
+  ],
+  "experienceExpectations": "Ads span junior generalists to 5+ year technical leads; read each posting's scope carefully.",
+  "sources": [
+    "src-job-zmc-lead",
+    "src-job-systemone",
+    "src-job-zentix-fullstack"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

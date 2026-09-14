@@ -1,0 +1,85 @@
+---
+id: DATABASE-POSTGRESQL-INDEXING
+title: "PostgreSQL Indexing"
+titleBn: "PostgreSQL ইনডেক্সিং"
+description: "B-tree indexes, selectivity, EXPLAIN, and the write/read tradeoff."
+descriptionBn: "B-tree ইনডেক্স, সিলেক্টিভিটি, EXPLAIN, এবং রিড/রাইট ট্রেডঅফ।"
+track: database
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "DATABASE-SQL-JOINS-AGGREGATION"
+  - "FOUNDATIONS-ALGORITHMS-COMPLEXITY"
+unlocks: 
+  - "BACKEND-REDIS-CACHING"
+related: 
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-DATA-ENGINEER"
+tags: 
+  - "postgresql"
+  - "indexing"
+  - "performance"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "POSTGRES-INDEXES"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why indexes are not free
+
+Indexes speed lookups and some sorts/joins, but slow writes and use disk. Index what you query—prove with `EXPLAIN (ANALYZE)`.
+
+## Mental model
+
+<Callout type="mental-model">
+  A B-tree index is an ordered structure enabling logarithmic find/range scans for compatible predicates—like a book’s index, not a second full copy of every access path.
+</Callout>
+
+```sql
+CREATE INDEX CONCURRENTLY topics_track_updated_idx
+  ON topics (track_id, updated_at DESC);
+
+EXPLAIN ANALYZE
+SELECT id FROM topics WHERE track_id = 'foundations' ORDER BY updated_at DESC LIMIT 20;
+```
+
+
+## Common mistakes
+
+- **Indexing every column** — Hurts writes; planner may ignore low-value indexes.
+- **Leading-wildcard LIKE** — Often cannot use B-tree well.
+- **Not measuring** — Guessing indexes wastes effort.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you decide composite index column order?
+</Callout>
+
+## Practice checklist
+
+- [ ] Create an index and compare EXPLAIN plans.
+- [ ] Identify a sequential scan on a hot query.
+- [ ] Read Postgres indexing docs overview.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-INDEXES`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

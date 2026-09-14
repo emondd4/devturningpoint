@@ -1,0 +1,22 @@
+{
+  "id": "hist-arpanet",
+  "year": "1969",
+  "title": "ARPANET initial nodes operational",
+  "titleBn": "ARPANET-এর প্রাথমিক নোড",
+  "before": "Computers were mostly isolated or connected via specialized, non-packet networks.",
+  "problem": "Researchers needed resource sharing across distant machines.",
+  "change": "The US Department of Defense commissioned ARPANET; IEEE timeline notes the first four nodes becoming operational at UCLA, UC Santa Barbara, SRI, and Utah in 1969 using packet switches.",
+  "whyItMattered": "Packet networking proved a scalable approach that informed later internet architecture.",
+  "enabled": "Inter-network research leading toward today's Internet.",
+  "modernDescendants": [
+    "Internet routing",
+    "Packet switching",
+    "Distributed applications"
+  ],
+  "concreteExample": "Email and remote login research traffic on early packet networks foreshadowed everyday internet services.",
+  "caveat": "ARPANET is an ancestor of the Internet, not identical to the modern global Internet with commercial ISPs and the Web.",
+  "sources": [
+    "src-ieee-timeline",
+    "RFC-791-IPV4"
+  ]
+}

@@ -1,0 +1,86 @@
+---
+id: DATABASE-POSTGRESQL-TRANSACTIONS
+title: "PostgreSQL Transactions"
+titleBn: "PostgreSQL ট্রানজ্যাকশন"
+description: "ACID, isolation levels, and avoiding lost updates in concurrent apps."
+descriptionBn: "ACID, আইসোলেশন লেভেল, এবং কনকারেন্ট অ্যাপে lost update এড়ানো।"
+track: database
+difficulty: advanced
+estimatedMinutes: 42
+prerequisites: 
+  - "DATABASE-RELATIONAL-MODELING"
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+unlocks: 
+  - "FULLSTACK-DATA-FLOW"
+related: 
+  - "DATABASE-POSTGRESQL-INDEXING"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "postgresql"
+  - "transactions"
+  - "acid"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "POSTGRES-TX"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why transactions define correctness
+
+Transferring credits, reserving seats, or publishing content needs **all-or-nothing** multi-statement changes under concurrency.
+
+## Mental model
+
+<Callout type="mental-model">
+  BEGIN work; COMMIT makes it durable and visible per isolation rules; ROLLBACK undoes. Isolation levels trade anomaly prevention for throughput.
+</Callout>
+
+```sql
+BEGIN;
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+UPDATE accounts SET balance = balance + 100 WHERE id = 2;
+COMMIT;
+```
+
+Know read phenomena (dirty/nonrepeatable/phantom) at a practical level; use row locks or `UPDATE … WHERE` checks for lost updates.
+
+
+## Common mistakes
+
+- **Long transactions** — Hold locks; bloat; timeouts.
+- **Assuming read committed prevents lost updates** — Need careful patterns/locking.
+- **Catching errors and continuing dirty sessions** — Rollback explicitly.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain isolation levels you would choose for inventory decrement and why.
+</Callout>
+
+## Practice checklist
+
+- [ ] Simulate two concurrent updates and observe outcomes.
+- [ ] Wrap a multi-step write in a transaction in your ORM.
+- [ ] Read Postgres transaction isolation docs.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-TX`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

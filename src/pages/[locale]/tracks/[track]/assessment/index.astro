@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import { getTrack, tracks } from '../../../../../data/tracks/tracks';
+import { localePath, type Locale, isLocale } from '../../../../../i18n/config';
+import AssessmentWizard from '../../../../../components/assessment/AssessmentWizard';
+import { devopsAssessment } from '../../../../../data/assessments/devops';
+import { foundationsAssessment } from '../../../../../data/assessments/foundations';
+import { frontendAssessment } from '../../../../../data/assessments/frontend';
+import { backendAssessment } from '../../../../../data/assessments/backend';
+import { flutterAssessment } from '../../../../../data/assessments/flutter';
+import type { AssessmentBank } from '../../../../../data/assessments/types';
+
+const banks: Record<string, AssessmentBank> = {
+  devops: devopsAssessment,
+  foundations: foundationsAssessment,
+  frontend: frontendAssessment,
+  backend: backendAssessment,
+  'mobile-flutter': flutterAssessment,
+};
+
+export function getStaticPaths() {
+  const locales = ['en', 'bn'] as const;
+  return locales.flatMap((locale) =>
+    tracks.map((track) => ({
+      params: { locale, track: track.slug },
+    })),
+  );
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const track = getTrack(Astro.params.track ?? '');
+if (!track) {
+  return Astro.redirect(localePath(locale, 'tracks'));
+}
+
+const isBn = locale === 'bn';
+const bank: AssessmentBank =
+  banks[track.id] ??
+  ({
+    id: `${track.id}-starter-assessment`,
+    trackId: track.id,
+    title: `${track.title} assessment`,
+    titleBn: `${track.titleBn} assessment`,
+    description: isBn
+      ? 'এই ট্র্যাকের starter confidence check—পূর্ণ ব্যাংক সম্প্রসারণধীন।'
+      : 'Starter confidence check for this track while the full bank expands.',
+    questions: track.goalSkillIds.slice(0, 4).map((skillId, index) => ({
+      id: `${track.id}-conf-${index}`,
+      type: 'self-confidence' as const,
+      prompt: `How confident are you with ${skillId}?`,
+      promptBn: `${skillId} নিয়ে আপনি কতটা আত্মবিশ্বাসী?`,
+      skillIds: [skillId],
+      weight: 1,
+    })),
+  } satisfies AssessmentBank);
+---
+
+<BaseLayout
+  locale={locale}
+  title={isBn ? (bank.titleBn ?? bank.title) : bank.title}
+  description={bank.description ?? bank.title}
+>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <nav class="mb-4 text-sm text-[var(--color-ink-subtle)]">
+      <a href={localePath(locale, `tracks/${track.slug}`)} class="no-underline">{isBn ? track.titleBn : track.title}</a>
+      <span> / assessment</span>
+    </nav>
+    <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold text-[var(--color-ink)]">
+      {isBn ? (bank.titleBn ?? bank.title) : bank.title}
+    </h1>
+    <p class="mt-3 text-[var(--color-ink-muted)]">{bank.description}</p>
+    <p class="mt-2 text-sm text-[var(--color-ink-subtle)]">
+      {isBn ? 'এটি beginner/expert লেবেল নয়—স্কিল-ম্যাপ করা প্রশ্ন।' : 'Not a vague beginner/expert label—questions map to skill IDs.'}
+    </p>
+    <div class="mt-8">
+      <AssessmentWizard client:load locale={locale} bank={bank} trackSlug={track.slug} goalSkillIds={track.goalSkillIds} />
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+interface Props {
+  slotId: string;
+  variant?: 'inline' | 'sidebar' | 'end';
+}
+
+const { slotId, variant = 'inline' } = Astro.props;
+const client = import.meta.env.PUBLIC_ADSENSE_CLIENT;
+const enabled = Boolean(client);
+const minHeight = variant === 'sidebar' ? '250px' : '90px';
+---
+
+<aside
+  class:list={['ad-slot no-print', 'my-6 rounded-[var(--radius-md)] border border-dashed border-[var(--color-border)] bg-[var(--color-surface-2)]']}
+  data-ad-slot={slotId}
+  data-ad-enabled={enabled ? 'true' : 'false'}
+  aria-label="Advertisement"
+  style={`min-height:${minHeight}`}
+>
+  {
+    enabled ? (
+      <div class="flex h-full items-center justify-center p-4 text-xs text-[var(--color-ink-subtle)]" data-adsense-mount={slotId}>
+        Ad
+      </div>
+    ) : (
+      <div class="flex h-full items-center justify-center p-4 text-xs text-[var(--color-ink-subtle)]">
+        Ad placeholder ({slotId}) — not loaded without PUBLIC_ADSENSE_CLIENT
+      </div>
+    )
+  }
+</aside>

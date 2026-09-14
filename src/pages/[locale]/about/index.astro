@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const title = isBn ? 'সম্পর্কে' : 'About';
+const body = isBn ? 'Dev Turning Point বাংলাদেশের জন্য একটি ওপেন-সোর্স দ্বিভাষিক লার্নিং প্ল্যাটফর্ম। V1-এ অ্যাকাউন্ট নেই—প্রগ্রেস ব্রাউজারে থাকে।' : 'Dev Turning Point is an open-source bilingual learning platform for computer engineering careers in Bangladesh. Progress stays in your browser—no accounts in V1.';
+---
+
+<BaseLayout locale={locale} title={title} description={body}>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 prose-reading">
+    <h1>{title}</h1>
+    <p>{body}</p>
+  </div>
+</BaseLayout>

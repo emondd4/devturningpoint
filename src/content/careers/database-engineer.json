@@ -1,0 +1,104 @@
+{
+  "id": "database-engineer",
+  "slug": "database-engineer",
+  "name": "Database Engineer",
+  "nameBn": "ডেটাবেস ইঞ্জিনিয়ার",
+  "alternativeNames": [
+    "Database Administrator (DBA)",
+    "Data Engineer (DB-focused)",
+    "SQL Developer",
+    "PostgreSQL Developer"
+  ],
+  "summary": "Designs schemas, tunes queries, and keeps database systems reliable, backed up, and performant.",
+  "whatTheyDo": "Model data, optimize indexes and queries, manage migrations/backups, and support application teams on data access patterns.",
+  "typicalDailyWork": [
+    "Review slow queries",
+    "Design indexes",
+    "Plan migrations",
+    "Verify backups/restores",
+    "Support incident data fixes"
+  ],
+  "responsibilities": [
+    "Protect durability and integrity",
+    "Control access carefully",
+    "Document schema decisions"
+  ],
+  "prerequisites": [
+    "Strong SQL",
+    "Relational theory basics",
+    "OS/storage awareness helpful"
+  ],
+  "technicalSkills": [
+    "Schema design",
+    "Indexing",
+    "Transactions/isolation",
+    "Backup/restore",
+    "Replication concepts"
+  ],
+  "tools": [
+    "psql/MySQL clients",
+    "EXPLAIN tools",
+    "Migration frameworks",
+    "Monitoring for DB metrics"
+  ],
+  "softSkills": [
+    "Careful change management",
+    "Clear impact communication"
+  ],
+  "juniorExpectations": [
+    "Write correct SQL",
+    "Assist migrations",
+    "Monitor basic health"
+  ],
+  "midExpectations": [
+    "Tune production workloads",
+    "Design schemas for growth"
+  ],
+  "seniorExpectations": [
+    "Data platform strategy",
+    "HA/DR planning",
+    "Mentor engineers on data access"
+  ],
+  "relatedCareers": [
+    "backend-engineer",
+    "data-analyst",
+    "devops-engineer"
+  ],
+  "careerTransitions": [
+    "May move into data engineering or platform roles"
+  ],
+  "learningTracks": [
+    "database",
+    "backend"
+  ],
+  "projectIds": [
+    "proj-task-api",
+    "proj-sql-metrics"
+  ],
+  "interviewCategories": [
+    "sql",
+    "indexing",
+    "transactions"
+  ],
+  "bangladeshNotes": "Dedicated DBA/Database Engineer titles appear especially in enterprise, telecom, and larger product environments; many startups instead expect backend engineers to own PostgreSQL/MySQL. Reviewed full-stack and backend ads commonly list PostgreSQL, MySQL, or MongoDB as application skills rather than separate DBA tracks. Oracle appears in some enterprise/telecom-oriented listings. Confirm whether a role is pure DBA versus backend-with-SQL.",
+  "commonQualifications": [
+    "SQL deep practice",
+    "EXPLAIN/analyze examples",
+    "Backup/restore drills"
+  ],
+  "commonlyRequestedTech": [
+    "PostgreSQL",
+    "MySQL",
+    "SQL",
+    "Indexing",
+    "Migrations"
+  ],
+  "experienceExpectations": "Pure DBA senior roles often expect multi-year production ownership; backend-adjacent DB skills are more widely requested.",
+  "sources": [
+    "src-postgres-docs",
+    "src-job-systemone",
+    "src-job-innospace-backend"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

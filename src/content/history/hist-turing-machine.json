@@ -1,0 +1,21 @@
+{
+  "id": "hist-turing-machine",
+  "year": "1936",
+  "title": "Turing's model of computation",
+  "titleBn": "টিউরিংয়ের গণনা মডেল",
+  "before": "Mathematics could describe calculation procedures, but there was no widely shared formal model of what it means for a problem to be computable by a mechanical process.",
+  "problem": "Researchers needed a precise way to define algorithms and the limits of mechanical computation.",
+  "change": "Alan Turing's 1936 work (commonly dated via IEEE Computer Society timeline coverage of the computable-numbers paper) introduced an abstract machine that reads/writes symbols on a tape according to rules—now called the Turing machine.",
+  "whyItMattered": "It gave computer science a foundation for algorithms, computability, and later programming-language theory.",
+  "enabled": "Formal reasoning about what computers can and cannot compute; later links to programming and complexity ideas.",
+  "modernDescendants": [
+    "CPU instruction cycles as state machines",
+    "Computability theory",
+    "Programming language semantics"
+  ],
+  "concreteExample": "Any modern program can be viewed, at a high level, as a finite control logic manipulating memory symbols—an idea rooted in Turing's model.",
+  "caveat": "Turing machines are a mathematical model, not a claim that Turing built the first electronic computer. Priority debates about early machines are historically complex.",
+  "sources": [
+    "src-ieee-timeline"
+  ]
+}

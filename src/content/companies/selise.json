@@ -1,0 +1,29 @@
+{
+  "id": "selise",
+  "slug": "selise",
+  "name": "SELISE",
+  "website": "https://selisegroup.com/about-us/",
+  "category": "software-services",
+  "businessAreas": [
+    "enterprise software",
+    "digital platforms",
+    "product engineering"
+  ],
+  "careerAreas": [
+    "software-engineer",
+    "frontend-engineer",
+    "backend-engineer",
+    "fullstack-engineer",
+    "devops-engineer",
+    "ui-ux-designer"
+  ],
+  "headquarters": "MIDAS Centre, House 5, Road 16 (New), Dhanmondi, Dhaka-1209, Bangladesh (SELISE Bangladesh Ltd)",
+  "summary": "SELISE operates a major engineering hub in Dhaka (SELISE Bangladesh Ltd, founded 2011 per company materials) delivering enterprise-grade software and digital platforms for global projects.",
+  "selectionCriteria": "Featured for verified Dhaka engineering presence, official address documentation, and BASIS top-exporter recognition for FY 2024–25; not ranked.",
+  "lastVerified": "2026-09-14",
+  "sources": [
+    "src-selise-about",
+    "src-selise-impressum",
+    "src-basis-exporters-fe"
+  ]
+}

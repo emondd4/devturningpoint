@@ -1,0 +1,103 @@
+{
+  "id": "product-manager",
+  "slug": "product-manager",
+  "name": "Product Manager",
+  "nameBn": "প্রোডাক্ট ম্যানেজার",
+  "alternativeNames": [
+    "Product Owner",
+    "Associate Product Manager",
+    "Technical Product Manager"
+  ],
+  "summary": "Defines problem statements and priorities, aligning design, engineering, and business outcomes for a product area.",
+  "whatTheyDo": "Discover user/business needs, write requirements, sequence roadmaps, and measure outcomes after release.",
+  "typicalDailyWork": [
+    "Clarify problem statements",
+    "Write PRDs/user stories",
+    "Prioritize backlog",
+    "Review metrics",
+    "Coordinate launches"
+  ],
+  "responsibilities": [
+    "Say no to low-value scope",
+    "Keep success metrics explicit",
+    "Represent users and constraints honestly"
+  ],
+  "prerequisites": [
+    "Structured communication",
+    "Basic technical literacy",
+    "Comfort with metrics"
+  ],
+  "technicalSkills": [
+    "Requirements writing",
+    "Roadmapping",
+    "Experiment literacy",
+    "Analytics reading",
+    "Technical trade-off awareness"
+  ],
+  "tools": [
+    "Jira/Linear",
+    "Figma (review)",
+    "Analytics dashboards",
+    "Docs/Notion"
+  ],
+  "softSkills": [
+    "Influence without authority",
+    "Conflict resolution",
+    "Customer interviews"
+  ],
+  "juniorExpectations": [
+    "Own small features",
+    "Write clear acceptance criteria",
+    "Support discovery"
+  ],
+  "midExpectations": [
+    "Own a product area",
+    "Balance roadmap bets",
+    "Partner deeply with eng/design"
+  ],
+  "seniorExpectations": [
+    "Multi-team strategy",
+    "Business outcome ownership",
+    "Mentor PMs"
+  ],
+  "relatedCareers": [
+    "ui-ux-designer",
+    "software-engineer",
+    "data-analyst"
+  ],
+  "careerTransitions": [
+    "May move into group PM or founder/operator roles"
+  ],
+  "learningTracks": [
+    "project-management",
+    "foundations"
+  ],
+  "projectIds": [
+    "proj-marketplace-mvp",
+    "proj-expense-tracker"
+  ],
+  "interviewCategories": [
+    "product-sense",
+    "metrics",
+    "execution"
+  ],
+  "bangladeshNotes": "Product Manager / Product Owner roles are more common at consumer tech, fintech, and SaaS product companies than at pure outsourcing shops (where Project Manager or Business Analyst may dominate). Technical PM expectations vary—some prefer prior engineering background for payments or platform domains. Do not equate Project Manager and Product Manager without reading the job description.",
+  "commonQualifications": [
+    "Evidence of shipped product decisions",
+    "Metrics-aware case studies"
+  ],
+  "commonlyRequestedTech": [
+    "Jira",
+    "Analytics tools",
+    "Basic SQL (sometimes)",
+    "Figma familiarity"
+  ],
+  "experienceExpectations": "Associate roles exist at some product firms; senior PM usually requires prior ownership evidence.",
+  "sources": [
+    "src-pathao-funding-press",
+    "src-bkash-home",
+    "src-therap-home"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

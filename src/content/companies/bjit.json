@@ -1,0 +1,30 @@
+{
+  "id": "bjit",
+  "slug": "bjit",
+  "name": "BJIT",
+  "website": "https://bjitgroup.com/about-us",
+  "category": "software-services",
+  "businessAreas": [
+    "software development",
+    "IT consulting",
+    "outsourcing / dedicated teams"
+  ],
+  "careerAreas": [
+    "software-engineer",
+    "frontend-engineer",
+    "backend-engineer",
+    "fullstack-engineer",
+    "devops-engineer",
+    "qa-engineer",
+    "cybersecurity-engineer"
+  ],
+  "headquarters": "Dhaka, Bangladesh (global offices also listed in Japan, USA, Europe, and Asia)",
+  "summary": "BJIT is a global software development and IT services company with major delivery capacity in Bangladesh, serving enterprise and product customers across multiple international markets.",
+  "selectionCriteria": "Featured due to verified Bangladesh delivery presence, exporter recognition, and public engineering/security milestones; inclusion is curated, not ranked.",
+  "lastVerified": "2026-09-14",
+  "sources": [
+    "src-bjit-about",
+    "src-bjit-iso",
+    "src-basis-exporters-fe"
+  ]
+}

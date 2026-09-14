@@ -1,0 +1,131 @@
+---
+id: FOUNDATIONS-ALGORITHMS-COMPLEXITY
+title: "Algorithms and Complexity (Big O)"
+titleBn: "অ্যালগরিদম ও কমপ্লেক্সিটি (Big O)"
+description: "Estimate how runtime and memory grow so you can predict scaling before production surprises you."
+descriptionBn: "রানটাইম ও মেমোরি কীভাবে বাড়ে তা অনুমান করুন—প্রোডাকশন সারপ্রাইজের আগে স্কেলিং বোঝার জন্য।"
+track: foundations
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+  - "FOUNDATIONS-CPU-MEMORY-STORAGE"
+unlocks: 
+  - "DATABASE-SQL-JOINS-AGGREGATION"
+  - "DATABASE-POSTGRESQL-INDEXING"
+related: 
+  - "FOUNDATIONS-SQL-FUNDAMENTALS"
+  - "BACKEND-REDIS-CACHING"
+careers: 
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FRONTEND-ENGINEER"
+tags: 
+  - "algorithms"
+  - "big-o"
+  - "complexity"
+  - "performance"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "POSTGRES-INDEXES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why Big O is a communication tool
+
+Complexity notation is how engineers say: “this will hurt at 10× data.” It is not a micro-benchmark replacement—it is a **scaling language**.
+
+## Mental model
+
+<Callout type="mental-model">
+  Big O ignores constants and lower-order terms to spotlight growth shape: flat, linear, quadratic, logarithmic. Ask: if input size doubles, does work stay ~same, double, or square?
+</Callout>
+
+### Common families
+
+| Class | Name | Intuition |
+| --- | --- | --- |
+| (O(1)) | constant | map lookup, array index |
+| (O(\log n)) | logarithmic | binary search, balanced tree height |
+| (O(n)) | linear | single scan |
+| (O(n \log n)) | linearithmic | efficient comparison sorts |
+| (O(n^2)) | quadratic | nested loops over n |
+| (O(2^n)) | exponential | naive subsets / some recursions |
+
+## Worked examples
+
+```js
+// O(n)
+function sum(arr) {
+  let s = 0;
+  for (const x of arr) s += x;
+  return s;
+}
+
+// O(n^2) — nested scan
+function hasDuplicateNaive(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === arr[j]) return true;
+    }
+  }
+  return false;
+}
+
+// Average O(n) time, O(n) extra memory
+function hasDuplicateSet(arr) {
+  const seen = new Set();
+  for (const x of arr) {
+    if (seen.has(x)) return true;
+    seen.add(x);
+  }
+  return false;
+}
+```
+
+## Complexity in databases and APIs
+
+- Full table scan ≈ (O(n)) rows examined.
+- Indexed point lookup can approach (O(\log n)) I/O.
+- Chatty N+1 HTTP calls are often worse than a slightly heavier single query.
+
+<Callout type="warning">
+  An (O(n)) algorithm with huge constants or disk I/O can lose to an (O(n \log n)) in-memory approach. Measure when stakes are real.
+</Callout>
+
+
+## Common mistakes
+
+- **Memorizing without access patterns** — Know *why* a hash set helps membership tests.
+- **Ignoring space complexity** — Caching everything is O(n) memory that can OOM a container.
+- **Premature micro-optimization** — Fix algorithmic cliffs and I/O first.
+
+## Interview angle
+
+<Callout type="interview">
+  Given two nested loops filtering users then posts, estimate complexity and propose a better approach with maps or a join.
+</Callout>
+
+## Practice checklist
+
+- [ ] Classify three of your own functions by Big O.
+- [ ] Replace a nested search with a Set and compare clarity.
+- [ ] Explain N+1 queries as a complexity problem.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-INDEXES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

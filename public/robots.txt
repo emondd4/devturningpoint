@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emondd4.github.io/devturningpoint/sitemap-index.xml

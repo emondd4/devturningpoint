@@ -1,0 +1,23 @@
+{
+  "id": "issue-flutter-ios-cleartext",
+  "title": "Flutter Android cleartext HTTP blocked while iOS simulator still loads API",
+  "technology": "Flutter",
+  "platform": "Android",
+  "symptoms": [
+    "Android device/emulator fails HTTP API calls",
+    "iOS simulator works with same URL",
+    "Cleartext not permitted errors"
+  ],
+  "cause": "Modern Android blocks cleartext (non-HTTPS) traffic by default unless explicitly allowed.",
+  "solution": "Prefer HTTPS everywhere. For local dev only, configure network security config carefully and never ship broad cleartext allowances to production.",
+  "workaround": "Use adb reverse / localhost HTTPS reverse proxies for device testing.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "mobile",
+    "flutter"
+  ],
+  "sources": [
+    "src-flutter-docs"
+  ],
+  "lastVerified": "2026-09-14"
+}

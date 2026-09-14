@@ -1,0 +1,194 @@
+{
+  "id": "bangladesh-sample-2026-09",
+  "title": "Bangladesh tech job-market sample (static)",
+  "generatedAt": "2026-09-14",
+  "sampleSize": 8,
+  "observationPeriod": "Public listings and career pages reviewed on or around 2026-09-14 (some postings carry earlier publish dates or future application deadlines).",
+  "methodology": "Manual review of publicly accessible job postings and employer career pages discovered via web search. Each listing was opened enough to capture title, employer, location signals, and explicitly mentioned skills. Role titles were mapped to normalizedRole IDs used by Dev Turning Point. No scrapers, salary inference, or ranking of employers were performed. Skills arrays include only technologies named in the listing (or closely synonymous labels already present there).",
+  "limitations": [
+    "Non-random convenience sample; not statistically representative of all Bangladesh tech hiring.",
+    "Job boards rotate and expire; URLs may break after access date.",
+    "Some aggregators republish employer ads; wording may differ from the employer's own site.",
+    "Does not include salary figures (often negotiable/unlisted) and does not claim national averages.",
+    "English-language and major-board bias; Bangla-only or closed internal roles are underrepresented.",
+    "Skill frequency counts below are within this sample only."
+  ],
+  "listings": [
+    {
+      "title": "Senior Software Engineer - Software Development",
+      "normalizedRole": "software-engineer",
+      "company": "Nagad Limited",
+      "date": "2026-09",
+      "skills": [
+        "Java",
+        "Spring",
+        "Micronaut",
+        "React",
+        "Flutter",
+        "REST API",
+        "SQL",
+        "Git",
+        "CI/CD",
+        "Automated Testing"
+      ],
+      "location": "Dhaka",
+      "sourceUrl": "https://bdjobs.com/h/details/1530976?ln=1"
+    },
+    {
+      "title": "Senior Full-Stack Developer - National TB Program Integration",
+      "normalizedRole": "fullstack-engineer",
+      "company": "SystemOne, LLC",
+      "date": "2026",
+      "skills": [
+        "Node.js",
+        "React.js",
+        "TypeScript",
+        "MySQL",
+        "REST APIs",
+        "Git",
+        "Linux",
+        "Docker",
+        "CI/CD"
+      ],
+      "location": "Dhaka",
+      "sourceUrl": "https://hotjobs.bdjobs.com/jobs/systemone/systemone.html"
+    },
+    {
+      "title": "Senior Backend Software Engineer",
+      "normalizedRole": "backend-engineer",
+      "company": "Innospace Infotech Ltd.",
+      "date": "2026",
+      "skills": [
+        "NestJS",
+        "TypeScript",
+        "MongoDB",
+        "Redis",
+        "RabbitMQ",
+        "AWS",
+        "CI/CD",
+        "Microservices"
+      ],
+      "location": "Gulshan 2, Dhaka",
+      "sourceUrl": "https://innospace.tech/careers/senior-backend-software-engineer/"
+    },
+    {
+      "title": "Backend Developer (NodeJS, NestJS, AI & Cloud Integrations)",
+      "normalizedRole": "backend-engineer",
+      "company": "Fanfare Bangladesh Ltd",
+      "date": "2025-2026",
+      "skills": [
+        "Node.js",
+        "NestJS",
+        "TypeScript",
+        "Express.js",
+        "MongoDB",
+        "PostgreSQL",
+        "Firebase",
+        "CI/CD"
+      ],
+      "location": "Dhaka (DOHS Banani)",
+      "sourceUrl": "https://dohaj.com/job-details/backend-developer-nodejs-nestjs-ai-cloud-integrations-fanfare-bangladesh-ltd-295934"
+    },
+    {
+      "title": "Technical Lead (Full Stack + Flutter)",
+      "normalizedRole": "fullstack-engineer",
+      "company": "ZMC Technologies Limited",
+      "date": "2026",
+      "skills": [
+        "Flutter",
+        "NestJS",
+        "React",
+        "Next.js",
+        "PostgreSQL",
+        "CI/CD",
+        "OWASP security standards",
+        "Code review"
+      ],
+      "location": "Banani, Dhaka",
+      "sourceUrl": "https://dhakacareers.com/jobs/technical-lead-full-stack-flutter-banani-zmc-technologies-limited/"
+    },
+    {
+      "title": "Full-stack Engineer: Flutter/Riverpod for IOS/Android/Web",
+      "normalizedRole": "flutter-developer",
+      "company": "Kisti Limited",
+      "date": "2026-06",
+      "skills": [
+        "Flutter",
+        "Riverpod",
+        "App Store publishing",
+        "Play Store publishing",
+        "Mobile product sense"
+      ],
+      "location": "Dhaka",
+      "sourceUrl": "https://dohaj.com/job-details/full-stack-engineer-flutterriverpod-for-iosandroidweb-kisti-limited-789015"
+    },
+    {
+      "title": "Full Stack App Developer",
+      "normalizedRole": "fullstack-engineer",
+      "company": "Zentixsofttech Private Limited",
+      "date": "2025-2026",
+      "skills": [
+        "Flutter",
+        "React",
+        "React Native",
+        "Laravel",
+        "REST API",
+        "MySQL",
+        "Git",
+        "AWS",
+        "Docker"
+      ],
+      "location": "Dhaka (Nikunja)",
+      "sourceUrl": "https://dohaj.com/job-details/full-stack-app-developer-zentixsofttech-private-limited-760635"
+    },
+    {
+      "title": "Assistant / Deputy Manager, IT Infra",
+      "normalizedRole": "devops-engineer",
+      "company": "Samsung R&D Institute Bangladesh Ltd",
+      "date": "2025",
+      "skills": [
+        "IT infrastructure support",
+        "Inventory/documentation",
+        "Ticketing",
+        "IT policies",
+        "Security systems support"
+      ],
+      "location": "Dhaka",
+      "sourceUrl": "https://dohaj.com/job-details/assistant-deputy-manager-it-infra-samsung-rd-institute-bangladesh-ltd-330073"
+    }
+  ],
+  "aggregateTrends": {
+    "wordingDisclaimer": "Trends below describe this sample of 8 publicly reviewed listings only. They are directional signals for learners, not national statistics or proof that 'all companies require' any stack.",
+    "withinSampleObservations": [
+      "Dhaka (including named neighborhoods such as Banani/Gulshan) dominates location text in this sample.",
+      "Full-stack and senior software titles often combine a frontend framework with a backend framework rather than a single narrow specialty.",
+      "Flutter appears both as a dedicated mobile focus and as part of full-stack/lead postings.",
+      "CI/CD, Git, and REST/API skills recur across multiple engineering ads in the sample.",
+      "Node/NestJS and Java/Spring both appear; the sample is too small to declare a single 'winning' backend ecosystem.",
+      "Explicit security language (e.g. OWASP) appears in at least one senior/lead posting, but most listings emphasize feature delivery stacks."
+    ],
+    "skillMentionsApproximate": {
+      "note": "Counts are approximate co-mentions inside this sample only.",
+      "REST_or_API": 6,
+      "Git": 5,
+      "CI_CD": 5,
+      "Flutter": 4,
+      "React_or_Next": 4,
+      "NestJS_or_Node": 4,
+      "SQL_or_PostgreSQL_or_MySQL": 5,
+      "Docker": 3,
+      "TypeScript": 3
+    }
+  },
+  "sources": [
+    "src-job-nagad-sse",
+    "src-job-systemone",
+    "src-job-innospace-backend",
+    "src-job-fanfare-backend",
+    "src-job-zmc-lead",
+    "src-job-kisti-flutter",
+    "src-job-zentix-fullstack",
+    "src-job-srbd-infra",
+    "src-srbd-home"
+  ]
+}

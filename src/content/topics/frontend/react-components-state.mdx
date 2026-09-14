@@ -1,0 +1,91 @@
+---
+id: FRONTEND-REACT-COMPONENTS-STATE
+title: "React Components and State"
+titleBn: "React কম্পোনেন্ট ও স্টেট"
+description: "UI as a function of state and props—composition, one-way data, and rendering."
+descriptionBn: "স্টেট ও প্রপসের ফাংশন হিসেবে UI—কম্পোজিশন, একমুখী ডেটা ও রেন্ডার।"
+track: frontend
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FRONTEND-JAVASCRIPT-FUNDAMENTALS"
+  - "FRONTEND-TYPESCRIPT-FUNDAMENTALS"
+unlocks: 
+  - "FRONTEND-REACT-HOOKS"
+  - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+related: 
+  - "FRONTEND-CSS-FLEXBOX-GRID"
+careers: 
+  - "CAREER-FRONTEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "react"
+  - "components"
+  - "state"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "REACT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why React’s model stuck
+
+Declarative UI: describe the view for current state; React updates the DOM. Composition beats inheritance for UI trees.
+
+## Mental model
+
+<Callout type="mental-model">
+  Props flow down. Events flow up. State lives where it can change, as low as reasonable but high enough to share.
+</Callout>
+
+```tsx
+import { useState } from 'react';
+
+export function Counter() {
+  const [n, setN] = useState(0);
+  return (
+    <button type="button" onClick={() => setN((x) => x + 1)}>
+      Count {n}
+    </button>
+  );
+}
+```
+
+Treat state updates as requests; use functional updates when next value depends on previous.
+
+
+## Common mistakes
+
+- **Mutating state in place** — React may skip renders; copy instead.
+- **Derived state duplication** — Compute during render when possible.
+- **Prop drilling panic** — Compose first; context later with care.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain one-way data flow and how you would lift state for two sibling components.
+</Callout>
+
+## Practice checklist
+
+- [ ] Build a controlled input.
+- [ ] Split a component into presentational pieces.
+- [ ] Fix a mutation bug deliberately then correct it.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `REACT-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

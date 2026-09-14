@@ -1,0 +1,96 @@
+---
+id: FLUTTER-NETWORKING-REST
+title: "Flutter Networking and REST"
+titleBn: "Flutter নেটওয়ার্কিং ও REST"
+description: "Fetching JSON safely with http/dio patterns, parsing, and error UX."
+descriptionBn: "http/dio প্যাটার্নে নিরাপদে JSON আনা, পার্স করা, এবং এরর UX।"
+track: mobile-flutter
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites: 
+  - "FLUTTER-DART-ASYNC-FUTURES-STREAMS"
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+unlocks: 
+  - "FLUTTER-TESTING"
+  - "FLUTTER-PERFORMANCE-DEVTOOLS"
+related: 
+  - "BACKEND-HTTP-REST-API-DESIGN"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+careers: 
+  - "CAREER-MOBILE-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "flutter"
+  - "http"
+  - "rest"
+  - "json"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "FLUTTER-NETWORKING"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why networking needs a boundary layer
+
+Widgets should not own raw URLs, headers, and JSON maps. A repository/client isolates API churn and simplifies tests.
+
+## Mental model
+
+<Callout type="mental-model">
+  Request → HTTP status → decode bytes → validate shape → domain model. Failures are data: timeouts, 401, 500, parse errors.
+</Callout>
+
+## Example with `http`
+
+```dart
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+Future<Map<String, dynamic>> fetchTopic(String id) async {
+  final uri = Uri.parse('https://api.example.com/topics/$id');
+  final res = await http.get(uri);
+  if (res.statusCode != 200) {
+    throw Exception('HTTP ${res.statusCode}');
+  }
+  return jsonDecode(res.body) as Map<String, dynamic>;
+}
+```
+
+Parse into typed models; don’t sprinkle `Map` lookups across UI.
+
+
+## Common mistakes
+
+- **Ignoring non-200 responses** — Parsing error HTML as JSON crashes the UI path.
+- **Blocking UI while decoding huge payloads** — Consider compute/isolates for heavy parse.
+- **Hardcoding tokens in the app binary** — Use secure storage and short-lived tokens.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you structure networking, retries, and auth header injection in a Flutter app?
+</Callout>
+
+## Practice checklist
+
+- [ ] Fetch a public JSON API and render a list.
+- [ ] Map status codes to user-facing messages.
+- [ ] Write a fake client for widget tests.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-NETWORKING`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

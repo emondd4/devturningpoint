@@ -1,0 +1,77 @@
+---
+id: QA-TESTING-PYRAMID
+title: "The Testing Pyramid"
+titleBn: "টেস্টিং পিরামিড"
+description: "Balance unit, integration, and end-to-end tests for fast feedback and confidence."
+descriptionBn: "দ্রুত ফিডব্যাক ও আত্মবিশ্বাসের জন্য ইউনিট, ইন্টিগ্রেশন ও এন্ড-টু-এন্ড টেস্টের ভারসাম্য।"
+track: qa
+difficulty: beginner
+estimatedMinutes: 30
+prerequisites: 
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+unlocks: 
+  - "QA-MANUAL-TEST-DESIGN"
+  - "QA-API-TESTING"
+related: 
+  - "BACKEND-TESTING"
+  - "FLUTTER-TESTING"
+careers: 
+  - "CAREER-QA-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "qa"
+  - "testing-pyramid"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "PLAYWRIGHT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why the pyramid exists
+
+All E2E suites become slow, flaky, and expensive. Push most checks down to faster layers; reserve E2E for critical user journeys.
+
+## Mental model
+
+<Callout type="mental-model">
+  Many unit tests, fewer integration tests, few E2E tests. Each layer catches different failure modes.
+</Callout>
+
+Map pyramid layers to your stack (Jest/Vitest, API tests, Playwright). Optimize for signal-to-noise.
+
+
+## Common mistakes
+
+- **E2E-only strategy** — Slow CI and flaky failures.
+- **No clear ownership** — Tests rot; delete or fix deliberately.
+- **Testing implementation details** — Brittle suites.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you structure tests for a Nest + Next feature that saves a form?
+</Callout>
+
+## Practice checklist
+
+- [ ] Classify 10 existing tests into pyramid layers.
+- [ ] Identify one E2E that should be a unit test.
+- [ ] Sketch CI time budgets per layer.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `PLAYWRIGHT-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

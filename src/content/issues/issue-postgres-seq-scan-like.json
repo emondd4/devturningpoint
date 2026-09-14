@@ -1,0 +1,23 @@
+{
+  "id": "issue-postgres-seq-scan-like",
+  "title": "PostgreSQL ignores index for leading-wildcard LIKE '%term%'",
+  "technology": "PostgreSQL",
+  "platform": "Database",
+  "symptoms": [
+    "Slow search endpoint",
+    "EXPLAIN shows Seq Scan",
+    "Index on column exists"
+  ],
+  "cause": "B-tree indexes cannot efficiently support leading-wildcard pattern matches.",
+  "solution": "Use trigram indexes (pg_trgm) for substring search, full-text search for natural language, or search services when scale demands. Avoid wrapping indexed columns in functions that defeat index use.",
+  "workaround": "Prefix search `term%` when product-acceptable; add LIMIT and stricter filters.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "database",
+    "sql"
+  ],
+  "sources": [
+    "src-postgres-docs"
+  ],
+  "lastVerified": "2026-09-14"
+}

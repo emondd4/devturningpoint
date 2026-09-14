@@ -1,0 +1,923 @@
+[
+  {
+    "id": "RFC-791-IPV4",
+    "title": "Internet Protocol (RFC 791)",
+    "url": "https://www.rfc-editor.org/rfc/rfc791",
+    "publisher": "IETF",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "RFC-9110-HTTP",
+    "title": "HTTP Semantics (RFC 9110)",
+    "url": "https://www.rfc-editor.org/rfc/rfc9110",
+    "publisher": "IETF",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "RFC-9293-TCP",
+    "title": "Transmission Control Protocol (RFC 9293)",
+    "url": "https://www.rfc-editor.org/rfc/rfc9293",
+    "publisher": "IETF",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "W3C-HTML",
+    "title": "HTML Living Standard",
+    "url": "https://html.spec.whatwg.org/",
+    "publisher": "WHATWG",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "W3C-WCAG",
+    "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+    "url": "https://www.w3.org/TR/WCAG22/",
+    "publisher": "W3C",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-CSS-CASCADE",
+    "title": "Cascade, specificity, and inheritance",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-CSS-BOX",
+    "title": "Introduction to the CSS box model",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-FLEXBOX",
+    "title": "CSS Flexible Box Layout",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-GRID",
+    "title": "CSS Grid Layout",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-JS-EVENT-LOOP",
+    "title": "The event loop",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "TC39-ECMASCRIPT",
+    "title": "ECMAScript Language Specification",
+    "url": "https://tc39.es/ecma262/",
+    "publisher": "Ecma International",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "TS-HANDBOOK",
+    "title": "The TypeScript Handbook",
+    "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+    "publisher": "Microsoft",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REACT-DOCS",
+    "title": "React Documentation",
+    "url": "https://react.dev/learn",
+    "publisher": "Meta",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REACT-HOOKS",
+    "title": "Built-in React Hooks",
+    "url": "https://react.dev/reference/react/hooks",
+    "publisher": "Meta",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NEXTJS-APP-ROUTER",
+    "title": "Next.js App Router",
+    "url": "https://nextjs.org/docs/app",
+    "publisher": "Vercel",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NEXTJS-AUTH",
+    "title": "Next.js Authentication Guide",
+    "url": "https://nextjs.org/docs/app/guides/authentication",
+    "publisher": "Vercel",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-CONSTRAINTS",
+    "title": "Understanding constraints",
+    "url": "https://docs.flutter.dev/ui/layout/constraints",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-WIDGETS",
+    "title": "Introduction to widgets",
+    "url": "https://docs.flutter.dev/ui/widgets-intro",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-STATE",
+    "title": "State management",
+    "url": "https://docs.flutter.dev/data-and-backend/state-mgmt/intro",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-NAV",
+    "title": "Navigation and routing",
+    "url": "https://docs.flutter.dev/ui/navigation",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-NETWORKING",
+    "title": "Fetch data from the internet",
+    "url": "https://docs.flutter.dev/data-and-backend/networking/fetch-data",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-TESTING",
+    "title": "Testing Flutter apps",
+    "url": "https://docs.flutter.dev/testing/overview",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-PERF",
+    "title": "Flutter performance profiling",
+    "url": "https://docs.flutter.dev/perf/ui-performance",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-DEPLOY",
+    "title": "Build and release an Android app",
+    "url": "https://docs.flutter.dev/deployment/android",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DART-LANGUAGE",
+    "title": "A tour of the Dart language",
+    "url": "https://dart.dev/language",
+    "publisher": "Dart / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DART-ASYNC",
+    "title": "Asynchronous programming: futures, async, await",
+    "url": "https://dart.dev/libraries/async/async-await",
+    "publisher": "Dart / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DART-STREAMS",
+    "title": "Asynchronous programming: streams",
+    "url": "https://dart.dev/libraries/async/using-streams",
+    "publisher": "Dart / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NODE-EVENT-LOOP",
+    "title": "The Node.js Event Loop",
+    "url": "https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick",
+    "publisher": "Node.js",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-ARCHITECTURE",
+    "title": "NestJS Documentation — Controllers & Modules",
+    "url": "https://docs.nestjs.com/modules",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-AUTH",
+    "title": "NestJS Authentication",
+    "url": "https://docs.nestjs.com/security/authentication",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-DOCS",
+    "title": "PostgreSQL Documentation",
+    "url": "https://www.postgresql.org/docs/current/",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-INDEXES",
+    "title": "PostgreSQL Indexes",
+    "url": "https://www.postgresql.org/docs/current/indexes.html",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-TX",
+    "title": "PostgreSQL Transaction Isolation",
+    "url": "https://www.postgresql.org/docs/current/transaction-iso.html",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REDIS-DATA-TYPES",
+    "title": "Redis data types",
+    "url": "https://redis.io/docs/latest/develop/data-types/",
+    "publisher": "Redis Ltd.",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MONGODB-DOCS",
+    "title": "MongoDB Manual",
+    "url": "https://www.mongodb.com/docs/manual/",
+    "publisher": "MongoDB Inc.",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DOCKER-GET-STARTED",
+    "title": "Docker Get Started",
+    "url": "https://docs.docker.com/get-started/",
+    "publisher": "Docker Inc.",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DOCKER-NETWORKING",
+    "title": "Docker Networking overview",
+    "url": "https://docs.docker.com/engine/network/",
+    "publisher": "Docker Inc.",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DOCKER-BRIDGE",
+    "title": "Bridge network driver",
+    "url": "https://docs.docker.com/engine/network/drivers/bridge/",
+    "publisher": "Docker Inc.",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GHA-WORKFLOWS",
+    "title": "GitHub Actions — Workflow syntax",
+    "url": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
+    "publisher": "GitHub",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GHA-SERVICE-CONTAINERS",
+    "title": "Communicating with Docker service containers",
+    "url": "https://docs.github.com/en/actions/use-cases-and-examples/using-containerized-services/communicating-with-a-service-container",
+    "publisher": "GitHub",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NGINX-DOCS",
+    "title": "NGINX Reverse Proxy Guide",
+    "url": "https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/",
+    "publisher": "F5 / NGINX",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "AWS-CLOUD-CONCEPTS",
+    "title": "AWS Cloud Practitioner Essentials — Cloud concepts",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html",
+    "publisher": "Amazon Web Services",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "TERRAFORM-DOCS",
+    "title": "Terraform Language Documentation",
+    "url": "https://developer.hashicorp.com/terraform/language",
+    "publisher": "HashiCorp",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "K8S-CONCEPTS",
+    "title": "Kubernetes Concepts",
+    "url": "https://kubernetes.io/docs/concepts/",
+    "publisher": "CNCF / Kubernetes",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "PROMETHEUS-DOCS",
+    "title": "Prometheus Overview",
+    "url": "https://prometheus.io/docs/introduction/overview/",
+    "publisher": "CNCF / Prometheus",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GRAFANA-DOCS",
+    "title": "Grafana Documentation",
+    "url": "https://grafana.com/docs/grafana/latest/",
+    "publisher": "Grafana Labs",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GIT-SCM-BOOK",
+    "title": "Pro Git Book",
+    "url": "https://git-scm.com/book/en/v2",
+    "publisher": "git-scm.com",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OWASP-TOP10",
+    "title": "OWASP Top Ten",
+    "url": "https://owasp.org/www-project-top-ten/",
+    "publisher": "OWASP",
+    "sourceType": "community",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "LINUX-MAN-PAGES",
+    "title": "Linux man-pages project",
+    "url": "https://www.kernel.org/doc/man-pages/",
+    "publisher": "Linux Kernel Organization",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "PLAYWRIGHT-DOCS",
+    "title": "Playwright Documentation",
+    "url": "https://playwright.dev/docs/intro",
+    "publisher": "Microsoft",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NN-G-HEURISTICS",
+    "title": "10 Usability Heuristics for User Interface Design",
+    "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+    "publisher": "Nielsen Norman Group",
+    "sourceType": "community",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "SCRUM-GUIDE",
+    "title": "The Scrum Guide",
+    "url": "https://scrumguides.org/scrum-guide.html",
+    "publisher": "Scrum.org / Scrum Alliance / Ken Schwaber & Jeff Sutherland",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FIGMA-HELP",
+    "title": "Figma Help Center",
+    "url": "https://help.figma.com/hc/en-us",
+    "publisher": "Figma",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-bkash-home",
+    "title": "bKash official website",
+    "url": "https://www.bkash.com/en",
+    "publisher": "bKash Limited",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-bkash-help",
+    "title": "bKash Help and contact addresses",
+    "url": "https://www.bkash.com/en/help",
+    "publisher": "bKash Limited",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-bkash-tbs-revenue-2024",
+    "title": "bKash revenue crosses Tk5,000cr mark, posts record Tk315cr profit",
+    "url": "https://www.tbsnews.net/economy/bkash-revenue-crosses-tk5000cr-mark-posts-record-tk315cr-profit-1130351",
+    "publisher": "The Business Standard",
+    "sourceType": "news",
+    "publishedDate": "2025-04-30",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "src-pathao-home",
+    "title": "Pathao official website",
+    "url": "https://pathao.com/",
+    "publisher": "Pathao",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-pathao-about",
+    "title": "Pathao About Us",
+    "url": "https://pathao.com/about-us/",
+    "publisher": "Pathao",
+    "sourceType": "company-announcement",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-pathao-contact",
+    "title": "Pathao Contact",
+    "url": "https://pathao.com/contact/",
+    "publisher": "Pathao",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-pathao-funding-press",
+    "title": "Pathao Raises $12M to Accelerate Fintech Transformation",
+    "url": "https://pathao.com/blog/press/pathao-raises-12m-to-drive-fintech-expansion/",
+    "publisher": "Pathao",
+    "sourceType": "company-announcement",
+    "publishedDate": "2024-09-14",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-pathao-funding-dailystar",
+    "title": "Pathao gets $12m for fintech push",
+    "url": "https://www.thedailystar.net/business/economy/news/pathao-gets-12m-fintech-push-3703291",
+    "publisher": "The Daily Star",
+    "sourceType": "news",
+    "publishedDate": "2024-09-14",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "src-bs23-home",
+    "title": "Brain Station 23 official website",
+    "url": "https://brainstation-23.com/",
+    "publisher": "Brain Station 23",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-bs23-about",
+    "title": "Brain Station 23 About",
+    "url": "https://brainstation-23.com/about/",
+    "publisher": "Brain Station 23",
+    "sourceType": "company-announcement",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-bs23-contact",
+    "title": "Brain Station 23 Contact / offices",
+    "url": "https://brainstation-23.com/contact/",
+    "publisher": "Brain Station 23",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-bs23-prospectus",
+    "title": "Draft Prospectus of Brain Station 23 PLC",
+    "url": "https://brainstation-23.com/wp-content/uploads/2024/01/Draft-Prospectus-of-Brain-Station-23-PLC.pdf",
+    "publisher": "Brain Station 23 PLC",
+    "sourceType": "company-announcement",
+    "publishedDate": "2024-01",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-bs23-qio-tbs",
+    "title": "Two IT firms get BSEC's nod to issue new shares through QIO",
+    "url": "https://www.tbsnews.net/economy/stocks/two-it-firms-get-bsecs-nod-issue-new-shares-through-qio-873161",
+    "publisher": "The Business Standard",
+    "sourceType": "news",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "src-bs23-iqio-tob",
+    "title": "Brain Station 23 back for stock listing",
+    "url": "https://tob.news/brain-station-23-back-for-stock-listing/",
+    "publisher": "TIMES of Bangladesh",
+    "sourceType": "news",
+    "publishedDate": "2025-10",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "src-softbd-home",
+    "title": "SoftBD Ltd official website",
+    "url": "https://softbdltd.com/",
+    "publisher": "SoftBD Ltd",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-softbd-about",
+    "title": "SoftBD Ltd About Us",
+    "url": "https://softbdltd.com/about-us/",
+    "publisher": "SoftBD Ltd",
+    "sourceType": "company-announcement",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-therap-home",
+    "title": "Therap (BD) Ltd career / company site",
+    "url": "https://therapbd.com/",
+    "publisher": "Therap (BD) Ltd",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-bjit-about",
+    "title": "About BJIT",
+    "url": "https://bjitgroup.com/about-us",
+    "publisher": "BJIT",
+    "sourceType": "company-announcement",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-bjit-iso",
+    "title": "BJIT Earns ISO 27001:2022 Certification",
+    "url": "https://bjitgroup.com/news-details/bjit-earns-iso-27001-2022-certification-for-information-security-management-system",
+    "publisher": "BJIT",
+    "sourceType": "company-announcement",
+    "publishedDate": "2024-05-02",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-bjit-emerce",
+    "title": "BJIT Featured in Emerce 100 of 2026",
+    "url": "https://bjitgroup.com/news-details/bjit-featured-in-emerce-100-of-2026-leading-bangladesh-s-rise-as-a-global-tech-hub",
+    "publisher": "BJIT",
+    "sourceType": "company-announcement",
+    "publishedDate": "2026-04-23",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-cefalo-home",
+    "title": "Cefalo official website",
+    "url": "https://www.cefalo.com/en/",
+    "publisher": "Cefalo",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-enosis-home",
+    "title": "Enosis Solutions official website",
+    "url": "https://www.enosisbd.com/",
+    "publisher": "Enosis Solutions",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-ssl-home",
+    "title": "SSL Wireless official website",
+    "url": "https://sslwireless.com/",
+    "publisher": "SSL Wireless",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-srbd-home",
+    "title": "Samsung R&D Institute Bangladesh",
+    "url": "https://research.samsung.com/srbd",
+    "publisher": "Samsung Research",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-srbd-basis",
+    "title": "SAMSUNG R&D INSTITUTE BANGLADESH LTD BASIS profile",
+    "url": "https://basis.org.bd/company-profile/21-11-063",
+    "publisher": "BASIS",
+    "sourceType": "community",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "src-selise-about",
+    "title": "SELISE Group About Us",
+    "url": "https://selisegroup.com/about-us/",
+    "publisher": "SELISE Group",
+    "sourceType": "company-announcement",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-selise-impressum",
+    "title": "SELISE Group Impressum / Bangladesh addresses",
+    "url": "https://selisegroup.com/impressum/",
+    "publisher": "SELISE Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-kaz-home",
+    "title": "Kaz Software official website",
+    "url": "https://www.kaz.com.bd/",
+    "publisher": "Kaz Software",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-basis-exporters-fe",
+    "title": "BASIS honours top 10 IT, ITES exporters for FY25",
+    "url": "https://thefinancialexpress.com.bd/trade/basis-honours-top-10-it-ites-exporters-for-fy25",
+    "publisher": "The Financial Express",
+    "sourceType": "news",
+    "publishedDate": "2026-01",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "src-basis-exporters-tbs",
+    "title": "BASIS honours top IT exporters of fiscal year 2024–25",
+    "url": "https://www.tbsnews.net/economy/corporates/basis-honours-top-it-exporters-fiscal-year-2024-25-1346541",
+    "publisher": "The Business Standard",
+    "sourceType": "news",
+    "publishedDate": "2026-01-27",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "src-job-nagad-sse",
+    "title": "Senior Software Engineer - Nagad Limited (Bdjobs)",
+    "url": "https://bdjobs.com/h/details/1530976?ln=1",
+    "publisher": "Bdjobs.com / Nagad Limited",
+    "sourceType": "job-posting",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S3"
+  },
+  {
+    "id": "src-job-systemone",
+    "title": "Senior Full-Stack Developer - SystemOne, LLC (Bdjobs Hot Jobs)",
+    "url": "https://hotjobs.bdjobs.com/jobs/systemone/systemone.html",
+    "publisher": "Bdjobs.com / SystemOne",
+    "sourceType": "job-posting",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S3"
+  },
+  {
+    "id": "src-job-innospace-backend",
+    "title": "Senior Backend Software Engineer - Innospace Infotech",
+    "url": "https://innospace.tech/careers/senior-backend-software-engineer/",
+    "publisher": "Innospace Infotech Ltd",
+    "sourceType": "job-posting",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S3"
+  },
+  {
+    "id": "src-job-fanfare-backend",
+    "title": "Backend Developer NestJS - Fanfare Bangladesh Ltd",
+    "url": "https://dohaj.com/job-details/backend-developer-nodejs-nestjs-ai-cloud-integrations-fanfare-bangladesh-ltd-295934",
+    "publisher": "Dohaj / Fanfare Bangladesh Ltd",
+    "sourceType": "job-posting",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S3"
+  },
+  {
+    "id": "src-job-zmc-lead",
+    "title": "Technical Lead Full Stack + Flutter - ZMC Technologies",
+    "url": "https://dhakacareers.com/jobs/technical-lead-full-stack-flutter-banani-zmc-technologies-limited/",
+    "publisher": "DhakaCareers / ZMC Technologies",
+    "sourceType": "job-posting",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S3"
+  },
+  {
+    "id": "src-job-kisti-flutter",
+    "title": "Full-stack Engineer Flutter/Riverpod - Kisti Limited",
+    "url": "https://dohaj.com/job-details/full-stack-engineer-flutterriverpod-for-iosandroidweb-kisti-limited-789015",
+    "publisher": "Dohaj / Kisti Limited",
+    "sourceType": "job-posting",
+    "publishedDate": "2026-06-17",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S3"
+  },
+  {
+    "id": "src-job-zentix-fullstack",
+    "title": "Full Stack App Developer - Zentixsofttech",
+    "url": "https://dohaj.com/job-details/full-stack-app-developer-zentixsofttech-private-limited-760635",
+    "publisher": "Dohaj / Zentixsofttech",
+    "sourceType": "job-posting",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S3"
+  },
+  {
+    "id": "src-job-srbd-infra",
+    "title": "Assistant / Deputy Manager, IT Infra - Samsung R&D Bangladesh",
+    "url": "https://dohaj.com/job-details/assistant-deputy-manager-it-infra-samsung-rd-institute-bangladesh-ltd-330073",
+    "publisher": "Dohaj / Samsung R&D Institute Bangladesh",
+    "sourceType": "job-posting",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S3"
+  },
+  {
+    "id": "src-ieee-timeline",
+    "title": "Timeline of Computing History (IEEE Computer Society)",
+    "url": "https://history.computer.org/pubs/timeline.pdf",
+    "publisher": "IEEE Computer Society",
+    "sourceType": "academic",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-chm-silicon",
+    "title": "The Silicon Engine - Computer History Museum",
+    "url": "https://www.computerhistory.org/siliconengine/",
+    "publisher": "Computer History Museum",
+    "sourceType": "academic",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-attention-paper",
+    "title": "Attention Is All You Need (NeurIPS 2017)",
+    "url": "https://arxiv.org/abs/1706.03762",
+    "publisher": "arXiv / NeurIPS",
+    "sourceType": "academic",
+    "publishedDate": "2017-06",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-openai-gpt1",
+    "title": "Improving Language Understanding by Generative Pre-Training",
+    "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
+    "publisher": "OpenAI",
+    "sourceType": "academic",
+    "publishedDate": "2018-06",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-w3c-www",
+    "title": "A short history of the Web (CERN)",
+    "url": "https://home.cern/science/computing/birth-web/short-history-web",
+    "publisher": "CERN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-mdn-web",
+    "title": "MDN Web Docs - How the Web works",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_Web_works",
+    "publisher": "MDN / Mozilla",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-docker-docs",
+    "title": "Docker overview documentation",
+    "url": "https://docs.docker.com/get-started/docker-overview/",
+    "publisher": "Docker Inc.",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-react-docs",
+    "title": "React documentation",
+    "url": "https://react.dev/learn",
+    "publisher": "Meta / React",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-flutter-docs",
+    "title": "Flutter documentation",
+    "url": "https://docs.flutter.dev/",
+    "publisher": "Google / Flutter",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "src-postgres-docs",
+    "title": "PostgreSQL documentation",
+    "url": "https://www.postgresql.org/docs/current/",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  }
+]

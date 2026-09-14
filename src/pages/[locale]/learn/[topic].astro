@@ -1,0 +1,135 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { localePath, type Locale, isLocale, locales } from '../../../i18n/config';
+import AdSlot from '../../../components/ads/AdSlot.astro';
+import MarkCompleteButton from '../../../components/progress/MarkCompleteButton';
+import sources from '../../../data/source-registry/sources.json';
+
+export async function getStaticPaths() {
+  const topics = await getCollection('topics');
+  return locales.flatMap((locale) =>
+    topics.map((topic) => ({
+      params: {
+        locale,
+        topic: topic.id.includes('/')
+          ? topic.data.id.toLowerCase().replace(/_/g, '-')
+          : topic.data.id.toLowerCase().replace(/_/g, '-'),
+      },
+      props: { topic },
+    })),
+  );
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const { topic } = Astro.props;
+const { Content, headings } = await render(topic);
+const isBn = locale === 'bn';
+const title = isBn && topic.data.titleBn ? topic.data.titleBn : topic.data.title;
+const description = isBn && topic.data.descriptionBn ? topic.data.descriptionBn : topic.data.description;
+const repoEditPath = `src/content/topics/${topic.id}.mdx`;
+const editUrl = `https://github.com/emondd4/devturningpoint/blob/main/${repoEditPath}`;
+const topicSources = sources.filter((s) => topic.data.sources.includes(s.id));
+---
+
+<BaseLayout locale={locale} title={title} description={description} ogType="article">
+  <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_14rem]">
+    <article class="prose-reading min-w-0">
+      <nav class="mb-4 text-sm text-[var(--color-ink-subtle)] no-print" aria-label="Breadcrumb">
+        <a href={localePath(locale)} class="no-underline">{isBn ? 'হোম' : 'Home'}</a>
+        <span> / </span>
+        <a href={localePath(locale, 'tracks')} class="no-underline">{isBn ? 'ট্র্যাক' : 'Tracks'}</a>
+        <span> / </span>
+        <span>{title}</span>
+      </nav>
+
+      {
+        isBn && topic.data.translationStatus !== 'complete' && (
+          <div class="callout callout-warning no-print">
+            <p class="font-semibold text-[var(--color-ink)]">{isBn ? 'বাংলা অনুবাদ আংশিক/অনুপস্থিত' : 'Translation partial/missing'}</p>
+            <p class="text-sm text-[var(--color-ink-muted)]">
+              {isBn
+                ? 'এই পেজের মূল শিক্ষামূলক লেখা এখন ইংরেজিতে। শিরোনাম/বর্ণনা বাংলায় আছে।'
+                : 'The educational body is currently English; Bangla title/description may be available.'}
+            </p>
+          </div>
+        )
+      }
+
+      <header class="mb-8">
+        <p class="text-xs font-semibold uppercase tracking-wide text-[var(--color-ink-subtle)]">{topic.data.id}</p>
+        <h1>{title}</h1>
+        <p class="text-[var(--color-ink-muted)]">{description}</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="badge">{topic.data.difficulty}</span>
+          <span class="badge">{topic.data.estimatedMinutes} {isBn ? 'মিনিট' : 'min'}</span>
+          <span class="badge">{isBn ? 'যাচাই' : 'Verified'}: {topic.data.lastVerified}</span>
+        </div>
+        {
+          topic.data.prerequisites.length > 0 && (
+            <p class="mt-4 text-sm text-[var(--color-ink-muted)]">
+              <strong>{isBn ? 'পূর্বশর্ত' : 'Prerequisites'}:</strong> {topic.data.prerequisites.join(', ')}
+            </p>
+          )
+        }
+      </header>
+
+      <div class="topic-content">
+        <Content />
+      </div>
+
+      {
+        topicSources.length > 0 && (
+          <section class="mt-10">
+            <h2>{isBn ? 'সূত্র' : 'Sources'}</h2>
+            <ul>
+              {topicSources.map((source) => (
+                <li>
+                  <a href={source.url} rel="noopener noreferrer" target="_blank">
+                    {source.title}
+                  </a>
+                  <span class="text-sm text-[var(--color-ink-subtle)]">
+                    {' '}
+                    · {source.authorityTier} · accessed {source.accessedDate}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      <div class="no-print mt-8 flex flex-wrap gap-3">
+        <MarkCompleteButton client:load topicId={topic.data.id} locale={locale} />
+        <a class="btn btn-secondary" href={editUrl} rel="noopener noreferrer" target="_blank">
+          {isBn ? 'GitHub-এ সম্পাদনা' : 'Edit on GitHub'}
+        </a>
+      </div>
+
+      <AdSlot slotId="article-end" variant="end" />
+    </article>
+
+    <aside class="no-print hidden lg:block">
+      <div class="sticky top-24 space-y-4">
+        <div class="surface-card">
+          <p class="text-sm font-semibold text-[var(--color-ink)]">{isBn ? 'সূচি' : 'On this page'}</p>
+          <ul class="mt-2 space-y-1 text-sm">
+            {
+              headings
+                .filter((h) => h.depth >= 2 && h.depth <= 3)
+                .map((h) => (
+                  <li>
+                    <a class="text-[var(--color-ink-muted)] no-underline hover:text-[var(--color-accent)]" href={`#${h.slug}`}>
+                      {h.text}
+                    </a>
+                  </li>
+                ))
+            }
+          </ul>
+        </div>
+        <AdSlot slotId="article-sidebar" variant="sidebar" />
+      </div>
+    </aside>
+  </div>
+</BaseLayout>

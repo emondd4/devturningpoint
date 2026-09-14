@@ -1,0 +1,111 @@
+{
+  "id": "frontend-engineer",
+  "slug": "frontend-engineer",
+  "name": "Frontend Engineer",
+  "nameBn": "ফ্রন্টএন্ড ইঞ্জিনিয়ার",
+  "alternativeNames": [
+    "Frontend Developer",
+    "UI Developer",
+    "React Developer",
+    "Web Developer (Frontend)",
+    "JavaScript Developer"
+  ],
+  "summary": "Implements user-facing web interfaces with attention to accessibility, performance, and design fidelity.",
+  "whatTheyDo": "Translate designs into responsive UI, manage client state, integrate APIs, and optimize rendering and UX quality.",
+  "typicalDailyWork": [
+    "Build React/Next or similar components",
+    "Integrate REST/GraphQL APIs",
+    "Fix UI bugs across browsers",
+    "Collaborate with UI/UX on edge cases",
+    "Improve Core Web Vitals when measured"
+  ],
+  "responsibilities": [
+    "Ship accessible, responsive UI",
+    "Maintain component consistency",
+    "Handle loading/error/empty states thoughtfully",
+    "Coordinate API contracts with backend"
+  ],
+  "prerequisites": [
+    "HTML/CSS/JS fundamentals",
+    "Browser DevTools literacy",
+    "Git",
+    "Basic HTTP"
+  ],
+  "technicalSkills": [
+    "Modern JavaScript/TypeScript",
+    "Component frameworks (often React)",
+    "CSS architecture",
+    "Client-side state management",
+    "API integration"
+  ],
+  "tools": [
+    "VS Code",
+    "Chrome DevTools",
+    "Figma (handoff)",
+    "Storybook (sometimes)",
+    "npm/pnpm"
+  ],
+  "softSkills": [
+    "Design critique receptiveness",
+    "Pixel-vs-pragmatism judgment",
+    "Cross-team communication"
+  ],
+  "juniorExpectations": [
+    "Implement screens from designs",
+    "Reuse existing components",
+    "Handle forms and validation"
+  ],
+  "midExpectations": [
+    "Own complex UI flows",
+    "Improve performance budgets",
+    "Establish component patterns"
+  ],
+  "seniorExpectations": [
+    "Set frontend architecture",
+    "Drive accessibility standards",
+    "Mentor and review deeply"
+  ],
+  "relatedCareers": [
+    "fullstack-engineer",
+    "ui-ux-designer",
+    "software-engineer"
+  ],
+  "careerTransitions": [
+    "Often move into fullstack or design-engineering hybrid roles"
+  ],
+  "learningTracks": [
+    "frontend",
+    "foundations"
+  ],
+  "projectIds": [
+    "proj-design-system",
+    "proj-dashboard-spa"
+  ],
+  "interviewCategories": [
+    "js-fundamentals",
+    "react",
+    "css-layout",
+    "debugging"
+  ],
+  "bangladeshNotes": "Bangladesh openings frequently list React (sometimes Next.js) alongside TypeScript or JavaScript. Full-stack ads may still emphasize frontend skills heavily. Alternative titles such as React Developer and UI Developer are common on local boards. Exact frameworks differ by company—verify each listing rather than assuming React-only markets.",
+  "commonQualifications": [
+    "Strong portfolio of responsive UIs",
+    "Comfort with Git and code review"
+  ],
+  "commonlyRequestedTech": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "REST"
+  ],
+  "experienceExpectations": "Junior roles may accept strong portfolios; mid/senior ads often cite multi-year React experience.",
+  "sources": [
+    "src-job-systemone",
+    "src-job-zmc-lead",
+    "src-react-docs"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

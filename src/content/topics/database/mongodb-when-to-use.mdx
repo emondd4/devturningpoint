@@ -1,0 +1,78 @@
+---
+id: DATABASE-MONGODB-WHEN-TO-USE
+title: "MongoDB: When to Use It"
+titleBn: "MongoDB: কখন ব্যবহার করবেন"
+description: "Document model tradeoffs versus relational systems—decision criteria, not hype."
+descriptionBn: "রিলেশনাল সিস্টেমের বিপরীতে ডকুমেন্ট মডেলের ট্রেডঅফ—হাইপ নয়, সিদ্ধান্তের মানদণ্ড।"
+track: database
+difficulty: intermediate
+estimatedMinutes: 35
+prerequisites: 
+  - "DATABASE-RELATIONAL-MODELING"
+unlocks: []
+related: 
+  - "DATABASE-POSTGRESQL-TRANSACTIONS"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "mongodb"
+  - "document-db"
+  - "tradeoffs"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "MONGODB-DOCS"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why “Mongo vs Postgres” is the wrong first question
+
+Ask about access patterns, consistency needs, team skills, and operational maturity. Both can succeed; both can fail.
+
+## Mental model
+
+<Callout type="mental-model">
+  Documents shine when a business entity is naturally a nested aggregate loaded together. Relational shines with many ad-hoc joins, strong constraints, and complex transactions across entities.
+</Callout>
+
+Consider MongoDB when: flexible evolving attributes, aggregate-centric reads, horizontal scaling patterns you understand. Prefer Postgres when: rich relational constraints, reporting joins, and transactional workflows dominate (common for many SaaS apps).
+
+
+## Common mistakes
+
+- **Choosing Mongo to avoid learning SQL** — You still need data modeling discipline.
+- **Unbounded document growth** — Arrays that grow forever hurt.
+- **Ignoring transactions needs** — Multi-document tx exist but design still matters.
+
+## Interview angle
+
+<Callout type="interview">
+  Give a product example fit for documents and one better as relational—justify.
+</Callout>
+
+## Practice checklist
+
+- [ ] Model the same feature in SQL and documents.
+- [ ] List consistency requirements for checkout.
+- [ ] Read MongoDB manual intro sections.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `MONGODB-DOCS`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

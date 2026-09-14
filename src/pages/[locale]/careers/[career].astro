@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { localePath, locales, type Locale, isLocale } from '../../../i18n/config';
+
+export async function getStaticPaths() {
+  const careers = await getCollection('careers');
+  return locales.flatMap((locale) =>
+    careers.map((career) => ({
+      params: { locale, career: career.data.slug },
+      props: { career },
+    })),
+  );
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const { career } = Astro.props;
+const isBn = locale === 'bn';
+const name = isBn && career.data.nameBn ? career.data.nameBn : career.data.name;
+const editUrl = `https://github.com/emondd4/devturningpoint/blob/main/src/content/careers/${career.id}.json`;
+---
+
+<BaseLayout locale={locale} title={name} description={career.data.summary}>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 prose-reading">
+    <nav class="mb-4 text-sm text-[var(--color-ink-subtle)]">
+      <a href={localePath(locale, 'careers')} class="no-underline">{isBn ? 'ক্যারিয়ার' : 'Careers'}</a>
+      <span> / {name}</span>
+    </nav>
+    <h1>{name}</h1>
+    {
+      career.data.alternativeNames.length > 0 && (
+        <p class="text-sm text-[var(--color-ink-subtle)]">
+          {isBn ? 'অন্য নাম' : 'Also called'}: {career.data.alternativeNames.join(', ')}
+        </p>
+      )
+    }
+    <p>{isBn && career.data.summaryBn ? career.data.summaryBn : career.data.summary}</p>
+
+    <h2>{isBn ? 'কী করেন' : 'What they do'}</h2>
+    <p>{career.data.whatTheyDo}</p>
+
+    <h2>{isBn ? 'দৈনন্দিন কাজ' : 'Typical daily work'}</h2>
+    <ul>{career.data.typicalDailyWork.map((item) => <li>{item}</li>)}</ul>
+
+    <h2>{isBn ? 'দায়িত্ব' : 'Responsibilities'}</h2>
+    <ul>{career.data.responsibilities.map((item) => <li>{item}</li>)}</ul>
+
+    <h2>{isBn ? 'প্রযুক্তিগত স্কিল' : 'Technical skills'}</h2>
+    <ul>{career.data.technicalSkills.map((item) => <li>{item}</li>)}</ul>
+
+    <h2>{isBn ? 'টুলস' : 'Tools'}</h2>
+    <ul>{career.data.tools.map((item) => <li>{item}</li>)}</ul>
+
+    <h2>{isBn ? 'জুনিয়র / মিড / সিনিয়র' : 'Junior / Mid / Senior'}</h2>
+    <h3>Junior</h3>
+    <ul>{career.data.juniorExpectations.map((item) => <li>{item}</li>)}</ul>
+    <h3>Mid</h3>
+    <ul>{career.data.midExpectations.map((item) => <li>{item}</li>)}</ul>
+    <h3>Senior</h3>
+    <ul>{career.data.seniorExpectations.map((item) => <li>{item}</li>)}</ul>
+
+    <h2>{isBn ? 'বাংলাদেশ মার্কেট নোট' : 'Bangladesh market notes'}</h2>
+    <p>{career.data.bangladeshNotes}</p>
+    <p class="text-sm text-[var(--color-ink-subtle)]">
+      {isBn ? 'শেষ যাচাই' : 'Last verified'}: {career.data.lastVerified}
+    </p>
+
+    <p class="no-print mt-8">
+      <a href={editUrl} rel="noopener noreferrer" target="_blank">{isBn ? 'GitHub-এ সম্পাদনা' : 'Edit on GitHub'}</a>
+    </p>
+  </div>
+</BaseLayout>

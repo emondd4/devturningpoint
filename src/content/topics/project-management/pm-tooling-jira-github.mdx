@@ -1,0 +1,79 @@
+---
+id: PM-TOOLING-JIRA-GITHUB
+title: "Delivery Tooling: Jira and GitHub"
+titleBn: "ডেলিভারি টুলিং: Jira ও GitHub"
+description: "Issues, PRs, and boards—tooling that supports flow instead of bureaucracy."
+descriptionBn: "ইস্যু, PR ও বোর্ড—আমলাতন্ত্র নয়, ফ্লো সাপোর্ট করে এমন টুলিং।"
+track: project-management
+difficulty: beginner
+estimatedMinutes: 28
+prerequisites: 
+  - "PM-AGILE-SCRUM"
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+unlocks: []
+related: 
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+careers: 
+  - "CAREER-PROJECT-MANAGER"
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-DEVOPS-ENGINEER"
+tags: 
+  - "jira"
+  - "github"
+  - "tooling"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "GIT-SCM-BOOK"
+  - "GHA-WORKFLOWS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why tools should reduce WIP mystery
+
+Boards and PRs make work visible. Over-customized workflows hide flow problems behind fields.
+
+## Mental model
+
+<Callout type="mental-model">
+  One work item ≈ one reviewable change when possible. Link PR ↔ issue. CI status is part of “done.”
+</Callout>
+
+Prefer simple columns (To do / Doing / In review / Done). Measure cycle time lightly.
+
+
+## Common mistakes
+
+- **Ticket sprawl without outcomes** — Busywork masquerades as progress.
+- **PRs without context** — Reviewers guess intent.
+- **Bypassing CI to “save time”** — Pays later in incidents.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you keep Jira and GitHub linked without creating admin overhead?
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a PR description template.
+- [ ] Map board columns to real states.
+- [ ] Close the loop: issue → PR → deploy note.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `GIT-SCM-BOOK`
+- `GHA-WORKFLOWS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

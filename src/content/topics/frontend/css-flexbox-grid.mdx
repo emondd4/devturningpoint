@@ -1,0 +1,93 @@
+---
+id: FRONTEND-CSS-FLEXBOX-GRID
+title: "CSS Flexbox and Grid"
+titleBn: "CSS Flexbox ও Grid"
+description: "One-dimensional Flex vs two-dimensional Grid—choose layout tools by content shape."
+descriptionBn: "এক-মাত্রিক Flex বনাম দুই-মাত্রিক Grid—কনটেন্টের আকার অনুযায়ী লেআউট টুল।"
+track: frontend
+difficulty: beginner
+estimatedMinutes: 38
+prerequisites: 
+  - "FRONTEND-CSS-CASCADE-BOX-MODEL"
+unlocks: 
+  - "FRONTEND-REACT-COMPONENTS-STATE"
+  - "FRONTEND-FORMS-VALIDATION"
+related: 
+  - "UIUX-VISUAL-HIERARCHY"
+careers: 
+  - "CAREER-FRONTEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "css"
+  - "flexbox"
+  - "grid"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "MDN-FLEXBOX"
+  - "MDN-GRID"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why two layout systems
+
+Flex aligns along a single main axis (nav bars, toolbars). Grid places items in rows **and** columns (page shells, card galleries).
+
+## Mental model
+
+<Callout type="mental-model">
+  Flex: distribute space among siblings in a row or column. Grid: define tracks, then place items into cells/areas.
+</Callout>
+
+```css
+.row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  gap: 1.5rem;
+}
+```
+
+Prefer `gap` over margin hacks between siblings.
+
+
+## Common mistakes
+
+- **Using Grid for every toolbar** — Flex is simpler for 1D alignment.
+- **Fixed pixel-only grids** — Use fr, minmax, and media queries.
+- **Absolute positioning as layout system** — Breaks flow and responsiveness.
+
+## Interview angle
+
+<Callout type="interview">
+  When would you combine Grid for page layout with Flex inside components?
+</Callout>
+
+## Practice checklist
+
+- [ ] Build a responsive two-column layout.
+- [ ] Center an item with Flex.
+- [ ] Create a card grid with auto-fit/minmax.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `MDN-FLEXBOX`
+- `MDN-GRID`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

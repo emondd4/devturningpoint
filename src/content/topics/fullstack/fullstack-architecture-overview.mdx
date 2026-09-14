@@ -1,0 +1,82 @@
+---
+id: FULLSTACK-ARCHITECTURE-OVERVIEW
+title: "Full-Stack Architecture Overview"
+titleBn: "ফুলস্ট্যাক আর্কিটেকচার ওভারভিউ"
+description: "How Next.js, NestJS, Postgres, and Redis fit into one coherent system."
+descriptionBn: "Next.js, NestJS, Postgres ও Redis একটা সুসংগত সিস্টেমে কীভাবে বসে।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+  - "BACKEND-NESTJS-ARCHITECTURE"
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+unlocks: 
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+  - "FULLSTACK-DATA-FLOW"
+related: 
+  - "BACKEND-REDIS-CACHING"
+careers: 
+  - "CAREER-FULLSTACK-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "fullstack"
+  - "architecture"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "NEXTJS-APP-ROUTER"
+  - "NESTJS-ARCHITECTURE"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why full-stack is integration skill
+
+Knowing React *and* Nest is not enough—you must define boundaries: who owns auth, who owns source of truth, how failures surface.
+
+## Mental model
+
+<Callout type="mental-model">
+  Browser → Next (UI + BFF) → Nest (domain API) → Postgres (system of record) → Redis (acceleration). Arrows are contracts with latency and failure modes.
+</Callout>
+
+Prefer clear module ownership over “everyone writes everywhere.”
+
+
+## Common mistakes
+
+- **Business logic only in the UI** — Mobile/other clients diverge.
+- **Two sources of truth** — Cache/UI state fights DB.
+- **Chatty UI→DB coupling** — Keep persistence behind API.
+
+## Interview angle
+
+<Callout type="interview">
+  Draw a sequence diagram for loading a topic page in this stack.
+</Callout>
+
+## Practice checklist
+
+- [ ] Sketch component diagram for Dev Turning Point.
+- [ ] List contracts between Next and Nest.
+- [ ] Identify one cacheable read.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NEXTJS-APP-ROUTER`
+- `NESTJS-ARCHITECTURE`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { localePath, locales, type Locale, isLocale } from '../../../i18n/config';
+
+export async function getStaticPaths() {
+  const companies = await getCollection('companies');
+  return locales.flatMap((locale) =>
+    companies.map((company) => ({
+      params: { locale, company: company.data.slug },
+      props: { company },
+    })),
+  );
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const { company } = Astro.props;
+const isBn = locale === 'bn';
+const achievements = (await getCollection('achievements')).filter((a) => a.data.companyId === company.data.id);
+const editUrl = `https://github.com/emondd4/devturningpoint/blob/main/src/content/companies/${company.id}.json`;
+---
+
+<BaseLayout locale={locale} title={company.data.name} description={company.data.summary}>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 prose-reading">
+    <nav class="mb-4 text-sm text-[var(--color-ink-subtle)]">
+      <a href={localePath(locale, 'companies')} class="no-underline">{isBn ? 'কোম্পানি' : 'Companies'}</a>
+      <span> / {company.data.name}</span>
+    </nav>
+    <h1>{company.data.name}</h1>
+    <p>
+      <a href={company.data.website} rel="noopener noreferrer" target="_blank">{company.data.website}</a>
+    </p>
+    <p>{company.data.summary}</p>
+    <p class="text-sm text-[var(--color-ink-subtle)]">{company.data.selectionCriteria}</p>
+
+    <h2>{isBn ? 'ব্যবসায়িক এলাকা' : 'Business areas'}</h2>
+    <ul>{company.data.businessAreas.map((item) => <li>{item}</li>)}</ul>
+
+    <h2>{isBn ? 'প্রাসঙ্গিক ক্যারিয়ার এলাকা' : 'Relevant career areas'}</h2>
+    <ul>{company.data.careerAreas.map((item) => <li>{item}</li>)}</ul>
+
+    {
+      achievements.length > 0 && (
+        <>
+          <h2>{isBn ? 'সাম্প্রতিক মাইলফলক (~৫ বছর)' : 'Recent milestones (~5 years)'}</h2>
+          <ul>
+            {achievements.map((item) => (
+              <li>
+                <strong>{item.data.date}</strong> — {item.data.title}
+                <span class="text-sm text-[var(--color-ink-subtle)]"> ({item.data.confidence})</span>
+                <p class="text-sm">{item.data.description}</p>
+              </li>
+            ))}
+          </ul>
+        </>
+      )
+    }
+
+    <p class="text-sm text-[var(--color-ink-subtle)]">{isBn ? 'শেষ যাচাই' : 'Last verified'}: {company.data.lastVerified}</p>
+    <p class="no-print mt-8">
+      <a href={editUrl} rel="noopener noreferrer" target="_blank">{isBn ? 'GitHub-এ সম্পাদনা' : 'Edit on GitHub'}</a>
+    </p>
+  </div>
+</BaseLayout>

@@ -1,0 +1,83 @@
+---
+id: DEVOPS-DOCKER-FUNDAMENTALS
+title: "Docker Fundamentals"
+titleBn: "Docker এর মৌলিক বিষয়"
+description: "Images, containers, layers, and volumes—packaging software with reproducible runtimes."
+descriptionBn: "ইমেজ, কন্টেইনার, লেয়ার ও ভলিউম—পুনরুৎপাদনযোগ্য রানটাইমে সফটওয়্যার প্যাকেজিং।"
+track: devops
+difficulty: beginner
+estimatedMinutes: 40
+prerequisites: 
+  - "DEVOPS-LINUX-FUNDAMENTALS"
+unlocks: 
+  - "DEVOPS-DOCKER-NETWORKING"
+  - "BACKEND-DOCKER-DEPLOY"
+related: 
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+careers: 
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "docker"
+  - "containers"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "DOCKER-GET-STARTED"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why images beat snowflake servers
+
+An image captures filesystem + metadata. A container is a running instance. Rebuild > SSH mutate.
+
+## Mental model
+
+<Callout type="mental-model">
+  Dockerfile instructions create immutable layers. Containers add a thin writable layer. Volumes persist data outside the container lifecycle.
+</Callout>
+
+```bash
+docker build -t topics-api:dev .
+docker run --rm -p 3000:3000 topics-api:dev
+docker ps
+```
+
+Prefer official base images, pin versions, and multi-stage builds for smaller artifacts.
+
+
+## Common mistakes
+
+- **Mutable containers as source of truth** — Rebuild from Dockerfile.
+- **Huge images with build tools in final stage** — Use multi-stage.
+- **Storing DB data only in container layer** — Use volumes.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain image vs container and why layered builds cache efficiently.
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a Dockerfile for a static site or API.
+- [ ] Inspect layers conceptually.
+- [ ] Mount a volume for data.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `DOCKER-GET-STARTED`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

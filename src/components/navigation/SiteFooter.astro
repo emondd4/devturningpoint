@@ -1,0 +1,54 @@
+---
+import type { Locale } from '../../i18n/config';
+import { getDictionary } from '../../i18n/ui';
+import { localePath } from '../../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+const year = new Date().getFullYear();
+
+const policyLinks = [
+  { href: localePath(locale, 'methodology'), label: t.footer.methodology },
+  { href: localePath(locale, 'privacy'), label: t.footer.privacy },
+  { href: localePath(locale, 'terms'), label: t.footer.terms },
+  { href: localePath(locale, 'cookies'), label: t.footer.cookies },
+  { href: localePath(locale, 'ai-disclosure'), label: t.footer.aiDisclosure },
+  { href: localePath(locale, 'contact'), label: t.footer.contact },
+  { href: localePath(locale, 'contribute'), label: t.nav.contribute },
+  { href: localePath(locale, 'about'), label: t.nav.about },
+];
+---
+
+<footer class="no-print mt-16 border-t border-[var(--color-border)] bg-[var(--color-surface-1)]">
+  <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[1.2fr_1fr]">
+    <div>
+      <p class="font-[family-name:var(--font-display)] text-xl font-semibold text-[var(--color-ink)]">{t.siteName}</p>
+      <p class="mt-2 max-w-md text-sm text-[var(--color-ink-muted)]">{t.tagline}</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-subtle)]">{t.progress.localOnly}</p>
+      <a
+        class="mt-4 inline-flex text-sm font-medium no-underline"
+        href="https://github.com/emondd4/devturningpoint"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {t.footer.openSource}
+      </a>
+    </div>
+    <div class="grid grid-cols-2 gap-3 text-sm">
+      {
+        policyLinks.map((link) => (
+          <a href={link.href} class="text-[var(--color-ink-muted)] no-underline hover:text-[var(--color-accent)]">
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <div class="border-t border-[var(--color-border)] px-4 py-4 text-center text-xs text-[var(--color-ink-subtle)] sm:px-6">
+    © {year} {t.siteName}. Code MIT · Educational content CC BY 4.0.
+  </div>
+</footer>

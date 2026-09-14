@@ -1,0 +1,22 @@
+{
+  "id": "issue-jwt-clock-skew",
+  "title": "JWT validation randomly fails near expiry across servers",
+  "technology": "JWT",
+  "platform": "Backend",
+  "symptoms": [
+    "Intermittent 401 near token expiry",
+    "One service accepts while another rejects",
+    "Users on mobile networks more affected"
+  ],
+  "cause": "Clock skew between issuer, validators, and clients plus zero leeway on exp/nbf checks.",
+  "solution": "NTP-sync servers, allow small documented clock skew leeway, prefer short access tokens with refresh rotation, and log server time alongside failures.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "security",
+    "backend"
+  ],
+  "sources": [
+    "OWASP-TOP10"
+  ],
+  "lastVerified": "2026-09-14"
+}

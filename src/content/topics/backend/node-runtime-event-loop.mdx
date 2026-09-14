@@ -1,0 +1,90 @@
+---
+id: BACKEND-NODE-RUNTIME-EVENT-LOOP
+title: "Node.js Runtime and Event Loop"
+titleBn: "Node.js রানটাইম ও ইভেন্ট লুপ"
+description: "How Node stays non-blocking: libuv, the event loop phases, and CPU vs I/O work."
+descriptionBn: "Node কীভাবে নন-ব্লকিং থাকে: libuv, ইভেন্ট লুপ ফেজ, এবং CPU বনাম I/O কাজ।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FRONTEND-JAVASCRIPT-ASYNC-EVENT-LOOP"
+  - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+unlocks: 
+  - "BACKEND-HTTP-REST-API-DESIGN"
+  - "BACKEND-TYPESCRIPT-FOR-BACKEND"
+related: 
+  - "BACKEND-REDIS-CACHING"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "node"
+  - "event-loop"
+  - "backend"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "NODE-EVENT-LOOP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why Node fits I/O-heavy APIs
+
+Node’s strength is concurrent I/O with a single-threaded JS heap—great for APIs waiting on DB/network, poor for naive CPU crunching on the main thread.
+
+## Mental model
+
+<Callout type="mental-model">
+  JS callbacks/promises queue work; libuv handles OS I/O. Heavy CPU on the main thread delays *everyone*. Offload CPU or scale out processes.
+</Callout>
+
+```js
+import http from 'node:http';
+
+const server = http.createServer(async (req, res) => {
+  res.writeHead(200, { 'content-type': 'application/json' });
+  res.end(JSON.stringify({ ok: true }));
+});
+
+server.listen(3000);
+```
+
+Learn timers, poll, and `process.nextTick`/microtasks at a conceptual level from official Node guides.
+
+
+## Common mistakes
+
+- **Sync fs in request path** — Blocks the loop under load.
+- **CPU-heavy loops in handlers** — Use workers or separate services.
+- **Unhandled rejections** — Can crash or hide failures.
+
+## Interview angle
+
+<Callout type="interview">
+  What happens when a CPU-bound task runs on the Node event loop, and how would you mitigate it?
+</Callout>
+
+## Practice checklist
+
+- [ ] Build a tiny http server.
+- [ ] Compare sync vs async file read under concurrent requests.
+- [ ] Read Node’s event loop documentation once end-to-end.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NODE-EVENT-LOOP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

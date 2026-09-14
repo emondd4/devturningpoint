@@ -1,0 +1,120 @@
+---
+id: FOUNDATIONS-NETWORKING-TCP-IP-HTTP
+title: "Networking: TCP/IP and HTTP"
+titleBn: "নেটওয়ার্কিং: TCP/IP ও HTTP"
+description: "Packets, reliable transport, and request/response web semantics—the backbone of every API."
+descriptionBn: "প্যাকেট, নির্ভরযোগ্য ট্রান্সপোর্ট, এবং ওয়েবের রিকোয়েস্ট/রেসপন্স সেমantics—প্রতিটি API-এর ভিত্তি।"
+track: foundations
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FOUNDATIONS-BINARY-BITS-BYTES"
+unlocks: 
+  - "BACKEND-HTTP-REST-API-DESIGN"
+  - "DEVOPS-NETWORKING-FOR-DEVOPS"
+  - "FLUTTER-NETWORKING-REST"
+related: 
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+  - "DEVOPS-NGINX-REVERSE-PROXY"
+careers: 
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-FRONTEND-ENGINEER"
+tags: 
+  - "networking"
+  - "tcp"
+  - "http"
+  - "ip"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "RFC-791-IPV4"
+  - "RFC-9293-TCP"
+  - "RFC-9110-HTTP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why layers exist
+
+Networking problems are unbearable as one blob. Layers let you reason: addressing (IP), reliable streams (TCP), application messages (HTTP).
+
+## Mental model
+
+<Callout type="mental-model">
+  IP delivers packets toward a destination (best-effort). TCP turns that into a reliable, ordered byte stream with connections. HTTP speaks request/response *messages* on top (often over TLS).
+</Callout>
+
+## IP and ports
+
+- **IP address**: which host (roughly).
+- **Port**: which process/service on that host.
+- Together: a socket endpoint.
+
+IPv4 space exhaustion drove NAT and IPv6 adoption; as a developer you mostly care that clients and servers agree on reachability and DNS.
+
+## TCP essentials
+
+TCP provides: connection handshake, retransmission, ordering, flow control. Cost: state, latency for handshake (mitigated by TLS session resumption, HTTP/2+/QUIC ecosystem—learn HTTP/1.1 first).
+
+## HTTP mental checklist
+
+```http
+GET /topics/foundations/git-fundamentals HTTP/1.1
+Host: example.com
+Accept: text/html
+```
+
+- **Method**: intent (safe methods like GET should not change server state).
+- **Status**: 2xx success, 4xx client issue, 5xx server issue.
+- **Headers**: metadata (auth, caching, content type).
+- **Body**: optional payload.
+
+```js
+const res = await fetch('https://httpbin.org/get');
+console.log(res.status);
+console.log(res.headers.get('content-type'));
+const data = await res.json();
+```
+
+<Callout type="tip">
+  When debugging “API down,” separate DNS failure, TCP connect timeout, TLS errors, and HTTP 5xx—they are different layers.
+</Callout>
+
+
+## Common mistakes
+
+- **Treating HTTP status as optional** — Clients must branch on status; “always 200 with error in JSON” hides outages from monitors.
+- **Putting secrets in query strings** — URLs leak via logs and Referer; use headers or body over TLS.
+- **Ignoring idempotency** — Retries on non-idempotent POSTs create duplicate orders.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain what happens after you type a URL until HTML renders—at least DNS, TCP, TLS, HTTP, and rendering at a high level.
+</Callout>
+
+## Practice checklist
+
+- [ ] Use browser DevTools Network panel to inspect status, timing, headers.
+- [ ] curl an API and change method/headers deliberately.
+- [ ] Map a failure to the correct layer.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `RFC-791-IPV4`
+- `RFC-9293-TCP`
+- `RFC-9110-HTTP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

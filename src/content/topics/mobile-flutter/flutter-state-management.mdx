@@ -1,0 +1,104 @@
+---
+id: FLUTTER-STATE-MANAGEMENT
+title: "Flutter State Management"
+titleBn: "Flutter স্টেট ম্যানেজমেন্ট"
+description: "Ephemeral vs app state, lifting state up, and choosing approaches without cargo-culting."
+descriptionBn: "ক্ষণস্থায়ী বনাম অ্যাপ স্টেট, স্টেট উপরে তোলা, এবং প্যাকেজ ফ্যাশন ছাড়া পদ্ধতি বেছে নেওয়া।"
+track: mobile-flutter
+difficulty: intermediate
+estimatedMinutes: 42
+prerequisites: 
+  - "FLUTTER-WIDGET-TREE"
+  - "FLUTTER-DART-ASYNC-FUTURES-STREAMS"
+unlocks: 
+  - "FLUTTER-NAVIGATION"
+  - "FLUTTER-NETWORKING-REST"
+related: 
+  - "FLUTTER-TESTING"
+  - "FLUTTER-PERFORMANCE-DEVTOOLS"
+careers: 
+  - "CAREER-MOBILE-ENGINEER"
+tags: 
+  - "flutter"
+  - "state"
+  - "provider"
+  - "architecture"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "FLUTTER-STATE"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why state is the hard part
+
+UI is a function of state. Unclear ownership creates prop-drilling, duplicated fetches, and setState-after-dispose crashes.
+
+## Mental model
+
+<Callout type="mental-model">
+  Ephemeral state (tab index, animation) can live locally. App state (session, cart, remote cache) needs a shared source of truth above the widgets that read it.
+</Callout>
+
+## Start simple
+
+1. `setState` for truly local UI.
+2. Lift state to a common parent when siblings share it.
+3. Introduce `InheritedWidget` / `Provider` / `Riverpod` / `Bloc` when the tree depth or testability demands it.
+
+Official guidance emphasizes understanding the problem before picking a library.
+
+```dart
+class Counter extends StatefulWidget {
+  const Counter({super.key});
+  @override
+  State<Counter> createState() => _CounterState();
+}
+
+class _CounterState extends State<Counter> {
+  int _n = 0;
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () => setState(() => _n++),
+      child: Text('Count $_n'),
+    );
+  }
+}
+```
+
+
+## Common mistakes
+
+- **Global mutable singletons** — Hard to test and reason about lifetimes.
+- **Fetching in build()** — Triggers repeated network calls; fetch from lifecycle/state layer.
+- **Rebuilding the entire app for tiny changes** — Narrow listeners; split models.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you decide between local setState and a state management library? Give a concrete app example.
+</Callout>
+
+## Practice checklist
+
+- [ ] Lift a counter state to a parent and pass callbacks.
+- [ ] Sketch app state for login + home feed.
+- [ ] Read Flutter’s state management intro and compare options.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-STATE`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

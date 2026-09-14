@@ -1,0 +1,79 @@
+---
+id: BACKEND-TESTING
+title: "Backend Testing"
+titleBn: "ব্যাকএন্ড টেস্টিং"
+description: "Unit tests with DI, integration tests with Testcontainers/DB, and contract checks."
+descriptionBn: "DI দিয়ে ইউনিট টেস্ট, Testcontainers/DB দিয়ে ইন্টিগ্রেশন, এবং কন্ট্রাক্ট চেক।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites: 
+  - "BACKEND-NESTJS-ARCHITECTURE"
+  - "BACKEND-TYPESCRIPT-FOR-BACKEND"
+unlocks: 
+  - "BACKEND-DOCKER-DEPLOY"
+related: 
+  - "QA-API-TESTING"
+  - "BACKEND-SECURITY-BASICS"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-QA-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "testing"
+  - "backend"
+  - "jest"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "NESTJS-ARCHITECTURE"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why backend tests save incidents
+
+APIs are contracts. Tests document expected status codes, validation, and authz—executable specs.
+
+## Mental model
+
+<Callout type="mental-model">
+  Unit-test pure domain logic. Integration-test DB/adapters. A few end-to-end smoke tests against a running app.
+</Callout>
+
+Prefer deterministic fixtures; migrate a test database; never hit production.
+
+
+## Common mistakes
+
+- **Only testing happy paths** — Authz and validation bugs hide in 4xx.
+- **Flaky time/network dependence** — Fake clocks and nocks.
+- **Huge e2e-only suites** — Slow feedback; pyramid imbalance.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you test a Nest guard that requires an admin role?
+</Callout>
+
+## Practice checklist
+
+- [ ] Unit test a pure pricing function.
+- [ ] Integration test an endpoint with a test DB.
+- [ ] Add CI job running tests on PR.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-ARCHITECTURE`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

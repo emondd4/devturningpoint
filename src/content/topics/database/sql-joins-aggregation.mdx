@@ -1,0 +1,86 @@
+---
+id: DATABASE-SQL-JOINS-AGGREGATION
+title: "SQL Joins and Aggregation"
+titleBn: "SQL Join ও অ্যাগ্রিগেশন"
+description: "Inner/outer joins, GROUP BY, and HAVING—answering analytical questions in SQL."
+descriptionBn: "Inner/outer join, GROUP BY ও HAVING—SQL-এ বিশ্লেষণাত্মক প্রশ্নের উত্তর।"
+track: database
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites: 
+  - "DATABASE-RELATIONAL-MODELING"
+unlocks: 
+  - "DATABASE-POSTGRESQL-INDEXING"
+  - "DATABASE-POSTGRESQL-TRANSACTIONS"
+related: 
+  - "FOUNDATIONS-ALGORITHMS-COMPLEXITY"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-DATA-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "sql"
+  - "joins"
+  - "aggregation"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why joins + aggregates replace nested loops
+
+Databases are optimized for set operations. Expressing “per user counts” in SQL is usually clearer and faster than app-side loops.
+
+## Mental model
+
+<Callout type="mental-model">
+  Join matches rows; aggregate collapses groups. WHERE filters rows before grouping; HAVING filters groups after.
+</Callout>
+
+```sql
+SELECT t.track_id, COUNT(*) AS topic_count
+FROM topics t
+LEFT JOIN topic_tags tt ON tt.topic_id = t.id
+WHERE t.updated_at > now() - interval '90 days'
+GROUP BY t.track_id
+HAVING COUNT(*) >= 5
+ORDER BY topic_count DESC;
+```
+
+
+## Common mistakes
+
+- **Filtering aggregates in WHERE** — Use HAVING for group conditions.
+- **Unexpected row multiplication** — Joining M:N without care duplicates metrics.
+- **SELECT * with heavy joins** — Pull only needed columns.
+
+## Interview angle
+
+<Callout type="interview">
+  Write SQL for top tracks by completed topics in the last 30 days.
+</Callout>
+
+## Practice checklist
+
+- [ ] Practice INNER vs LEFT join results.
+- [ ] Rewrite an app loop as GROUP BY.
+- [ ] Explain a fan-out bug from a join.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

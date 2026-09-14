@@ -1,0 +1,26 @@
+{
+  "id": "kaz-software",
+  "slug": "kaz-software",
+  "name": "Kaz Software",
+  "website": "https://www.kaz.com.bd/",
+  "category": "software-services",
+  "businessAreas": [
+    "custom software",
+    "staff augmentation",
+    "product engineering"
+  ],
+  "careerAreas": [
+    "software-engineer",
+    "frontend-engineer",
+    "backend-engineer",
+    "fullstack-engineer",
+    "devops-engineer"
+  ],
+  "headquarters": "35/5 Shantinagar, Dhaka 1217, Bangladesh",
+  "summary": "Kaz Software is a Dhaka-based software engineering and consulting company delivering custom applications and engineering services for international clients.",
+  "selectionCriteria": "Featured as a verifiable Dhaka software employer with an official website and published HQ address; curated inclusion without ranking claims.",
+  "lastVerified": "2026-09-14",
+  "sources": [
+    "src-kaz-home"
+  ]
+}

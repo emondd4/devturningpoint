@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { defaultLocale, localePath, withBase } from '../i18n/config';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content={`0;url=${localePath(defaultLocale)}`} />
+    <link rel="canonical" href={localePath(defaultLocale)} />
+    <title>Dev Turning Point</title>
+    <script is:inline define:vars={{ bnPath: localePath('bn'), enPath: localePath('en'), key: 'dtp:locale' }}>
+      (function () {
+        try {
+          var saved = localStorage.getItem(key);
+          if (saved === 'bn') {
+            location.replace(bnPath);
+            return;
+          }
+          if (saved === 'en') {
+            location.replace(enPath);
+            return;
+          }
+          var langs = navigator.languages || [navigator.language];
+          var preferBn = langs.some(function (l) {
+            return String(l).toLowerCase().startsWith('bn');
+          });
+          location.replace(preferBn ? bnPath : enPath);
+        } catch (e) {
+          location.replace(enPath);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <p><a href={localePath('en')}>English</a> · <a href={localePath('bn')}>বাংলা</a></p>
+  </body>
+</html>

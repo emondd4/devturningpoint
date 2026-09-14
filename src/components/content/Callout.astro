@@ -1,0 +1,108 @@
+---
+/**
+ * Educational callout for MDX topics.
+ * Types: info | tip | warning | danger | interview | mental-model
+ */
+interface Props {
+  type?: 'info' | 'tip' | 'warning' | 'danger' | 'interview' | 'mental-model';
+  title?: string;
+}
+
+const { type = 'info', title } = Astro.props;
+
+const defaults: Record<NonNullable<Props['type']>, string> = {
+  info: 'Note',
+  tip: 'Tip',
+  warning: 'Watch out',
+  danger: 'Important',
+  interview: 'Interview angle',
+  'mental-model': 'Mental model',
+};
+
+const heading = title ?? defaults[type];
+---
+
+<aside class:list={['callout', `callout--${type}`]} role="note" aria-label={heading}>
+  <p class="callout__title">{heading}</p>
+  <div class="callout__body">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .callout {
+    margin: 1.5rem 0;
+    padding: 1rem 1.15rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    border-left-width: 4px;
+    background: var(--color-surface-2);
+  }
+
+  .callout__title {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--color-ink);
+  }
+
+  .callout__body {
+    font-size: 0.95rem;
+    color: var(--color-ink-muted);
+    line-height: 1.55;
+  }
+
+  .callout__body :global(p) {
+    margin: 0.35rem 0;
+  }
+
+  .callout__body :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .callout__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .callout__body :global(ul),
+  .callout__body :global(ol) {
+    margin: 0.4rem 0 0;
+    padding-left: 1.2rem;
+  }
+
+  .callout--info {
+    border-left-color: var(--color-accent);
+    background: var(--color-accent-soft);
+  }
+
+  .callout--tip {
+    border-left-color: var(--color-success);
+    background: var(--color-success-soft);
+  }
+
+  .callout--warning {
+    border-left-color: var(--color-warning);
+    background: var(--color-warning-soft);
+  }
+
+  .callout--danger {
+    border-left-color: var(--color-danger);
+    background: var(--color-danger-soft);
+  }
+
+  .callout--interview {
+    border-left-color: var(--color-accent);
+    background: var(--color-surface-2);
+  }
+
+  .callout--mental-model {
+    border-left-color: #7c3aed;
+    background: color-mix(in srgb, #7c3aed 12%, var(--color-surface-1));
+  }
+
+  :root[data-theme='dark'] .callout--mental-model {
+    background: color-mix(in srgb, #a78bfa 14%, var(--color-surface-1));
+  }
+</style>

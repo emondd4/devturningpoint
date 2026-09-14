@@ -1,0 +1,93 @@
+---
+id: FLUTTER-CONSTRAINTS-LAYOUT
+title: "Flutter Constraints and Layout"
+titleBn: "Flutter Constraints ও লেআউট"
+description: "Constraints go down, sizes go up, parent sets position—the rule that unlocks Row/Column debugging."
+descriptionBn: "Constraints নিচে যায়, সাইজ উপরে যায়, প্যারেন্ট পজিশন দেয়—Row/Column ডিবাগের মূল নিয়ম।"
+track: mobile-flutter
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FLUTTER-WIDGET-TREE"
+unlocks: 
+  - "FLUTTER-NAVIGATION"
+  - "FLUTTER-PERFORMANCE-DEVTOOLS"
+related: 
+  - "FLUTTER-STATE-MANAGEMENT"
+careers: 
+  - "CAREER-MOBILE-ENGINEER"
+tags: 
+  - "flutter"
+  - "layout"
+  - "constraints"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "FLUTTER-CONSTRAINTS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why yellow/black stripes appear
+
+Most Flutter layout bugs are constraint bugs: a child wants infinite space, or a parent offered unbounded constraints where a flex child needed bounds.
+
+## Mental model
+
+<Callout type="mental-model">
+  Official rule: constraints go down. Sizes go up. Parent sets position. A widget receives BoxConstraints (min/max width & height), picks a size within them, then parents place children.
+</Callout>
+
+## Bounded vs unbounded
+
+`Row`/`Column` with **bounded** primary axis try to expand. With **unbounded** primary axis (inside another flex or scrollable), children cannot use `Expanded`/`Flexible` the same way—Flutter throws.
+
+```dart
+// Common fix pattern: let the scrollable take unbounded cross-axis carefully,
+// and give Expanded only in bounded flex parents.
+Row(
+  children: const [
+    Expanded(child: Text('Grows')),
+    Text('Fixed'),
+  ],
+);
+```
+
+## LayoutBuilder
+
+Use `LayoutBuilder` when structure must adapt to parent constraints (breakpoints). Do not rely on builder being called when constraints are unchanged—drive UI from explicit state updates.
+
+
+## Common mistakes
+
+- **Expanded inside ListView/unbounded Column** — Classic exception; wrap differently or use shrinkWrap carefully.
+- **Fighting constraints with hardcoded sizes everywhere** — Prefer flexible layouts; hard sizes break across devices.
+- **Ignoring overflow warnings** — Overflow is a layout signal, not a cosmetic issue.
+
+## Interview angle
+
+<Callout type="interview">
+  State Flutter’s layout rule in one sentence and diagnose why Expanded fails inside a horizontal ListView.
+</Callout>
+
+## Practice checklist
+
+- [ ] Reproduce and fix an unbounded Expanded error.
+- [ ] Build a responsive row using LayoutBuilder.
+- [ ] Read Flutter’s “Understanding constraints” examples.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-CONSTRAINTS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

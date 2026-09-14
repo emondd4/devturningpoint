@@ -1,0 +1,28 @@
+{
+  "id": "ssl-wireless",
+  "slug": "ssl-wireless",
+  "name": "SSL Wireless",
+  "website": "https://sslwireless.com/",
+  "category": "fintech-infrastructure",
+  "businessAreas": [
+    "payment gateway (SSLCOMMERZ)",
+    "SMS/banking messaging",
+    "digital payments infrastructure",
+    "fintech platforms"
+  ],
+  "careerAreas": [
+    "software-engineer",
+    "backend-engineer",
+    "devops-engineer",
+    "cybersecurity-engineer",
+    "database-engineer",
+    "product-manager"
+  ],
+  "headquarters": "Dhaka, Bangladesh",
+  "summary": "SSL Wireless builds and operates digital payments and messaging infrastructure in Bangladesh, including SSLCOMMERZ (described on its site as a Bangladesh Bank–licensed Payment System Operator) and banking SMS platforms.",
+  "selectionCriteria": "Featured as a regulated payments/fintech infrastructure employer with a clear official product footprint relevant to Bangladesh engineers; curated feature, not ranked.",
+  "lastVerified": "2026-09-14",
+  "sources": [
+    "src-ssl-home"
+  ]
+}

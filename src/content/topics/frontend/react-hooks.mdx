@@ -1,0 +1,100 @@
+---
+id: FRONTEND-REACT-HOOKS
+title: "React Hooks"
+titleBn: "React হুকস"
+description: "useState, useEffect, and friends—rules of hooks and effect mental models."
+descriptionBn: "useState, useEffect ও অন্যান্য—হুকের নিয়ম এবং ইফেক্টের মানসিক মডেল।"
+track: frontend
+difficulty: intermediate
+estimatedMinutes: 42
+prerequisites: 
+  - "FRONTEND-REACT-COMPONENTS-STATE"
+  - "FRONTEND-JAVASCRIPT-ASYNC-EVENT-LOOP"
+unlocks: 
+  - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+  - "FRONTEND-FORMS-VALIDATION"
+related: 
+  - "FRONTEND-TYPESCRIPT-FUNDAMENTALS"
+careers: 
+  - "CAREER-FRONTEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "react"
+  - "hooks"
+  - "useEffect"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "REACT-HOOKS"
+  - "REACT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why hooks replaced class lifecycles for most UI
+
+Hooks colocate related logic (state + effects) without HOCs/render-prop pyramids—when used with the Rules of Hooks.
+
+## Mental model
+
+<Callout type="mental-model">
+  Effects synchronize React with external systems (network, DOM, subscriptions). If there is no external system, you may not need an effect.
+</Callout>
+
+```tsx
+import { useEffect, useState } from 'react';
+
+export function TopicTitle({ id }: { id: string }) {
+  const [title, setTitle] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`/api/topics/${id}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (!cancelled) setTitle(data.title);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [id]);
+
+  return <h1>{title ?? 'Loading…'}</h1>;
+}
+```
+
+
+## Common mistakes
+
+- **Effects for pure calculations** — Derive in render instead.
+- **Missing cleanup** — Leaks listeners and races.
+- **Conditional hooks** — Breaks hook ordering; always call hooks at top level.
+
+## Interview angle
+
+<Callout type="interview">
+  When is useEffect the wrong tool? Give an example of deriving state during render instead.
+</Callout>
+
+## Practice checklist
+
+- [ ] Add cleanup to a subscription effect.
+- [ ] Replace an unnecessary effect with derived state.
+- [ ] Read React docs on synchronizing with effects.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `REACT-HOOKS`
+- `REACT-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

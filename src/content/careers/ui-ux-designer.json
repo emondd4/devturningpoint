@@ -1,0 +1,103 @@
+{
+  "id": "ui-ux-designer",
+  "slug": "ui-ux-designer",
+  "name": "UI/UX Designer",
+  "nameBn": "ইউআই/ইউএক্স ডিজাইনার",
+  "alternativeNames": [
+    "Product Designer",
+    "UX Designer",
+    "UI Designer",
+    "Interaction Designer"
+  ],
+  "summary": "Researches user needs and designs usable interfaces, delivering flows and UI specs for engineering teams.",
+  "whatTheyDo": "Map journeys, wireframe and prototype interfaces, run lightweight research, and hand off consistent design systems.",
+  "typicalDailyWork": [
+    "User flow mapping",
+    "Wireframes/high-fidelity UI",
+    "Prototype in Figma",
+    "Design critique",
+    "Developer handoff"
+  ],
+  "responsibilities": [
+    "Advocate usability and accessibility",
+    "Keep design system coherence",
+    "Validate assumptions with research when possible"
+  ],
+  "prerequisites": [
+    "Visual design fundamentals",
+    "Empathy for users",
+    "Basic understanding of web/mobile constraints"
+  ],
+  "technicalSkills": [
+    "Interaction design",
+    "Information architecture",
+    "Prototyping",
+    "Design systems",
+    "Usability heuristics"
+  ],
+  "tools": [
+    "Figma",
+    "FigJam/Miro",
+    "UserTesting or informal interviews",
+    "Accessibility checkers"
+  ],
+  "softSkills": [
+    "Facilitation",
+    "Critique",
+    "Stakeholder negotiation"
+  ],
+  "juniorExpectations": [
+    "Produce clean UI from briefs",
+    "Iterate from feedback",
+    "Maintain component hygiene"
+  ],
+  "midExpectations": [
+    "Own end-to-end flows",
+    "Run research lite",
+    "Improve design system"
+  ],
+  "seniorExpectations": [
+    "Set product design direction",
+    "Mentor designers",
+    "Align metrics with UX outcomes"
+  ],
+  "relatedCareers": [
+    "frontend-engineer",
+    "product-manager",
+    "fullstack-engineer"
+  ],
+  "careerTransitions": [
+    "Can specialize in UX research or design systems"
+  ],
+  "learningTracks": [
+    "uiux",
+    "frontend"
+  ],
+  "projectIds": [
+    "proj-design-system",
+    "proj-marketplace-mvp"
+  ],
+  "interviewCategories": [
+    "portfolio-critique",
+    "ux-process",
+    "accessibility"
+  ],
+  "bangladeshNotes": "UI/UX and Product Designer titles appear in Bangladesh product companies and agencies; Figma is the dominant tool signal in portfolios and ads. Some software firms combine UI design with frontend expectations—clarify role scope before applying. Avoid assuming every engineering employer has a dedicated design team.",
+  "commonQualifications": [
+    "Strong Figma portfolio",
+    "Case studies showing process, not only visuals"
+  ],
+  "commonlyRequestedTech": [
+    "Figma",
+    "Prototyping",
+    "Design systems",
+    "Basic HTML/CSS awareness (sometimes)"
+  ],
+  "experienceExpectations": "Junior roles may accept strong portfolios; product companies often want shipped-app case studies.",
+  "sources": [
+    "src-pathao-about",
+    "src-job-zmc-lead"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

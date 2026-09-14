@@ -1,0 +1,28 @@
+{
+  "id": "samsung-rd-bangladesh",
+  "slug": "samsung-rd-bangladesh",
+  "name": "Samsung R&D Institute Bangladesh",
+  "website": "https://research.samsung.com/srbd",
+  "category": "rd-multinational",
+  "businessAreas": [
+    "mobile/application R&D",
+    "multi-device experience",
+    "Galaxy ecosystem software"
+  ],
+  "careerAreas": [
+    "software-engineer",
+    "frontend-engineer",
+    "fullstack-engineer",
+    "qa-engineer",
+    "devops-engineer"
+  ],
+  "headquarters": "Monem Business District, 111 Bir Uttam C.R. Dutta Road, Dhaka-1205, Bangladesh",
+  "summary": "Samsung R&D Institute Bangladesh (SRBD), established in February 2011, is Samsung's Dhaka R&D center contributing application and service development for mobile, wearables, and related platforms.",
+  "selectionCriteria": "Featured as a major multinational R&D employer in Dhaka with an official Samsung Research page and BASIS membership profile; featured set is not ranked.",
+  "lastVerified": "2026-09-14",
+  "sources": [
+    "src-srbd-home",
+    "src-srbd-basis",
+    "src-basis-exporters-fe"
+  ]
+}

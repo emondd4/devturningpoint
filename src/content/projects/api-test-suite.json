@@ -1,0 +1,35 @@
+{
+  "id": "proj-api-test-suite",
+  "slug": "api-test-suite",
+  "title": "API Test Suite with Postman/Newman or Playwright",
+  "track": "qa",
+  "difficulty": "intermediate",
+  "summary": "Design a regression suite for a public API covering auth, happy paths, and negative cases, runnable in CI.",
+  "requiredKnowledge": [
+    "HTTP",
+    "Assertions",
+    "Basic scripting"
+  ],
+  "features": [
+    "Env-specific configs",
+    "Negative tests",
+    "CI run",
+    "HTML/JUnit report"
+  ],
+  "suggestedArchitecture": "Collection-as-code or Playwright API tests; separate data fixtures; fail on contract drift.",
+  "milestones": [
+    "Map endpoints",
+    "Write core tests",
+    "Wire CI",
+    "Flake review"
+  ],
+  "extensions": [
+    "Contract testing with OpenAPI"
+  ],
+  "portfolioProof": "CI logs + short defect reports found against a practice API.",
+  "relatedTopics": [
+    "qa",
+    "api-testing"
+  ],
+  "estimatedHours": 18
+}

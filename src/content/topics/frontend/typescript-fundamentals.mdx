@@ -1,0 +1,89 @@
+---
+id: FRONTEND-TYPESCRIPT-FUNDAMENTALS
+title: "TypeScript Fundamentals"
+titleBn: "TypeScript এর মৌলিক বিষয়"
+description: "Types as proofreading for programs—interfaces, unions, and gradual adoption."
+descriptionBn: "প্রোগ্রামের প্রুফরিডিং হিসেবে টাইপ—ইন্টারফেস, ইউনিয়ন ও ধাপে ধাপে গ্রহণ।"
+track: frontend
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites: 
+  - "FRONTEND-JAVASCRIPT-FUNDAMENTALS"
+unlocks: 
+  - "FRONTEND-REACT-COMPONENTS-STATE"
+  - "BACKEND-TYPESCRIPT-FOR-BACKEND"
+related: 
+  - "FRONTEND-JAVASCRIPT-ASYNC-EVENT-LOOP"
+careers: 
+  - "CAREER-FRONTEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+tags: 
+  - "typescript"
+  - "types"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "TS-HANDBOOK"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why types pay rent in UI apps
+
+Props, API responses, and state transitions are where silent `undefined` bugs breed. TypeScript moves many failures to compile time.
+
+## Mental model
+
+<Callout type="mental-model">
+  Start with domain unions (`loading | success | error`) instead of booleans that allow impossible combinations.
+</Callout>
+
+```ts
+type Topic = { id: string; title: string };
+
+type LoadState =
+  | { status: 'idle' }
+  | { status: 'loading' }
+  | { status: 'success'; data: Topic }
+  | { status: 'error'; message: string };
+
+function titleOf(state: LoadState): string {
+  return state.status === 'success' ? state.data.title : '…';
+}
+```
+
+
+## Common mistakes
+
+- **Abusing any** — Turns the typechecker off locally.
+- **Boolean soup flags** — Impossible states become runtime bugs.
+- **Over-modeling early** — Type the boundaries first (props/API).
+
+## Interview angle
+
+<Callout type="interview">
+  Show how a discriminated union improves a component’s loading UI compared to multiple booleans.
+</Callout>
+
+## Practice checklist
+
+- [ ] Type a fetch wrapper’s return union.
+- [ ] Enable strict flags in tsconfig.
+- [ ] Replace an any with unknown + narrowing.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `TS-HANDBOOK`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

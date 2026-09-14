@@ -1,0 +1,110 @@
+{
+  "id": "cybersecurity-engineer",
+  "slug": "cybersecurity-engineer",
+  "name": "Cybersecurity Engineer",
+  "nameBn": "সাইবারসিকিউরিটি ইঞ্জিনিয়ার",
+  "alternativeNames": [
+    "Security Engineer",
+    "Information Security Engineer",
+    "AppSec Engineer",
+    "SOC Analyst",
+    "IT Security Engineer"
+  ],
+  "summary": "Hardens systems and applications against threats through secure design reviews, controls, monitoring, and response.",
+  "whatTheyDo": "Assess risks, implement security controls, support secure SDLC, and investigate suspicious activity depending on team focus.",
+  "typicalDailyWork": [
+    "Review architecture for threats",
+    "Harden configs and secrets handling",
+    "Monitor alerts",
+    "Support vulnerability remediation",
+    "Security awareness collaboration"
+  ],
+  "responsibilities": [
+    "Reduce exploitable risk",
+    "Document controls",
+    "Balance security with delivery speed"
+  ],
+  "prerequisites": [
+    "Networking fundamentals",
+    "OS basics",
+    "Web/app fundamentals",
+    "Threat mindset"
+  ],
+  "technicalSkills": [
+    "OWASP Top 10 awareness",
+    "AuthN/AuthZ",
+    "Logging/monitoring",
+    "Vulnerability management",
+    "Cloud security basics"
+  ],
+  "tools": [
+    "SIEM (varies)",
+    "Vulnerability scanners",
+    "Burp/ZAP (AppSec)",
+    "IAM consoles",
+    "Ticketing"
+  ],
+  "softSkills": [
+    "Risk communication",
+    "Evidence-based prioritization",
+    "Discretion"
+  ],
+  "juniorExpectations": [
+    "Triage known vulnerability classes",
+    "Follow playbooks",
+    "Learn secure coding reviews"
+  ],
+  "midExpectations": [
+    "Own AppSec or infra security domains",
+    "Improve detection coverage"
+  ],
+  "seniorExpectations": [
+    "Security architecture",
+    "Program building",
+    "Incident leadership"
+  ],
+  "relatedCareers": [
+    "devops-engineer",
+    "backend-engineer",
+    "qa-engineer"
+  ],
+  "careerTransitions": [
+    "Can specialize into AppSec, cloud security, or GRC"
+  ],
+  "learningTracks": [
+    "foundations",
+    "devops",
+    "backend"
+  ],
+  "projectIds": [
+    "proj-secure-auth",
+    "proj-dockerize-app"
+  ],
+  "interviewCategories": [
+    "owasp",
+    "networking",
+    "incident-response"
+  ],
+  "bangladeshNotes": "Dedicated Cybersecurity Engineer openings exist but are fewer than general software roles on broad job boards. Security skills are also embedded in senior software/fintech ads (e.g. OWASP expectations in some technical lead postings). Regulated fintech and payments employers may emphasize compliance and secure SDLC. Titles vary (Security Engineer, SOC, IT Security). Certifications may be preferred but are not verified as universal requirements.",
+  "commonQualifications": [
+    "Home-lab or CTF-lite portfolio (ethical)",
+    "Understanding of OWASP Top 10",
+    "Clear ethics and legal boundaries"
+  ],
+  "commonlyRequestedTech": [
+    "OWASP awareness",
+    "Linux",
+    "Networking",
+    "Cloud IAM basics",
+    "SIEM/tools vary"
+  ],
+  "experienceExpectations": "Senior security roles typically expect prior IT/software experience; junior paths may start via SOC or secure coding in engineering teams.",
+  "sources": [
+    "OWASP-TOP10",
+    "src-job-zmc-lead",
+    "src-ssl-home",
+    "src-bjit-iso"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

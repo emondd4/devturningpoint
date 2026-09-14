@@ -1,0 +1,84 @@
+---
+id: QA-API-TESTING
+title: "API Testing"
+titleBn: "API টেস্টিং"
+description: "Status codes, schemas, auth, and idempotency checks for backend contracts."
+descriptionBn: "ব্যাকএন্ড কন্ট্রাক্টের জন্য স্ট্যাটাস কোড, স্কিমা, অথ ও আইডেমপোটেন্সি চেক।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites: 
+  - "QA-TESTING-PYRAMID"
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+unlocks: 
+  - "QA-PLAYWRIGHT-E2E"
+related: 
+  - "BACKEND-HTTP-REST-API-DESIGN"
+  - "BACKEND-TESTING"
+careers: 
+  - "CAREER-QA-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+tags: 
+  - "qa"
+  - "api"
+  - "http"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "RFC-9110-HTTP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why API tests scale
+
+UI tests are costly. Contract tests against HTTP APIs catch regressions early across web and mobile clients.
+
+## Mental model
+
+<Callout type="mental-model">
+  Arrange auth and fixtures → act with HTTP → assert status, headers, body schema, and side effects.
+</Callout>
+
+```bash
+curl -sS -o body.json -w "%{http_code}" \
+  -H "Authorization: Bearer $TOKEN" \
+  https://api.example.com/topics
+```
+
+Assert negative cases: 401 without token, 403 wrong role, 400 invalid body.
+
+
+## Common mistakes
+
+- **Only testing 200s** — Security bugs hide in 401/403.
+- **Order-dependent fixtures** — Tests flake in parallel.
+- **Ignoring response schema drift** — Clients break silently.
+
+## Interview angle
+
+<Callout type="interview">
+  Design API tests for create-topic including authz and validation failures.
+</Callout>
+
+## Practice checklist
+
+- [ ] Write 5 API cases for one endpoint.
+- [ ] Add JSON schema assertions.
+- [ ] Run them in CI.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `RFC-9110-HTTP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1,0 +1,88 @@
+---
+id: BACKEND-DOCKER-DEPLOY
+title: "Backend Docker Deploy"
+titleBn: "ব্যাকএন্ড Docker ডিপ্লয়"
+description: "Containerizing Node APIs: images, env config, healthchecks, and 12-factor habits."
+descriptionBn: "Node API কন্টেইনারাইজ: ইমেজ, এনভ কনফিগ, হেলথচেক ও 12-factor অভ্যাস।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites: 
+  - "DEVOPS-DOCKER-FUNDAMENTALS"
+  - "BACKEND-TESTING"
+unlocks: 
+  - "FULLSTACK-DEPLOYMENT-PIPELINE"
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+related: 
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-DEVOPS-ENGINEER"
+tags: 
+  - "docker"
+  - "deploy"
+  - "backend"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "DOCKER-GET-STARTED"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why containers standardize runtime
+
+“Works on my machine” becomes “runs the same image.” Ops and app teams share a contract: port, env, health endpoint.
+
+## Mental model
+
+<Callout type="mental-model">
+  Build a lean image, configure via env, process logs to stdout, expose a health check, shut down on SIGTERM gracefully.
+</Callout>
+
+```dockerfile
+FROM node:22-alpine AS deps
+WORKDIR /app
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable && pnpm i --frozen-lockfile
+COPY . .
+RUN pnpm build
+CMD ["node", "dist/main.js"]
+```
+
+(Adjust to your package manager and build output.)
+
+
+## Common mistakes
+
+- **Baking secrets into images** — Use runtime secrets.
+- **Running as root unnecessarily** — Reduce blast radius.
+- **No graceful shutdown** — In-flight requests die on deploy.
+
+## Interview angle
+
+<Callout type="interview">
+  Describe a production-ready Dockerfile and how you pass DATABASE_URL securely.
+</Callout>
+
+## Practice checklist
+
+- [ ] Dockerize a sample API.
+- [ ] Add a /health endpoint.
+- [ ] Handle SIGTERM in Node.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `DOCKER-GET-STARTED`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

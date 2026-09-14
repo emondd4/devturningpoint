@@ -1,0 +1,27 @@
+{
+  "id": "iv-react-reconciliation-keys",
+  "question": "Why can using array index as a React list key cause subtle UI bugs when the list is reordered or filtered, and how would you choose stable keys instead?",
+  "careerIds": [
+    "frontend-engineer",
+    "fullstack-engineer"
+  ],
+  "technology": [
+    "React",
+    "JavaScript"
+  ],
+  "difficulty": "junior",
+  "shortAnswer": "Index keys tie component identity to position, so reordering reuses the wrong component state. Prefer stable IDs from data.",
+  "strongAnswer": "React reconciliation matches children by key. If keys are indexes, moving an item changes which component instance is associated with which data, so local state (inputs, expanded rows) can attach to the wrong row. Stable keys (database id, UUID assigned at creation) preserve identity across inserts/deletes/sorts. Indexes are only acceptable for static lists that never reorder and have no per-item state.",
+  "advancedAnswer": "Also discuss keyed fragments, remounting via key changes as an intentional reset mechanism, and why Math.random() keys are worse than indexes because they remount every render.",
+  "followUps": [
+    "How does this interact with controlled inputs inside list items?",
+    "When is remounting via key change desirable?"
+  ],
+  "commonWrongAnswer": "Keys are only for removing React warnings and do not affect behavior.",
+  "productionRelevance": "Incorrect keys cause hard-to-reproduce production bugs in tables, chat threads, and carts.",
+  "relatedTopics": [
+    "frontend",
+    "react"
+  ],
+  "lastVerified": "2026-09-14"
+}

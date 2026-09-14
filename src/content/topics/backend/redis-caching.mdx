@@ -1,0 +1,86 @@
+---
+id: BACKEND-REDIS-CACHING
+title: "Redis Caching for Backends"
+titleBn: "ব্যাকএন্ডে Redis ক্যাশিং"
+description: "When to cache, cache keys, TTLs, and invalidation—so Redis helps instead of lying."
+descriptionBn: "কখন ক্যাশ করবেন, ক্যাশ কী, TTL ও ইনভ্যালিডেশন—যাতে Redis সাহায্য করে, মিথ্যা না বলে।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites: 
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+unlocks: 
+  - "DATABASE-REDIS-DATA-STRUCTURES"
+  - "FULLSTACK-DATA-FLOW"
+related: 
+  - "FOUNDATIONS-ALGORITHMS-COMPLEXITY"
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+  - "CAREER-DEVOPS-ENGINEER"
+tags: 
+  - "redis"
+  - "caching"
+  - "performance"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "REDIS-DATA-TYPES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why caching is a consistency decision
+
+Caches trade freshness for latency/cost. Without invalidation strategy, users see ghosts.
+
+## Mental model
+
+<Callout type="mental-model">
+  Cache aside: read DB on miss, populate Redis with TTL. On write, update DB then delete/update cache keys deliberately.
+</Callout>
+
+```ts
+const key = `topic:${id}`;
+const cached = await redis.get(key);
+if (cached) return JSON.parse(cached);
+const row = await db.topic.find(id);
+await redis.set(key, JSON.stringify(row), 'EX', 60);
+return row;
+```
+
+
+## Common mistakes
+
+- **Caching personalized data under global keys** — Leakage across users.
+- **No TTL and no invalidation** — Eternal stale reads.
+- **Caching as fix for missing indexes** — Fix the query first.
+
+## Interview angle
+
+<Callout type="interview">
+  Design cache keys and invalidation for a topic page that editors update.
+</Callout>
+
+## Practice checklist
+
+- [ ] Implement cache-aside for one GET.
+- [ ] Expire keys on update.
+- [ ] Measure hit rate conceptually.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `REDIS-DATA-TYPES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

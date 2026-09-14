@@ -1,0 +1,33 @@
+{
+  "id": "proj-dockerize-app",
+  "slug": "dockerize-app",
+  "title": "Dockerize an Existing App",
+  "track": "devops",
+  "difficulty": "beginner",
+  "summary": "Take a simple web app and produce reproducible dev/prod Docker setups with .dockerignore and healthchecks.",
+  "requiredKnowledge": [
+    "Basic Linux commands",
+    "App runtime basics"
+  ],
+  "features": [
+    "Dev compose",
+    "Prod multi-stage Dockerfile",
+    "Healthcheck",
+    "Env sample files"
+  ],
+  "suggestedArchitecture": "Multi-stage build; non-root user; explicit ports; documented env vars.",
+  "milestones": [
+    "Run locally in Docker",
+    "Multi-stage slim image",
+    "Compose with DB if needed"
+  ],
+  "extensions": [
+    "Watchtower-free manual update docs"
+  ],
+  "portfolioProof": "Before/after image size notes in README.",
+  "relatedTopics": [
+    "devops",
+    "docker"
+  ],
+  "estimatedHours": 12
+}

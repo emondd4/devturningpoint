@@ -1,0 +1,27 @@
+{
+  "id": "cefalo",
+  "slug": "cefalo",
+  "name": "Cefalo",
+  "website": "https://www.cefalo.com/en/",
+  "category": "software-services",
+  "businessAreas": [
+    "dedicated development teams",
+    "external software development",
+    "long-term engineering partnerships"
+  ],
+  "careerAreas": [
+    "software-engineer",
+    "frontend-engineer",
+    "backend-engineer",
+    "fullstack-engineer",
+    "devops-engineer"
+  ],
+  "headquarters": "Oslo, Norway (head office); Dhaka delivery office at House 26, Road 05, Dhanmondi",
+  "summary": "Cefalo is a Norwegian company that provides dedicated developers from its wholly owned Dhaka subsidiary to European clients, emphasizing long-term team embedding and senior engineering talent.",
+  "selectionCriteria": "Featured as a well-documented Dhaka engineering employer focused on export delivery to Europe, with official office details and BASIS exporter recognition; featured, not ranked.",
+  "lastVerified": "2026-09-14",
+  "sources": [
+    "src-cefalo-home",
+    "src-basis-exporters-fe"
+  ]
+}

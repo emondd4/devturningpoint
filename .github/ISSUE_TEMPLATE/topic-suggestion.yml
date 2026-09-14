@@ -1,0 +1,32 @@
+name: Topic suggestion
+description: Suggest a new learning topic or track expansion
+title: "[topic] "
+labels: ["content", "enhancement"]
+body:
+  - type: input
+    id: proposed-id
+    attributes:
+      label: Proposed stable ID
+      placeholder: FRONTEND-REACT-SERVER-COMPONENTS
+  - type: dropdown
+    id: track
+    attributes:
+      label: Track
+      options:
+        - foundations
+        - mobile-flutter
+        - frontend
+        - backend
+        - fullstack
+        - devops
+        - database
+        - qa
+        - uiux
+        - project-management
+        - other
+  - type: textarea
+    id: why
+    attributes:
+      label: Why learners need this
+    validations:
+      required: true

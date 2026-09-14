@@ -1,0 +1,94 @@
+---
+id: DEVOPS-GITHUB-ACTIONS-CI
+title: "GitHub Actions CI"
+titleBn: "GitHub Actions CI"
+description: "Workflows, jobs, caches, and service containers—automating checks on every PR."
+descriptionBn: "ওয়ার্কফ্লো, জব, ক্যাশ ও সার্ভিস কন্টেইনার—প্রতিটি PR-এ স্বয়ংক্রিয় চেক।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites: 
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+  - "DEVOPS-DOCKER-FUNDAMENTALS"
+unlocks: 
+  - "FULLSTACK-DEPLOYMENT-PIPELINE"
+  - "BACKEND-DOCKER-DEPLOY"
+related: []
+careers: 
+  - "CAREER-DEVOPS-ENGINEER"
+  - "CAREER-SOFTWARE-ENGINEER"
+  - "CAREER-BACKEND-ENGINEER"
+tags: 
+  - "ci"
+  - "github-actions"
+  - "automation"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "GHA-WORKFLOWS"
+  - "GHA-SERVICE-CONTAINERS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why CI is a product requirement
+
+If tests only run locally, broken main is inevitable. CI makes quality checks a merge gate.
+
+## Mental model
+
+<Callout type="mental-model">
+  Workflow YAML declares events → jobs (runners) → steps. Jobs can use service containers on a bridge network for databases during tests.
+</Callout>
+
+```yaml
+name: ci
+on: [pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 9 }
+      - run: pnpm i --frozen-lockfile
+      - run: pnpm test
+```
+
+Pin actions by major version thoughtfully; treat secrets as secrets.
+
+
+## Common mistakes
+
+- **Secrets in logs** — Mask and avoid echo.
+- **No dependency caching strategy** — Slow feedback loops.
+- **Deploying from fork PRs with secrets** — Understand trust boundaries.
+
+## Interview angle
+
+<Callout type="interview">
+  Design a PR workflow that runs typecheck, unit tests, and build for an Astro/Node monorepo.
+</Callout>
+
+## Practice checklist
+
+- [ ] Add a workflow to this repo’s pattern.
+- [ ] Use a Postgres service container for integration tests.
+- [ ] Fail the job on lint errors.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `GHA-WORKFLOWS`
+- `GHA-SERVICE-CONTAINERS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

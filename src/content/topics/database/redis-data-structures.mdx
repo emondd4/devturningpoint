@@ -1,0 +1,78 @@
+---
+id: DATABASE-REDIS-DATA-STRUCTURES
+title: "Redis Data Structures"
+titleBn: "Redis ডেটা স্ট্রাকচার"
+description: "Strings, hashes, lists, sets, sorted sets—picking the right Redis type."
+descriptionBn: "String, hash, list, set, sorted set—সঠিক Redis টাইপ বেছে নেওয়া।"
+track: database
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites: 
+  - "BACKEND-REDIS-CACHING"
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+unlocks: []
+related: []
+careers: 
+  - "CAREER-BACKEND-ENGINEER"
+  - "CAREER-FULLSTACK-ENGINEER"
+tags: 
+  - "redis"
+  - "data-structures"
+status: published
+translationStatus: partial
+createdAt: "2026-09-14"
+updatedAt: "2026-09-14"
+lastVerified: "2026-09-14"
+sources: 
+  - "REDIS-DATA-TYPES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why Redis types matter
+
+Using only `GET/SET` strings works—until you need leaderboards, queues, or field updates without rewriting giant JSON blobs.
+
+## Mental model
+
+<Callout type="mental-model">
+  Match access pattern to type: hash for objects with field updates, list for queues, set for unique membership, sorted set for ranked feeds.
+</Callout>
+
+```bash
+HSET topic:1 title "Git" track foundations
+ZADD leaderboard 100 "user:42"
+LPUSH jobs '{"type":"reindex"}'
+```
+
+
+## Common mistakes
+
+- **Giant JSON strings always** — Partial updates become expensive.
+- **Using Redis as sole system of record without persistence plan** — Know durability settings.
+- **Unbounded keys without TTL** — Memory blowups.
+
+## Interview angle
+
+<Callout type="interview">
+  Which Redis type would you use for a trending topics leaderboard and why?
+</Callout>
+
+## Practice checklist
+
+- [ ] Implement a simple rate limiter with INCR+TTL.
+- [ ] Model a session hash.
+- [ ] Read Redis data types overview.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `REDIS-DATA-TYPES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

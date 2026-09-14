@@ -1,0 +1,25 @@
+name: Content error
+description: Report a factual or technical error in educational content
+title: "[content-error] "
+labels: ["content", "bug"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+    validations:
+      required: true
+  - type: input
+    id: content-id
+    attributes:
+      label: Canonical content ID (if known)
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Better sources (URLs)

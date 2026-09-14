@@ -1,0 +1,29 @@
+{
+  "id": "iv-security-jwt-storage",
+  "question": "Where should a browser SPA store access tokens, and what attack trade-offs exist between localStorage and httpOnly cookies?",
+  "careerIds": [
+    "cybersecurity-engineer",
+    "frontend-engineer",
+    "backend-engineer"
+  ],
+  "technology": [
+    "JWT",
+    "Web Security",
+    "OWASP"
+  ],
+  "difficulty": "senior",
+  "shortAnswer": "localStorage is easy for XSS theft; httpOnly secure cookies mitigate XSS token theft but need CSRF defenses. Prefer short-lived access tokens and careful threat modeling.",
+  "strongAnswer": "XSS can read localStorage/sessionStorage, so long-lived tokens there are risky. httpOnly Secure SameSite cookies are not readable by JS, reducing XSS token exfiltration, but cookie-based auth needs CSRF protections (SameSite, anti-CSRF tokens) and correct domain/path scoping. Many teams use short-lived access tokens in memory plus refresh rotation. Align with OWASP session guidance and your threat model.",
+  "advancedAnswer": "Cover BFF patterns, token binding, refresh rotation/reuse detection, and mobile secure storage differences.",
+  "followUps": [
+    "How does SameSite=Lax behave on top-level GET?",
+    "What changes for native mobile apps?"
+  ],
+  "commonWrongAnswer": "JWT in localStorage is always fine if the API uses HTTPS.",
+  "productionRelevance": "Auth mistakes are high-impact in fintech and SaaS—frequent senior interview territory.",
+  "relatedTopics": [
+    "security",
+    "owasp"
+  ],
+  "lastVerified": "2026-09-14"
+}

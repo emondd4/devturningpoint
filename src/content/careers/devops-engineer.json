@@ -1,0 +1,114 @@
+{
+  "id": "devops-engineer",
+  "slug": "devops-engineer",
+  "name": "DevOps Engineer",
+  "nameBn": "ডেভঅপস ইঞ্জিনিয়ার",
+  "alternativeNames": [
+    "DevOps",
+    "Site Reliability Engineer (SRE)",
+    "Cloud Engineer",
+    "Platform Engineer",
+    "CI/CD Engineer"
+  ],
+  "summary": "Automates build/deploy pipelines and keeps cloud or server infrastructure reliable, observable, and secure.",
+  "whatTheyDo": "Maintain CI/CD, containers, infrastructure as code, monitoring, and operational runbooks in partnership with developers.",
+  "typicalDailyWork": [
+    "Improve pipelines",
+    "Manage containers/orchestration",
+    "Respond to infra alerts",
+    "Harden access and secrets",
+    "Document runbooks"
+  ],
+  "responsibilities": [
+    "Reduce deployment risk",
+    "Keep environments reproducible",
+    "Support incident response",
+    "Enforce least-privilege access"
+  ],
+  "prerequisites": [
+    "Linux fundamentals",
+    "Networking basics",
+    "Git",
+    "Scripting (Bash/Python)"
+  ],
+  "technicalSkills": [
+    "CI/CD",
+    "Docker",
+    "Cloud basics (AWS/GCP/Azure)",
+    "Monitoring",
+    "IaC concepts"
+  ],
+  "tools": [
+    "GitHub Actions/GitLab CI/Jenkins",
+    "Docker",
+    "Kubernetes (advanced roles)",
+    "Terraform/Ansible (varies)",
+    "Prometheus/Grafana (varies)"
+  ],
+  "softSkills": [
+    "Calm incident communication",
+    "Change management",
+    "Collaboration with developers"
+  ],
+  "juniorExpectations": [
+    "Maintain existing pipelines",
+    "Basic container ops",
+    "Follow security checklists"
+  ],
+  "midExpectations": [
+    "Design pipeline strategy",
+    "Improve reliability metrics",
+    "Automate toil"
+  ],
+  "seniorExpectations": [
+    "Platform architecture",
+    "Capacity and cost trade-offs",
+    "Lead major migrations"
+  ],
+  "relatedCareers": [
+    "backend-engineer",
+    "cybersecurity-engineer",
+    "software-engineer"
+  ],
+  "careerTransitions": [
+    "Often overlaps with SRE or cloud specialist paths"
+  ],
+  "learningTracks": [
+    "devops",
+    "foundations",
+    "backend"
+  ],
+  "projectIds": [
+    "proj-ci-cd-sample",
+    "proj-dockerize-app"
+  ],
+  "interviewCategories": [
+    "linux",
+    "ci-cd",
+    "containers",
+    "networking"
+  ],
+  "bangladeshNotes": "Pure DevOps titles exist, but many Bangladesh postings fold CI/CD, Docker, and cloud duties into backend/fullstack senior roles (observed in NestJS/Java ads). Dedicated infra roles also appear at larger product and R&D employers. Kubernetes appears in some senior Java/cloud ads; it is not universal. Treat cloud provider requirements as employer-specific.",
+  "commonQualifications": [
+    "Hands-on CI/CD projects",
+    "Linux comfort",
+    "Basic cloud lab experience"
+  ],
+  "commonlyRequestedTech": [
+    "Docker",
+    "CI/CD",
+    "Linux",
+    "AWS (often preferred)",
+    "Kubernetes (sometimes)",
+    "Git"
+  ],
+  "experienceExpectations": "Senior ads may combine DevOps with 5+ years software experience; dedicated junior DevOps openings are less common than hybrid roles.",
+  "sources": [
+    "src-job-nagad-sse",
+    "src-job-innospace-backend",
+    "src-job-systemone",
+    "src-docker-docs"
+  ],
+  "status": "published",
+  "lastVerified": "2026-09-14"
+}

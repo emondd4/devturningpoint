@@ -1,0 +1,24 @@
+name: Feature request
+description: Propose a product/engineering feature
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: V1 scope check
+      options:
+        - label: Does NOT require a runtime DB/auth/LLM API
+          required: true

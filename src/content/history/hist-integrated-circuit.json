@@ -1,0 +1,22 @@
+{
+  "id": "hist-integrated-circuit",
+  "year": "1958-1959",
+  "title": "Integrated circuit breakthrough",
+  "titleBn": "ইন্টিগ্রেটেড সার্কিট",
+  "before": "Circuits were assembled from discrete components, limiting density and reliability.",
+  "problem": "Complex electronics needed many components connected reliably in tiny spaces.",
+  "change": "Independent work associated with Jack Kilby (Texas Instruments) and Robert Noyce (Fairchild) produced early integrated circuits around 1958–1959; public demonstrations and commercialization followed.",
+  "whyItMattered": "Putting multiple devices on one chip unlocked exponential growth in capability later summarized by Moore's Law discussions.",
+  "enabled": "Microprocessors, dense memory, affordable personal computing.",
+  "modernDescendants": [
+    "CPUs/GPUs",
+    "DRAM/NAND",
+    "System-on-chip designs"
+  ],
+  "concreteExample": "A modern microcontroller integrates CPU, memory, and peripherals on one die—an IC concept scaled massively.",
+  "caveat": "Attribution involves overlapping inventions and patents; avoid simplistic single-inventor 'first' slogans.",
+  "sources": [
+    "src-chm-silicon",
+    "src-ieee-timeline"
+  ]
+}
