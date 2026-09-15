@@ -1,0 +1,73 @@
+---
+id: FULLSTACK-E2E-TESTING
+title: "Full-Stack End-to-End Testing"
+titleBn: "ফুলস্ট্যাক এন্ড-টু-এন্ড টেস্টিং"
+description: "Playwright against Next+Nest with test data, auth, and CI realism."
+descriptionBn: "টেস্ট ডেটা, অথ ও CI রিয়ালিজমসহ Next+Nest-এ Playwright।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites:
+  - "QA-PLAYWRIGHT-E2E"
+  - "FULLSTACK-ARCHITECTURE-OVERVIEW"
+unlocks:
+  []
+related:
+  - "QA-FLAKY-TESTS"
+  - "FULLSTACK-DOCKER-COMPOSE"
+careers:
+  - "fullstack-engineer"
+  - "qa-engineer"
+tags:
+  - "fullstack"
+  - "e2e"
+  - "playwright"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "PLAYWRIGHT-DOCS"
+  - "NEXTJS-APP-ROUTER"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why full-stack E2E
+
+Unit tests miss contract breaks between UI and API. A few critical journeys catch integration regressions.
+
+## Mental model
+
+<Callout type="mental-model">
+  Run against a compose stack or ephemeral environment. Seed data intentionally. Prefer user-facing locators. Keep the suite small and high-signal.
+</Callout>
+
+## Common mistakes
+
+- **E2E-only strategy**.
+- **Shared mutable users across parallel tests**.
+- **No traces on failure**.
+
+## Interview angle
+
+<Callout type="interview">
+  Design E2E for signup → verify email → first project create.
+</Callout>
+
+## Practice checklist
+
+- [ ] Write one Playwright journey against local compose.
+- [ ] Isolate test users.
+- [ ] Wire the job into CI artifacts.
+
+## Sources
+
+- `PLAYWRIGHT-DOCS`
+- `NEXTJS-APP-ROUTER`

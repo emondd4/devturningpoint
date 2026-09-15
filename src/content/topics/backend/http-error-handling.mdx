@@ -1,0 +1,101 @@
+---
+id: BACKEND-HTTP-ERROR-HANDLING
+title: "HTTP Error Handling"
+titleBn: "HTTP Error Handling"
+description: "Map domain failures to status codes, stable error bodies, and Nest exception filters."
+descriptionBn: "ডোমেইন ব্যর্থতা স্ট্যাটাস কোড, স্থিতিশীল error body ও Nest exception filter-এ ম্যাপ করুন।"
+track: backend
+category: http
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites:
+  - "BACKEND-HTTP-REST-API-DESIGN"
+unlocks: []
+related:
+  - "BACKEND-NESTJS-VALIDATION"
+  - "BACKEND-STRUCTURED-LOGGING"
+careers:
+  - "backend-engineer"
+tags:
+  - "http"
+  - "errors"
+  - "nestjs"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NESTJS-EXCEPTION-FILTERS"
+  - "RFC-9110-HTTP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Inconsistent errors force every client to special-case. Leaking stack traces or SQL errors is a security issue. Clear status + stable machine-readable codes speed debugging.
+
+## Mental model
+
+<Callout type="mental-model">
+  4xx = client can fix the request. 5xx = server/dependency failed. Domain exceptions translate at the edge (filter/middleware). Logs keep detail; responses stay safe.
+</Callout>
+
+## How it works
+
+Throw typed exceptions (`NotFoundException`, custom domain errors). Use a global filter for shape `{ code, message, details? }`. Never return raw DB errors to clients.
+
+```ts
+import {
+  Catch, ExceptionFilter, ArgumentsHost, HttpException, HttpStatus,
+} from '@nestjs/common';
+
+@Catch()
+export class ApiExceptionFilter implements ExceptionFilter {
+  catch(exception: unknown, host: ArgumentsHost) {
+    const res = host.switchToHttp().getResponse();
+    const status =
+      exception instanceof HttpException
+        ? exception.getStatus()
+        : HttpStatus.INTERNAL_SERVER_ERROR;
+    const message =
+      exception instanceof HttpException
+        ? exception.message
+        : 'Internal error';
+    res.status(status).json({ code: 'ERR_' + status, message });
+  }
+}
+```
+
+## Common mistakes
+
+- **200 OK with error payloads** — Breaks HTTP semantics and intermediaries.
+- **Exposing stack traces in prod** — Information leak.
+- **Using 500 for not-found** — Hides client mistakes and pollutes alerts.
+
+## Interview angle
+
+<Callout type="interview">
+  When do you choose 400 vs 409 vs 422, and what belongs in logs but not in the response body?
+</Callout>
+
+## Practice checklist
+
+- [ ] Add a global exception filter
+- [ ] Map one domain error to 409
+- [ ] Verify prod hides stacks
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-EXCEPTION-FILTERS`
+- `RFC-9110-HTTP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1,0 +1,22 @@
+{
+  "id": "issue-systemd-daemon-reload-missed",
+  "title": "Edited systemd unit has no effect until daemon-reload",
+  "technology": "systemd",
+  "platform": "Linux",
+  "symptoms": [
+    "systemctl restart runs old ExecStart",
+    "Unit file on disk looks correct",
+    "No error on restart"
+  ],
+  "cause": "systemd caches unit files; changes require daemon-reload before restart picks them up.",
+  "solution": "After editing unit or drop-ins: systemctl daemon-reload && systemctl restart <unit>. Verify with systemctl cat.",
+  "workaround": "systemctl edit to create drop-ins that still need reload.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "DEVOPS-SYSTEMD"
+  ],
+  "sources": [
+    "SYSTEMD-DOCS"
+  ],
+  "lastVerified": "2026-09-15"
+}

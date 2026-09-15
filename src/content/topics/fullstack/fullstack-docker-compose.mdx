@@ -1,0 +1,79 @@
+---
+id: FULLSTACK-DOCKER-COMPOSE
+title: "Local Full Stack with Docker Compose"
+titleBn: "Docker Compose দিয়ে লোকাল ফুল স্ট্যাক"
+description: "Run Next, Nest, Postgres, and Redis together for realistic local development."
+descriptionBn: "রিয়ালিস্টিক লোকাল ডেভের জন্য Next, Nest, Postgres ও Redis একসাথে চালান।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites:
+  - "FULLSTACK-ENV-CONFIG"
+  - "DEVOPS-DOCKER-FUNDAMENTALS"
+unlocks:
+  - "FULLSTACK-E2E-TESTING"
+related:
+  - "FULLSTACK-ENV-CONFIG"
+  - "FULLSTACK-DEPLOYMENT-PIPELINE"
+careers:
+  - "fullstack-engineer"
+  - "devops-engineer"
+tags:
+  - "fullstack"
+  - "docker"
+  - "compose"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "DOCKER-COMPOSE"
+  - "DOCKER-GET-STARTED"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why compose for full-stack
+
+Integration bugs appear when services run together. Compose encodes the dependency graph for every developer and CI job.
+
+## Mental model
+
+<Callout type="mental-model">
+  One network, named services as DNS, volumes for Postgres data, env files per service. Prefer hot-reload bind mounts in dev; production-like images in CI.
+</Callout>
+
+## Minimal service set
+
+`web` (Next), `api` (Nest), `db` (Postgres), `redis`, optional `mail`/`minio` for uploads.
+
+## Common mistakes
+
+- **Hard-coding localhost inside containers** — use service DNS names.
+- **No healthchecks** — apps start before DB is ready.
+- **Huge images without .dockerignore**.
+
+## Interview angle
+
+<Callout type="interview">
+  Design a compose file for Next+Nest+Postgres+Redis with healthchecks.
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a compose stack for local DTP-like apps.
+- [ ] Use service hostnames in Nest DATABASE_URL.
+- [ ] Add a one-command smoke test.
+
+## Sources
+
+- `DOCKER-COMPOSE`
+- `DOCKER-GET-STARTED`
+- `POSTGRES-DOCS`

@@ -1,0 +1,25 @@
+{
+  "id": "issue-iam-static-keys-in-image",
+  "title": "AWS access keys baked into container image or AMI",
+  "technology": "AWS IAM",
+  "platform": "Cloud",
+  "symptoms": [
+    "Keys appear in docker history or AMI snapshots",
+    "Unexpected API calls from old environments",
+    "Rotation is painful"
+  ],
+  "cause": "Long-lived IAM user keys were embedded in build args, ENV layers, or baked machine images.",
+  "solution": "Invalidate keys immediately; switch workloads to IAM roles (instance/task profiles); inject secrets at runtime via Secrets Manager/SSM; rebuild images without secrets.",
+  "workaround": "Emergency key deactivation while redesigning role-based access.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "DEVOPS-AWS-IAM",
+    "DEVOPS-SECRETS-MANAGEMENT",
+    "DEVOPS-CONTAINER-IMAGE-SECURITY"
+  ],
+  "sources": [
+    "AWS-IAM-USERGUIDE",
+    "AWS-SECRETS-MANAGER"
+  ],
+  "lastVerified": "2026-09-15"
+}

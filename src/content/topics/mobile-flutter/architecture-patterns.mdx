@@ -1,0 +1,105 @@
+---
+id: FLUTTER-ARCHITECTURE-PATTERNS
+title: "Flutter Architecture Patterns"
+titleBn: "Flutter আর্কিটেকচার প্যাটার্ন"
+description: "Structure features with layered clean/MVVM-ish boundaries—presentation, domain, and data—without cargo-cult folders."
+descriptionBn: "প্রেজেন্টেশন, ডোমেইন ও ডেটা স্তরে ফিচার গঠন করুন।"
+track: mobile-flutter
+category: flutter
+difficulty: advanced
+estimatedMinutes: 50
+prerequisites:
+  - "FLUTTER-STATE-MANAGEMENT"
+  - "FLUTTER-DART-OOP"
+  - "FOUNDATIONS-ABSTRACTION-MODULARITY"
+unlocks:
+  - "FLUTTER-ANTI-PATTERNS"
+related:
+  - "FLUTTER-TESTING"
+  - "FLUTTER-FIREBASE-OVERVIEW"
+  - "FLUTTER-LOCAL-DATABASE"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "architecture"
+  - "clean-architecture"
+  - "mvvm"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-ARCH-OVERVIEW"
+  - "FLUTTER-STATE"
+  - "DART-CLASSES"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why architecture shows up in interviews and outages
+
+Feature velocity dies when UI widgets call SDKs directly. A simple layering—UI → state/notifier → repositories → data sources—keeps Firebase/SQLite/HTTP swappable and testable.
+
+## Mental model
+
+<Callout type="mental-model">
+  Start from use cases, not folder fashion. Put framework details (Flutter widgets, Dio, Firestore) at the edges. Domain rules stay pure Dart when possible.
+</Callout>
+
+## How
+
+### Repository boundary
+
+```dart
+abstract class OrderRepository {
+  Future<List<Order>> listOpen();
+}
+
+class HttpOrderRepository implements OrderRepository {
+  HttpOrderRepository(this.client);
+  final ApiClient client;
+
+  @override
+  Future<List<Order>> listOpen() async {
+    final json = await client.getJson('/orders?status=open');
+    return json.map(Order.fromJson).toList();
+  }
+}
+```
+
+## Common mistakes
+
+- **Creating 12 layers for a two-screen app**
+- **“Clean architecture” folders that still import Flutter in domain**
+- **Sharing one global mutable singleton for everything**
+
+## Interview angle
+
+<Callout type="interview">
+  How would you structure auth + home feed so widget tests do not need a real network?
+</Callout>
+
+## Practice checklist
+
+- [ ] Draw your app’s layers on paper.
+- [ ] Introduce one repository interface with a fake.
+- [ ] Keep a feature’s files cohesive.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-ARCH-OVERVIEW`
+- `FLUTTER-STATE`
+- `DART-CLASSES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

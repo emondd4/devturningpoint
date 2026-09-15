@@ -1,0 +1,94 @@
+---
+id: FLUTTER-ACCESSIBILITY
+title: "Flutter Accessibility"
+titleBn: "Flutter অ্যাক্সেসিবিলিটি"
+description: "Ship usable apps for TalkBack and VoiceOver—semantics, contrast, hit targets, and screen-reader testing."
+descriptionBn: "TalkBack ও VoiceOver-এর জন্য সেমান্টিক্স, কনট্রাস্ট ও হিট টার্গেট।"
+track: mobile-flutter
+category: flutter
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FLUTTER-WIDGET-TREE"
+  - "FLUTTER-FORMS-VALIDATION"
+unlocks: []
+related:
+  - "FLUTTER-INTERNATIONALIZATION"
+  - "FLUTTER-TESTING"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "a11y"
+  - "semantics"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-A11Y"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why accessibility is quality, not a niche checkbox
+
+Inaccessible apps exclude users and fail enterprise/government procurement. Flutter exposes semantics to platform screen readers—if you wire them.
+
+## Mental model
+
+<Callout type="mental-model">
+  Provide semantic labels/buttons, keep 48×48 tap targets, maintain contrast, and test with TalkBack/VoiceOver before release.
+</Callout>
+
+## How
+
+### Semantics and buttons that do something
+
+```dart
+Semantics(
+  label: 'Add to cart',
+  button: true,
+  child: IconButton(
+    icon: const Icon(Icons.add_shopping_cart),
+    onPressed: () {
+      // Always provide a real action — avoid no-op handlers in release UI
+    },
+  ),
+);
+```
+
+## Common mistakes
+
+- **Icon-only controls without labels**
+- **Tiny tap targets**
+- **Auto-advancing focus/context while the user types**
+
+## Interview angle
+
+<Callout type="interview">
+  How do you verify a Flutter screen with VoiceOver, and what failures do you look for first?
+</Callout>
+
+## Practice checklist
+
+- [ ] Run TalkBack or VoiceOver on a form screen.
+- [ ] Add Semantics labels to icon buttons.
+- [ ] Check contrast for primary text.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-A11Y`
+- `W3C-WCAG`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

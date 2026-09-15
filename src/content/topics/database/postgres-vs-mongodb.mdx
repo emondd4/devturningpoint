@@ -1,0 +1,87 @@
+---
+id: DATABASE-POSTGRES-VS-MONGODB
+title: "PostgreSQL vs MongoDB Decision Guide"
+titleBn: "PostgreSQL বনাম MongoDB সিদ্ধান্ত গাইড"
+description: "Expand the relational vs document choice with consistency, query patterns, ops, and hybrid jsonb options."
+descriptionBn: "কনসিস্টেন্সি, কুয়েরি প্যাটার্ন, অপস ও হাইব্রিড jsonb অপশনসহ রিলেশনাল বনাম ডকুমেন্ট পছন্দ বিস্তারিত।"
+track: database
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites:
+  - "DATABASE-RELATIONAL-MODELING"
+  - "DATABASE-MONGODB-WHEN-TO-USE"
+  - "DATABASE-POSTGRES-JSON"
+unlocks: []
+related:
+  - "DATABASE-REDIS-DATA-STRUCTURES"
+careers:
+  - "backend-engineer"
+  - "database-engineer"
+  - "software-engineer"
+tags:
+  - "postgresql"
+  - "mongodb"
+  - "architecture"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTGRES-DOCS"
+  - "MONGODB-DOCS"
+  - "POSTGRES-JSON"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why “Mongo for speed, Postgres for seriousness” is a caricature
+
+Both systems are mature. The decision hinges on data shape, transaction needs, query patterns, team skills, and operational constraints—not blog memes.
+
+## Mental model
+
+<Callout type="mental-model">
+  Start from access patterns and invariants. Prefer Postgres when joins, constraints, and multi-row transactions dominate. Prefer MongoDB when document locality and flexible hierarchies dominate—and you accept different consistency/ops tradeoffs. Consider Postgres jsonb before adding a second database.
+</Callout>
+
+Decision prompts:
+
+1. Do you need multi-document ACID often?
+2. Is your schema boundary stable or wildly polymorphic?
+3. Who will own backups, upgrades, and indexing expertise?
+4. Can one system serve 80% of queries without heroic workarounds?
+
+## Common mistakes
+
+- **Two databases by default** — Dual-write consistency nightmares.
+- **Ignoring jsonb middle path** — Postgres can store documents when appropriate.
+- **Choosing for resume keywords** — Production owns you afterward.
+
+## Interview angle
+
+<Callout type="interview">
+  An e-commerce catalog has nested variants and strict payment transactions. How do you split storage—if at all?
+</Callout>
+
+## Practice checklist
+
+- [ ] List top 10 queries for your domain.
+- [ ] Mark which need joins/constraints.
+- [ ] Decide single-store vs polyglot with explicit sync rules.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-DOCS`
+- `MONGODB-DOCS`
+- `POSTGRES-JSON`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

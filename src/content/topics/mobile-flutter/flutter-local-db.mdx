@@ -1,0 +1,86 @@
+---
+id: FLUTTER-LOCAL-DB
+title: "Local Persistence: sqflite and Hive Overview"
+titleBn: "লোকাল পার্সিস্টেন্স: sqflite ও Hive"
+description: "Choose SQLite vs key-value stores for offline cache, drafts, and structured queries on device."
+descriptionBn: "অফলাইন ক্যাশ ও স্ট্রাকচার্ড কোয়েরির জন্য SQLite বনাম key-value।"
+track: mobile-flutter
+category: flutter
+difficulty: intermediate
+estimatedMinutes: 45
+prerequisites:
+  - "FLUTTER-JSON-SERIALIZATION"
+  - "FOUNDATIONS-SQL-FUNDAMENTALS"
+unlocks: []
+related:
+  - "FLUTTER-FIREBASE-OVERVIEW"
+  - "FLUTTER-NETWORKING-REST"
+careers:
+  - "flutter-developer"
+  - "mobile-engineer"
+tags:
+  - "sqflite"
+  - "hive"
+  - "sqlite"
+  - "persistence"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-SQLITE"
+  - "HIVE-DOCS"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why on-device storage is not optional
+
+Networks fail. Users expect drafts, feed caches, and auth session continuity. Local persistence is a product feature, not an optimization.
+
+## Mental model
+
+<Callout type="mental-model">
+  **SQLite (sqflite)** shines for relational queries, joins, and partial indexes. **Hive** (and similar key-value boxes) shines for simple typed objects and fast reads without SQL. Prefer SharedPreferences only for tiny settings—not for datasets.
+</Callout>
+
+## When to pick what
+
+| Need | Lean toward |
+| --- | --- |
+| Filter/sort large lists offline | sqflite / SQLite |
+| Simple cache of JSON models | Hive / similar |
+| Sync conflict rules | Explicit repository layer either way |
+
+```dart
+// Conceptual sqflite open (see official cookbook for full API)
+// final db = await openDatabase(path, version: 1, onCreate: (db, v) async {
+//   await db.execute('CREATE TABLE drafts(id TEXT PRIMARY KEY, body TEXT)');
+// });
+```
+
+Encrypt sensitive data at rest when storing tokens or PII; never treat local DB as secure by default on rooted/jailbroken devices.
+
+## Common mistakes
+
+- Storing secrets in plain SharedPreferences
+- Blocking UI isolate with heavy DB migrations
+- No schema versioning strategy (`onUpgrade`)
+
+## Interview angle
+
+<Callout type="interview">
+  Design offline-first notes: when SQLite vs Hive, and how you migrate schema versions.
+</Callout>
+
+## Sources
+
+`FLUTTER-SQLITE`, `HIVE-DOCS`.

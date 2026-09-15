@@ -1,0 +1,24 @@
+{
+  "id": "iv-react-render-vs-commit",
+  "question": "Explain the difference between React’s render phase and commit phase.",
+  "careerIds": [
+    "frontend-engineer"
+  ],
+  "technology": [
+    "React"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Render calculates the next UI; commit applies DOM changes and then runs layout/passive effects.",
+  "strongAnswer": "During render, React calls components to produce a description of the UI (and compares with the previous tree). During commit, React applies the minimal DOM mutations and then flushes effects. Side effects that touch the DOM or network belong after commit (effects/event handlers), not during render.",
+  "followUps": [
+    "Why must render be pure?",
+    "Where do useLayoutEffect and useEffect run?"
+  ],
+  "commonWrongAnswer": "Render means painting pixels to the screen.",
+  "productionRelevance": "Impure render causes Strict Mode bugs and concurrent-feature hazards.",
+  "relatedTopics": [
+    "FRONTEND-REACT-RENDER-VS-COMMIT",
+    "FRONTEND-REACT-RENDER-PURITY"
+  ],
+  "lastVerified": "2026-09-15"
+}

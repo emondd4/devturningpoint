@@ -1,0 +1,95 @@
+---
+id: DATABASE-LOCKING-CONCURRENCY
+title: "Locking and Concurrency Control"
+titleBn: "লকিং ও কনকারেন্সি কন্ট্রোল"
+description: "Row locks, FOR UPDATE, deadlocks, and advisory locks—control contention without freezing the database."
+descriptionBn: "রো লক, FOR UPDATE, ডেডলক ও অ্যাডভাইজরি লক—ডেটাবেস জমিয়ে না রেখে কনটেনশন নিয়ন্ত্রণ।"
+track: database
+difficulty: advanced
+estimatedMinutes: 40
+prerequisites:
+  - "DATABASE-ISOLATION-LEVELS"
+  - "DATABASE-POSTGRESQL-TRANSACTIONS"
+unlocks: []
+related:
+  - "DATABASE-REDIS-TTL-SESSIONS-LOCKS"
+  - "DATABASE-POSTGRES-EXPLAIN"
+careers:
+  - "backend-engineer"
+  - "database-engineer"
+tags:
+  - "postgresql"
+  - "locking"
+  - "deadlocks"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTGRES-LOCKING"
+  - "POSTGRES-TX"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why “just add a lock” can create outages
+
+Locks serialize conflicting writes. Hold them too long or in inconsistent order and you get queues, timeouts, and deadlocks under load.
+
+## Mental model
+
+<Callout type="mental-model">
+  Postgres uses MVCC for readers; writers take row locks. `SELECT … FOR UPDATE` locks rows you intend to change. Deadlocks abort one waiter—applications must retry.
+</Callout>
+
+```sql
+BEGIN;
+SELECT id, stock
+FROM products
+WHERE id = 42
+FOR UPDATE;
+
+UPDATE products
+SET stock = stock - 1
+WHERE id = 42 AND stock >= 1;
+
+COMMIT;
+```
+
+Keep transactions short; lock in a consistent table/row order; monitor `pg_locks` during incidents.
+
+## Common mistakes
+
+- **Locking entire tables casually** — Escalation hurts throughput.
+- **Doing HTTP calls inside open transactions** — Holds locks forever.
+- **Ignoring deadlock retries** — Random user-facing failures.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you prevent overselling inventory under concurrent checkouts?
+</Callout>
+
+## Practice checklist
+
+- [ ] Implement conditional `UPDATE … WHERE stock >= 1`.
+- [ ] Force a deadlock in a lab and read the error.
+- [ ] Timebox transactions excluding external I/O.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-LOCKING`
+- `POSTGRES-TX`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

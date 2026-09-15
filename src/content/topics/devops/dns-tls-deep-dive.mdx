@@ -1,0 +1,91 @@
+---
+id: DEVOPS-DNS-TLS-DEEP-DIVE
+title: "DNS and TLS for Operators"
+titleBn: "অপারেটরদের জন্য DNS ও TLS"
+description: "Records, resolution paths, certificates, TLS handshakes, and how misconfig breaks HTTPS in production."
+descriptionBn: "রেকর্ড, রেজোলিউশন পাথ, সার্টিফিকেট, TLS হ্যান্ডশেক, এবং মিসকনফিগ কীভাবে প্রোডাকশন HTTPS ভাঙে।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 42
+prerequisites:
+  - "DEVOPS-NETWORKING-FOR-DEVOPS"
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+unlocks:
+  - "DEVOPS-NGINX-REVERSE-PROXY"
+related:
+  - "DEVOPS-AWS-CLOUD-FUNDAMENTALS"
+careers:
+  - "devops-engineer"
+  - "backend-engineer"
+  - "devops-engineer"
+tags:
+  - "dns"
+  - "tls"
+  - "https"
+  - "certificates"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "RFC-1034-DNS"
+  - "RFC-1035-DNS"
+  - "RFC-8446-TLS13"
+  - "OWASP-TLS-CHEATSHEET"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why DNS and TLS sit on the critical path
+
+Users never see your perfect deploy if the name points wrong or the certificate chain fails validation. Most “site down” incidents start at DNS TTL or TLS expiry.
+
+## Mental model
+
+<Callout type="mental-model">
+  DNS maps names → answers (A/AAAA/CNAME/MX/TXT). TLS authenticates the server (and optionally client) and negotiates confidentiality. Certificates bind a public key to names via a trusted CA chain.
+</Callout>
+
+```bash
+dig +short example.com A
+dig example.com NS
+openssl s_client -connect example.com:443 -servername example.com </dev/null 2>/dev/null | openssl x509 -noout -dates -subject
+```
+
+Know CAA, ACME automation, and that CNAME at apex usually needs ALIAS/ANAME provider features.
+
+## Common mistakes
+
+- **Low awareness of TTL** — Long TTLs delay failover; zero TTL hammers resolvers.
+- **Missing SAN names** — Cert for `example.com` but clients hit `www`.
+- **Incomplete chain** — Mobile clients fail while desktop browsers forgive.
+
+## Interview angle
+
+<Callout type="interview">
+  Walk through diagnosing “NET::ERR_CERT_DATE_INVALID” after a certificate renewal.
+</Callout>
+
+## Practice checklist
+
+- [ ] Trace resolution with `dig` and compare authoritative vs recursive answers.
+- [ ] Inspect a live cert chain with OpenSSL.
+- [ ] Sketch DNS cutover with TTL planning.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `RFC-1034-DNS`
+- `RFC-1035-DNS`
+- `RFC-8446-TLS13`
+- `OWASP-TLS-CHEATSHEET`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

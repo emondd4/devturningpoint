@@ -1,0 +1,80 @@
+---
+id: QA-COMPATIBILITY-TESTING
+title: "Compatibility and Cross-Browser Testing"
+titleBn: "কম্প্যাটিবিলিটি ও ক্রস-ব্রাউজার টেস্টিং"
+description: "Risk-based coverage across browsers, devices, and OS versions without exhaustive matrices."
+descriptionBn: "ব্রাউজার, ডিভাইস ও OS জুড়ে ঝুঁকি-ভিত্তিক কভারেজ—সম্পূর্ণ ম্যাট্রিক্স ছাড়াই।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 30
+prerequisites:
+  - "QA-MANUAL-TEST-DESIGN"
+  - "QA-TESTING-PYRAMID"
+unlocks:
+  []
+related:
+  - "QA-PLAYWRIGHT-E2E"
+  - "QA-APPIUM-AWARENESS"
+  - "QA-ACCESSIBILITY-TESTING"
+careers:
+  - "qa-engineer"
+tags:
+  - "qa"
+  - "browsers"
+  - "compatibility"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "PLAYWRIGHT-DOCS"
+  - "W3C-WCAG"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why matrices explode
+
+Supporting “every browser ever” is impossible. Compatibility testing picks **where users and revenue concentrate**, then samples the long tail.
+
+## Mental model
+
+<Callout type="mental-model">
+  Build a small primary matrix (e.g. latest Chrome/Safari/Firefox + one old iOS/Android WebView if relevant). Automate smoke there; explore visual/layout risks on real devices for high-traffic flows.
+</Callout>
+
+## Practical approach
+
+- Analytics → top browsers/devices.
+- Playwright projects for primary browsers in CI.
+- Device lab / cloud for touch and Safari quirks before release.
+
+## Common mistakes
+
+- **Only testing your laptop Chrome** — Misses Safari flex/gap bugs.
+- **Huge unused device farms** — Cost without signal.
+- **Ignoring WebView** — Mobile apps embedding checkout.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you justify a three-browser CI matrix to a stakeholder who wants twenty?
+</Callout>
+
+## Practice checklist
+
+- [ ] Pull top 3 browsers from analytics (or assume BD mobile Chrome/Safari).
+- [ ] Configure one multi-project Playwright smoke.
+- [ ] Note two known engine differences to watch.
+
+## Sources
+
+- `PLAYWRIGHT-DOCS`
+- `W3C-WCAG`

@@ -1,0 +1,27 @@
+{
+  "id": "iv-db-redis-session-ttl",
+  "question": "Design a Redis-backed login session including TTL and what happens on Redis restart.",
+  "questionBn": "TTLসহ Redis-backed লগইন সেশন ডিজাইন করুন এবং Redis রিস্টার্টে কী হয় বলুন।",
+  "careerIds": [
+    "backend-engineer",
+    "database-engineer"
+  ],
+  "technology": [
+    "Redis",
+    "Sessions"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Store session id → user payload with EX/TTL; rotate ids on login; treat Redis as ephemeral—users re-auth if data is lost unless persistence is configured and accepted.",
+  "strongAnswer": "Generate a high-entropy session id, SET with EX (absolute or sliding refresh). Avoid storing passwords. For sliding expiry, refresh TTL on activity carefully. Document durability: without AOF/RDB expectations, restarts drop sessions. Sensitive apps may store server-side session metadata in Postgres and use Redis as a cache.",
+  "followUps": [
+    "How do you implement a safe distributed lock with SET NX EX?",
+    "Why must locks expire?"
+  ],
+  "commonWrongAnswer": "Store sessions forever without TTL to improve UX.",
+  "productionRelevance": "Session and rate-limit patterns are ubiquitous in Nest/Express APIs.",
+  "relatedTopics": [
+    "DATABASE-REDIS-TTL-SESSIONS-LOCKS",
+    "DATABASE-REDIS-DATA-STRUCTURES"
+  ],
+  "lastVerified": "2026-09-15"
+}

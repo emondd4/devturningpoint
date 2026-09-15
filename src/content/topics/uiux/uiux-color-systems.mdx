@@ -1,0 +1,77 @@
+---
+id: UIUX-COLOR-SYSTEMS
+title: "Color Systems for UI"
+titleBn: "UI-এর জন্য রঙের সিস্টেম"
+description: "Palettes, semantic color roles, contrast, and accessible status colors."
+descriptionBn: "প্যালেট, সিমান্টিক রঙের ভূমিকা, কনট্রাস্ট ও অ্যাক্সেসিবল স্ট্যাটাস কালার।"
+track: uiux
+difficulty: beginner
+estimatedMinutes: 30
+prerequisites:
+  - "UIUX-DESIGN-FUNDAMENTALS"
+unlocks:
+  - "UIUX-DESIGN-TOKENS"
+related:
+  - "UIUX-TYPOGRAPHY"
+  - "FRONTEND-HTML-SEMANTICS-A11Y"
+careers:
+  - "CAREER-UIUX-DESIGNER"
+tags:
+  - "uiux"
+  - "color"
+  - "a11y"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "MATERIAL-COLOR"
+  - "W3C-WCAG"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why a color system
+
+Random hex picks don’t scale. Products need roles: background, surface, text, brand, danger, success, warning, focus.
+
+## Mental model
+
+<Callout type="mental-model">
+  Start from contrast requirements (WCAG). Build a neutral scale plus brand accents. Map semantics so destructive always means the same role.
+</Callout>
+
+## Practice
+
+- Check text contrast on surfaces.
+- Don’t convey status by color alone—pair with icon/text.
+- Test light and dark if you support both.
+
+## Common mistakes
+
+- **Low-contrast gray text** — Fails readability.
+- **Brand color on every element** — No hierarchy.
+- **Ignoring color blindness** — Red/green-only status.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you choose error and success colors that stay accessible on light and dark themes?
+</Callout>
+
+## Practice checklist
+
+- [ ] Define semantic color roles.
+- [ ] Run contrast checks on body and buttons.
+- [ ] Document do/don’t swatches in Figma.
+
+## Sources
+
+- `MATERIAL-COLOR`
+- `W3C-WCAG`

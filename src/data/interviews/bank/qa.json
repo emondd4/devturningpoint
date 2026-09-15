@@ -1,0 +1,3674 @@
+[
+  {
+    "id": "QA-B-0001",
+    "level": "Beginner",
+    "category": "AI QA",
+    "topic": "AI-assisted test generation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using AI-assisted test generation correctly?"
+  },
+  {
+    "id": "QA-B-0002",
+    "level": "Beginner",
+    "category": "AI QA",
+    "topic": "AI-assisted test generation",
+    "questionType": "Definition",
+    "question": "What is AI-assisted test generation, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0003",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "API contract",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using API contract correctly?"
+  },
+  {
+    "id": "QA-B-0004",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "API contract",
+    "questionType": "Definition",
+    "question": "What is API contract, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0005",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "idempotency testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using idempotency testing correctly?"
+  },
+  {
+    "id": "QA-B-0006",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "idempotency testing",
+    "questionType": "Definition",
+    "question": "What is idempotency testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0007",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "positive testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using positive testing correctly?"
+  },
+  {
+    "id": "QA-B-0008",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "positive testing",
+    "questionType": "Definition",
+    "question": "What is positive testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0009",
+    "level": "Beginner",
+    "category": "Accessibility",
+    "topic": "keyboard testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using keyboard testing correctly?"
+  },
+  {
+    "id": "QA-B-0010",
+    "level": "Beginner",
+    "category": "Accessibility",
+    "topic": "keyboard testing",
+    "questionType": "Definition",
+    "question": "What is keyboard testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0011",
+    "level": "Beginner",
+    "category": "Accessibility",
+    "topic": "screen reader testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using screen reader testing correctly?"
+  },
+  {
+    "id": "QA-B-0012",
+    "level": "Beginner",
+    "category": "Accessibility",
+    "topic": "screen reader testing",
+    "questionType": "Definition",
+    "question": "What is screen reader testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0013",
+    "level": "Beginner",
+    "category": "Agile QA",
+    "topic": "shift-left",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using shift-left correctly?"
+  },
+  {
+    "id": "QA-B-0014",
+    "level": "Beginner",
+    "category": "Agile QA",
+    "topic": "shift-left",
+    "questionType": "Definition",
+    "question": "What is shift-left, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0015",
+    "level": "Beginner",
+    "category": "Agile QA",
+    "topic": "shift-right",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using shift-right correctly?"
+  },
+  {
+    "id": "QA-B-0016",
+    "level": "Beginner",
+    "category": "Agile QA",
+    "topic": "shift-right",
+    "questionType": "Definition",
+    "question": "What is shift-right, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0017",
+    "level": "Beginner",
+    "category": "Appium",
+    "topic": "Appium server",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Appium server correctly?"
+  },
+  {
+    "id": "QA-B-0018",
+    "level": "Beginner",
+    "category": "Appium",
+    "topic": "Appium server",
+    "questionType": "Definition",
+    "question": "What is Appium server, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0019",
+    "level": "Beginner",
+    "category": "Appium",
+    "topic": "UiAutomator2",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using UiAutomator2 correctly?"
+  },
+  {
+    "id": "QA-B-0020",
+    "level": "Beginner",
+    "category": "Appium",
+    "topic": "UiAutomator2",
+    "questionType": "Definition",
+    "question": "What is UiAutomator2, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0021",
+    "level": "Beginner",
+    "category": "Appium",
+    "topic": "capabilities/options",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using capabilities/options correctly?"
+  },
+  {
+    "id": "QA-B-0022",
+    "level": "Beginner",
+    "category": "Appium",
+    "topic": "capabilities/options",
+    "questionType": "Definition",
+    "question": "What is capabilities/options, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0023",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "contract testing",
+    "questionType": "Definition",
+    "question": "What is contract testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0024",
+    "level": "Beginner",
+    "category": "Automation",
+    "topic": "Page Object Model",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Page Object Model correctly?"
+  },
+  {
+    "id": "QA-B-0025",
+    "level": "Beginner",
+    "category": "Automation",
+    "topic": "Page Object Model",
+    "questionType": "Definition",
+    "question": "What is Page Object Model, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0026",
+    "level": "Beginner",
+    "category": "Automation",
+    "topic": "fixture",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using fixture correctly?"
+  },
+  {
+    "id": "QA-B-0027",
+    "level": "Beginner",
+    "category": "Automation",
+    "topic": "fixture",
+    "questionType": "Definition",
+    "question": "What is fixture, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0028",
+    "level": "Beginner",
+    "category": "Automation",
+    "topic": "test automation pyramid",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using test automation pyramid correctly?"
+  },
+  {
+    "id": "QA-B-0029",
+    "level": "Beginner",
+    "category": "Automation",
+    "topic": "test automation pyramid",
+    "questionType": "Definition",
+    "question": "What is test automation pyramid, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0030",
+    "level": "Beginner",
+    "category": "CI",
+    "topic": "quality gate",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using quality gate correctly?"
+  },
+  {
+    "id": "QA-B-0031",
+    "level": "Beginner",
+    "category": "CI",
+    "topic": "quality gate",
+    "questionType": "Definition",
+    "question": "What is quality gate, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0032",
+    "level": "Beginner",
+    "category": "CI",
+    "topic": "test sharding",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using test sharding correctly?"
+  },
+  {
+    "id": "QA-B-0033",
+    "level": "Beginner",
+    "category": "CI",
+    "topic": "test sharding",
+    "questionType": "Definition",
+    "question": "What is test sharding, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0034",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare functional and non-functional testing."
+  },
+  {
+    "id": "QA-B-0035",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare smoke, sanity, regression, and retesting."
+  },
+  {
+    "id": "QA-B-0036",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain SDLC and STLC."
+  },
+  {
+    "id": "QA-B-0037",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain equivalence partitioning and boundary-value analysis."
+  },
+  {
+    "id": "QA-B-0038",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What HTTP methods and status-code families should an API tester understand?"
+  },
+  {
+    "id": "QA-B-0039",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are Postman collections, environments, variables, and assertions?"
+  },
+  {
+    "id": "QA-B-0040",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are unit, integration, system, acceptance, and end-to-end testing?"
+  },
+  {
+    "id": "QA-B-0041",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is Playwright, and what are browser, browser context, page, locator, and assertion concepts?"
+  },
+  {
+    "id": "QA-B-0042",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a requirements traceability matrix?"
+  },
+  {
+    "id": "QA-B-0043",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a test plan?"
+  },
+  {
+    "id": "QA-B-0044",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is black-box testing?"
+  },
+  {
+    "id": "QA-B-0045",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is exploratory testing?"
+  },
+  {
+    "id": "QA-B-0046",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is positive versus negative testing?"
+  },
+  {
+    "id": "QA-B-0047",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is test automation, and what kinds of tests should not automatically be automated?"
+  },
+  {
+    "id": "QA-B-0048",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between a test scenario and a test case?"
+  },
+  {
+    "id": "QA-B-0049",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between quality assurance, quality control, and software testing?"
+  },
+  {
+    "id": "QA-B-0050",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between severity and priority?"
+  },
+  {
+    "id": "QA-B-0051",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What makes a bug report useful to a developer?"
+  },
+  {
+    "id": "QA-B-0052",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What would you validate in an API response besides its status code?"
+  },
+  {
+    "id": "QA-B-0053",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Why does a QA engineer need basic SQL?"
+  },
+  {
+    "id": "QA-B-0054",
+    "level": "Beginner",
+    "category": "Data",
+    "topic": "SQL validation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using SQL validation correctly?"
+  },
+  {
+    "id": "QA-B-0055",
+    "level": "Beginner",
+    "category": "Data",
+    "topic": "SQL validation",
+    "questionType": "Definition",
+    "question": "What is SQL validation, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0056",
+    "level": "Beginner",
+    "category": "Data",
+    "topic": "database transaction testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using database transaction testing correctly?"
+  },
+  {
+    "id": "QA-B-0057",
+    "level": "Beginner",
+    "category": "Data",
+    "topic": "database transaction testing",
+    "questionType": "Definition",
+    "question": "What is database transaction testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0058",
+    "level": "Beginner",
+    "category": "Defects",
+    "topic": "defect lifecycle",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using defect lifecycle correctly?"
+  },
+  {
+    "id": "QA-B-0059",
+    "level": "Beginner",
+    "category": "Defects",
+    "topic": "defect lifecycle",
+    "questionType": "Definition",
+    "question": "What is defect lifecycle, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0060",
+    "level": "Beginner",
+    "category": "Defects",
+    "topic": "severity",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using severity correctly?"
+  },
+  {
+    "id": "QA-B-0061",
+    "level": "Beginner",
+    "category": "Defects",
+    "topic": "severity",
+    "questionType": "Definition",
+    "question": "What is severity, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0062",
+    "level": "Beginner",
+    "category": "Design",
+    "topic": "decision table testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using decision table testing correctly?"
+  },
+  {
+    "id": "QA-B-0063",
+    "level": "Beginner",
+    "category": "Design",
+    "topic": "decision table testing",
+    "questionType": "Definition",
+    "question": "What is decision table testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0064",
+    "level": "Beginner",
+    "category": "Design",
+    "topic": "equivalence partitioning",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using equivalence partitioning correctly?"
+  },
+  {
+    "id": "QA-B-0065",
+    "level": "Beginner",
+    "category": "Design",
+    "topic": "equivalence partitioning",
+    "questionType": "Definition",
+    "question": "What is equivalence partitioning, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0066",
+    "level": "Beginner",
+    "category": "Design",
+    "topic": "pairwise testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using pairwise testing correctly?"
+  },
+  {
+    "id": "QA-B-0067",
+    "level": "Beginner",
+    "category": "Design",
+    "topic": "pairwise testing",
+    "questionType": "Definition",
+    "question": "What is pairwise testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0068",
+    "level": "Beginner",
+    "category": "Design",
+    "topic": "risk-based testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using risk-based testing correctly?"
+  },
+  {
+    "id": "QA-B-0069",
+    "level": "Beginner",
+    "category": "Design",
+    "topic": "risk-based testing",
+    "questionType": "Definition",
+    "question": "What is risk-based testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0070",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "quality assurance",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using quality assurance correctly?"
+  },
+  {
+    "id": "QA-B-0071",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "quality assurance",
+    "questionType": "Definition",
+    "question": "What is quality assurance, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0072",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "verification",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using verification correctly?"
+  },
+  {
+    "id": "QA-B-0073",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "verification",
+    "questionType": "Definition",
+    "question": "What is verification, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0074",
+    "level": "Beginner",
+    "category": "HTTP",
+    "topic": "HTTP methods",
+    "questionType": "Definition",
+    "question": "What is HTTP methods, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0075",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between severity and priority, and who should influence each?"
+  },
+  {
+    "id": "QA-B-0076",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between smoke, sanity, and regression testing?"
+  },
+  {
+    "id": "QA-B-0077",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What makes a good bug report reproducible?"
+  },
+  {
+    "id": "QA-B-0078",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "Why is a test case not the same thing as a requirement?"
+  },
+  {
+    "id": "QA-B-0079",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "Why should a QA engineer understand HTTP and SQL?"
+  },
+  {
+    "id": "QA-B-0080",
+    "level": "Beginner",
+    "category": "JMeter",
+    "topic": "thread group",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using thread group correctly?"
+  },
+  {
+    "id": "QA-B-0081",
+    "level": "Beginner",
+    "category": "JMeter",
+    "topic": "thread group",
+    "questionType": "Definition",
+    "question": "What is thread group, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0082",
+    "level": "Beginner",
+    "category": "Manual",
+    "topic": "exploratory testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using exploratory testing correctly?"
+  },
+  {
+    "id": "QA-B-0083",
+    "level": "Beginner",
+    "category": "Manual",
+    "topic": "exploratory testing",
+    "questionType": "Definition",
+    "question": "What is exploratory testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0084",
+    "level": "Beginner",
+    "category": "Manual",
+    "topic": "sanity testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using sanity testing correctly?"
+  },
+  {
+    "id": "QA-B-0085",
+    "level": "Beginner",
+    "category": "Manual",
+    "topic": "sanity testing",
+    "questionType": "Definition",
+    "question": "What is sanity testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0086",
+    "level": "Beginner",
+    "category": "Manual",
+    "topic": "smoke testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using smoke testing correctly?"
+  },
+  {
+    "id": "QA-B-0087",
+    "level": "Beginner",
+    "category": "Manual",
+    "topic": "smoke testing",
+    "questionType": "Definition",
+    "question": "What is smoke testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0088",
+    "level": "Beginner",
+    "category": "Mobile",
+    "topic": "hybrid app testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using hybrid app testing correctly?"
+  },
+  {
+    "id": "QA-B-0089",
+    "level": "Beginner",
+    "category": "Mobile",
+    "topic": "hybrid app testing",
+    "questionType": "Definition",
+    "question": "What is hybrid app testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0090",
+    "level": "Beginner",
+    "category": "Mobile",
+    "topic": "native app testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using native app testing correctly?"
+  },
+  {
+    "id": "QA-B-0091",
+    "level": "Beginner",
+    "category": "Mobile",
+    "topic": "native app testing",
+    "questionType": "Definition",
+    "question": "What is native app testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0092",
+    "level": "Beginner",
+    "category": "Nonfunctional",
+    "topic": "performance testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using performance testing correctly?"
+  },
+  {
+    "id": "QA-B-0093",
+    "level": "Beginner",
+    "category": "Nonfunctional",
+    "topic": "performance testing",
+    "questionType": "Definition",
+    "question": "What is performance testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0094",
+    "level": "Beginner",
+    "category": "Nonfunctional",
+    "topic": "security testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using security testing correctly?"
+  },
+  {
+    "id": "QA-B-0095",
+    "level": "Beginner",
+    "category": "Nonfunctional",
+    "topic": "security testing",
+    "questionType": "Definition",
+    "question": "What is security testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0096",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "logs",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using logs correctly?"
+  },
+  {
+    "id": "QA-B-0097",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "logs",
+    "questionType": "Definition",
+    "question": "What is logs, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0098",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "latency",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using latency correctly?"
+  },
+  {
+    "id": "QA-B-0099",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "latency",
+    "questionType": "Definition",
+    "question": "What is latency, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0100",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "load testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using load testing correctly?"
+  },
+  {
+    "id": "QA-B-0101",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "load testing",
+    "questionType": "Definition",
+    "question": "What is load testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0102",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "spike testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using spike testing correctly?"
+  },
+  {
+    "id": "QA-B-0103",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "spike testing",
+    "questionType": "Definition",
+    "question": "What is spike testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0104",
+    "level": "Beginner",
+    "category": "Planning",
+    "topic": "test plan",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using test plan correctly?"
+  },
+  {
+    "id": "QA-B-0105",
+    "level": "Beginner",
+    "category": "Planning",
+    "topic": "test plan",
+    "questionType": "Definition",
+    "question": "What is test plan, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0106",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "API testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using API testing correctly?"
+  },
+  {
+    "id": "QA-B-0107",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "API testing",
+    "questionType": "Definition",
+    "question": "What is API testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0108",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "auto-waiting",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using auto-waiting correctly?"
+  },
+  {
+    "id": "QA-B-0109",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "auto-waiting",
+    "questionType": "Definition",
+    "question": "What is auto-waiting, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0110",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "browser context",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using browser context correctly?"
+  },
+  {
+    "id": "QA-B-0111",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "browser context",
+    "questionType": "Definition",
+    "question": "What is browser context, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0112",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "locator",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using locator correctly?"
+  },
+  {
+    "id": "QA-B-0113",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "locator",
+    "questionType": "Definition",
+    "question": "What is locator, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0114",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "parallelism",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using parallelism correctly?"
+  },
+  {
+    "id": "QA-B-0115",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "parallelism",
+    "questionType": "Definition",
+    "question": "What is parallelism, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0116",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "projects",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using projects correctly?"
+  },
+  {
+    "id": "QA-B-0117",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "projects",
+    "questionType": "Definition",
+    "question": "What is projects, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0118",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "trace viewer",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using trace viewer correctly?"
+  },
+  {
+    "id": "QA-B-0119",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "trace viewer",
+    "questionType": "Definition",
+    "question": "What is trace viewer, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0120",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "web-first assertion",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using web-first assertion correctly?"
+  },
+  {
+    "id": "QA-B-0121",
+    "level": "Beginner",
+    "category": "Playwright",
+    "topic": "web-first assertion",
+    "questionType": "Definition",
+    "question": "What is web-first assertion, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0122",
+    "level": "Beginner",
+    "category": "Postman",
+    "topic": "collection",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using collection correctly?"
+  },
+  {
+    "id": "QA-B-0123",
+    "level": "Beginner",
+    "category": "Postman",
+    "topic": "collection",
+    "questionType": "Definition",
+    "question": "What is collection, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0124",
+    "level": "Beginner",
+    "category": "Postman",
+    "topic": "collection runner",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using collection runner correctly?"
+  },
+  {
+    "id": "QA-B-0125",
+    "level": "Beginner",
+    "category": "Postman",
+    "topic": "collection runner",
+    "questionType": "Definition",
+    "question": "What is collection runner, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0126",
+    "level": "Beginner",
+    "category": "Postman",
+    "topic": "pre-request script",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using pre-request script correctly?"
+  },
+  {
+    "id": "QA-B-0127",
+    "level": "Beginner",
+    "category": "Postman",
+    "topic": "pre-request script",
+    "questionType": "Definition",
+    "question": "What is pre-request script, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0128",
+    "level": "Beginner",
+    "category": "Process",
+    "topic": "SDLC",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using SDLC correctly?"
+  },
+  {
+    "id": "QA-B-0129",
+    "level": "Beginner",
+    "category": "Process",
+    "topic": "SDLC",
+    "questionType": "Definition",
+    "question": "What is SDLC, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0130",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "flaky test",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using flaky test correctly?"
+  },
+  {
+    "id": "QA-B-0131",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "flaky test",
+    "questionType": "Definition",
+    "question": "What is flaky test, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0132",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "retry",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using retry correctly?"
+  },
+  {
+    "id": "QA-B-0133",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "retry",
+    "questionType": "Definition",
+    "question": "What is retry, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0134",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "test isolation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using test isolation correctly?"
+  },
+  {
+    "id": "QA-B-0135",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "test isolation",
+    "questionType": "Definition",
+    "question": "What is test isolation, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0136",
+    "level": "Beginner",
+    "category": "Requirements",
+    "topic": "testability",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using testability correctly?"
+  },
+  {
+    "id": "QA-B-0137",
+    "level": "Beginner",
+    "category": "Requirements",
+    "topic": "testability",
+    "questionType": "Definition",
+    "question": "What is testability, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0138",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "OWASP testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using OWASP testing correctly?"
+  },
+  {
+    "id": "QA-B-0139",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "OWASP testing",
+    "questionType": "Definition",
+    "question": "What is OWASP testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0140",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "authentication testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using authentication testing correctly?"
+  },
+  {
+    "id": "QA-B-0141",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "authentication testing",
+    "questionType": "Definition",
+    "question": "What is authentication testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0142",
+    "level": "Beginner",
+    "category": "Test Data",
+    "topic": "synthetic test data",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using synthetic test data correctly?"
+  },
+  {
+    "id": "QA-B-0143",
+    "level": "Beginner",
+    "category": "Test Data",
+    "topic": "synthetic test data",
+    "questionType": "Definition",
+    "question": "What is synthetic test data, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0144",
+    "level": "Beginner",
+    "category": "Test Levels",
+    "topic": "system testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using system testing correctly?"
+  },
+  {
+    "id": "QA-B-0145",
+    "level": "Beginner",
+    "category": "Test Levels",
+    "topic": "system testing",
+    "questionType": "Definition",
+    "question": "What is system testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0146",
+    "level": "Beginner",
+    "category": "Test Levels",
+    "topic": "unit testing",
+    "questionType": "Definition",
+    "question": "What is unit testing, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0147",
+    "level": "Beginner",
+    "category": "Virtualization",
+    "topic": "mock",
+    "questionType": "Definition",
+    "question": "What is mock, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0148",
+    "level": "Beginner",
+    "category": "Virtualization",
+    "topic": "service virtualization",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using service virtualization correctly?"
+  },
+  {
+    "id": "QA-B-0149",
+    "level": "Beginner",
+    "category": "Virtualization",
+    "topic": "service virtualization",
+    "questionType": "Definition",
+    "question": "What is service virtualization, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0150",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "DOM",
+    "questionType": "Definition",
+    "question": "What is DOM, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0151",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "cookies",
+    "questionType": "Definition",
+    "question": "What is cookies, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0152",
+    "level": "Beginner",
+    "category": "k6",
+    "topic": "threshold",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using threshold correctly?"
+  },
+  {
+    "id": "QA-B-0153",
+    "level": "Beginner",
+    "category": "k6",
+    "topic": "threshold",
+    "questionType": "Definition",
+    "question": "What is threshold, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-B-0154",
+    "level": "Beginner",
+    "category": "k6",
+    "topic": "virtual user",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using virtual user correctly?"
+  },
+  {
+    "id": "QA-B-0155",
+    "level": "Beginner",
+    "category": "k6",
+    "topic": "virtual user",
+    "questionType": "Definition",
+    "question": "What is virtual user, and what problem does it solve in software QA/SDET and test automation?"
+  },
+  {
+    "id": "QA-I-0001",
+    "level": "Intermediate",
+    "category": "AI QA",
+    "topic": "AI-assisted test generation",
+    "questionType": "Compare",
+    "question": "Compare AI-assisted test generation with human-designed strategy. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0002",
+    "level": "Intermediate",
+    "category": "AI QA",
+    "topic": "AI-assisted test generation",
+    "questionType": "Mechanics",
+    "question": "Walk through how AI-assisted test generation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0003",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "API contract",
+    "questionType": "Compare",
+    "question": "Compare API contract with implementation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0004",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "API contract",
+    "questionType": "Mechanics",
+    "question": "Walk through how API contract works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0005",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "idempotency testing",
+    "questionType": "Compare",
+    "question": "Compare idempotency testing with single success-path test. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0006",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "idempotency testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how idempotency testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0007",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "positive testing",
+    "questionType": "Compare",
+    "question": "Compare positive testing with negative testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0008",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "positive testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how positive testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0009",
+    "level": "Intermediate",
+    "category": "Accessibility",
+    "topic": "keyboard testing",
+    "questionType": "Compare",
+    "question": "Compare keyboard testing with mouse-only testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0010",
+    "level": "Intermediate",
+    "category": "Accessibility",
+    "topic": "keyboard testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how keyboard testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0011",
+    "level": "Intermediate",
+    "category": "Accessibility",
+    "topic": "screen reader testing",
+    "questionType": "Compare",
+    "question": "Compare screen reader testing with automated a11y scan. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0012",
+    "level": "Intermediate",
+    "category": "Accessibility",
+    "topic": "screen reader testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how screen reader testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0013",
+    "level": "Intermediate",
+    "category": "Agile QA",
+    "topic": "shift-left",
+    "questionType": "Compare",
+    "question": "Compare shift-left with late test phase. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0014",
+    "level": "Intermediate",
+    "category": "Agile QA",
+    "topic": "shift-left",
+    "questionType": "Mechanics",
+    "question": "Walk through how shift-left works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0015",
+    "level": "Intermediate",
+    "category": "Agile QA",
+    "topic": "shift-right",
+    "questionType": "Compare",
+    "question": "Compare shift-right with pre-release-only testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0016",
+    "level": "Intermediate",
+    "category": "Agile QA",
+    "topic": "shift-right",
+    "questionType": "Mechanics",
+    "question": "Walk through how shift-right works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0017",
+    "level": "Intermediate",
+    "category": "Appium",
+    "topic": "Appium server",
+    "questionType": "Compare",
+    "question": "Compare Appium server with driver. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0018",
+    "level": "Intermediate",
+    "category": "Appium",
+    "topic": "Appium server",
+    "questionType": "Mechanics",
+    "question": "Walk through how Appium server works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0019",
+    "level": "Intermediate",
+    "category": "Appium",
+    "topic": "UiAutomator2",
+    "questionType": "Compare",
+    "question": "Compare UiAutomator2 with XCUITest. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0020",
+    "level": "Intermediate",
+    "category": "Appium",
+    "topic": "UiAutomator2",
+    "questionType": "Mechanics",
+    "question": "Walk through how UiAutomator2 works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0021",
+    "level": "Intermediate",
+    "category": "Appium",
+    "topic": "capabilities/options",
+    "questionType": "Compare",
+    "question": "Compare capabilities/options with test data. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0022",
+    "level": "Intermediate",
+    "category": "Appium",
+    "topic": "capabilities/options",
+    "questionType": "Mechanics",
+    "question": "Walk through how capabilities/options works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0023",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "contract testing",
+    "questionType": "Compare",
+    "question": "Compare contract testing with full E2E testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0024",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "testability",
+    "questionType": "Compare",
+    "question": "Compare testability with after-the-fact automation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0025",
+    "level": "Intermediate",
+    "category": "Automation",
+    "topic": "Page Object Model",
+    "questionType": "Compare",
+    "question": "Compare Page Object Model with raw selectors everywhere. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0026",
+    "level": "Intermediate",
+    "category": "Automation",
+    "topic": "Page Object Model",
+    "questionType": "Mechanics",
+    "question": "Walk through how Page Object Model works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0027",
+    "level": "Intermediate",
+    "category": "Automation",
+    "topic": "fixture",
+    "questionType": "Compare",
+    "question": "Compare fixture with global mutable test state. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0028",
+    "level": "Intermediate",
+    "category": "Automation",
+    "topic": "fixture",
+    "questionType": "Mechanics",
+    "question": "Walk through how fixture works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0029",
+    "level": "Intermediate",
+    "category": "Automation",
+    "topic": "test automation pyramid",
+    "questionType": "Compare",
+    "question": "Compare test automation pyramid with E2E-only suite. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0030",
+    "level": "Intermediate",
+    "category": "Automation",
+    "topic": "test automation pyramid",
+    "questionType": "Mechanics",
+    "question": "Walk through how test automation pyramid works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0031",
+    "level": "Intermediate",
+    "category": "CI",
+    "topic": "quality gate",
+    "questionType": "Compare",
+    "question": "Compare quality gate with post-deploy manual testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0032",
+    "level": "Intermediate",
+    "category": "CI",
+    "topic": "quality gate",
+    "questionType": "Mechanics",
+    "question": "Walk through how quality gate works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0033",
+    "level": "Intermediate",
+    "category": "CI",
+    "topic": "test sharding",
+    "questionType": "Compare",
+    "question": "Compare test sharding with sequential execution. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0034",
+    "level": "Intermediate",
+    "category": "CI",
+    "topic": "test sharding",
+    "questionType": "Mechanics",
+    "question": "Walk through how test sharding works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0035",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare decision-table, state-transition, pairwise, and error-guessing techniques."
+  },
+  {
+    "id": "QA-I-0036",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare load, stress, spike, soak, and scalability testing."
+  },
+  {
+    "id": "QA-I-0037",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain Playwright auto-waiting and why hard sleeps are usually a bad test strategy."
+  },
+  {
+    "id": "QA-I-0038",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain mobile testing differences across real devices, emulators/simulators, native apps, web apps, and hybrid apps."
+  },
+  {
+    "id": "QA-I-0039",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain test isolation and how shared test state creates flaky automation."
+  },
+  {
+    "id": "QA-I-0040",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you choose a regression suite under severe time constraints?"
+  },
+  {
+    "id": "QA-I-0041",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you test pagination, filtering, sorting, rate limiting, retries, and idempotency in an API?"
+  },
+  {
+    "id": "QA-I-0042",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you choose robust locators and avoid brittle CSS/XPath selectors?"
+  },
+  {
+    "id": "QA-I-0043",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you derive test cases from an ambiguous user story?"
+  },
+  {
+    "id": "QA-I-0044",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you integrate automated tests into CI without turning the pipeline into a flaky bottleneck?"
+  },
+  {
+    "id": "QA-I-0045",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you manage test data for tests that run in parallel?"
+  },
+  {
+    "id": "QA-I-0046",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you perform practical accessibility testing combining automated tooling and manual keyboard/screen-reader checks?"
+  },
+  {
+    "id": "QA-I-0047",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you test an API contract when the downstream implementation is unavailable?"
+  },
+  {
+    "id": "QA-I-0048",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you test authentication and authorization beyond a happy-path login?"
+  },
+  {
+    "id": "QA-I-0049",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are Playwright fixtures, projects, traces, retries, sharding, and parallel execution?"
+  },
+  {
+    "id": "QA-I-0050",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are virtual users, checks, thresholds, and scenarios in k6-style load testing?"
+  },
+  {
+    "id": "QA-I-0051",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What does Appium automate, and how does its driver architecture work?"
+  },
+  {
+    "id": "QA-I-0052",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the Page Object Model, and when can it become an over-engineered abstraction?"
+  },
+  {
+    "id": "QA-I-0053",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What makes an effective exploratory-testing charter?"
+  },
+  {
+    "id": "QA-I-0054",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What security checks should a QA engineer understand for common OWASP web/API risks?"
+  },
+  {
+    "id": "QA-I-0055",
+    "level": "Intermediate",
+    "category": "Data",
+    "topic": "SQL validation",
+    "questionType": "Compare",
+    "question": "Compare SQL validation with UI-only validation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0056",
+    "level": "Intermediate",
+    "category": "Data",
+    "topic": "SQL validation",
+    "questionType": "Mechanics",
+    "question": "Walk through how SQL validation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0057",
+    "level": "Intermediate",
+    "category": "Data",
+    "topic": "database transaction testing",
+    "questionType": "Compare",
+    "question": "Compare database transaction testing with single-row check. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0058",
+    "level": "Intermediate",
+    "category": "Data",
+    "topic": "database transaction testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how database transaction testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0059",
+    "level": "Intermediate",
+    "category": "Defects",
+    "topic": "defect lifecycle",
+    "questionType": "Compare",
+    "question": "Compare defect lifecycle with test case lifecycle. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0060",
+    "level": "Intermediate",
+    "category": "Defects",
+    "topic": "defect lifecycle",
+    "questionType": "Mechanics",
+    "question": "Walk through how defect lifecycle works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0061",
+    "level": "Intermediate",
+    "category": "Defects",
+    "topic": "severity",
+    "questionType": "Compare",
+    "question": "Compare severity with priority. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0062",
+    "level": "Intermediate",
+    "category": "Defects",
+    "topic": "severity",
+    "questionType": "Mechanics",
+    "question": "Walk through how severity works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0063",
+    "level": "Intermediate",
+    "category": "Design",
+    "topic": "decision table testing",
+    "questionType": "Compare",
+    "question": "Compare decision table testing with state transition testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0064",
+    "level": "Intermediate",
+    "category": "Design",
+    "topic": "decision table testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how decision table testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0065",
+    "level": "Intermediate",
+    "category": "Design",
+    "topic": "equivalence partitioning",
+    "questionType": "Compare",
+    "question": "Compare equivalence partitioning with boundary value analysis. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0066",
+    "level": "Intermediate",
+    "category": "Design",
+    "topic": "equivalence partitioning",
+    "questionType": "Mechanics",
+    "question": "Walk through how equivalence partitioning works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0067",
+    "level": "Intermediate",
+    "category": "Design",
+    "topic": "pairwise testing",
+    "questionType": "Compare",
+    "question": "Compare pairwise testing with exhaustive testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0068",
+    "level": "Intermediate",
+    "category": "Design",
+    "topic": "pairwise testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how pairwise testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0069",
+    "level": "Intermediate",
+    "category": "Design",
+    "topic": "risk-based testing",
+    "questionType": "Compare",
+    "question": "Compare risk-based testing with equal-priority testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0070",
+    "level": "Intermediate",
+    "category": "Design",
+    "topic": "risk-based testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how risk-based testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0071",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "quality assurance",
+    "questionType": "Compare",
+    "question": "Compare quality assurance with quality control. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0072",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "quality assurance",
+    "questionType": "Mechanics",
+    "question": "Walk through how quality assurance works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0073",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "verification",
+    "questionType": "Compare",
+    "question": "Compare verification with validation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0074",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "verification",
+    "questionType": "Mechanics",
+    "question": "Walk through how verification works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0075",
+    "level": "Intermediate",
+    "category": "HTTP",
+    "topic": "HTTP methods",
+    "questionType": "Compare",
+    "question": "Compare HTTP methods with status codes. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0076",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How should contract tests complement, rather than replace, integration and E2E tests?"
+  },
+  {
+    "id": "QA-I-0077",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you design test data so tests can run safely in parallel?"
+  },
+  {
+    "id": "QA-I-0078",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you test an API endpoint for correctness beyond checking for HTTP 200?"
+  },
+  {
+    "id": "QA-I-0079",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you test eventual consistency in a system where data may take several seconds to propagate?"
+  },
+  {
+    "id": "QA-I-0080",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Why are fixed sleeps a common source of flaky UI automation, and what should replace them?"
+  },
+  {
+    "id": "QA-I-0081",
+    "level": "Intermediate",
+    "category": "JMeter",
+    "topic": "thread group",
+    "questionType": "Compare",
+    "question": "Compare thread group with sampler. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0082",
+    "level": "Intermediate",
+    "category": "JMeter",
+    "topic": "thread group",
+    "questionType": "Mechanics",
+    "question": "Walk through how thread group works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0083",
+    "level": "Intermediate",
+    "category": "Manual",
+    "topic": "exploratory testing",
+    "questionType": "Compare",
+    "question": "Compare exploratory testing with scripted testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0084",
+    "level": "Intermediate",
+    "category": "Manual",
+    "topic": "exploratory testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how exploratory testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0085",
+    "level": "Intermediate",
+    "category": "Manual",
+    "topic": "sanity testing",
+    "questionType": "Compare",
+    "question": "Compare sanity testing with smoke testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0086",
+    "level": "Intermediate",
+    "category": "Manual",
+    "topic": "sanity testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how sanity testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0087",
+    "level": "Intermediate",
+    "category": "Manual",
+    "topic": "smoke testing",
+    "questionType": "Compare",
+    "question": "Compare smoke testing with regression testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0088",
+    "level": "Intermediate",
+    "category": "Manual",
+    "topic": "smoke testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how smoke testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0089",
+    "level": "Intermediate",
+    "category": "Mobile",
+    "topic": "hybrid app testing",
+    "questionType": "Compare",
+    "question": "Compare hybrid app testing with native app testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0090",
+    "level": "Intermediate",
+    "category": "Mobile",
+    "topic": "hybrid app testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how hybrid app testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0091",
+    "level": "Intermediate",
+    "category": "Mobile",
+    "topic": "native app testing",
+    "questionType": "Compare",
+    "question": "Compare native app testing with mobile web testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0092",
+    "level": "Intermediate",
+    "category": "Mobile",
+    "topic": "native app testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how native app testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0093",
+    "level": "Intermediate",
+    "category": "Nonfunctional",
+    "topic": "performance testing",
+    "questionType": "Compare",
+    "question": "Compare performance testing with functional testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0094",
+    "level": "Intermediate",
+    "category": "Nonfunctional",
+    "topic": "performance testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how performance testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0095",
+    "level": "Intermediate",
+    "category": "Nonfunctional",
+    "topic": "security testing",
+    "questionType": "Compare",
+    "question": "Compare security testing with functional testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0096",
+    "level": "Intermediate",
+    "category": "Nonfunctional",
+    "topic": "security testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how security testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0097",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "logs",
+    "questionType": "Compare",
+    "question": "Compare logs with traces. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0098",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "logs",
+    "questionType": "Mechanics",
+    "question": "Walk through how logs works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0099",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "latency",
+    "questionType": "Compare",
+    "question": "Compare latency with throughput. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0100",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "latency",
+    "questionType": "Mechanics",
+    "question": "Walk through how latency works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0101",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "load testing",
+    "questionType": "Compare",
+    "question": "Compare load testing with stress testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0102",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "load testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how load testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0103",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "spike testing",
+    "questionType": "Compare",
+    "question": "Compare spike testing with soak testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0104",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "spike testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how spike testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0105",
+    "level": "Intermediate",
+    "category": "Planning",
+    "topic": "test plan",
+    "questionType": "Compare",
+    "question": "Compare test plan with test strategy. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0106",
+    "level": "Intermediate",
+    "category": "Planning",
+    "topic": "test plan",
+    "questionType": "Mechanics",
+    "question": "Walk through how test plan works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0107",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "API testing",
+    "questionType": "Compare",
+    "question": "Compare API testing with browser UI testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0108",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "API testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how API testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0109",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "auto-waiting",
+    "questionType": "Compare",
+    "question": "Compare auto-waiting with fixed sleep. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0110",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "auto-waiting",
+    "questionType": "Mechanics",
+    "question": "Walk through how auto-waiting works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0111",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "browser context",
+    "questionType": "Compare",
+    "question": "Compare browser context with browser. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0112",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "browser context",
+    "questionType": "Mechanics",
+    "question": "Walk through how browser context works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0113",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "locator",
+    "questionType": "Compare",
+    "question": "Compare locator with CSS selector string. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0114",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "locator",
+    "questionType": "Mechanics",
+    "question": "Walk through how locator works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0115",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "parallelism",
+    "questionType": "Compare",
+    "question": "Compare parallelism with serial suite. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0116",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "parallelism",
+    "questionType": "Mechanics",
+    "question": "Walk through how parallelism works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0117",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "projects",
+    "questionType": "Compare",
+    "question": "Compare projects with single browser config. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0118",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "projects",
+    "questionType": "Mechanics",
+    "question": "Walk through how projects works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0119",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "trace viewer",
+    "questionType": "Compare",
+    "question": "Compare trace viewer with console logging. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0120",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "trace viewer",
+    "questionType": "Mechanics",
+    "question": "Walk through how trace viewer works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0121",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "web-first assertion",
+    "questionType": "Compare",
+    "question": "Compare web-first assertion with manual polling. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0122",
+    "level": "Intermediate",
+    "category": "Playwright",
+    "topic": "web-first assertion",
+    "questionType": "Mechanics",
+    "question": "Walk through how web-first assertion works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0123",
+    "level": "Intermediate",
+    "category": "Postman",
+    "topic": "collection",
+    "questionType": "Compare",
+    "question": "Compare collection with environment. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0124",
+    "level": "Intermediate",
+    "category": "Postman",
+    "topic": "collection",
+    "questionType": "Mechanics",
+    "question": "Walk through how collection works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0125",
+    "level": "Intermediate",
+    "category": "Postman",
+    "topic": "collection runner",
+    "questionType": "Compare",
+    "question": "Compare collection runner with manual request. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0126",
+    "level": "Intermediate",
+    "category": "Postman",
+    "topic": "collection runner",
+    "questionType": "Mechanics",
+    "question": "Walk through how collection runner works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0127",
+    "level": "Intermediate",
+    "category": "Postman",
+    "topic": "pre-request script",
+    "questionType": "Compare",
+    "question": "Compare pre-request script with test script. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0128",
+    "level": "Intermediate",
+    "category": "Postman",
+    "topic": "pre-request script",
+    "questionType": "Mechanics",
+    "question": "Walk through how pre-request script works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0129",
+    "level": "Intermediate",
+    "category": "Process",
+    "topic": "SDLC",
+    "questionType": "Compare",
+    "question": "Compare SDLC with STLC. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0130",
+    "level": "Intermediate",
+    "category": "Process",
+    "topic": "SDLC",
+    "questionType": "Mechanics",
+    "question": "Walk through how SDLC works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0131",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "flaky test",
+    "questionType": "Compare",
+    "question": "Compare flaky test with real product defect. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0132",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "flaky test",
+    "questionType": "Mechanics",
+    "question": "Walk through how flaky test works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0133",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "retry",
+    "questionType": "Compare",
+    "question": "Compare retry with masking flaky tests. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0134",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "retry",
+    "questionType": "Mechanics",
+    "question": "Walk through how retry works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0135",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "test isolation",
+    "questionType": "Compare",
+    "question": "Compare test isolation with ordered dependent tests. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0136",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "test isolation",
+    "questionType": "Mechanics",
+    "question": "Walk through how test isolation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0137",
+    "level": "Intermediate",
+    "category": "Requirements",
+    "topic": "testability",
+    "questionType": "Compare",
+    "question": "Compare testability with requirement completeness. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0138",
+    "level": "Intermediate",
+    "category": "Requirements",
+    "topic": "testability",
+    "questionType": "Mechanics",
+    "question": "Walk through how testability works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0139",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "OWASP testing",
+    "questionType": "Compare",
+    "question": "Compare OWASP testing with functional QA. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0140",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "OWASP testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how OWASP testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0141",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "authentication testing",
+    "questionType": "Compare",
+    "question": "Compare authentication testing with authorization testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0142",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "authentication testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how authentication testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0143",
+    "level": "Intermediate",
+    "category": "Test Data",
+    "topic": "synthetic test data",
+    "questionType": "Compare",
+    "question": "Compare synthetic test data with production data copy. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0144",
+    "level": "Intermediate",
+    "category": "Test Data",
+    "topic": "synthetic test data",
+    "questionType": "Mechanics",
+    "question": "Walk through how synthetic test data works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0145",
+    "level": "Intermediate",
+    "category": "Test Levels",
+    "topic": "system testing",
+    "questionType": "Compare",
+    "question": "Compare system testing with acceptance testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0146",
+    "level": "Intermediate",
+    "category": "Test Levels",
+    "topic": "system testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how system testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0147",
+    "level": "Intermediate",
+    "category": "Virtualization",
+    "topic": "mock",
+    "questionType": "Compare",
+    "question": "Compare mock with stub. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0148",
+    "level": "Intermediate",
+    "category": "Virtualization",
+    "topic": "service virtualization",
+    "questionType": "Compare",
+    "question": "Compare service virtualization with live dependency. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0149",
+    "level": "Intermediate",
+    "category": "Virtualization",
+    "topic": "service virtualization",
+    "questionType": "Mechanics",
+    "question": "Walk through how service virtualization works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0150",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "DOM",
+    "questionType": "Compare",
+    "question": "Compare DOM with visual UI. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0151",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "cookies",
+    "questionType": "Compare",
+    "question": "Compare cookies with localStorage. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0152",
+    "level": "Intermediate",
+    "category": "k6",
+    "topic": "threshold",
+    "questionType": "Compare",
+    "question": "Compare threshold with check. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0153",
+    "level": "Intermediate",
+    "category": "k6",
+    "topic": "threshold",
+    "questionType": "Mechanics",
+    "question": "Walk through how threshold works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-I-0154",
+    "level": "Intermediate",
+    "category": "k6",
+    "topic": "virtual user",
+    "questionType": "Compare",
+    "question": "Compare virtual user with request rate. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "QA-I-0155",
+    "level": "Intermediate",
+    "category": "k6",
+    "topic": "virtual user",
+    "questionType": "Mechanics",
+    "question": "Walk through how virtual user works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "QA-A-0001",
+    "level": "Advanced",
+    "category": "AI QA",
+    "topic": "AI-assisted test generation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around AI-assisted test generation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0002",
+    "level": "Advanced",
+    "category": "AI QA",
+    "topic": "AI-assisted test generation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with AI-assisted test generation? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0003",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "API contract",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around API contract. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0004",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "API contract",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with API contract? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0005",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "idempotency testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around idempotency testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0006",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "idempotency testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with idempotency testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0007",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "positive testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around positive testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0008",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "positive testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with positive testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0009",
+    "level": "Advanced",
+    "category": "Accessibility",
+    "topic": "keyboard testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around keyboard testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0010",
+    "level": "Advanced",
+    "category": "Accessibility",
+    "topic": "keyboard testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with keyboard testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0011",
+    "level": "Advanced",
+    "category": "Accessibility",
+    "topic": "screen reader testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around screen reader testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0012",
+    "level": "Advanced",
+    "category": "Accessibility",
+    "topic": "screen reader testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with screen reader testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0013",
+    "level": "Advanced",
+    "category": "Agile QA",
+    "topic": "shift-left",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around shift-left. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0014",
+    "level": "Advanced",
+    "category": "Agile QA",
+    "topic": "shift-left",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with shift-left? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0015",
+    "level": "Advanced",
+    "category": "Agile QA",
+    "topic": "shift-right",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around shift-right. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0016",
+    "level": "Advanced",
+    "category": "Agile QA",
+    "topic": "shift-right",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with shift-right? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0017",
+    "level": "Advanced",
+    "category": "Appium",
+    "topic": "Appium server",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Appium server. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0018",
+    "level": "Advanced",
+    "category": "Appium",
+    "topic": "Appium server",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Appium server? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0019",
+    "level": "Advanced",
+    "category": "Appium",
+    "topic": "UiAutomator2",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around UiAutomator2. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0020",
+    "level": "Advanced",
+    "category": "Appium",
+    "topic": "UiAutomator2",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with UiAutomator2? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0021",
+    "level": "Advanced",
+    "category": "Appium",
+    "topic": "capabilities/options",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around capabilities/options. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0022",
+    "level": "Advanced",
+    "category": "Appium",
+    "topic": "capabilities/options",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with capabilities/options? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0023",
+    "level": "Advanced",
+    "category": "Automation",
+    "topic": "Page Object Model",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Page Object Model. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0024",
+    "level": "Advanced",
+    "category": "Automation",
+    "topic": "Page Object Model",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Page Object Model? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0025",
+    "level": "Advanced",
+    "category": "Automation",
+    "topic": "fixture",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around fixture. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0026",
+    "level": "Advanced",
+    "category": "Automation",
+    "topic": "fixture",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with fixture? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0027",
+    "level": "Advanced",
+    "category": "Automation",
+    "topic": "test automation pyramid",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around test automation pyramid. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0028",
+    "level": "Advanced",
+    "category": "Automation",
+    "topic": "test automation pyramid",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with test automation pyramid? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0029",
+    "level": "Advanced",
+    "category": "CI",
+    "topic": "quality gate",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around quality gate. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0030",
+    "level": "Advanced",
+    "category": "CI",
+    "topic": "quality gate",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with quality gate? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0031",
+    "level": "Advanced",
+    "category": "CI",
+    "topic": "test sharding",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around test sharding. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0032",
+    "level": "Advanced",
+    "category": "CI",
+    "topic": "test sharding",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with test sharding? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0033",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "A browser test is slow but no single test seems problematic. How would you profile and optimize suite execution?"
+  },
+  {
+    "id": "QA-A-0034",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "A test suite passes locally but fails 5% of CI runs. Explain your method for classifying and eliminating flakiness."
+  },
+  {
+    "id": "QA-A-0035",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a chaos/resilience test for dependency failure, network latency, partial outage, and recovery."
+  },
+  {
+    "id": "QA-A-0036",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a test strategy for a microservice system where individual services deploy independently several times per day."
+  },
+  {
+    "id": "QA-A-0037",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design an automation architecture for hundreds of Playwright tests used by multiple product teams."
+  },
+  {
+    "id": "QA-A-0038",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design contract testing between services owned by independent teams."
+  },
+  {
+    "id": "QA-A-0039",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design mobile release testing across a fragmented Android device matrix and restricted iOS background behavior."
+  },
+  {
+    "id": "QA-A-0040",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design performance tests that model realistic user journeys, arrival rates, think time, data, and service dependencies."
+  },
+  {
+    "id": "QA-A-0041",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design quality gates for a trunk-based team while keeping developer feedback fast."
+  },
+  {
+    "id": "QA-A-0042",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design resilient test-data management for parallel CI runs against shared third-party sandboxes."
+  },
+  {
+    "id": "QA-A-0043",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain mutation testing and when it can reveal weaknesses that code coverage misses."
+  },
+  {
+    "id": "QA-A-0044",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you build a risk-based testing model using business impact, change surface, defect history, and usage data?"
+  },
+  {
+    "id": "QA-A-0045",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you decide the right balance of unit, contract, integration, browser E2E, and production tests?"
+  },
+  {
+    "id": "QA-A-0046",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you identify whether a performance failure is caused by browser rendering, API latency, database contention, or infrastructure?"
+  },
+  {
+    "id": "QA-A-0047",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you test a zero-downtime database migration during a rolling application deployment?"
+  },
+  {
+    "id": "QA-A-0048",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you test authorization for hundreds of roles/resources without manually enumerating every case?"
+  },
+  {
+    "id": "QA-A-0049",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you test eventual consistency and asynchronous workflows driven by queues?"
+  },
+  {
+    "id": "QA-A-0050",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you test idempotency and replay safety in a payment API?"
+  },
+  {
+    "id": "QA-A-0051",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you verify observability itself—logs, metrics, traces, alerts, and correlation—in a production-readiness test?"
+  },
+  {
+    "id": "QA-A-0052",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "In a senior QA/SDET interview, create an end-to-end quality strategy for an ecommerce checkout covering UI, API, data, payments, concurrency, performance, security, accessibility, observability, and rollback."
+  },
+  {
+    "id": "QA-A-0053",
+    "level": "Advanced",
+    "category": "Data",
+    "topic": "SQL validation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around SQL validation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0054",
+    "level": "Advanced",
+    "category": "Data",
+    "topic": "SQL validation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with SQL validation? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0055",
+    "level": "Advanced",
+    "category": "Data",
+    "topic": "database transaction testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around database transaction testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0056",
+    "level": "Advanced",
+    "category": "Data",
+    "topic": "database transaction testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with database transaction testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0057",
+    "level": "Advanced",
+    "category": "Defects",
+    "topic": "defect lifecycle",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around defect lifecycle. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0058",
+    "level": "Advanced",
+    "category": "Defects",
+    "topic": "defect lifecycle",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with defect lifecycle? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0059",
+    "level": "Advanced",
+    "category": "Defects",
+    "topic": "severity",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around severity. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0060",
+    "level": "Advanced",
+    "category": "Defects",
+    "topic": "severity",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with severity? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0061",
+    "level": "Advanced",
+    "category": "Design",
+    "topic": "decision table testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around decision table testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0062",
+    "level": "Advanced",
+    "category": "Design",
+    "topic": "decision table testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with decision table testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0063",
+    "level": "Advanced",
+    "category": "Design",
+    "topic": "equivalence partitioning",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around equivalence partitioning. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0064",
+    "level": "Advanced",
+    "category": "Design",
+    "topic": "equivalence partitioning",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with equivalence partitioning? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0065",
+    "level": "Advanced",
+    "category": "Design",
+    "topic": "pairwise testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around pairwise testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0066",
+    "level": "Advanced",
+    "category": "Design",
+    "topic": "pairwise testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with pairwise testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0067",
+    "level": "Advanced",
+    "category": "Design",
+    "topic": "risk-based testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around risk-based testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0068",
+    "level": "Advanced",
+    "category": "Design",
+    "topic": "risk-based testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with risk-based testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0069",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "quality assurance",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around quality assurance. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0070",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "quality assurance",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with quality assurance? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0071",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "verification",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around verification. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0072",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "verification",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with verification? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0073",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "A browser automation suite has 8% flaky failures in CI but rarely fails locally. Describe how you would classify and eliminate the flakiness systematically."
+  },
+  {
+    "id": "QA-A-0074",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design a test strategy for a distributed payment system that includes idempotency, retries, webhook delivery, reconciliation, and partial outages."
+  },
+  {
+    "id": "QA-A-0075",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design an organization-wide quality strategy that moves beyond counting test cases and automation percentage."
+  },
+  {
+    "id": "QA-A-0076",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design performance tests that distinguish application saturation, database bottlenecks, dependency limits, and load-generator limitations."
+  },
+  {
+    "id": "QA-A-0077",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you validate resilience during dependency outages without turning production testing into uncontrolled chaos?"
+  },
+  {
+    "id": "QA-A-0078",
+    "level": "Advanced",
+    "category": "JMeter",
+    "topic": "thread group",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around thread group. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0079",
+    "level": "Advanced",
+    "category": "JMeter",
+    "topic": "thread group",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with thread group? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0080",
+    "level": "Advanced",
+    "category": "Manual",
+    "topic": "exploratory testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around exploratory testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0081",
+    "level": "Advanced",
+    "category": "Manual",
+    "topic": "exploratory testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with exploratory testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0082",
+    "level": "Advanced",
+    "category": "Manual",
+    "topic": "sanity testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around sanity testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0083",
+    "level": "Advanced",
+    "category": "Manual",
+    "topic": "sanity testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with sanity testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0084",
+    "level": "Advanced",
+    "category": "Manual",
+    "topic": "smoke testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around smoke testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0085",
+    "level": "Advanced",
+    "category": "Manual",
+    "topic": "smoke testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with smoke testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0086",
+    "level": "Advanced",
+    "category": "Mobile",
+    "topic": "hybrid app testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around hybrid app testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0087",
+    "level": "Advanced",
+    "category": "Mobile",
+    "topic": "hybrid app testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with hybrid app testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0088",
+    "level": "Advanced",
+    "category": "Mobile",
+    "topic": "native app testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around native app testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0089",
+    "level": "Advanced",
+    "category": "Mobile",
+    "topic": "native app testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with native app testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0090",
+    "level": "Advanced",
+    "category": "Nonfunctional",
+    "topic": "performance testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around performance testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0091",
+    "level": "Advanced",
+    "category": "Nonfunctional",
+    "topic": "performance testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with performance testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0092",
+    "level": "Advanced",
+    "category": "Nonfunctional",
+    "topic": "security testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around security testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0093",
+    "level": "Advanced",
+    "category": "Nonfunctional",
+    "topic": "security testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with security testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0094",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "logs",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around logs. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0095",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "logs",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with logs? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0096",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "latency",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around latency. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0097",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "latency",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with latency? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0098",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "load testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around load testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0099",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "load testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with load testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0100",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "spike testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around spike testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0101",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "spike testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with spike testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0102",
+    "level": "Advanced",
+    "category": "Planning",
+    "topic": "test plan",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around test plan. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0103",
+    "level": "Advanced",
+    "category": "Planning",
+    "topic": "test plan",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with test plan? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0104",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "API testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around API testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0105",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "API testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with API testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0106",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "auto-waiting",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around auto-waiting. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0107",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "auto-waiting",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with auto-waiting? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0108",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "browser context",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around browser context. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0109",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "browser context",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with browser context? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0110",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "locator",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around locator. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0111",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "locator",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with locator? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0112",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "parallelism",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around parallelism. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0113",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "parallelism",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with parallelism? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0114",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "projects",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around projects. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0115",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "projects",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with projects? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0116",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "trace viewer",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around trace viewer. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0117",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "trace viewer",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with trace viewer? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0118",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "web-first assertion",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around web-first assertion. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0119",
+    "level": "Advanced",
+    "category": "Playwright",
+    "topic": "web-first assertion",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with web-first assertion? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0120",
+    "level": "Advanced",
+    "category": "Postman",
+    "topic": "collection",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around collection. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0121",
+    "level": "Advanced",
+    "category": "Postman",
+    "topic": "collection",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with collection? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0122",
+    "level": "Advanced",
+    "category": "Postman",
+    "topic": "collection runner",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around collection runner. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0123",
+    "level": "Advanced",
+    "category": "Postman",
+    "topic": "collection runner",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with collection runner? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0124",
+    "level": "Advanced",
+    "category": "Postman",
+    "topic": "pre-request script",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around pre-request script. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0125",
+    "level": "Advanced",
+    "category": "Postman",
+    "topic": "pre-request script",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with pre-request script? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0126",
+    "level": "Advanced",
+    "category": "Process",
+    "topic": "SDLC",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around SDLC. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0127",
+    "level": "Advanced",
+    "category": "Process",
+    "topic": "SDLC",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with SDLC? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0128",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "flaky test",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around flaky test. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0129",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "flaky test",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with flaky test? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0130",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "retry",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around retry. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0131",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "retry",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with retry? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0132",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "test isolation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around test isolation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0133",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "test isolation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with test isolation? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0134",
+    "level": "Advanced",
+    "category": "Requirements",
+    "topic": "testability",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around testability. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0135",
+    "level": "Advanced",
+    "category": "Requirements",
+    "topic": "testability",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with testability? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0136",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "OWASP testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around OWASP testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0137",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "OWASP testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with OWASP testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0138",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "authentication testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around authentication testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0139",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "authentication testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with authentication testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0140",
+    "level": "Advanced",
+    "category": "Test Data",
+    "topic": "synthetic test data",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around synthetic test data. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0141",
+    "level": "Advanced",
+    "category": "Test Data",
+    "topic": "synthetic test data",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with synthetic test data? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0142",
+    "level": "Advanced",
+    "category": "Test Levels",
+    "topic": "system testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around system testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0143",
+    "level": "Advanced",
+    "category": "Test Levels",
+    "topic": "system testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with system testing? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0144",
+    "level": "Advanced",
+    "category": "Virtualization",
+    "topic": "service virtualization",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around service virtualization. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0145",
+    "level": "Advanced",
+    "category": "Virtualization",
+    "topic": "service virtualization",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with service virtualization? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0146",
+    "level": "Advanced",
+    "category": "k6",
+    "topic": "threshold",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around threshold. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0147",
+    "level": "Advanced",
+    "category": "k6",
+    "topic": "threshold",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with threshold? How would you design around them?"
+  },
+  {
+    "id": "QA-A-0148",
+    "level": "Advanced",
+    "category": "k6",
+    "topic": "virtual user",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around virtual user. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "QA-A-0149",
+    "level": "Advanced",
+    "category": "k6",
+    "topic": "virtual user",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with virtual user? How would you design around them?"
+  }
+]

@@ -253,7 +253,7 @@
   },
   {
     "id": "NESTJS-ARCHITECTURE",
-    "title": "NestJS Documentation — Controllers & Modules",
+    "title": "NestJS Documentation \u2014 Controllers & Modules",
     "url": "https://docs.nestjs.com/modules",
     "publisher": "NestJS",
     "sourceType": "official-docs",
@@ -343,7 +343,7 @@
   },
   {
     "id": "GHA-WORKFLOWS",
-    "title": "GitHub Actions — Workflow syntax",
+    "title": "GitHub Actions \u2014 Workflow syntax",
     "url": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
     "publisher": "GitHub",
     "sourceType": "official-docs",
@@ -370,7 +370,7 @@
   },
   {
     "id": "AWS-CLOUD-CONCEPTS",
-    "title": "AWS Cloud Practitioner Essentials — Cloud concepts",
+    "title": "AWS Cloud Practitioner Essentials \u2014 Cloud concepts",
     "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html",
     "publisher": "Amazon Web Services",
     "sourceType": "official-docs",
@@ -747,7 +747,7 @@
   },
   {
     "id": "src-basis-exporters-tbs",
-    "title": "BASIS honours top IT exporters of fiscal year 2024–25",
+    "title": "BASIS honours top IT exporters of fiscal year 2024\u201325",
     "url": "https://www.tbsnews.net/economy/corporates/basis-honours-top-it-exporters-fiscal-year-2024-25-1346541",
     "publisher": "The Business Standard",
     "sourceType": "news",
@@ -918,6 +918,1590 @@
     "publisher": "PostgreSQL Global Development Group",
     "sourceType": "official-docs",
     "accessedDate": "2026-09-14",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REACT-RENDER-COMMIT",
+    "title": "Render and Commit",
+    "url": "https://react.dev/learn/render-and-commit",
+    "publisher": "React",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REACT-STATE-PRESERVE",
+    "title": "Preserving and Resetting State",
+    "url": "https://react.dev/learn/preserving-and-resetting-state",
+    "publisher": "React",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REACT-PURITY",
+    "title": "Keeping Components Pure",
+    "url": "https://react.dev/learn/keeping-components-pure",
+    "publisher": "React",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REACT-ESCAPE-HATCHES",
+    "title": "Escape Hatches (Effects)",
+    "url": "https://react.dev/learn/escape-hatches",
+    "publisher": "React",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REACT-STRICT-MODE",
+    "title": "Strict Mode",
+    "url": "https://react.dev/reference/react/StrictMode",
+    "publisher": "React",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REACT-MEMO",
+    "title": "React.memo",
+    "url": "https://react.dev/reference/react/memo",
+    "publisher": "React",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REACT-USEMEMO",
+    "title": "useMemo",
+    "url": "https://react.dev/reference/react/useMemo",
+    "publisher": "React",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REACT-QUEUEING",
+    "title": "Queueing a Series of State Updates",
+    "url": "https://react.dev/learn/queueing-a-series-of-state-updates",
+    "publisher": "React",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-CORS",
+    "title": "Cross-Origin Resource Sharing (CORS)",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-COOKIES",
+    "title": "Set-Cookie header / HTTP cookies",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-CSRF",
+    "title": "Cross-site request forgery (CSRF)",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DOCKER-COMPOSE",
+    "title": "Docker Compose overview",
+    "url": "https://docs.docker.com/compose/",
+    "publisher": "Docker",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "K6-DOCS",
+    "title": "Grafana k6 documentation",
+    "url": "https://grafana.com/docs/k6/latest/",
+    "publisher": "Grafana Labs",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "APPIUM-DOCS",
+    "title": "Appium Documentation",
+    "url": "https://appium.io/docs/en/latest/",
+    "publisher": "Appium",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTMAN-DOCS",
+    "title": "Postman Learning Center",
+    "url": "https://learning.postman.com/docs/introduction/overview/",
+    "publisher": "Postman",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OWASP-TESTING-GUIDE",
+    "title": "OWASP Web Security Testing Guide",
+    "url": "https://owasp.org/www-project-web-security-testing-guide/",
+    "publisher": "OWASP",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NEXTJS-RENDERING",
+    "title": "Next.js Rendering",
+    "url": "https://nextjs.org/docs/app/building-your-application/rendering",
+    "publisher": "Vercel",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-WEBSCOCKETS",
+    "title": "NestJS Gateways (WebSockets)",
+    "url": "https://docs.nestjs.com/websockets/gateways",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OPENTELEMETRY-DOCS",
+    "title": "OpenTelemetry Documentation",
+    "url": "https://opentelemetry.io/docs/",
+    "publisher": "CNCF / OpenTelemetry",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MATERIAL-TYPE-SCALE",
+    "title": "Material Design 3 \u2014 Typography",
+    "url": "https://m3.material.io/styles/typography/overview",
+    "publisher": "Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "MATERIAL-COLOR",
+    "title": "Material Design 3 \u2014 Color",
+    "url": "https://m3.material.io/styles/color/overview",
+    "publisher": "Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "NN-G-IA",
+    "title": "Information Architecture \u2014 NN/g",
+    "url": "https://www.nngroup.com/articles/ia-vs-navigation/",
+    "publisher": "Nielsen Norman Group",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "NN-G-RESEARCH",
+    "title": "UX Research Methods \u2014 NN/g",
+    "url": "https://www.nngroup.com/articles/which-ux-research-methods/",
+    "publisher": "Nielsen Norman Group",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "SCRUM-ORG-PSM",
+    "title": "Professional Scrum Master certifications (Scrum.org)",
+    "url": "https://www.scrum.org/professional-scrum-certifications/professional-scrum-master-track",
+    "publisher": "Scrum.org",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "PMI-PMP",
+    "title": "Project Management Professional (PMP) \u2014 PMI",
+    "url": "https://www.pmi.org/certifications/project-management-pmp",
+    "publisher": "PMI",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "KANBAN-GUIDE",
+    "title": "The Official Kanban Guide",
+    "url": "https://kanban.guide/",
+    "publisher": "Kanban Guides",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "AXE-CORE",
+    "title": "axe-core accessibility rules",
+    "url": "https://github.com/dequelabs/axe-core",
+    "publisher": "Deque",
+    "sourceType": "github",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "GHA-WORKFLOWS-CI",
+    "title": "GitHub Actions \u2014 Workflow syntax",
+    "url": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
+    "publisher": "GitHub",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "RFC-8446-TLS13",
+    "title": "The Transport Layer Security (TLS) Protocol Version 1.3 (RFC 8446)",
+    "url": "https://www.rfc-editor.org/rfc/rfc8446",
+    "publisher": "IETF",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "RFC-1034-DNS",
+    "title": "Domain Names - Concepts and Facilities (RFC 1034)",
+    "url": "https://www.rfc-editor.org/rfc/rfc1034",
+    "publisher": "IETF",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "RFC-1035-DNS",
+    "title": "Domain Names - Implementation and Specification (RFC 1035)",
+    "url": "https://www.rfc-editor.org/rfc/rfc1035",
+    "publisher": "IETF",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OWASP-TLS-CHEATSHEET",
+    "title": "Transport Layer Security Cheat Sheet",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html",
+    "publisher": "OWASP",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "OWASP-API-TOP10",
+    "title": "OWASP API Security Top 10",
+    "url": "https://owasp.org/API-Security/editions/2023/en/0x00-header/",
+    "publisher": "OWASP",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "MDN-HTTP-OVERVIEW",
+    "title": "An overview of HTTP",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+    "publisher": "MDN / Mozilla",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-DNS",
+    "title": "What is DNS?",
+    "url": "https://developer.mozilla.org/en-US/docs/Glossary/DNS",
+    "publisher": "MDN / Mozilla",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSIX-FILESYSTEM",
+    "title": "POSIX.1-2017 Base Definitions \u2014 Pathname resolution",
+    "url": "https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html",
+    "publisher": "The Open Group",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NIST-SP800-63B",
+    "title": "NIST SP 800-63B Digital Identity Guidelines \u2014 Authentication",
+    "url": "https://pages.nist.gov/800-63-3/sp800-63b.html",
+    "publisher": "NIST",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DART-GENERICS",
+    "title": "Generics (Dart language)",
+    "url": "https://dart.dev/language/generics",
+    "publisher": "Dart / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DART-RECORDS",
+    "title": "Records (Dart language)",
+    "url": "https://dart.dev/language/records",
+    "publisher": "Dart / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DART-PATTERNS",
+    "title": "Patterns (Dart language)",
+    "url": "https://dart.dev/language/patterns",
+    "publisher": "Dart / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DART-ISOLATES",
+    "title": "Isolates (Dart concurrency)",
+    "url": "https://dart.dev/language/isolates",
+    "publisher": "Dart / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DART-CLASSES",
+    "title": "Classes (Dart language)",
+    "url": "https://dart.dev/language/classes",
+    "publisher": "Dart / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-FORMS",
+    "title": "Build a form with validation",
+    "url": "https://docs.flutter.dev/cookbook/forms/validation",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-JSON",
+    "title": "JSON and serialization",
+    "url": "https://docs.flutter.dev/data-and-backend/serialization/json",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-SQLITE",
+    "title": "Persist data with SQLite",
+    "url": "https://docs.flutter.dev/cookbook/persistence/sqlite",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-PLATFORM-CHANNELS",
+    "title": "Writing custom platform-specific code",
+    "url": "https://docs.flutter.dev/platform-integration/platform-channels",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-A11Y",
+    "title": "Accessibility",
+    "url": "https://docs.flutter.dev/ui/accessibility",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-I18N",
+    "title": "Internationalizing Flutter apps",
+    "url": "https://docs.flutter.dev/ui/internationalization",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-ARCH-OVERVIEW",
+    "title": "Flutter architectural overview",
+    "url": "https://docs.flutter.dev/resources/architectural-overview",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-CD",
+    "title": "Continuous delivery with Flutter",
+    "url": "https://docs.flutter.dev/deployment/cd",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-PACKAGES",
+    "title": "Using packages",
+    "url": "https://docs.flutter.dev/packages-and-plugins/using-packages",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-KEYS",
+    "title": "Using Keys in Flutter (API / widgets intro)",
+    "url": "https://api.flutter.dev/flutter/foundation/Key-class.html",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FIREBASE-FLUTTER-SETUP",
+    "title": "Add Firebase to your Flutter app",
+    "url": "https://firebase.google.com/docs/flutter/setup",
+    "publisher": "Google Firebase",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "CHROME-DEVTOOLS-DEBUG",
+    "title": "Chrome DevTools \u2014 Debug JavaScript",
+    "url": "https://developer.chrome.com/docs/devtools/javascript/",
+    "publisher": "Google Chrome",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "WRITE-THE-DOCS-GUIDE",
+    "title": "Docs for Developers / Write the Docs \u2014 Documentation Guide",
+    "url": "https://www.writethedocs.org/guide/",
+    "publisher": "Write the Docs",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "GNU-BASH-MANUAL",
+    "title": "Bash Reference Manual",
+    "url": "https://www.gnu.org/software/bash/manual/bash.html",
+    "publisher": "Free Software Foundation",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "SYSTEMD-DOCS",
+    "title": "systemd Documentation",
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/",
+    "publisher": "systemd / freedesktop.org",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DOCKER-SCOUT",
+    "title": "Docker Scout documentation",
+    "url": "https://docs.docker.com/scout/",
+    "publisher": "Docker Inc.",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DOCKER-BUILD-BEST-PRACTICES",
+    "title": "Docker Build best practices",
+    "url": "https://docs.docker.com/build/building/best-practices/",
+    "publisher": "Docker Inc.",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "AWS-IAM-USERGUIDE",
+    "title": "AWS Identity and Access Management User Guide",
+    "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html",
+    "publisher": "Amazon Web Services",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "AWS-SECRETS-MANAGER",
+    "title": "AWS Secrets Manager User Guide",
+    "url": "https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html",
+    "publisher": "Amazon Web Services",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GHA-ENCRYPTED-SECRETS",
+    "title": "Using secrets in GitHub Actions",
+    "url": "https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions",
+    "publisher": "GitHub",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OPENTOFU-DOCS",
+    "title": "OpenTofu Documentation",
+    "url": "https://opentofu.org/docs/",
+    "publisher": "OpenTofu / Linux Foundation",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "HELM-DOCS",
+    "title": "Helm Documentation",
+    "url": "https://helm.sh/docs/",
+    "publisher": "CNCF / Helm",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "ANSIBLE-DOCS",
+    "title": "Ansible Documentation",
+    "url": "https://docs.ansible.com/",
+    "publisher": "Red Hat / Ansible",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GOOGLE-SRE-SLO",
+    "title": "Service Level Objectives \u2014 Google SRE Book",
+    "url": "https://sre.google/sre-book/service-level-objectives/",
+    "publisher": "Google",
+    "sourceType": "engineering-blog",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "AWS-BACKUP",
+    "title": "AWS Backup Developer Guide",
+    "url": "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html",
+    "publisher": "Amazon Web Services",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "AZURE-OVERVIEW",
+    "title": "Microsoft Azure documentation overview",
+    "url": "https://learn.microsoft.com/en-us/azure/",
+    "publisher": "Microsoft",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GCP-OVERVIEW",
+    "title": "Google Cloud documentation",
+    "url": "https://cloud.google.com/docs",
+    "publisher": "Google Cloud",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-QUERIES",
+    "title": "PostgreSQL Queries (WITH / CTEs)",
+    "url": "https://www.postgresql.org/docs/current/queries-with.html",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-WINDOW",
+    "title": "PostgreSQL Window Functions",
+    "url": "https://www.postgresql.org/docs/current/tutorial-window.html",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-EXPLAIN",
+    "title": "PostgreSQL Using EXPLAIN",
+    "url": "https://www.postgresql.org/docs/current/using-explain.html",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-JSON",
+    "title": "PostgreSQL JSON Types",
+    "url": "https://www.postgresql.org/docs/current/datatype-json.html",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-PARTITIONING",
+    "title": "PostgreSQL Table Partitioning",
+    "url": "https://www.postgresql.org/docs/current/ddl-partitioning.html",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-REPLICATION",
+    "title": "PostgreSQL High Availability, Load Balancing, and Replication",
+    "url": "https://www.postgresql.org/docs/current/high-availability.html",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-LOCKING",
+    "title": "PostgreSQL Explicit Locking",
+    "url": "https://www.postgresql.org/docs/current/explicit-locking.html",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REDIS-EXPIRE",
+    "title": "Redis EXPIRE / key expiration",
+    "url": "https://redis.io/docs/latest/commands/expire/",
+    "publisher": "Redis Ltd.",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REDIS-SET",
+    "title": "Redis SET command (NX / EX options)",
+    "url": "https://redis.io/docs/latest/commands/set/",
+    "publisher": "Redis Ltd.",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "ELASTIC-LOGS",
+    "title": "Elastic Observability \u2014 Logs",
+    "url": "https://www.elastic.co/guide/en/observability/current/logs-app-overview.html",
+    "publisher": "Elastic",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "MDN-DOM",
+    "title": "Document Object Model (DOM)",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-JS-MODULES",
+    "title": "JavaScript modules",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-FETCH",
+    "title": "Using the Fetch API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-ARIA",
+    "title": "ARIA \u2014 Accessibility",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-CSS-CASCADE-LAYERS",
+    "title": "Cascade layers",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@layer",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "TANSTACK-QUERY-OVERVIEW",
+    "title": "TanStack Query Overview",
+    "url": "https://tanstack.com/query/latest/docs/framework/react/overview",
+    "publisher": "TanStack",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "VITEST-DOCS",
+    "title": "Vitest Getting Started",
+    "url": "https://vitest.dev/guide/",
+    "publisher": "Vitest",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "TESTING-LIBRARY-DOCS",
+    "title": "React Testing Library docs",
+    "url": "https://testing-library.com/docs/react-testing-library/intro/",
+    "publisher": "Testing Library",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NEXTJS-SERVER-COMPONENTS",
+    "title": "Next.js Server Components",
+    "url": "https://nextjs.org/docs/app/building-your-application/rendering/server-components",
+    "publisher": "Vercel",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NEXTJS-CACHING",
+    "title": "Next.js Caching",
+    "url": "https://nextjs.org/docs/app/building-your-application/caching",
+    "publisher": "Vercel",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NEXTJS-METADATA",
+    "title": "Next.js Metadata Files",
+    "url": "https://nextjs.org/docs/app/api-reference/file-conventions/metadata",
+    "publisher": "Vercel",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "WEB-VITALS",
+    "title": "Web Vitals",
+    "url": "https://web.dev/articles/vitals",
+    "publisher": "web.dev / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-PROVIDERS",
+    "title": "NestJS Providers",
+    "url": "https://docs.nestjs.com/providers",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-INJECTION-SCOPES",
+    "title": "NestJS Injection Scopes",
+    "url": "https://docs.nestjs.com/fundamentals/injection-scopes",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-PIPES",
+    "title": "NestJS Pipes",
+    "url": "https://docs.nestjs.com/pipes",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-VALIDATION",
+    "title": "NestJS Validation",
+    "url": "https://docs.nestjs.com/techniques/validation",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-GUARDS",
+    "title": "NestJS Guards",
+    "url": "https://docs.nestjs.com/guards",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-QUEUES",
+    "title": "NestJS Queues (Bull/BullMQ)",
+    "url": "https://docs.nestjs.com/techniques/queues",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-LOGGER",
+    "title": "NestJS Logger",
+    "url": "https://docs.nestjs.com/techniques/logger",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-THROTTLER",
+    "title": "NestJS Throttler",
+    "url": "https://docs.nestjs.com/security/rate-limiting",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-OPENAPI",
+    "title": "NestJS OpenAPI (Swagger)",
+    "url": "https://docs.nestjs.com/openapi/introduction",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-TERMINUS",
+    "title": "NestJS Terminus (Health checks)",
+    "url": "https://docs.nestjs.com/recipes/terminus",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "TYPEORM-DOCS",
+    "title": "TypeORM Documentation",
+    "url": "https://typeorm.io/",
+    "publisher": "TypeORM",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "RFC-7519-JWT",
+    "title": "JSON Web Token (JWT) RFC 7519",
+    "url": "https://www.rfc-editor.org/rfc/rfc7519",
+    "publisher": "IETF",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "RFC-6749-OAUTH2",
+    "title": "The OAuth 2.0 Authorization Framework (RFC 6749)",
+    "url": "https://www.rfc-editor.org/rfc/rfc6749",
+    "publisher": "IETF",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DOCKER-MULTI-STAGE",
+    "title": "Docker multi-stage builds",
+    "url": "https://docs.docker.com/build/building/multi-stage/",
+    "publisher": "Docker",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "SPRING-OVERVIEW",
+    "title": "Spring Framework Overview",
+    "url": "https://docs.spring.io/spring-framework/reference/overview.html",
+    "publisher": "VMware / Spring",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GO-TOUR",
+    "title": "A Tour of Go",
+    "url": "https://go.dev/tour/",
+    "publisher": "Go Project",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NODE-HEALTH",
+    "title": "Node.js Diagnostics / Health patterns",
+    "url": "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs",
+    "publisher": "Node.js",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "MDN-CSS-SPECIFICITY",
+    "title": "Specificity",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-CSS-CUSTOM-PROPERTIES",
+    "title": "Using CSS custom properties (variables)",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "W3C-ARIA-PRACTICES",
+    "title": "ARIA Authoring Practices Guide (APG)",
+    "url": "https://www.w3.org/WAI/ARIA/apg/",
+    "publisher": "W3C",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-WEB-STORAGE",
+    "title": "Web Storage API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-INDEXEDDB",
+    "title": "IndexedDB API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REACT-SERVER-COMPONENTS",
+    "title": "React Server Components",
+    "url": "https://react.dev/reference/rsc/server-components",
+    "publisher": "React",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NEXTJS-DATA-FETCHING",
+    "title": "Next.js Data Fetching",
+    "url": "https://nextjs.org/docs/app/building-your-application/data-fetching",
+    "publisher": "Vercel",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "ZUSTAND-DOCS",
+    "title": "Zustand Documentation",
+    "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+    "publisher": "Poimandres",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "VITE-GUIDE",
+    "title": "Vite Guide",
+    "url": "https://vite.dev/guide/",
+    "publisher": "Vite",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GOOGLE-SEO-JS",
+    "title": "Understand JavaScript SEO basics",
+    "url": "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+    "publisher": "Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-CSP",
+    "title": "Content Security Policy (CSP)",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OWASP-XSS",
+    "title": "OWASP Cross Site Scripting (XSS)",
+    "url": "https://owasp.org/www-community/attacks/xss/",
+    "publisher": "OWASP",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-MIDDLEWARE",
+    "title": "NestJS Middleware",
+    "url": "https://docs.nestjs.com/middleware",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-INTERCEPTORS",
+    "title": "NestJS Interceptors",
+    "url": "https://docs.nestjs.com/interceptors",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NESTJS-EXCEPTION-FILTERS",
+    "title": "NestJS Exception Filters",
+    "url": "https://docs.nestjs.com/exception-filters",
+    "publisher": "NestJS",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OPENAPI-SPEC",
+    "title": "OpenAPI Specification",
+    "url": "https://swagger.io/specification/",
+    "publisher": "OpenAPI Initiative / SmartBear",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "PRISMA-DOCS",
+    "title": "Prisma Docs \u2014 ORM",
+    "url": "https://www.prisma.io/docs/orm",
+    "publisher": "Prisma",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NODE-SIGNALS",
+    "title": "Node.js Process Signal Events",
+    "url": "https://nodejs.org/api/process.html#signal-events",
+    "publisher": "Node.js",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GRPC-DOCS",
+    "title": "gRPC Documentation",
+    "url": "https://grpc.io/docs/",
+    "publisher": "gRPC / CNCF",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-WEBSOCKETS",
+    "title": "The WebSocket API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-BACKUP",
+    "title": "PostgreSQL Backup and Restore",
+    "url": "https://www.postgresql.org/docs/current/backup.html",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "POSTGRES-CONN-POOL",
+    "title": "PostgreSQL Connection Pooling / pgBouncer concepts",
+    "url": "https://www.postgresql.org/docs/current/runtime-config-connection.html",
+    "publisher": "PostgreSQL Global Development Group",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "MONGODB-DATA-MODELING",
+    "title": "MongoDB Data Modeling",
+    "url": "https://www.mongodb.com/docs/manual/core/data-modeling-introduction/",
+    "publisher": "MongoDB",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "REDIS-CACHING-PATTERNS",
+    "title": "Redis Caching Patterns",
+    "url": "https://redis.io/docs/latest/develop/use/patterns/",
+    "publisher": "Redis Ltd.",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-HTTP-PAGINATION",
+    "title": "MDN HTTP \u2014 Range / caching related patterns context",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "UNICODE-UTF8-FAQ",
+    "title": "FAQ - UTF-8 and the Web",
+    "url": "https://www.unicode.org/faq/utf_bom.html",
+    "publisher": "Unicode Consortium",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "W3C-CHARSET",
+    "title": "Character encodings for beginners",
+    "url": "https://www.w3.org/International/questions/qa-what-is-encoding",
+    "publisher": "W3C",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "SEMVER-SPEC",
+    "title": "Semantic Versioning 2.0.0",
+    "url": "https://semver.org/",
+    "publisher": "Tom Preston-Werner / SemVer",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-HTTP-METHODS",
+    "title": "HTTP request methods",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-HTTP-STATUS",
+    "title": "HTTP response status codes",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-HOW-BROWSERS-WORK",
+    "title": "Populating the page: how browsers work",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-CLI-INTRO",
+    "title": "Command line crash course",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "NPM-ABOUT-SEMVER",
+    "title": "About semantic versioning (npm)",
+    "url": "https://docs.npmjs.com/about-semantic-versioning",
+    "publisher": "npm",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "PUB-DEV-PACKAGE",
+    "title": "Dart and Flutter package repository",
+    "url": "https://pub.dev/",
+    "publisher": "Dart / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GRPC-CONCEPTS",
+    "title": "gRPC Introduction",
+    "url": "https://grpc.io/docs/what-is-grpc/introduction/",
+    "publisher": "gRPC / CNCF",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-INHERITED",
+    "title": "InheritedWidget class",
+    "url": "https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-INSIDE",
+    "title": "Inside Flutter",
+    "url": "https://docs.flutter.dev/resources/inside-flutter",
+    "publisher": "Flutter / Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "HIVE-DOCS",
+    "title": "Hive documentation",
+    "url": "https://docs.hivedb.dev/",
+    "publisher": "Hive Community",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "RIVERPOD-DOCS",
+    "title": "Riverpod documentation",
+    "url": "https://riverpod.dev/docs/introduction/getting_started",
+    "publisher": "Riverpod",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "BLOC-LIBRARY",
+    "title": "Bloc library documentation",
+    "url": "https://bloclibrary.dev/getting-started/",
+    "publisher": "Bloc Library",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "APPLE-APP-STORE-REVIEW",
+    "title": "App Store Review Guidelines",
+    "url": "https://developer.apple.com/app-store/review/guidelines/",
+    "publisher": "Apple",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "ANDROID-APP-BUNDLE",
+    "title": "Android App Bundle",
+    "url": "https://developer.android.com/guide/app-bundle",
+    "publisher": "Google Android",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "RFC-8259-JSON",
+    "title": "The JavaScript Object Notation (JSON) Data Interchange Format (RFC 8259)",
+    "url": "https://www.rfc-editor.org/rfc/rfc8259",
+    "publisher": "IETF",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OPENSSH-MANUAL",
+    "title": "OpenSSH Manual Pages",
+    "url": "https://www.openssh.com/manual.html",
+    "publisher": "OpenBSD / OpenSSH",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "K8S-SERVICES",
+    "title": "Kubernetes Services",
+    "url": "https://kubernetes.io/docs/concepts/services-networking/service/",
+    "publisher": "CNCF / Kubernetes",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "K8S-INGRESS",
+    "title": "Kubernetes Ingress",
+    "url": "https://kubernetes.io/docs/concepts/services-networking/ingress/",
+    "publisher": "CNCF / Kubernetes",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "ARGOCD-DOCS",
+    "title": "Argo CD Documentation",
+    "url": "https://argo-cd.readthedocs.io/en/stable/",
+    "publisher": "CNCF / Argo Project",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "AWS-WELL-ARCHITECTED-COST",
+    "title": "AWS Well-Architected Framework \u2014 Cost Optimization Pillar",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html",
+    "publisher": "Amazon Web Services",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GOOGLE-SRE-EMERGENCY",
+    "title": "Emergency Response \u2014 Google SRE Book",
+    "url": "https://sre.google/sre-book/emergency-response/",
+    "publisher": "Google",
+    "sourceType": "engineering-blog",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "GRAPHQL-SPEC",
+    "title": "GraphQL Specification",
+    "url": "https://spec.graphql.org/",
+    "publisher": "GraphQL Foundation",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "12FACTOR-APP",
+    "title": "The Twelve-Factor App",
+    "url": "https://12factor.net/",
+    "publisher": "Heroku / Salesforce",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "OPENFEATURE-DOCS",
+    "title": "OpenFeature Documentation",
+    "url": "https://openfeature.dev/docs/reference/intro",
+    "publisher": "CNCF / OpenFeature",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NN-G-USABILITY-TESTING",
+    "title": "Usability Testing 101 \u2014 Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/usability-testing-101/",
+    "publisher": "Nielsen Norman Group",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "NN-G-MICROCOPY",
+    "title": "Microcopy \u2014 Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/microcopy-ux/",
+    "publisher": "Nielsen Norman Group",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "W3C-CONTRAST",
+    "title": "WCAG 2.2 \u2014 Contrast (Minimum)",
+    "url": "https://www.w3.org/TR/WCAG22/#contrast-minimum",
+    "publisher": "W3C",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MATERIAL-MOBILE",
+    "title": "Material Design \u2014 Layout & navigation patterns",
+    "url": "https://m3.material.io/foundations/layout/understanding-layout/overview",
+    "publisher": "Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "GOOGLE-OKRS",
+    "title": "Google re:Work \u2014 OKRs / Goal setting",
+    "url": "https://rework.withgoogle.com/intl/en/guides/set-goals-with-okrs/",
+    "publisher": "Google",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "ISTQB-GLOSSARY",
+    "title": "ISTQB Glossary",
+    "url": "https://glossary.istqb.org/",
+    "publisher": "ISTQB",
+    "sourceType": "community",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "FLUTTER-DOCS",
+    "title": "Flutter documentation",
+    "url": "https://docs.flutter.dev/",
+    "publisher": "Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "K8S-DOCS",
+    "title": "Kubernetes documentation",
+    "url": "https://kubernetes.io/docs/home/",
+    "publisher": "CNCF",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-CSS",
+    "title": "MDN CSS",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-WEBSTORAGE",
+    "title": "MDN Web Storage API",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MDN-PERFORMANCE",
+    "title": "MDN Performance",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Performance",
+    "publisher": "MDN",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "NEXTJS-DOCS",
+    "title": "Next.js documentation",
+    "url": "https://nextjs.org/docs",
+    "publisher": "Vercel",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "PROM-DOCS",
+    "title": "Prometheus documentation",
+    "url": "https://prometheus.io/docs/introduction/overview/",
+    "publisher": "CNCF",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "RTL-DOCS",
+    "title": "Testing Library docs",
+    "url": "https://testing-library.com/docs/",
+    "publisher": "Testing Library",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "VITE-DOCS",
+    "title": "Vite documentation",
+    "url": "https://vite.dev/guide/",
+    "publisher": "VoidZero",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "DART-LANGUAGE-TOUR",
+    "title": "Dart language tour",
+    "url": "https://dart.dev/language",
+    "publisher": "Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-15",
     "authorityTier": "S1"
   }
 ]

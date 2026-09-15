@@ -1,0 +1,38 @@
+---
+id: FRONTEND-XSS-CSP
+title: "XSS and Content Security Policy"
+titleBn: "XSS ও CSP"
+description: "How cross-site scripting happens in SPAs and how CSP/output encoding reduce risk."
+descriptionBn: "XSS কীভাবে হয় ও CSP।"
+track: frontend
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - FRONTEND-HTML-SEMANTICS-A11Y
+unlocks: []
+related:
+  - BACKEND-SECURITY-BASICS
+careers:
+  - frontend-engineer
+tags:
+  - security
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - OWASP-TOP10
+  - MDN-CSP
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+Never inject unsanitized HTML. Prefer text content APIs. CSP limits script sources as defense-in-depth—not a substitute for correct encoding.
+
+## Interview
+
+Give an example of DOM-based XSS in a React app (e.g., misuse of `dangerouslySetInnerHTML`).
+

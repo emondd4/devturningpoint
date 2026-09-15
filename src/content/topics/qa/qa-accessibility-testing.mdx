@@ -1,0 +1,84 @@
+---
+id: QA-ACCESSIBILITY-TESTING
+title: "Accessibility Testing for QA"
+titleBn: "QA-এর জন্য অ্যাক্সেসিবিলিটি টেস্টিং"
+description: "WCAG-oriented checks: keyboard, screen readers, contrast, and automation with axe."
+descriptionBn: "WCAG-ভিত্তিক চেক: কীবোর্ড, স্ক্রিন রিডার, কনট্রাস্ট, এবং axe দিয়ে অটোমেশন।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "QA-MANUAL-TEST-DESIGN"
+  - "FRONTEND-HTML-SEMANTICS-A11Y"
+unlocks:
+  []
+related:
+  - "UIUX-USABILITY-HEURISTICS"
+  - "UIUX-DESIGN-FUNDAMENTALS"
+careers:
+  - "qa-engineer"
+  - "CAREER-UIUX-DESIGNER"
+  - "frontend-engineer"
+tags:
+  - "qa"
+  - "a11y"
+  - "wcag"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "W3C-WCAG"
+  - "AXE-CORE"
+  - "PLAYWRIGHT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why a11y is QA’s job too
+
+Accessibility defects are product bugs. Laws and customers increasingly expect WCAG-aligned experiences.
+
+## Mental model
+
+<Callout type="mental-model">
+  Combine automated rules (axe) with human checks: keyboard-only paths, focus visibility, form labels, error announcements, and basic screen-reader smoke. Automation catches low-hanging fruit; humans catch UX semantics.
+</Callout>
+
+## Practical checks
+
+- Tab order and focus traps in modals.
+- Name, role, value for controls.
+- Contrast on text and UI states.
+- Playwright + axe in CI for regressions.
+
+## Common mistakes
+
+- **Color-only status** — Failures invisible to color-blind users.
+- **Placeholder-as-label** — Screen readers and recall suffer.
+- **“We’ll fix a11y later”** — Expensive remediations.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you test a modal dialog for keyboard and screen-reader users?
+</Callout>
+
+## Practice checklist
+
+- [ ] Keyboard-only complete a signup flow.
+- [ ] Run axe on one page and triage violations.
+- [ ] Add one a11y assertion to Playwright.
+
+## Sources
+
+- `W3C-WCAG`
+- `AXE-CORE`
+- `PLAYWRIGHT-DOCS`

@@ -1,0 +1,307 @@
+{
+  "FND": [
+    {
+      "name": "Core CS Interview Prep — 500 Questions",
+      "url": "https://github.com/kratos0718/core-cs-interview-prep",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "OS, DBMS, CN Interview Questions",
+      "url": "https://www.geeksforgeeks.org/interview-prep/os-cn-dbms-interview-questions/",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Pro Git",
+      "url": "https://git-scm.com/book/en/v2",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "HTTP Semantics (RFC 9110)",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "kind": "standard"
+    }
+  ],
+  "FL": [
+    {
+      "name": "Flutter Developer Interview Questions — 1000+",
+      "url": "https://github.com/mahmoodhamdi/Flutter-Developer-Interview-Questions",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Flutter & Dart Interview Q&A",
+      "url": "https://github.com/sivaprasadnk/flutter_dart_interview_qna",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Flutter Interview Questions",
+      "url": "https://github.com/power19942/flutter-interview-questions",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Flutter Documentation",
+      "url": "https://docs.flutter.dev/",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "Dart Documentation",
+      "url": "https://dart.dev/",
+      "kind": "primary-reference"
+    }
+  ],
+  "FE": [
+    {
+      "name": "Frontend Interview Questions — 3600+",
+      "url": "https://github.com/sumitsingh4411/frontend-interview-questions",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Frontend Interview Mastery — 500+ real questions",
+      "url": "https://github.com/goswamikaushik/frontend-interview-mastery",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Frontend Interview Prep — 400+ senior-level questions",
+      "url": "https://github.com/htirawi/frontend-interview-prep",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "MDN Web Docs",
+      "url": "https://developer.mozilla.org/",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "React Documentation",
+      "url": "https://react.dev/",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "Next.js Documentation",
+      "url": "https://nextjs.org/docs",
+      "kind": "primary-reference"
+    }
+  ],
+  "BE": [
+    {
+      "name": "NestJS Interview Questions",
+      "url": "https://github.com/gasangw/NestJS-Interview-Questions-And-Answers",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Interview Preparation — NestJS",
+      "url": "https://github.com/Xayrulloh/Interview-Preparation/blob/main/backend/nestjs/README.md",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Node.js Backend Interview Questions",
+      "url": "https://github.com/GIOEPa/backend-interview-questions/blob/main/nodejs-interview-questions.md",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "NestJS Documentation",
+      "url": "https://docs.nestjs.com/",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "Node.js Documentation",
+      "url": "https://nodejs.org/en/docs",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "OWASP API Security",
+      "url": "https://owasp.org/API-Security/",
+      "kind": "primary-reference"
+    }
+  ],
+  "FS": [
+    {
+      "name": "Full-stack Interview Journey (React/Next/Nest)",
+      "url": "https://github.com/onlyVishesh/Affordmed-fullstack-interview",
+      "kind": "interview-experience"
+    },
+    {
+      "name": "Node + SQL System Design Interview Roadmap",
+      "url": "https://gist.github.com/carefree-ladka/05ec31e3fe023d3386f0ce307c89b9c1",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Frontend Interview Questions — system design/machine coding",
+      "url": "https://github.com/sumitsingh4411/frontend-interview-questions",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Next.js Documentation",
+      "url": "https://nextjs.org/docs",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "NestJS Documentation",
+      "url": "https://docs.nestjs.com/",
+      "kind": "primary-reference"
+    }
+  ],
+  "DO": [
+    {
+      "name": "DevOps Interview Questions — 720 questions",
+      "url": "https://github.com/Harshaguptha/devops-interview-questions",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Ultimate DevOps Interview Guide — 500+",
+      "url": "https://github.com/techmahato/UltimateDevOpsInterviewGuide",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "DevOps Interview Questions — 115 real questions",
+      "url": "https://github.com/devops-interviews/devops-interview-questions",
+      "kind": "interview-experience"
+    },
+    {
+      "name": "DevOps Interview Questions 2026",
+      "url": "https://github.com/MedArkidDev-wq/devops-interview-questions---2026",
+      "kind": "interview-experience"
+    },
+    {
+      "name": "Kubernetes Documentation",
+      "url": "https://kubernetes.io/docs/",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "Docker Documentation",
+      "url": "https://docs.docker.com/",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "Terraform Documentation",
+      "url": "https://developer.hashicorp.com/terraform",
+      "kind": "primary-reference"
+    }
+  ],
+  "DB": [
+    {
+      "name": "Redis and PostgreSQL Interview Questions",
+      "url": "https://github.com/mrbardia72/db-Interview-Questions-and-Answers",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Cracking the SQL Interview",
+      "url": "https://github.com/xoraus/CrackingTheSQLInterview",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "Database/SQL Interview Resource Index",
+      "url": "https://github.com/A-Hemeda/Interview-Questions",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "MongoDB Interview Questions",
+      "url": "https://github.com/collsonu/mongodb-interview-questions",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "PostgreSQL Documentation",
+      "url": "https://www.postgresql.org/docs/",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "Redis Documentation",
+      "url": "https://redis.io/docs/latest/",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "MongoDB Documentation",
+      "url": "https://www.mongodb.com/docs/",
+      "kind": "primary-reference"
+    }
+  ],
+  "QA": [
+    {
+      "name": "SDET Interview Question Catalog",
+      "url": "https://github.com/Test-Architect/sdet-interview-question-catalog",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "SDET Preparation Guide",
+      "url": "https://github.com/KalpeshJain18/SDET-Preparation-Guide",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "QA/SDET Technical Assignment",
+      "url": "https://github.com/pdqcom/QA-SDET-Test",
+      "kind": "interview-assignment"
+    },
+    {
+      "name": "Playwright Documentation",
+      "url": "https://playwright.dev/docs/intro",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "Appium Documentation",
+      "url": "https://appium.io/docs/en/latest/",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "Postman Learning Center",
+      "url": "https://learning.postman.com/docs/",
+      "kind": "primary-reference"
+    }
+  ],
+  "UX": [
+    {
+      "name": "100 Product Design Practice Questions / UX Interview Questions",
+      "url": "https://german-works.notion.site/UX-Interview-Questions-6af892e6cf4a4a06be014a9c1e596d59",
+      "kind": "community-question-bank"
+    },
+    {
+      "name": "UI/UX Interview Questions 2026",
+      "url": "https://www.andacademy.com/resources/blog/ui-ux-design/ui-ux-interview-questions/",
+      "kind": "interview-guide"
+    },
+    {
+      "name": "Product Designer & UX Interview Questions 2026",
+      "url": "https://claveprep.com/blog/product-designer-ux-interview-questions-india-2026",
+      "kind": "interview-guide"
+    },
+    {
+      "name": "UX Interview Questions 2026",
+      "url": "https://thecrit.co/resources/ux-interview-questions",
+      "kind": "interview-guide"
+    },
+    {
+      "name": "WCAG 2.2",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/",
+      "kind": "standard"
+    }
+  ],
+  "PM": [
+    {
+      "name": "Project Manager Interview Questions — 100",
+      "url": "https://www.way2ask.ai/q/role/project-manager/",
+      "kind": "interview-guide"
+    },
+    {
+      "name": "100+ IT Project Manager Interview Questions",
+      "url": "https://www.interviewgrid.com/interview_questions/it_project_manager",
+      "kind": "interview-guide"
+    },
+    {
+      "name": "Software Project Manager Interview Guide 2026",
+      "url": "https://dataford.io/interview-guides/software/project-manager",
+      "kind": "interview-guide"
+    },
+    {
+      "name": "Project Manager Interview Questions 2026",
+      "url": "https://mortit.com/blog/project-manager-interview-questions",
+      "kind": "interview-guide"
+    },
+    {
+      "name": "Scrum Guide",
+      "url": "https://scrumguides.org/scrum-guide.html",
+      "kind": "primary-reference"
+    },
+    {
+      "name": "PMI",
+      "url": "https://www.pmi.org/",
+      "kind": "primary-reference"
+    }
+  ]
+}

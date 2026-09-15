@@ -1,0 +1,23 @@
+{
+  "id": "issue-flutter-globalkey-in-build",
+  "title": "Flutter Form validation state resets every keystroke",
+  "technology": "Flutter",
+  "platform": "Flutter",
+  "symptoms": [
+    "Form error messages flicker or clear unexpectedly",
+    "FormState appears brand new each rebuild",
+    "Performance warning around GlobalKey usage"
+  ],
+  "cause": "GlobalKey<FormState> is constructed inside build(), creating a new identity every rebuild and discarding FormState.",
+  "solution": "Store a single GlobalKey<FormState> on the State class, as in the official form validation cookbook.",
+  "workaround": "Use Form.of(context) from descendants if the key must live higher\u2014but still avoid recreating keys each build.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "FLUTTER-FORMS-VALIDATION",
+    "FLUTTER-BUILDCONTEXT-KEYS"
+  ],
+  "sources": [
+    "FLUTTER-FORMS"
+  ],
+  "lastVerified": "2026-09-15"
+}

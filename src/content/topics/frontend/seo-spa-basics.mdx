@@ -1,0 +1,98 @@
+---
+id: FRONTEND-SEO-SPA-BASICS
+title: "SEO Basics for SPAs"
+titleBn: "SPA-এর জন্য SEO বেসিক"
+description: "Crawling JavaScript apps—metadata, SSR/SSG tradeoffs, and what clients still must get right."
+descriptionBn: "জাভাস্ক্রিপ্ট অ্যাপ ক্রলিং—মেটাডেটা, SSR/SSG ট্রেডঅফ, এবং ক্লায়েন্টে যা ঠিক করতেই হবে।"
+track: frontend
+category: seo
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "FRONTEND-HTML-SEMANTICS-A11Y"
+unlocks: []
+related:
+  - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+  - "FRONTEND-REACT-SERVER-COMPONENTS"
+careers:
+  - "frontend-engineer"
+tags:
+  - "seo"
+  - "spa"
+  - "metadata"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "GOOGLE-SEO-JS"
+  - "NEXTJS-METADATA"
+  - "W3C-HTML"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+A blank shell with client-only content can rank poorly or share badly. Search engines improved at JS, but reliable indexing still favors meaningful HTML, titles, and links.
+
+## Mental model
+
+<Callout type="mental-model">
+  Crawlers discover URLs via links/sitemaps, then need usable content and metadata. SSR/SSG/RSC reduce “empty shell” risk. Client routers must still expose real URLs.
+</Callout>
+
+## How it works
+
+Use semantic headings, unique titles/descriptions, indexable links (`<a href>`), and framework metadata APIs. Prefer server-rendered primary content for public pages.
+
+```tsx
+// Next.js App Router metadata
+export const metadata = {
+  title: 'React rendering — Dev Turning Point',
+  description: 'What causes a React component to render, with interview angles.',
+};
+
+export default function Page() {
+  return (
+    <article>
+      <h1>What causes a React render?</h1>
+      <p>Initial mount and state updates are the primary triggers.</p>
+    </article>
+  );
+}
+```
+
+## Common mistakes
+
+- **Only button onClick navigation** — Crawlers and users need real links.
+- **Identical titles across pages** — Hurts sniping in search results.
+- **Blocking content behind auth for marketing pages** — Public content should be in HTML.
+
+## Interview angle
+
+<Callout type="interview">
+  Why might a client-only SPA fail SEO expectations, and what does SSR/SSG change for crawlers?
+</Callout>
+
+## Practice checklist
+
+- [ ] Audit title/h1 on two routes
+- [ ] Ensure primary nav uses anchors
+- [ ] Add metadata for one page
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `GOOGLE-SEO-JS`
+- `NEXTJS-METADATA`
+- `W3C-HTML`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

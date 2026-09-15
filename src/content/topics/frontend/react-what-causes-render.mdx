@@ -1,0 +1,123 @@
+---
+id: FRONTEND-REACT-WHAT-CAUSES-RENDER
+title: "What Causes a React Component to Render?"
+titleBn: "React component কখন render হয়?"
+description: "Initial render vs state updates: the real triggers behind React UI updates."
+descriptionBn: "Initial render ও state update—React UI আপডেটের আসল ট্রিগার।"
+track: frontend
+category: react-internals
+difficulty: intermediate
+estimatedMinutes: 35
+prerequisites:
+  - FRONTEND-REACT-COMPONENTS-STATE
+unlocks:
+  - FRONTEND-REACT-RENDER-VS-COMMIT
+related:
+  - FRONTEND-REACT-HOOKS
+careers:
+  - frontend-engineer
+  - fullstack-engineer
+tags:
+  - react
+  - rendering
+status: published
+translationStatus: partial
+applicableVersions:
+  react: "19.x — verify against react.dev"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - REACT-RENDER-COMMIT
+  - REACT-DOCS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+<Callout type="info" title="Translation status">
+  Body is English for V1; Bangla title/description provided (`translationStatus: partial`).
+</Callout>
+
+## What is this?
+
+In React, **rendering** means React **calling your component function** to figure out what the UI should look like. It is not the same thing as the browser painting pixels.
+
+## Why it exists
+
+UI must update when data changes. React centralizes “when to recalculate UI” around a small set of triggers so you do not manually patch the DOM for every interaction.
+
+## Mental model
+
+<Callout type="mental-model">
+  Think of React as a waiter: a render is triggered (order taken), components cook JSX (kitchen), then React commits DOM updates (food served). Most bugs come from confusing these steps.
+</Callout>
+
+## What triggers a render?
+
+According to the official React docs, a component renders when:
+
+1. **Initial render** — the root is mounted (`createRoot(...).render(...)`).
+2. **State update** — the component (or an ancestor) updates state with a `set` function.
+
+Parent re-renders typically cause child function components to render as well (unless you opt into memoization later).
+
+## Minimal example
+
+```tsx
+import { useState } from 'react';
+
+export function Counter() {
+  const [count, setCount] = useState(0);
+
+  // Clicking queues a state update → React renders Counter again
+  return (
+    <button type="button" onClick={() => setCount((c) => c + 1)}>
+      Count: {count}
+    </button>
+  );
+}
+```
+
+Changing a variable that is **not** React state does **not** schedule a render:
+
+```tsx
+let clicks = 0;
+function Broken() {
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        clicks += 1; // mutates a local binding; React will not re-render
+      }}
+    >
+      Clicks: {clicks}
+    </button>
+  );
+}
+```
+
+## Common misconceptions
+
+| Claim | Reality |
+|-------|---------|
+| “Props changing always re-renders a child” | Children render because the **parent rendered** and React continues recursively—not because props are a special “prop change event”. |
+| “Render means DOM rewrite” | Render computes the next UI description; DOM updates happen in **commit**. |
+| “useEffect runs during render” | Effects run after commit (escape hatch), not while calculating JSX. |
+
+## Interview angles
+
+**Junior:** Name two reasons a component renders.  
+**Mid:** Why updating a ref does not re-render.  
+**Senior:** How would you measure whether renders are actually expensive before memoizing?
+
+## Mini exercise
+
+Add `console.count('render')` to a parent and child. Update parent state and observe who renders. Then store a value in a `useRef` and mutate it—confirm the UI does not update.
+
+## Sources
+
+- React: Render and Commit (`REACT-RENDER-COMMIT`)
+- React documentation hub (`REACT-DOCS`)
+

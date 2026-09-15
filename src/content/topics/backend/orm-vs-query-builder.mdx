@@ -1,0 +1,87 @@
+---
+id: "BACKEND-ORM-VS-QUERY-BUILDER"
+title: "ORM vs Query Builder"
+titleBn: "ORM \u09ac\u09a8\u09be\u09ae Query Builder"
+description: "Tradeoffs between Active-Record/Data-Mapper ORMs and query builders\u2014and when to drop to SQL."
+descriptionBn: "Active-Record/Data-Mapper ORM \u0993 query builder-\u098f\u09b0 \u099f\u09cd\u09b0\u09c7\u09a1\u0985\u09ab\u2014\u098f\u09ac\u0982 \u0995\u0996\u09a8 SQL-\u098f \u09a8\u09be\u09ae\u09ac\u09c7\u09a8\u0964"
+track: "backend"
+category: "data"
+difficulty: "intermediate"
+estimatedMinutes: 35
+prerequisites:
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+  - "FOUNDATIONS-SQL-FUNDAMENTALS"
+related:
+  - "BACKEND-TRANSACTIONS-API-LAYER"
+careers:
+  - "backend-engineer"
+tags:
+  - "orm"
+  - "sql"
+  - "typeorm"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "TYPEORM-DOCS"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Teams need productivity and safety around SQL. ORMs map rows to objects; query builders help compose SQL safely; raw SQL remains essential for complex plans.
+
+<Callout type="mental-model">
+  Use ORM for straightforward CRUD and relations. Use query builder/SQL for reporting, tricky joins, and performance-critical paths. Measure with EXPLAIN.
+</Callout>
+
+## Illustrative contrast
+
+Avoid N+1 by explicit joins/relations loading. Keep transactions at the use-case boundary.
+
+```ts
+// Pseudo-contrast — APIs differ by library
+// ORM-style:
+// await topicsRepo.find({ where: { track: 'backend' } });
+
+// Query-builder-style:
+// await db.selectFrom('topics').selectAll().where('track', '=', 'backend').execute();
+export function chooseDataAccess(kind: 'crud' | 'report'): 'orm' | 'sql' {
+  return kind === 'crud' ? 'orm' : 'sql';
+}
+```
+
+## Common mistakes
+
+- **N+1 via lazy relations** —  latent query storms in production.
+- **ORM-only dogma** — Some queries are clearer and faster in SQL.
+- **String-concatenated SQL** — Injection risk—parameterize always.
+
+## Interview angle
+
+<Callout type="interview">
+  When would you bypass the ORM for a reporting endpoint?
+</Callout>
+
+## Practice checklist
+
+- [ ] Find an N+1 in a sample service.
+- [ ] Rewrite one query with an explicit join.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `TYPEORM-DOCS`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

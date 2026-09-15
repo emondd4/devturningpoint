@@ -1,0 +1,104 @@
+---
+id: FOUNDATIONS-FILESYSTEMS
+title: "Filesystems and Paths"
+titleBn: "ফাইলসিস্টেম ও পাথ"
+description: "Understand files, directories, permissions bits, and path resolution so deploys and data on disk stop feeling magical."
+descriptionBn: "ফাইল, ডিরেক্টরি, পারমিশন ও পাথ রেজোলিউশন বুঝুন—ডিপ্লয় ও ডিস্ক ডেটা আর জাদু মনে না হোক।"
+track: foundations
+category: os
+difficulty: beginner
+estimatedMinutes: 40
+prerequisites:
+  - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+  - "FOUNDATIONS-CPU-MEMORY-STORAGE"
+unlocks:
+  - "FOUNDATIONS-OS-PERMISSIONS"
+related:
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+careers:
+  - "software-engineer"
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "filesystem"
+  - "paths"
+  - "permissions"
+  - "os"
+status: published
+translationStatus: partial
+createdAt: 2026-09-15
+updatedAt: 2026-09-15
+lastVerified: 2026-09-15
+sources:
+  - "POSIX-FILESYSTEM"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why filesystems matter to app developers
+
+Logs, uploads, containers, lock files, and SQLite all live on a filesystem. Path mistakes and permission errors are everyday production bugs—not “sysadmin-only” topics.
+
+## Mental model
+
+<Callout type="mental-model">
+  A filesystem maps hierarchical names (paths) to stored objects (files/directories) with metadata: size, timestamps, and permission bits. Absolute paths start from a root; relative paths start from a process working directory.
+</Callout>
+
+## Path resolution essentials
+
+- `/home/app/data/db.sqlite` — absolute on Unix-like systems.
+- `./uploads/a.png` — relative to the current working directory (CWD).
+- `..` moves to the parent; symlinks can surprise path joins.
+
+```bash
+# Inspect where you are and what a path really is
+pwd
+ls -la ./uploads
+readlink -f ./uploads/current 2>/dev/null || realpath ./uploads/current
+```
+
+## Files vs directories
+
+Directories are listings; files are byte sequences (plus metadata). Many “folder not found” bugs are actually **CWD wrong in systemd/Docker**, not missing code.
+
+## Permissions preview
+
+Unix-like modes separate user/group/other and read/write/execute. A web process that cannot write its upload dir fails at runtime even if the code is correct.
+
+<Callout type="warning">
+  Never store secrets in world-readable files in shared hosts. Prefer secret managers and tight directory modes.
+</Callout>
+
+## Common mistakes
+
+- **Hard-coding machine-specific absolute paths** — breaks CI and containers.
+- **Assuming case-insensitive paths** — macOS defaults differ from Linux servers.
+- **Racey temp files** — use safe temp APIs, not predictable names in `/tmp`.
+
+## Interview angle
+
+<Callout type="interview">
+  Why might an app work locally but fail to write uploads in Docker, and what would you check first?
+</Callout>
+
+## Practice checklist
+
+- [ ] Resolve a relative path from two different CWDs.
+- [ ] Explain what `ls -l` permission bits mean for a file.
+- [ ] Find where your app stores logs on disk.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSIX-FILESYSTEM`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

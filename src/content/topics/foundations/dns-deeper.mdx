@@ -1,0 +1,101 @@
+---
+id: FOUNDATIONS-DNS-RECORDS-TTL
+title: "DNS Deeper: Records, Caching, and Failures"
+titleBn: "DNS গভীরভাবে: রেকর্ড, ক্যাশিং ও ব্যর্থতা"
+description: "Go beyond A records—TTL, CNAME/MX/TXT, resolver caches, and how DNS failures masquerade as application outages."
+descriptionBn: "A রেকর্ডের বাইরে—TTL, CNAME/MX/TXT, ক্যাশ ও DNS ব্যর্থতা যা অ্যাপ আউটेज বলে মনে হয়।"
+track: "foundations"
+category: "networking"
+difficulty: "intermediate"
+estimatedMinutes: 40
+prerequisites:
+  - "FOUNDATIONS-DNS"
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+unlocks:
+  - "FOUNDATIONS-HTTPS-TLS"
+related:
+  - "FOUNDATIONS-HTTP-METHODS-STATUS"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+careers:
+  - "software-engineer"
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "dns"
+  - "networking"
+  - "ttl"
+  - "caching"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "RFC-1034-DNS"
+  - "RFC-1035-DNS"
+  - "MDN-DNS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why deeper DNS matters
+
+When “the API is down,” the real failure is often a stale CNAME, expired TTL race, or resolver returning NXDOMAIN. Engineers who only know “DNS maps names to IPs” waste hours debugging the wrong layer.
+
+## Mental model
+
+<Callout type="mental-model">
+  DNS is a distributed, cached lookup system. Answers are **temporary** (TTL). Every hop—browser cache, OS stub, recursive resolver, authoritative servers—can serve a different truth until TTLs expire.
+</Callout>
+
+## Record types you will actually use
+
+| Type | Role |
+| --- | --- |
+| **A / AAAA** | IPv4 / IPv6 address |
+| **CNAME** | Alias to another name (no mixing with other data at the apex) |
+| **MX** | Mail routing |
+| **TXT** | Verification, SPF/DKIM strings, arbitrary metadata |
+| **NS** | Delegates a zone to nameservers |
+
+```bash
+# Inspect what clients will see (tools vary by OS)
+dig example.com A +short
+dig www.example.com CNAME
+dig example.com TXT
+```
+
+## Caching and failure modes
+
+1. **Stale cutover** — you changed A records but clients still hit the old IP until TTL drains.
+2. **Split-horizon** — office VPN DNS differs from public DNS; “works on my machine” is DNS, not code.
+3. **NXDOMAIN vs SERVFAIL** — name does not exist vs resolver/server error; retry policy differs.
+4. **CNAME chains** — extra lookups add latency and more places to break.
+
+## How
+
+- Prefer short TTLs only when you need fast cutovers; longer TTLs reduce lookup load.
+- After DNS changes, verify with an **external** recursive resolver, not only your laptop cache.
+- Document which names are apex vs aliases so cert and CDN configs stay coherent.
+
+## Common mistakes
+
+- Assuming dig on your laptop equals what mobile users resolve
+- Forgetting TTL when blaming “deploy didn’t work”
+- Putting secrets in TXT records “for convenience”
+
+## Interview angle
+
+<Callout type="interview">
+  A service moved IPs an hour ago but half the users still fail. Walk through TTL, caches, and how you would confirm whether the bug is DNS or the app.
+</Callout>
+
+## Sources
+
+Cited registry ids: `RFC-1034-DNS`, `RFC-1035-DNS`, `MDN-DNS`.

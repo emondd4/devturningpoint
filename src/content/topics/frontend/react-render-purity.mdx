@@ -1,0 +1,88 @@
+---
+id: FRONTEND-REACT-RENDER-PURITY
+title: "Render Purity in React"
+titleBn: "React Render Purity"
+description: "Why render must be a pure calculation—and how impurity creates Heisenbugs."
+descriptionBn: "Render কেন pure calculation—impurity কীভাবে বাগ তৈরি করে।"
+track: frontend
+category: react-internals
+difficulty: intermediate
+estimatedMinutes: 35
+prerequisites:
+  - FRONTEND-REACT-RENDER-VS-COMMIT
+unlocks:
+  - FRONTEND-REACT-STRICT-MODE
+related:
+  - FRONTEND-REACT-MEMOIZATION
+careers:
+  - frontend-engineer
+  - fullstack-engineer
+tags:
+  - react
+  - rendering
+status: published
+translationStatus: partial
+applicableVersions:
+  react: "19.x — verify against react.dev"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - REACT-PURITY
+  - REACT-RENDER-COMMIT
+  - REACT-DOCS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+<Callout type="info" title="Translation status">
+  Body is English for V1; Bangla title/description provided.
+</Callout>
+
+## What is this?
+
+A render should be a **pure calculation**: same inputs ⇒ same JSX, and no mutating external data during the calculation.
+
+## Why it exists
+
+React may render components more than once (especially in Strict Mode development checks). Impure renders cause duplicated side effects and UI that depends on call count.
+
+## Mental model
+
+<Callout type="mental-model">
+  During render: calculate. After commit: synchronize with the world (effects), respond to events (handlers).
+</Callout>
+
+## Impure vs pure
+
+```tsx
+// Impure: mutates a shared object during render
+let shared = { clicks: 0 };
+function Bad() {
+  shared.clicks += 1; // side effect in render
+  return <p>{shared.clicks}</p>;
+}
+
+function Good({ clicks }: { clicks: number }) {
+  return <p>{clicks}</p>;
+}
+```
+
+## Where side effects belong
+
+- **Event handlers** — user-driven changes
+- **Effects** — syncing with external systems after commit
+- **Not render** — no network, no random, no writing to remote stores
+
+## Interview angles
+
+**Mid:** Define render purity with an example.  
+**Senior:** How do you design data flow so renders stay pure in a large codebase?
+
+## Sources
+
+- React: Keeping Components Pure (`REACT-PURITY`)
+- React: Render and Commit (`REACT-RENDER-COMMIT`)
+

@@ -1,0 +1,101 @@
+---
+id: FOUNDATIONS-JSON-DATA
+title: "JSON and Data Exchange"
+titleBn: "JSON ও ডেটা এক্সচেঞ্জ"
+description: "Model payloads with clear types, encoding rules, and validation so APIs and mobile clients share one language of data."
+descriptionBn: "স্পষ্ট টাইপ, এনকোডিং ও ভ্যালিডেশন দিয়ে পেলোড মডেল করুন।"
+track: foundations
+category: programming
+difficulty: beginner
+estimatedMinutes: 30
+prerequisites:
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+unlocks:
+  - "FOUNDATIONS-API-CONCEPTS"
+related:
+  - "FOUNDATIONS-SQL-FUNDAMENTALS"
+  - "FLUTTER-JSON-SERIALIZATION"
+careers:
+  - "software-engineer"
+  - "frontend-engineer"
+  - "backend-engineer"
+  - "flutter-developer"
+tags:
+  - "json"
+  - "serialization"
+  - "apis"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "MDN-HTTP-OVERVIEW"
+  - "RFC-9110-HTTP"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why JSON won (for many APIs)
+
+JSON is a text format for objects, arrays, strings, numbers, booleans, and null. It is ubiquitous in HTTP APIs—but easy to misuse with silent `undefined`, number precision, and schema drift.
+
+## Mental model
+
+<Callout type="mental-model">
+  Treat JSON as a serialization boundary: validate on the way in, map to domain types inside, and never trust client shapes blindly.
+</Callout>
+
+```json
+{
+  "userId": "u_1",
+  "roles": ["editor"],
+  "active": true,
+  "score": 12.5
+}
+```
+
+```js
+const raw = JSON.parse(text);
+if (typeof raw.userId !== 'string') throw new Error('invalid userId');
+```
+
+## Sharp edges
+
+- **Numbers** — IEEE floats; money often better as integer minor units.
+- **Dates** — no native date type; agree on ISO-8601 strings.
+- **Null vs missing** — decide and document.
+
+## Common mistakes
+
+- **Stringifying everything** — loses type checks.
+- **Accepting huge unbounded payloads** — DoS via memory.
+- **Drifting field names** across clients (`user_id` vs `userId`).
+
+## Interview angle
+
+<Callout type="interview">
+  How would you version a JSON field rename without breaking old mobile clients?
+</Callout>
+
+## Practice checklist
+
+- [ ] Parse and validate a sample payload in your language.
+- [ ] Represent money without floating point.
+- [ ] Write a 5-field schema note for one API response.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `MDN-HTTP-OVERVIEW`
+- `RFC-9110-HTTP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

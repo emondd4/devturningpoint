@@ -1,0 +1,97 @@
+---
+id: FRONTEND-REACT-KEYS-IDENTITY
+title: "Keys and Component Identity"
+titleBn: "Keys ও Component Identity"
+description: "How keys tell React which sibling is which—and how that preserves or resets state."
+descriptionBn: "Key কীভাবে sibling identity বলে—state preserve বা reset হয় কীভাবে।"
+track: frontend
+category: react-internals
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - FRONTEND-REACT-RECONCILIATION
+unlocks: []
+related:
+  - FRONTEND-REACT-WHAT-CAUSES-RENDER
+careers:
+  - frontend-engineer
+  - fullstack-engineer
+tags:
+  - react
+  - rendering
+status: published
+translationStatus: partial
+applicableVersions:
+  react: "19.x — verify against react.dev"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - REACT-STATE-PRESERVE
+  - REACT-DOCS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+<Callout type="info" title="Translation status">
+  Body is English for V1; Bangla title/description provided.
+</Callout>
+
+## What is this?
+
+A **key** is a stable identity hint among siblings. React uses it during reconciliation to match previous and next children.
+
+## Why it exists
+
+Lists reorder, filter, and insert items. Without keys, React may reuse the wrong child state (classic bug: typing in one row “jumps” to another after sort).
+
+## Mental model
+
+<Callout type="mental-model">
+  Key = identity of a sibling position in React’s eyes. Change the key intentionally to reset state. Use unstable keys (random/index when order changes) only when you accept the consequences.
+</Callout>
+
+## Example: resetting state with a key
+
+```tsx
+import { useState } from 'react';
+
+function Editor({ contactId }: { contactId: string }) {
+  const [draft, setDraft] = useState('');
+  return (
+    <textarea
+      value={draft}
+      onChange={(e) => setDraft(e.target.value)}
+      aria-label="Draft"
+    />
+  );
+}
+
+export function ContactPane({ contactId }: { contactId: string }) {
+  // Changing contactId remounts Editor and clears draft
+  return <Editor key={contactId} contactId={contactId} />;
+}
+```
+
+## Index as key
+
+Using the array index as key is acceptable for **static** lists that never reorder/insert in the middle. It is risky for todo lists, search results, and sortable tables.
+
+## Common mistakes
+
+1. `key={Math.random()}` — remounts every render.
+2. Keying on display text that can collide.
+3. Putting keys on the wrong element (key must be on the sibling in the array).
+
+## Interview angles
+
+**Junior:** Why do lists need keys?  
+**Mid:** When is index-as-key acceptable?  
+**Senior:** Explain remount-via-key as a deliberate state reset strategy.
+
+## Sources
+
+- React: Preserving and Resetting State (`REACT-STATE-PRESERVE`)
+

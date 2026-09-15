@@ -1,0 +1,38 @@
+---
+id: BACKEND-NESTJS-MIDDLEWARE
+title: "NestJS Middleware, Guards, and Interceptors"
+titleBn: "NestJS Middleware, Guards, Interceptors"
+description: "Request pipeline pieces—and which concern belongs where."
+descriptionBn: "রিকোয়েস্ট পাইপলাইন।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - BACKEND-NESTJS-ARCHITECTURE
+unlocks: []
+related:
+  - BACKEND-NESTJS-VALIDATION
+  - BACKEND-NESTJS-AUTH-JWT
+careers:
+  - backend-engineer
+tags:
+  - nestjs
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - NESTJS-ARCHITECTURE
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+Middleware ≈ Express-style early pipeline. Guards ≈ authorization decisions. Interceptors ≈ cross-cutting transform/logging around handlers. Pipes ≈ validation/transform of inputs.
+
+## Interview
+
+Where would you put “user must own this resource” checks?
+

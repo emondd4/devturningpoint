@@ -1,0 +1,81 @@
+---
+id: QA-RISK-BASED-TESTING
+title: "Risk-Based Testing"
+titleBn: "রিস্ক-ভিত্তিক টেস্টিং"
+description: "Prioritize tests by likelihood × impact when time is limited."
+descriptionBn: "সময় সীমিত হলে সম্ভাবনা × প্রভাব দিয়ে টেস্ট অগ্রাধিকার দিন।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 30
+prerequisites:
+  - "QA-STLC"
+  - "QA-MANUAL-TEST-DESIGN"
+unlocks:
+  - "QA-CI-QUALITY-GATES"
+related:
+  - "QA-SECURITY-TESTING-BASICS"
+  - "PM-ESTIMATION-RISK"
+careers:
+  - "qa-engineer"
+  - "software-engineer"
+tags:
+  - "qa"
+  - "risk"
+  - "prioritization"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "OWASP-TOP10"
+  - "OWASP-TESTING-GUIDE"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why risk-based
+
+You cannot exhaustively test. Rank areas by probability of failure and business/user damage.
+
+## Mental model
+
+<Callout type="mental-model">
+  Score features: likelihood (complexity, change volume, past defects) × impact (money, safety, trust, compliance). Spend deep testing on high scores; sample low scores.
+</Callout>
+
+## Inputs
+
+- Change risk (diff size, new integrations).
+- Historical bug hotspots.
+- Security/privacy surfaces (auth, payments, PII).
+- Regulatory and contractual obligations.
+
+## Common mistakes
+
+- **Equal depth everywhere** — Spreads thin.
+- **Ignoring operational risk** — Monitoring, rollback, and data migration.
+- **Static risk matrix** — Reassess each release.
+
+## Interview angle
+
+<Callout type="interview">
+  You have four hours before a release. How do you choose what to test?
+</Callout>
+
+## Practice checklist
+
+- [ ] Build a risk matrix for your product’s top 10 features.
+- [ ] Map CI suites to high-risk journeys.
+- [ ] Revisit scores after a production incident.
+
+## Sources
+
+- `OWASP-TOP10`
+- `OWASP-TESTING-GUIDE`

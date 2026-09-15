@@ -1,0 +1,24 @@
+{
+  "id": "iv-oauth-roles",
+  "question": "Name the four OAuth 2.0 roles and give an example of each in a \"Login with Google\" feature.",
+  "careerIds": [
+    "backend-engineer",
+    "fullstack-engineer"
+  ],
+  "technology": [
+    "OAuth"
+  ],
+  "difficulty": "junior",
+  "shortAnswer": "Resource owner (user), client (your app), authorization server (Google), resource server (Google APIs / your API).",
+  "strongAnswer": "OAuth delegates authorization. The resource owner grants the client limited access via the authorization server. Access tokens are used at the resource server. OAuth alone is not authentication—OIDC adds identity tokens for login.",
+  "followUps": [
+    "Why is auth code + PKCE preferred for SPAs?",
+    "What is the state parameter for?"
+  ],
+  "commonWrongAnswer": "OAuth and authentication are the same thing.",
+  "productionRelevance": "Mis-modeling roles leads to insecure custom login protocols.",
+  "relatedTopics": [
+    "BACKEND-OAUTH-CONCEPTS"
+  ],
+  "lastVerified": "2026-09-15"
+}

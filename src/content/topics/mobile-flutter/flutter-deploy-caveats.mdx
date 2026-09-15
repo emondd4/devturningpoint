@@ -1,0 +1,85 @@
+---
+id: FLUTTER-DEPLOY-CAVEATS
+title: "Android and iOS Deploy Caveats"
+titleBn: "Android ও iOS ডিপ্লয় সতর্কতা"
+description: "Signing, App Bundles, provisioning, privacy manifests, and store review pitfalls that block releases."
+descriptionBn: "সাইনিং, App Bundle, প্রভিশনিং ও স্টোর রিভিউ ফাঁদ।"
+track: mobile-flutter
+category: flutter
+difficulty: intermediate
+estimatedMinutes: 45
+prerequisites:
+  - "FLUTTER-DEPLOYMENT"
+unlocks:
+  - "FLUTTER-CI-CD"
+related:
+  - "FLUTTER-FIREBASE-OVERVIEW"
+  - "FLUTTER-ACCESSIBILITY"
+careers:
+  - "flutter-developer"
+  - "mobile-engineer"
+tags:
+  - "android"
+  - "ios"
+  - "app-store"
+  - "play-store"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-DEPLOY"
+  - "ANDROID-APP-BUNDLE"
+  - "APPLE-APP-STORE-REVIEW"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why “flutter build works” ≠ “store accepts it”
+
+Local release builds can succeed while Play Console rejects unsigned ABBs or App Review rejects missing privacy disclosures. Deployment is **policy + crypto + packaging**.
+
+## Mental model
+
+<Callout type="mental-model">
+  Android cares about package name, signing key continuity, and App Bundles. iOS cares about bundle id, provisioning profiles, certificates, and privacy nutrition labels. Losing a keystore can end an app’s update line.
+</Callout>
+
+## Android caveats
+
+- Prefer **Android App Bundle** (`.aab`) for Play.
+- Keep upload vs app signing keys straight; back up keystores offline.
+- Permissions in `AndroidManifest` must match runtime requests and store declarations.
+
+```bash
+flutter build appbundle --release
+```
+
+## iOS caveats
+
+- Certificates/profiles expire; CI needs secure access to signing assets.
+- Privacy manifests / usage strings (`NSCameraUsageDescription`, etc.) must match features.
+- Bitcode is historical; follow current Flutter iOS deploy docs for your SDK version.
+
+## Common mistakes
+
+- Debugging with a different bundle id than production
+- Hardcoding staging API URLs into release flavors
+- Ignoring 16 KB page size / target SDK requirements when Play raises the bar
+
+## Interview angle
+
+<Callout type="interview">
+  Your team lost the Android upload keystore. What are recovery options and how do you prevent this?
+</Callout>
+
+## Sources
+
+`FLUTTER-DEPLOY`, `ANDROID-APP-BUNDLE`, `APPLE-APP-STORE-REVIEW`.

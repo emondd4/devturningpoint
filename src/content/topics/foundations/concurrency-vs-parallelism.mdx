@@ -1,0 +1,90 @@
+---
+id: FOUNDATIONS-CONCURRENCY-VS-PARALLELISM
+title: "Concurrency vs Parallelism"
+titleBn: "কনকারেন্সি বনাম প্যারালালিজম"
+description: "Separate overlapping tasks from simultaneous execution—and pick the right tool for I/O vs CPU work."
+descriptionBn: "ওভারল্যাপিং কাজ ও একসাথে এক্সিকিউশন আলাদা করুন—I/O বনাম CPU।"
+track: foundations
+category: programming
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+unlocks:
+  - "FLUTTER-DART-ASYNC-FUTURES-STREAMS"
+related:
+  - "FOUNDATIONS-MEMORY-LEAKS-INTRO"
+  - "FOUNDATIONS-ALGORITHMS-COMPLEXITY"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "flutter-developer"
+tags:
+  - "concurrency"
+  - "parallelism"
+  - "async"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "MDN-JS-EVENT-LOOP"
+  - "DART-ASYNC"
+  - "NODE-EVENT-LOOP"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why the distinction saves careers
+
+Calling everything “multithreading” leads to wrong fixes: spinning threads for network waits, or expecting one CPU core to magically finish CPU-bound work faster with async/await.
+
+## Mental model
+
+<Callout type="mental-model">
+  **Concurrency** structures tasks so progress can interleave (often while waiting on I/O). **Parallelism** runs work at the same time on multiple cores. You can have concurrency without parallelism (single-threaded event loop).
+</Callout>
+
+## Examples
+
+```js
+// Concurrent I/O on one thread (event loop)
+const [a, b] = await Promise.all([
+  fetch('/users/1').then((r) => r.json()),
+  fetch('/users/2').then((r) => r.json()),
+]);
+```
+
+```dart
+// Concurrent awaits; still one isolate unless you spawn more
+final results = await Future.wait([
+  loadProfile(),
+  loadOrders(),
+]);
+```
+
+CPU-heavy loops need real parallel workers (threads, processes, Dart isolates)—not more `await`.
+
+## Common mistakes
+
+- Believing async/await uses all CPU cores automatically
+- Sharing mutable state across threads without synchronization
+- Blocking the event loop / UI isolate with CPU work
+
+## Interview angle
+
+<Callout type="interview">
+  Contrast concurrency and parallelism, then explain when you would use a thread pool vs an event loop.
+</Callout>
+
+## Sources
+
+`MDN-JS-EVENT-LOOP`, `DART-ASYNC`, `NODE-EVENT-LOOP`.

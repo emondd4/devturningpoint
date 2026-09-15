@@ -1,0 +1,88 @@
+---
+id: "BACKEND-NESTJS-GUARDS"
+title: "NestJS Guards"
+titleBn: "NestJS Guard"
+description: "Authorization gates that run after middleware and before pipes\u2014roles, authn checks, and canActivate."
+descriptionBn: "Middleware-\u098f\u09b0 \u09aa\u09b0\u09c7 \u0993 pipe-\u098f\u09b0 \u0986\u0997\u09c7 \u099a\u09b2\u09be \u0985\u09a5\u09b0\u09be\u0987\u099c\u09c7\u09b6\u09a8 \u0997\u09c7\u099f\u2014roles, authn \u099a\u09c7\u0995 \u0993 canActivate\u0964"
+track: "backend"
+category: "nestjs"
+difficulty: "intermediate"
+estimatedMinutes: 35
+prerequisites:
+  - "BACKEND-NESTJS-DI-SCOPES"
+  - "BACKEND-NESTJS-AUTH-JWT"
+related:
+  - "BACKEND-RATE-LIMITING"
+  - "BACKEND-SECURITY-BASICS"
+careers:
+  - "backend-engineer"
+tags:
+  - "nestjs"
+  - "guards"
+  - "authz"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NESTJS-GUARDS"
+  - "NESTJS-AUTH"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Authentication proves identity; authorization decides allowance. Guards give Nest a dedicated place for those decisions without cluttering controllers.
+
+<Callout type="mental-model">
+  Guards implement canActivate. They typically run after middleware and before pipes/interceptors. Prefer APP_GUARD registration when you need DI.
+</Callout>
+
+## Role guard sketch
+
+Keep token parsing in auth middleware/strategy; keep permission checks in guards.
+
+```ts
+import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+
+@Injectable()
+export class AdminGuard implements CanActivate {
+  canActivate(context: ExecutionContext): boolean {
+    const req = context.switchToHttp().getRequest<{ user?: { role?: string } }>();
+    return req.user?.role === 'admin';
+  }
+}
+```
+
+## Common mistakes
+
+- **Business rules inside guards** — Keep guards about access; put domain rules in services.
+- **useGlobalGuards with `new`** — DI will not work—use APP_GUARD.
+- **Confusing 401 vs 403** — Unauthenticated vs authenticated-but-forbidden.
+
+## Interview angle
+
+<Callout type="interview">
+  Where do guards sit in the Nest request lifecycle relative to pipes?
+</Callout>
+
+## Practice checklist
+
+- [ ] Protect a route with a roles guard.
+- [ ] Return 403 for authenticated forbidden users.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-GUARDS`
+- `NESTJS-AUTH`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

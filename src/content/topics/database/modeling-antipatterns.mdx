@@ -1,0 +1,96 @@
+---
+id: DATABASE-MODELING-ANTIPATTERNS
+title: "Data Modeling Anti-Patterns"
+titleBn: "ডেটা মডেলিং অ্যান্টি-প্যাটার্ন"
+description: "EAV, unbounded JSON blobs, missing constraints, and other schemas that age badly."
+descriptionBn: "EAV, সীমাহীন JSON blob, মিসিং constraint—এবং যে স্কিমাগুলো খারাপভাবে বয়স হয়।"
+track: database
+category: modeling
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites:
+  - "DATABASE-RELATIONAL-MODELING"
+  - "DATABASE-NORMALIZATION"
+unlocks: []
+related:
+  - "DATABASE-MONGODB-MODELING"
+  - "DATABASE-MIGRATIONS"
+careers:
+  - "backend-engineer"
+  - "CAREER-DATA-ENGINEER"
+tags:
+  - "modeling"
+  - "antipatterns"
+  - "sql"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTGRES-DOCS"
+  - "POSTGRES-JSON"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+A schema that “works for the demo” can block indexing, integrity, and reporting six months later. Recognizing anti-patterns early is cheaper than multi-week migrations.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prefer explicit columns and constraints for data you query and enforce. JSON is a tool for flexible attributes—not a substitute for a model. Polymorphism and EAV need a clear query story.
+</Callout>
+
+## How it works
+
+Add NOT NULL/FK/CHECK where invariants exist. Split hot JSON fields into columns when you filter on them. Avoid polymorphic FKs without enforcement strategy.
+
+```sql
+-- Anti-pattern: everything in JSON
+-- CREATE TABLE entities (id uuid primary key, data jsonb);
+
+-- Better: stable attributes as columns; flexible remainder in jsonb
+CREATE TABLE topics (
+  id text PRIMARY KEY,
+  track text NOT NULL,
+  difficulty text NOT NULL CHECK (difficulty IN ('beginner','intermediate','advanced')),
+  metadata jsonb NOT NULL DEFAULT '{}'::jsonb
+);
+
+CREATE INDEX topics_track_idx ON topics (track);
+```
+
+## Common mistakes
+
+- **EAV for core domains** — Queries become joins-of-joins; typing vanishes.
+- **No foreign keys “for speed”** — Integrity bugs cost more than FK overhead.
+- **Unbounded child tables without retention** — Growth kills vacuum and backups.
+
+## Interview angle
+
+<Callout type="interview">
+  Name two schema anti-patterns you have seen and how you would migrate away from one of them safely.
+</Callout>
+
+## Practice checklist
+
+- [ ] Find a JSON field used in WHERE
+- [ ] Add one missing CHECK/FK
+- [ ] Sketch a migration off EAV
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-DOCS`
+- `POSTGRES-JSON`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1,0 +1,101 @@
+---
+id: FLUTTER-DART-RECORDS-PATTERNS
+title: "Dart Records and Patterns"
+titleBn: "Dart রেকর্ড ও প্যাটার্ন"
+description: "Return multiple typed values with records and destructure safely with patterns—modern Dart 3 control flow."
+descriptionBn: "রেকর্ড দিয়ে একাধিক টাইপড মান ফেরান ও প্যাটার্ন দিয়ে ডিক্যানস্ট্রাক্ট করুন।"
+track: mobile-flutter
+category: dart
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FLUTTER-DART-FUNDAMENTALS"
+  - "FLUTTER-DART-OOP"
+unlocks:
+  - "FLUTTER-JSON-SERIALIZATION"
+related:
+  - "FLUTTER-DART-GENERICS"
+  - "FLUTTER-DART-ASYNC-FUTURES-STREAMS"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "dart"
+  - "records"
+  - "patterns"
+  - "dart3"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "DART-RECORDS"
+  - "DART-PATTERNS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why Before records, multi-returns became ad-hoc maps or tiny classes. Records + patterns make destructuring and exhaustive switches a first-class language feature (Dart 3+).
+
+## Mental model
+
+<Callout type="mental-model">
+  Records are immutable, fixed-shape, structurally typed aggregates. Patterns match and destructure values in switches, declarations, and for-loops—refutable patterns can fail to match.
+</Callout>
+
+## How
+
+### Records as multiple returns
+
+```dart
+(String, int) userInfo(Map<String, Object?> json) {
+  return (json['name'] as String, json['age'] as int);
+}
+
+void main() {
+  final (name, age) = userInfo({'name': 'Nila', 'age': 22});
+  print('$name is $age');
+
+  final shape = (x: 1, y: 2);
+  switch (shape) {
+    case (x: final x, y: final y) when x == y:
+      print('diagonal-ish');
+    case (x: _, y: _):
+      print('point');
+  }
+}
+```
+
+## Common mistakes
+
+- **Overusing records instead of named domain types** for public APIs.
+- **Unsafe casts from JSON** without validation.
+- **Non-exhaustive switches** on sealed-like hierarchies.
+
+## Interview angle
+
+<Callout type="interview">
+  How do record types differ from Map for returning two values, and when is a class still better?
+</Callout>
+
+## Practice checklist
+
+- [ ] Refactor a Map-based multi-return to a record.
+- [ ] Use a switch pattern with a `when` clause.
+- [ ] Read Dart records and patterns docs.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `DART-RECORDS`
+- `DART-PATTERNS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

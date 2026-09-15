@@ -1,0 +1,94 @@
+---
+id: FOUNDATIONS-DOCUMENTATION
+title: "Technical Documentation Habits"
+titleBn: "টেকনিক্যাল ডকুমেন্টেশন অভ্যাস"
+description: "Write docs that future-you and teammates can trust—ADRs, READMEs, runbooks, and API notes without novel-length fluff."
+descriptionBn: "বিশ্বাসযোগ্য ডক লিখুন—ADR, README, রানবুক ও API নোট।"
+track: foundations
+category: craft
+difficulty: beginner
+estimatedMinutes: 30
+prerequisites:
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+  - "FOUNDATIONS-ABSTRACTION-MODULARITY"
+unlocks: []
+related:
+  - "FOUNDATIONS-AI-ASSISTED-DEV-RISKS"
+  - "FOUNDATIONS-API-CONCEPTS"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "devops-engineer"
+tags:
+  - "documentation"
+  - "readme"
+  - "adr"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "WRITE-THE-DOCS-GUIDE"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why docs are a product surface
+
+Undocumented systems create bus factor risk and slow onboarding. Good docs reduce Slack archaeology. Bad docs lie—which is worse than none.
+
+## Mental model
+
+<Callout type="mental-model">
+  Match doc type to job: README (start here), ADR (why we chose X), runbook (when prod breaks), API reference (exact contracts). Keep each short and dated.
+</Callout>
+
+## Minimum useful set
+
+1. **How to run locally** — one path that works.
+2. **Architecture sketch** — boxes and arrows, not 40 pages.
+3. **Operational truths** — who owns pages, where logs live.
+4. **Decision records** — context, options, decision, consequences.
+
+```markdown
+# ADR-001: Use Postgres for order storage
+## Context
+We need transactions and relational reporting.
+## Decision
+Postgres 16 on managed hosting.
+## Consequences
+Team must learn SQL migrations; Redis remains cache-only.
+```
+
+## Common mistakes
+
+- **Documenting aspirations as current reality**
+- **Duplicating code comments that rot** — prefer linking to source of truth
+- **No owner / last-updated date**
+
+## Interview angle
+
+<Callout type="interview">
+  What would you put in a runbook for a payment service outage in the first 15 minutes?
+</Callout>
+
+## Practice checklist
+
+- [ ] Add a “How to run” section that a teammate can follow cold.
+- [ ] Write one ADR for a past decision.
+- [ ] Delete or fix one obsolete doc paragraph.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `WRITE-THE-DOCS-GUIDE`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

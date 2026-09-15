@@ -1,0 +1,100 @@
+---
+id: FLUTTER-INTERNATIONALIZATION
+title: "Flutter Internationalization (i18n)"
+titleBn: "Flutter আন্তর্জাতিকীকরণ (i18n)"
+description: "Localize UI strings and locale-aware formatting with flutter_localizations and Localizations delegates."
+descriptionBn: "flutter_localizations দিয়ে UI স্ট্রিং ও লোকেল ফরম্যাটিং।"
+track: mobile-flutter
+category: flutter
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FLUTTER-WIDGET-TREE"
+  - "FLUTTER-INHERITED-WIDGET"
+unlocks: []
+related:
+  - "FLUTTER-ACCESSIBILITY"
+  - "FLUTTER-FORMS-VALIDATION"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "i18n"
+  - "l10n"
+  - "locale"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-I18N"
+  - "FLUTTER-ARCH-OVERVIEW"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why hard-coded English strings fail products
+
+Bangladesh and global apps need Bangla/English (and more). Locale changes should rebuild UI via the same InheritedWidget mechanics as themes.
+
+## Mental model
+
+<Callout type="mental-model">
+  MaterialApp/CupertinoApp take `localizationsDelegates` and `supportedLocales`. Load string catalogs through generated or manual Localizations delegates; format dates/numbers with locale APIs.
+</Callout>
+
+## How
+
+### Wire supported locales
+
+```dart
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+MaterialApp(
+  localizationsDelegates: const [
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ],
+  supportedLocales: const [
+    Locale('en'),
+    Locale('bn'),
+  ],
+  home: const HomePage(),
+);
+```
+
+## Common mistakes
+
+- **Concatenating translated fragments** — breaks grammar in many languages
+- **Forgetting RTL layout testing** when expanding locales
+- **Embedding locale logic deep in widgets** without Localizations
+
+## Interview angle
+
+<Callout type="interview">
+  How does Localizations cause dependent widgets to rebuild when the device locale changes?
+</Callout>
+
+## Practice checklist
+
+- [ ] Add en + bn supportedLocales to a sample app.
+- [ ] Extract three UI strings into a localization approach.
+- [ ] Format a currency/date with locale awareness.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-I18N`
+- `FLUTTER-ARCH-OVERVIEW`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

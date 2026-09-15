@@ -1,0 +1,72 @@
+---
+id: FULLSTACK-FILE-UPLOADS
+title: "File Uploads and Storage"
+titleBn: "ফাইল আপলোড ও স্টোরেজ"
+description: "Upload flows, virus/size limits, and object storage patterns across the stack."
+descriptionBn: "আপলোড ফ্লো, সাইজ লিমিট ও অবজেক্ট স্টোরেজ প্যাটার্ন।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "FULLSTACK-HTTP-BOUNDARIES"
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+unlocks:
+  []
+related:
+  - "FULLSTACK-DOCKER-COMPOSE"
+  - "BACKEND-SECURITY-BASICS"
+careers:
+  - "fullstack-engineer"
+tags:
+  - "fullstack"
+  - "files"
+  - "storage"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NESTJS-ARCHITECTURE"
+  - "OWASP-TOP10"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why file pipelines are special
+
+Files stress authz, size limits, content-type sniffing, storage costs, and malware risk.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prefer direct-to-object-storage uploads with short-lived signed URLs when possible. Validate type/size server-side. Store metadata in Postgres; blobs in object storage.
+</Callout>
+
+## Common mistakes
+
+- **Accepting any Content-Type by trust**.
+- **Storing uploads on the API disk in production**.
+- **Public buckets with guessable keys**.
+
+## Interview angle
+
+<Callout type="interview">
+  Design avatar upload for Next + Nest + S3-compatible storage.
+</Callout>
+
+## Practice checklist
+
+- [ ] Write size/type validation rules.
+- [ ] Sketch signed URL sequence.
+- [ ] Plan orphan cleanup for failed uploads.
+
+## Sources
+
+- `NESTJS-ARCHITECTURE`
+- `OWASP-TOP10`

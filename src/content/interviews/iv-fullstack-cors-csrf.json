@@ -1,0 +1,33 @@
+{
+  "id": "iv-fullstack-cors-csrf",
+  "question": "Your Next app on app.example.com calls Nest on api.example.com with cookie auth. Users see CORS errors and you worry about CSRF. What is your design?",
+  "questionBn": "app.example.com-এর Next অ্যাপ কুকি অথসহ api.example.com-এর Nestকে কল করে। CORS এরর ও CSRF নিয়ে ডিজাইন কী হবে?",
+  "careerIds": [
+    "fullstack-engineer",
+    "backend-engineer"
+  ],
+  "technology": [
+    "CORS",
+    "CSRF",
+    "Cookies",
+    "Next.js",
+    "NestJS"
+  ],
+  "difficulty": "senior",
+  "shortAnswer": "Allowlist origins with credentials, never use `*` with cookies, and add CSRF defenses for state-changing cookie-authenticated requests—or avoid cross-site cookies via a BFF.",
+  "strongAnswer": "Prefer a same-site BFF to reduce credentialed CORS. If cross-origin is required: explicit ACAO + ACAC true, SameSite cookie strategy, and CSRF tokens or Fetch Metadata checks on mutating routes. Explain that CORS is browser-enforced and not authorization. Document local vs prod origin allowlists.",
+  "advancedAnswer": "Discuss partitioned cookies, trusted types, and aligning mobile bearer-token clients that bypass CORS.",
+  "followUps": [
+    "When is SameSite enough?",
+    "How do Playwright tests handle CSRF tokens?"
+  ],
+  "commonWrongAnswer": "Disable CORS entirely or reflect any Origin with credentials.",
+  "productionRelevance": "Split front/API domains are common and frequently misconfigured under delivery pressure.",
+  "relatedTopics": [
+    "FULLSTACK-CORS",
+    "FULLSTACK-CSRF",
+    "FULLSTACK-COOKIES-SESSIONS-TOKENS",
+    "FULLSTACK-HTTP-BOUNDARIES"
+  ],
+  "lastVerified": "2026-09-15"
+}

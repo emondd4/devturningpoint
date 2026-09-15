@@ -1,0 +1,105 @@
+---
+id: FOUNDATIONS-HTTPS-TLS
+title: "HTTPS and TLS Essentials"
+titleBn: "HTTPS ও TLS এর মূল বিষয়"
+description: "See how TLS authenticates servers and encrypts HTTP so man-in-the-middle risks become concrete, not abstract."
+descriptionBn: "TLS কীভাবে সার্ভার যাচাই ও HTTP এনক্রিপ্ট করে—MITM ঝুঁকি বাস্তবভাবে বোঝা।"
+track: foundations
+category: networking
+difficulty: intermediate
+estimatedMinutes: 45
+prerequisites:
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+unlocks:
+  - "FOUNDATIONS-API-CONCEPTS"
+related:
+  - "FOUNDATIONS-DNS"
+  - "FOUNDATIONS-OS-PERMISSIONS"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "devops-engineer"
+tags:
+  - "tls"
+  - "https"
+  - "security"
+  - "certificates"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "RFC-8446-TLS13"
+  - "OWASP-TLS-CHEATSHEET"
+  - "RFC-9110-HTTP"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why HTTPS exists
+
+Plain HTTP is readable and forgeable on the path between client and server. TLS provides a **confidential, integrity-protected channel** and typically authenticates the server via certificates.
+
+## Mental model
+
+<Callout type="mental-model">
+  Handshake negotiates keys; then application data (HTTP) rides inside the encrypted record layer. Certificates bind a public key to a hostname when a trusted Certificate Authority (CA) signed them—and the client validates that chain.
+</Callout>
+
+## What TLS gives you (TLS 1.3 mental checklist)
+
+From RFC 8446’s goals: authentication (usually of the server), confidentiality, and integrity of the byte stream over a reliable transport like TCP.
+
+```text
+Client                     Server
+  |---- ClientHello -------->|
+  |<--- ServerHello+certs ---|
+  |---- Finished / keys ---->|
+  |<=== encrypted HTTP =====>|
+```
+
+## Developer-facing consequences
+
+- Prefer HTTPS URLs in apps; avoid cleartext exceptions in production.
+- Certificate hostname mismatches fail closed in good clients.
+- Mixed content (HTTPS page loading HTTP assets) is a footgun on the web.
+
+<Callout type="warning">
+  TLS does not magically secure a bad app: XSS, weak auth, and leaked tokens still hurt. It protects the pipe, not your business logic.
+</Callout>
+
+## Common mistakes
+
+- **Disabling certificate validation “temporarily”** — often ships to production.
+- **Assuming HTTP redirects equal security** — first request can still be hijacked without HSTS.
+- **Ignoring cipher/protocol policy** — legacy TLS versions are deprecated for a reason (see OWASP guidance).
+
+## Interview angle
+
+<Callout type="interview">
+  Explain what a browser checks in a server certificate and what happens if the hostname does not match.
+</Callout>
+
+## Practice checklist
+
+- [ ] Inspect a site’s certificate chain in the browser.
+- [ ] curl `-v` an HTTPS endpoint and note TLS version lines.
+- [ ] List one place your team still allows cleartext and why.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `RFC-8446-TLS13`
+- `OWASP-TLS-CHEATSHEET`
+- `RFC-9110-HTTP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1,0 +1,23 @@
+{
+  "id": "issue-jwt-localstorage-xss",
+  "title": "JWT in localStorage stolen via XSS",
+  "technology": "JWT",
+  "platform": "Web",
+  "symptoms": [
+    "Attacker script reads token",
+    "Account takeover until expiry",
+    "Logout does not invalidate token"
+  ],
+  "cause": "Bearer tokens in JavaScript-accessible storage are readable by any XSS; long-lived JWTs lack revocation.",
+  "solution": "Prefer HttpOnly Secure SameSite cookies for session/refresh where applicable; shorten access token TTL; fix XSS; consider refresh rotation/server sessions.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "BACKEND-JWT-VS-SESSIONS",
+    "BACKEND-SECURITY-BASICS"
+  ],
+  "sources": [
+    "RFC-7519-JWT",
+    "MDN-COOKIES"
+  ],
+  "lastVerified": "2026-09-15"
+}

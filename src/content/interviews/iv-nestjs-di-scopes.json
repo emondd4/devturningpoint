@@ -1,0 +1,23 @@
+{
+  "id": "iv-nestjs-di-scopes",
+  "question": "Explain NestJS provider scopes and when request scope is justified.",
+  "careerIds": [
+    "backend-engineer"
+  ],
+  "technology": [
+    "NestJS"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Default is singleton; request scope creates per-request instances and bubbles to dependents—use sparingly.",
+  "strongAnswer": "Singleton services are created once and shared. REQUEST scope ties lifetime to a request (useful for request-bound context) but increases allocation and forces dependents request-scoped too. Prefer explicit context passing for most cases; use request scope when a true per-request collaborator is required.",
+  "followUps": [
+    "What is transient scope?",
+    "How do you register a global guard with DI?"
+  ],
+  "commonWrongAnswer": "Every service should be request-scoped for safety.",
+  "productionRelevance": "Unnecessary request scope hurts latency and memory under load.",
+  "relatedTopics": [
+    "BACKEND-NESTJS-DI-SCOPES"
+  ],
+  "lastVerified": "2026-09-15"
+}

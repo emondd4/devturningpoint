@@ -1,0 +1,107 @@
+---
+id: "FRONTEND-A11Y-FORMS"
+title: "Accessible Forms"
+titleBn: "\u0985\u09cd\u09af\u09be\u0995\u09cd\u09b8\u09c7\u09b8\u09bf\u09ac\u09b2 \u09ab\u09b0\u09cd\u09ae"
+description: "Labels, errors, and keyboard flows that make forms usable with assistive tech\u2014beyond pretty CSS."
+descriptionBn: "\u09b2\u09c7\u09ac\u09c7\u09b2, \u098f\u09b0\u09b0 \u0993 \u0995\u09c0\u09ac\u09cb\u09b0\u09cd\u09a1 \u09ab\u09cd\u09b2\u09cb\u2014\u09b8\u09b9\u09be\u09af\u09bc\u0995 \u09aa\u09cd\u09b0\u09af\u09c1\u0995\u09cd\u09a4\u09bf\u09a4\u09c7 \u09ac\u09cd\u09af\u09ac\u09b9\u09be\u09b0\u09af\u09cb\u0997\u09cd\u09af \u09ab\u09b0\u09cd\u09ae\u0964"
+track: "frontend"
+category: "accessibility"
+difficulty: "intermediate"
+estimatedMinutes: 35
+prerequisites:
+  - "FRONTEND-HTML-SEMANTICS-A11Y"
+  - "FRONTEND-FORMS-VALIDATION"
+related:
+  - "FRONTEND-CSS-ARCHITECTURE"
+careers:
+  - "frontend-engineer"
+  - "ui-ux-designer"
+tags:
+  - "a11y"
+  - "forms"
+  - "aria"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "W3C-WCAG"
+  - "MDN-ARIA"
+  - "W3C-HTML"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Broken forms exclude users and create support tickets. Accessibility is correctness: every control needs a name, errors need association, and focus must be predictable.
+
+<Callout type="mental-model">
+  Prefer native label/for and required/aria-invalid before custom ARIA. If you invent a widget, you inherit the keyboard and announcement contract.
+</Callout>
+
+## Pattern: label + described error
+
+Associate help and error text with aria-describedby; move focus to the first invalid field on submit failure.
+
+```tsx
+export function EmailField({
+  error,
+}: {
+  error?: string;
+}) {
+  const describedBy = error ? 'email-error' : 'email-hint';
+  return (
+    <div>
+      <label htmlFor="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        autoComplete="email"
+        aria-invalid={Boolean(error)}
+        aria-describedby={describedBy}
+      />
+      <p id="email-hint">We only use this for account recovery.</p>
+      {error ? (
+        <p id="email-error" role="alert">
+          {error}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+```
+
+## Common mistakes
+
+- **Placeholder as label** — Disappears on type; not a durable accessible name.
+- **Color-only errors** — Fail WCAG; pair with text and aria-invalid.
+- **Custom selects without keyboard** — Must support arrow keys and Escape.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you associate an error message with an input for screen reader users?
+</Callout>
+
+## Practice checklist
+
+- [ ] Audit a signup form with keyboard only.
+- [ ] Fix one unlabeled control.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `W3C-WCAG`
+- `MDN-ARIA`
+- `W3C-HTML`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

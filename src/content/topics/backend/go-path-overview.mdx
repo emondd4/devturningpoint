@@ -1,0 +1,89 @@
+---
+id: "BACKEND-GO-PATH-OVERVIEW"
+title: "Alternative Path: Go for Backend Overview"
+titleBn: "\u09ac\u09bf\u0995\u09b2\u09cd\u09aa \u09aa\u09a5: \u09ac\u09cd\u09af\u09be\u0995\u098f\u09a8\u09cd\u09a1\u09c7\u09b0 \u099c\u09a8\u09cd\u09af Go \u0993\u09ad\u09be\u09b0\u09ad\u09bf\u0989"
+description: "Why teams pick Go for APIs and CLIs\u2014goroutines, simplicity, and how it differs from Node\u2014as an alternative path."
+descriptionBn: "\u099f\u09bf\u09ae \u0995\u09c7\u09a8 API/CLI-\u098f\u09b0 \u099c\u09a8\u09cd\u09af Go \u09ac\u09c7\u099b\u09c7 \u09a8\u09c7\u09af\u09bc\u2014goroutine, \u09b8\u09b0\u09b2\u09a4\u09be, \u098f\u09ac\u0982 Node \u09a5\u09c7\u0995\u09c7 \u09aa\u09be\u09b0\u09cd\u09a5\u0995\u09cd\u09af\u2014\u09ac\u09bf\u0995\u09b2\u09cd\u09aa \u09aa\u09a5 \u09b9\u09bf\u09b8\u09c7\u09ac\u09c7\u0964"
+track: "backend"
+category: "alternative-path"
+difficulty: "beginner"
+estimatedMinutes: 30
+prerequisites:
+  - "BACKEND-HTTP-REST-API-DESIGN"
+  - "BACKEND-NODE-RUNTIME-EVENT-LOOP"
+related:
+  - "BACKEND-JAVA-SPRING-OVERVIEW"
+careers:
+  - "backend-engineer"
+  - "devops-engineer"
+tags:
+  - "go"
+  - "golang"
+  - "alternative-path"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "GO-TOUR"
+  - "NODE-EVENT-LOOP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Go emphasizes simplicity, static binaries, and straightforward concurrency. Many cloud/DevOps APIs use it. This is a map for Nest learners exploring an alternative path—not a full Go curriculum.
+
+<Callout type="mental-model">
+  goroutines + channels are the concurrency story (different from Node's event loop). net/http is in the standard library. You often write fewer framework layers—and more explicit code.
+</Callout>
+
+## Orientation checklist
+
+Learn tours of types, interfaces, goroutines; then build a tiny net/http JSON API.
+
+```ts
+export const nodeVsGo = {
+  concurrency: {
+    node: 'event loop + worker threads',
+    go: 'goroutines scheduled on OS threads (simplified mental model)',
+  },
+  distribution: {
+    node: 'node_modules + runtime',
+    go: 'often a single static binary',
+  },
+} as const;
+```
+
+## Common mistakes
+
+- **Expecting Nest-like DI everywhere** — Go culture is often more explicit/manual.
+- **Ignoring error handling style** — err returns are part of the design.
+- **Skipping the tour** — Syntax/idioms matter before frameworks.
+
+## Interview angle
+
+<Callout type="interview">
+  Give one reason a team might choose Go over Node for a network service.
+</Callout>
+
+## Practice checklist
+
+- [ ] Complete Go tour concurrency pages.
+- [ ] Sketch a net/http hello JSON handler (even as pseudo-Go).
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `GO-TOUR`
+- `NODE-EVENT-LOOP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

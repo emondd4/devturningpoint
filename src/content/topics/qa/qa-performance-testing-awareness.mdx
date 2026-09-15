@@ -1,0 +1,81 @@
+---
+id: QA-PERFORMANCE-TESTING-AWARENESS
+title: "Performance Testing Awareness (k6 / JMeter)"
+titleBn: "পারফরম্যান্স টেস্টিং সচেতনতা (k6 / JMeter)"
+description: "Load, stress, and soak concepts—and when k6 or JMeter fit a QA toolkit."
+descriptionBn: "লোড, স্ট্রেস ও সোক ধারণা—এবং QA টুলকিটে k6 বা JMeter কখন মানানসই।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 30
+prerequisites:
+  - "QA-API-TESTING"
+  - "QA-TESTING-PYRAMID"
+unlocks:
+  []
+related:
+  - "DEVOPS-OBSERVABILITY-PROMETHEUS-GRAFANA"
+  - "QA-RISK-BASED-TESTING"
+careers:
+  - "qa-engineer"
+  - "devops-engineer"
+tags:
+  - "qa"
+  - "performance"
+  - "k6"
+  - "jmeter"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "K6-DOCS"
+  - "PROMETHEUS-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why performance awareness
+
+Functional pass ≠ production ready. Latency and error rates under concurrency are product risks.
+
+## Mental model
+
+<Callout type="mental-model">
+  Define SLOs (e.g., p95 latency, error rate) → model realistic traffic → run load/stress/soak → observe app + infra metrics → decide go/no-go. k6 is script-as-code friendly; JMeter remains common in enterprise GUI-driven setups.
+</Callout>
+
+## Test types
+
+- **Load** — Expected peak.
+- **Stress** — Beyond peak to find breaking points.
+- **Soak** — Long duration for leaks and degradation.
+
+## Common mistakes
+
+- **Hammering without baselines** — Numbers without meaning.
+- **Testing only the homepage** — Miss hot APIs and DB locks.
+- **Ignoring warm-up and think time** — Unrealistic traffic shapes.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you performance-test a checkout API before a campaign sale?
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a tiny k6 script against a public or local API.
+- [ ] Pick two SLIs for your product.
+- [ ] Pair with DevOps on dashboards during a test.
+
+## Sources
+
+- `K6-DOCS`
+- `PROMETHEUS-DOCS`

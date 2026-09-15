@@ -1,0 +1,90 @@
+---
+id: BACKEND-GRPC-AWARENESS
+title: "gRPC Awareness"
+titleBn: "gRPC সচেতনতা"
+description: "When protobuf + HTTP/2 RPC beats JSON REST for service-to-service calls—and when it does not."
+descriptionBn: "সার্ভিস-টু-সার্ভিস কলে protobuf + HTTP/2 RPC কখন JSON REST-কে হারায়—এবং কখন নয়।"
+track: backend
+category: rpc
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "BACKEND-HTTP-REST-API-DESIGN"
+unlocks: []
+related:
+  - "BACKEND-OPENAPI"
+  - "BACKEND-WEBSOCKETS-SERVER"
+careers:
+  - "backend-engineer"
+tags:
+  - "grpc"
+  - "protobuf"
+  - "rpc"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "GRPC-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Chatty internal JSON/HTTP can waste CPU and bandwidth. gRPC gives typed contracts, efficient binary payloads, and streaming—at the cost of browser and tooling complexity.
+
+## Mental model
+
+<Callout type="mental-model">
+  Define services in `.proto`, generate stubs, speak HTTP/2. Great for internal microservice meshes. Public browser clients usually still want REST/JSON or gRPC-Web gateways.
+</Callout>
+
+## How it works
+
+Use gRPC for internal high-QPS service boundaries. Keep public APIs REST/OpenAPI unless you control clients. Invest in contract versioning and load balancing awareness.
+
+```protobuf
+syntax = "proto3";
+package topics.v1;
+
+service Topics {
+  rpc GetTopic (GetTopicRequest) returns (Topic);
+  rpc ListTopics (ListTopicsRequest) returns (stream Topic);
+}
+
+message GetTopicRequest { string id = 1; }
+message Topic { string id = 1; string title = 2; }
+```
+
+## Common mistakes
+
+- **Forcing gRPC on browsers without a gateway** — Poor fit; prefer REST or gRPC-Web.
+- **No deadline/timeouts** — Cascading latency across services.
+- **Ignoring compatibility** — Proto field evolution rules matter.
+
+## Interview angle
+
+<Callout type="interview">
+  Compare REST/JSON and gRPC for an internal payments service calling a ledger service 10k times/minute.
+</Callout>
+
+## Practice checklist
+
+- [ ] Read a sample .proto
+- [ ] List one gRPC benefit and one cost
+- [ ] Note where REST remains better
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `GRPC-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

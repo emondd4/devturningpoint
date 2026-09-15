@@ -1,0 +1,22 @@
+{
+  "id": "issue-nestjs-validation-mass-assignment",
+  "title": "Clients set unexpected fields because ValidationPipe whitelist is off",
+  "technology": "NestJS",
+  "platform": "API",
+  "symptoms": [
+    "Extra JSON properties persist to DB",
+    "role or isAdmin flipped by crafted payloads",
+    "DTO TypeScript types look correct but runtime accepts extras"
+  ],
+  "cause": "Without whitelist/forbidNonWhitelisted, undeclared properties can pass through into services/ORMs.",
+  "solution": "Enable ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }) globally; decorate DTO fields explicitly.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "BACKEND-NESTJS-VALIDATION-PIPES",
+    "BACKEND-SECURITY-BASICS"
+  ],
+  "sources": [
+    "NESTJS-VALIDATION"
+  ],
+  "lastVerified": "2026-09-15"
+}

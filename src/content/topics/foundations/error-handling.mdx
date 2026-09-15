@@ -1,0 +1,116 @@
+---
+id: FOUNDATIONS-ERROR-HANDLING
+title: "Error Handling Patterns"
+titleBn: "এরর হ্যান্ডলিং প্যাটার্ন"
+description: "Decide what fails loudly, what retries, and what becomes user-facing messages—without swallowing failures silently."
+descriptionBn: "কী জোরে ফেলবে, কী রিট্রাই হবে, আর কী ব্যবহারকারী-মুখী বার্তা হবে—নীরবে গিলে ফেলা ছাড়াই।"
+track: foundations
+category: programming
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+  - "FOUNDATIONS-DEBUGGING"
+unlocks:
+  - "FOUNDATIONS-API-CONCEPTS"
+related:
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "frontend-engineer"
+tags:
+  - "errors"
+  - "exceptions"
+  - "reliability"
+status: published
+translationStatus: partial
+createdAt: 2026-09-15
+updatedAt: 2026-09-15
+lastVerified: 2026-09-15
+sources:
+  - "RFC-9110-HTTP"
+  - "OWASP-TOP10"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why error handling is product design
+
+Unhandled errors become blank screens. Over-handled errors become silent data corruption. Good systems classify failures: **transient**, **user-correctable**, and **programmer bugs**.
+
+## Mental model
+
+<Callout type="mental-model">
+  Errors are data about a failed contract. Decide at each boundary: propagate, translate, retry, or terminate. Never catch just to log-and-continue unless the operation is truly optional.
+</Callout>
+
+## Categories
+
+| Kind | Example | Typical response |
+| --- | --- | --- |
+| Transient | network blip | retry with backoff + jitter |
+| User input | invalid email | 400 + field message |
+| Authz | wrong role | 403, no detail leak |
+| Bug | null deref | 500 + alert + fix |
+
+```ts
+type Result<T, E = string> =
+  | { ok: true; value: T }
+  | { ok: false; error: E };
+
+async function fetchUser(id: string): Promise<Result<User>> {
+  try {
+    const res = await fetch(`/api/users/${id}`);
+    if (res.status === 404) return { ok: false, error: 'not_found' };
+    if (!res.ok) return { ok: false, error: 'upstream' };
+    return { ok: true, value: await res.json() };
+  } catch {
+    return { ok: false, error: 'network' };
+  }
+}
+```
+
+## Boundaries that matter
+
+- **API edge** — map internal exceptions to stable status codes (see HTTP semantics).
+- **UI edge** — show recovery actions; never dump stack traces to end users.
+- **Job/worker** — dead-letter poison messages; do not infinite-retry forever.
+
+<Callout type="warning">
+  Empty `catch` blocks and “return null on any error” are common sources of production mysteries. Prefer explicit error types.
+</Callout>
+
+## Common mistakes
+
+- **Catching `Exception` / `any` too broadly** — hides programmer bugs.
+- **Retrying non-idempotent writes** — duplicate charges or inserts.
+- **Leaking internals** — SQL text or file paths in client responses.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you distinguish a 400 from a 500, and when is a retry safe for a POST payment endpoint?
+</Callout>
+
+## Practice checklist
+
+- [ ] List three errors in your last project and classify each.
+- [ ] Add one typed Result/Either-style return at a module boundary.
+- [ ] Ensure failed auth does not reveal whether an email exists (when that is a requirement).
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `RFC-9110-HTTP`
+- `OWASP-TOP10`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1100,6 +1100,146 @@
       "titleBn": "Stakeholder যোগাযোগ",
       "track": "pm",
       "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-SECRETS",
+      "title": "Secrets Management",
+      "titleBn": "সিক্রেটস ম্যানেজমেন্ট",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-IAM",
+      "title": "Cloud IAM Basics",
+      "titleBn": "ক্লাউড IAM মৌলিক",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-HELM",
+      "title": "Helm Charts",
+      "titleBn": "Helm চার্ট",
+      "track": "devops",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DEVOPS-OPENTELEMETRY",
+      "title": "OpenTelemetry",
+      "titleBn": "OpenTelemetry",
+      "track": "devops",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DEVOPS-LOGGING",
+      "title": "Logging Stacks",
+      "titleBn": "লগিং স্ট্যাক",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-SLO",
+      "title": "SLI SLO SLA",
+      "titleBn": "SLI SLO SLA",
+      "track": "devops",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DEVOPS-INCIDENT",
+      "title": "Incident Response",
+      "titleBn": "ইনসিডেন্ট রেসপন্স",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-BACKUPS",
+      "title": "Backups & DR",
+      "titleBn": "ব্যাকআপ ও DR",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-ANSIBLE",
+      "title": "Ansible Intro",
+      "titleBn": "Ansible পরিচিতি",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-OPENTOFU",
+      "title": "OpenTofu Awareness",
+      "titleBn": "OpenTofu সচেতনতা",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-IMAGE-SECURITY",
+      "title": "Container Image Security",
+      "titleBn": "ইমেজ সিকিউরিটি",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-DNS-TLS",
+      "title": "DNS & TLS Deep Dive",
+      "titleBn": "DNS ও TLS",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DEVOPS-CLOUD-COMPARISON",
+      "title": "Cloud Comparison",
+      "titleBn": "ক্লাউড তুলনা",
+      "track": "devops",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DATABASE-ISOLATION",
+      "title": "Isolation Levels",
+      "titleBn": "আইসোলেশন লেভেল",
+      "track": "database",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DATABASE-LOCKING",
+      "title": "Locking & Concurrency",
+      "titleBn": "লকিং ও কনকারেন্সি",
+      "track": "database",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DATABASE-JSON",
+      "title": "Postgres JSON",
+      "titleBn": "Postgres JSON",
+      "track": "database",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DATABASE-PARTITIONING",
+      "title": "Partitioning Concepts",
+      "titleBn": "পার্টিশনিং",
+      "track": "database",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DATABASE-INDEX-ANTIPATTERNS",
+      "title": "Indexing Anti-Patterns",
+      "titleBn": "ইনডেক্স অ্যান্টি-প্যাটার্ন",
+      "track": "database",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "DATABASE-REDIS-TTL",
+      "title": "Redis TTL Sessions Locks",
+      "titleBn": "Redis TTL সেশন লক",
+      "track": "database",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "DATABASE-PG-VS-MONGO",
+      "title": "Postgres vs MongoDB",
+      "titleBn": "Postgres বনাম MongoDB",
+      "track": "database",
+      "difficulty": "intermediate"
     }
   ],
   "edges": [
@@ -2822,6 +2962,141 @@
       "from": "FOUNDATIONS-GIT",
       "to": "CAREER-SOFTWARE-ENGINEER",
       "type": "usefulForCareer"
+    },
+    {
+      "from": "DEVOPS-BASH",
+      "to": "DEVOPS-SYSTEMD",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-NETWORKING",
+      "to": "DEVOPS-DNS-TLS",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-DOCKER",
+      "to": "DEVOPS-IMAGE-SECURITY",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-DOCKER-COMPOSE",
+      "to": "DEVOPS-IMAGE-SECURITY",
+      "type": "recommended"
+    },
+    {
+      "from": "DEVOPS-CICD",
+      "to": "DEVOPS-SECRETS",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-AWS",
+      "to": "DEVOPS-IAM",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-IAM",
+      "to": "DEVOPS-SECRETS",
+      "type": "recommended"
+    },
+    {
+      "from": "DEVOPS-AWS",
+      "to": "DEVOPS-CLOUD-COMPARISON",
+      "type": "recommended"
+    },
+    {
+      "from": "DEVOPS-TERRAFORM",
+      "to": "DEVOPS-OPENTOFU",
+      "type": "recommended"
+    },
+    {
+      "from": "DEVOPS-LINUX",
+      "to": "DEVOPS-ANSIBLE",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-BASH",
+      "to": "DEVOPS-ANSIBLE",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-KUBERNETES",
+      "to": "DEVOPS-HELM",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-OBSERVABILITY",
+      "to": "DEVOPS-OPENTELEMETRY",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-OBSERVABILITY",
+      "to": "DEVOPS-LOGGING",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-OBSERVABILITY",
+      "to": "DEVOPS-SLO",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-LOGGING",
+      "to": "DEVOPS-INCIDENT",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-SLO",
+      "to": "DEVOPS-INCIDENT",
+      "type": "requires"
+    },
+    {
+      "from": "DEVOPS-AWS",
+      "to": "DEVOPS-BACKUPS",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-TRANSACTIONS",
+      "to": "DATABASE-ISOLATION",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-ISOLATION",
+      "to": "DATABASE-LOCKING",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-SQL",
+      "to": "DATABASE-JSON",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-EXPLAIN",
+      "to": "DATABASE-PARTITIONING",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-EXPLAIN",
+      "to": "DATABASE-INDEX-ANTIPATTERNS",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-REDIS",
+      "to": "DATABASE-REDIS-TTL",
+      "type": "requires"
+    },
+    {
+      "from": "DATABASE-MONGODB",
+      "to": "DATABASE-PG-VS-MONGO",
+      "type": "recommended"
+    },
+    {
+      "from": "DATABASE-JSON",
+      "to": "DATABASE-PG-VS-MONGO",
+      "type": "recommended"
+    },
+    {
+      "from": "DATABASE-BACKUP-REPLICATION",
+      "to": "DEVOPS-BACKUPS",
+      "type": "recommended"
     }
   ]
 }

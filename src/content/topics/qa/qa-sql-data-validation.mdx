@@ -1,0 +1,81 @@
+---
+id: QA-SQL-DATA-VALIDATION
+title: "SQL and Data Validation for QA"
+titleBn: "QA-এর জন্য SQL ও ডেটা ভ্যালিডেশন"
+description: "Verify application behavior against the database—counts, constraints, and audit trails."
+descriptionBn: "ডাটাবেসের বিপরীতে অ্যাপ আচরণ যাচাই—কাউন্ট, কনস্ট্রেইন্ট ও অডিট ট্রেইল।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites:
+  - "FOUNDATIONS-SQL-FUNDAMENTALS"
+  - "QA-API-TESTING"
+unlocks:
+  []
+related:
+  - "DATABASE-SQL-JOINS-AGGREGATION"
+  - "QA-BUG-REPORTING"
+careers:
+  - "qa-engineer"
+  - "database-engineer"
+tags:
+  - "qa"
+  - "sql"
+  - "data"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTGRES-DOCS"
+  - "POSTGRES-TX"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why QA needs SQL
+
+UI and API assertions are incomplete without checking persistence: wrong totals, orphan rows, and silent partial writes.
+
+## Mental model
+
+<Callout type="mental-model">
+  Arrange known seed data → exercise the feature → assert DB state with SELECT (and sometimes EXPLAIN for performance suspicions). Prefer read-only accounts in shared environments.
+</Callout>
+
+## Patterns
+
+- Count and sum checks after transactions.
+- Soft-delete vs hard-delete expectations.
+- Idempotency: retrying a payment should not double-insert.
+- Referential integrity after delete/cascade.
+
+## Common mistakes
+
+- **Writing to production for “checks”** — Use staging with backups.
+- **Brittle absolute IDs** — Prefer unique markers you create.
+- **Ignoring isolation** — Parallel tests colliding on shared rows.
+
+## Interview angle
+
+<Callout type="interview">
+  After a refund API returns 200, what SQL checks prove money moved correctly?
+</Callout>
+
+## Practice checklist
+
+- [ ] Write three validation queries for an order flow.
+- [ ] Document a read-only QA DB role.
+- [ ] Pair with a backend engineer on a data bug.
+
+## Sources
+
+- `POSTGRES-DOCS`
+- `POSTGRES-TX`

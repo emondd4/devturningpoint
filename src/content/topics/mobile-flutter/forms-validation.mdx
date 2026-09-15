@@ -1,0 +1,130 @@
+---
+id: FLUTTER-FORMS-VALIDATION
+title: "Flutter Forms and Validation"
+titleBn: "Flutter ফর্ম ও ভ্যালিডেশন"
+description: "Build Form + TextFormField flows with GlobalKey, validators, and accessible error messages."
+descriptionBn: "GlobalKey ও validator দিয়ে Form + TextFormField ফ্লো বানান।"
+track: mobile-flutter
+category: flutter
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FLUTTER-WIDGET-TREE"
+  - "FLUTTER-BUILDCONTEXT-KEYS"
+unlocks:
+  - "FLUTTER-JSON-SERIALIZATION"
+related:
+  - "FLUTTER-ACCESSIBILITY"
+  - "FLUTTER-STATE-MANAGEMENT"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "forms"
+  - "validation"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-FORMS"
+  - "FLUTTER-WIDGETS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why forms need a first-class pattern
+
+Login, checkout, and KYC screens fail when validation is ad-hoc `if` soup. Flutter’s `Form` aggregates field validators and surfaces errors consistently.
+
+## Mental model
+
+<Callout type="mental-model">
+  Keep a `GlobalKey<FormState>` on a StatefulWidget. `validate()` runs each field validator; return a String error or null. Save only after validation succeeds.
+</Callout>
+
+## How
+
+### Cookbook-style form
+
+```dart
+class LoginForm extends StatefulWidget {
+  const LoginForm({super.key});
+  @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
+  final _email = TextEditingController();
+
+  @override
+  void dispose() {
+    _email.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          TextFormField(
+            controller: _email,
+            decoration: const InputDecoration(labelText: 'Email'),
+            validator: (v) {
+              if (v == null || v.isEmpty) return 'Email required';
+              if (!v.contains('@')) return 'Enter a valid email';
+              return null;
+            },
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState?.validate() ?? false) {
+                // submit
+              }
+            },
+            child: const Text('Continue'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+
+## Common mistakes
+
+- **Recreating GlobalKey every build**
+- **Forgetting to dispose controllers**
+- **Only validating on the server** — still validate client UX, then enforce server-side
+
+## Interview angle
+
+<Callout type="interview">
+  Why should Form’s GlobalKey live in State rather than being created inside build?
+</Callout>
+
+## Practice checklist
+
+- [ ] Build a two-field form with validators.
+- [ ] Show errors for empty submit.
+- [ ] Wire autofillHints for email/password.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-FORMS`
+- `FLUTTER-WIDGETS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

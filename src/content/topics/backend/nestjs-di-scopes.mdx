@@ -1,0 +1,89 @@
+---
+id: "BACKEND-NESTJS-DI-SCOPES"
+title: "NestJS DI & Injection Scopes"
+titleBn: "NestJS DI \u0993 Injection Scope"
+description: "Singleton, request, and transient providers\u2014and why scope bubbles through the dependency graph."
+descriptionBn: "Singleton, request \u0993 transient \u09aa\u09cd\u09b0\u09cb\u09ad\u09be\u0987\u09a1\u09be\u09b0\u2014\u098f\u09ac\u0982 \u0995\u09c7\u09a8 scope \u09a1\u09bf\u09aa\u09c7\u09a8\u09cd\u09a1\u09c7\u09a8\u09cd\u09b8\u09bf \u0997\u09cd\u09b0\u09be\u09ab\u09c7 \u099b\u09a1\u09bc\u09bf\u09af\u09bc\u09c7 \u09aa\u09a1\u09bc\u09c7\u0964"
+track: "backend"
+category: "nestjs"
+difficulty: "advanced"
+estimatedMinutes: 40
+prerequisites:
+  - "BACKEND-NESTJS-ARCHITECTURE"
+unlocks:
+  - "BACKEND-NESTJS-GUARDS"
+  - "BACKEND-NESTJS-VALIDATION-PIPES"
+related:
+  - "BACKEND-LOGGING"
+careers:
+  - "backend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "nestjs"
+  - "di"
+  - "scopes"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NESTJS-PROVIDERS"
+  - "NESTJS-INJECTION-SCOPES"
+  - "NESTJS-ARCHITECTURE"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+DI is how Nest replaces manual singletons with testable wiring. Scopes control lifetime: most services should be singletons; request scope is for per-request state—and it has a cost.
+
+<Callout type="mental-model">
+  Default providers are application singletons. REQUEST creates an instance per inbound request and bubbles to dependents. TRANSIENT gives each consumer its own instance.
+</Callout>
+
+## Declaring a request-scoped provider
+
+Use request scope sparingly; prefer passing explicit context over making the whole graph request-scoped.
+
+```ts
+import { Injectable, Scope } from '@nestjs/common';
+
+@Injectable({ scope: Scope.REQUEST })
+export class RequestContextService {
+  userId?: string;
+}
+```
+
+## Common mistakes
+
+- **Request-scoping everything** — Performance/memory overhead; harder reasoning.
+- **new Service() inside providers** — Bypasses DI and testing seams.
+- **Ignoring scope bubble-up** — A singleton depending on request scope becomes request-scoped.
+
+## Interview angle
+
+<Callout type="interview">
+  When is Scope.REQUEST justified, and what is the main downside?
+</Callout>
+
+## Practice checklist
+
+- [ ] Inject a singleton logger into a controller.
+- [ ] Experiment with a request-scoped context service.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-PROVIDERS`
+- `NESTJS-INJECTION-SCOPES`
+- `NESTJS-ARCHITECTURE`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

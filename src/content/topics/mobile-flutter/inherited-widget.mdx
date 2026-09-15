@@ -1,0 +1,105 @@
+---
+id: FLUTTER-INHERITED-WIDGET
+title: "InheritedWidget and Dependency Lookup"
+titleBn: "InheritedWidget ও ডিপেন্ডেন্সি লুকআপ"
+description: "Understand the mechanism behind Theme, MediaQuery, and many state libraries—InheritedWidget lookup and notifications."
+descriptionBn: "Theme ও MediaQuery-এর পেছনের InheritedWidget লুকআপ বুঝুন।"
+track: mobile-flutter
+category: flutter
+difficulty: advanced
+estimatedMinutes: 45
+prerequisites:
+  - "FLUTTER-WIDGET-TREE"
+  - "FLUTTER-BUILDCONTEXT-KEYS"
+unlocks:
+  - "FLUTTER-STATE-MANAGEMENT"
+  - "FLUTTER-RENDERING-REBUILDS"
+related:
+  - "FLUTTER-ARCHITECTURE-PATTERNS"
+  - "FLUTTER-ANTI-PATTERNS"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "inheritedwidget"
+  - "state"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-ARCH-OVERVIEW"
+  - "FLUTTER-STATE"
+  - "FLUTTER-WIDGETS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why InheritedWidget is the framework’s secret bus
+
+Prop-drilling theme, locale, or auth through every constructor does not scale. InheritedWidget lets descendants call `of(context)` to subscribe to an ancestor. Provider/Riverpod build on this idea.
+
+## Mental model
+
+<Callout type="mental-model">
+  When a descendant depends on an InheritedWidget, Flutter registers that dependency. If `updateShouldNotify` says the value changed, dependents rebuild. `.of(context)` both reads and subscribes.
+</Callout>
+
+## How
+
+### Minimal inherited model
+
+```dart
+class CartScope extends InheritedWidget {
+  const CartScope({super.key, required this.count, required super.child});
+  final int count;
+
+  static CartScope of(BuildContext context) {
+    final scope = context.dependOnInheritedWidgetOfExactType<CartScope>();
+    assert(scope != null, 'CartScope not found');
+    return scope!;
+  }
+
+  @override
+  bool updateShouldNotify(CartScope old) => count != old.count;
+}
+
+// Somewhere below:
+// Text('Items: ${CartScope.of(context).count}');
+```
+
+## Common mistakes
+
+- **Calling `dependOnInheritedWidgetOfExactType` in places that should not rebuild**
+- **Putting huge objects in InheritedWidget without granular selectors**
+- **Forgetting updateShouldNotify semantics** — rebuild storms or stale UI
+
+## Interview angle
+
+<Callout type="interview">
+  How does Theme.of(context) know to rebuild when the theme changes?
+</Callout>
+
+## Practice checklist
+
+- [ ] Implement a tiny InheritedWidget for a counter.
+- [ ] Contrast it with lifting state via constructor params.
+- [ ] Trace Provider/Riverpod docs back to this mechanism.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-ARCH-OVERVIEW`
+- `FLUTTER-STATE`
+- `FLUTTER-WIDGETS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

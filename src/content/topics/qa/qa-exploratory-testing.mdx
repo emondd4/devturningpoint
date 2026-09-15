@@ -1,0 +1,78 @@
+---
+id: QA-EXPLORATORY-TESTING
+title: "Exploratory Testing"
+titleBn: "এক্সপ্লোরেটরি টেস্টিং"
+description: "Session-based exploration with charters—finding bugs scripts miss."
+descriptionBn: "চার্টারসহ সেশন-ভিত্তিক এক্সপ্লোরেশন—স্ক্রিপ্ট যা মিস করে সেই বাগ খুঁজে পাওয়া।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "QA-MANUAL-TEST-DESIGN"
+unlocks:
+  - "QA-RISK-BASED-TESTING"
+related:
+  - "QA-BUG-REPORTING"
+  - "UIUX-USABILITY-HEURISTICS"
+careers:
+  - "qa-engineer"
+tags:
+  - "qa"
+  - "exploratory"
+  - "charters"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "W3C-WCAG"
+  - "PLAYWRIGHT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why explore
+
+Scripted cases encode known risks. Exploration invents new questions while you learn the product.
+
+## Mental model
+
+<Callout type="mental-model">
+  Time-box a charter (“Explore password reset as a user with expired token for 45 minutes”). Note oracles: expectations from specs, similar products, and common sense. Debrief findings into bugs and new regression candidates.
+</Callout>
+
+## Techniques
+
+- Tours (feature, claims, emotion, money).
+- Persona-based exploration.
+- Pair testing with a developer for fast fixes.
+
+## Common mistakes
+
+- **Wandering without a charter** — Hard to report coverage.
+- **No notes** — Insights evaporate.
+- **Treating exploration as anti-automation** — Both reinforce each other.
+
+## Interview angle
+
+<Callout type="interview">
+  Design a 60-minute exploratory charter for a wallet top-up flow.
+</Callout>
+
+## Practice checklist
+
+- [ ] Run one charter and write a debrief.
+- [ ] Convert two findings into automation candidates.
+- [ ] Share heuristics you used as oracles.
+
+## Sources
+
+- `W3C-WCAG`
+- `PLAYWRIGHT-DOCS`

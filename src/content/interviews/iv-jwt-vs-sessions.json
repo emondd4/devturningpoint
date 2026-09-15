@@ -1,0 +1,27 @@
+{
+  "id": "iv-jwt-vs-sessions",
+  "question": "Compare JWT access tokens and server-side sessions for a same-site web app.",
+  "careerIds": [
+    "backend-engineer",
+    "fullstack-engineer"
+  ],
+  "technology": [
+    "JWT",
+    "HTTP",
+    "Cookies"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Sessions store authoritative state server-side (easy revoke); JWTs are self-contained (harder revoke) and need careful storage/TTL.",
+  "strongAnswer": "Server sessions typically place an opaque id in an HttpOnly cookie and look up session data centrally—logout/revocation is straightforward. JWTs encode claims and can be validated without a store, which helps scale, but revocation before expiry needs extra infrastructure; use short-lived access tokens and careful cookie/XSS posture. Neither is automatically more secure.",
+  "followUps": [
+    "Why is localStorage risky for tokens?",
+    "How does refresh token rotation help?"
+  ],
+  "commonWrongAnswer": "JWTs are always more secure than sessions.",
+  "productionRelevance": "Wrong choice complicates logout, XSS impact, and horizontal scaling.",
+  "relatedTopics": [
+    "BACKEND-JWT-VS-SESSIONS",
+    "BACKEND-NESTJS-AUTH-JWT"
+  ],
+  "lastVerified": "2026-09-15"
+}

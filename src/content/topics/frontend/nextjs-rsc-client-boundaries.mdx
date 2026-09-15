@@ -1,0 +1,116 @@
+---
+id: "FRONTEND-NEXTJS-RSC-CLIENT-BOUNDARIES"
+title: "Next.js RSC & Client Boundaries"
+titleBn: "Next.js RSC \u0993 Client Boundary"
+description: "When to stay on the server, when to add \"use client\", and how composition keeps bundles small."
+descriptionBn: "\u0995\u0996\u09a8 \u09b8\u09be\u09b0\u09cd\u09ad\u09be\u09b0\u09c7 \u09a5\u09be\u0995\u09be \u0989\u099a\u09bf\u09a4, \u0995\u0996\u09a8 \"use client\" \u09af\u09cb\u0997 \u0995\u09b0\u09ac\u09c7\u09a8, \u098f\u09ac\u0982 composition \u0995\u09c0\u09ad\u09be\u09ac\u09c7 \u09ac\u09be\u09a8\u09cd\u09a1\u09c7\u09b2 \u099b\u09cb\u099f \u09b0\u09be\u0996\u09c7\u0964"
+track: "frontend"
+category: "nextjs"
+difficulty: "advanced"
+estimatedMinutes: 45
+prerequisites:
+  - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+  - "FRONTEND-REACT-HOOKS"
+unlocks:
+  - "FRONTEND-NEXTJS-CACHING"
+related:
+  - "FRONTEND-NEXTJS-SEO-METADATA"
+careers:
+  - "frontend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "nextjs"
+  - "rsc"
+  - "use-client"
+status: "published"
+translationStatus: "partial"
+applicableVersions:
+  next: "15.x \u2014 verify against nextjs.org/docs"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NEXTJS-SERVER-COMPONENTS"
+  - "NEXTJS-RENDERING"
+  - "NEXTJS-APP-ROUTER"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Shipping all UI as client JS hurts TTI. Server Components let you fetch close to data and send less JavaScript; Client Components opt into interactivity.
+
+<Callout type="mental-model">
+  `"use client"` marks a module-graph boundary. Push that boundary down to interactive leaves; keep layouts/pages on the server when possible.
+</Callout>
+
+## Compose server page + client leaf
+
+Pass serializable props from Server Components into Client Components. You can also pass Server Components as children into client wrappers.
+
+```tsx
+// app/topics/[id]/page.tsx (Server Component by default)
+import { LikeButton } from './like-button';
+import { getTopic } from '@/lib/topics';
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const topic = await getTopic(id);
+  return (
+    <main>
+      <h1>{topic.title}</h1>
+      <LikeButton initialLikes={topic.likes} />
+    </main>
+  );
+}
+
+// like-button.tsx
+'use client';
+import { useState } from 'react';
+
+export function LikeButton({ initialLikes }: { initialLikes: number }) {
+  const [likes, setLikes] = useState(initialLikes);
+  return (
+    <button type="button" onClick={() => setLikes((n) => n + 1)}>
+      Likes {likes}
+    </button>
+  );
+}
+```
+
+## Common mistakes
+
+- **Marking entire trees as client** — Unnecessary JS; lose server data benefits.
+- **Passing non-serializable props** — Functions/classes across the boundary fail.
+- **Importing server-only secrets into client modules** — Leak risk—use server-only barriers.
+
+## Interview angle
+
+<Callout type="interview">
+  What does "use client" actually change in the module graph?
+</Callout>
+
+## Practice checklist
+
+- [ ] Move a button into a client leaf.
+- [ ] Keep a data fetch in a Server Component.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NEXTJS-SERVER-COMPONENTS`
+- `NEXTJS-RENDERING`
+- `NEXTJS-APP-ROUTER`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

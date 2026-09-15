@@ -1,0 +1,85 @@
+---
+id: DEVOPS-INCIDENT-RESPONSE
+title: "Incident Response for Engineers"
+titleBn: "ইঞ্জিনিয়ারদের জন্য ইনসিডেন্ট রেসপন্স"
+description: "Detect, mitigate, communicate, and learn—practical IR habits for production outages."
+descriptionBn: "ডিটেক্ট, মিটিগেট, কমিউনিকেট ও শিখুন—প্রোডাকশন আউটেশের জন্য ব্যবহারিক IR অভ্যাস।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites:
+  - "DEVOPS-LOGGING-STACKS"
+  - "DEVOPS-SLO-SLI"
+unlocks: []
+related:
+  - "DEVOPS-BACKUPS-DISASTER-RECOVERY"
+careers:
+  - "devops-engineer"
+  - "backend-engineer"
+  - "software-engineer"
+tags:
+  - "incidents"
+  - "sre"
+  - "oncall"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "GOOGLE-SRE-SLO"
+  - "OWASP-TOP10"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why heroics do not scale
+
+The first five minutes decide customer impact. Without roles, severity, and comms channels, everyone debugs in parallel and nobody updates stakeholders.
+
+## Mental model
+
+<Callout type="mental-model">
+  Detect → declare severity → mitigate user impact first → investigate → resolve → blameless postmortem with action items. Separate incident commander from deep debugger when the team is large enough.
+</Callout>
+
+```bash
+# Mitigation-first checklist sketch
+# 1) Confirm blast radius (error rate / region)
+# 2) Rollback or feature-flag off
+# 3) Scale healthy capacity if needed
+# 4) Preserve evidence (logs, deploy id)
+```
+
+## Common mistakes
+
+- **Debugging forever before rollback** — Restore service, then root-cause.
+- **No single comms owner** — Duplicate/conflicting status updates.
+- **Punitive postmortems** — Hides systemic causes.
+
+## Interview angle
+
+<Callout type="interview">
+  Latency spiked after a deploy. What are your first 10 minutes?
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a one-page severity rubric.
+- [ ] Practice a rollback runbook for your app.
+- [ ] Draft a blameless postmortem template.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `GOOGLE-SRE-SLO`
+- `OWASP-TOP10`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

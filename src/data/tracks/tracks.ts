@@ -125,10 +125,10 @@ export const tracks: Track[] = [
     title: 'DevOps / Cloud',
     titleBn: 'DevOps / ক্লাউড',
     summary:
-      'Linux, networking, Docker, CI/CD, cloud fundamentals, AWS, and Kubernetes—always prerequisite-first.',
+      'Linux, bash, Docker/Compose, CI/CD, AWS IAM, IaC, Kubernetes/Helm, and observability/SRE habits—prerequisite-first.',
     summaryBn:
-      'Linux, networking, Docker, CI/CD, ক্লাউড বেসিক, AWS ও Kubernetes—সবসময় পূর্বশর্ত আগে।',
-    primaryStack: ['Linux', 'Docker', 'CI/CD', 'AWS', 'Kubernetes'],
+      'Linux, bash, Docker/Compose, CI/CD, AWS IAM, IaC, Kubernetes/Helm ও observability/SRE অভ্যাস—পূর্বশর্ত আগে।',
+    primaryStack: ['Linux', 'Docker', 'CI/CD', 'AWS', 'Kubernetes', 'Terraform'],
     goalSkillIds: [
       'DEVOPS-LINUX',
       'DEVOPS-DOCKER',
@@ -136,6 +136,7 @@ export const tracks: Track[] = [
       'DEVOPS-AWS',
       'DEVOPS-KUBERNETES',
       'DEVOPS-OBSERVABILITY',
+      'DEVOPS-SLO',
     ],
     relatedCareerIds: ['devops-engineer', 'sre'],
     priority: 'P0',
@@ -146,9 +147,9 @@ export const tracks: Track[] = [
     title: 'Database Engineering',
     titleBn: 'ডেটাবেস ইঞ্জিনিয়ারিং',
     summary:
-      'Relational modeling, SQL, PostgreSQL indexing and transactions, plus Redis and document stores when they fit.',
+      'Relational modeling, SQL/CTEs, Postgres indexing/EXPLAIN/transactions, Redis patterns, and document-store decision making.',
     summaryBn:
-      'রিলেশনাল মডেলিং, SQL, PostgreSQL indexing ও transactions; প্রয়োজনে Redis ও document store।',
+      'রিলেশনাল মডেলিং, SQL/CTE, Postgres indexing/EXPLAIN/transactions, Redis প্যাটার্ন ও document-store সিদ্ধান্ত।',
     primaryStack: ['SQL', 'PostgreSQL', 'Redis', 'MongoDB'],
     goalSkillIds: [
       'DATABASE-SQL',
@@ -157,6 +158,7 @@ export const tracks: Track[] = [
       'DATABASE-EXPLAIN',
       'DATABASE-REDIS',
       'DATABASE-BACKUP-REPLICATION',
+      'DATABASE-CTES',
     ],
     relatedCareerIds: ['database-engineer', 'backend-engineer'],
     priority: 'P0',

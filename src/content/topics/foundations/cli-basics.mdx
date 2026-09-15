@@ -1,0 +1,97 @@
+---
+id: FOUNDATIONS-CLI-BASICS
+title: "CLI Basics for Developers"
+titleBn: "ডেভেলপারদের জন্য CLI বেসিক"
+description: "Navigate files, pipes, exit codes, and env vars so tooling and servers stop feeling mysterious."
+descriptionBn: "ফাইল, পাইপ, এক্সিট কোড ও এনভ ভ্যার—টুলিং বোঝার ভিত্তি।"
+track: foundations
+category: tools
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites:
+  - "FOUNDATIONS-FILESYSTEMS"
+unlocks:
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+  - "FOUNDATIONS-PACKAGE-MANAGERS"
+related:
+  - "FOUNDATIONS-OS-PERMISSIONS"
+  - "FOUNDATIONS-LOGGING-OBSERVABILITY"
+careers:
+  - "software-engineer"
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "cli"
+  - "shell"
+  - "terminal"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "MDN-CLI-INTRO"
+  - "LINUX-MAN-PAGES"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why the terminal is non-optional
+
+IDEs hide steps. Production, CI, and remote servers speak **shell**. If you cannot navigate paths, read logs, and check exit codes, every deploy feels like magic.
+
+## Mental model
+
+<Callout type="mental-model">
+  A command is a process: stdin/stdout/stderr streams, an exit code (`0` success, non-zero failure), and an environment. Pipes connect stdout of one process to stdin of the next.
+</Callout>
+
+## Core moves
+
+```bash
+pwd
+ls -la
+cd ../project
+cat notes.txt
+mkdir -p tmp/logs
+cp a.txt b.txt
+mv old.md new.md
+rm -i junk.txt
+echo $PATH
+export API_URL=https://staging.example.com
+```
+
+```bash
+# pipes and filters
+cat app.log | grep ERROR | tail -n 20
+curl -sS https://example.com/health | jq .
+echo $?   # last exit code
+```
+
+## Paths and permissions
+
+- Absolute vs relative paths (`/Users/...` vs `./src`)
+- Execute bit and “permission denied” (see OS permissions topic)
+- Never paste secrets into shell history carelessly
+
+## Common mistakes
+
+- Ignoring non-zero exit codes in scripts
+- `rm -rf` without a dry-run mental check
+- Assuming Windows PowerShell and POSIX bash are identical
+
+## Interview angle
+
+<Callout type="interview">
+  How would you find which process holds a port and confirm a health endpoint from a remote box?
+</Callout>
+
+## Sources
+
+`MDN-CLI-INTRO`, `LINUX-MAN-PAGES`.

@@ -1,0 +1,26 @@
+{
+  "id": "iv-flutter-inherited-theme",
+  "question": "How does Theme.of(context) know which widgets to rebuild when the theme changes?",
+  "careerIds": [
+    "flutter-developer"
+  ],
+  "technology": [
+    "Flutter"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Theme is an InheritedWidget; of(context) registers a dependency so dependents rebuild when updateShouldNotify is true.",
+  "strongAnswer": "InheritedWidget lookup via dependOnInheritedWidgetOfExactType registers the Element as dependent. When the inherited widget updates and updateShouldNotify returns true, Flutter marks dependents dirty. That is why Theme/MediaQuery/Localizations rebuild consumers without manual listeners.",
+  "advancedAnswer": "Explain Provider/Riverpod as ergonomic layers over similar dependency mechanisms and rebuild scoping.",
+  "followUps": [
+    "How would you avoid rebuilding a huge subtree on a chatty inherited value?",
+    "What is the difference between dependOn vs getElementForInheritedWidget?"
+  ],
+  "commonWrongAnswer": "Flutter magically rebuilds the whole app on any theme change with no dependency tracking.",
+  "productionRelevance": "Dark mode and brand theme toggles must be scoped; otherwise entire trees rebuild and lists jank.",
+  "relatedTopics": [
+    "FLUTTER-INHERITED-WIDGET",
+    "FLUTTER-RENDERING-REBUILDS",
+    "FLUTTER-STATE-MANAGEMENT"
+  ],
+  "lastVerified": "2026-09-15"
+}

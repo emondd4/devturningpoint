@@ -1,0 +1,79 @@
+---
+id: UIUX-UI-STATES
+title: "Empty, Error, and Loading States"
+titleBn: "Empty, Error ও Loading স্টেট"
+description: "Design the non-happy paths that make products feel reliable."
+descriptionBn: "নন-হ্যাপি পাথ ডিজাইন যা প্রোডাক্টকে নির্ভরযোগ্য মনে করায়।"
+track: uiux
+difficulty: intermediate
+estimatedMinutes: 30
+prerequisites:
+  - "UIUX-DESIGN-FUNDAMENTALS"
+  - "UIUX-USER-FLOWS"
+unlocks:
+  []
+related:
+  - "UIUX-USABILITY-HEURISTICS"
+  - "FRONTEND-FORMS-VALIDATION"
+careers:
+  - "CAREER-UIUX-DESIGNER"
+  - "frontend-engineer"
+  - "qa-engineer"
+tags:
+  - "uiux"
+  - "states"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NN-G-HEURISTICS"
+  - "FIGMA-HELP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why states matter
+
+Real users hit zero results, slow networks, and failures—those screens teach trust.
+
+## Mental model
+
+<Callout type="mental-model">
+  For every view design loading, empty (first-use vs no-results), partial, error (retryable vs fatal), and success. Match copy to next action.
+</Callout>
+
+## Patterns
+
+- Skeletons for predictable layout; spinners for unknown duration.
+- Empty states with a single clear CTA.
+- Errors with cause + recovery.
+
+## Common mistakes
+
+- **Blank white screens**.
+- **Technical error codes only**.
+- **Infinite spinners**.
+
+## Interview angle
+
+<Callout type="interview">
+  Design empty and error states for a failed payment confirmation.
+</Callout>
+
+## Practice checklist
+
+- [ ] Audit three screens for missing states.
+- [ ] Write recovery copy for one network error.
+- [ ] Spec loading vs empty for search.
+
+## Sources
+
+- `NN-G-HEURISTICS`
+- `FIGMA-HELP`

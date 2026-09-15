@@ -1,0 +1,91 @@
+---
+id: "BACKEND-WEBSOCKETS"
+title: "WebSockets with NestJS Gateways"
+titleBn: "NestJS Gateway \u09a6\u09bf\u09af\u09bc\u09c7 WebSocket"
+description: "Realtime push mental model: gateways, rooms/namespaces, and when WebSockets beat polling."
+descriptionBn: "\u09b0\u09bf\u09af\u09bc\u09c7\u09b2\u099f\u09be\u0987\u09ae \u09aa\u09c1\u09b6 \u09ae\u09be\u09a8\u09b8\u09bf\u0995 \u09ae\u09a1\u09c7\u09b2: gateway, room/namespace, \u098f\u09ac\u0982 \u0995\u0996\u09a8 WebSocket polling-\u098f\u09b0 \u099a\u09c7\u09af\u09bc\u09c7 \u09ad\u09be\u09b2\u09cb\u0964"
+track: "backend"
+category: "realtime"
+difficulty: "advanced"
+estimatedMinutes: 40
+prerequisites:
+  - "BACKEND-NESTJS-ARCHITECTURE"
+  - "BACKEND-HTTP-REST-API-DESIGN"
+related:
+  - "BACKEND-QUEUES-BULL"
+  - "BACKEND-SECURITY-BASICS"
+careers:
+  - "backend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "websockets"
+  - "nestjs"
+  - "realtime"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NESTJS-WEBSCOCKETS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Some UX needs server-initiated updates (chat, live dashboards). Polling wastes traffic; WebSockets keep a bidirectional channel.
+
+<Callout type="mental-model">
+  A Nest gateway is an event-driven controller for sockets. Authenticate the handshake; authorize room joins; prefer events with clear payloads.
+</Callout>
+
+## Gateway sketch
+
+Keep business logic in services; treat the gateway as a transport adapter.
+
+```ts
+import { SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
+import type { Server } from 'socket.io';
+
+@WebSocketGateway({ namespace: '/live' })
+export class LiveGateway {
+  @WebSocketServer()
+  server!: Server;
+
+  @SubscribeMessage('ping')
+  handlePing(): { event: string; data: string } {
+    return { event: 'pong', data: 'ok' };
+  }
+}
+```
+
+## Common mistakes
+
+- **Skipping auth on upgrade** — Anyone can subscribe to private rooms.
+- **Pushing huge payloads** — Backpressure and battery drain on mobile.
+- **Using WS for simple CRUD** — HTTP/REST is simpler and cacheable.
+
+## Interview angle
+
+<Callout type="interview">
+  When is polling still preferable to WebSockets?
+</Callout>
+
+## Practice checklist
+
+- [ ] Sketch room membership for a course live Q&A.
+- [ ] List auth checks on the handshake.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-WEBSCOCKETS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

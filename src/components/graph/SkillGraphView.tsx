@@ -17,9 +17,11 @@ interface Props {
   locale: Locale;
   nodes: SkillNode[];
   edges: SkillEdge[];
+  /** Optional learn hrefs keyed by skill id (only published topics). */
+  nodeLinks?: Record<string, string | undefined>;
 }
 
-function layoutNodes(skillNodes: SkillNode[]): Node[] {
+function layoutNodes(skillNodes: SkillNode[], nodeLinks?: Record<string, string | undefined>): Node[] {
   const byTrack = new Map<string, SkillNode[]>();
   for (const node of skillNodes) {
     const key = node.track ?? 'other';
@@ -31,18 +33,20 @@ function layoutNodes(skillNodes: SkillNode[]): Node[] {
   let row = 0;
   for (const [, group] of byTrack) {
     group.forEach((node, index) => {
+      const hasLink = Boolean(nodeLinks?.[node.id]);
       result.push({
         id: node.id,
         position: { x: (index % 4) * 220, y: row * 110 + Math.floor(index / 4) * 90 },
         data: { label: node.title },
         style: {
-          border: '1px solid var(--color-border)',
+          border: `1px solid ${hasLink ? 'var(--color-accent)' : 'var(--color-border)'}`,
           borderRadius: 8,
           background: 'var(--color-surface-1)',
           color: 'var(--color-ink)',
           fontSize: 12,
           padding: 8,
           width: 180,
+          cursor: hasLink ? 'pointer' : 'default',
         },
       });
     });
@@ -51,8 +55,8 @@ function layoutNodes(skillNodes: SkillNode[]): Node[] {
   return result;
 }
 
-export default function SkillGraphView({ locale, nodes, edges }: Props) {
-  const initialNodes = useMemo(() => layoutNodes(nodes), [nodes]);
+export default function SkillGraphView({ locale, nodes, edges, nodeLinks }: Props) {
+  const initialNodes = useMemo(() => layoutNodes(nodes, nodeLinks), [nodes, nodeLinks]);
   const initialEdges: Edge[] = useMemo(
     () =>
       edges
@@ -74,6 +78,7 @@ export default function SkillGraphView({ locale, nodes, edges }: Props) {
   const isBn = locale === 'bn';
 
   const selectedNode = nodes.find((n) => n.id === selected);
+  const selectedHref = selected ? nodeLinks?.[selected] : undefined;
 
   return (
     <div className="space-y-4">
@@ -86,6 +91,10 @@ export default function SkillGraphView({ locale, nodes, edges }: Props) {
           fitView
           minZoom={0.3}
           onNodeClick={(_, node) => setSelected(node.id)}
+          onNodeDoubleClick={(_, node) => {
+            const href = nodeLinks?.[node.id];
+            if (href) window.location.href = href;
+          }}
           proOptions={{ hideAttribution: true }}
         >
           <Background gap={16} color="var(--color-border)" />
@@ -101,6 +110,15 @@ export default function SkillGraphView({ locale, nodes, edges }: Props) {
           {selectedNode.description && (
             <p className="mt-2 text-sm text-[var(--color-ink-muted)]">{selectedNode.description}</p>
           )}
+          {selectedHref ? (
+            <a className="btn btn-primary mt-3" href={selectedHref}>
+              {isBn ? 'টপিক খুলুন' : 'Open topic'}
+            </a>
+          ) : (
+            <p className="mt-3 text-sm text-[var(--color-ink-subtle)]">
+              {isBn ? 'এই স্কিলের জন্য এখনো আলাদা টপিক নেই।' : 'No dedicated topic mapped for this skill yet.'}
+            </p>
+          )}
         </div>
       )}
 
@@ -111,11 +129,22 @@ export default function SkillGraphView({ locale, nodes, edges }: Props) {
         <ul className="mt-3 space-y-2 text-sm text-[var(--color-ink-muted)]">
           {nodes.map((node) => {
             const requires = edges.filter((e) => e.to === node.id && e.type === 'requires').map((e) => e.from);
+            const href = nodeLinks?.[node.id];
             return (
               <li key={node.id}>
-                <button type="button" className="text-left font-medium text-[var(--color-ink)] underline" onClick={() => setSelected(node.id)}>
-                  {node.title}
-                </button>
+                {href ? (
+                  <a href={href} className="font-medium text-[var(--color-ink)]">
+                    {node.title}
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    className="text-left font-medium text-[var(--color-ink)] underline"
+                    onClick={() => setSelected(node.id)}
+                  >
+                    {node.title}
+                  </button>
+                )}
                 {requires.length > 0 && (
                   <span className="block text-xs text-[var(--color-ink-subtle)]">
                     {isBn ? 'প্রয়োজন' : 'Requires'}: {requires.join(', ')}

@@ -1,0 +1,84 @@
+---
+id: "BACKEND-JAVA-SPRING-OVERVIEW"
+title: "Alternative Path: Java & Spring Overview"
+titleBn: "\u09ac\u09bf\u0995\u09b2\u09cd\u09aa \u09aa\u09a5: Java \u0993 Spring \u0993\u09ad\u09be\u09b0\u09ad\u09bf\u0989"
+description: "A map of the Spring ecosystem for learners on a Node/Nest track\u2014clearly an alternative backend path."
+descriptionBn: "Node/Nest \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995\u09c7\u09b0 \u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0\u09a6\u09c7\u09b0 \u099c\u09a8\u09cd\u09af Spring \u0987\u0995\u09cb\u09b8\u09bf\u09b8\u09cd\u099f\u09c7\u09ae\u09c7\u09b0 \u09ae\u09be\u09a8\u099a\u09bf\u09a4\u09cd\u09b0\u2014\u09b8\u09cd\u09aa\u09b7\u09cd\u099f\u09a4\u0987 \u098f\u0995\u099f\u09bf \u09ac\u09bf\u0995\u09b2\u09cd\u09aa \u09ac\u09cd\u09af\u09be\u0995\u098f\u09a8\u09cd\u09a1 \u09aa\u09a5\u0964"
+track: "backend"
+category: "alternative-path"
+difficulty: "beginner"
+estimatedMinutes: 30
+prerequisites:
+  - "BACKEND-HTTP-REST-API-DESIGN"
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+related:
+  - "BACKEND-GO-PATH-OVERVIEW"
+  - "BACKEND-NESTJS-ARCHITECTURE"
+careers:
+  - "backend-engineer"
+tags:
+  - "java"
+  - "spring"
+  - "alternative-path"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "SPRING-OVERVIEW"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Many enterprises standardize on the JVM. If job markets or teammates use Spring, you should recognize the counterparts to Nest concepts—without abandoning fundamentals.
+
+<Callout type="mental-model">
+  Spring Boot ≈ batteries-included runtime. Spring MVC controllers ≈ Nest controllers. Spring DI ≈ Nest providers. JPA/Hibernate ≈ ORM layer. This topic is orientation, not a full Java career track.
+</Callout>
+
+## Concept mapping
+
+Transfer HTTP/SQL/auth knowledge; relearn framework vocabulary.
+
+```ts
+export const nestToSpring: Record<string, string> = {
+  Module: 'Configuration / @SpringBootApplication boundaries',
+  Controller: '@RestController',
+  Injectable: '@Service / @Component',
+  Guard: 'HandlerInterceptor / Security filters',
+  Pipe: 'Validation + HandlerMethodArgumentResolver',
+};
+```
+
+## Common mistakes
+
+- **Assuming Nest and Spring are identical** — Similar ideas; different runtime and ecosystem.
+- **Skipping HTTP/SQL fundamentals** — Framework hopping without foundations fails.
+- **Treating this overview as mastery** — Production Spring needs dedicated depth.
+
+## Interview angle
+
+<Callout type="interview">
+  Name three Nest concepts and their Spring counterparts.
+</Callout>
+
+## Practice checklist
+
+- [ ] Read Spring overview sections on IoC.
+- [ ] Compare one Bangla job post mentioning Spring vs Nest.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `SPRING-OVERVIEW`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

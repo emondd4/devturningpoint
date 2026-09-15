@@ -1,0 +1,75 @@
+---
+id: FULLSTACK-SSR-VS-SPA
+title: "SSR vs Client Rendering"
+titleBn: "SSR বনাম ক্লায়েন্ট রেন্ডারিং"
+description: "Choose server components, SSR, and client interactivity deliberately in Next.js."
+descriptionBn: "Next.js-এ সার্ভার কম্পোনেন্ট, SSR ও ক্লায়েন্ট ইন্টারঅ্যাকটিভিটি সচেতনভাবে বেছে নিন।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites:
+  - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+  - "FULLSTACK-ARCHITECTURE-OVERVIEW"
+unlocks:
+  - "FULLSTACK-HTTP-BOUNDARIES"
+related:
+  - "FULLSTACK-DATA-FLOW"
+  - "FULLSTACK-DATA-FLOW"
+careers:
+  - "fullstack-engineer"
+  - "frontend-engineer"
+tags:
+  - "fullstack"
+  - "ssr"
+  - "nextjs"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NEXTJS-RENDERING"
+  - "NEXTJS-APP-ROUTER"
+  - "REACT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why the split matters
+
+Rendering choice affects TTFB, SEO, auth data exposure, and where Nest calls happen.
+
+## Mental model
+
+<Callout type="mental-model">
+  Server Components/SSR fetch close to data and ship HTML; client components handle interactivity. Don’t fetch secrets into the client bundle. Prefer server-side Nest calls for privileged data.
+</Callout>
+
+## Common mistakes
+
+- **Fetching privileged data in client components**.
+- **Making everything client “for convenience”**.
+- **Duplicating the same Nest call on server and client without caching strategy**.
+
+## Interview angle
+
+<Callout type="interview">
+  When should a dashboard shell be a Server Component with client islands?
+</Callout>
+
+## Practice checklist
+
+- [ ] Label three routes as SSR/static/client-heavy.
+- [ ] Move one privileged fetch server-side.
+- [ ] Measure TTFB before/after a change.
+
+## Sources
+
+- `NEXTJS-RENDERING`
+- `NEXTJS-APP-ROUTER`
+- `REACT-DOCS`

@@ -1,0 +1,28 @@
+{
+  "id": "iv-db-postgres-vs-mongo",
+  "question": "When would you choose PostgreSQL jsonb over introducing MongoDB as a second database?",
+  "questionBn": "দ্বিতীয় ডেটাবেস হিসেবে MongoDB আনার পরিবর্তে কখন PostgreSQL jsonb বেছে নেবেন?",
+  "careerIds": [
+    "database-engineer",
+    "backend-engineer",
+    "software-engineer"
+  ],
+  "technology": [
+    "PostgreSQL",
+    "MongoDB"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "When most data is relational/transactional and only some attributes are flexible—jsonb avoids dual-write complexity while remaining queryable.",
+  "strongAnswer": "Start from access patterns. If joins, FKs, and multi-row transactions dominate, stay on Postgres and use jsonb for sparse/evolving fields with GIN where needed. Add MongoDB when document locality and flexible hierarchies dominate and the team can operate another system. Dual-write consistency is the hidden cost of polyglot persistence.",
+  "followUps": [
+    "What indexing considerations apply to jsonb?",
+    "How do backups change with two databases?"
+  ],
+  "commonWrongAnswer": "Always use MongoDB for anything with nested JSON because Postgres cannot store documents.",
+  "productionRelevance": "Prevents premature polyglot complexity in small teams.",
+  "relatedTopics": [
+    "DATABASE-POSTGRES-VS-MONGODB",
+    "DATABASE-POSTGRES-JSON"
+  ],
+  "lastVerified": "2026-09-15"
+}

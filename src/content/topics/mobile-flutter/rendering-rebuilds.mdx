@@ -1,0 +1,122 @@
+---
+id: FLUTTER-RENDERING-REBUILDS
+title: "Rendering, Rebuilds, and Keys (Interview Focus)"
+titleBn: "রেন্ডারিং, রিবিল্ড ও Keys (ইন্টারভিউ ফোকাস)"
+description: "Explain widget/element/renderObject layers and what actually rebuilds—prime Flutter interview territory."
+descriptionBn: "widget/element/renderObject ও কী আসলে রিবিল্ড হয়—ইন্টারভিউ ফোকাস।"
+track: mobile-flutter
+category: flutter
+difficulty: advanced
+estimatedMinutes: 55
+prerequisites:
+  - "FLUTTER-WIDGET-TREE"
+  - "FLUTTER-BUILDCONTEXT-KEYS"
+  - "FLUTTER-INHERITED-WIDGET"
+unlocks:
+  - "FLUTTER-PERFORMANCE-DEVTOOLS"
+  - "FLUTTER-ANTI-PATTERNS"
+related:
+  - "FLUTTER-STATE-MANAGEMENT"
+  - "FLUTTER-CONSTRAINTS-LAYOUT"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "rendering"
+  - "rebuilds"
+  - "interview"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-ARCH-OVERVIEW"
+  - "FLUTTER-PERF"
+  - "FLUTTER-KEYS"
+  - "FLUTTER-WIDGETS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why interviewers obsess over rebuilds
+
+Flutter performance literacy is knowing that `build` is cheap compared to layout/paint—but unnecessary subtree rebuilds and layout thrash still jank lists. You must explain the three trees.
+
+## Mental model
+
+<Callout type="mental-model">
+  Widgets are immutable configuration; Elements hold identity/State; RenderObjects perform layout and paint. setState marks an Element dirty; dependents of InheritedWidgets rebuild selectively.
+</Callout>
+
+## How
+
+### Rebuild locality
+
+```dart
+class Counter extends StatefulWidget {
+  const Counter({super.key});
+  @override
+  State<Counter> createState() => _CounterState();
+}
+
+class _CounterState extends State<Counter> {
+  int _n = 0;
+  @override
+  Widget build(BuildContext context) {
+    // Only this State's subtree is scheduled from setState here
+    return Column(
+      children: [
+        Text('$_n'),
+        ElevatedButton(
+          onPressed: () => setState(() => _n++),
+          child: const Text('Inc'),
+        ),
+        const ExpensiveLeaf(), // const helps reuse Element when parent rebuilds
+      ],
+    );
+  }
+}
+
+class ExpensiveLeaf extends StatelessWidget {
+  const ExpensiveLeaf({super.key});
+  @override
+  Widget build(BuildContext context) => const Placeholder();
+}
+```
+
+## Common mistakes
+
+- **Equating “build called” with “painted everything”**
+- **Putting InheritedWidget high with chatty updates**
+- **Skipping keys in reorderable lists**
+
+## Interview angle
+
+<Callout type="interview">
+  Walk through widget vs element vs render object, and how keys affect Element reuse.
+</Callout>
+
+## Practice checklist
+
+- [ ] Explain a rebuild using Flutter DevTools rebuild profiler.
+- [ ] Add const to a leaf widget and observe.
+- [ ] Answer the three-trees question out loud once.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-ARCH-OVERVIEW`
+- `FLUTTER-PERF`
+- `FLUTTER-KEYS`
+- `FLUTTER-WIDGETS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

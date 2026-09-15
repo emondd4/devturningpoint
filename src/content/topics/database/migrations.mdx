@@ -1,0 +1,36 @@
+---
+id: DATABASE-MIGRATIONS
+title: "Database Migrations"
+titleBn: "Database Migrations"
+description: "Versioning schema changes safely across environments."
+descriptionBn: "স্কিমা পরিবর্তন ভার্সন করা।"
+track: database
+difficulty: intermediate
+estimatedMinutes: 35
+prerequisites:
+  - DATABASE-RELATIONAL-MODELING
+unlocks: []
+related:
+  - BACKEND-POSTGRESQL-WITH-BACKEND
+careers:
+  - database-engineer
+  - backend-engineer
+tags:
+  - migrations
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - POSTGRES-DOCS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+Migrations must be expandable/contractable for zero-downtime where possible: add nullable column → backfill → switch reads → enforce constraints later.
+
+Never edit applied migrations on shared environments.
+

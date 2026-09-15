@@ -1,0 +1,22 @@
+{
+  "id": "issue-fetch-unchecked-status",
+  "title": "UI shows blank data because fetch 500 is treated as success",
+  "technology": "Fetch API",
+  "platform": "Web",
+  "symptoms": [
+    "try/catch does not run on API 500",
+    "JSON parse may throw or yield unexpected shapes",
+    "Loading spinner stops but content empty"
+  ],
+  "cause": "fetch resolves on HTTP error statuses; only network failures reject the promise.",
+  "solution": "Check response.ok/status before parsing; map errors to UI states; add integration tests for non-2xx.",
+  "workaround": "Temporary console logging of response.status around client helpers.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "FRONTEND-JS-FETCH"
+  ],
+  "sources": [
+    "MDN-FETCH"
+  ],
+  "lastVerified": "2026-09-15"
+}

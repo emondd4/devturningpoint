@@ -1,0 +1,23 @@
+{
+  "id": "iv-nestjs-validation-pipe",
+  "question": "How does ValidationPipe with whitelist/forbidNonWhitelisted improve API safety?",
+  "careerIds": [
+    "backend-engineer"
+  ],
+  "technology": [
+    "NestJS"
+  ],
+  "difficulty": "junior",
+  "shortAnswer": "It validates DTO rules and strips or rejects unexpected properties to prevent mass assignment.",
+  "strongAnswer": "ValidationPipe applies class-validator rules before the handler runs. whitelist removes properties without decorators; forbidNonWhitelisted rejects them. Combined with transform, query/param strings can be coerced into DTO instances. This keeps validation consistent across routes.",
+  "followUps": [
+    "Where should you register a global pipe for DI?",
+    "Why is client-only validation insufficient?"
+  ],
+  "commonWrongAnswer": "TypeScript types already validate runtime payloads.",
+  "productionRelevance": "Blocks unexpected fields that can overwrite privileged attributes.",
+  "relatedTopics": [
+    "BACKEND-NESTJS-VALIDATION-PIPES"
+  ],
+  "lastVerified": "2026-09-15"
+}

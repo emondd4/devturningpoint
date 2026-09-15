@@ -1,0 +1,95 @@
+---
+id: "FRONTEND-NEXTJS-CACHING"
+title: "Next.js Caching Mental Model"
+titleBn: "Next.js \u0995\u09cd\u09af\u09be\u09b6\u09bf\u0982 \u09ae\u09be\u09a8\u09b8\u09bf\u0995 \u09ae\u09a1\u09c7\u09b2"
+description: "Request memoization, fetch cache options, revalidatePath/Tag, and when routes become dynamic."
+descriptionBn: "Request memoization, fetch cache \u0985\u09aa\u09b6\u09a8, revalidatePath/Tag, \u098f\u09ac\u0982 \u0995\u0996\u09a8 \u09b0\u09be\u0989\u099f \u09a1\u09be\u09af\u09bc\u09a8\u09be\u09ae\u09bf\u0995 \u09b9\u09af\u09bc\u0964"
+track: "frontend"
+category: "nextjs"
+difficulty: "advanced"
+estimatedMinutes: 45
+prerequisites:
+  - "FRONTEND-NEXTJS-RSC-CLIENT-BOUNDARIES"
+related:
+  - "FRONTEND-TANSTACK-QUERY-MENTAL-MODEL"
+careers:
+  - "frontend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "nextjs"
+  - "caching"
+  - "revalidate"
+status: "published"
+translationStatus: "partial"
+applicableVersions:
+  next: "15.x \u2014 verify against nextjs.org/docs"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NEXTJS-CACHING"
+  - "NEXTJS-APP-ROUTER"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Without a clear cache story you either hammer origins or serve stale pages. Next.js layers caches; you must know which layer you are talking about.
+
+<Callout type="mental-model">
+  Deduplicate work within a request (React cache / fetch memoization), then decide whether cross-request caching and time/tag revalidation apply.
+</Callout>
+
+## Explicit fetch caching + tag revalidation
+
+Defaults evolve—prefer being explicit with cache and next.revalidate/tags for production clarity.
+
+```tsx
+import { revalidateTag } from 'next/cache';
+
+export async function getTopic(id: string) {
+  const res = await fetch(`https://api.example.com/topics/${id}`, {
+    next: { revalidate: 60, tags: [`topic:${id}`] },
+  });
+  if (!res.ok) throw new Error('topic fetch failed');
+  return res.json();
+}
+
+export async function updateTopicAction(id: string) {
+  'use server';
+  // ...persist update...
+  revalidateTag(`topic:${id}`, 'max');
+}
+```
+
+## Common mistakes
+
+- **Assuming all fetch is cached forever** — Current defaults may not cache; verify docs for your version.
+- **Caching personalized data** — Risk of leaking user A data to user B.
+- **Revalidating nothing after writes** — Users see stale HTML/JSON.
+
+## Interview angle
+
+<Callout type="interview">
+  Contrast request memoization with cross-request fetch caching.
+</Callout>
+
+## Practice checklist
+
+- [ ] Tag a fetch and invalidate it from a server action.
+- [ ] Force a route dynamic and explain why.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NEXTJS-CACHING`
+- `NEXTJS-APP-ROUTER`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

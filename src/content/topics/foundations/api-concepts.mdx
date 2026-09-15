@@ -1,0 +1,112 @@
+---
+id: FOUNDATIONS-API-CONCEPTS
+title: "API Concepts for Developers"
+titleBn: "ডেভেলপারদের জন্য API কনসেপ্ট"
+description: "Learn contracts, resources, status codes, versioning, and idempotency so frontend and backend can change without chaos."
+descriptionBn: "কন্ট্রাক্ট, রিসোর্স, স্ট্যাটাস কোড, ভার্সনিং ও আইডেমপোটেন্সি শিখুন।"
+track: foundations
+category: networking
+difficulty: intermediate
+estimatedMinutes: 45
+prerequisites:
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+  - "FOUNDATIONS-ERROR-HANDLING"
+unlocks: []
+related:
+  - "FOUNDATIONS-HTTPS-TLS"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+  - "FOUNDATIONS-JSON-DATA"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "frontend-engineer"
+  - "flutter-developer"
+tags:
+  - "api"
+  - "rest"
+  - "http"
+  - "contracts"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "RFC-9110-HTTP"
+  - "OWASP-API-TOP10"
+  - "MDN-HTTP-OVERVIEW"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why APIs are contracts
+
+An API is not “some JSON over HTTP.” It is a **promise** about URLs, methods, auth, payloads, and error shapes. Broken promises ship as mobile crashes and flaky UIs.
+
+## Mental model
+
+<Callout type="mental-model">
+  Think resources + actions: nouns in paths, verbs in methods, meaning in status codes. Clients should be able to retry safely when the server documents idempotency.
+</Callout>
+
+## HTTP building blocks
+
+```http
+GET /v1/orders/42 HTTP/1.1
+Authorization: Bearer <token>
+Accept: application/json
+```
+
+- **2xx** — success; **4xx** — client problem; **5xx** — server problem (see RFC 9110 semantics).
+- **Idempotent methods** (GET, PUT, DELETE in typical REST) can be retried more safely than naive POST.
+
+## Versioning and compatibility
+
+Prefer additive changes. Breaking field removals need a version strategy (`/v2`) or coordinated client releases—especially painful for mobile stores.
+
+## Security mindset
+
+OWASP API Security Top 10 highlights broken authz, excessive data exposure, and injection. Validate inputs; authorize every object access (not just “logged in”).
+
+```json
+// Prefer explicit DTOs over dumping ORM entities
+{
+  "id": "ord_42",
+  "status": "paid",
+  "totalMinor": 150000
+}
+```
+
+## Common mistakes
+
+- **Using 200 for every failure** with an error flag — breaks HTTP tooling and caches.
+- **Over-fetching** sensitive fields “because the admin UI needed them.”
+- **No pagination** — unbounded lists melt under growth.
+
+## Interview angle
+
+<Callout type="interview">
+  Design a create-payment endpoint that clients may retry after a timeout—what headers or keys make it safe?
+</Callout>
+
+## Practice checklist
+
+- [ ] Document one endpoint’s happy path and three error codes.
+- [ ] Find a non-idempotent POST in a sample API and discuss retry risk.
+- [ ] Skim OWASP API Top 10 titles and map two to your stack.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `RFC-9110-HTTP`
+- `OWASP-API-TOP10`
+- `MDN-HTTP-OVERVIEW`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

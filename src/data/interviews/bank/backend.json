@@ -1,0 +1,4346 @@
+[
+  {
+    "id": "BE-B-0001",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "API versioning",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using API versioning correctly?"
+  },
+  {
+    "id": "BE-B-0002",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "API versioning",
+    "questionType": "Definition",
+    "question": "What is API versioning, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0003",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "REST resource design",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using REST resource design correctly?"
+  },
+  {
+    "id": "BE-B-0004",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "REST resource design",
+    "questionType": "Definition",
+    "question": "What is REST resource design, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0005",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "idempotency",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using idempotency correctly?"
+  },
+  {
+    "id": "BE-B-0006",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "idempotency",
+    "questionType": "Definition",
+    "question": "What is idempotency, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0007",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "pagination",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using pagination correctly?"
+  },
+  {
+    "id": "BE-B-0008",
+    "level": "Beginner",
+    "category": "API",
+    "topic": "pagination",
+    "questionType": "Definition",
+    "question": "What is pagination, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0009",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "DDD bounded context",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using DDD bounded context correctly?"
+  },
+  {
+    "id": "BE-B-0010",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "DDD bounded context",
+    "questionType": "Definition",
+    "question": "What is DDD bounded context, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0011",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "hexagonal architecture",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using hexagonal architecture correctly?"
+  },
+  {
+    "id": "BE-B-0012",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "hexagonal architecture",
+    "questionType": "Definition",
+    "question": "What is hexagonal architecture, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0013",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "modular monolith",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using modular monolith correctly?"
+  },
+  {
+    "id": "BE-B-0014",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "modular monolith",
+    "questionType": "Definition",
+    "question": "What is modular monolith, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0015",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "JWT access token",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using JWT access token correctly?"
+  },
+  {
+    "id": "BE-B-0016",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "JWT access token",
+    "questionType": "Definition",
+    "question": "What is JWT access token, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0017",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "OAuth 2.0",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using OAuth 2.0 correctly?"
+  },
+  {
+    "id": "BE-B-0018",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "OAuth 2.0",
+    "questionType": "Definition",
+    "question": "What is OAuth 2.0, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0019",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "password hashing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using password hashing correctly?"
+  },
+  {
+    "id": "BE-B-0020",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "password hashing",
+    "questionType": "Definition",
+    "question": "What is password hashing, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0021",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "session authentication",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using session authentication correctly?"
+  },
+  {
+    "id": "BE-B-0022",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "session authentication",
+    "questionType": "Definition",
+    "question": "What is session authentication, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0023",
+    "level": "Beginner",
+    "category": "Authorization",
+    "topic": "RBAC",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using RBAC correctly?"
+  },
+  {
+    "id": "BE-B-0024",
+    "level": "Beginner",
+    "category": "Authorization",
+    "topic": "RBAC",
+    "questionType": "Definition",
+    "question": "What is RBAC, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0025",
+    "level": "Beginner",
+    "category": "Authorization",
+    "topic": "resource ownership checks",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using resource ownership checks correctly?"
+  },
+  {
+    "id": "BE-B-0026",
+    "level": "Beginner",
+    "category": "Authorization",
+    "topic": "resource ownership checks",
+    "questionType": "Definition",
+    "question": "What is resource ownership checks, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0027",
+    "level": "Beginner",
+    "category": "Cache",
+    "topic": "cache invalidation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using cache invalidation correctly?"
+  },
+  {
+    "id": "BE-B-0028",
+    "level": "Beginner",
+    "category": "Cache",
+    "topic": "cache invalidation",
+    "questionType": "Definition",
+    "question": "What is cache invalidation, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0029",
+    "level": "Beginner",
+    "category": "Cache",
+    "topic": "cache-aside",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using cache-aside correctly?"
+  },
+  {
+    "id": "BE-B-0030",
+    "level": "Beginner",
+    "category": "Cache",
+    "topic": "cache-aside",
+    "questionType": "Definition",
+    "question": "What is cache-aside, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0031",
+    "level": "Beginner",
+    "category": "Concurrency",
+    "topic": "optimistic locking",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using optimistic locking correctly?"
+  },
+  {
+    "id": "BE-B-0032",
+    "level": "Beginner",
+    "category": "Concurrency",
+    "topic": "optimistic locking",
+    "questionType": "Definition",
+    "question": "What is optimistic locking, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0033",
+    "level": "Beginner",
+    "category": "Concurrency",
+    "topic": "race condition",
+    "questionType": "Definition",
+    "question": "What is race condition, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0034",
+    "level": "Beginner",
+    "category": "Config",
+    "topic": "environment configuration",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using environment configuration correctly?"
+  },
+  {
+    "id": "BE-B-0035",
+    "level": "Beginner",
+    "category": "Config",
+    "topic": "environment configuration",
+    "questionType": "Definition",
+    "question": "What is environment configuration, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0036",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain GET, POST, PUT, PATCH, and DELETE and give an appropriate use case for each."
+  },
+  {
+    "id": "BE-B-0037",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are controllers, providers/services, and modules in NestJS?"
+  },
+  {
+    "id": "BE-B-0038",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are logs, and what information should an application log?"
+  },
+  {
+    "id": "BE-B-0039",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are modules in Node.js?"
+  },
+  {
+    "id": "BE-B-0040",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What does a backend application do?"
+  },
+  {
+    "id": "BE-B-0041",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What happens from the moment an HTTP request reaches a backend server until a response is returned?"
+  },
+  {
+    "id": "BE-B-0042",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is JSON serialization and deserialization?"
+  },
+  {
+    "id": "BE-B-0043",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is Node.js, and why is it suitable for many I/O-heavy services?"
+  },
+  {
+    "id": "BE-B-0044",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is REST, and what makes an API resource-oriented?"
+  },
+  {
+    "id": "BE-B-0045",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a DTO?"
+  },
+  {
+    "id": "BE-B-0046",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a JWT, and what is inside one?"
+  },
+  {
+    "id": "BE-B-0047",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a relational database, and how does a backend typically use one?"
+  },
+  {
+    "id": "BE-B-0048",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is dependency injection, and why does NestJS use it?"
+  },
+  {
+    "id": "BE-B-0049",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is input validation, and why must validation happen on the server?"
+  },
+  {
+    "id": "BE-B-0050",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the Node.js event loop at a high level?"
+  },
+  {
+    "id": "BE-B-0051",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between a 4xx and a 5xx HTTP response?"
+  },
+  {
+    "id": "BE-B-0052",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the purpose of environment variables and configuration files?"
+  },
+  {
+    "id": "BE-B-0053",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the purpose of unit and integration tests in backend development?"
+  },
+  {
+    "id": "BE-B-0054",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Why would an application use Redis?"
+  },
+  {
+    "id": "BE-B-0055",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "N+1 query problem",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using N+1 query problem correctly?"
+  },
+  {
+    "id": "BE-B-0056",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "N+1 query problem",
+    "questionType": "Definition",
+    "question": "What is N+1 query problem, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0057",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "ORM",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using ORM correctly?"
+  },
+  {
+    "id": "BE-B-0058",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "ORM",
+    "questionType": "Definition",
+    "question": "What is ORM, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0059",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "connection pool",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using connection pool correctly?"
+  },
+  {
+    "id": "BE-B-0060",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "connection pool",
+    "questionType": "Definition",
+    "question": "What is connection pool, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0061",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "transaction boundary",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using transaction boundary correctly?"
+  },
+  {
+    "id": "BE-B-0062",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "transaction boundary",
+    "questionType": "Definition",
+    "question": "What is transaction boundary, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0063",
+    "level": "Beginner",
+    "category": "Docs",
+    "topic": "OpenAPI",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using OpenAPI correctly?"
+  },
+  {
+    "id": "BE-B-0064",
+    "level": "Beginner",
+    "category": "Docs",
+    "topic": "OpenAPI",
+    "questionType": "Definition",
+    "question": "What is OpenAPI, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0065",
+    "level": "Beginner",
+    "category": "Files",
+    "topic": "streamed upload",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using streamed upload correctly?"
+  },
+  {
+    "id": "BE-B-0066",
+    "level": "Beginner",
+    "category": "Files",
+    "topic": "streamed upload",
+    "questionType": "Definition",
+    "question": "What is streamed upload, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0067",
+    "level": "Beginner",
+    "category": "HTTP",
+    "topic": "HTTP semantics",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using HTTP semantics correctly?"
+  },
+  {
+    "id": "BE-B-0068",
+    "level": "Beginner",
+    "category": "HTTP",
+    "topic": "HTTP semantics",
+    "questionType": "Definition",
+    "question": "What is HTTP semantics, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0069",
+    "level": "Beginner",
+    "category": "HTTP",
+    "topic": "keep-alive",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using keep-alive correctly?"
+  },
+  {
+    "id": "BE-B-0070",
+    "level": "Beginner",
+    "category": "HTTP",
+    "topic": "keep-alive",
+    "questionType": "Definition",
+    "question": "What is keep-alive, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0071",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between authentication middleware and authorization policy?"
+  },
+  {
+    "id": "BE-B-0072",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between synchronous request handling and background job processing?"
+  },
+  {
+    "id": "BE-B-0073",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What makes an HTTP operation idempotent, and why does idempotency matter for retries?"
+  },
+  {
+    "id": "BE-B-0074",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "Why is blocking the Node.js event loop dangerous even when the server has many concurrent connections?"
+  },
+  {
+    "id": "BE-B-0075",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "Why should database connections usually come from a pool?"
+  },
+  {
+    "id": "BE-B-0076",
+    "level": "Beginner",
+    "category": "Messaging",
+    "topic": "RabbitMQ",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using RabbitMQ correctly?"
+  },
+  {
+    "id": "BE-B-0077",
+    "level": "Beginner",
+    "category": "Messaging",
+    "topic": "RabbitMQ",
+    "questionType": "Definition",
+    "question": "What is RabbitMQ, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0078",
+    "level": "Beginner",
+    "category": "Messaging",
+    "topic": "at-least-once delivery",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using at-least-once delivery correctly?"
+  },
+  {
+    "id": "BE-B-0079",
+    "level": "Beginner",
+    "category": "Messaging",
+    "topic": "at-least-once delivery",
+    "questionType": "Definition",
+    "question": "What is at-least-once delivery, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0080",
+    "level": "Beginner",
+    "category": "Microservices",
+    "topic": "saga",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using saga correctly?"
+  },
+  {
+    "id": "BE-B-0081",
+    "level": "Beginner",
+    "category": "Microservices",
+    "topic": "saga",
+    "questionType": "Definition",
+    "question": "What is saga, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0082",
+    "level": "Beginner",
+    "category": "Microservices",
+    "topic": "service boundary",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using service boundary correctly?"
+  },
+  {
+    "id": "BE-B-0083",
+    "level": "Beginner",
+    "category": "Microservices",
+    "topic": "service boundary",
+    "questionType": "Definition",
+    "question": "What is service boundary, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0084",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "controller",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using controller correctly?"
+  },
+  {
+    "id": "BE-B-0085",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "controller",
+    "questionType": "Definition",
+    "question": "What is controller, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0086",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "dynamic module",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using dynamic module correctly?"
+  },
+  {
+    "id": "BE-B-0087",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "dynamic module",
+    "questionType": "Definition",
+    "question": "What is dynamic module, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0088",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "execution context",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using execution context correctly?"
+  },
+  {
+    "id": "BE-B-0089",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "execution context",
+    "questionType": "Definition",
+    "question": "What is execution context, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0090",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "guard",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using guard correctly?"
+  },
+  {
+    "id": "BE-B-0091",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "guard",
+    "questionType": "Definition",
+    "question": "What is guard, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0092",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "interceptor",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using interceptor correctly?"
+  },
+  {
+    "id": "BE-B-0093",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "interceptor",
+    "questionType": "Definition",
+    "question": "What is interceptor, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0094",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "middleware",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using middleware correctly?"
+  },
+  {
+    "id": "BE-B-0095",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "middleware",
+    "questionType": "Definition",
+    "question": "What is middleware, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0096",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "module",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using module correctly?"
+  },
+  {
+    "id": "BE-B-0097",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "module",
+    "questionType": "Definition",
+    "question": "What is module, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0098",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "pipe",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using pipe correctly?"
+  },
+  {
+    "id": "BE-B-0099",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "pipe",
+    "questionType": "Definition",
+    "question": "What is pipe, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0100",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "provider and dependency injection",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using provider and dependency injection correctly?"
+  },
+  {
+    "id": "BE-B-0101",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "provider and dependency injection",
+    "questionType": "Definition",
+    "question": "What is provider and dependency injection, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0102",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "provider scopes",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using provider scopes correctly?"
+  },
+  {
+    "id": "BE-B-0103",
+    "level": "Beginner",
+    "category": "NestJS",
+    "topic": "provider scopes",
+    "questionType": "Definition",
+    "question": "What is provider scopes, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0104",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "correlation ID",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using correlation ID correctly?"
+  },
+  {
+    "id": "BE-B-0105",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "correlation ID",
+    "questionType": "Definition",
+    "question": "What is correlation ID, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0106",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "distributed tracing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using distributed tracing correctly?"
+  },
+  {
+    "id": "BE-B-0107",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "distributed tracing",
+    "questionType": "Definition",
+    "question": "What is distributed tracing, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0108",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "metrics",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using metrics correctly?"
+  },
+  {
+    "id": "BE-B-0109",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "metrics",
+    "questionType": "Definition",
+    "question": "What is metrics, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0110",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "structured logging",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using structured logging correctly?"
+  },
+  {
+    "id": "BE-B-0111",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "structured logging",
+    "questionType": "Definition",
+    "question": "What is structured logging, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0112",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "CPU-bound workload",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using CPU-bound workload correctly?"
+  },
+  {
+    "id": "BE-B-0113",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "CPU-bound workload",
+    "questionType": "Definition",
+    "question": "What is CPU-bound workload, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0114",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "profiling",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using profiling correctly?"
+  },
+  {
+    "id": "BE-B-0115",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "profiling",
+    "questionType": "Definition",
+    "question": "What is profiling, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0116",
+    "level": "Beginner",
+    "category": "Queues",
+    "topic": "job queue",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using job queue correctly?"
+  },
+  {
+    "id": "BE-B-0117",
+    "level": "Beginner",
+    "category": "Queues",
+    "topic": "job queue",
+    "questionType": "Definition",
+    "question": "What is job queue, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0118",
+    "level": "Beginner",
+    "category": "Queues",
+    "topic": "retry and dead-letter queue",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using retry and dead-letter queue correctly?"
+  },
+  {
+    "id": "BE-B-0119",
+    "level": "Beginner",
+    "category": "Queues",
+    "topic": "retry and dead-letter queue",
+    "questionType": "Definition",
+    "question": "What is retry and dead-letter queue, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0120",
+    "level": "Beginner",
+    "category": "Realtime",
+    "topic": "SSE",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using SSE correctly?"
+  },
+  {
+    "id": "BE-B-0121",
+    "level": "Beginner",
+    "category": "Realtime",
+    "topic": "SSE",
+    "questionType": "Definition",
+    "question": "What is SSE, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0122",
+    "level": "Beginner",
+    "category": "Realtime",
+    "topic": "WebSocket",
+    "questionType": "Definition",
+    "question": "What is WebSocket, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0123",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "Redis TTL",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Redis TTL correctly?"
+  },
+  {
+    "id": "BE-B-0124",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "Redis TTL",
+    "questionType": "Definition",
+    "question": "What is Redis TTL, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0125",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "distributed lock",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using distributed lock correctly?"
+  },
+  {
+    "id": "BE-B-0126",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "distributed lock",
+    "questionType": "Definition",
+    "question": "What is distributed lock, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0127",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "circuit breaker",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using circuit breaker correctly?"
+  },
+  {
+    "id": "BE-B-0128",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "circuit breaker",
+    "questionType": "Definition",
+    "question": "What is circuit breaker, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0129",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "graceful shutdown",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using graceful shutdown correctly?"
+  },
+  {
+    "id": "BE-B-0130",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "graceful shutdown",
+    "questionType": "Definition",
+    "question": "What is graceful shutdown, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0131",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "retry with backoff",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using retry with backoff correctly?"
+  },
+  {
+    "id": "BE-B-0132",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "retry with backoff",
+    "questionType": "Definition",
+    "question": "What is retry with backoff, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0133",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "timeout",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using timeout correctly?"
+  },
+  {
+    "id": "BE-B-0134",
+    "level": "Beginner",
+    "category": "Reliability",
+    "topic": "timeout",
+    "questionType": "Definition",
+    "question": "What is timeout, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0135",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "Buffer",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Buffer correctly?"
+  },
+  {
+    "id": "BE-B-0136",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "Buffer",
+    "questionType": "Definition",
+    "question": "What is Buffer, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0137",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "ES modules",
+    "questionType": "Definition",
+    "question": "What is ES modules, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0138",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "Node streams",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Node streams correctly?"
+  },
+  {
+    "id": "BE-B-0139",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "Node streams",
+    "questionType": "Definition",
+    "question": "What is Node streams, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0140",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "Node.js event loop",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Node.js event loop correctly?"
+  },
+  {
+    "id": "BE-B-0141",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "Node.js event loop",
+    "questionType": "Definition",
+    "question": "What is Node.js event loop, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0142",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "backpressure",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using backpressure correctly?"
+  },
+  {
+    "id": "BE-B-0143",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "backpressure",
+    "questionType": "Definition",
+    "question": "What is backpressure, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0144",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "libuv thread pool",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using libuv thread pool correctly?"
+  },
+  {
+    "id": "BE-B-0145",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "libuv thread pool",
+    "questionType": "Definition",
+    "question": "What is libuv thread pool, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0146",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "worker threads",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using worker threads correctly?"
+  },
+  {
+    "id": "BE-B-0147",
+    "level": "Beginner",
+    "category": "Runtime",
+    "topic": "worker threads",
+    "questionType": "Definition",
+    "question": "What is worker threads, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0148",
+    "level": "Beginner",
+    "category": "Scaling",
+    "topic": "load balancing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using load balancing correctly?"
+  },
+  {
+    "id": "BE-B-0149",
+    "level": "Beginner",
+    "category": "Scaling",
+    "topic": "load balancing",
+    "questionType": "Definition",
+    "question": "What is load balancing, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0150",
+    "level": "Beginner",
+    "category": "Scaling",
+    "topic": "stateless API",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using stateless API correctly?"
+  },
+  {
+    "id": "BE-B-0151",
+    "level": "Beginner",
+    "category": "Scaling",
+    "topic": "stateless API",
+    "questionType": "Definition",
+    "question": "What is stateless API, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0152",
+    "level": "Beginner",
+    "category": "Search",
+    "topic": "PostgreSQL full-text search",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using PostgreSQL full-text search correctly?"
+  },
+  {
+    "id": "BE-B-0153",
+    "level": "Beginner",
+    "category": "Search",
+    "topic": "PostgreSQL full-text search",
+    "questionType": "Definition",
+    "question": "What is PostgreSQL full-text search, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0154",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "SSRF",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using SSRF correctly?"
+  },
+  {
+    "id": "BE-B-0155",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "SSRF",
+    "questionType": "Definition",
+    "question": "What is SSRF, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0156",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "mass assignment",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using mass assignment correctly?"
+  },
+  {
+    "id": "BE-B-0157",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "mass assignment",
+    "questionType": "Definition",
+    "question": "What is mass assignment, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0158",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "rate limiting",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using rate limiting correctly?"
+  },
+  {
+    "id": "BE-B-0159",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "rate limiting",
+    "questionType": "Definition",
+    "question": "What is rate limiting, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0160",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "secrets management",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using secrets management correctly?"
+  },
+  {
+    "id": "BE-B-0161",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "secrets management",
+    "questionType": "Definition",
+    "question": "What is secrets management, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0162",
+    "level": "Beginner",
+    "category": "Serialization",
+    "topic": "response serialization",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using response serialization correctly?"
+  },
+  {
+    "id": "BE-B-0163",
+    "level": "Beginner",
+    "category": "Serialization",
+    "topic": "response serialization",
+    "questionType": "Definition",
+    "question": "What is response serialization, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0164",
+    "level": "Beginner",
+    "category": "Storage",
+    "topic": "object storage",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using object storage correctly?"
+  },
+  {
+    "id": "BE-B-0165",
+    "level": "Beginner",
+    "category": "Storage",
+    "topic": "object storage",
+    "questionType": "Definition",
+    "question": "What is object storage, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0166",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "URL shortener",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using URL shortener correctly?"
+  },
+  {
+    "id": "BE-B-0167",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "URL shortener",
+    "questionType": "Definition",
+    "question": "What is URL shortener, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0168",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "chat backend",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using chat backend correctly?"
+  },
+  {
+    "id": "BE-B-0169",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "chat backend",
+    "questionType": "Definition",
+    "question": "What is chat backend, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0170",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "multi-tenant SaaS",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using multi-tenant SaaS correctly?"
+  },
+  {
+    "id": "BE-B-0171",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "multi-tenant SaaS",
+    "questionType": "Definition",
+    "question": "What is multi-tenant SaaS, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0172",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "notification service",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using notification service correctly?"
+  },
+  {
+    "id": "BE-B-0173",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "notification service",
+    "questionType": "Definition",
+    "question": "What is notification service, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0174",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "payment API",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using payment API correctly?"
+  },
+  {
+    "id": "BE-B-0175",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "payment API",
+    "questionType": "Definition",
+    "question": "What is payment API, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0176",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "API integration test",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using API integration test correctly?"
+  },
+  {
+    "id": "BE-B-0177",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "API integration test",
+    "questionType": "Definition",
+    "question": "What is API integration test, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0178",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "contract testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using contract testing correctly?"
+  },
+  {
+    "id": "BE-B-0179",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "contract testing",
+    "questionType": "Definition",
+    "question": "What is contract testing, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0180",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "unit test",
+    "questionType": "Definition",
+    "question": "What is unit test, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-B-0181",
+    "level": "Beginner",
+    "category": "Validation",
+    "topic": "DTO validation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using DTO validation correctly?"
+  },
+  {
+    "id": "BE-B-0182",
+    "level": "Beginner",
+    "category": "Validation",
+    "topic": "DTO validation",
+    "questionType": "Definition",
+    "question": "What is DTO validation, and what problem does it solve in Node.js/NestJS backend engineering?"
+  },
+  {
+    "id": "BE-I-0001",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "API versioning",
+    "questionType": "Compare",
+    "question": "Compare API versioning with breaking in-place changes. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0002",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "API versioning",
+    "questionType": "Mechanics",
+    "question": "Walk through how API versioning works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0003",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "REST resource design",
+    "questionType": "Compare",
+    "question": "Compare REST resource design with RPC endpoints. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0004",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "REST resource design",
+    "questionType": "Mechanics",
+    "question": "Walk through how REST resource design works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0005",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "idempotency",
+    "questionType": "Compare",
+    "question": "Compare idempotency with at-least-once request retry. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0006",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "idempotency",
+    "questionType": "Mechanics",
+    "question": "Walk through how idempotency works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0007",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "pagination",
+    "questionType": "Compare",
+    "question": "Compare pagination with return-all records. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0008",
+    "level": "Intermediate",
+    "category": "API",
+    "topic": "pagination",
+    "questionType": "Mechanics",
+    "question": "Walk through how pagination works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0009",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "DDD bounded context",
+    "questionType": "Compare",
+    "question": "Compare DDD bounded context with technical module. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0010",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "DDD bounded context",
+    "questionType": "Mechanics",
+    "question": "Walk through how DDD bounded context works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0011",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "hexagonal architecture",
+    "questionType": "Compare",
+    "question": "Compare hexagonal architecture with layered architecture. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0012",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "hexagonal architecture",
+    "questionType": "Mechanics",
+    "question": "Walk through how hexagonal architecture works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0013",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "modular monolith",
+    "questionType": "Compare",
+    "question": "Compare modular monolith with microservices. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0014",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "modular monolith",
+    "questionType": "Mechanics",
+    "question": "Walk through how modular monolith works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0015",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "JWT access token",
+    "questionType": "Compare",
+    "question": "Compare JWT access token with refresh token. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0016",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "JWT access token",
+    "questionType": "Mechanics",
+    "question": "Walk through how JWT access token works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0017",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "OAuth 2.0",
+    "questionType": "Compare",
+    "question": "Compare OAuth 2.0 with OpenID Connect. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0018",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "OAuth 2.0",
+    "questionType": "Mechanics",
+    "question": "Walk through how OAuth 2.0 works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0019",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "password hashing",
+    "questionType": "Compare",
+    "question": "Compare password hashing with encryption. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0020",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "password hashing",
+    "questionType": "Mechanics",
+    "question": "Walk through how password hashing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0021",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "session authentication",
+    "questionType": "Compare",
+    "question": "Compare session authentication with JWT authentication. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0022",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "session authentication",
+    "questionType": "Mechanics",
+    "question": "Walk through how session authentication works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0023",
+    "level": "Intermediate",
+    "category": "Authorization",
+    "topic": "RBAC",
+    "questionType": "Compare",
+    "question": "Compare RBAC with ABAC. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0024",
+    "level": "Intermediate",
+    "category": "Authorization",
+    "topic": "RBAC",
+    "questionType": "Mechanics",
+    "question": "Walk through how RBAC works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0025",
+    "level": "Intermediate",
+    "category": "Authorization",
+    "topic": "resource ownership checks",
+    "questionType": "Compare",
+    "question": "Compare resource ownership checks with route-only authorization. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0026",
+    "level": "Intermediate",
+    "category": "Authorization",
+    "topic": "resource ownership checks",
+    "questionType": "Mechanics",
+    "question": "Walk through how resource ownership checks works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0027",
+    "level": "Intermediate",
+    "category": "Cache",
+    "topic": "cache invalidation",
+    "questionType": "Compare",
+    "question": "Compare cache invalidation with long TTL. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0028",
+    "level": "Intermediate",
+    "category": "Cache",
+    "topic": "cache invalidation",
+    "questionType": "Mechanics",
+    "question": "Walk through how cache invalidation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0029",
+    "level": "Intermediate",
+    "category": "Cache",
+    "topic": "cache-aside",
+    "questionType": "Compare",
+    "question": "Compare cache-aside with write-through. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0030",
+    "level": "Intermediate",
+    "category": "Cache",
+    "topic": "cache-aside",
+    "questionType": "Mechanics",
+    "question": "Walk through how cache-aside works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0031",
+    "level": "Intermediate",
+    "category": "Concurrency",
+    "topic": "optimistic locking",
+    "questionType": "Compare",
+    "question": "Compare optimistic locking with pessimistic locking. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0032",
+    "level": "Intermediate",
+    "category": "Concurrency",
+    "topic": "optimistic locking",
+    "questionType": "Mechanics",
+    "question": "Walk through how optimistic locking works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0033",
+    "level": "Intermediate",
+    "category": "Concurrency",
+    "topic": "race condition",
+    "questionType": "Compare",
+    "question": "Compare race condition with transaction isolation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0034",
+    "level": "Intermediate",
+    "category": "Config",
+    "topic": "environment configuration",
+    "questionType": "Compare",
+    "question": "Compare environment configuration with hardcoded configuration. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0035",
+    "level": "Intermediate",
+    "category": "Config",
+    "topic": "environment configuration",
+    "questionType": "Mechanics",
+    "question": "Walk through how environment configuration works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0036",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare CommonJS and ECMAScript modules in Node."
+  },
+  {
+    "id": "BE-I-0037",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare a job queue, pub/sub, and an event stream."
+  },
+  {
+    "id": "BE-I-0038",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare cookie-based sessions with bearer-token authentication."
+  },
+  {
+    "id": "BE-I-0039",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare offset pagination, cursor pagination, and keyset pagination."
+  },
+  {
+    "id": "BE-I-0040",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Describe the N+1 query problem and several ways to eliminate it."
+  },
+  {
+    "id": "BE-I-0041",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design refresh-token rotation and explain how you would handle token theft."
+  },
+  {
+    "id": "BE-I-0042",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain NestJS middleware, guards, pipes, interceptors, and exception filters and when each runs."
+  },
+  {
+    "id": "BE-I-0043",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain Node.js event-loop phases, microtasks, and why CPU-heavy work can block unrelated requests."
+  },
+  {
+    "id": "BE-I-0044",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain cache-aside and common failure modes such as cache stampede and penetration."
+  },
+  {
+    "id": "BE-I-0045",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain connection pooling and what happens when the pool is exhausted."
+  },
+  {
+    "id": "BE-I-0046",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain graceful shutdown and why it matters during deployment."
+  },
+  {
+    "id": "BE-I-0047",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you design consistent API error responses without leaking sensitive internals?"
+  },
+  {
+    "id": "BE-I-0048",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you prevent mass assignment, injection, broken object authorization, and brute-force abuse in an API?"
+  },
+  {
+    "id": "BE-I-0049",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you test a NestJS service that talks to PostgreSQL and an external API?"
+  },
+  {
+    "id": "BE-I-0050",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you use Redis for caching while minimizing stale-data bugs?"
+  },
+  {
+    "id": "BE-I-0051",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are provider scopes in NestJS, and why can request-scoped providers be expensive?"
+  },
+  {
+    "id": "BE-I-0052",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are retries, exponential backoff, jitter, timeouts, and circuit breakers?"
+  },
+  {
+    "id": "BE-I-0053",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are structured logging, correlation IDs, metrics, and distributed traces?"
+  },
+  {
+    "id": "BE-I-0054",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is backpressure in Node streams, and how should a service handle it?"
+  },
+  {
+    "id": "BE-I-0055",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What makes PUT idempotent, and how would you design an idempotent POST-like payment operation?"
+  },
+  {
+    "id": "BE-I-0056",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "N+1 query problem",
+    "questionType": "Compare",
+    "question": "Compare N+1 query problem with batched eager loading. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0057",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "N+1 query problem",
+    "questionType": "Mechanics",
+    "question": "Walk through how N+1 query problem works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0058",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "ORM",
+    "questionType": "Compare",
+    "question": "Compare ORM with query builder/raw SQL. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0059",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "ORM",
+    "questionType": "Mechanics",
+    "question": "Walk through how ORM works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0060",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "connection pool",
+    "questionType": "Compare",
+    "question": "Compare connection pool with one connection per request. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0061",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "connection pool",
+    "questionType": "Mechanics",
+    "question": "Walk through how connection pool works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0062",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "transaction boundary",
+    "questionType": "Compare",
+    "question": "Compare transaction boundary with per-query atomicity. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0063",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "transaction boundary",
+    "questionType": "Mechanics",
+    "question": "Walk through how transaction boundary works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0064",
+    "level": "Intermediate",
+    "category": "Docs",
+    "topic": "OpenAPI",
+    "questionType": "Compare",
+    "question": "Compare OpenAPI with handwritten API wiki. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0065",
+    "level": "Intermediate",
+    "category": "Docs",
+    "topic": "OpenAPI",
+    "questionType": "Mechanics",
+    "question": "Walk through how OpenAPI works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0066",
+    "level": "Intermediate",
+    "category": "Files",
+    "topic": "streamed upload",
+    "questionType": "Compare",
+    "question": "Compare streamed upload with buffering entire file. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0067",
+    "level": "Intermediate",
+    "category": "Files",
+    "topic": "streamed upload",
+    "questionType": "Mechanics",
+    "question": "Walk through how streamed upload works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0068",
+    "level": "Intermediate",
+    "category": "HTTP",
+    "topic": "HTTP semantics",
+    "questionType": "Compare",
+    "question": "Compare HTTP semantics with application business semantics. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0069",
+    "level": "Intermediate",
+    "category": "HTTP",
+    "topic": "HTTP semantics",
+    "questionType": "Mechanics",
+    "question": "Walk through how HTTP semantics works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0070",
+    "level": "Intermediate",
+    "category": "HTTP",
+    "topic": "keep-alive",
+    "questionType": "Compare",
+    "question": "Compare keep-alive with new connection per request. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0071",
+    "level": "Intermediate",
+    "category": "HTTP",
+    "topic": "keep-alive",
+    "questionType": "Mechanics",
+    "question": "Walk through how keep-alive works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0072",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How do you design idempotency for a payment endpoint so retries cannot double-charge a customer?"
+  },
+  {
+    "id": "BE-I-0073",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you choose between a transaction, optimistic locking, and a distributed lock for competing updates?"
+  },
+  {
+    "id": "BE-I-0074",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you debug a Node.js service whose heap grows slowly over several days?"
+  },
+  {
+    "id": "BE-I-0075",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you implement refresh-token rotation and detect refresh-token reuse?"
+  },
+  {
+    "id": "BE-I-0076",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Why can retrying a failed request make an outage worse, and how should retry policy be designed?"
+  },
+  {
+    "id": "BE-I-0077",
+    "level": "Intermediate",
+    "category": "Messaging",
+    "topic": "RabbitMQ",
+    "questionType": "Compare",
+    "question": "Compare RabbitMQ with Kafka. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0078",
+    "level": "Intermediate",
+    "category": "Messaging",
+    "topic": "RabbitMQ",
+    "questionType": "Mechanics",
+    "question": "Walk through how RabbitMQ works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0079",
+    "level": "Intermediate",
+    "category": "Messaging",
+    "topic": "at-least-once delivery",
+    "questionType": "Compare",
+    "question": "Compare at-least-once delivery with exactly-once claims. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0080",
+    "level": "Intermediate",
+    "category": "Messaging",
+    "topic": "at-least-once delivery",
+    "questionType": "Mechanics",
+    "question": "Walk through how at-least-once delivery works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0081",
+    "level": "Intermediate",
+    "category": "Microservices",
+    "topic": "saga",
+    "questionType": "Compare",
+    "question": "Compare saga with distributed transaction. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0082",
+    "level": "Intermediate",
+    "category": "Microservices",
+    "topic": "saga",
+    "questionType": "Mechanics",
+    "question": "Walk through how saga works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0083",
+    "level": "Intermediate",
+    "category": "Microservices",
+    "topic": "service boundary",
+    "questionType": "Compare",
+    "question": "Compare service boundary with database table boundary. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0084",
+    "level": "Intermediate",
+    "category": "Microservices",
+    "topic": "service boundary",
+    "questionType": "Mechanics",
+    "question": "Walk through how service boundary works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0085",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "controller",
+    "questionType": "Compare",
+    "question": "Compare controller with provider. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0086",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "controller",
+    "questionType": "Mechanics",
+    "question": "Walk through how controller works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0087",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "dynamic module",
+    "questionType": "Compare",
+    "question": "Compare dynamic module with static module. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0088",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "dynamic module",
+    "questionType": "Mechanics",
+    "question": "Walk through how dynamic module works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0089",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "execution context",
+    "questionType": "Compare",
+    "question": "Compare execution context with request object. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0090",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "execution context",
+    "questionType": "Mechanics",
+    "question": "Walk through how execution context works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0091",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "guard",
+    "questionType": "Compare",
+    "question": "Compare guard with interceptor. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0092",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "guard",
+    "questionType": "Mechanics",
+    "question": "Walk through how guard works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0093",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "interceptor",
+    "questionType": "Compare",
+    "question": "Compare interceptor with middleware. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0094",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "interceptor",
+    "questionType": "Mechanics",
+    "question": "Walk through how interceptor works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0095",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "middleware",
+    "questionType": "Compare",
+    "question": "Compare middleware with guard. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0096",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "middleware",
+    "questionType": "Mechanics",
+    "question": "Walk through how middleware works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0097",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "module",
+    "questionType": "Compare",
+    "question": "Compare module with plain folder. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0098",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "module",
+    "questionType": "Mechanics",
+    "question": "Walk through how module works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0099",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "pipe",
+    "questionType": "Compare",
+    "question": "Compare pipe with exception filter. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0100",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "pipe",
+    "questionType": "Mechanics",
+    "question": "Walk through how pipe works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0101",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "provider and dependency injection",
+    "questionType": "Compare",
+    "question": "Compare provider and dependency injection with manual construction. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0102",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "provider and dependency injection",
+    "questionType": "Mechanics",
+    "question": "Walk through how provider and dependency injection works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0103",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "provider scopes",
+    "questionType": "Compare",
+    "question": "Compare provider scopes with singleton provider. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0104",
+    "level": "Intermediate",
+    "category": "NestJS",
+    "topic": "provider scopes",
+    "questionType": "Mechanics",
+    "question": "Walk through how provider scopes works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0105",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "correlation ID",
+    "questionType": "Compare",
+    "question": "Compare correlation ID with independent logs. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0106",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "correlation ID",
+    "questionType": "Mechanics",
+    "question": "Walk through how correlation ID works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0107",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "distributed tracing",
+    "questionType": "Compare",
+    "question": "Compare distributed tracing with request logging. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0108",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "distributed tracing",
+    "questionType": "Mechanics",
+    "question": "Walk through how distributed tracing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0109",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "metrics",
+    "questionType": "Compare",
+    "question": "Compare metrics with logs. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0110",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "metrics",
+    "questionType": "Mechanics",
+    "question": "Walk through how metrics works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0111",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "structured logging",
+    "questionType": "Compare",
+    "question": "Compare structured logging with printf logs. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0112",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "structured logging",
+    "questionType": "Mechanics",
+    "question": "Walk through how structured logging works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0113",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "CPU-bound workload",
+    "questionType": "Compare",
+    "question": "Compare CPU-bound workload with I/O-bound workload. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0114",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "CPU-bound workload",
+    "questionType": "Mechanics",
+    "question": "Walk through how CPU-bound workload works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0115",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "profiling",
+    "questionType": "Compare",
+    "question": "Compare profiling with guess-based optimization. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0116",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "profiling",
+    "questionType": "Mechanics",
+    "question": "Walk through how profiling works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0117",
+    "level": "Intermediate",
+    "category": "Queues",
+    "topic": "job queue",
+    "questionType": "Compare",
+    "question": "Compare job queue with synchronous work. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0118",
+    "level": "Intermediate",
+    "category": "Queues",
+    "topic": "job queue",
+    "questionType": "Mechanics",
+    "question": "Walk through how job queue works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0119",
+    "level": "Intermediate",
+    "category": "Queues",
+    "topic": "retry and dead-letter queue",
+    "questionType": "Compare",
+    "question": "Compare retry and dead-letter queue with infinite retry. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0120",
+    "level": "Intermediate",
+    "category": "Queues",
+    "topic": "retry and dead-letter queue",
+    "questionType": "Mechanics",
+    "question": "Walk through how retry and dead-letter queue works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0121",
+    "level": "Intermediate",
+    "category": "Realtime",
+    "topic": "SSE",
+    "questionType": "Compare",
+    "question": "Compare SSE with long polling. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0122",
+    "level": "Intermediate",
+    "category": "Realtime",
+    "topic": "SSE",
+    "questionType": "Mechanics",
+    "question": "Walk through how SSE works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0123",
+    "level": "Intermediate",
+    "category": "Realtime",
+    "topic": "WebSocket",
+    "questionType": "Compare",
+    "question": "Compare WebSocket with SSE. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0124",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "Redis TTL",
+    "questionType": "Compare",
+    "question": "Compare Redis TTL with permanent keys. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0125",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "Redis TTL",
+    "questionType": "Mechanics",
+    "question": "Walk through how Redis TTL works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0126",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "distributed lock",
+    "questionType": "Compare",
+    "question": "Compare distributed lock with database row lock. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0127",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "distributed lock",
+    "questionType": "Mechanics",
+    "question": "Walk through how distributed lock works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0128",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "circuit breaker",
+    "questionType": "Compare",
+    "question": "Compare circuit breaker with retries. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0129",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "circuit breaker",
+    "questionType": "Mechanics",
+    "question": "Walk through how circuit breaker works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0130",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "graceful shutdown",
+    "questionType": "Compare",
+    "question": "Compare graceful shutdown with hard process kill. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0131",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "graceful shutdown",
+    "questionType": "Mechanics",
+    "question": "Walk through how graceful shutdown works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0132",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "retry with backoff",
+    "questionType": "Compare",
+    "question": "Compare retry with backoff with immediate retry. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0133",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "retry with backoff",
+    "questionType": "Mechanics",
+    "question": "Walk through how retry with backoff works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0134",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "timeout",
+    "questionType": "Compare",
+    "question": "Compare timeout with infinite wait. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0135",
+    "level": "Intermediate",
+    "category": "Reliability",
+    "topic": "timeout",
+    "questionType": "Mechanics",
+    "question": "Walk through how timeout works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0136",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "Buffer",
+    "questionType": "Compare",
+    "question": "Compare Buffer with string. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0137",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "Buffer",
+    "questionType": "Mechanics",
+    "question": "Walk through how Buffer works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0138",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "Node streams",
+    "questionType": "Compare",
+    "question": "Compare Node streams with buffer-all approach. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0139",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "Node streams",
+    "questionType": "Mechanics",
+    "question": "Walk through how Node streams works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0140",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "Node.js event loop",
+    "questionType": "Compare",
+    "question": "Compare Node.js event loop with thread-per-request model. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0141",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "Node.js event loop",
+    "questionType": "Mechanics",
+    "question": "Walk through how Node.js event loop works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0142",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "backpressure",
+    "questionType": "Compare",
+    "question": "Compare backpressure with unbounded buffering. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0143",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "backpressure",
+    "questionType": "Mechanics",
+    "question": "Walk through how backpressure works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0144",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "libuv thread pool",
+    "questionType": "Compare",
+    "question": "Compare libuv thread pool with event loop. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0145",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "libuv thread pool",
+    "questionType": "Mechanics",
+    "question": "Walk through how libuv thread pool works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0146",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "worker threads",
+    "questionType": "Compare",
+    "question": "Compare worker threads with child processes. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0147",
+    "level": "Intermediate",
+    "category": "Runtime",
+    "topic": "worker threads",
+    "questionType": "Mechanics",
+    "question": "Walk through how worker threads works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0148",
+    "level": "Intermediate",
+    "category": "Scaling",
+    "topic": "load balancing",
+    "questionType": "Compare",
+    "question": "Compare load balancing with single instance. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0149",
+    "level": "Intermediate",
+    "category": "Scaling",
+    "topic": "load balancing",
+    "questionType": "Mechanics",
+    "question": "Walk through how load balancing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0150",
+    "level": "Intermediate",
+    "category": "Scaling",
+    "topic": "stateless API",
+    "questionType": "Compare",
+    "question": "Compare stateless API with stateful local session. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0151",
+    "level": "Intermediate",
+    "category": "Scaling",
+    "topic": "stateless API",
+    "questionType": "Mechanics",
+    "question": "Walk through how stateless API works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0152",
+    "level": "Intermediate",
+    "category": "Search",
+    "topic": "PostgreSQL full-text search",
+    "questionType": "Compare",
+    "question": "Compare PostgreSQL full-text search with Elasticsearch/OpenSearch. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0153",
+    "level": "Intermediate",
+    "category": "Search",
+    "topic": "PostgreSQL full-text search",
+    "questionType": "Mechanics",
+    "question": "Walk through how PostgreSQL full-text search works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0154",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "SSRF",
+    "questionType": "Compare",
+    "question": "Compare SSRF with XSS. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0155",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "SSRF",
+    "questionType": "Mechanics",
+    "question": "Walk through how SSRF works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0156",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "mass assignment",
+    "questionType": "Compare",
+    "question": "Compare mass assignment with explicit DTO mapping. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0157",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "mass assignment",
+    "questionType": "Mechanics",
+    "question": "Walk through how mass assignment works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0158",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "rate limiting",
+    "questionType": "Compare",
+    "question": "Compare rate limiting with authentication. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0159",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "rate limiting",
+    "questionType": "Mechanics",
+    "question": "Walk through how rate limiting works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0160",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "secrets management",
+    "questionType": "Compare",
+    "question": "Compare secrets management with environment file in source control. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0161",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "secrets management",
+    "questionType": "Mechanics",
+    "question": "Walk through how secrets management works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0162",
+    "level": "Intermediate",
+    "category": "Serialization",
+    "topic": "response serialization",
+    "questionType": "Compare",
+    "question": "Compare response serialization with returning ORM entities directly. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0163",
+    "level": "Intermediate",
+    "category": "Serialization",
+    "topic": "response serialization",
+    "questionType": "Mechanics",
+    "question": "Walk through how response serialization works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0164",
+    "level": "Intermediate",
+    "category": "Storage",
+    "topic": "object storage",
+    "questionType": "Compare",
+    "question": "Compare object storage with local disk. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0165",
+    "level": "Intermediate",
+    "category": "Storage",
+    "topic": "object storage",
+    "questionType": "Mechanics",
+    "question": "Walk through how object storage works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0166",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "URL shortener",
+    "questionType": "Compare",
+    "question": "Compare URL shortener with basic CRUD API. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0167",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "URL shortener",
+    "questionType": "Mechanics",
+    "question": "Walk through how URL shortener works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0168",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "chat backend",
+    "questionType": "Compare",
+    "question": "Compare chat backend with request/response API. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0169",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "chat backend",
+    "questionType": "Mechanics",
+    "question": "Walk through how chat backend works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0170",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "multi-tenant SaaS",
+    "questionType": "Compare",
+    "question": "Compare multi-tenant SaaS with single-tenant system. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0171",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "multi-tenant SaaS",
+    "questionType": "Mechanics",
+    "question": "Walk through how multi-tenant SaaS works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0172",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "notification service",
+    "questionType": "Compare",
+    "question": "Compare notification service with synchronous email send. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0173",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "notification service",
+    "questionType": "Mechanics",
+    "question": "Walk through how notification service works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0174",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "payment API",
+    "questionType": "Compare",
+    "question": "Compare payment API with ordinary POST endpoint. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0175",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "payment API",
+    "questionType": "Mechanics",
+    "question": "Walk through how payment API works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0176",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "API integration test",
+    "questionType": "Compare",
+    "question": "Compare API integration test with mock-only service test. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0177",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "API integration test",
+    "questionType": "Mechanics",
+    "question": "Walk through how API integration test works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0178",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "contract testing",
+    "questionType": "Compare",
+    "question": "Compare contract testing with E2E-only testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0179",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "contract testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how contract testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-I-0180",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "unit test",
+    "questionType": "Compare",
+    "question": "Compare unit test with integration test. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0181",
+    "level": "Intermediate",
+    "category": "Validation",
+    "topic": "DTO validation",
+    "questionType": "Compare",
+    "question": "Compare DTO validation with trusting request payloads. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "BE-I-0182",
+    "level": "Intermediate",
+    "category": "Validation",
+    "topic": "DTO validation",
+    "questionType": "Mechanics",
+    "question": "Walk through how DTO validation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "BE-A-0001",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "API versioning",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around API versioning. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0002",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "API versioning",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with API versioning? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0003",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "REST resource design",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around REST resource design. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0004",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "REST resource design",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with REST resource design? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0005",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "idempotency",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around idempotency. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0006",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "idempotency",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with idempotency? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0007",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "pagination",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around pagination. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0008",
+    "level": "Advanced",
+    "category": "API",
+    "topic": "pagination",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with pagination? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0009",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "DDD bounded context",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around DDD bounded context. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0010",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "DDD bounded context",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with DDD bounded context? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0011",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "hexagonal architecture",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around hexagonal architecture. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0012",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "hexagonal architecture",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with hexagonal architecture? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0013",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "modular monolith",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around modular monolith. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0014",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "modular monolith",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with modular monolith? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0015",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "JWT access token",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around JWT access token. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0016",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "JWT access token",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with JWT access token? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0017",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "OAuth 2.0",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around OAuth 2.0. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0018",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "OAuth 2.0",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with OAuth 2.0? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0019",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "password hashing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around password hashing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0020",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "password hashing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with password hashing? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0021",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "session authentication",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around session authentication. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0022",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "session authentication",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with session authentication? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0023",
+    "level": "Advanced",
+    "category": "Authorization",
+    "topic": "RBAC",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around RBAC. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0024",
+    "level": "Advanced",
+    "category": "Authorization",
+    "topic": "RBAC",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with RBAC? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0025",
+    "level": "Advanced",
+    "category": "Authorization",
+    "topic": "resource ownership checks",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around resource ownership checks. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0026",
+    "level": "Advanced",
+    "category": "Authorization",
+    "topic": "resource ownership checks",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with resource ownership checks? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0027",
+    "level": "Advanced",
+    "category": "Cache",
+    "topic": "cache invalidation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around cache invalidation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0028",
+    "level": "Advanced",
+    "category": "Cache",
+    "topic": "cache invalidation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with cache invalidation? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0029",
+    "level": "Advanced",
+    "category": "Cache",
+    "topic": "cache-aside",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around cache-aside. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0030",
+    "level": "Advanced",
+    "category": "Cache",
+    "topic": "cache-aside",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with cache-aside? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0031",
+    "level": "Advanced",
+    "category": "Concurrency",
+    "topic": "optimistic locking",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around optimistic locking. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0032",
+    "level": "Advanced",
+    "category": "Concurrency",
+    "topic": "optimistic locking",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with optimistic locking? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0033",
+    "level": "Advanced",
+    "category": "Config",
+    "topic": "environment configuration",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around environment configuration. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0034",
+    "level": "Advanced",
+    "category": "Config",
+    "topic": "environment configuration",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with environment configuration? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0035",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "A Node.js API has low CPU but high latency and a growing request queue. Describe a systematic investigation."
+  },
+  {
+    "id": "BE-A-0036",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare Kafka-style logs with traditional queues and describe workloads suited to each."
+  },
+  {
+    "id": "BE-A-0037",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare vertical sharding, horizontal sharding, read replicas, partitioning, and caching for a rapidly growing PostgreSQL-backed system."
+  },
+  {
+    "id": "BE-A-0038",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a modular-monolith backend and explain the signals that would justify extracting a microservice later."
+  },
+  {
+    "id": "BE-A-0039",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a multi-tenant SaaS backend and compare database-per-tenant, schema-per-tenant, and shared-schema models."
+  },
+  {
+    "id": "BE-A-0040",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a real-time notification service and discuss WebSockets/SSE, fan-out, presence, ordering, and backpressure."
+  },
+  {
+    "id": "BE-A-0041",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a secure webhook platform including signing, replay prevention, retries, rate limits, and idempotency."
+  },
+  {
+    "id": "BE-A-0042",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design authorization for a complex system containing organizations, projects, roles, ownership, and delegated permissions."
+  },
+  {
+    "id": "BE-A-0043",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design exactly-once-like payment processing using idempotency keys, durable state, retries, and reconciliation."
+  },
+  {
+    "id": "BE-A-0044",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design observability for a request crossing API gateway, application service, queue, worker, database, and third-party API."
+  },
+  {
+    "id": "BE-A-0045",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain failure modes introduced by distributed caching and how you would design fallback behavior."
+  },
+  {
+    "id": "BE-A-0046",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you choose transaction boundaries in a domain with long-running workflows and external services?"
+  },
+  {
+    "id": "BE-A-0047",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you design disaster recovery for a backend with strict RPO/RTO requirements?"
+  },
+  {
+    "id": "BE-A-0048",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you evolve an API contract without breaking old mobile/web clients?"
+  },
+  {
+    "id": "BE-A-0049",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you handle schema migration during zero-downtime deploys when old and new application versions run simultaneously?"
+  },
+  {
+    "id": "BE-A-0050",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you implement an outbox/inbox pattern to coordinate database transactions and messaging?"
+  },
+  {
+    "id": "BE-A-0051",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you isolate CPU-bound work without losing reliability or observability?"
+  },
+  {
+    "id": "BE-A-0052",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you partition and scale a backend workload where one tenant produces 50% of total traffic?"
+  },
+  {
+    "id": "BE-A-0053",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you profile and reduce memory growth in a long-running Node.js service?"
+  },
+  {
+    "id": "BE-A-0054",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "In a backend system-design interview, design an ecommerce checkout service and discuss inventory, payment, idempotency, transactions, queues, failure recovery, and observability."
+  },
+  {
+    "id": "BE-A-0055",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "N+1 query problem",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around N+1 query problem. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0056",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "N+1 query problem",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with N+1 query problem? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0057",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "ORM",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around ORM. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0058",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "ORM",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with ORM? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0059",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "connection pool",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around connection pool. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0060",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "connection pool",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with connection pool? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0061",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "transaction boundary",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around transaction boundary. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0062",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "transaction boundary",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with transaction boundary? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0063",
+    "level": "Advanced",
+    "category": "Docs",
+    "topic": "OpenAPI",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around OpenAPI. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0064",
+    "level": "Advanced",
+    "category": "Docs",
+    "topic": "OpenAPI",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with OpenAPI? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0065",
+    "level": "Advanced",
+    "category": "Files",
+    "topic": "streamed upload",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around streamed upload. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0066",
+    "level": "Advanced",
+    "category": "Files",
+    "topic": "streamed upload",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with streamed upload? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0067",
+    "level": "Advanced",
+    "category": "HTTP",
+    "topic": "HTTP semantics",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around HTTP semantics. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0068",
+    "level": "Advanced",
+    "category": "HTTP",
+    "topic": "HTTP semantics",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with HTTP semantics? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0069",
+    "level": "Advanced",
+    "category": "HTTP",
+    "topic": "keep-alive",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around keep-alive. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0070",
+    "level": "Advanced",
+    "category": "HTTP",
+    "topic": "keep-alive",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with keep-alive? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0071",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "A service has p99 latency spikes but low average latency. Explain how you would use traces, metrics, logs, queueing theory, and dependency data to find the cause."
+  },
+  {
+    "id": "BE-A-0072",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design a multi-tenant SaaS backend with strong tenant isolation and explain trade-offs between shared schema, separate schemas, and separate databases."
+  },
+  {
+    "id": "BE-A-0073",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design a notification platform that delivers email, SMS, and push notifications with retries, rate limits, deduplication, provider failover, and user preferences."
+  },
+  {
+    "id": "BE-A-0074",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design an exactly-once business outcome on top of at-least-once message delivery."
+  },
+  {
+    "id": "BE-A-0075",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Explain how you would split a modular monolith into services only when organizational and runtime boundaries justify it."
+  },
+  {
+    "id": "BE-A-0076",
+    "level": "Advanced",
+    "category": "Messaging",
+    "topic": "RabbitMQ",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around RabbitMQ. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0077",
+    "level": "Advanced",
+    "category": "Messaging",
+    "topic": "RabbitMQ",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with RabbitMQ? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0078",
+    "level": "Advanced",
+    "category": "Messaging",
+    "topic": "at-least-once delivery",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around at-least-once delivery. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0079",
+    "level": "Advanced",
+    "category": "Messaging",
+    "topic": "at-least-once delivery",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with at-least-once delivery? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0080",
+    "level": "Advanced",
+    "category": "Microservices",
+    "topic": "saga",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around saga. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0081",
+    "level": "Advanced",
+    "category": "Microservices",
+    "topic": "saga",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with saga? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0082",
+    "level": "Advanced",
+    "category": "Microservices",
+    "topic": "service boundary",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around service boundary. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0083",
+    "level": "Advanced",
+    "category": "Microservices",
+    "topic": "service boundary",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with service boundary? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0084",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "controller",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around controller. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0085",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "controller",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with controller? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0086",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "dynamic module",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around dynamic module. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0087",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "dynamic module",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with dynamic module? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0088",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "execution context",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around execution context. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0089",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "execution context",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with execution context? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0090",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "guard",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around guard. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0091",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "guard",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with guard? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0092",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "interceptor",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around interceptor. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0093",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "interceptor",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with interceptor? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0094",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "middleware",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around middleware. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0095",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "middleware",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with middleware? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0096",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "module",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around module. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0097",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "module",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with module? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0098",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "pipe",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around pipe. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0099",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "pipe",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with pipe? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0100",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "provider and dependency injection",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around provider and dependency injection. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0101",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "provider and dependency injection",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with provider and dependency injection? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0102",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "provider scopes",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around provider scopes. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0103",
+    "level": "Advanced",
+    "category": "NestJS",
+    "topic": "provider scopes",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with provider scopes? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0104",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "correlation ID",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around correlation ID. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0105",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "correlation ID",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with correlation ID? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0106",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "distributed tracing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around distributed tracing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0107",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "distributed tracing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with distributed tracing? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0108",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "metrics",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around metrics. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0109",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "metrics",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with metrics? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0110",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "structured logging",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around structured logging. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0111",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "structured logging",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with structured logging? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0112",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "CPU-bound workload",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around CPU-bound workload. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0113",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "CPU-bound workload",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with CPU-bound workload? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0114",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "profiling",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around profiling. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0115",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "profiling",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with profiling? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0116",
+    "level": "Advanced",
+    "category": "Queues",
+    "topic": "job queue",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around job queue. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0117",
+    "level": "Advanced",
+    "category": "Queues",
+    "topic": "job queue",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with job queue? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0118",
+    "level": "Advanced",
+    "category": "Queues",
+    "topic": "retry and dead-letter queue",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around retry and dead-letter queue. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0119",
+    "level": "Advanced",
+    "category": "Queues",
+    "topic": "retry and dead-letter queue",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with retry and dead-letter queue? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0120",
+    "level": "Advanced",
+    "category": "Realtime",
+    "topic": "SSE",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around SSE. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0121",
+    "level": "Advanced",
+    "category": "Realtime",
+    "topic": "SSE",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with SSE? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0122",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "Redis TTL",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Redis TTL. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0123",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "Redis TTL",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Redis TTL? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0124",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "distributed lock",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around distributed lock. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0125",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "distributed lock",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with distributed lock? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0126",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "circuit breaker",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around circuit breaker. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0127",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "circuit breaker",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with circuit breaker? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0128",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "graceful shutdown",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around graceful shutdown. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0129",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "graceful shutdown",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with graceful shutdown? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0130",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "retry with backoff",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around retry with backoff. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0131",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "retry with backoff",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with retry with backoff? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0132",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "timeout",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around timeout. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0133",
+    "level": "Advanced",
+    "category": "Reliability",
+    "topic": "timeout",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with timeout? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0134",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "Buffer",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Buffer. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0135",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "Buffer",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Buffer? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0136",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "Node streams",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Node streams. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0137",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "Node streams",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Node streams? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0138",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "Node.js event loop",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Node.js event loop. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0139",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "Node.js event loop",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Node.js event loop? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0140",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "backpressure",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around backpressure. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0141",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "backpressure",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with backpressure? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0142",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "libuv thread pool",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around libuv thread pool. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0143",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "libuv thread pool",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with libuv thread pool? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0144",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "worker threads",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around worker threads. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0145",
+    "level": "Advanced",
+    "category": "Runtime",
+    "topic": "worker threads",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with worker threads? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0146",
+    "level": "Advanced",
+    "category": "Scaling",
+    "topic": "load balancing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around load balancing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0147",
+    "level": "Advanced",
+    "category": "Scaling",
+    "topic": "load balancing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with load balancing? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0148",
+    "level": "Advanced",
+    "category": "Scaling",
+    "topic": "stateless API",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around stateless API. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0149",
+    "level": "Advanced",
+    "category": "Scaling",
+    "topic": "stateless API",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with stateless API? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0150",
+    "level": "Advanced",
+    "category": "Search",
+    "topic": "PostgreSQL full-text search",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around PostgreSQL full-text search. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0151",
+    "level": "Advanced",
+    "category": "Search",
+    "topic": "PostgreSQL full-text search",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with PostgreSQL full-text search? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0152",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "SSRF",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around SSRF. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0153",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "SSRF",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with SSRF? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0154",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "mass assignment",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around mass assignment. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0155",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "mass assignment",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with mass assignment? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0156",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "rate limiting",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around rate limiting. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0157",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "rate limiting",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with rate limiting? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0158",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "secrets management",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around secrets management. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0159",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "secrets management",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with secrets management? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0160",
+    "level": "Advanced",
+    "category": "Serialization",
+    "topic": "response serialization",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around response serialization. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0161",
+    "level": "Advanced",
+    "category": "Serialization",
+    "topic": "response serialization",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with response serialization? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0162",
+    "level": "Advanced",
+    "category": "Storage",
+    "topic": "object storage",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around object storage. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0163",
+    "level": "Advanced",
+    "category": "Storage",
+    "topic": "object storage",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with object storage? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0164",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "URL shortener",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around URL shortener. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0165",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "URL shortener",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with URL shortener? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0166",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "chat backend",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around chat backend. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0167",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "chat backend",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with chat backend? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0168",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "multi-tenant SaaS",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around multi-tenant SaaS. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0169",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "multi-tenant SaaS",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with multi-tenant SaaS? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0170",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "notification service",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around notification service. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0171",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "notification service",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with notification service? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0172",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "payment API",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around payment API. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0173",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "payment API",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with payment API? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0174",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "API integration test",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around API integration test. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0175",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "API integration test",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with API integration test? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0176",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "contract testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around contract testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0177",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "contract testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with contract testing? How would you design around them?"
+  },
+  {
+    "id": "BE-A-0178",
+    "level": "Advanced",
+    "category": "Validation",
+    "topic": "DTO validation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around DTO validation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "BE-A-0179",
+    "level": "Advanced",
+    "category": "Validation",
+    "topic": "DTO validation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with DTO validation? How would you design around them?"
+  }
+]

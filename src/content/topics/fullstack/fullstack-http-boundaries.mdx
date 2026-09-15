@@ -1,0 +1,81 @@
+---
+id: FULLSTACK-HTTP-BOUNDARIES
+title: "HTTP Boundaries Across the Stack"
+titleBn: "স্ট্যাক জুড়ে HTTP বাউন্ডারি"
+description: "Where the browser, Next.js BFF, and Nest API meet—contracts, status codes, and ownership."
+descriptionBn: "ব্রাউজার, Next.js BFF ও Nest API যেখানে মিলে—কন্ট্রাক্ট, স্ট্যাটাস কোড ও মালিকানা।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites:
+  - "FULLSTACK-ARCHITECTURE-OVERVIEW"
+  - "BACKEND-HTTP-REST-API-DESIGN"
+unlocks:
+  - "FULLSTACK-CORS-CSRF"
+  - "FULLSTACK-COOKIES-SESSIONS-TOKENS"
+related:
+  - "FULLSTACK-BFF"
+  - "FULLSTACK-DATA-FLOW"
+careers:
+  - "fullstack-engineer"
+tags:
+  - "fullstack"
+  - "http"
+  - "boundaries"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "RFC-9110-HTTP"
+  - "NEXTJS-APP-ROUTER"
+  - "NESTJS-ARCHITECTURE"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why boundaries matter
+
+Full-stack bugs often live in the seams: duplicated validation, leaking internal errors, or unclear ownership of auth and caching.
+
+## Mental model
+
+<Callout type="mental-model">
+  Treat each hop as a contract: Browser → Next (UI/BFF) → Nest (domain) → DB. Define who validates what, which status codes mean what, and which layer is source of truth.
+</Callout>
+
+## Next + Nest pattern
+
+- Prefer Nest for domain rules and persistence.
+- Use Next Route Handlers/Server Actions carefully—avoid duplicating business logic.
+- Map domain errors to stable HTTP problem shapes for the UI.
+
+## Common mistakes
+
+- **Business logic only in React** — Mobile/other clients diverge.
+- **Leaking stack traces to the browser**.
+- **Chatty UI→DB coupling**.
+
+## Interview angle
+
+<Callout type="interview">
+  Draw sequence diagrams for “load topic” and “submit form” across Next and Nest.
+</Callout>
+
+## Practice checklist
+
+- [ ] List contracts between Next and Nest for one feature.
+- [ ] Define error mapping for 401/403/409/422.
+- [ ] Identify one validation that must stay server-side.
+
+## Sources
+
+- `RFC-9110-HTTP`
+- `NEXTJS-APP-ROUTER`
+- `NESTJS-ARCHITECTURE`

@@ -1,0 +1,106 @@
+---
+id: FLUTTER-DART-OOP
+title: "Dart OOP: Classes, Inheritance, and Mixins"
+titleBn: "Dart OOP: ক্লাস, ইনহেরিটেন্স ও মিক্সিন"
+description: "Model domain types with classes, interfaces, mixins, and composition—so Flutter widgets sit on solid Dart design."
+descriptionBn: "ক্লাস, ইন্টারফেস, মিক্সিন ও কম্পোজিশন দিয়ে ডোমেইন টাইপ মডেল করুন।"
+track: mobile-flutter
+category: dart
+difficulty: intermediate
+estimatedMinutes: 45
+prerequisites:
+  - "FLUTTER-DART-FUNDAMENTALS"
+unlocks:
+  - "FLUTTER-DART-GENERICS"
+  - "FLUTTER-ARCHITECTURE-PATTERNS"
+related:
+  - "FLUTTER-DART-RECORDS-PATTERNS"
+  - "FOUNDATIONS-ABSTRACTION-MODULARITY"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "dart"
+  - "oop"
+  - "classes"
+  - "mixins"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "DART-CLASSES"
+  - "DART-LANGUAGE"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why Flutter apps are object graphs. Weak OOP habits produce god widgets, untestable models, and inheritance trees nobody can change.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prefer composition over deep inheritance. Use abstract classes/interfaces for contracts, mixins for reusable behavior, and const constructors for immutable values in UI.
+</Callout>
+
+## How
+
+### Classes and interfaces
+
+Dart classes can implement multiple interfaces. Abstract classes define contracts without forcing a single hierarchy.
+
+```dart
+abstract class AuthRepository {
+  Future<User?> currentUser();
+}
+
+class ApiAuthRepository implements AuthRepository {
+  ApiAuthRepository(this.client);
+  final ApiClient client;
+
+  @override
+  Future<User?> currentUser() => client.getMe();
+}
+
+mixin Logging {
+  void log(String message) => print('[log] $message');
+}
+
+class SessionService with Logging {
+  void start() => log('session start');
+}
+```
+
+## Common mistakes
+
+- **Deep inheritance for UI** — prefer composing widgets.
+- **Mutable public fields** — break equality and rebuild reasoning.
+- **Mixing network + UI in model classes** — untestable.
+
+## Interview angle
+
+<Callout type="interview">
+  When would you choose a mixin over extending a base class in Dart?
+</Callout>
+
+## Practice checklist
+
+- [ ] Implement a repository interface with a fake for tests.
+- [ ] Replace an inheritance chain with composition once.
+- [ ] Read Dart classes docs for factory constructors.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `DART-CLASSES`
+- `DART-LANGUAGE`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

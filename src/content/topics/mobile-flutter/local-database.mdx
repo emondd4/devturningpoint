@@ -1,0 +1,96 @@
+---
+id: FLUTTER-LOCAL-DATABASE
+title: "Local Persistence and SQLite"
+titleBn: "লোকাল পারসিস্টেন্স ও SQLite"
+description: "Choose SharedPreferences vs SQLite/drift for offline data—schemas, queries, and migration mindset on device."
+descriptionBn: "অফলাইন ডেটার জন্য SharedPreferences বনাম SQLite—স্কিমা ও মাইগ্রেশন।"
+track: mobile-flutter
+category: flutter
+difficulty: intermediate
+estimatedMinutes: 50
+prerequisites:
+  - "FLUTTER-JSON-SERIALIZATION"
+  - "FOUNDATIONS-SQL-FUNDAMENTALS"
+unlocks:
+  - "FLUTTER-FIREBASE-OVERVIEW"
+related:
+  - "FLUTTER-ARCHITECTURE-PATTERNS"
+  - "FLUTTER-ANDROID-IOS-CAVEATS"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "sqlite"
+  - "persistence"
+  - "offline"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-SQLITE"
+  - "FLUTTER-ARCH-OVERVIEW"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why local storage choice matters
+
+Caches, drafts, and offline-first apps need durable storage. Key-value prefs are not a database. SQLite gives relational queries on device when structure and indexing matter.
+
+## Mental model
+
+<Callout type="mental-model">
+  Use prefs for small settings; use SQLite (sqflite/drift) for collections you query/filter. Always version schemas and migrate carefully on upgrade.
+</Callout>
+
+## How
+
+### Parameterized queries (sqflite style)
+
+```dart
+// Pseudo-structure — follow current sqflite/drift APIs in docs
+Future<List<Map<String, Object?>>> openNotes(Database db) {
+  return db.query(
+    'notes',
+    where: 'user_id = ?',
+    whereArgs: ['u1'],
+    orderBy: 'updated_at DESC',
+  );
+}
+```
+
+## Common mistakes
+
+- **String-concatenating SQL** — injection risk even on device
+- **Storing secrets in prefs in plaintext**
+- **Blocking UI isolate with huge migrations**
+
+## Interview angle
+
+<Callout type="interview">
+  When would you pick SQLite over SharedPreferences for a Flutter notes app?
+</Callout>
+
+## Practice checklist
+
+- [ ] Persist a list of notes with a schema version.
+- [ ] Write a migration from v1 to v2 adding a column.
+- [ ] Read Flutter SQLite cookbook.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-SQLITE`
+- `FLUTTER-ARCH-OVERVIEW`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

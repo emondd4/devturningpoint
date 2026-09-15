@@ -1,0 +1,96 @@
+---
+id: FRONTEND-NEXTJS-DATA-FETCHING
+title: "Next.js Data Fetching"
+titleBn: "Next.js ডেটা ফেচিং"
+description: "Fetching in the App Router—caching, revalidation, and choosing server vs client data loading."
+descriptionBn: "App Router-এ ফেচিং—ক্যাশিং, রিভ্যালিডেশন, এবং server বনাম client ডেটা লোডিং।"
+track: frontend
+category: nextjs
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites:
+  - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+  - "FRONTEND-REACT-SERVER-COMPONENTS"
+unlocks: []
+related:
+  - "FRONTEND-TANSTACK-QUERY"
+  - "FRONTEND-FETCH-HTTP-CLIENT"
+careers:
+  - "frontend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "nextjs"
+  - "data-fetching"
+  - "caching"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NEXTJS-DATA-FETCHING"
+  - "NEXTJS-CACHING"
+  - "NEXTJS-APP-ROUTER"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Wrong caching defaults mean stale dashboards or thundering herds to your API. Next.js couples `fetch` with a cache/revalidate model you must understand explicitly.
+
+## Mental model
+
+<Callout type="mental-model">
+  Server fetch can be cached and revalidated by time or tag. Dynamic data needs `no-store` or on-demand revalidation. Client fetching still belongs for highly interactive, user-specific live data.
+</Callout>
+
+## How it works
+
+Prefer server fetches for initial page data. Use `revalidate` / `revalidateTag` for ISR-like freshness. Use TanStack Query on the client when you need mutations, optimistic UI, and shared cache across navigations.
+
+```ts
+export async function getTopics() {
+  const res = await fetch('https://api.example.com/topics', {
+    next: { revalidate: 60, tags: ['topics'] },
+  });
+  if (!res.ok) throw new Error('Failed to load topics');
+  return res.json();
+}
+
+// On mutation elsewhere:
+// revalidateTag('topics');
+```
+
+## Common mistakes
+
+- **Assuming all fetch is uncached** — Defaults may cache; read current Next docs for your version.
+- **Client-only waterfall for SEO content** — Prefer server for primary content.
+- **Caching personalized responses** — User-specific data must not be shared across users.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain revalidate (time-based) vs on-demand revalidation, and when you would still use a client-side query library.
+</Callout>
+
+## Practice checklist
+
+- [ ] Add a tagged fetch
+- [ ] Trigger revalidateTag after a mutation
+- [ ] Mark one user-specific fetch as dynamic
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NEXTJS-DATA-FETCHING`
+- `NEXTJS-CACHING`
+- `NEXTJS-APP-ROUTER`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

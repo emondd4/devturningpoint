@@ -1,0 +1,122 @@
+---
+id: FOUNDATIONS-COMPLEXITY-PRACTICE
+title: "Complexity Practice Lab"
+titleBn: "কমপ্লেক্সিটি প্র্যাকটিস ল্যাব"
+description: "Apply Big O to real snippets—nested loops, hash maps, sorting, and API chatter—so complexity becomes intuition."
+descriptionBn: "বাস্তব স্নিপেটে Big O প্রয়োগ করুন—নেস্টেড লুপ, হ্যাশ ম্যাপ, সর্ট ও API চ্যাটার।"
+track: foundations
+category: algorithms
+difficulty: intermediate
+estimatedMinutes: 45
+prerequisites:
+  - "FOUNDATIONS-ALGORITHMS-COMPLEXITY"
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+unlocks: []
+related:
+  - "FOUNDATIONS-SQL-FUNDAMENTALS"
+  - "FOUNDATIONS-API-CONCEPTS"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "frontend-engineer"
+tags:
+  - "algorithms"
+  - "big-o"
+  - "practice"
+status: published
+translationStatus: partial
+createdAt: 2026-09-15
+updatedAt: 2026-09-15
+lastVerified: 2026-09-15
+sources:
+  - "POSTGRES-INDEXES"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why practice beats memorizing charts
+
+Interviewers and production reviews ask you to **reason about growth**, not recite a table. This lab trains that muscle on patterns you will see weekly.
+
+## Mental model
+
+<Callout type="mental-model">
+  Count how many times the inner work runs as a function of input size n. Then ask whether a better structure (hash set, sorted array, index) changes the dominant term.
+</Callout>
+
+## Lab 1 — membership
+
+```js
+// Quadratic
+function commonNaive(a, b) {
+  const out = [];
+  for (const x of a) {
+    for (const y of b) {
+      if (x === y) out.push(x);
+    }
+  }
+  return out;
+}
+
+// Average O(|a| + |b|) with a set
+function commonSet(a, b) {
+  const setB = new Set(b);
+  return a.filter((x) => setB.has(x));
+}
+```
+
+## Lab 2 — “N+1” as complexity
+
+Calling an HTTP endpoint once per row is often worse than a slightly heavier join:
+
+- 100 users × 50ms latency ≈ 5s wall time serial.
+- Complexity language: (O(n)) round-trips dominates CPU work.
+
+## Lab 3 — sort then scan
+
+Sorting (O(n \log n)) then a linear scan can beat nested loops for “find pairs” style problems when comparison-based approaches apply.
+
+```js
+function hasPairSumSorted(sorted, target) {
+  let i = 0, j = sorted.length - 1;
+  while (i < j) {
+    const s = sorted[i] + sorted[j];
+    if (s === target) return true;
+    if (s < target) i++;
+    else j--;
+  }
+  return false;
+}
+```
+
+## Common mistakes
+
+- **Calling everything O(n)** — ignore nested structures and hidden loops in library calls.
+- **Ignoring constants that are I/O** — disk and network dwarf CPU for small n.
+- **Optimizing the wrong hot path** — measure first when stakes are real.
+
+## Interview angle
+
+<Callout type="interview">
+  Given an array of user IDs and a function `getPosts(userId)`, estimate cost of naive vs batched fetch and propose an API shape that reduces round-trips.
+</Callout>
+
+## Practice checklist
+
+- [ ] Rewrite one nested-loop membership check with a Set/Map.
+- [ ] Find an N+1 in a codebase or sample API client.
+- [ ] Explain space vs time tradeoff for caching a lookup table.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-INDEXES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

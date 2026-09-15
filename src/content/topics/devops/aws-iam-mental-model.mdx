@@ -1,0 +1,96 @@
+---
+id: DEVOPS-AWS-IAM
+title: "AWS IAM Mental Model"
+titleBn: "AWS IAM মানসিক মডেল"
+description: "Principals, policies, roles, and least privilege—how identity becomes permission in AWS."
+descriptionBn: "প্রিন্সিপাল, পলিসি, রোল ও লিস্ট প্রিভিলেজ—AWS-এ পরিচয় কীভাবে পারমিশন হয়।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "DEVOPS-AWS-CLOUD-FUNDAMENTALS"
+unlocks:
+  []
+related:
+  - "DEVOPS-SECRETS-MANAGEMENT"
+  - "DEVOPS-COST-AWARENESS"
+careers:
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "aws"
+  - "iam"
+  - "security"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "AWS-IAM-USERGUIDE"
+  - "AWS-CLOUD-CONCEPTS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why IAM is the real AWS “firewall”
+
+Misconfigured IAM causes more lasting damage than open security groups: identity can call APIs across regions and accounts.
+
+## Mental model
+
+<Callout type="mental-model">
+  Who (principal: user/role/service) + What (actions on resources) + When/Where (conditions) = allow/deny. Prefer roles assumed temporarily over long-lived access keys. Deny statements and SCPs can override allows.
+</Callout>
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject"],
+      "Resource": ["arn:aws:s3:::topics-uploads/prod/*"],
+      "Condition": {
+        "StringEquals": { "aws:PrincipalTag/team": "platform" }
+      }
+    }
+  ]
+}
+```
+
+## Practical habits
+
+- Humans: SSO → assume role; avoid IAM users with keys when possible.
+- Workloads: instance/task roles; CI via OIDC.
+- Start narrow `Action`/`Resource`, expand with evidence.
+
+## Common mistakes
+
+- **`Action: "*"` on `Resource: "*"` “just to unblock”** — Creates standing privilege.
+- **Sharing access keys in chat** — Rotate immediately if it happened.
+- **Confusing authentication with authorization** — Login ≠ permission to delete buckets.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you grant a NestJS ECS task read-only access to one S3 prefix?
+</Callout>
+
+## Practice checklist
+
+- [ ] Read an IAM policy and rewrite it more narrowly.
+- [ ] Prefer role assumption over static keys for one CI job.
+- [ ] List principals that can modify production infra.
+
+## Sources
+
+- `AWS-IAM-USERGUIDE`
+- `AWS-CLOUD-CONCEPTS`
+

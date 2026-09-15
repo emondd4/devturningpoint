@@ -1,0 +1,25 @@
+{
+  "id": "iv-nextjs-rsc-boundary",
+  "question": "What does the \"use client\" directive change in a Next.js App Router app?",
+  "careerIds": [
+    "frontend-engineer",
+    "fullstack-engineer"
+  ],
+  "technology": [
+    "Next.js",
+    "React"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "It marks a client module-graph boundary so that module and its imports ship as Client Components.",
+  "strongAnswer": "By default App Router pages/layouts are Server Components. \"use client\" creates a boundary: that file and the modules it imports become part of the client bundle. Keep the boundary low—interactive leaves—so data fetching and large static UI can stay on the server. Props crossing the boundary must be serializable.",
+  "followUps": [
+    "Can Server Components be children of Client Components?",
+    "How do you prevent leaking server secrets?"
+  ],
+  "commonWrongAnswer": "It must be added to every component that uses hooks in the entire tree file-by-file without considering imports.",
+  "productionRelevance": "Overusing client boundaries inflates JS and hurts performance.",
+  "relatedTopics": [
+    "FRONTEND-NEXTJS-RSC-CLIENT-BOUNDARIES"
+  ],
+  "lastVerified": "2026-09-15"
+}

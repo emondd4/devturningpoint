@@ -1,0 +1,84 @@
+---
+id: DEVOPS-HELM-BASICS
+title: "Helm Basics for Kubernetes"
+titleBn: "Kubernetes-এর জন্য Helm মৌলিক"
+description: "Package Kubernetes manifests as charts—values, releases, and templating without drowning in YAML."
+descriptionBn: "Kubernetes ম্যানিফেস্ট চার্ট হিসেবে প্যাকেজ—values, রিলিজ ও টেমপ্লেটিং।"
+track: devops
+difficulty: advanced
+estimatedMinutes: 40
+prerequisites:
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+unlocks: []
+related:
+  - "DEVOPS-DOCKER-COMPOSE"
+  - "DEVOPS-SECRETS-MANAGEMENT"
+careers:
+  - "devops-engineer"
+tags:
+  - "helm"
+  - "kubernetes"
+  - "charts"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "HELM-DOCS"
+  - "K8S-CONCEPTS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why raw kubectl YAML does not scale
+
+Ten microservices × three environments × copy-pasted manifests drifts. Helm charts parameterize releases with values files and versioned packages.
+
+## Mental model
+
+<Callout type="mental-model">
+  A chart is a versioned template package. A release is an installed instance with values. Templates render Kubernetes objects; upgrades track revision history.
+</Callout>
+
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install my-redis bitnami/redis --set auth.password='change-me'
+helm list
+helm upgrade my-redis bitnami/redis -f values-prod.yaml
+```
+
+Prefer your own charts for app Deployments; use well-known charts carefully with pinned versions.
+
+## Common mistakes
+
+- **Huge god-charts** — Split by ownership boundaries.
+- **Secrets only in values committed to git** — Use sealed secrets / external secret ops patterns.
+- **Ignoring `helm diff` / dry-run** — Always review rendered manifests.
+
+## Interview angle
+
+<Callout type="interview">
+  What problem do Helm values files solve across staging and production?
+</Callout>
+
+## Practice checklist
+
+- [ ] Install a chart into a local cluster (kind/minikube).
+- [ ] Override image tag via `--set` or values file.
+- [ ] Inspect templates with `helm template`.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `HELM-DOCS`
+- `K8S-CONCEPTS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

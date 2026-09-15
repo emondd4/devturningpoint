@@ -1,0 +1,98 @@
+---
+id: FRONTEND-REACT-BATCHING
+title: "Automatic Batching of State Updates"
+titleBn: "State update-এর Automatic Batching"
+description: "Why multiple setState calls often produce one render—and how to think about updates."
+descriptionBn: "একাধিক setState কেন প্রায়ই এক render হয়।"
+track: frontend
+category: react-internals
+difficulty: intermediate
+estimatedMinutes: 30
+prerequisites:
+  - FRONTEND-REACT-WHAT-CAUSES-RENDER
+unlocks: []
+related:
+  - FRONTEND-REACT-RENDER-VS-COMMIT
+careers:
+  - frontend-engineer
+  - fullstack-engineer
+tags:
+  - react
+  - rendering
+status: published
+translationStatus: partial
+applicableVersions:
+  react: "19.x — verify against react.dev"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - REACT-QUEUEING
+  - REACT-DOCS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+<Callout type="info" title="Translation status">
+  Body is English for V1; Bangla title/description provided.
+</Callout>
+
+## What is this?
+
+**Batching** means React groups multiple state updates that happen close together so the UI re-renders once with the combined result—rather than rendering after every single `set` call.
+
+## Why it exists
+
+Without batching, clicking a button that updates three pieces of state could render three times, waste work, and show intermediate UI states users never need.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prefer describing the next state. React may apply several updates before the next paint. If a later update depends on the previous value, use the functional updater form.
+</Callout>
+
+## Functional updates
+
+```tsx
+import { useState } from 'react';
+
+export function Score() {
+  const [score, setScore] = useState(0);
+
+  function addTwiceWrong() {
+    setScore(score + 1);
+    setScore(score + 1); // both read the same score snapshot
+  }
+
+  function addTwiceRight() {
+    setScore((s) => s + 1);
+    setScore((s) => s + 1); // second sees the queued result
+  }
+
+  return (
+    <div>
+      <p>{score}</p>
+      <button type="button" onClick={addTwiceRight}>
+        +2
+      </button>
+    </div>
+  );
+}
+```
+
+## Common mistakes
+
+1. Assuming each `setState` immediately mutates a local variable.
+2. Reading stale state inside nested timeouts without functional updates or effects.
+
+## Interview angles
+
+**Mid:** Why does `setX(x+1)` twice not always increment by 2?  
+**Senior:** How does batching interact with async events in modern React?
+
+## Sources
+
+- React: Queueing a Series of State Updates (`REACT-QUEUEING`)
+

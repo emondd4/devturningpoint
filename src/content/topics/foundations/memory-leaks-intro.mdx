@@ -1,0 +1,91 @@
+---
+id: FOUNDATIONS-MEMORY-LEAKS-INTRO
+title: "Memory Leaks Intro"
+titleBn: "মেমোরি লিক পরিচিতি"
+description: "Spot retained references, growing heaps, and why 'it gets slower over time' is often a leak."
+descriptionBn: "রিটেইনড রেফারেন্স ও হিপ বৃদ্ধি—সময়ের সাথে স্লোডাউন।"
+track: foundations
+category: programming
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+  - "FOUNDATIONS-DEBUGGING"
+unlocks: []
+related:
+  - "FOUNDATIONS-CONCURRENCY-VS-PARALLELISM"
+  - "FLUTTER-PERFORMANCE-DEVTOOLS"
+careers:
+  - "software-engineer"
+  - "frontend-engineer"
+  - "flutter-developer"
+  - "backend-engineer"
+tags:
+  - "memory"
+  - "leaks"
+  - "profiling"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "CHROME-DEVTOOLS-DEBUG"
+  - "MDN-JS-EVENT-LOOP"
+  - "FLUTTER-PERF"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why leaks feel like “random slowness”
+
+Garbage-collected languages free unreachable objects. A **leak** is usually an unintended reference keeping objects alive—caches without bounds, listeners never removed, closures capturing large graphs.
+
+## Mental model
+
+<Callout type="mental-model">
+  Reachability beats intention: if anything still points at an object (event bus, static map, DOM node, Flutter State), the GC cannot reclaim it. Profile **retained size** over time, not a single snapshot.
+</Callout>
+
+## Typical leak patterns
+
+```js
+const cache = new Map(); // unbounded
+function remember(user) {
+  cache.set(user.id, user); // grows forever
+}
+
+window.addEventListener('resize', () => {
+  // if this closes over a huge object and never removes, retention grows
+});
+```
+
+In Flutter: controllers/subscriptions not disposed; `GlobalKey` misuse; giant lists held in long-lived notifiers.
+
+## How to investigate
+
+1. Reproduce with a loop (navigate open/close N times).
+2. Take heap snapshots / memory charts before and after.
+3. Find retaining paths; fix ownership (dispose, WeakMap, bounded LRU).
+
+## Common mistakes
+
+- Calling every OOM a “memory leak” (sometimes just large working set)
+- Fixing symptoms with more RAM instead of ownership
+- Ignoring native allocations outside the GC heap
+
+## Interview angle
+
+<Callout type="interview">
+  Describe how you would confirm a SPA leak after repeated route changes using DevTools.
+</Callout>
+
+## Sources
+
+`CHROME-DEVTOOLS-DEBUG`, `MDN-JS-EVENT-LOOP`, `FLUTTER-PERF`.

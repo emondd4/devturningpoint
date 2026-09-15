@@ -1,0 +1,23 @@
+{
+  "id": "iv-react-what-causes-render",
+  "question": "What causes a React function component to render?",
+  "careerIds": [
+    "frontend-engineer"
+  ],
+  "technology": [
+    "React"
+  ],
+  "difficulty": "junior",
+  "shortAnswer": "Initial mount or a state update in the component or an ancestor.",
+  "strongAnswer": "Rendering means React calling the component to compute UI. It happens on initial render via createRoot().render and when state updates with a set function. Parent renders typically cause children to render unless memoized.",
+  "advancedAnswer": "Discuss that props are not a separate event stream; children render because reconciliation continues recursively after a parent render, and that render \u2260 commit \u2260 paint.",
+  "followUps": [
+    "Does updating a ref re-render?",
+    "What is the commit phase?"
+  ],
+  "commonWrongAnswer": "React re-renders only when props change via Object.is on every prop automatically without parent involvement.",
+  "relatedTopics": [
+    "FRONTEND-REACT-WHAT-CAUSES-RENDER"
+  ],
+  "lastVerified": "2026-09-15"
+}

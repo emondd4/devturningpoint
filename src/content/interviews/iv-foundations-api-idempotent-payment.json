@@ -1,0 +1,29 @@
+{
+  "id": "iv-foundations-api-idempotent-payment",
+  "question": "Design a create-payment API that clients may retry after a timeout\u2014how do you make retries safe?",
+  "careerIds": [
+    "backend-engineer",
+    "software-engineer",
+    "mobile-engineer"
+  ],
+  "technology": [
+    "HTTP",
+    "API"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Require an Idempotency-Key (or similar) so duplicate POSTs return the same payment result without double charge.",
+  "strongAnswer": "Clients send a unique idempotency key per user intent. The server stores key\u2192payment outcome atomically. Retries with the same key return the original result; different keys create new intents. Prefer 4xx for invalid input and avoid ambiguous timeouts without server-side dedupe. Align with HTTP semantics and careful POST handling.",
+  "advancedAnswer": "Discuss exactly-once vs at-least-once, ledger design, and OWASP API authz on payment objects.",
+  "followUps": [
+    "Where do you store idempotency records and for how long?",
+    "What status code do you return while payment is still processing?"
+  ],
+  "commonWrongAnswer": "Just retry POST freely because HTTP is reliable.",
+  "productionRelevance": "Mobile networks drop responses after the charge succeeded\u2014without idempotency, support tickets explode.",
+  "relatedTopics": [
+    "FOUNDATIONS-API-CONCEPTS",
+    "FOUNDATIONS-ERROR-HANDLING",
+    "FOUNDATIONS-HTTPS-TLS"
+  ],
+  "lastVerified": "2026-09-15"
+}

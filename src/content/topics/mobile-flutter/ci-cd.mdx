@@ -1,0 +1,95 @@
+---
+id: FLUTTER-CI-CD
+title: "Flutter CI/CD and Release Automation"
+titleBn: "Flutter CI/CD ও রিলিজ অটোমেশন"
+description: "Automate test, build, signing, and store upload pipelines so releases are repeatable—not laptop folklore."
+descriptionBn: "টেস্ট, বিল্ড, সাইনিং ও স্টোর আপলোড অটোমেট করুন।"
+track: mobile-flutter
+category: flutter
+difficulty: advanced
+estimatedMinutes: 50
+prerequisites:
+  - "FLUTTER-TESTING"
+  - "FLUTTER-DEPLOYMENT"
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+unlocks: []
+related:
+  - "FLUTTER-ANDROID-IOS-CAVEATS"
+  - "FLUTTER-PERFORMANCE-DEVTOOLS"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "ci"
+  - "cd"
+  - "devops"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-CD"
+  - "FLUTTER-TESTING"
+  - "FLUTTER-DEPLOY"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why CI/CD is a mobile reliability feature
+
+Manual Xcode/Android Studio clicks do not scale. CI runs analyzer/tests on every PR; CD produces signed artifacts and can upload to Play/TestFlight with audited secrets.
+
+## Mental model
+
+<Callout type="mental-model">
+  Pipeline stages: resolve deps → analyze → unit/widget tests → build apk/ipa/appbundle → sign with secrets from a vault → distribute. Fail closed on test/analyze errors.
+</Callout>
+
+## How
+
+### Example job sketch (GitHub Actions-like)
+
+```dart
+# Conceptual — adapt to your CI product
+# - flutter pub get
+# - dart analyze
+# - flutter test
+# - flutter build appbundle --release
+# Store keystore / API keys as encrypted CI secrets, never in git.
+```
+
+## Common mistakes
+
+- **Committing keystores or provisioning profiles**
+- **Only building on one developer’s machine**
+- **Skipping tests “to ship faster”** — regressions ship faster too
+
+## Interview angle
+
+<Callout type="interview">
+  What secrets belong in CI, and how do you rotate a Play upload key compromise?
+</Callout>
+
+## Practice checklist
+
+- [ ] Run analyze + test in CI on a sample repo.
+- [ ] Document signing secret locations for your team.
+- [ ] Read Flutter continuous delivery docs.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-CD`
+- `FLUTTER-TESTING`
+- `FLUTTER-DEPLOY`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

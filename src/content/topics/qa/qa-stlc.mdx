@@ -1,0 +1,82 @@
+---
+id: QA-STLC
+title: "Software Testing Life Cycle (STLC)"
+titleBn: "সফটওয়্যার টেস্টিং লাইফসাইকেল (STLC)"
+description: "Phases from requirement analysis through test closure—and how they map to Agile delivery."
+descriptionBn: "রিকয়ারমেন্ট অ্যানালাইসিস থেকে টেস্ট ক্লোজার পর্যন্ত ধাপ—এবং Agile ডেলিভারিতে ম্যাপিং।"
+track: qa
+difficulty: beginner
+estimatedMinutes: 30
+prerequisites:
+  - "QA-TESTING-PYRAMID"
+unlocks:
+  - "QA-BUG-REPORTING"
+  - "QA-RISK-BASED-TESTING"
+related:
+  - "QA-MANUAL-TEST-DESIGN"
+  - "PM-SOFTWARE-DELIVERY"
+careers:
+  - "qa-engineer"
+tags:
+  - "qa"
+  - "stlc"
+  - "process"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "PLAYWRIGHT-DOCS"
+  - "OWASP-TOP10"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why STLC matters
+
+Testing is not a single activity at the end. STLC structures how you analyze, design, execute, and close quality work so risks are caught early.
+
+## Mental model
+
+<Callout type="mental-model">
+  Typical phases: requirement analysis → test planning → test design → environment setup → execution → defect reporting → closure. In Scrum, compress these into each Sprint rather than a big waterfall gate.
+</Callout>
+
+## How it shows up in practice
+
+- **Requirement analysis** — Clarify acceptance criteria and testability before coding freezes.
+- **Planning** — Scope, risk priorities, entry/exit criteria, environments.
+- **Design** — Cases, charters, data sets, automation candidates.
+- **Execution & closure** — Trace results to risks; archive evidence for releases.
+
+## Common mistakes
+
+- **Waiting for “dev done”** — Late testing discovers expensive defects.
+- **No exit criteria** — Releases ship on calendar pressure alone.
+- **Ignoring environment readiness** — Flakes and false failures.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you apply STLC ideas inside a two-week Scrum sprint without waterfall gates?
+</Callout>
+
+## Practice checklist
+
+- [ ] Map STLC phases to your team’s Definition of Done.
+- [ ] Write entry/exit criteria for a login feature.
+- [ ] List artifacts you keep after a release.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `PLAYWRIGHT-DOCS`
+- `OWASP-TOP10`

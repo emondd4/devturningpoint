@@ -1,0 +1,96 @@
+---
+id: FLUTTER-DART-ISOLATES
+title: "Dart Isolates and Concurrent Work"
+titleBn: "Dart আইসোলেট ও কনকারেন্ট কাজ"
+description: "Keep the UI isolate free—offload heavy JSON parse and CPU work with Isolate.run and message-passing workers."
+descriptionBn: "UI আইসোলেট ফ্রি রাখুন—Isolate.run দিয়ে ভারী কাজ সরাবেন।"
+track: mobile-flutter
+category: dart
+difficulty: advanced
+estimatedMinutes: 50
+prerequisites:
+  - "FLUTTER-DART-ASYNC-FUTURES-STREAMS"
+  - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+unlocks:
+  - "FLUTTER-PERFORMANCE-DEVTOOLS"
+related:
+  - "FLUTTER-JSON-SERIALIZATION"
+  - "FLUTTER-ANTI-PATTERNS"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "dart"
+  - "isolates"
+  - "concurrency"
+  - "performance"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "DART-ISOLATES"
+  - "DART-ASYNC"
+  - "FLUTTER-PERF"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why Flutter’s UI runs on the main isolate’s event loop. A multi-megabyte JSON parse on that isolate janks frames—even if you `await` it. Isolates give separate memory heaps and true parallel CPU use on native platforms.
+
+## Mental model
+
+<Callout type="mental-model">
+  Isolates do not share memory; they communicate by message passing (SendPort/ReceivePort). Prefer `Isolate.run` for one-shot work; long-lived workers when you repeatedly pay spawn costs.
+</Callout>
+
+## How
+
+### One-shot background compute
+
+```dart
+import 'dart:convert';
+import 'dart:isolate';
+
+Future<Map<String, dynamic>> parseJsonOffMain(String raw) {
+  return Isolate.run(() {
+    final decoded = jsonDecode(raw);
+    return Map<String, dynamic>.from(decoded as Map);
+  });
+}
+```
+
+## Common mistakes
+
+- **Assuming isolates work the same on Flutter web** — limited/unsupported patterns.
+- **Sending huge object graphs** — copy cost can dominate.
+- **Using isolates for tiny work** — spawn overhead exceeds benefit.
+
+## Interview angle
+
+<Callout type="interview">
+  Why can an awaited CPU-heavy function still freeze Flutter UI, and how do isolates change that?
+</Callout>
+
+## Practice checklist
+
+- [ ] Move a large JSON decode behind `Isolate.run`.
+- [ ] Profile jank before/after with DevTools.
+- [ ] Sketch a long-lived worker with ports (even if you do not ship it).
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `DART-ISOLATES`
+- `DART-ASYNC`
+- `FLUTTER-PERF`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

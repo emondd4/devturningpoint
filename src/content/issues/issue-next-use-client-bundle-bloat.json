@@ -1,0 +1,22 @@
+{
+  "id": "issue-next-use-client-bundle-bloat",
+  "title": "Marking a layout with use client pulls a huge JS bundle",
+  "technology": "Next.js",
+  "platform": "Web",
+  "symptoms": [
+    "Large client bundle for mostly static pages",
+    "Hooks required only by a small widget",
+    "Worse LCP/TTI after refactor"
+  ],
+  "cause": "\"use client\" creates a module-graph boundary; importing heavy server-friendly UI into that graph ships it to the browser.",
+  "solution": "Push \"use client\" down to interactive leaves; keep layouts/pages as Server Components; pass serializable props.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "FRONTEND-NEXTJS-RSC-CLIENT-BOUNDARIES",
+    "FRONTEND-PERFORMANCE"
+  ],
+  "sources": [
+    "NEXTJS-SERVER-COMPONENTS"
+  ],
+  "lastVerified": "2026-09-15"
+}

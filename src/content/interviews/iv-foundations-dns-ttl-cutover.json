@@ -1,0 +1,27 @@
+{
+  "id": "iv-foundations-dns-ttl-cutover",
+  "question": "You updated an A record for api.example.com but some users still hit the old server\u2014what is the most likely cause?",
+  "careerIds": [
+    "software-engineer",
+    "devops-engineer"
+  ],
+  "technology": [
+    "DNS"
+  ],
+  "difficulty": "junior",
+  "shortAnswer": "Resolvers and clients are still serving cached answers until TTLs expire.",
+  "strongAnswer": "DNS answers are cached according to TTL at recursive resolvers and sometimes stubs. After an A record change, clients with unexpired cache keep the old IP. Cutover plans lower TTL ahead of time, wait out the old TTL, then switch\u2014and keep the old target healthy during overlap.",
+  "advancedAnswer": "Cover CDN/anycast, geo DNS, and negative caching (NXDOMAIN TTLs).",
+  "followUps": [
+    "How would you verify what answer a user is seeing?",
+    "What is the difference between authoritative and recursive servers?"
+  ],
+  "commonWrongAnswer": "The load balancer is broken because DNS changes are always instantaneous globally.",
+  "productionRelevance": "Blue/green and migration weekends fail when TTL was left at hours/days.",
+  "relatedTopics": [
+    "FOUNDATIONS-DNS",
+    "FOUNDATIONS-DNS-RECORDS-TTL",
+    "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+  ],
+  "lastVerified": "2026-09-15"
+}

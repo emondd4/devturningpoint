@@ -1,0 +1,48 @@
+---
+id: FRONTEND-FETCH-HTTP
+title: "Fetching Data in the Browser"
+titleBn: "ব্রাউজারে Data Fetch"
+description: "fetch, errors vs HTTP status, aborting requests, and modeling loading/error UI states."
+descriptionBn: "fetch, status কোড, abort।"
+track: frontend
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - FRONTEND-JAVASCRIPT-ASYNC-EVENT-LOOP
+unlocks: []
+related:
+  - FRONTEND-FORMS-VALIDATION
+  - FULLSTACK-CORS-CSRF
+careers:
+  - frontend-engineer
+tags:
+  - http
+  - javascript
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - MDN-FETCH
+  - RFC-9110-HTTP
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+`fetch` only rejects on network failure—not on 404/500. Always check `response.ok`.
+
+```ts
+const res = await fetch('/api/orders');
+if (!res.ok) throw new Error(`HTTP ${res.status}`);
+const data = await res.json();
+```
+
+Use `AbortController` when components unmount or users navigate away.
+
+## Interview
+
+Does `fetch` throw on HTTP 500? Why does that surprise juniors?
+

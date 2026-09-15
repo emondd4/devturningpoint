@@ -1,0 +1,104 @@
+---
+id: BACKEND-WEBSOCKETS-SERVER
+title: "WebSockets on the Server"
+titleBn: "সার্ভারে WebSockets"
+description: "Persistent connections for realtime updates—rooms, auth, scaling, and Nest gateways."
+descriptionBn: "রিয়েলটাইম আপডেটের জন্য স্থায়ী কানেকশন—rooms, auth, স্কেলিং ও Nest gateway।"
+track: backend
+category: realtime
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites:
+  - "BACKEND-NESTJS-ARCHITECTURE"
+  - "BACKEND-HTTP-REST-API-DESIGN"
+unlocks: []
+related:
+  - "BACKEND-REDIS-CACHING"
+  - "BACKEND-GRPC-AWARENESS"
+careers:
+  - "backend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "websockets"
+  - "realtime"
+  - "nestjs"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NESTJS-WEBSCOCKETS"
+  - "MDN-WEBSOCKETS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Polling wastes requests for live feeds, chats, and collaborative UIs. WebSockets keep a channel open—but sticky sessions, reconnects, and auth become your problem.
+
+## Mental model
+
+<Callout type="mental-model">
+  HTTP upgrades to a duplex socket. Server pushes events; clients send commands. Horizontal scale needs a pub/sub backplane (often Redis) so any instance can notify any connection.
+</Callout>
+
+## How it works
+
+Authenticate on connect. Authorize per room/event. Heartbeat and reconnect. Do not put heavy business transactions only on ephemeral socket messages without persistence.
+
+```ts
+import {
+  WebSocketGateway, WebSocketServer, SubscribeMessage, MessageBody,
+} from '@nestjs/websockets';
+import { Server } from 'socket.io';
+
+@WebSocketGateway({ cors: { origin: '*' } })
+export class TopicsGateway {
+  @WebSocketServer()
+  server: Server;
+
+  @SubscribeMessage('topics:subscribe')
+  handleSubscribe(@MessageBody() track: string) {
+    // join a room; validate auth in a real app
+    return { event: 'topics:subscribed', data: { track } };
+  }
+
+  broadcastTopicUpdated(id: string) {
+    this.server.emit('topics:updated', { id });
+  }
+}
+```
+
+## Common mistakes
+
+- **No auth on handshake** — Open sockets become an abuse channel.
+- **Single-node assumptions** — Add Redis adapter before multi-instance deploy.
+- **Using WS as the only source of truth** — Persist critical events; sockets drop.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you scale WebSocket fan-out across multiple Node instances, and where do you authenticate?
+</Callout>
+
+## Practice checklist
+
+- [ ] Sketch connect auth
+- [ ] Emit one server event
+- [ ] Note Redis adapter need for scale
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-WEBSCOCKETS`
+- `MDN-WEBSOCKETS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

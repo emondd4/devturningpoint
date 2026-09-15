@@ -1,0 +1,95 @@
+---
+id: BACKEND-GRACEFUL-SHUTDOWN
+title: "Graceful Shutdown"
+titleBn: "Graceful Shutdown"
+description: "Stop accepting traffic, drain in-flight work, then exit—without dropping requests on deploy."
+descriptionBn: "ট্রাফিক বন্ধ, চলমান কাজ শেষ, তারপর exit—ডিপ্লয়ে রিকোয়েস্ট না ফেলে।"
+track: backend
+category: ops
+difficulty: intermediate
+estimatedMinutes: 30
+prerequisites:
+  - "BACKEND-NODE-RUNTIME-EVENT-LOOP"
+unlocks: []
+related:
+  - "BACKEND-HEALTH-CHECKS"
+  - "BACKEND-DOCKER-DEPLOY"
+careers:
+  - "backend-engineer"
+  - "devops-engineer"
+tags:
+  - "shutdown"
+  - "signals"
+  - "reliability"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NODE-SIGNALS"
+  - "NODE-HEALTH"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Killing a process mid-request causes 502s and partial writes. Orchestrators send SIGTERM first—your app should drain, then exit cleanly.
+
+## Mental model
+
+<Callout type="mental-model">
+  SIGTERM → stop new work / fail readiness → finish in-flight HTTP → close DB/queue clients → process.exit. Bound with a timeout so hung work cannot block forever.
+</Callout>
+
+## How it works
+
+Enable Nest `enableShutdownHooks`. Close the HTTP server, then providers. Align readiness probes with “accepting traffic” state.
+
+```ts
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.enableShutdownHooks(); // listen for SIGTERM/SIGINT
+  await app.listen(3000);
+}
+bootstrap();
+
+// In a provider:
+// async onModuleDestroy() { await this.pool.end(); }
+```
+
+## Common mistakes
+
+- **Ignoring SIGTERM** — Platform kills you after grace period anyway—worse outcome.
+- **Long unbounded drain** — Always set a hard timeout.
+- **Readiness still Ready while draining** — Load balancers keep sending traffic.
+
+## Interview angle
+
+<Callout type="interview">
+  What is the difference between liveness and readiness during deploy, and how does SIGTERM fit in?
+</Callout>
+
+## Practice checklist
+
+- [ ] Enable shutdown hooks
+- [ ] Close a pool on destroy
+- [ ] Verify readiness flips before drain
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NODE-SIGNALS`
+- `NODE-HEALTH`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

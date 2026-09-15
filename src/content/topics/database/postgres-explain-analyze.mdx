@@ -1,0 +1,91 @@
+---
+id: DATABASE-POSTGRES-EXPLAIN
+title: "EXPLAIN and ANALYZE Deep Dive"
+titleBn: "EXPLAIN ও ANALYZE গভীর আলোচনা"
+description: "Read query plans: seq scans, index scans, joins, and how ANALYZE compares estimates to reality."
+descriptionBn: "কুয়েরি প্ল্যান পড়া: seq scan, index scan, join, এবং ANALYZE কীভাবে অনুমানের সাথে বাস্তব তুলনা করে।"
+track: database
+difficulty: advanced
+estimatedMinutes: 44
+prerequisites:
+  - "DATABASE-POSTGRESQL-INDEXING"
+  - "DATABASE-SQL-JOINS-AGGREGATION"
+unlocks:
+  - "DATABASE-INDEXING-ANTIPATTERNS"
+related:
+  - "DATABASE-SQL-WINDOW-FUNCTIONS"
+  - "DATABASE-LOCKING-CONCURRENCY"
+careers:
+  - "backend-engineer"
+  - "database-engineer"
+tags:
+  - "postgresql"
+  - "explain"
+  - "performance"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTGRES-EXPLAIN"
+  - "POSTGRES-INDEXES"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why guessing indexes wastes weeks
+
+The planner chooses among scans and join strategies using statistics. `EXPLAIN` shows the plan; `EXPLAIN (ANALYZE, BUFFERS)` runs it and reports actual timing—proof over folklore.
+
+## Mental model
+
+<Callout type="mental-model">
+  Nodes flow bottom-up: reads feed joins feed sorts. Compare estimated rows vs actual. Large mismatches hint stale stats or correlated columns. Cost is a planner unit—not milliseconds—until ANALYZE.
+</Callout>
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT o.id, u.email
+FROM orders o
+JOIN users u ON u.id = o.user_id
+WHERE o.created_at >= CURRENT_DATE - INTERVAL '7 days'
+ORDER BY o.created_at DESC
+LIMIT 50;
+```
+
+Look for Seq Scan on large tables with selective filters, Nested Loop explosions, and sorts spilling to disk.
+
+## Common mistakes
+
+- **Optimizing EXPLAIN without ANALYZE** — Estimates lie when stats are wrong.
+- **Micro-benchmarking cold cache only** — Note buffers/shared hits.
+- **Ignoring LIMIT’s effect** — Plans change with limits.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you decide between adding an index and rewriting a query after reading EXPLAIN ANALYZE?
+</Callout>
+
+## Practice checklist
+
+- [ ] Capture ANALYZE for a slow endpoint query.
+- [ ] Identify the most expensive node.
+- [ ] Run `ANALYZE table;` after bulk loads and re-check.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-EXPLAIN`
+- `POSTGRES-INDEXES`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

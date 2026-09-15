@@ -1,0 +1,87 @@
+---
+id: "BACKEND-JWT-VS-SESSIONS"
+title: "JWT vs Server Sessions"
+titleBn: "JWT \u09ac\u09a8\u09be\u09ae \u09b8\u09be\u09b0\u09cd\u09ad\u09be\u09b0 \u09b8\u09c7\u09b6\u09a8"
+description: "Tradeoffs between self-contained tokens and server-side session stores for browser and API clients."
+descriptionBn: "\u09ac\u09cd\u09b0\u09be\u0989\u099c\u09be\u09b0 \u0993 API \u0995\u09cd\u09b2\u09be\u09af\u09bc\u09c7\u09a8\u09cd\u099f\u09c7\u09b0 \u099c\u09a8\u09cd\u09af self-contained \u099f\u09cb\u0995\u09c7\u09a8 \u0993 \u09b8\u09be\u09b0\u09cd\u09ad\u09be\u09b0-\u09b8\u09be\u0987\u09a1 \u09b8\u09c7\u09b6\u09a8 \u09b8\u09cd\u099f\u09cb\u09b0\u09c7\u09b0 \u099f\u09cd\u09b0\u09c7\u09a1\u0985\u09ab\u0964"
+track: "backend"
+category: "auth"
+difficulty: "advanced"
+estimatedMinutes: 40
+prerequisites:
+  - "BACKEND-NESTJS-AUTH-JWT"
+  - "BACKEND-SECURITY-BASICS"
+related:
+  - "BACKEND-OAUTH-CONCEPTS"
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+careers:
+  - "backend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "jwt"
+  - "sessions"
+  - "auth"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "RFC-7519-JWT"
+  - "MDN-COOKIES"
+  - "NESTJS-AUTH"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+You must maintain auth state somehow. JWTs push claims to the client; sessions keep authoritative state on the server. Neither is magic—threat models differ.
+
+<Callout type="mental-model">
+  Sessions: opaque id in cookie → server lookup (revocable, easy logout). JWT access tokens: verifiable without store (scalable) but revocation is harder—often pair with short TTL + refresh rotation.
+</Callout>
+
+## Decision cues
+
+Browser-first apps often use secure, HttpOnly cookies (session or refresh). Pure APIs for third parties may use bearer access tokens with clear storage guidance.
+
+```ts
+export type AuthStyle = 'server-session' | 'jwt-bearer';
+
+export function recommendAuth(style: 'spa-same-site' | 'public-api'): AuthStyle {
+  return style === 'spa-same-site' ? 'server-session' : 'jwt-bearer';
+}
+```
+
+## Common mistakes
+
+- **Storing JWT in localStorage** — XSS can steal it—prefer HttpOnly cookies when possible.
+- **Year-long JWT without revocation** — Stolen tokens live forever.
+- **Assuming JWT is "more secure"** — Security depends on storage, TLS, rotation, and XSS posture.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you revoke a pure JWT access token before expiry?
+</Callout>
+
+## Practice checklist
+
+- [ ] Compare logout flows for session vs JWT.
+- [ ] List cookie flags you need in production.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `RFC-7519-JWT`
+- `MDN-COOKIES`
+- `NESTJS-AUTH`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

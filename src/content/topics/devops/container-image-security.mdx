@@ -1,0 +1,99 @@
+---
+id: DEVOPS-CONTAINER-IMAGE-SECURITY
+title: "Container Image Security Concepts"
+titleBn: "কন্টেইনার ইমেজ সিকিউরিটি ধারণা"
+description: "Minimal bases, non-root users, pin digests, and vulnerability scanning concepts for safer images."
+descriptionBn: "নিরাপদ ইমেজের জন্য মিনিমাল বেস, নন-রুট ইউজার, ডাইজেস্ট পিন ও ভালনারেবিলিটি স্ক্যানিং ধারণা।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "DEVOPS-DOCKER-FUNDAMENTALS"
+unlocks:
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+related:
+  - "DEVOPS-DOCKER-COMPOSE"
+  - "DEVOPS-SECRETS-MANAGEMENT"
+careers:
+  - "devops-engineer"
+  - "devops-engineer"
+tags:
+  - "docker"
+  - "security"
+  - "scanning"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "DOCKER-SCOUT"
+  - "DOCKER-BUILD-BEST-PRACTICES"
+  - "DOCKER-GET-STARTED"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why image hygiene is a security control
+
+Your runtime inherits every package in the base image. Unpinned `latest`, root processes, and unscanned CVEs turn a deploy into an attack surface.
+
+## Mental model
+
+<Callout type="mental-model">
+  Shrink the blast radius: small trusted bases, multi-stage builds, non-root USER, pinned digests, and continuous scanning of images you actually ship.
+</Callout>
+
+```dockerfile
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY . .
+RUN npm run build && npm prune --omit=dev
+
+FROM node:22-alpine
+RUN addgroup -S app && adduser -S app -G app
+WORKDIR /app
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/node_modules ./node_modules
+USER app
+EXPOSE 3000
+CMD ["node", "dist/main.js"]
+```
+
+Scan in CI (Docker Scout or equivalent) and fail builds on critical CVEs you can remediate.
+
+## Common mistakes
+
+- **Running as root in production containers** — Breakouts hurt more.
+- **Baking secrets into layers** — They remain in image history.
+- **Ignoring scan noise forever** — Triage; suppress knowingly with expiry.
+
+## Interview angle
+
+<Callout type="interview">
+  How do multi-stage builds and non-root users reduce supply-chain and runtime risk?
+</Callout>
+
+## Practice checklist
+
+- [ ] Convert a fat image to multi-stage + USER.
+- [ ] Pin a base digest once for a release candidate.
+- [ ] Run a scanner and explain one finding.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `DOCKER-SCOUT`
+- `DOCKER-BUILD-BEST-PRACTICES`
+- `DOCKER-GET-STARTED`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

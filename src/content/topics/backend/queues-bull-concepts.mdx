@@ -1,0 +1,92 @@
+---
+id: "BACKEND-QUEUES-BULL"
+title: "Background Jobs & Bull/BullMQ Concepts"
+titleBn: "\u09ac\u09cd\u09af\u09be\u0995\u0997\u09cd\u09b0\u09be\u0989\u09a8\u09cd\u09a1 \u099c\u09ac \u0993 Bull/BullMQ \u0995\u09a8\u09b8\u09c7\u09aa\u09cd\u099f"
+description: "Why HTTP handlers should not do slow work\u2014queues, retries, idempotency, and Nest's Bull integration."
+descriptionBn: "\u0995\u09c7\u09a8 HTTP \u09b9\u09cd\u09af\u09be\u09a8\u09cd\u09a1\u09b2\u09be\u09b0\u09c7 \u09a7\u09c0\u09b0 \u0995\u09be\u099c \u09b0\u09be\u0996\u09be \u0989\u099a\u09bf\u09a4 \u09a8\u09af\u09bc\u2014\u0995\u09bf\u0989, retry, idempotency \u0993 Nest-\u098f\u09b0 Bull \u0987\u09a8\u09cd\u099f\u09bf\u0997\u09cd\u09b0\u09c7\u09b6\u09a8\u0964"
+track: "backend"
+category: "async"
+difficulty: "advanced"
+estimatedMinutes: 40
+prerequisites:
+  - "BACKEND-REDIS-CACHING"
+  - "BACKEND-NESTJS-ARCHITECTURE"
+related:
+  - "BACKEND-WEBSOCKETS"
+  - "BACKEND-LOGGING"
+careers:
+  - "backend-engineer"
+tags:
+  - "bullmq"
+  - "queues"
+  - "redis"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NESTJS-QUEUES"
+  - "REDIS-DATA-TYPES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Emails, image processing, and fan-out notifications make requests slow and fragile. Queues move work out of the request/response path with retries and concurrency controls.
+
+<Callout type="mental-model">
+  Producers enqueue jobs; workers consume them. Redis backs Bull/BullMQ. Design jobs to be idempotent—at-least-once delivery is common.
+</Callout>
+
+## Conceptual producer
+
+Prefer BullMQ for new Nest work (`@nestjs/bullmq`). Keep payloads small; store large blobs in object storage and pass ids.
+
+```ts
+// Conceptual — wire via @nestjs/bullmq in real apps
+export type SendEmailJob = {
+  to: string;
+  templateId: string;
+  idempotencyKey: string;
+};
+
+export async function enqueueWelcomeEmail(
+  queue: { add: (name: string, data: SendEmailJob) => Promise<unknown> },
+  job: SendEmailJob,
+) {
+  await queue.add('welcome-email', job);
+}
+```
+
+## Common mistakes
+
+- **Non-idempotent workers** — Retries duplicate charges/emails.
+- **Huge payloads in Redis** — Memory pressure; pass references instead.
+- **Doing queue work inline in HTTP** — Timeouts and poor UX under load.
+
+## Interview angle
+
+<Callout type="interview">
+  Why must queue consumers be idempotent?
+</Callout>
+
+## Practice checklist
+
+- [ ] List three jobs you would move off the request path.
+- [ ] Design an idempotency key for email send.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-QUEUES`
+- `REDIS-DATA-TYPES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
