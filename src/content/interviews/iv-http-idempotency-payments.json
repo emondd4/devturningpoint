@@ -25,5 +25,7 @@
     "backend",
     "api-design"
   ],
-  "lastVerified": "2026-09-14"
+  "lastVerified": "2026-09-14",
+  "codeExample": "// Example framing for: A mobile client retries a 'create payment' POST after a network timeout. How do you design the API so the user is not charged twice?\n// Stack: HTTP, APIs, PostgreSQL\n// Short answer: Use client-generated idempotency keys stored server-side so retries return the original result instead of creating a new charge.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using HTTP, APIs, PostgreSQL. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

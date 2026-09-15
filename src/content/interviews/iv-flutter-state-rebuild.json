@@ -23,5 +23,7 @@
     "mobile",
     "flutter"
   ],
-  "lastVerified": "2026-09-14"
+  "lastVerified": "2026-09-14",
+  "codeExample": "// Example framing for: In Flutter, when would you choose Riverpod/Bloc over setState for app-wide auth and cart state, and what failure mode does setState alone create?\n// Stack: Flutter, Dart\n// Short answer: Use a state-management approach when state is shared across routes or needs testable separation; setState alone does not scale across the widget tree cleanly.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Flutter, Dart. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

@@ -1,0 +1,446 @@
+[
+  {
+    "id": "DB-B-0010",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Compare INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN."
+  },
+  {
+    "id": "DB-B-0011",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Explain SELECT, INSERT, UPDATE, and DELETE."
+  },
+  {
+    "id": "DB-B-0012",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Name common Redis data structures and typical use cases."
+  },
+  {
+    "id": "DB-B-0013",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are primary, foreign, candidate, and unique keys?"
+  },
+  {
+    "id": "DB-B-0014",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What do the ACID properties mean?"
+  },
+  {
+    "id": "DB-B-0015",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is GROUP BY used for?"
+  },
+  {
+    "id": "DB-B-0016",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is MongoDB, and what is a document?"
+  },
+  {
+    "id": "DB-B-0017",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is PostgreSQL?"
+  },
+  {
+    "id": "DB-B-0018",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is Redis commonly used for?"
+  },
+  {
+    "id": "DB-B-0019",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a database backup, and why is testing restore more important than only creating backups?"
+  },
+  {
+    "id": "DB-B-0020",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a database transaction?"
+  },
+  {
+    "id": "DB-B-0021",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a relational database?"
+  },
+  {
+    "id": "DB-B-0022",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a subquery?"
+  },
+  {
+    "id": "DB-B-0023",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is an index?"
+  },
+  {
+    "id": "DB-B-0024",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is normalization, and why do we normalize data?"
+  },
+  {
+    "id": "DB-B-0025",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between SQL and NoSQL databases at a high level?"
+  },
+  {
+    "id": "DB-B-0026",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between a table, row, column, schema, and database?"
+  },
+  {
+    "id": "DB-B-0027",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between embedding and referencing in a document model?"
+  },
+  {
+    "id": "DB-B-0028",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Why can adding too many indexes be harmful?"
+  },
+  {
+    "id": "DB-B-0031",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between `WHERE` and `HAVING`?"
+  },
+  {
+    "id": "DB-B-0032",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between a primary key, a unique constraint, and a foreign key?"
+  },
+  {
+    "id": "DB-B-0033",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the purpose of a transaction?"
+  },
+  {
+    "id": "DB-B-0034",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "Why can adding an index improve reads but make writes more expensive?"
+  },
+  {
+    "id": "DB-B-0035",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "Why does `NULL = NULL` not behave like ordinary equality in SQL?"
+  },
+  {
+    "id": "DB-I-0011",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare B-tree, hash, GIN, GiST, and BRIN indexes conceptually in PostgreSQL."
+  },
+  {
+    "id": "DB-I-0012",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare Redis Pub/Sub and Redis Streams."
+  },
+  {
+    "id": "DB-I-0013",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare logical and physical replication at a conceptual level."
+  },
+  {
+    "id": "DB-I-0014",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare optimistic and pessimistic locking."
+  },
+  {
+    "id": "DB-I-0015",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain 1NF, 2NF, 3NF, and BCNF with an example of a normalization problem."
+  },
+  {
+    "id": "DB-I-0016",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain PostgreSQL VACUUM, autovacuum, dead tuples, and table bloat."
+  },
+  {
+    "id": "DB-I-0017",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain cache-aside with Redis and common invalidation problems."
+  },
+  {
+    "id": "DB-I-0018",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain connection pooling and why too many database connections can reduce throughput."
+  },
+  {
+    "id": "DB-I-0019",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain transaction isolation levels and common anomalies."
+  },
+  {
+    "id": "DB-I-0020",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Given a workload, how would you choose among PostgreSQL, Redis, and MongoDB rather than selecting by popularity?"
+  },
+  {
+    "id": "DB-I-0021",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How do MongoDB indexes and aggregation pipelines work at a high level?"
+  },
+  {
+    "id": "DB-I-0022",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How do WAL and point-in-time recovery work in PostgreSQL?"
+  },
+  {
+    "id": "DB-I-0023",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are CTEs and window functions, and when are they useful?"
+  },
+  {
+    "id": "DB-I-0024",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are MongoDB multi-document transactions, and why should data modelling still try to avoid unnecessary cross-document transactions?"
+  },
+  {
+    "id": "DB-I-0025",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are Redis RDB and AOF persistence strategies?"
+  },
+  {
+    "id": "DB-I-0026",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What causes a database deadlock, and how does PostgreSQL recover from one?"
+  },
+  {
+    "id": "DB-I-0027",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What does EXPLAIN show, and how is EXPLAIN ANALYZE different?"
+  },
+  {
+    "id": "DB-I-0028",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What is MVCC, and how does PostgreSQL use it to support concurrency?"
+  },
+  {
+    "id": "DB-I-0029",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What is a composite index, and how does column order affect its usefulness?"
+  },
+  {
+    "id": "DB-I-0030",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Why might PostgreSQL choose a sequential scan even when an index exists?"
+  },
+  {
+    "id": "DB-I-0033",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How do MVCC snapshots let readers and writers proceed concurrently, and what cleanup problem does this create?"
+  },
+  {
+    "id": "DB-I-0034",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How do you diagnose and resolve a recurring deadlock between two application workflows?"
+  },
+  {
+    "id": "DB-I-0035",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How would you choose column order for a composite B-tree index based on real query patterns?"
+  },
+  {
+    "id": "DB-I-0036",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "When does denormalization improve a system, and what consistency costs does it introduce?"
+  },
+  {
+    "id": "DB-I-0037",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "Why might PostgreSQL choose a sequential scan even when a relevant index exists?"
+  },
+  {
+    "id": "DB-A-0009",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare Redis Sentinel and Cluster concepts and the trade-offs of sharding data across nodes."
+  },
+  {
+    "id": "DB-A-0010",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare native partitioning, application sharding, and distributed PostgreSQL approaches."
+  },
+  {
+    "id": "DB-A-0011",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare normalized relational modelling with document embedding for the same ecommerce domain."
+  },
+  {
+    "id": "DB-A-0012",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design Redis caching that survives node failures while preventing stale or inconsistent critical data."
+  },
+  {
+    "id": "DB-A-0013",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a Redis-based distributed lock and explain the correctness limitations you must consider."
+  },
+  {
+    "id": "DB-A-0014",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design an indexing strategy for a multi-column filtering/sorting workload with several competing query patterns."
+  },
+  {
+    "id": "DB-A-0015",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design backup/PITR/restore procedures and prove they meet specific RPO/RTO objectives."
+  },
+  {
+    "id": "DB-A-0016",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design high availability for PostgreSQL and discuss synchronous versus asynchronous replication trade-offs."
+  },
+  {
+    "id": "DB-A-0017",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design observability for database health: latency, locks, cache hit rates, replication, vacuum, storage, and query distribution."
+  },
+  {
+    "id": "DB-A-0018",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Diagnose a PostgreSQL query whose plan changed from milliseconds to seconds after data growth despite unchanged SQL."
+  },
+  {
+    "id": "DB-A-0019",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Diagnose a production deadlock from database logs and application behavior."
+  },
+  {
+    "id": "DB-A-0020",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain MVCC snapshots deeply and how long-running transactions can interfere with vacuuming."
+  },
+  {
+    "id": "DB-A-0021",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain cache stampede, avalanche, penetration, hot keys, and eviction-induced failures and their mitigations."
+  },
+  {
+    "id": "DB-A-0022",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain how replication lag can produce stale reads and how application architecture can accommodate it."
+  },
+  {
+    "id": "DB-A-0023",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you choose an appropriate transaction isolation level for financial ledger operations?"
+  },
+  {
+    "id": "DB-A-0024",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you design a MongoDB shard key for an access pattern that has both hotspot and range-query risks?"
+  },
+  {
+    "id": "DB-A-0025",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you identify and fix index bloat, table bloat, poor statistics, or parameter-sensitive query planning?"
+  },
+  {
+    "id": "DB-A-0026",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you migrate a multi-terabyte PostgreSQL table with minimal downtime?"
+  },
+  {
+    "id": "DB-A-0027",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you safely change a frequently queried large table's schema in a zero-downtime deployment?"
+  },
+  {
+    "id": "DB-A-0028",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "In a database-system-design interview, design the persistence layer for a high-volume order platform and justify schema, indexes, transactions, caching, replication, partitioning, backup, and failure recovery."
+  },
+  {
+    "id": "DB-A-0031",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "A query was fast for months and suddenly became slow without a code change. Build a PostgreSQL investigation covering data growth, statistics, plan changes, bloat, locks, and infrastructure."
+  },
+  {
+    "id": "DB-A-0032",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design PostgreSQL high availability with backups, PITR, replicas, failover, connection routing, and regular restore testing."
+  },
+  {
+    "id": "DB-A-0033",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a data model that deliberately combines PostgreSQL, Redis, and a document store, and justify why each datastore owns specific data."
+  },
+  {
+    "id": "DB-A-0034",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a zero-downtime migration for a multi-billion-row table while application traffic continues."
+  },
+  {
+    "id": "DB-A-0035",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Explain how you would detect and mitigate Redis hot keys and memory pressure in a high-throughput cache."
+  }
+]

@@ -29,5 +29,7 @@
     "FULLSTACK-COOKIES-SESSIONS-TOKENS",
     "FULLSTACK-HTTP-BOUNDARIES"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// CORS is browser-enforced; not authorization.\n// Cookie session app needs CSRF token or SameSite strategy for state-changing routes.\napp.use(cors({ origin: ['https://app.example.com'], credentials: true }));",
+  "integrationProcedure": "1) List browser clients and their origins. 2) Configure CORS allowlist (no * with credentials). 3) If cookies: add CSRF tokens or SameSite=strict/lax appropriately. 4) Test from disallowed origin. 5) Document non-browser clients separately (API keys/mTLS)."
 }

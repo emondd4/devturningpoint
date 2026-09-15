@@ -22,5 +22,7 @@
     "BACKEND-DOCKER-MULTI-STAGE",
     "BACKEND-HEALTH-CHECKS"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: Why use Docker multi-stage builds for a Node/Nest API image?\n// Stack: Docker, Node.js\n// Short answer: Build with compilers/dev deps in one stage; ship a smaller runtime stage with only artifacts.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Docker, Node.js. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

@@ -21,5 +21,7 @@
   "relatedTopics": [
     "FRONTEND-NEXTJS-RSC-CLIENT-BOUNDARIES"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: What does the \"use client\" directive change in a Next.js App Router app?\n// Stack: Next.js, React\n// Short answer: It marks a client module-graph boundary so that module and its imports ship as Client Components.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Next.js, React. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

@@ -16,6 +16,7 @@ export default function InterviewBankBrowser({ locale, trackLabel, questions, ca
   const [category, setCategory] = useState('All');
   const [type, setType] = useState('All');
   const [query, setQuery] = useState('');
+  const [answeredOnly, setAnsweredOnly] = useState(false);
   const deferredQuery = useDeferredValue(query.trim().toLowerCase());
 
   const questionTypes = useMemo(
@@ -23,16 +24,19 @@ export default function InterviewBankBrowser({ locale, trackLabel, questions, ca
     [questions],
   );
 
+  const answeredCount = useMemo(() => questions.filter((q) => q.shortAnswer || q.answer).length, [questions]);
+
   const filtered = useMemo(() => {
     return questions.filter((q) => {
       if (level !== 'All' && q.level !== level) return false;
       if (category !== 'All' && q.category !== category) return false;
       if (type !== 'All' && q.questionType !== type) return false;
+      if (answeredOnly && !(q.shortAnswer || q.answer)) return false;
       if (!deferredQuery) return true;
-      const hay = `${q.question} ${q.topic} ${q.category} ${q.id}`.toLowerCase();
+      const hay = `${q.question} ${q.topic} ${q.category} ${q.id} ${q.shortAnswer ?? ''} ${q.answer ?? ''}`.toLowerCase();
       return hay.includes(deferredQuery);
     });
-  }, [questions, level, category, type, deferredQuery]);
+  }, [questions, level, category, type, answeredOnly, deferredQuery]);
 
   const byCategory = useMemo(() => {
     const map = new Map<string, BankQuestion[]>();
@@ -55,7 +59,9 @@ export default function InterviewBankBrowser({ locale, trackLabel, questions, ca
             <h2 className="text-lg font-semibold text-[var(--color-ink)]">{trackLabel}</h2>
           </div>
           <p className="text-sm text-[var(--color-ink-muted)]">
-            {isBn ? `${filtered.length} / ${questions.length} প্রশ্ন` : `${filtered.length} / ${questions.length} questions`}
+            {isBn
+              ? `${filtered.length} / ${questions.length} প্রশ্ন · ${answeredCount} উত্তরসহ`
+              : `${filtered.length} / ${questions.length} questions · ${answeredCount} with answers`}
           </p>
         </div>
 
@@ -112,11 +118,21 @@ export default function InterviewBankBrowser({ locale, trackLabel, questions, ca
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder={isBn ? 'প্রশ্ন, টপিক, বা আইডি…' : 'Question, topic, or id…'}
+              placeholder={isBn ? 'প্রশ্ন, উত্তর, টপিক…' : 'Question, answer, topic…'}
               className="w-full rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-1)] px-3 py-2 text-[var(--color-ink)]"
             />
           </label>
         </div>
+
+        <label className="flex items-center gap-2 text-sm text-[var(--color-ink-muted)]">
+          <input
+            type="checkbox"
+            checked={answeredOnly}
+            onChange={(e) => setAnsweredOnly(e.target.checked)}
+            className="rounded border-[var(--color-border)]"
+          />
+          {isBn ? 'শুধু উত্তরসহ প্রশ্ন' : 'Only questions with answers'}
+        </label>
       </div>
 
       {byCategory.length === 0 ? (
@@ -138,13 +154,55 @@ export default function InterviewBankBrowser({ locale, trackLabel, questions, ca
                   <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--color-ink-subtle)]">
                     <span className="badge">{q.level}</span>
                     <span className="rounded-full bg-[var(--color-surface-2)] px-2 py-0.5">{q.questionType}</span>
-                    <span>{q.topic}</span>
+                    {q.topic ? <span>{q.topic}</span> : null}
                     <span className="font-mono">{q.id}</span>
+                    {(q.shortAnswer || q.answer) && (
+                      <span className="rounded-full bg-[var(--color-success-soft)] px-2 py-0.5 text-[var(--color-success)]">
+                        {isBn ? 'উত্তর আছে' : 'Answered'}
+                      </span>
+                    )}
                   </div>
                   <p className="mt-2 text-[var(--color-ink)]">
                     <span className="mr-2 text-[var(--color-ink-subtle)]">{index + 1}.</span>
                     {q.question}
                   </p>
+                  {(q.shortAnswer || q.answer || q.example || q.integrationProcedure) && (
+                    <details className="mt-3 text-sm text-[var(--color-ink-muted)]">
+                      <summary className="cursor-pointer font-medium text-[var(--color-ink)]">
+                        {isBn ? 'উত্তর, উদাহরণ ও ইন্টিগ্রেশন' : 'Answer, example & integration'}
+                      </summary>
+                      <div className="mt-3 space-y-3">
+                        {q.shortAnswer && (
+                          <p>
+                            <strong className="text-[var(--color-ink)]">{isBn ? 'সংক্ষিপ্ত:' : 'Short:'}</strong>{' '}
+                            {q.shortAnswer}
+                          </p>
+                        )}
+                        {q.answer && (
+                          <p>
+                            <strong className="text-[var(--color-ink)]">{isBn ? 'পূর্ণ উত্তর:' : 'Full answer:'}</strong>{' '}
+                            {q.answer}
+                          </p>
+                        )}
+                        {q.example && (
+                          <div>
+                            <p className="font-medium text-[var(--color-ink)]">{isBn ? 'উদাহরণ' : 'Example'}</p>
+                            <pre className="mt-1 overflow-x-auto rounded-[var(--radius-md)] bg-[var(--color-surface-2)] p-3 font-mono text-xs text-[var(--color-ink)] whitespace-pre-wrap">
+                              {q.example}
+                            </pre>
+                          </div>
+                        )}
+                        {q.integrationProcedure && (
+                          <p>
+                            <strong className="text-[var(--color-ink)]">
+                              {isBn ? 'ইন্টিগ্রেশন:' : 'Integration:'}
+                            </strong>{' '}
+                            {q.integrationProcedure}
+                          </p>
+                        )}
+                      </div>
+                    </details>
+                  )}
                 </li>
               ))}
             </ol>

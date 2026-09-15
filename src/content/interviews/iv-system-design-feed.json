@@ -25,5 +25,7 @@
     "system-design",
     "backend"
   ],
-  "lastVerified": "2026-09-14"
+  "lastVerified": "2026-09-14",
+  "codeExample": "// Example framing for: Design a simple news-feed API for 100k DAU: what do you store, how do you paginate, and what would you explicitly not build on day one?\n// Stack: System Design, PostgreSQL, Redis\n// Short answer: Start with a relational post table, keyset pagination, and a straightforward follower query or fan-out-on-read; avoid multi-region complexity early.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using System Design, PostgreSQL, Redis. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

@@ -7,6 +7,14 @@ export interface BankQuestion {
   topic: string;
   questionType: string;
   question: string;
+  /** One-line interview answer */
+  shortAnswer?: string;
+  /** Full spoken/written answer */
+  answer?: string;
+  /** Concrete code or worked example when useful */
+  example?: string;
+  /** How to apply or adopt this in a real project */
+  integrationProcedure?: string;
 }
 
 export interface InterviewTrackCatalog {

@@ -1,0 +1,513 @@
+[
+  {
+    "id": "PM-B-0019",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you communicate that a task is delayed without hiding the problem?"
+  },
+  {
+    "id": "PM-B-0020",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What are scope, schedule, cost, quality, and risk?"
+  },
+  {
+    "id": "PM-B-0021",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What are the Scrum accountabilities, events, and artifacts?"
+  },
+  {
+    "id": "PM-B-0022",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What are the common phases of a software project lifecycle?"
+  },
+  {
+    "id": "PM-B-0023",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is Agile, and what does it not mean?"
+  },
+  {
+    "id": "PM-B-0024",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is Jira used for?"
+  },
+  {
+    "id": "PM-B-0025",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is Scrum?"
+  },
+  {
+    "id": "PM-B-0026",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a Sprint Goal?"
+  },
+  {
+    "id": "PM-B-0027",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a dependency?"
+  },
+  {
+    "id": "PM-B-0028",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a milestone?"
+  },
+  {
+    "id": "PM-B-0029",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a project charter or project brief?"
+  },
+  {
+    "id": "PM-B-0030",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a project, and how is project work different from ongoing operations?"
+  },
+  {
+    "id": "PM-B-0031",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a stakeholder?"
+  },
+  {
+    "id": "PM-B-0032",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a status report, and what information should it contain?"
+  },
+  {
+    "id": "PM-B-0033",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a user story, and what are acceptance criteria?"
+  },
+  {
+    "id": "PM-B-0034",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is backlog refinement?"
+  },
+  {
+    "id": "PM-B-0035",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the Product Backlog?"
+  },
+  {
+    "id": "PM-B-0036",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between Scrum and Kanban at a high level?"
+  },
+  {
+    "id": "PM-B-0051",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What information belongs in a useful project status update?"
+  },
+  {
+    "id": "PM-B-0052",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What is the difference between a project objective, deliverable, milestone, and task?"
+  },
+  {
+    "id": "PM-B-0053",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What is the difference between a risk and an issue?"
+  },
+  {
+    "id": "PM-B-0054",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What is the purpose of a retrospective?"
+  },
+  {
+    "id": "PM-B-0055",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What makes acceptance criteria useful to developers, testers, and stakeholders?"
+  },
+  {
+    "id": "PM-I-0019",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "A stakeholder requests a major feature halfway through the release. How do you handle it?"
+  },
+  {
+    "id": "PM-I-0020",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Compare mitigation, avoidance, transfer, acceptance, and contingency."
+  },
+  {
+    "id": "PM-I-0021",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain lead time, cycle time, throughput, velocity, and burn charts."
+  },
+  {
+    "id": "PM-I-0022",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you build a realistic project schedule around dependencies and uncertainty?"
+  },
+  {
+    "id": "PM-I-0023",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you communicate a likely schedule slip to executives?"
+  },
+  {
+    "id": "PM-I-0024",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you decide which project metrics are useful rather than vanity metrics?"
+  },
+  {
+    "id": "PM-I-0025",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you estimate work when the engineering team has limited historical data?"
+  },
+  {
+    "id": "PM-I-0026",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you handle disagreement between Product, Engineering, and QA over release readiness?"
+  },
+  {
+    "id": "PM-I-0027",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you identify, analyze, prioritize, and respond to project risks?"
+  },
+  {
+    "id": "PM-I-0028",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you manage a dependency on another team that repeatedly misses commitments?"
+  },
+  {
+    "id": "PM-I-0029",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you manage technical debt when business stakeholders want only feature work?"
+  },
+  {
+    "id": "PM-I-0030",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you prevent scope creep while still responding to legitimate new information?"
+  },
+  {
+    "id": "PM-I-0031",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you run a useful retrospective when the team is tired of retrospectives?"
+  },
+  {
+    "id": "PM-I-0032",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you start planning a software project when requirements are incomplete?"
+  },
+  {
+    "id": "PM-I-0033",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you facilitate a Sprint Planning session that keeps the Sprint Goal meaningful?"
+  },
+  {
+    "id": "PM-I-0034",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you manage multiple stakeholders with conflicting priorities?"
+  },
+  {
+    "id": "PM-I-0035",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Tell me about a project that went off track. How did you recognize it and recover?"
+  },
+  {
+    "id": "PM-I-0036",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What are story points intended to represent, and how are they commonly misused?"
+  },
+  {
+    "id": "PM-I-0037",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a RAID log, and when is it useful?"
+  },
+  {
+    "id": "PM-I-0038",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What should happen when the team repeatedly fails to complete planned Sprint work?"
+  },
+  {
+    "id": "PM-I-0053",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "A sprint repeatedly carries unfinished work forward. How would you determine whether the problem is estimation, scope, flow, dependencies, capacity, or something else?"
+  },
+  {
+    "id": "PM-I-0054",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How do you use velocity responsibly without turning it into an individual productivity metric?"
+  },
+  {
+    "id": "PM-I-0055",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you manage a fixed-date software launch when scope is still flexible?"
+  },
+  {
+    "id": "PM-I-0056",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "Requirements are changing faster than the team can estimate them. How would you plan while making uncertainty visible?"
+  },
+  {
+    "id": "PM-I-0057",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "Two senior stakeholders demand conflicting priorities for the same team. How do you reach a decision and document the trade-off?"
+  },
+  {
+    "id": "PM-A-0019",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "A vendor misses a critical dependency and contract penalties are possible. How do you manage delivery and relationships?"
+  },
+  {
+    "id": "PM-A-0020",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a governance model for a program involving five product teams, vendors, security, compliance, and executive sponsors."
+  },
+  {
+    "id": "PM-A-0021",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a release-readiness framework covering product, engineering, QA, security, operations, support, rollback, and communications."
+  },
+  {
+    "id": "PM-A-0022",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a stakeholder communication plan for a politically sensitive project with bad news likely."
+  },
+  {
+    "id": "PM-A-0023",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain how you would model schedule risk rather than presenting a single false-precision delivery date."
+  },
+  {
+    "id": "PM-A-0024",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you decide whether to recover, re-scope, pause, or cancel a failing project?"
+  },
+  {
+    "id": "PM-A-0025",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you establish psychological safety while still maintaining accountability for delivery commitments?"
+  },
+  {
+    "id": "PM-A-0026",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you handle executives who demand individual developer utilization metrics or story-point targets?"
+  },
+  {
+    "id": "PM-A-0027",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you manage dependencies across teams that use different planning cadences and methodologies?"
+  },
+  {
+    "id": "PM-A-0028",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you manage portfolio-level prioritization when every stakeholder labels their work \"critical\"?"
+  },
+  {
+    "id": "PM-A-0029",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you prevent Agile ceremonies from becoming process theatre?"
+  },
+  {
+    "id": "PM-A-0030",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How should project management interact with SRE/DevOps practices such as SLOs, incident reviews, and release risk?"
+  },
+  {
+    "id": "PM-A-0031",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you build a delivery plan when scope is uncertain but a regulatory deadline is fixed?"
+  },
+  {
+    "id": "PM-A-0032",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you lead a project where technical discovery reveals the original business plan is no longer feasible?"
+  },
+  {
+    "id": "PM-A-0033",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you manage a major production incident while a high-profile launch is in progress?"
+  },
+  {
+    "id": "PM-A-0034",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you measure whether a transformation to Agile ways of working is actually improving outcomes?"
+  },
+  {
+    "id": "PM-A-0035",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you negotiate scope, time, and quality when none of the stakeholders is willing to compromise?"
+  },
+  {
+    "id": "PM-A-0036",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "In a senior software-project-management interview, walk through how you would recover a troubled multi-team SaaS migration involving technical debt, unclear scope, customer commitments, compliance constraints, vendor dependencies, and a fixed market deadline."
+  },
+  {
+    "id": "PM-A-0037",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Tell me about a high-impact conflict between senior stakeholders and how you would facilitate resolution."
+  },
+  {
+    "id": "PM-A-0038",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "You inherit a critical project six months late with low team morale and conflicting stakeholder expectations. What do you do in the first two weeks?"
+  },
+  {
+    "id": "PM-A-0053",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "A strategic software program is six months late, morale is low, stakeholders have lost trust, and estimates are unreliable. Describe your recovery plan."
+  },
+  {
+    "id": "PM-A-0054",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "An executive wants an unrealistic date publicly committed before engineering discovery is complete. How do you handle the situation?"
+  },
+  {
+    "id": "PM-A-0055",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "Design governance for a program involving several engineering teams, external vendors, security, operations, and a regulatory deadline."
+  },
+  {
+    "id": "PM-A-0056",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How do you decide when a software project should be stopped rather than rescued?"
+  },
+  {
+    "id": "PM-A-0057",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you manage a critical production incident while also protecting the delivery team from chaotic stakeholder communication?"
+  }
+]

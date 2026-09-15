@@ -1,0 +1,1712 @@
+{
+  "_general": {
+    "summary": "Flutter interviews expect a solid model of widgets→elements→render objects, rebuild cost, and async BuildContext safety.",
+    "problem": "Treating Flutter like a DOM framework misses constraints, keys, and the UI-thread isolate model.",
+    "concepts": [
+      "immutable widgets",
+      "Element identity",
+      "rebuild vs relayout/repaint",
+      "async gaps"
+    ],
+    "mechanics": "Explain the pipeline for the symptom (build/layout/paint), propose a minimal repro, then a fix with a widget test.",
+    "tradeoffs": "Prefer composition and framework APIs over fighting the engine with hacks.",
+    "troubleshoot": "Use DevTools timeline and inspector before guessing.",
+    "example": "flutter run --profile\n# DevTools → Performance / Inspector",
+    "integration": "1) Reproduce. 2) Identify pipeline stage. 3) Fix with keys/state/constraints. 4) Add widget test. 5) Verify in profile mode."
+  },
+  "adaptive UI": {
+    "summary": "Adaptive UI selects platform-appropriate patterns (Material vs Cupertino, navigation idioms) while sharing logic.",
+    "problem": "Forcing Material everywhere on iOS feels foreign; duplicating entire apps is costly.",
+    "concepts": [
+      "Theme platform",
+      "adaptive widgets",
+      "navigation idioms",
+      "shared view models"
+    ],
+    "mechanics": "Share VMs/repos, branch widgets via Theme.of.platform or adaptive constructors, test both targets.",
+    "tradeoffs": "Adaptive takes effort; sometimes product chooses one design language deliberately.",
+    "troubleshoot": "If iOS back gesture breaks, navigation adaptation incomplete.",
+    "example": "Theme.of(context).platform == TargetPlatform.iOS ? CupertinoButton(...) : ElevatedButton(...);",
+    "integration": "1) Shared logic. 2) Adaptive widgets map. 3) Dual screenshots. 4) Platform QA checklist."
+  },
+  "Android permissions": {
+    "summary": "Android permissions gate sensitive APIs; dangerous permissions require runtime requests on modern SDKs.",
+    "problem": "Declaring only in manifest without runtime request fails on Android 6+.",
+    "concepts": [
+      "normal vs dangerous",
+      "runtime request",
+      "shouldShowRequestRationale",
+      "maxSdk/version quirks"
+    ],
+    "mechanics": "Declare in AndroidManifest, request at use-time with permission_handler, and degrade gracefully on deny.",
+    "tradeoffs": "Ask too early and users deny permanently; ask in context of the feature.",
+    "troubleshoot": "If permanently denied, deep-link to settings; verify merged manifest.",
+    "example": "<uses-permission android:name=\"android.permission.CAMERA\" />\nawait Permission.camera.request();",
+    "integration": "1) Inventory permissions. 2) Request in-context. 3) Handle denied. 4) Test across API levels. 5) Document why each is needed."
+  },
+  "AnimationController": {
+    "summary": "AnimationController drives ticker-based animations with duration, vsync, and status listeners—usually owned by State.",
+    "problem": "Controllers without disposal leak tickers; creating them in build resets animations.",
+    "concepts": [
+      "vsync/TickerProvider",
+      "forward/reverse/repeat",
+      "CurvedAnimation",
+      "dispose"
+    ],
+    "mechanics": "Create controller in initState with vsync: this, drive Tween/Animation, dispose in dispose().",
+    "tradeoffs": "Explicit controllers give control vs implicit animations' simplicity.",
+    "troubleshoot": "If assertion about ticker, missing SingleTickerProviderStateMixin or dispose.",
+    "example": "late final controller = AnimationController(vsync: this, duration: const Duration(ms: 300));\n@override void dispose(){ controller.dispose(); super.dispose(); }",
+    "integration": "1) Mixin ticker provider. 2) Own controller in State. 3) Dispose. 4) Prefer ImplicitlyAnimated for simple cases."
+  },
+  "APNs": {
+    "summary": "APNs (Apple Push Notification service) delivers remote notifications to iOS devices via device tokens and Apple's servers.",
+    "problem": "Missing entitlements, wrong env (sandbox/prod), or expired certs/keys silently drop pushes.",
+    "concepts": [
+      "device token",
+      "auth key vs certs",
+      "payload limits",
+      "foreground presentation"
+    ],
+    "mechanics": "Register for notifications, send token to backend, authenticate to APNs with key, handle foreground/background differently.",
+    "tradeoffs": "Keys are easier to rotate than certs; still need correct bundle id/topic.",
+    "troubleshoot": "If undelivered, check token env mismatch and apns-topic.",
+    "example": "// iOS: capability Push Notifications + background modes as needed\n// Backend: JWT ES256 to api.push.apple.com",
+    "integration": "1) Enable capability. 2) Capture tokens. 3) Backend APNs auth. 4) Test sandbox+prod. 5) Handle permission UX."
+  },
+  "AppLifecycleState": {
+    "summary": "AppLifecycleState reports resumed/inactive/paused/detached/hidden so you can pause work and save state.",
+    "problem": "Ignoring lifecycle wastes battery with timers/sockets in background and loses draft state.",
+    "concepts": [
+      "WidgetsBindingObserver",
+      "resumed vs paused",
+      "save on inactive",
+      "platform differences"
+    ],
+    "mechanics": "Add observer in initState, handle didChangeAppLifecycleState, remove observer on dispose.",
+    "tradeoffs": "Mobile OS may kill paused apps; persist critical state to disk, don't rely on memory.",
+    "troubleshoot": "If observer never fires, not registered or removed too early.",
+    "example": "class _S extends State with WidgetsBindingObserver {\n  @override void didChangeAppLifecycleState(AppLifecycleState s) { /* persist */ }\n}",
+    "integration": "1) Observe lifecycle. 2) Pause streams/timers. 3) Persist drafts. 4) Resume carefully. 5) Test backgrounding."
+  },
+  "async BuildContext safety": {
+    "summary": "After an await, the State may be disposed—using BuildContext then asserts/crashes unless mounted is checked.",
+    "problem": "Fire-and-forget async in State without guards is a top Flutter crash source.",
+    "concepts": [
+      "mounted",
+      "capture navigators before await",
+      "cancel on dispose",
+      "use_build_context_synchronously lint"
+    ],
+    "mechanics": "Await, then if (!mounted) return; before context use; or capture ScaffoldMessenger/Navigator before gap.",
+    "tradeoffs": "Lint catches many cases; still design cancellation for long tasks.",
+    "troubleshoot": "Enable use_build_context_synchronously and fix all hits.",
+    "example": "await repo.save();\nif (!mounted) return;\nScaffoldMessenger.of(context).showSnackBar(...);",
+    "integration": "1) Enable lint. 2) mounted checks. 3) Cancel futures/subs on dispose. 4) Tests covering fast pop."
+  },
+  "background task execution": {
+    "summary": "Background tasks run work when UI is not foreground—constrained heavily by iOS/Android policies.",
+    "problem": "Assuming infinite background CPU gets apps suspended/killed and store-rejected.",
+    "concepts": [
+      "BGTaskScheduler/WorkManager",
+      "constraints (network/charging)",
+      "execution windows",
+      "isolates"
+    ],
+    "mechanics": "Use platform-supported schedulers, keep work short, persist progress, and test OS-kill scenarios.",
+    "tradeoffs": "Push-driven work often more reliable than frequent polling background fetches.",
+    "troubleshoot": "If never runs, missing native registration/permissions/Info.plist keys.",
+    "example": "// workmanager / flutter_background_fetch per platform setup docs",
+    "integration": "1) Pick supported API. 2) Native setup. 3) Idempotent tasks. 4) Telemetry. 5) Store compliance review."
+  },
+  "BLoC/Cubit": {
+    "summary": "BLoC/Cubit separate events/state from UI: Cubit exposes functions; BLoC maps events to states via streams.",
+    "problem": "setState sprawl across the tree makes business logic untestable and rebuilds chaotic.",
+    "concepts": [
+      "events/states",
+      "BlocProvider",
+      "BlocBuilder/Listener",
+      "pure reducers"
+    ],
+    "mechanics": "Put logic in Cubit/Bloc, provide above subtree, rebuild with builders, navigate/side effects in listeners.",
+    "tradeoffs": "BLoC ceremony helps large teams; Cubit is lighter for simple state. Don't Bloc everything.",
+    "troubleshoot": "If UI misses states, check equality (Equatable) and buildWhen.",
+    "example": "class CounterCubit extends Cubit<int> {\n  CounterCubit(): super(0);\n  void inc() => emit(state+1);\n}",
+    "integration": "1) Introduce Cubit for a feature. 2) Provide at route. 3) Test cubit pure. 4) Listeners for side effects. 5) Avoid UI logic in widgets."
+  },
+  "build phase": {
+    "summary": "The build phase runs Widget.build to produce a new widget configuration for dirty elements.",
+    "problem": "Side effects in build (HTTP, setState) create loops and unpredictable UI.",
+    "concepts": [
+      "pure build",
+      "setState schedules dirty",
+      "const optimization",
+      "rebuild scope"
+    ],
+    "mechanics": "Keep build pure, trigger changes via events/setState outside build, and split widgets to limit rebuild scope.",
+    "tradeoffs": "Rebuilds are normal; expensive builds are the problem.",
+    "troubleshoot": "If infinite rebuild, setState during build—remove it.",
+    "example": "// Bad: build(){ setState((){}); }\n// Good: derive UI from state fields only",
+    "integration": "1) Ban side effects in build. 2) Split widgets. 3) const. 4) Rebuild profiler."
+  },
+  "BuildContext": {
+    "summary": "BuildContext is a handle to a widget's location in the tree—used to find InheritedWidgets, navigate, and theme.",
+    "problem": "Using a context across async gaps after dispose, or the wrong context for Provider/Navigator, causes crashes/lookups to fail.",
+    "concepts": [
+      "element location",
+      "dependOnInheritedWidget",
+      "mounted check",
+      "context from builder"
+    ],
+    "mechanics": "Use context only when mounted; capture Navigator/Theme before await or check mounted after; prefer the context that can see the ancestor you need.",
+    "tradeoffs": "Passing context deep is fine; storing it long-term is not. Element APIs are advanced.",
+    "troubleshoot": "If 'deactivated widget' asserts, you used context after dispose—guard with mounted.",
+    "example": "await future;\nif (!mounted) return;\nNavigator.of(context).pop();",
+    "integration": "1) Audit async methods. 2) mounted checks. 3) Correct lookup context. 4) Widget tests for async nav."
+  },
+  "BuildOwner": {
+    "summary": "BuildOwner schedules and manages the build pipeline for dirty Elements in the framework.",
+    "problem": "Misunderstanding who marks dirty leads to wrong optimization attempts outside the framework.",
+    "concepts": [
+      "dirty elements",
+      "build scope",
+      "global keys registration",
+      "pipeline owner"
+    ],
+    "mechanics": "Widgets call setState → element marks dirty → BuildOwner rebuilds in frame; you rarely touch BuildOwner directly.",
+    "tradeoffs": "Framework internals help debugging; app code should stay at widget/state layer.",
+    "troubleshoot": "If infinite rebuilds, something marks dirty every build—find the setState loop.",
+    "example": "// Prefer fixing setState loops over hacking BuildOwner",
+    "integration": "1) Use DevTools rebuild profiler. 2) Fix dirty loops. 3) Keep custom RenderObjects rare. 4) Read framework only when needed."
+  },
+  "certificate pinning": {
+    "summary": "Certificate pinning trusts only specific certs/public keys for your API, mitigating rogue CAs/MITM on hostile networks.",
+    "problem": "No pinning still relies on system CAs; pinning without rotation plan bricks apps when certs expire.",
+    "concepts": [
+      "pin public key",
+      "backup pins",
+      "rotation",
+      "debug overrides caution"
+    ],
+    "mechanics": "Pin SPKI hashes in HTTP client, ship backup pins, and rotate ahead of expiry.",
+    "tradeoffs": "Security vs operational risk—often for higher threat apps; consider at TLS terminator carefully.",
+    "troubleshoot": "If prod suddenly fails TLS, pins outdated—roll emergency build with new pins.",
+    "example": "// dio HttpClientAdapter with SecurityContext / badCertificateCallback carefully pinned",
+    "integration": "1) Decide threat model. 2) Pin+backup. 3) Rotation calendar. 4) Monitor TLS failures. 5) Emergency override process."
+  },
+  "Cloud Firestore": {
+    "summary": "Cloud Firestore is a document/collection NoSQL DB with realtime listeners and offline persistence popular with Flutter apps.",
+    "problem": "Chatty listeners and unbounded queries explode reads/cost; poor modeling makes queries impossible.",
+    "concepts": [
+      "documents/collections",
+      "queries/indexes",
+      "snapshots",
+      "security rules"
+    ],
+    "mechanics": "Model for queries, add composite indexes, listen with streams, and enforce security rules—never trust client alone.",
+    "tradeoffs": "Realtime convenience vs cost/vendor lock-in; sometimes REST+SQL is simpler.",
+    "troubleshoot": "If missing index errors, create suggested composite index; audit read counts.",
+    "example": "FirebaseFirestore.instance.collection('todos').where('uid', isEqualTo: uid).snapshots();",
+    "integration": "1) Design collections. 2) Rules. 3) Indexes. 4) Limit listeners. 5) Monitor usage."
+  },
+  "CocoaPods": {
+    "summary": "CocoaPods manages native iOS dependencies for Flutter plugins via the Podfile in ios/.",
+    "problem": "Pod version conflicts and outdated repos break `pod install` and iOS builds.",
+    "concepts": [
+      "Podfile",
+      "pod install",
+      "platform version",
+      "use_frameworks quirks"
+    ],
+    "mechanics": "Run flutter pub get, cd ios && pod install, keep platform version compatible with plugins.",
+    "tradeoffs": "SwiftPM is emerging; many Flutter plugins still expect CocoaPods.",
+    "troubleshoot": "If install fails, update repo, clear Pods/Podfile.lock carefully, check minimum iOS version.",
+    "example": "cd ios && pod repo update && pod install",
+    "integration": "1) Pin iOS platform. 2) Commit Podfile.lock. 3) CI pod install. 4) Document plugin native requirements."
+  },
+  "code signing/provisioning": {
+    "summary": "iOS code signing binds apps to teams via certificates/profiles; Android uses keystores for package identity.",
+    "problem": "Wrong profiles/expired certs fail install/TestFlight; lost Android upload keys are catastrophic.",
+    "concepts": [
+      "Apple certs/profiles",
+      "Android keystore",
+      "CI secrets",
+      "match/fastlane"
+    ],
+    "mechanics": "Automate signing with fastlane match or store keys in CI secrets; back up Android keystores.",
+    "tradeoffs": "Automation reduces pain; still need access control for signing material.",
+    "troubleshoot": "If 'provisioning profile doesn't include signing certificate', regenerate profiles.",
+    "example": "fastlane match appstore\n# Android: keep upload keystore in secret manager",
+    "integration": "1) Centralize signing. 2) Backup keys. 3) CI inject. 4) Rotate Apple certs deliberately. 5) Document restore."
+  },
+  "Codemagic/GitHub Actions": {
+    "summary": "CI systems like Codemagic and GitHub Actions build, test, and sign Flutter apps on every change.",
+    "problem": "Manual local releases drift signing configs and skip tests.",
+    "concepts": [
+      "workflows",
+      "caching",
+      "signing secrets",
+      "matrix devices"
+    ],
+    "mechanics": "Run analyze/test, build IPA/AAB with secrets, cache Flutter/pub, and upload artifacts.",
+    "tradeoffs": "Codemagic is Flutter-focused; GHA is flexible. Choose based on team familiarity and macOS minute costs.",
+    "troubleshoot": "If signing fails in CI only, check provisioning secrets and keychain unlock steps.",
+    "example": "# GHA sketch\n- uses: subosito/flutter-action@v2\n- run: flutter test && flutter build appbundle",
+    "integration": "1) Add CI workflow. 2) Cache deps. 3) Store signing secrets. 4) Gate merges on tests. 5) Automate store upload carefully."
+  },
+  "compositing": {
+    "summary": "Compositing combines layers (often GPU) into final frames; opacity/clip/transform can create layers.",
+    "problem": "Accidental saveLayer/opacity over large areas burns GPU fill rate.",
+    "concepts": [
+      "layers",
+      "saveLayer cost",
+      "RepaintBoundary",
+      "raster thread"
+    ],
+    "mechanics": "Reduce offscreen saves, prefer simpler effects, and profile raster jank.",
+    "tradeoffs": "Pretty effects vs battery/GPU—measure on mid devices.",
+    "troubleshoot": "If raster thread long, simplify blur/opacity/clips.",
+    "example": "// Avoid Opacity wrapping huge lists; prefer fading smaller subtrees",
+    "integration": "1) Profile raster. 2) Reduce saveLayer. 3) Boundary wisely. 4) Test low-end Android."
+  },
+  "CustomPainter": {
+    "summary": "CustomPainter draws via Canvas in a paint method—ideal for charts, game sprites, and custom shapes.",
+    "problem": "Heavy paint without shouldRepaint optimization janks scrolling; hit testing needs extra work.",
+    "concepts": [
+      "paint(Canvas, Size)",
+      "shouldRepaint",
+      "HitTestBehavior",
+      "repaint boundaries"
+    ],
+    "mechanics": "Implement painter, wrap in CustomPaint, return true from shouldRepaint only when data changes.",
+    "tradeoffs": "Painter is powerful but accessibility/semantics need manual Semantics; prefer widgets when possible.",
+    "troubleshoot": "If always repainting, shouldRepaint always true—compare fields.",
+    "example": "class GridPainter extends CustomPainter {\n  @override void paint(Canvas c, Size s) { /* ... */ }\n  @override bool shouldRepaint(covariant GridPainter old) => false;\n}",
+    "integration": "1) Prototype with CustomPaint. 2) Optimize shouldRepaint. 3) Add semantics. 4) Profile. 5) Extract package if reused."
+  },
+  "CustomScrollView and slivers": {
+    "summary": "Slivers are scrollable-area protocols; CustomScrollView composes slivers (lists, grids, app bars) in one scroll.",
+    "problem": "Nested ListViews with their own scrolls fight; pinned headers need slivers.",
+    "concepts": [
+      "SliverList/Grid",
+      "SliverAppBar",
+      "viewport",
+      "lazy children"
+    ],
+    "mechanics": "Compose slivers in CustomScrollView, use builders for laziness, and keep one primary scroll.",
+    "tradeoffs": "Slivers are flexible but denser API than ListView; worth it for advanced scroll UI.",
+    "troubleshoot": "If shrinkWrap perf issues, you forced unbounded work—use slivers instead.",
+    "example": "CustomScrollView(slivers: [\n  SliverAppBar(pinned: true, title: Text('Feed')),\n  SliverList.builder(itemBuilder: ...),\n]);",
+    "integration": "1) Replace nested scrolls with slivers. 2) Lazy builders. 3) Pinned headers. 4) Test scroll performance."
+  },
+  "Dart FFI": {
+    "summary": "Dart FFI calls native C APIs from Dart without channels—useful for shared libraries and performance-critical code.",
+    "problem": "Unsafe pointers and wrong ABI cause crashes outside Dart's usual safety.",
+    "concepts": [
+      "DynamicLibrary",
+      "lookup function",
+      "arena/malloc",
+      "native finalizers"
+    ],
+    "mechanics": "Load library, bind signatures with ffi, manage memory carefully, and isolate heavy native work if needed.",
+    "tradeoffs": "FFI is fast and direct but platform packaging and safety are harder than Pigeon/channels for simple APIs.",
+    "troubleshoot": "If segfaults, audit lifetimes and struct sizes/alignment.",
+    "example": "final nativeAdd = lib.lookupFunction<Int32 Function(Int32, Int32), int Function(int, int)>('add');",
+    "integration": "1) Identify C API need. 2) Bind via ffi. 3) Harden memory. 4) Test per ABI. 5) Document packaging."
+  },
+  "Dart type system": {
+    "summary": "Dart's type system is sound with null safety, generics, and strong inference guiding safe refactors.",
+    "problem": "Dynamic sprawl and bang operators (!) hide null bugs until runtime.",
+    "concepts": [
+      "static types",
+      "null safety",
+      "generics",
+      "typedefs/records"
+    ],
+    "mechanics": "Type APIs explicitly, prefer nullable modeling over !, and enable strict analysis options.",
+    "tradeoffs": "Strictness slows some prototyping but pays off in large apps.",
+    "troubleshoot": "If analyzer disagrees with runtime, you cast incorrectly—remove casts.",
+    "example": "analysis_options.yaml: analyzer: language: strict-casts: true",
+    "integration": "1) Enable strict analysis. 2) Remove dynamic. 3) Model nulls. 4) Fix analyzer issues in CI."
+  },
+  "debug/profile/release modes": {
+    "summary": "Flutter has debug (asserts/JIT), profile (performance-like with tooling), and release (optimized AOT) modes.",
+    "problem": "Judging jank in debug mode misleads—debug is slower by design.",
+    "concepts": [
+      "asserts in debug",
+      "profile for perf",
+      "release for ship",
+      "tree shaking"
+    ],
+    "mechanics": "Develop in debug, measure in profile, ship release; never quote debug FPS as truth.",
+    "tradeoffs": "Profile close to release but not identical; still verify release builds.",
+    "troubleshoot": "If 'only release crashes', minify/strip issue—test release locally.",
+    "example": "flutter run --profile\nflutter build apk --release",
+    "integration": "1) Educate team on modes. 2) Perf only in profile. 3) QA release builds. 4) Keep asserts for debug checks."
+  },
+  "deep linking": {
+    "summary": "Deep links open specific app routes from URLs (App Links/Universal Links/custom schemes).",
+    "problem": "Misconfigured intent filters/apple-app-site-association breaks links into browser-only.",
+    "concepts": [
+      "URI parsing",
+      "verified links",
+      "cold start vs warm",
+      "go_router parsers"
+    ],
+    "mechanics": "Claim domains, configure platform files, parse URIs into routes, and test install/referrer flows.",
+    "tradeoffs": "Verified HTTPS links are better UX/security than custom schemes alone.",
+    "troubleshoot": "If links open site not app, assetlinks/AASA or intent filters wrong.",
+    "example": "// Android intent-filter + assetlinks.json; iOS associated domains",
+    "integration": "1) Domain verify. 2) Platform config. 3) Router parse. 4) Cold/warm tests. 5) Analytics on link opens."
+  },
+  "dependency injection": {
+    "summary": "DI supplies collaborators (repos/clients) to widgets/VMs instead of constructing globals everywhere.",
+    "problem": "Singletons and `new` in widgets make testing and swapping environments painful.",
+    "concepts": [
+      "constructor injection",
+      "get_it/riverpod",
+      "environments",
+      "overrides in tests"
+    ],
+    "mechanics": "Register implementations at startup, inject into VMs, override fakes in tests.",
+    "tradeoffs": "Service locators are convenient but hide dependencies; constructor DI is clearer when practical.",
+    "troubleshoot": "If wrong impl in tests, registration order/overrides missing.",
+    "example": "getIt.registerLazySingleton<Api>(() => Api(http));\nfinal api = getIt<Api>();",
+    "integration": "1) Choose DI approach. 2) Register at boot. 3) Inject VMs. 4) Test overrides. 5) Env flavors."
+  },
+  "design tokens": {
+    "summary": "Design tokens are named raw values (color/space/type) shared between design and Flutter Theme.",
+    "problem": "Magic numbers diverge from Figma and break dark theme consistency.",
+    "concepts": [
+      "token naming",
+      "ThemeExtension",
+      "light/dark",
+      "codegen from design"
+    ],
+    "mechanics": "Map tokens into ThemeData/ThemeExtension and reference tokens in widgets only.",
+    "tradeoffs": "Heavy token systems need discipline; start with color/space/type.",
+    "troubleshoot": "If dark mode misses, token not mapped through ColorScheme/extension.",
+    "example": "Theme.of(context).extension<AppTokens>()!.spaceMd",
+    "integration": "1) Extract tokens. 2) ThemeExtension. 3) Replace magic numbers. 4) Sync with design. 5) Contrast checks."
+  },
+  "DevTools performance timeline": {
+    "summary": "DevTools Performance timeline shows UI/Raster thread frames to diagnose jank sources.",
+    "problem": "Guessing optimizations without frames data wastes time.",
+    "concepts": [
+      "UI vs Raster",
+      "frame budget ~16ms",
+      "rebuild shading",
+      "shader compilation jank"
+    ],
+    "mechanics": "Run profile mode, record interaction, inspect timeline, fix rebuilds/layout/shaders accordingly.",
+    "tradeoffs": "Debug mode is not representative—always profile in profile/release.",
+    "troubleshoot": "If UI thread long, reduce build; if raster, simplify effects/images.",
+    "example": "flutter run --profile\n# open DevTools → Performance → record",
+    "integration": "1) Profile mode. 2) Record jank. 3) Attribute UI/Raster. 4) Fix. 5) Re-measure."
+  },
+  "Drift": {
+    "summary": "Drift (moor) is a reactive Dart ORM over SQLite with type-safe queries and streams of changes.",
+    "problem": "Raw sqflite SQL strings drift from models and miss reactive UI updates.",
+    "concepts": [
+      "tables/DAOs",
+      "watch queries",
+      "migrations",
+      "transactions"
+    ],
+    "mechanics": "Define tables, generate code, watch selects as streams, migrate schema versions carefully.",
+    "tradeoffs": "Codegen improves safety but adds build_runner complexity.",
+    "troubleshoot": "If stream not updating, query not watched or transaction isolation unexpected.",
+    "example": "@DriftDatabase(tables: [Todos]) class AppDb extends _$AppDb {}",
+    "integration": "1) Add Drift. 2) Define tables. 3) Migrations. 4) watch() in UI. 5) Test DAO."
+  },
+  "Element tree": {
+    "summary": "The Element tree is Flutter's mutable realization of Widgets—holding State, managing mounts, and configuring RenderObjects.",
+    "problem": "Confusing Widget rebuilds with Element remounts leads to wrong key/state diagnoses.",
+    "concepts": [
+      "mount/update/unmount",
+      "State attachment",
+      "Widget vs Element vs RenderObject",
+      "keys guide matching"
+    ],
+    "mechanics": "Framework matches widgets to elements by runtimeType+key; updates reuse elements; type/key changes remount.",
+    "tradeoffs": "You rarely create Elements manually; understanding them debugs keys/state bugs.",
+    "troubleshoot": "If State resets, Element remounted—inspect keys/types in inspector.",
+    "example": "// Changing Key or widget type at a slot remounts Element/State",
+    "integration": "1) Teach three trees. 2) Fix keys. 3) Use inspector. 4) Add tests for state retention."
+  },
+  "event loop and microtask queue": {
+    "summary": "Dart's event loop runs microtasks before the next event events; UI frame callbacks interleave with events.",
+    "problem": "Scheduling endless microtasks can starve frames similarly to JS.",
+    "concepts": [
+      "microtask vs event queue",
+      "scheduleMicrotask",
+      "Future microtasks",
+      "frame callbacks"
+    ],
+    "mechanics": "Know await scheduling, use Future for yielding to events, and keep frame callbacks short.",
+    "tradeoffs": "Same lessons as web event loops—apply to isolates' loops.",
+    "troubleshoot": "If UI starves with tiny tasks, microtask storm—batch/yield.",
+    "example": "scheduleMicrotask(() => print('micro'));\nFuture(() => print('event'));",
+    "integration": "1) Teach ordering. 2) Avoid microtask storms. 3) Profile frames. 4) Move CPU to isolates."
+  },
+  "Expanded": {
+    "summary": "Expanded is a Flex child that forces a child to consume remaining space along the main axis (flex fit tight).",
+    "problem": "Putting Expanded outside Row/Column/Flex throws; unbounded flex parents fail layout.",
+    "concepts": [
+      "flex factor",
+      "Fit.tight vs Flexible",
+      "must be flex descendant",
+      "min/max constraints"
+    ],
+    "mechanics": "Wrap children in Expanded/Flexible inside Row/Column to distribute leftover space.",
+    "tradeoffs": "Expanded is convenient; sometimes Align/SizedBox is clearer for fixed layouts.",
+    "troubleshoot": "If 'Incorrect use of ParentDataWidget', Expanded isn't under Flex.",
+    "example": "Row(children: [Text('A'), Expanded(child: Text('grows'))]);",
+    "integration": "1) Use Expanded for leftover space. 2) Prefer Flexible for not-forced fill. 3) Fix unbounded lists separately."
+  },
+  "extension methods": {
+    "summary": "Dart extensions add methods/getters to existing types without altering them—great for UI helpers.",
+    "problem": "Overusing extensions hides where APIs live and can collide names.",
+    "concepts": [
+      "extension on Type",
+      "name conflicts",
+      "static resolution",
+      "no virtual dispatch"
+    ],
+    "mechanics": "Create focused extensions (e.g., on BuildContext for theme), import deliberately.",
+    "tradeoffs": "Nice DX vs discoverability—document team extensions.",
+    "troubleshoot": "If extension missing, import not in scope.",
+    "example": "extension Fancy on BuildContext {\n  ThemeData get theme => Theme.of(this);\n}",
+    "integration": "1) Add curated extensions. 2) Lint collisions. 3) Document. 4) Avoid business logic in extensions."
+  },
+  "FCM": {
+    "summary": "Firebase Cloud Messaging routes push notifications to Android/iOS/web clients with topics and device tokens.",
+    "problem": "Missing platform setup (APNs key, google-services) means tokens never receive messages.",
+    "concepts": [
+      "device tokens",
+      "data vs notification payloads",
+      "topics",
+      "foreground handlers"
+    ],
+    "mechanics": "Integrate firebase_messaging, collect tokens, handle background isolates, and send via FCM HTTP v1.",
+    "tradeoffs": "FCM simplifies cross-platform push but ties you to Google infrastructure.",
+    "troubleshoot": "If iOS silent fails, check APNs key in Firebase console and background modes.",
+    "example": "FirebaseMessaging.onMessage.listen(handle);\nawait FirebaseMessaging.instance.getToken();",
+    "integration": "1) Platform setup. 2) Token pipeline. 3) Handlers. 4) Topic strategy. 5) Test killed/background/foreground."
+  },
+  "federated plugin architecture": {
+    "summary": "Federated plugins split app-facing API, platform interface, and platform implementations into packages.",
+    "problem": "Monolithic plugins make contributions and multi-platform support harder.",
+    "concepts": [
+      "app-facing",
+      "platform interface",
+      "endorsed implementations",
+      "federated stubs"
+    ],
+    "mechanics": "Follow Flutter federated layout, implement platform interface, and endorse impls in pubspec.",
+    "tradeoffs": "More packages to version; clearer ownership and testing.",
+    "troubleshoot": "If wrong impl resolves, endorsements/pubspec miswired.",
+    "example": "// my_plugin, my_plugin_platform_interface, my_plugin_android/ios...",
+    "integration": "1) Split plugin. 2) Platform interface. 3) CI per platform. 4) Versioning policy. 5) Example app."
+  },
+  "final and const": {
+    "summary": "final means single-assignment; const means compile-time constant canonicalized values—key for Flutter perf.",
+    "problem": "Missing const on widgets forces rebuild work that could be reused.",
+    "concepts": [
+      "final fields",
+      "const constructors",
+      "canonical instances",
+      "constables"
+    ],
+    "mechanics": "Prefer final fields, const widgets/constructors deeply when values are compile-time constant.",
+    "tradeoffs": "Const is great; not everything can be const (depends on runtime).",
+    "troubleshoot": "If analyzer suggests const, take it unless it harms readability badly.",
+    "example": "const EdgeInsets.all(8);\nfinal name = widget.user.name;",
+    "integration": "1) Prefer final. 2) Const widgets. 3) Lint prefer_const. 4) Review hot paths."
+  },
+  "Firebase Auth": {
+    "summary": "Firebase Auth provides managed identity (email, social, anonymous) with ID tokens for securing backends.",
+    "problem": "Rolling your own auth incorrectly stores passwords badly and breaks multi-platform sessions.",
+    "concepts": [
+      "idToken",
+      "auth state streams",
+      "providers",
+      "security rules linkage"
+    ],
+    "mechanics": "Sign in via plugin, listen authStateChanges, attach tokens to API calls, and gate Firestore rules by uid.",
+    "tradeoffs": "Fast to ship vs vendor lock-in and limited enterprise IdP needs.",
+    "troubleshoot": "If rules deny, print token claims and compare uid paths.",
+    "example": "FirebaseAuth.instance.authStateChanges().listen((u) => /* update app state */);",
+    "integration": "1) Enable providers. 2) Wire auth stream. 3) Secure rules/API. 4) Persist session. 5) Handle account linking."
+  },
+  "flavors and dart-define": {
+    "summary": "Flavors/schemas and --dart-define configure app ids, icons, and compile-time env (API URLs) per variant.",
+    "problem": "Hard-coded prod URLs in debug cause accidents; manual switching is error-prone.",
+    "concepts": [
+      "product flavors",
+      "xcconfig schemes",
+      "String.fromEnvironment",
+      "entrypoints"
+    ],
+    "mechanics": "Define flavors, pass dart-defines for env, and separate applicationIds/bundle ids.",
+    "tradeoffs": "More flavors increase CI matrix cost—keep to needed envs.",
+    "troubleshoot": "If wrong API hit, define not passed in IDE run config.",
+    "example": "flutter run --flavor staging --dart-define=API=https://stg.example.com",
+    "integration": "1) Define flavors. 2) dart-define env. 3) IDE configs. 4) CI matrix. 5) Distinct app ids."
+  },
+  "Flutter constraints model": {
+    "summary": "Flutter layout is constraints down, sizes up: parents pass BoxConstraints, children choose a size within them.",
+    "problem": "Fighting constraints with unbounded children (ListView in Column without Expanded) causes overflow/assert.",
+    "concepts": [
+      "tight/loose/unbounded",
+      "constraints → size → position",
+      "RenderBox",
+      "force expand via Expanded"
+    ],
+    "mechanics": "Read incoming constraints, size child, parent positions; use Expanded/SizedBox.expand intentionally.",
+    "tradeoffs": "Model is consistent once learned; coming from CSS requires unlearning some habits.",
+    "troubleshoot": "If yellow/black stripes, overflow—inspect constraints in DevTools.",
+    "example": "Column(children: [\n  Expanded(child: ListView(...)), // bounded height\n]);",
+    "integration": "1) Learn constraints. 2) Fix unbounded scrollables. 3) Use Inspector. 4) Document layout patterns."
+  },
+  "Flutter desktop windowing": {
+    "summary": "Flutter desktop manages native windows/menus/multi-window with platform channels and windowing plugins.",
+    "problem": "Mobile-first layouts break on large resizable windows without adaptive breakpoints.",
+    "concepts": [
+      "window size",
+      "menus/shortcuts",
+      "multi-window",
+      "platform differences"
+    ],
+    "mechanics": "Handle resize, provide desktop navigation patterns, and test macOS/Windows/Linux targets.",
+    "tradeoffs": "One codebase helps but desktop UX expectations differ—budget polish.",
+    "troubleshoot": "If content clipped, missing responsive layout for wide windows.",
+    "example": "WidgetsBinding.instance.platformDispatcher.views; // multi-view awareness",
+    "integration": "1) Enable desktop targets. 2) Adaptive layout. 3) Shortcuts/menus. 4) CI per OS. 5) Polish window states."
+  },
+  "Flutter Web rendering": {
+    "summary": "Flutter web can render via CanvasKit/Skwasm or HTML backends with different perf and download costs.",
+    "problem": "Shipping huge CanvasKit wasm without need hurts first load on slow networks.",
+    "concepts": [
+      "CanvasKit vs HTML",
+      "wasm size",
+      "text/SEO limits",
+      "Loader"
+    ],
+    "mechanics": "Choose renderer for app needs, optimize asset sizes, and understand SEO/text selection differences vs DOM apps.",
+    "tradeoffs": "Flutter web is great for app-like UIs; content sites often better as HTML frameworks.",
+    "troubleshoot": "If first load huge, analyze CanvasKit size and deferred imports.",
+    "example": "flutter build web --web-renderer canvaskit",
+    "integration": "1) Pick renderer. 2) Measure TTI. 3) Optimize assets. 4) Decide SEO strategy. 5) Test browsers."
+  },
+  "Focus system": {
+    "summary": "Flutter's focus system manages keyboard/traversal focus via FocusNode/FocusScope for accessibility and shortcuts.",
+    "problem": "Custom controls without focus nodes are unreachable via keyboard.",
+    "concepts": [
+      "FocusNode",
+      "FocusTraversalPolicy",
+      "autofocus",
+      "onKeyEvent"
+    ],
+    "mechanics": "Attach Focus widgets/nodes, define traversal order, and show focus highlights.",
+    "tradeoffs": "Framework defaults work for many Material widgets; custom painters need manual focus.",
+    "troubleshoot": "If Tab skips controls, missing focus nodes or incorrect scopes.",
+    "example": "final node = FocusNode();\nFocus(focusNode: node, child: ...);",
+    "integration": "1) Audit keyboard nav. 2) Add FocusNodes. 3) Visible indicators. 4) Tests with sendKeyEvent. 5) Dispose nodes."
+  },
+  "foreground/background services": {
+    "summary": "Android foreground services run user-visible ongoing work; background services are heavily restricted post-O/12+.",
+    "problem": "Starting background work illegally gets killed or Play policy strikes.",
+    "concepts": [
+      "foreground notification",
+      "types (location/media)",
+      "exemptions",
+      "iOS limitations"
+    ],
+    "mechanics": "Use FGS with proper type/notification when required; prefer WorkManager for deferrable tasks.",
+    "tradeoffs": "FGS UX cost (persistent notification) vs reliability.",
+    "troubleshoot": "If killed immediately, missing notification/type or policy violation.",
+    "example": "// flutter_foreground_task / native FGS with type + notification channel",
+    "integration": "1) Confirm need. 2) Correct FGS type. 3) Notification UX. 4) Play policy review. 5) Prefer deferred work when possible."
+  },
+  "Form validation": {
+    "summary": "Flutter Form/FormField widgets collect validators and validate() before submit with a FormState key.",
+    "problem": "Creating a new GlobalKey every build resets FormState and loses field state.",
+    "concepts": [
+      "GlobalKey<FormState>",
+      "validator",
+      "autovalidateMode",
+      "TextFormField"
+    ],
+    "mechanics": "Keep one Form key in State, validate on submit, show errors, and keep field controllers disposed.",
+    "tradeoffs": "Form widget is fine for simple forms; complex flows may use separate state management.",
+    "troubleshoot": "If validators never run, you didn't call formKey.currentState?.validate().",
+    "example": "final formKey = GlobalKey<FormState>();\nif (formKey.currentState!.validate()) { /* submit */ }",
+    "integration": "1) Stable Form key. 2) Validators. 3) Dispose controllers. 4) Widget tests. 5) Server-side validate too."
+  },
+  "frame lifecycle": {
+    "summary": "A Flutter frame walks build → layout → paint → composite on UI/raster threads targeting ~16ms.",
+    "problem": "Work exceeding budget drops frames and feels janky.",
+    "concepts": [
+      "SchedulerBinding",
+      "frame callbacks",
+      "UI vs raster",
+      "vsync"
+    ],
+    "mechanics": "Keep per-frame work small, defer heavy tasks, and profile timeline.",
+    "tradeoffs": "Some jank is shader/IO—not always your Dart code.",
+    "troubleshoot": "Attribute jank via DevTools before optimizing.",
+    "example": "SchedulerBinding.instance.addPostFrameCallback((_) {/* after first layout */});",
+    "integration": "1) Understand phases. 2) Profile. 3) Cut build/layout/paint costs. 4) Defer non-critical work."
+  },
+  "Freezed": {
+    "summary": "Freezed generates immutable union/data classes with copyWith, equality, and pattern matching helpers.",
+    "problem": "Hand-written ==/hashCode and mutable models cause subtle state bugs in BLoC/Cubit.",
+    "concepts": [
+      "immutable unions",
+      "code generation",
+      "when/map",
+      "json_serializable integration"
+    ],
+    "mechanics": "Annotate classes, run build_runner, emit states as freezed unions, and switch exhaustively.",
+    "tradeoffs": "Codegen DX is great; build times and generated noise are the cost.",
+    "troubleshoot": "If equality always fails, forgot freezed annotation/codegen.",
+    "example": "@freezed class AuthState with _$AuthState {\n  const factory AuthState.loading() = _Loading;\n  const factory AuthState.ready(User u) = _Ready;\n}",
+    "integration": "1) Add freezed. 2) Model states. 3) Generate. 4) Exhaustive switches. 5) CI codegen check."
+  },
+  "Future": {
+    "summary": "A Future represents a single async result in Dart—completed with a value or error.",
+    "problem": "Unawaited futures hide errors; using BuildContext after await without mounted checks crashes.",
+    "concepts": [
+      "async/await",
+      "Future.wait",
+      "error handling",
+      "microtask scheduling"
+    ],
+    "mechanics": "Await futures, handle errors with try/catch or catchError, and parallelize with Future.wait when independent.",
+    "tradeoffs": "Futures are one-shot; Streams are for multi-event. Don't convert everything to streams.",
+    "troubleshoot": "If errors disappear, you forgot await/catch—use unawaited_lints.",
+    "example": "final results = await Future.wait([loadA(), loadB()]);",
+    "integration": "1) Lint unawaited futures. 2) mounted after await. 3) Parallelize carefully. 4) Surface errors to UI."
+  },
+  "garbage collection": {
+    "summary": "Dart GC reclaims unreachable objects; GC pauses can contribute to jank if allocation rates are huge.",
+    "problem": "Allocating large temporary graphs every frame increases GC frequency.",
+    "concepts": [
+      "generational GC",
+      "allocation rate",
+      "leak via listeners",
+      "DevTools memory"
+    ],
+    "mechanics": "Reduce per-frame allocations, cancel listeners, and inspect memory graphs for leaks.",
+    "tradeoffs": "Don't micro-optimize allocations without profiles.",
+    "troubleshoot": "If memory climbs across routes, leaked listeners/GlobalKeys/streams.",
+    "example": "// DevTools Memory → take heap snapshot, compare",
+    "integration": "1) Snapshot before/after flows. 2) Fix leaks. 3) Reduce hot-path allocs. 4) Re-profile frames."
+  },
+  "generics": {
+    "summary": "Dart generics parameterize classes/functions for type-safe collections and APIs.",
+    "problem": "Using dynamic lists loses safety and forces casts.",
+    "concepts": [
+      "type parameters",
+      "bounds",
+      "reified generics vs Java erasure differences",
+      "inference"
+    ],
+    "mechanics": "Type public APIs, constrain parameters, and let inference work locally.",
+    "tradeoffs": "Same tradeoffs as other languages—clarity over cleverness.",
+    "troubleshoot": "If casts abound, introduce generics.",
+    "example": "T first<T>(List<T> items) => items.first;",
+    "integration": "1) Generic repos/APIs. 2) Avoid dynamic. 3) Analyzer strictness. 4) Examples in docs."
+  },
+  "GlobalKey": {
+    "summary": "GlobalKey uniquely identifies an element across the tree—used for FormState and rare reparenting cases.",
+    "problem": "Creating GlobalKeys in build is expensive and resets state; overuse is a smell.",
+    "concepts": [
+      "unique identity",
+      "currentState",
+      "costly lookups",
+      "prefer LocalKey for lists"
+    ],
+    "mechanics": "Store GlobalKey in State fields, access currentState sparingly, prefer ValueKey for list identity.",
+    "tradeoffs": "Powerful but breaks encapsulation; avoid for routine list keys.",
+    "troubleshoot": "If Form resets each rebuild, GlobalKey was recreated in build.",
+    "example": "final formKey = GlobalKey<FormState>(); // field on State, not in build",
+    "integration": "1) Ban GlobalKey in build. 2) Use for Form/Scaffold rarely. 3) Prefer ValueKey. 4) Review PRs for misuse."
+  },
+  "go_router": {
+    "summary": "go_router implements Router API with declarative routes, deep links, redirects, and nested navigation.",
+    "problem": "Imperative Navigator-only apps struggle with web URLs and complex auth redirects.",
+    "concepts": [
+      "routes/redirect",
+      "ShellRoute",
+      "refreshListenable",
+      "typed routes optional"
+    ],
+    "mechanics": "Declare route table, redirect for auth, nest shells, and parse deep links.",
+    "tradeoffs": "Declarative routing helps; migration from Navigator 1.0 takes care for results/pop.",
+    "troubleshoot": "If redirect loops, conditions overlap—add logging.",
+    "example": "GoRouter(routes: [GoRoute(path: '/', builder: ...)], redirect: (c,s) => auth ? null : '/login');",
+    "integration": "1) Adopt go_router. 2) Auth redirect. 3) Deep link test. 4) Nested shells. 5) Analytics observer."
+  },
+  "golden test": {
+    "summary": "Golden tests screenshot widgets and compare against committed baseline images for visual regressions.",
+    "problem": "Text/layout bugs escape behavior tests but get caught by goldens.",
+    "concepts": [
+      "matchesGoldenFile",
+      "platform font care",
+      "CI determinism",
+      "update intentionally"
+    ],
+    "mechanics": "Pump widget, expect later matching golden, update with flag when intentional.",
+    "tradeoffs": "Goldens flake across OS fonts if not controlled; use consistent CI images.",
+    "troubleshoot": "If local/CI differ, font/rendering variance—standardize CI container.",
+    "example": "await expectLater(find.byType(MyWidget), matchesGoldenFile('goldens/my_widget.png'));",
+    "integration": "1) Add goldens for key UI. 2) Lock CI fonts. 3) Review updates in PR. 4) Keep set small/high value."
+  },
+  "Gradle/AGP compatibility": {
+    "summary": "Android builds require compatible Gradle, Android Gradle Plugin, Kotlin, and JDK versions with Flutter's templates.",
+    "problem": "Random upgrades break builds with cryptic AGP/Gradle mismatch errors.",
+    "concepts": [
+      "AGP version",
+      "Gradle wrapper",
+      "JDK",
+      "Flutter migrate"
+    ],
+    "mechanics": "Follow Flutter's supported matrix, upgrade via flutter create repair/docs, and change versions together.",
+    "tradeoffs": "Staying current gets Play requirements; bleeding edge breaks plugins.",
+    "troubleshoot": "If build fails after upgrade, read compatibility table and align wrapper+AGP+Kotlin.",
+    "example": "// android/build.gradle AGP version must match gradle-wrapper.properties",
+    "integration": "1) Track Flutter Android upgrade guides. 2) Upgrade in lockstep. 3) CI on clean checkout. 4) Pin versions."
+  },
+  "Hero animation": {
+    "summary": "Hero widgets animate a shared-tag element between routes during Navigator transitions.",
+    "problem": "Duplicate tags in one route or missing pairs cause jumps instead of flights.",
+    "concepts": [
+      "tag uniqueness per route",
+      "flight controller",
+      "rect tween",
+      "Material rect"
+    ],
+    "mechanics": "Wrap shared visuals with matching Hero tags on both routes; keep tags unique within a route.",
+    "tradeoffs": "Heroes delight but can conflict with complex custom transitions.",
+    "troubleshoot": "If two heroes conflict, tags collide—make tags include ids.",
+    "example": "Hero(tag: 'avatar-$id', child: CircleAvatar(...))",
+    "integration": "1) Identify shared elements. 2) Matching tags. 3) Unique per route. 4) Test transitions. 5) Disable if a11y prefers reduced motion."
+  },
+  "hit testing": {
+    "summary": "Hit testing determines which render object receives a pointer event by walking the hit test tree.",
+    "problem": "Ignoring pointers incorrectly or deferring hits breaks taps on overlapping UIs.",
+    "concepts": [
+      "HitTestBehavior",
+      "IgnorePointer/AbsorbPointer",
+      "Listener",
+      "custom hitTest"
+    ],
+    "mechanics": "Use IgnorePointer/AbsorbPointer intentionally, set behavior on listeners, and verify overlapping targets.",
+    "tradeoffs": "Custom hit shapes need RenderBox.hitTest overrides—rare.",
+    "troubleshoot": "If taps pass through, IgnorePointer or behavior translucent issues.",
+    "example": "IgnorePointer(ignoring: busy, child: button);",
+    "integration": "1) Define overlay intent. 2) Absorb/Ignore correctly. 3) Widget tests taps. 4) Custom hits only if needed."
+  },
+  "http package": {
+    "summary": "The http package is Dart's simple HTTP client API for REST calls.",
+    "problem": "Forgetting timeouts/headers and parsing without status checks causes hangs and silent failures.",
+    "concepts": [
+      "Client",
+      "Response",
+      "headers",
+      "closing clients"
+    ],
+    "mechanics": "Create a shared Client, set timeouts via IOClient/adapters if needed, check status, close clients.",
+    "tradeoffs": "http is minimal; dio adds interceptors—standardize one.",
+    "troubleshoot": "If sockets leak, Client not closed.",
+    "example": "final client = http.Client();\ntry { final res = await client.get(url); } finally { client.close(); }",
+    "integration": "1) Shared client. 2) Status checks. 3) Timeouts. 4) Interceptors/auth layer. 5) Tests with MockClient."
+  },
+  "image memory management": {
+    "summary": "Image memory can dominate Flutter RAM; cache width/height and eviction matter for galleries.",
+    "problem": "Decoding full-res images into thumbnails OOMs on low-end devices.",
+    "concepts": [
+      "cacheWidth/cacheHeight",
+      "ResizeImage",
+      "precacheImage",
+      "ImageCache limits"
+    ],
+    "mechanics": "Provide decode sizes for display size, clear caches on memory warnings if needed, and dispose controllers.",
+    "tradeoffs": "Quality vs memory—decode near display pixel size.",
+    "troubleshoot": "If OOM in gallery, missing cacheWidth—add it.",
+    "example": "Image.network(url, cacheWidth: (200 * devicePixelRatio).round());",
+    "integration": "1) Decode near display size. 2) Limit cache. 3) Profile memory. 4) Paginate galleries. 5) Test low-end Android."
+  },
+  "Impeller rendering": {
+    "summary": "Impeller is Flutter's modern renderer aiming for predictable performance by precompiling shaders (esp. iOS).",
+    "problem": "Skia runtime shader compilation caused first-animation jank on iOS.",
+    "concepts": [
+      "precompiled shaders",
+      "Metal/Vulkan backends",
+      "feature parity journey",
+      "profile comparisons"
+    ],
+    "mechanics": "Use current Flutter channels where Impeller is default/enabled, profile animations, and report gaps.",
+    "tradeoffs": "Impeller improves jank but may lag some rare Skia effects—verify your app.",
+    "troubleshoot": "If visual bugs, try disabling Impeller to compare and file issues.",
+    "example": "flutter run --enable-impeller  # or disable per docs when debugging",
+    "integration": "1) Upgrade Flutter. 2) Profile animations. 3) Validate visuals. 4) Keep repros for engine bugs."
+  },
+  "implicit animations": {
+    "summary": "Implicit animations (AnimatedContainer/Opacity/etc.) tween property changes without manual controllers.",
+    "problem": "Using explicit controllers for simple property changes adds boilerplate and leak risk.",
+    "concepts": [
+      "AnimatedFoo widgets",
+      "duration/curve",
+      "state-driven props",
+      "limits vs custom"
+    ],
+    "mechanics": "Change target fields in state; implicit widgets animate to new values automatically.",
+    "tradeoffs": "Simple UX wins; complex sequenced animations need AnimationController.",
+    "troubleshoot": "If no animation, you replaced widget type/key remounting instead of updating props.",
+    "example": "AnimatedContainer(duration: Duration(ms: 200), color: selected ? Colors.teal : Colors.grey);",
+    "integration": "1) Prefer implicit for simple. 2) Keep keys stable. 3) Escalate to explicit when sequencing. 4) Respect reduced motion."
+  },
+  "InheritedWidget": {
+    "summary": "InheritedWidget efficiently broadcasts data downward; dependents rebuild when updateShouldNotify says so.",
+    "problem": "Recreating inherited values every build without notification control causes broad rebuilds—or none when needed.",
+    "concepts": [
+      "dependOnInheritedWidgetOfExactType",
+      "updateShouldNotify",
+      "of(context) pattern",
+      "Provider built on this"
+    ],
+    "mechanics": "Expose static of(context), call context.dependOn..., and implement updateShouldNotify by value compare.",
+    "tradeoffs": "Low-level vs Provider/Riverpod convenience—know it to debug.",
+    "troubleshoot": "If child doesn't rebuild, updateShouldNotify false or not dependent (used context incorrectly).",
+    "example": "static ThemeData of(BuildContext c) => c.dependOnInheritedWidgetOfExactType<_Theme>()!.data;",
+    "integration": "1) Use for true ambient data. 2) Correct of(context). 3) Notify carefully. 4) Prefer community libs for app state."
+  },
+  "integration test": {
+    "summary": "integration_test drives the full app on device/emulator for end-to-end Flutter flows.",
+    "problem": "Relying only on widget tests misses plugin/channel and performance issues.",
+    "concepts": [
+      "integration_test package",
+      "patrol optional",
+      "firebase test lab",
+      "determinism"
+    ],
+    "mechanics": "Write integration tests for critical journeys, run on CI devices, reset state between tests.",
+    "tradeoffs": "Slower/flakier than unit—keep suite thin.",
+    "troubleshoot": "On flake, add explicit finds with timeouts and isolate shared state.",
+    "example": "IntegrationTestWidgetsFlutterBinding.ensureInitialized();\nawait tester.pumpWidget(MyApp());",
+    "integration": "1) Critical path ITs. 2) Device CI. 3) Stable finders. 4) Quarantine flakes. 5) Keep widget tests majority."
+  },
+  "intl/ARB localization": {
+    "summary": "Flutter l10n uses ARB files and code generation (intl/flutter_gen) for translated strings and locales.",
+    "problem": "Hard-coded English strings block markets and cause concatenation bugs for grammar.",
+    "concepts": [
+      "ARB keys",
+      "placeholders",
+      "plural/select",
+      "Locale resolution"
+    ],
+    "mechanics": "Extract strings to ARB, generate localizations, and use AppLocalizations.of(context).",
+    "tradeoffs": "Process overhead vs correctness for plurals/genders—worth it early.",
+    "troubleshoot": "If missing strings, gen not run or locale not delegated.",
+    "example": "flutter gen-l10n\nText(AppLocalizations.of(context)!.helloWorld)",
+    "integration": "1) Enable l10n. 2) ARB workflow. 3) CI gen. 4) Pseudo-locale QA. 5) RTL check."
+  },
+  "IntrinsicWidth/IntrinsicHeight": {
+    "summary": "Intrinsic widgets measure children's intrinsic dimensions—expensive because they may lay out children twice.",
+    "problem": "Using intrinsics in deep trees tanks performance especially in lists.",
+    "concepts": [
+      "intrinsic measurements",
+      "costly layout",
+      "alternatives: fixed sizes/Align",
+      "debug flags"
+    ],
+    "mechanics": "Avoid in hot paths; prefer explicit sizes, Expanded, or Align; profile if needed.",
+    "tradeoffs": "Sometimes correct for menus; almost never inside each list row.",
+    "troubleshoot": "If jank in layout phase, search for Intrinsics in tree.",
+    "example": "// Prefer sized widgets over IntrinsicWidth in ListView children",
+    "integration": "1) Ban Intrinsics in lists via review. 2) Replace with constraints. 3) Profile layout. 4) Document exceptions."
+  },
+  "isolates": {
+    "summary": "Isolates are Dart's memory-isolated concurrency units—use for CPU-heavy work without blocking UI isolate.",
+    "problem": "Heavy JSON parse/image work on UI isolate drops frames; await does not help CPU.",
+    "concepts": [
+      "Isolate.run",
+      "message passing",
+      "no shared memory",
+      "compute helper"
+    ],
+    "mechanics": "Offload CPU with Isolate.run/compute, pass transferable-ish data, keep UI isolate free.",
+    "tradeoffs": "Spawn cost exists—don't isolate tiny work. Prefer async IO which already frees UI.",
+    "troubleshoot": "If still janky, work remains on UI or isolate messaging too large copies.",
+    "example": "final parsed = await Isolate.run(() => jsonDecode(bigJson));",
+    "integration": "1) Profile UI isolate. 2) Isolate.run for CPU. 3) Measure. 4) Avoid for tiny tasks. 5) Error handling."
+  },
+  "json_serializable": {
+    "summary": "json_serializable generates fromJson/toJson for annotated Dart classes via build_runner.",
+    "problem": "Hand-written JSON maps drift and throw on null/type mismatches late.",
+    "concepts": [
+      "@JsonSerializable",
+      "field rename",
+      "null safety",
+      "codegen"
+    ],
+    "mechanics": "Annotate models, generate, parse at boundaries, and fail fast on schema mismatch.",
+    "tradeoffs": "Codegen safety vs build_runner cost; freezed often pairs well.",
+    "troubleshoot": "If field null errors, codegen outdated—rebuild.",
+    "example": "@JsonSerializable() class User { factory User.fromJson(Map<String,dynamic> j) => _$UserFromJson(j); }",
+    "integration": "1) Add codegen. 2) Model DTOs. 3) CI generate. 4) Strict nulls. 5) Version API adapters."
+  },
+  "Key": {
+    "summary": "Keys (ValueKey/ObjectKey/UniqueKey/GlobalKey) tell Flutter which Element to match when reordering/updating widgets.",
+    "problem": "Index-based identity loses State on reorder; UniqueKey every build remounts always.",
+    "concepts": [
+      "local vs global keys",
+      "ValueKey(id)",
+      "Element matching",
+      "State preservation"
+    ],
+    "mechanics": "Assign ValueKey with stable business ids on list children that hold State.",
+    "tradeoffs": "Keys solve identity; they are not for styling. Don't over-key static children.",
+    "troubleshoot": "If form fields shuffle values after reorder, fix keys.",
+    "example": "ListView.builder(itemBuilder: (_, i) => TodoRow(key: ValueKey(todos[i].id), todo: todos[i]));",
+    "integration": "1) Audit list keys. 2) Stable ids. 3) Widget tests reorder. 4) Reserve GlobalKey."
+  },
+  "large Flutter app modularization": {
+    "summary": "Large Flutter apps split into packages/features with clear APIs to keep build times and ownership manageable.",
+    "problem": "One giant lib/ with circular imports slows teams and analysis.",
+    "concepts": [
+      "feature packages",
+      "melos/pub workspaces",
+      "public APIs",
+      "dependency rules"
+    ],
+    "mechanics": "Extract features into packages, enforce import boundaries, and use melos for scripts.",
+    "tradeoffs": "More packages help scale; over-splitting early adds friction.",
+    "troubleshoot": "If analyzer slow, modularize hot packages and reduce barrel exports.",
+    "example": "// packages/feature_auth, packages/feature_home, packages/design_system",
+    "integration": "1) Identify features. 2) Extract packages. 3) Boundary lint. 4) Melos CI. 5) Keep shared slim."
+  },
+  "layout phase": {
+    "summary": "Layout assigns sizes/positions under constraints; expensive intrinsic/measuring layouts cause jank.",
+    "problem": "shrinkWrap lists and Intrinsics force extra layout work.",
+    "concepts": [
+      "performLayout",
+      "constraints",
+      "intrinsic cost",
+      "relayout boundaries"
+    ],
+    "mechanics": "Avoid shrinkWrap/intrinsics in hot paths, set itemExtent when possible, and profile layout.",
+    "tradeoffs": "Correct layout vs cost—sometimes explicit sizes win.",
+    "troubleshoot": "Timeline layout spikes → find shrinkWrap/Intrinsic.",
+    "example": "ListView.builder(itemExtent: 72, ...)",
+    "integration": "1) Remove shrinkWrap where Expanded works. 2) itemExtent. 3) Ban Intrinsics in lists. 4) Profile."
+  },
+  "LayoutBuilder": {
+    "summary": "LayoutBuilder rebuilds its builder with the parent's incoming BoxConstraints—enabling responsive branching.",
+    "problem": "MediaQuery-only breakpoints ignore that a widget may live in a narrow sidebar.",
+    "concepts": [
+      "constraints.maxWidth",
+      "responsive branches",
+      "avoid heavy work in builder",
+      "nested builders cost"
+    ],
+    "mechanics": "Branch UI on constraints, keep builders light, and combine with flexible layouts.",
+    "tradeoffs": "Powerful for components; overusing nested LayoutBuilders adds rebuild noise.",
+    "troubleshoot": "If always getting unbounded, parent passed unbounded constraints—wrap properly.",
+    "example": "LayoutBuilder(builder: (c, constraints) {\n  if (constraints.maxWidth < 600) return Mobile();\n  return Desktop();\n});",
+    "integration": "1) Replace viewport-only assumptions. 2) Adaptive components. 3) Test in sidebars. 4) Keep builders cheap."
+  },
+  "ListView": {
+    "summary": "ListView lazily builds children in a scrollable viewport—default for vertical collections.",
+    "problem": "ListView(children: hugeList) builds eagerly; shrinkWrap inside Column causes expensive layouts.",
+    "concepts": [
+      "builder/separated",
+      "itemExtent",
+      "shrinkWrap caution",
+      "primary scroll"
+    ],
+    "mechanics": "Use builder constructors, provide keys, consider itemExtent for perf, avoid shrinkWrap when Expanded works.",
+    "tradeoffs": "ListView is simple; CustomScrollView needed for mixed slivers.",
+    "troubleshoot": "If jank on scroll, reduce item build cost and avoid shrinkWrap.",
+    "example": "ListView.builder(itemCount: n, itemBuilder: (_, i) => Item(key: ValueKey(ids[i]), index: i));",
+    "integration": "1) Always builder for long lists. 2) Keys. 3) Expanded not shrinkWrap. 4) Profile. 5) itemExtent when uniform."
+  },
+  "Material 3 theming": {
+    "summary": "Material 3 theming uses ColorScheme, TextTheme, and component themes for systematic styling.",
+    "problem": "Hard-coded colors ignore dark mode and accessibility contrast.",
+    "concepts": [
+      "ColorScheme.fromSeed",
+      "ThemeData.useMaterial3",
+      "component themes",
+      "dynamic color optional"
+    ],
+    "mechanics": "Define seed/scheme, apply Theme, prefer theme colors in widgets, and support dark/light.",
+    "tradeoffs": "M3 defaults may differ from brand—override component themes rather than one-off colors.",
+    "troubleshoot": "If dark mode breaks, missing ColorScheme roles—audit hard-coded Color(0x..).",
+    "example": "ThemeData(useMaterial3: true, colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal));",
+    "integration": "1) Adopt M3 ThemeData. 2) Map brand tokens. 3) Dark scheme. 4) Ban raw colors in widgets. 5) Contrast check."
+  },
+  "memory profiling": {
+    "summary": "Memory profiling uses DevTools heap snapshots/allocation tracing to find leaks and bloat.",
+    "problem": "Ignoring memory causes OOM on low-end devices after long sessions.",
+    "concepts": [
+      "heap snapshot",
+      "diffing",
+      "retaining paths",
+      "ImageCache"
+    ],
+    "mechanics": "Snapshot before/after flows, follow retainers, fix listeners/images/caches.",
+    "tradeoffs": "Profiling overhead exists—use staging devices.",
+    "troubleshoot": "If size climbs after pop routes, leaked elements/subscriptions.",
+    "example": "// DevTools Memory → Snapshot → Diff",
+    "integration": "1) Baseline. 2) Diff journeys. 3) Fix retainers. 4) Automate smoke memory checks when possible."
+  },
+  "MethodChannel": {
+    "summary": "MethodChannel invokes platform methods (Android/iOS) with async results—classic Flutter platform interop.",
+    "problem": "Missing native implementations or wrong channel names throw MissingPluginException.",
+    "concepts": [
+      "channel name",
+      "invokeMethod",
+      "codecs",
+      "main thread care on native"
+    ],
+    "mechanics": "Define channel string, implement handlers natively, invoke from Dart, and handle errors.",
+    "tradeoffs": "Channels are flexible; Pigeon adds type safety. Heavy traffic may need EventChannel/FFI.",
+    "troubleshoot": "If MissingPluginException, plugin not registered or running on unsupported platform.",
+    "example": "const ch = MethodChannel('app.battery');\nfinal level = await ch.invokeMethod<int>('getBatteryLevel');",
+    "integration": "1) Define API. 2) Implement native. 3) Dart invoke. 4) Tests/mocks. 5) Consider Pigeon if growing."
+  },
+  "mixins": {
+    "summary": "Mixins reuse implementation across class hierarchies (`with`) without deep inheritance.",
+    "problem": "Mixin hell and conflicting members create fragile classes.",
+    "concepts": [
+      "with Mixin",
+      "on constraints",
+      "linearization",
+      "prefer composition"
+    ],
+    "mechanics": "Use mixins for cross-cutting State capabilities (TickerProvider), prefer composition for domain.",
+    "tradeoffs": "Handy for Flutter State; overuse obscures behavior.",
+    "troubleshoot": "If member conflict, rename/restructure.",
+    "example": "class _S extends State<W> with SingleTickerProviderStateMixin {}",
+    "integration": "1) Limit mixins to framework patterns. 2) Compose domain. 3) Review conflicts. 4) Document mixin contracts."
+  },
+  "mocking": {
+    "summary": "Mocks/fakes replace dependencies in tests (mockito/mocktail) to assert interactions and stub responses.",
+    "problem": "Over-mocking couples tests to implementation and misses integration bugs.",
+    "concepts": [
+      "mocktail/mockito",
+      "stubs vs fakes",
+      "verify calls",
+      "override DI"
+    ],
+    "mechanics": "Fake repositories for VM tests, verify critical calls, and keep some integration tests unmocked.",
+    "tradeoffs": "Mocks speed tests but can green-wash broken wiring.",
+    "troubleshoot": "If tests pass but app fails, too many mocks—add integration coverage.",
+    "example": "when(() => api.load()).thenAnswer((_) async => sample);\nverify(() => api.load()).called(1);",
+    "integration": "1) Fake repos. 2) mocktail. 3) Verify key interactions. 4) Balance with ITs. 5) Avoid mocking types you own unnecessarily."
+  },
+  "MVVM": {
+    "summary": "MVVM structures Flutter apps with Views (widgets), ViewModels (state/commands), and Models (data).",
+    "problem": "Fat widgets mixing IO and UI become untestable.",
+    "concepts": [
+      "ViewModel state",
+      "command methods",
+      "binding via listening",
+      "test VMs without UI"
+    ],
+    "mechanics": "Put state in ChangeNotifier/Cubit ViewModels, inject repositories, and keep widgets declarative.",
+    "tradeoffs": "MVVM clarity vs extra layers for tiny apps—scale the pattern to team size.",
+    "troubleshoot": "If widgets call APIs directly, move to VM/repository.",
+    "example": "class LoginVm extends ChangeNotifier { /* state + submit() */ }",
+    "integration": "1) Introduce VM for a screen. 2) Inject repos. 3) Unit-test VM. 4) Thin widgets. 5) Consistent folder layout."
+  },
+  "Navigator 1.0": {
+    "summary": "Navigator 1.0 manages a stack of Routes with push/pop and imperative APIs many apps still use.",
+    "problem": "Passing wrong context (below Navigator) fails; not awaiting results loses return values.",
+    "concepts": [
+      "push/pop",
+      "MaterialPageRoute",
+      "onGenerateRoute",
+      "result futures"
+    ],
+    "mechanics": "Push routes with MaterialPageRoute/named routes, pop with results, and keep a clear routing table.",
+    "tradeoffs": "1.0 is simple; complex deep links/web sync often need Router 2.0/go_router.",
+    "troubleshoot": "If push fails, context lacks Navigator—use root navigator or correct context.",
+    "example": "final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(builder: (_) => EditPage()));",
+    "integration": "1) Centralize routes. 2) Type results. 3) Handle back. 4) Migrate to go_router when deep links demand."
+  },
+  "nested scrolling": {
+    "summary": "Nested scrolling coordinates parent/child scrollables (e.g., header + list) via NestedScrollView or custom physics.",
+    "problem": "Competing scrollables steal gestures and produce sticky weirdness.",
+    "concepts": [
+      "NestedScrollView",
+      "PrimaryScrollController",
+      "sliver coordination",
+      "physics"
+    ],
+    "mechanics": "Prefer CustomScrollView slivers or NestedScrollView; avoid shrinkWrap nested ListViews.",
+    "tradeoffs": "NestedScrollView helps but is complex; slivers often simpler.",
+    "troubleshoot": "If outer won't scroll, primary/controller conflict—align controllers.",
+    "example": "NestedScrollView(headerSliverBuilder: ..., body: ListView(...));",
+    "integration": "1) Prefer single CustomScrollView. 2) Else NestedScrollView. 3) Test gestures. 4) Avoid nested shrinkWrap."
+  },
+  "offline-first mobile app": {
+    "summary": "Offline-first apps read/write a local source of truth and sync to network when available.",
+    "problem": "Online-only mobile UX fails in tunnels/planes and feels fragile.",
+    "concepts": [
+      "local DB",
+      "outbox",
+      "conflict policy",
+      "connectivity signals"
+    ],
+    "mechanics": "Persist locally first, enqueue mutations, sync with backoff, and show sync state honestly.",
+    "tradeoffs": "Complexity vs UX—start with read-cache before full bidirectional sync.",
+    "troubleshoot": "If duplicates after sync, missing idempotency keys.",
+    "example": "// write local → outbox row → worker POST with idempotency key → mark synced",
+    "integration": "1) Local DB. 2) Outbox. 3) Sync worker. 4) Conflict policy. 5) UX for pending/failed."
+  },
+  "offline-first synchronization": {
+    "summary": "Sync protocols move local mutations to server and merge remote changes with clear conflict rules.",
+    "problem": "Last-write-wins without vector clocks/versions silently drops user edits.",
+    "concepts": [
+      "push/pull",
+      "version vectors/etags",
+      "CRDT optional",
+      "idempotent upserts"
+    ],
+    "mechanics": "Pull remote since cursor, push outbox with versions, resolve conflicts per domain rules.",
+    "tradeoffs": "Perfect sync is hard; pick domain-appropriate conflicts (merge fields vs LWW).",
+    "troubleshoot": "If data ping-pongs, clocks/versions wrong—add tests for concurrent edits.",
+    "example": "PUT /notes/{id} If-Match: \"etag\"",
+    "integration": "1) Define conflict policy. 2) Version fields. 3) Cursor pull. 4) Outbox push. 5) Concurrent edit tests."
+  },
+  "package maintenance evaluation": {
+    "summary": "Evaluating Flutter packages checks maintenance, Flutter compatibility, issue health, and license fit.",
+    "problem": "Adopting abandoned plugins blocks engine upgrades.",
+    "concepts": [
+      "pub scores",
+      "recent commits",
+      "Flutter version support",
+      "fork risk"
+    ],
+    "mechanics": "Inspect pub.dev, repo activity, open critical issues, and prefer endorsed/popular maintained packages.",
+    "tradeoffs": "Vendor vs write-your-own—estimate replacement cost before adopting.",
+    "troubleshoot": "If plugin breaks on Flutter upgrade, check issues and be ready to fork/replace.",
+    "example": "// Checklist: last publish, open PRs, license, platforms supported, example runs",
+    "integration": "1) Score candidates. 2) Spike upgrade. 3) Abstraction layer. 4) Monitor releases. 5) Exit plan."
+  },
+  "Pigeon": {
+    "summary": "Pigeon generates type-safe platform channel code from a Dart API definition for Flutter↔native.",
+    "problem": "Hand-written channels drift types and codecs between platforms.",
+    "concepts": [
+      "API IDL",
+      "codegen",
+      "HostApi/FlutterApi",
+      "null safety"
+    ],
+    "mechanics": "Define API, generate Dart/Kotlin/Swift, implement native hosts, call generated Dart APIs.",
+    "tradeoffs": "Type safety vs setup cost; worth it as channel surface grows.",
+    "troubleshoot": "If codegen mismatches, clean and regenerate; versions must align.",
+    "example": "// pigeons/api.dart → flutter pub run pigeon ...",
+    "integration": "1) Write pigeon API. 2) Generate. 3) Implement hosts. 4) CI codegen. 5) Version carefully."
+  },
+  "Provider": {
+    "summary": "Provider exposes values/ChangeNotifiers via InheritedWidget wrappers with convenient read/watch APIs.",
+    "problem": "Using Provider.of with listen:true indiscriminately rebuilds large subtrees.",
+    "concepts": [
+      "ChangeNotifierProvider",
+      "context.watch/read",
+      "Consumer",
+      "MultiProvider"
+    ],
+    "mechanics": "Provide at subtree root, watch selectively, call notifyListeners on changes, dispose notifiers.",
+    "tradeoffs": "Simple and popular; Riverpod addresses some test/compile-time issues. Don't provide everything globally.",
+    "troubleshoot": "If rebuild storms, you watched too high—narrow Consumer/select.",
+    "example": "ChangeNotifierProvider(create: (_) => CartModel(), child: App());\ncontext.watch<CartModel>().count;",
+    "integration": "1) Provide feature models. 2) watch narrowly. 3) read in callbacks. 4) Dispose. 5) Widget tests with overrides."
+  },
+  "R8/ProGuard": {
+    "summary": "R8 shrinks/obfuscates Android release builds; keep rules preserve reflection-needed classes (plugins).",
+    "problem": "Missing keep rules crash release-only when Gson/reflection plugins break.",
+    "concepts": [
+      "minifyEnabled",
+      "proguard-rules.pro",
+      "consumer rules",
+      "mapping.txt"
+    ],
+    "mechanics": "Enable minify for release, add plugin keep rules, save mapping for crash deobfuscation.",
+    "tradeoffs": "Smaller apps vs fragile reflection; test release builds always.",
+    "troubleshoot": "If release crash only, check mapping and missing keeps.",
+    "example": "minifyEnabled true\nproguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'",
+    "integration": "1) Enable R8. 2) Add keeps. 3) Test release. 4) Upload mapping. 5) Monitor crashlytics."
+  },
+  "real-time chat app in Flutter": {
+    "summary": "Realtime chat in Flutter combines socket/stream repos, local cache, optimistic UI, and notification wakeups.",
+    "problem": "Polling feels laggy; no local cache blanks the chat on reopen.",
+    "concepts": [
+      "message stream",
+      "optimistic send",
+      "paging history",
+      "push for wake"
+    ],
+    "mechanics": "Persist messages, subscribe to room stream, reconcile acks, and virtualize long lists.",
+    "tradeoffs": "Build vs buy (Stream/Sendbird)—time-to-market vs control.",
+    "troubleshoot": "If duplicates, dedupe by server id; if reorder, sort stable timestamps.",
+    "example": "repo.watchMessages(roomId).listen(controller.add);\nawait repo.sendOptimistic(text);",
+    "integration": "1) Message schema. 2) Local cache. 3) Socket stream. 4) Optimistic UI. 5) Push + pagination."
+  },
+  "rebuild optimization": {
+    "summary": "Rebuild optimization reduces work by splitting widgets, using const, selectors, and avoiding rebuilding huge subtrees.",
+    "problem": "Mega build methods rebuild charts/lists on every keystroke.",
+    "concepts": [
+      "const",
+      "split widgets",
+      "Selector/BlocSelector",
+      "RepaintBoundary separate concern"
+    ],
+    "mechanics": "Isolate frequently changing state, const static subtrees, and profile rebuilds before memo hacks.",
+    "tradeoffs": "Readability vs micro-opts—measure first.",
+    "troubleshoot": "DevTools rebuild highlights show hot widgets—split them.",
+    "example": "context.select<Cart,int>((c) => c.count); // rebuild only on count",
+    "integration": "1) Profile rebuilds. 2) Split. 3) select/watch narrow. 4) const. 5) Re-measure."
+  },
+  "records and patterns": {
+    "summary": "Dart records and patterns enable concise multi-value returns and expressive switches/destructuring.",
+    "problem": "Boilerplate classes for tiny tuples clutter APIs.",
+    "concepts": [
+      "(a,b) records",
+      "pattern switch",
+      "destructuring",
+      "exhaustiveness"
+    ],
+    "mechanics": "Return records for small tuples, switch on sealed types with patterns, keep public domain models named when meaningful.",
+    "tradeoffs": "Records are handy; named classes still better for evolving domain entities.",
+    "troubleshoot": "If exhaustiveness fails, missing case—handle or use default carefully.",
+    "example": "final (user, token) = await login();\nswitch (state) { case Loading() => ...; case Ready(:final user) => ...; }",
+    "integration": "1) Adopt records for tuples. 2) Pattern switches on unions. 3) Keep domain named. 4) Enable exhaustive lint."
+  },
+  "RenderFlex overflow": {
+    "summary": "RenderFlex overflow (yellow/black stripes) means Row/Column children exceeded available space along main axis.",
+    "problem": "Unbounded text or fixed widths in narrow layouts ignore constraints.",
+    "concepts": [
+      "main axis overflow",
+      "Flexible/Expanded",
+      "softWrap/ellipsis",
+      "Inspect constraints"
+    ],
+    "mechanics": "Wrap with Flexible/Expanded, allow text to ellipsize, or scroll; never ignore overflow in production.",
+    "tradeoffs": "Overflow is a layout bug, not a visual style—fix constraints.",
+    "troubleshoot": "Use Inspector to see who forced oversized child.",
+    "example": "Row(children: [Icon(...), Expanded(child: Text(long, overflow: TextOverflow.ellipsis))]);",
+    "integration": "1) Reproduce narrow sizes. 2) Fix flex/text. 3) Add golden/widget tests at small sizes. 4) Ban ignore overflow."
+  },
+  "RenderObject": {
+    "summary": "RenderObjects perform layout and painting; widgets configure them via Elements.",
+    "problem": "App developers rarely need custom RenderObjects—mistakes break constraints contracts.",
+    "concepts": [
+      "performLayout",
+      "paint",
+      "hitTest",
+      "ParentData"
+    ],
+    "mechanics": "Prefer composing widgets; write custom RenderBox only when existing render objects can't express the layout.",
+    "tradeoffs": "Ultimate control vs maintenance cost and a11y complexity.",
+    "troubleshoot": "If asserts in performLayout, constraints protocol violated.",
+    "example": "// Prefer CustomPainter/box widgets before custom RenderBox",
+    "integration": "1) Exhaust widget options. 2) Study RenderBox docs. 3) Implement carefully. 4) Heavy tests. 5) Semantics."
+  },
+  "RepaintBoundary": {
+    "summary": "RepaintBoundary creates a separate display list layer so frequent repaints don't dirty siblings.",
+    "problem": "Animating one subtree without boundaries can repaint large ancestors costlessly avoided.",
+    "concepts": [
+      "layer separation",
+      "toImage",
+      "memory cost of layers",
+      "profile first"
+    ],
+    "mechanics": "Wrap chatty animations/complex static siblings strategically; don't wrap everything.",
+    "tradeoffs": "More layers help repaint isolation but use memory/GPU bandwidth.",
+    "troubleshoot": "If still janky, problem may be build/layout not paint—check timeline.",
+    "example": "RepaintBoundary(child: ComplicatedStaticHeader());",
+    "integration": "1) Profile paints. 2) Boundary around static vs animated. 3) Re-measure. 4) Avoid excessive layers."
+  },
+  "repository pattern": {
+    "summary": "Repositories abstract data sources (API/DB) behind interfaces consumed by VMs/use-cases.",
+    "problem": "Widgets calling dio/Firebase directly scatter caching and error mapping.",
+    "concepts": [
+      "interface + impl",
+      "DTO mapping",
+      "caching",
+      "test fakes"
+    ],
+    "mechanics": "Define repo interfaces, implement with remote/local, inject into VMs, fake in tests.",
+    "tradeoffs": "Clear boundaries vs extra layer for tiny apps—use when multiple sources appear.",
+    "troubleshoot": "If swapping API breaks UI, mapping leaked—keep DTOs inside repo.",
+    "example": "abstract class TodoRepo { Future<List<Todo>> list(); }\nclass ApiTodoRepo implements TodoRepo { /* dio */ }",
+    "integration": "1) Repo interfaces. 2) Impl remote/local. 3) Inject. 4) Fake tests. 5) Map errors once."
+  },
+  "REST API integration": {
+    "summary": "Flutter REST integration uses http/dio clients, DTO parsing, auth headers, and resilient error mapping.",
+    "problem": "Parsing JSON in UI isolates janks; ignoring non-2xx statuses mis-handles errors.",
+    "concepts": [
+      "http client",
+      "dto/json",
+      "auth interceptors",
+      "timeouts"
+    ],
+    "mechanics": "Centralize client, parse with json_serializable, map errors, and optionally isolate heavy parses.",
+    "tradeoffs": "dio features vs http simplicity—pick one and standardize.",
+    "troubleshoot": "If UI janks on large JSON, move parse off UI isolate.",
+    "example": "final res = await http.get(uri, headers: headers);\nif (res.statusCode >= 400) throw ApiException(res.statusCode);",
+    "integration": "1) API client module. 2) Typed DTOs. 3) Error mapping. 4) Auth refresh. 5) Widget/repo tests."
+  },
+  "retry/backoff": {
+    "summary": "Client retry with exponential backoff+jitter handles transient mobile network failures.",
+    "problem": "Immediate retries drain battery and hammer recovering servers.",
+    "concepts": [
+      "idempotent methods",
+      "jitter",
+      "max attempts",
+      "offline queue"
+    ],
+    "mechanics": "Retry GETs and idempotent writes, honor Retry-After, and queue when offline.",
+    "tradeoffs": "Retries improve resilience; non-idempotent POSTs need keys.",
+    "troubleshoot": "If storms in logs, missing jitter/caps.",
+    "example": "await retry(() => client.get(url), maxAttempts: 5, delayFactor: Duration(ms: 200));",
+    "integration": "1) Classify idempotent calls. 2) Backoff+jitter. 3) Honor Retry-After. 4) Metrics. 5) UX for final failure."
+  },
+  "Riverpod": {
+    "summary": "Riverpod is a compile-safe reactive caching/state toolkit that improves on Provider with no BuildContext for reads.",
+    "problem": "Provider context lookup limitations and disposal bugs push teams to Riverpod.",
+    "concepts": [
+      "ProviderContainer",
+      "ref.watch/read",
+      "family/autoDispose",
+      "AsyncNotifier"
+    ],
+    "mechanics": "Declare providers globally, watch in consumers, use autoDispose for ephemeral state, override in tests.",
+    "tradeoffs": "Learning curve vs safety; still don't put all ephemeral UI flags in providers.",
+    "troubleshoot": "If disposed provider errors, lifecycle mismatch—tune autoDispose.",
+    "example": "final counterProvider = StateProvider((ref) => 0);\nref.watch(counterProvider);",
+    "integration": "1) Add Riverpod. 2) Migrate one feature. 3) autoDispose where needed. 4) Override in tests. 5) Document provider graph."
+  },
+  "Row and Column": {
+    "summary": "Row and Column are Flex widgets laying out children horizontally/vertically under incoming constraints.",
+    "problem": "Placing unbounded scroll views inside them without Expanded causes layout exceptions.",
+    "concepts": [
+      "main/cross axis",
+      "Expanded/Flexible",
+      "MainAxisSize",
+      "alignment"
+    ],
+    "mechanics": "Choose axis, align children, expand to fill leftover space, and respect constraints.",
+    "tradeoffs": "Simple and ubiquitous; complex grids may need Wrap/GridView/CustomMultiChildLayout.",
+    "troubleshoot": "Overflow? Check Expanded and text wrapping.",
+    "example": "Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [...]); ",
+    "integration": "1) Standardize spacing. 2) Expanded patterns. 3) Test small screens. 4) Prefer Wrap when needed."
+  },
+  "SafeArea": {
+    "summary": "SafeArea pads children to avoid system OS intrusions (notches, status bar, home indicator).",
+    "problem": "Content under notches looks broken and can be untappable.",
+    "concepts": [
+      "MediaQuery.padding",
+      "minimum vs maintainBottomViewPadding",
+      "false edges",
+      "immersive modes"
+    ],
+    "mechanics": "Wrap top-level scaffolds/screens with SafeArea or use padded AppBars that handle insets.",
+    "tradeoffs": "Sometimes intentional edge-to-edge design needs manual padding instead of SafeArea everywhere.",
+    "troubleshoot": "If double padding, SafeArea + AppBar both applied—disable edges.",
+    "example": "SafeArea(child: Scaffold(body: ...));",
+    "integration": "1) Apply SafeArea at screen roots. 2) Verify devices with notches. 3) Handle keyboards. 4) Edge-to-edge carefully."
+  },
+  "ScrollController": {
+    "summary": "ScrollController observes/drives scroll offset for infinite scroll, parallax, and scroll-to-index patterns.",
+    "problem": "Sharing one controller across multiple scrollables or forgetting dispose leaks.",
+    "concepts": [
+      "offset/position",
+      "listeners",
+      "animateTo",
+      "PrimaryScrollController"
+    ],
+    "mechanics": "Create controller in State, attach to one scrollable, listen for thresholds, dispose.",
+    "tradeoffs": "Controller gives power; NotificationListener often enough for simple cases.",
+    "troubleshoot": "If 'ScrollController attached to multiple', reuse bug—one controller per scrollable.",
+    "example": "controller.addListener(() {\n  if (controller.position.extentAfter < 200) loadMore();\n});",
+    "integration": "1) Own controller in State. 2) Dispose. 3) Infinite scroll guards. 4) Tests with controller jumps."
+  },
+  "sealed/base/interface/final class modifiers": {
+    "summary": "Dart class modifiers (sealed/base/interface/final) control where types can be implemented/extended for safer APIs.",
+    "problem": "Open hierarchies allow unexpected subtypes that break switch exhaustiveness assumptions.",
+    "concepts": [
+      "sealed exhaustiveness",
+      "base restrict implements",
+      "interface",
+      "final"
+    ],
+    "mechanics": "Mark state unions sealed, lock library types with base/final as needed, and switch exhaustively.",
+    "tradeoffs": "Stricter APIs help large codebases; may constrain plugin authors—document.",
+    "troubleshoot": "If outside subtype appears, modifier missing—tighten.",
+    "example": "sealed class Result {}\nfinal class Ok extends Result {}\nfinal class Err extends Result {}",
+    "integration": "1) Seal state unions. 2) Exhaustive switches. 3) final leaf types. 4) Document intended extension points."
+  },
+  "secure token storage": {
+    "summary": "Secure token storage uses Keychain/Keystore-backed plugins (flutter_secure_storage) instead of plain prefs.",
+    "problem": "Tokens in SharedPreferences are readable on rooted/jailbroken devices and backups sometimes.",
+    "concepts": [
+      "Keychain/Keystore",
+      "biometric optional",
+      "rotation",
+      "clear on logout"
+    ],
+    "mechanics": "Store refresh tokens securely, short-lived access in memory when possible, wipe on logout.",
+    "tradeoffs": "Secure storage still not perfect on compromised devices—pair with server revocation.",
+    "troubleshoot": "If tokens vanish on upgrade, storage options/accessibility settings wrong.",
+    "example": "await storage.write(key: 'refresh', value: token);",
+    "integration": "1) Secure storage plugin. 2) Memory for access token. 3) Logout wipe. 4) Jailbreak heuristics optional. 5) Revoke server-side."
+  },
+  "Semantics": {
+    "summary": "Semantics describe UI meaning for assistive technologies; Flutter merges a semantics tree parallel to widgets.",
+    "problem": "Custom painted controls without semantics are invisible to TalkBack/VoiceOver.",
+    "concepts": [
+      "Semantics widget",
+      "labels/actions",
+      "excludeSemantics",
+      "MergeSemantics"
+    ],
+    "mechanics": "Use semantic widgets (button/text), add Semantics for custom controls, and test with screen readers.",
+    "tradeoffs": "Too many semantics nodes can confuse; merge thoughtfully.",
+    "troubleshoot": "If unlabeled buttons, wrap with Semantics(button:true, label:...).",
+    "example": "Semantics(label: 'Delete item', button: true, onTap: onDelete, child: Icon(Icons.delete));",
+    "integration": "1) Audit custom controls. 2) Labels/actions. 3) SR testing. 4) Keep Material semantics where possible."
+  },
+  "setState": {
+    "summary": "setState marks the Element dirty so Flutter rebuilds that State's widget subtree with new fields.",
+    "problem": "Calling setState after dispose or for every tiny leaf without splitting causes crashes/jank.",
+    "concepts": [
+      "schedule rebuild",
+      "mutate fields then setState",
+      "mounted",
+      "scope rebuilds"
+    ],
+    "mechanics": "Update fields and call setState, guard with mounted, and split widgets so setState scope stays small.",
+    "tradeoffs": "Fine for local UI; escalate to app state libs when sharing across routes.",
+    "troubleshoot": "If setState() called after dispose(), async gap—check mounted.",
+    "example": "setState(() => count++);",
+    "integration": "1) Local state via setState. 2) mounted guards. 3) Split trees. 4) Move shared state up/out."
+  },
+  "setState after dispose": {
+    "summary": "setState after dispose happens when async callbacks complete after State unmount—framework asserts in debug.",
+    "problem": "Missing mounted checks crash or spam logs when users navigate away quickly.",
+    "concepts": [
+      "mounted flag",
+      "cancel subscriptions",
+      "Abort async",
+      "use_build_context_synchronously"
+    ],
+    "mechanics": "Track subscriptions, cancel in dispose, and check mounted before setState after awaits.",
+    "tradeoffs": "Always a bug to ignore—fix ownership of async work.",
+    "troubleshoot": "Reproduce by popping during in-flight request; add guards.",
+    "example": "await future;\nif (!mounted) return;\nsetState(() => data = x);",
+    "integration": "1) Audit async State methods. 2) mounted checks. 3) Cancel subs. 4) Regression tests fast pop."
+  },
+  "SharedPreferences": {
+    "summary": "SharedPreferences stores small key-value prefs locally (NSUserDefaults/SharedPreferences).",
+    "problem": "Storing secrets or large blobs here is insecure/slow; async API misuse assumes sync availability.",
+    "concepts": [
+      "async getInstance",
+      "primitive types",
+      "not encrypted",
+      "migration"
+    ],
+    "mechanics": "Await instance, read/write simple prefs, and use secure storage for tokens.",
+    "tradeoffs": "Simple prefs vs need for typed DB—don't stretch it.",
+    "troubleshoot": "If null unexpectedly, key mismatch or cleared app data.",
+    "example": "final p = await SharedPreferences.getInstance();\nawait p.setBool('dark', true);",
+    "integration": "1) Prefs for UX flags only. 2) Secure tokens elsewhere. 3) Default values. 4) Document keys."
+  },
+  "sound null safety": {
+    "summary": "Sound null safety makes nullable types explicit so the analyzer proves null dereferences can't occur.",
+    "problem": "Legacy `dynamic`/`!` abuse reintroduces null crashes.",
+    "concepts": [
+      "T vs T?",
+      "promotion",
+      "late",
+      "never bang casually"
+    ],
+    "mechanics": "Model nullability honestly, promote with checks, avoid ! except when proven, prefer late only for definite assignment.",
+    "tradeoffs": "Migration pain vs runtime crash reduction—worth it fully.",
+    "troubleshoot": "If bang throws, the assumption was wrong—model nullable instead.",
+    "example": "String title;\nString? maybe;\nif (maybe != null) print(maybe.length);",
+    "integration": "1) Full null safety. 2) Ban unnecessary !. 3) Strict lints. 4) Fix rather than bang."
+  },
+  "SQLite/sqflite": {
+    "summary": "sqflite is a popular SQLite plugin for local relational storage on mobile.",
+    "problem": "No migrations strategy corrupts upgrades; main-isolate heavy queries jank UI.",
+    "concepts": [
+      "openDatabase",
+      "migrations version",
+      "transactions",
+      "indexes"
+    ],
+    "mechanics": "Open with version+onUpgrade, wrap multi-writes in transactions, index query columns, consider background isolates.",
+    "tradeoffs": "SQL control vs Drift's codegen convenience.",
+    "troubleshoot": "If upgrade crashes, onUpgrade incomplete—test migrations on copies.",
+    "example": "await db.execute('CREATE TABLE ...');\nawait db.transaction((txn) async { /* ... */ });",
+    "integration": "1) Schema+migrations. 2) Indexes. 3) Transactions. 4) Offload heavy queries. 5) Backup strategy."
+  },
+  "State lifecycle": {
+    "summary": "StatefulWidget State mounts via initState, updates via didUpdateWidget, cleans in deactivate/dispose.",
+    "problem": "Starting streams in build or skipping dispose leaks and duplicates subscriptions.",
+    "concepts": [
+      "initState",
+      "didChangeDependencies",
+      "didUpdateWidget",
+      "dispose"
+    ],
+    "mechanics": "Init controllers/subscriptions in initState, respond to prop changes in didUpdateWidget, dispose all.",
+    "tradeoffs": "Lifecycle mastery prevents leaks; prefer higher-level state managers for complex syncing.",
+    "troubleshoot": "If double subscription, initState work incorrectly re-run—check keys remounting.",
+    "example": "@override void dispose(){ sub.cancel(); controller.dispose(); super.dispose(); }",
+    "integration": "1) Audit dispose. 2) No side effects in build. 3) Tests for remount. 4) Document owned resources."
+  },
+  "StatelessWidget": {
+    "summary": "StatelessWidget describes UI from configuration (props) without local mutable State.",
+    "problem": "Pushing ephemeral interaction state into parents unnecessarily creates rebuild churn.",
+    "concepts": [
+      "immutable config",
+      "build method",
+      "const constructors",
+      "when to go Stateful"
+    ],
+    "mechanics": "Prefer const Stateless widgets; escalate to Stateful/Cubit when local mutable state appears.",
+    "tradeoffs": "Stateless clarity vs needing State for animations/forms.",
+    "troubleshoot": "If you need setState, it's no longer Stateless—migrate.",
+    "example": "class Label extends StatelessWidget {\n  const Label(this.text, {super.key});\n  final String text;\n  @override Widget build(BuildContext c) => Text(text);\n}",
+    "integration": "1) Prefer const Stateless. 2) Elevate state intentionally. 3) Const all the way. 4) Lint unnecessary stateful."
+  },
+  "Stream": {
+    "summary": "Streams deliver asynchronous sequences of events—used for sockets, Firestore snapshots, and BLoC.",
+    "problem": "Missing cancellation leaks; using single-subscription streams twice throws.",
+    "concepts": [
+      "single vs broadcast",
+      "StreamBuilder",
+      "subscription.cancel",
+      "asyncMap"
+    ],
+    "mechanics": "Subscribe with StreamBuilder or listen+cancel, choose broadcast when multi-listen needed, handle errors.",
+    "tradeoffs": "Streams are powerful; Futures suffice for one-shot. Backpressure rarely automatic—careful producers.",
+    "troubleshoot": "If 'already listened', need broadcast or new instance per listener.",
+    "example": "StreamBuilder(stream: repo.watch(), builder: (c, snap) => ...)",
+    "integration": "1) StreamBuilder for UI. 2) Cancel elsewhere. 3) Error UI. 4) Prefer broadcast for multi fans. 5) Test cancellation."
+  },
+  "unit test": {
+    "summary": "Flutter unit tests verify pure Dart logic (VMs, parsers) quickly without rendering.",
+    "problem": "Putting logic only in widgets forces slower widget tests for everything.",
+    "concepts": [
+      "test package",
+      "arrange-act-assert",
+      "fakes",
+      "fast CI"
+    ],
+    "mechanics": "Extract logic to testable classes and assert outputs/errors with fakes.",
+    "tradeoffs": "Unit vs widget/integration—pyramid with mostly unit.",
+    "troubleshoot": "If needing WidgetsFlutterBinding for pure logic, logic not extracted yet.",
+    "example": "test('tax', () => expect(calcTax(100), 10));",
+    "integration": "1) Extract logic. 2) Unit tests. 3) Fake repos. 4) Keep CI fast. 5) Widget tests for UI wiring."
+  },
+  "ValueNotifier": {
+    "summary": "ValueNotifier is a ChangeNotifier holding a single value—lightweight reactive cell for small local state.",
+    "problem": "Using full Provider/BLoC for a single boolean can be ceremony overkill.",
+    "concepts": [
+      "value setter notifies",
+      "ValueListenableBuilder",
+      "dispose",
+      "listenables"
+    ],
+    "mechanics": "Create notifier, rebuild with ValueListenableBuilder, dispose with owner.",
+    "tradeoffs": "Tiny and fast; not a full app architecture. Combine with larger patterns as needed.",
+    "troubleshoot": "If UI not updating, you mutated fields inside value without reassigning value.",
+    "example": "final open = ValueNotifier(false);\nValueListenableBuilder(valueListenable: open, builder: ...);",
+    "integration": "1) Use for local leaf state. 2) Dispose. 3) Escalate to Cubit when logic grows. 4) Prefer immutable value replaces."
+  },
+  "Wasm/SkWasm": {
+    "summary": "Skwasm is Flutter web's Wasm-oriented rendering path aiming for smaller/faster web engines than classic CanvasKit loading.",
+    "problem": "Large Wasm downloads still hurt first load if not cached/deferred thoughtfully.",
+    "concepts": [
+      "wasm gc/capabilities",
+      "build flags",
+      "browser support",
+      "fallback"
+    ],
+    "mechanics": "Build with current Flutter web Wasm options, test target browsers, measure load.",
+    "tradeoffs": "Bleeding-edge perf vs compatibility—have fallbacks.",
+    "troubleshoot": "If blank on older browsers, feature unsupported—detect and fallback.",
+    "example": "flutter build web --wasm  # per current Flutter docs/flags",
+    "integration": "1) Evaluate Wasm builds. 2) Browser matrix. 3) Measure. 4) Fallback plan. 5) Cache aggressively."
+  },
+  "WebSocket": {
+    "summary": "WebSockets give Flutter apps bidirectional realtime channels for chat/presence.",
+    "problem": "No reconnect/backoff drops users on mobile networks; parsing on UI isolate janks.",
+    "concepts": [
+      "connect/auth",
+      "heartbeat",
+      "reconnect",
+      "message codec"
+    ],
+    "mechanics": "Connect with auth, heartbeat, exponential reconnect, and push events into a repository stream.",
+    "tradeoffs": "Sockets are great for chat; SSE may suffice for server→client only.",
+    "troubleshoot": "If battery drain, too-aggressive reconnect/ping—tune intervals.",
+    "example": "final ch = IOWebSocketChannel.connect(uri);\nch.stream.listen(onMsg);",
+    "integration": "1) Repo-level socket. 2) Auth. 3) Reconnect+backoff. 4) Offline queue. 5) Profile parse cost."
+  },
+  "Widget": {
+    "summary": "Widgets are immutable configuration objects describing UI; Flutter rebuilds them cheaply compared to Elements/RenderObjects.",
+    "problem": "Mutating widgets or heavy build methods without const causes avoidable work.",
+    "concepts": [
+      "immutable config",
+      "build()",
+      "const constructors",
+      "composition"
+    ],
+    "mechanics": "Compose small widgets, use const, and keep build pure and light.",
+    "tradeoffs": "Fine-grained widgets help rebuild control but too many layers hurt readability.",
+    "troubleshoot": "If rebuild expensive, split widgets and add const.",
+    "example": "const Padding(padding: EdgeInsets.all(8), child: Text('Hi'));",
+    "integration": "1) Const-friendly widgets. 2) Split builds. 3) Pure build. 4) Profile rebuilds."
+  },
+  "Widget tree": {
+    "summary": "The widget tree is the immutable configuration hierarchy Flutter diffs each build to update elements.",
+    "problem": "Deep unnecessary subtrees and missing keys make diffs remount too much.",
+    "concepts": [
+      "composition",
+      "keys",
+      "Builder for context",
+      "devtools inspector"
+    ],
+    "mechanics": "Keep trees intentional, key stateful lists, and inspect with Widget Inspector.",
+    "tradeoffs": "Deeper trees vs fewer large builds—split when profiling says so.",
+    "troubleshoot": "Inspector highlights rebuilds—use it when optimizing.",
+    "example": "// DevTools → Inspector → Track widget rebuilds",
+    "integration": "1) Learn inspector. 2) Key lists. 3) Split heavy builds. 4) Avoid mega-build methods."
+  },
+  "zones": {
+    "summary": "Zones provide overriding execution contexts for async error handling and forkable behaviors in Dart.",
+    "problem": "Uncaught async errors outside runZonedGuarded escape to the console without reporting.",
+    "concepts": [
+      "runZonedGuarded",
+      "uncaught errors",
+      "binding ensureInitialized order",
+      "zone-local values"
+    ],
+    "mechanics": "Wrap app startup in runZonedGuarded to report errors, careful with zone-crossing assumptions.",
+    "tradeoffs": "Zones are powerful/low-level—prefer framework error hooks when enough.",
+    "troubleshoot": "If errors missing in Crashlytics, zone/handler not installed early enough.",
+    "example": "runZonedGuarded(() => runApp(App()), (e, st) => report(e, st));",
+    "integration": "1) Guard main. 2) Report to crash tool. 3) FlutterError.onError too. 4) Test intentional throws."
+  }
+}

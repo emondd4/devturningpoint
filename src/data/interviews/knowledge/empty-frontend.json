@@ -1,0 +1,452 @@
+{
+  "FE-B-0055": {
+    "shortAnswer": "Flex for 1D; Grid for 2D.",
+    "answer": "Answering “Compare Flexbox and CSS Grid. When would you use each?”: Flexbox lays out items along one main axis with alignment on the cross axis—ideal for toolbars, navs, and distributing space. Mis-set flex-shrink/basis causes overflow or crushed content; nested flex without min-width:0 is a common trap. Relevant ideas: main/cross axis; grow/shrink/basis; justify/align; wrapping; grid-template-rows/columns; fr units and minmax. Set display:flex, choose direction, assign grow/shrink/basis intentionally, and use gap instead of margin hacks.",
+    "integrationProcedure": "1) Replace float/table hacks with flex for 1D UI. 2) Standardize gap tokens. 3) Fix overflow with min-size 0. 4) Document patterns.",
+    "example": ".row { display: flex; gap: 12px; align-items: center; }\n.grow { flex: 1 1 auto; min-width: 0; }\n\n.layout {\n  display: grid;\n  grid-template-columns: 240px minmax(0, 1fr);\n  grid-template-areas: 'nav main';\n}"
+  },
+  "FE-B-0056": {
+    "shortAnswer": "A Promise represents a future completion (fulfilled/rejected) enabling composable async control flow.",
+    "answer": "Answering “Explain promises and async/await.?”: A Promise represents a future completion (fulfilled/rejected) enabling composable async control flow. Unreturned promises and missing rejection handlers cause silent failures and race bugs. Relevant ideas: pending/fulfilled/rejected; then/catch/finally; Promise.all/allSettled/race; microtasks; async returns Promise; await pauses function. Return promises up the chain, handle rejections, prefer async/await for linear flow, and use allSettled when partial failure is OK.",
+    "integrationProcedure": "1) Lint no-floating-promises. 2) Standardize error boundaries. 3) Choose all vs allSettled deliberately. 4) Document concurrency limits.",
+    "example": "const [a,b] = await Promise.all([fetchA(), fetchB()]);\n\nasync function load() {\n  const [u, p] = await Promise.all([getUser(), getPrefs()]);\n  return { u, p };\n}"
+  },
+  "FE-B-0057": {
+    "shortAnswer": "The CSS box model defines content, padding, border, and margin; box-sizing controls whether width includes padding/border.",
+    "answer": "Answering “Explain the CSS box model.?”: The CSS box model defines content, padding, border, and margin; box-sizing controls whether width includes padding/border. Mixing content-box widths with padding causes overflow and 'mysterious' layout bugs. Relevant ideas: content-box vs border-box; margin collapse; width/height; overflow. Use border-box globally, understand margin collapse between siblings/parents, and debug with box model overlays.",
+    "integrationProcedure": "1) Set global border-box. 2) Document spacing scale. 3) Teach margin collapse. 4) Use DevTools box model routinely.",
+    "example": "*, *::before, *::after { box-sizing: border-box; }"
+  },
+  "FE-B-0058": {
+    "shortAnswer": "Scope determines where bindings are visible: block, function, module—and closures capture scopes over time.",
+    "answer": "Answering “Explain var, let, and const in JavaScript.?”: Scope determines where bindings are visible: block, function, module—and closures capture scopes over time. var function-scoping and accidental globals create leaks and racey loop callbacks. Relevant ideas: block scope; lexical scope; closures; modules; var vs let/const; TDZ. Prefer const/let, understand closures in async loops, and rely on modules for file scope.",
+    "integrationProcedure": "1) ESLint no-var. 2) Teach closures. 3) Watch memory retained by listeners. 4) Prefer module scope over globals.",
+    "example": "for (const item of items) {\n  buttons.push(() => console.log(item));\n}\n\n// bad\nconsole.log(a);\nlet a = 1; // TDZ"
+  },
+  "FE-B-0059": {
+    "shortAnswer": "React is a UI library that models UI as a function of state, rendering a virtual tree and reconciling updates into the DOM efficiently.",
+    "answer": "Answering “What are React components, props, and state?”: React is a UI library that models UI as a function of state, rendering a virtual tree and reconciling updates into the DOM efficiently. Mutating state in place or fighting one-way data flow causes stale UI and unpredictable bugs. Relevant ideas: components as functions; state/props; reconciliation; hooks rules; immutable inputs; callback props. Describe UI with components, update via setState/dispatch, let React re-render and diff by position/keys, and keep side effects in effects.",
+    "integrationProcedure": "1) Model UI state explicitly. 2) Keep components pure. 3) Colocate state. 4) Profile before memoizing. 5) Align with React docs mental model.",
+    "example": "function Counter() {\n  const [n, setN] = useState(0);\n  return <button onClick={() => setN(n+1)}>{n}</button>;\n}\n\nfunction Avatar({ url, alt }: { url: string; alt: string }) {\n  return <img src={url} alt={alt} />;\n}"
+  },
+  "FE-B-0060": {
+    "shortAnswer": "useState declares local reactive state; updating it queues a re-render with the new value.",
+    "answer": "Answering “What do useState and useEffect do?”: useState declares local reactive state; updating it queues a re-render with the new value. Mutating state objects in place skips re-renders and causes stale UI. Relevant ideas: immutable updates; functional updates; lazy init; state colocation; after paint; dependency array. Replace state immutably, use functional updates when depending on prior state, and initialize lazily for expensive defaults.",
+    "integrationProcedure": "1) Immutable updates. 2) Functional setState. 3) Colocate. 4) Don't mirror server cache.",
+    "example": "setItems((prev) => [...prev, item]);\n\nuseEffect(() => {\n  const sub = api.subscribe(id, handler);\n  return () => sub.unsubscribe();\n}, [id]);"
+  },
+  "FE-B-0061": {
+    "shortAnswer": "Specificity scores ID/class/type selectors to decide which declaration wins when cascade order ties on importance.",
+    "answer": "Answering “What is CSS specificity, and how is the winning declaration chosen?”: Specificity scores ID/class/type selectors to decide which declaration wins when cascade order ties on importance. IDs and deep selectors make overrides require even heavier selectors or !important. Relevant ideas: (a,b,c) model; inline styles; avoid IDs in app CSS; @layer interactions; origin & importance; specificity. Prefer single classes, avoid IDs, and use layers to manage overrides without specificity wars.",
+    "integrationProcedure": "1) Class-based styling. 2) Introduce layers. 3) Ban IDs. 4) Review !important.",
+    "example": "/* (0,1,0) */ .btn {}\n/* (0,2,0) */ .btn.primary {}\n\n@layer reset, tokens, components;\n@layer components { .btn { padding: .5rem 1rem; } }"
+  },
+  "FE-B-0062": {
+    "shortAnswer": "Generics parameterize types/functions so APIs stay reusable without losing type safety.",
+    "answer": "Answering “What is TypeScript, and why would a team use it?”: Generics parameterize types/functions so APIs stay reusable without losing type safety. Using any to 'keep it flexible' erases safety and documentation. Relevant ideas: type parameters; constraints extends; inference; defaults; control flow analysis; type predicates. Add type params where values relate, constrain with extends, and let inference work from usage.",
+    "integrationProcedure": "1) Replace any with generics in shared utils. 2) Constrain wisely. 3) Export examples in docs.",
+    "example": "function first<T>(arr: T[]): T | undefined { return arr[0]; }\n\ntype Shape = {kind:'circle'; r:number} | {kind:'square'; s:number};\nfunction area(s: Shape) {\n  switch (s.kind) {\n    case 'circle': return Math.PI*s.r**2;\n    case 'square': return s.s**2;\n  }\n}"
+  },
+  "FE-B-0063": {
+    "shortAnswer": "Scope determines where bindings are visible: block, function, module—and closures capture scopes over time.",
+    "answer": "Answering “What is a closure in JavaScript?”: Scope determines where bindings are visible: block, function, module—and closures capture scopes over time. var function-scoping and accidental globals create leaks and racey loop callbacks. Relevant ideas: block scope; lexical scope; closures; modules. Prefer const/let, understand closures in async loops, and rely on modules for file scope.",
+    "integrationProcedure": "1) ESLint no-var. 2) Teach closures. 3) Watch memory retained by listeners. 4) Prefer module scope over globals.",
+    "example": "for (const item of items) {\n  buttons.push(() => console.log(item));\n}"
+  },
+  "FE-B-0064": {
+    "shortAnswer": "Client-side routing updates the URL and UI without full page reloads, preserving SPA state while syncing history.",
+    "answer": "Answering “What is client-side routing?”: Client-side routing updates the URL and UI without full page reloads, preserving SPA state while syncing history. Broken routing skips focus management, ignores back button, or fails to code-split routes. Relevant ideas: history API; route matching; loaders/data; scroll and focus restoration. Map URLs to components, fetch data per route, handle nested layouts, and manage scroll/focus on navigation.",
+    "integrationProcedure": "1) Adopt a router. 2) Split route chunks. 3) Restore focus on nav. 4) Test deep links and back/forward.",
+    "example": "<Route path='/users/:id' element={<UserPage />} />"
+  },
+  "FE-B-0065": {
+    "shortAnswer": "The DOM is the browser's tree of document nodes that JS and CSS operate on to present and update pages.",
+    "answer": "Answering “What is event bubbling and event capturing?”: The DOM is the browser's tree of document nodes that JS and CSS operate on to present and update pages. Excessive DOM size and frequent mutations make style/layout/paint expensive and interactions janky. Relevant ideas: Nodes and tree structure; reflow/repaint; event propagation; virtual DOM vs real DOM. Read structure via query APIs, batch mutations, prefer event delegation, and keep depth/breadth reasonable for the UI.",
+    "integrationProcedure": "1) Cap list DOM via virtualization. 2) Batch updates. 3) Prefer delegation. 4) Monitor DOM size in performance budgets.",
+    "example": "list.addEventListener('click', (e) => {\n  const li = e.target.closest('li');\n  if (li) select(li.dataset.id);\n});"
+  },
+  "FE-B-0066": {
+    "shortAnswer": "Container queries style elements based on a container's size rather than the viewport—better for reusable components.",
+    "answer": "Answering “What is responsive design, and what does mobile-first mean?”: Container queries style elements based on a container's size rather than the viewport—better for reusable components. Viewport media queries force components to know page layout context they shouldn't. Relevant ideas: container-type; @container; inline-size; name containers; srcset density/width; sizes attribute. Set container-type on parent, write @container rules for children, and design components to adapt in sidebars vs main.",
+    "integrationProcedure": "1) Identify reusable components. 2) Add containers. 3) Replace brittle media queries. 4) Test in multiple layouts.",
+    "example": ".card { container-type: inline-size; }\n@container (min-width: 400px) { .card__meta { display: flex; } }\n\n<picture>\n  <source media='(max-width:600px)' srcSet='/hero-mobile.avif' />\n  <img src='/hero.avif' alt='' width={1200} height={600} />\n</picture>"
+  },
+  "FE-B-0067": {
+    "shortAnswer": "Semantic HTML uses elements according to meaning (button, nav, main, heading levels), giving accessibility and SEO for free.",
+    "answer": "Answering “What is semantic HTML, and why does it matter?”: Semantic HTML uses elements according to meaning (button, nav, main, heading levels), giving accessibility and SEO for free. Clickable divs reinvent buttons poorly and break keyboard expectations. Relevant ideas: landmarks; heading order; button vs a; forms labels. Choose elements by meaning, keep heading hierarchy, and add ARIA only when semantics are insufficient.",
+    "integrationProcedure": "1) Replace div buttons. 2) Fix landmarks/headings. 3) Lint a11y. 4) Include in design reviews.",
+    "example": "<main>\n  <h1>Settings</h1>\n  <nav aria-label='Settings sections'>...</nav>\n</main>"
+  },
+  "FE-B-0068": {
+    "shortAnswer": "The DOM is the browser's tree of document nodes that JS and CSS operate on to present and update pages.",
+    "answer": "Answering “What is the DOM?”: The DOM is the browser's tree of document nodes that JS and CSS operate on to present and update pages. Excessive DOM size and frequent mutations make style/layout/paint expensive and interactions janky. Relevant ideas: Nodes and tree structure; reflow/repaint; event propagation; virtual DOM vs real DOM. Read structure via query APIs, batch mutations, prefer event delegation, and keep depth/breadth reasonable for the UI.",
+    "integrationProcedure": "1) Cap list DOM via virtualization. 2) Batch updates. 3) Prefer delegation. 4) Monitor DOM size in performance budgets.",
+    "example": "list.addEventListener('click', (e) => {\n  const li = e.target.closest('li');\n  if (li) select(li.dataset.id);\n});"
+  },
+  "FE-B-0069": {
+    "shortAnswer": "JS coerces types implicitly with == and many operators; === avoids most surprises.",
+    "answer": "Answering “What is the difference between == and === in JavaScript?”: JS coerces types implicitly with == and many operators; === avoids most surprises. Loose equality and truthiness bugs cause production logic errors (0, '', null). Relevant ideas: == vs ===; ToPrimitive; truthy/falsy; Number()/String(). Use ===/!==, explicit conversions, and nullish checks with ?? where appropriate.",
+    "integrationProcedure": "1) ESLint eqeqeq. 2) Explicit converts. 3) Prefer ?? over || for defaults. 4) Cover edge cases.",
+    "example": "if (value == null) { /* only null/undefined */ }\nNumber(input)"
+  },
+  "FE-B-0070": {
+    "shortAnswer": "Generics parameterize types/functions so APIs stay reusable without losing type safety.",
+    "answer": "Answering “What is the difference between a TypeScript interface and a type alias?”: Generics parameterize types/functions so APIs stay reusable without losing type safety. Using any to 'keep it flexible' erases safety and documentation. Relevant ideas: type parameters; constraints extends; inference; defaults; control flow analysis; type predicates. Add type params where values relate, constrain with extends, and let inference work from usage.",
+    "integrationProcedure": "1) Replace any with generics in shared utils. 2) Constrain wisely. 3) Export examples in docs.",
+    "example": "function first<T>(arr: T[]): T | undefined { return arr[0]; }\n\ntype Shape = {kind:'circle'; r:number} | {kind:'square'; s:number};\nfunction area(s: Shape) {\n  switch (s.kind) {\n    case 'circle': return Math.PI*s.r**2;\n    case 'square': return s.s**2;\n  }\n}"
+  },
+  "FE-B-0071": {
+    "shortAnswer": "The CSS box model defines content, padding, border, and margin; box-sizing controls whether width includes padding/border.",
+    "answer": "Answering “What is the difference between block, inline, and inline-block elements?”: The CSS box model defines content, padding, border, and margin; box-sizing controls whether width includes padding/border. Mixing content-box widths with padding causes overflow and 'mysterious' layout bugs. Relevant ideas: content-box vs border-box; margin collapse; width/height; overflow; block formatting context; containment. Use border-box globally, understand margin collapse between siblings/parents, and debug with box model overlays.",
+    "integrationProcedure": "1) Set global border-box. 2) Document spacing scale. 3) Teach margin collapse. 4) Use DevTools box model routinely.",
+    "example": "*, *::before, *::after { box-sizing: border-box; }\n\n.card { display: flow-root; }"
+  },
+  "FE-B-0072": {
+    "shortAnswer": "JS primitives (string, number, boolean, null, undefined, symbol, bigint) are immutable values compared by value.",
+    "answer": "Answering “What is the difference between null and undefined?”: JS primitives (string, number, boolean, null, undefined, symbol, bigint) are immutable values compared by value. Treating primitives like objects (new String) creates subtle equality bugs. Relevant ideas: typeof quirks; null vs undefined; immutability; boxing. Use literals, prefer ===, and handle nullish with ?? and optional chaining carefully.",
+    "integrationProcedure": "1) Ban new String/Number. 2) Use ===. 3) Prefer ?? over || for nullish defaults.",
+    "example": "const n = 1; // primitive\ntypeof null; // 'object' quirk"
+  },
+  "FE-B-0073": {
+    "shortAnswer": "React keys identify list children across renders so state and DOM reconcile to the correct item.",
+    "answer": "Answering “What is the purpose of the key prop when rendering a list in React?”: React keys identify list children across renders so state and DOM reconcile to the correct item. Index keys break state on reorder/insert; random keys remount every render. Relevant ideas: stable ids; key scoped among siblings; remount on key change; don't use key to 'force' often; type+key matching; bail out on same reference. Use business IDs as keys; change key intentionally only to reset subtree state.",
+    "integrationProcedure": "1) Audit list keys. 2) Use stable ids. 3) Add reorder regression tests. 4) Reserve remount keys for resets.",
+    "example": "{todos.map(t => <Todo key={t.id} todo={t} />)}\n\n// Prefer stable type\n{ Cond ? <A/> : <B/> } // remounts when toggled"
+  },
+  "FE-B-0074": {
+    "shortAnswer": "Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default.",
+    "answer": "Answering “What problem does Next.js solve compared with a purely client-rendered React application?”: Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default. Treating it like Pages Router (client everything) loses streaming, caching, and bundle benefits. Relevant ideas: app/ directory; layouts/templates; Server vs Client Components; loading.js/error.js; no client hooks in RSC; async server components. Place routes under app/, keep data fetching in Server Components, mark interactive islands with 'use client', and compose layouts that preserve state across navigations.",
+    "integrationProcedure": "1) Migrate one route segment to app/. 2) Keep interactivity in leaf client components. 3) Use loading UI for suspense. 4) Verify RSC payload size. 5) Document client boundary rules.",
+    "example": "// app/dashboard/layout.tsx (Server Component)\nexport default function Layout({ children }) {\n  return <section>{children}</section>;\n}\n\n// Server Component\nexport default async function Page() {\n  const data = await getData();\n  return <ClientTable rows={data} />;\n}"
+  },
+  "FE-B-0081": {
+    "shortAnswer": "The DOM is the browser's tree of document nodes that JS and CSS operate on to present and update pages.",
+    "answer": "Answering “What is event delegation, and why is it useful for dynamic lists?”: The DOM is the browser's tree of document nodes that JS and CSS operate on to present and update pages. Excessive DOM size and frequent mutations make style/layout/paint expensive and interactions janky. Relevant ideas: Nodes and tree structure; reflow/repaint; event propagation; virtual DOM vs real DOM. Read structure via query APIs, batch mutations, prefer event delegation, and keep depth/breadth reasonable for the UI.",
+    "integrationProcedure": "1) Cap list DOM via virtualization. 2) Batch updates. 3) Prefer delegation. 4) Monitor DOM size in performance budgets.",
+    "example": "list.addEventListener('click', (e) => {\n  const li = e.target.closest('li');\n  if (li) select(li.dataset.id);\n});"
+  },
+  "FE-B-0082": {
+    "shortAnswer": "JS coerces types implicitly with == and many operators; === avoids most surprises.",
+    "answer": "Answering “What is the difference between `==`, `===`, and `Object.is` in JavaScript?”: JS coerces types implicitly with == and many operators; === avoids most surprises. Loose equality and truthiness bugs cause production logic errors (0, '', null). Relevant ideas: == vs ===; ToPrimitive; truthy/falsy; Number()/String(). Use ===/!==, explicit conversions, and nullish checks with ?? where appropriate.",
+    "integrationProcedure": "1) ESLint eqeqeq. 2) Explicit converts. 3) Prefer ?? over || for defaults. 4) Cover edge cases.",
+    "example": "if (value == null) { /* only null/undefined */ }\nNumber(input)"
+  },
+  "FE-B-0083": {
+    "shortAnswer": "The CSS box model defines content, padding, border, and margin; box-sizing controls whether width includes padding/border.",
+    "answer": "Answering “What is the difference between `display: none`, `visibility: hidden`, and visually hiding content for accessibility?”: The CSS box model defines content, padding, border, and margin; box-sizing controls whether width includes padding/border. Mixing content-box widths with padding causes overflow and 'mysterious' layout bugs. Relevant ideas: content-box vs border-box; margin collapse; width/height; overflow; aria-labelledby > aria-label > content; label elements. Use border-box globally, understand margin collapse between siblings/parents, and debug with box model overlays.",
+    "integrationProcedure": "1) Set global border-box. 2) Document spacing scale. 3) Teach margin collapse. 4) Use DevTools box model routinely.",
+    "example": "*, *::before, *::after { box-sizing: border-box; }\n\n<button aria-label=\"Close\">\n  <CloseIcon aria-hidden />\n</button>"
+  },
+  "FE-B-0084": {
+    "shortAnswer": "Autocomplete UIs suggest options as users type, requiring keyboard support, debounced fetch, and accessible combobox patterns.",
+    "answer": "Answering “What is the difference between debounce and throttle?”: Autocomplete UIs suggest options as users type, requiring keyboard support, debounced fetch, and accessible combobox patterns. Mouse-only suggestion lists fail WCAG and racey fetches overwrite newer queries. Relevant ideas: combobox pattern; debounce; abort stale requests; active descendant; call stack; microtask queue. Debounce input, fetch with abort, manage highlight index via keyboard, and wire aria-activedescendant/listbox roles.",
+    "integrationProcedure": "1) Implement combobox a11y. 2) Debounce+abort. 3) Add keyboard tests. 4) Cache popular queries.",
+    "example": "const ac = new AbortController();\nconst items = await search(q, { signal: ac.signal });\n\nPromise.resolve().then(() => console.log('micro'));\nsetTimeout(() => console.log('macro'), 0);"
+  },
+  "FE-B-0085": {
+    "shortAnswer": "Clickable divs reinvent buttons poorly and break keyboard expectations.",
+    "answer": "Answering “Why should a button usually be a `<button>` instead of a clickable `<div>`?”: Semantic HTML uses elements according to meaning (button, nav, main, heading levels), giving accessibility and SEO for free. Clickable divs reinvent buttons poorly and break keyboard expectations. Relevant ideas: landmarks; heading order; button vs a; forms labels; tabindex; focus visible. Choose elements by meaning, keep heading hierarchy, and add ARIA only when semantics are insufficient.",
+    "integrationProcedure": "1) Replace div buttons. 2) Fix landmarks/headings. 3) Lint a11y. 4) Include in design reviews.",
+    "example": "<main>\n  <h1>Settings</h1>\n  <nav aria-label='Settings sections'>...</nav>\n</main>\n\nbutton:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }"
+  },
+  "FE-I-0055": {
+    "shortAnswer": "Static is fast but can serve stale content; choose TTL by business risk.",
+    "answer": "Answering “Compare SSR, static generation, streaming, client rendering, and revalidation.?”: Static rendering precomputes HTML at build time for fast CDN delivery and predictable caching. Fully dynamic SSR for rarely changing pages wastes compute and slows TTFB. Relevant ideas: SSG/prerender; ISR revalidation; on-demand revalidate; dynamic escape hatches; Suspense boundaries; shell + pending UI. Prerender stable pages, revalidate on a timer or after CMS webhooks, and mark truly dynamic routes explicitly. Static is fast but can serve stale content; choose TTL by business risk.",
+    "integrationProcedure": "1) Classify pages static vs dynamic. 2) Prerender. 3) Webhook revalidate. 4) Monitor staleness complaints.",
+    "example": "export const revalidate = 60; // ISR seconds\n\n<Suspense fallback={<Skeleton/>}>\n  <SlowPanel />\n</Suspense>"
+  },
+  "FE-I-0056": {
+    "shortAnswer": "Client filtering is instant but limited; server search scales but needs caching and empty states.",
+    "answer": "Answering “Compare debounce and throttle and give practical UI examples.?”: Autocomplete UIs suggest options as users type, requiring keyboard support, debounced fetch, and accessible combobox patterns. Mouse-only suggestion lists fail WCAG and racey fetches overwrite newer queries. Relevant ideas: combobox pattern; debounce; abort stale requests; active descendant; call stack; microtask queue. Debounce input, fetch with abort, manage highlight index via keyboard, and wire aria-activedescendant/listbox roles. Client filtering is instant but limited; server search scales but needs caching and empty states.",
+    "integrationProcedure": "1) Implement combobox a11y. 2) Debounce+abort. 3) Add keyboard tests. 4) Cache popular queries.",
+    "example": "const ac = new AbortController();\nconst items = await search(q, { signal: ac.signal });\n\nPromise.resolve().then(() => console.log('micro'));\nsetTimeout(() => console.log('macro'), 0);"
+  },
+  "FE-I-0057": {
+    "shortAnswer": "Global stores speed sharing but hide ownership; prefer clarity.",
+    "answer": "Answering “Compare local UI state, URL state, global client state, and server state.?”: State ownership means placing state at the nearest component that can read and update it without pointless global stores. Too-high state causes prop drilling and extra renders; too-low state blocks sharing. Relevant ideas: colocation; lift state up; server vs client state; derived state; queryKey; staleTime/gcTime. Colocate by default, lift when siblings share, and keep server cache in query libraries. Global stores speed sharing but hide ownership; prefer clarity.",
+    "integrationProcedure": "1) Audit state locations. 2) Colocate. 3) Lift only when shared. 4) Separate server state.",
+    "example": "// Owner computes; children receive props\nfunction Parent(){ const [q,setQ]=useState(''); return <Search q={q} onChange={setQ}/>; }\n\nuseQuery({\n  queryKey: ['todo', id],\n  queryFn: () => api.getTodo(id),\n  staleTime: 30_000,\n});"
+  },
+  "FE-I-0058": {
+    "shortAnswer": "Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default.",
+    "answer": "Answering “Explain Server Components versus Client Components in modern Next.js.?”: Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default. Treating it like Pages Router (client everything) loses streaming, caching, and bundle benefits. Relevant ideas: app/ directory; layouts/templates; Server vs Client Components; loading.js/error.js; no client hooks in RSC; async server components. Place routes under app/, keep data fetching in Server Components, mark interactive islands with 'use client', and compose layouts that preserve state across navigations. Server defaults reduce JS but constrain browser APIs; overusing client components reintroduces waterfalls and large bundles.",
+    "integrationProcedure": "1) Migrate one route segment to app/. 2) Keep interactivity in leaf client components. 3) Use loading UI for suspense. 4) Verify RSC payload size. 5) Document client boundary rules.",
+    "example": "// app/dashboard/layout.tsx (Server Component)\nexport default function Layout({ children }) {\n  return <section>{children}</section>;\n}\n\n// Server Component\nexport default async function Page() {\n  const data = await getData();\n  return <ClientTable rows={data} />;\n}"
+  },
+  "FE-I-0059": {
+    "shortAnswer": "Cross-site scripting injects attacker-controlled script into pages viewed by victims, stealing sessions or performing actions.",
+    "answer": "Answering “Explain XSS, CSRF, CSP, CORS, and SameSite cookies from a frontend perspective.?”: Cross-site scripting injects attacker-controlled script into pages viewed by victims, stealing sessions or performing actions. dangerouslySetInnerHTML, unchecked markdown HTML, and open redirects create XSS sinks. Relevant ideas: stored/reflected/DOM XSS; output encoding; CSP defense-in-depth; httpOnly cookies; SameSite cookies; Anti-CSRF tokens. Treat all untrusted input as data, encode on output, sanitize HTML with a vetted library if rich text is required, and add CSP. Sanitizers can be bypassed if misconfigured; prefer text content over HTML. CSP reduces blast radius but isn't a substitute for encoding.",
+    "integrationProcedure": "1) Ban raw HTML sinks in review. 2) Sanitize rich text. 3) httpOnly cookies. 4) CSP. 5) Add security tests for sinks.",
+    "example": "// Bad: el.innerHTML = userInput\nel.textContent = userInput;\n\n// Express-ish\nres.cookie('sid', id, { httpOnly: true, secure: true, sameSite: 'lax' });\n// require CSRF header matching session token on POST/PUT/PATCH/DELETE"
+  },
+  "FE-I-0060": {
+    "shortAnswer": "Controlled inputs take value from React state and notify via onChange—React is the source of truth.",
+    "answer": "Answering “Explain controlled versus uncontrolled form inputs in React.?”: Controlled inputs take value from React state and notify via onChange—React is the source of truth. Mixing controlled/uncontrolled (value then defaultValue) warns and causes cursor jumps. Relevant ideas: value + onChange; single source of truth; uncontrolled via defaultValue/ref; file inputs special; LCP element; INP event delay. Store field state, pass value, update on change, and validate from state—not the DOM. Controlled forms are testable but re-render often; large forms may use uncontrolled + schema libs.",
+    "integrationProcedure": "1) Standardize controlled forms. 2) Centralize validation. 3) Avoid mode switching. 4) Test submissions.",
+    "example": "const [v, setV] = useState('');\n<input value={v} onChange={(e) => setV(e.target.value)} />\n\nnew PerformanceObserver((list) => {\n  for (const e of list.getEntries()) console.log(e.name, e.startTime);\n}).observe({type: 'largest-contentful-paint', buffered: true});"
+  },
+  "FE-I-0061": {
+    "shortAnswer": "JS objects delegate property lookup along [[Prototype]], enabling shared methods via prototypes/classes.",
+    "answer": "Answering “Explain prototype inheritance and how ES classes map onto it.?”: JS objects delegate property lookup along [[Prototype]], enabling shared methods via prototypes/classes. Accidentally mutating Object.prototype or misunderstanding inheritance causes cross-cutting bugs. Relevant ideas: [[Prototype]]; Object.create; class sugar; own vs inherited props; call-site binding; arrows lexical this. Prefer class/prototype methods for shared behavior; use hasOwn for ownership checks; avoid prototype pollution. Prototype inheritance is flexible but less clear than composition for app domain models.",
+    "integrationProcedure": "1) Prefer composition in app code. 2) Freeze sensitive prototypes. 3) Sanitize merges. 4) Use Map instead of objects for untrusted keys.",
+    "example": "const proto = { speak() { return 'hi'; } };\nconst obj = Object.create(proto);\n\nclass C { handle = () => this.x++; } // lexical field"
+  },
+  "FE-I-0062": {
+    "shortAnswer": "React's render phase calculates the next UI (possibly interrupted in concurrent mode) without touching the DOM yet.",
+    "answer": "Answering “Explain render versus commit phases in React at a practical level.?”: React's render phase calculates the next UI (possibly interrupted in concurrent mode) without touching the DOM yet. Side effects during render (subscriptions, random) cause impure bugs amplified by Strict Mode. Relevant ideas: pure render; no side effects; comparisons/bailouts; concurrent rendering; type+key matching; bail out on same reference. Keep render pure and deterministic; put effects in useEffect/useLayoutEffect; derive values inline. Concurrent rendering improves UX but surfaces impurity faster—fix purity.",
+    "integrationProcedure": "1) Ban side effects in render via review. 2) Enable Strict Mode. 3) Derive state. 4) Test concurrent paths.",
+    "example": "function Price({ cents }) {\n  const label = (cents/100).toFixed(2); // derive, don't setState in render\n  return <span>{label}</span>;\n}\n\n// Prefer stable type\n{ Cond ? <A/> : <B/> } // remounts when toggled"
+  },
+  "FE-I-0063": {
+    "shortAnswer": "The JS event loop runs the call stack, then drains microtasks (promises), then macrotasks (timers, I/O), enabling concurrency without threads.",
+    "answer": "Answering “Explain the JavaScript event loop, task queue, and microtask queue.?”: The JS event loop runs the call stack, then drains microtasks (promises), then macrotasks (timers, I/O), enabling concurrency without threads. Long sync work blocks the loop and freezes UI; misunderstanding microtasks causes ordering bugs. Relevant ideas: call stack; microtask queue; task queue; rendering opportunity between tasks; promise then; queueMicrotask. Keep handlers short, await I/O, schedule heavy work via chunks/workers, and know promise callbacks run before timers. Microtask storms can starve rendering as badly as long tasks.",
+    "integrationProcedure": "1) Educate team on ordering. 2) Break long tasks. 3) Move CPU to workers. 4) Monitor INP.",
+    "example": "Promise.resolve().then(() => console.log('micro'));\nsetTimeout(() => console.log('macro'), 0);\n\nqueueMicrotask(() => console.log('after stack'));\nsetTimeout(() => console.log('later task'), 0);"
+  },
+  "FE-I-0064": {
+    "shortAnswer": "Browsers parse HTML/CSS into DOM/CSSOM, compute styles, layout, paint, and composite layers to pixels.",
+    "answer": "Answering “Explain the browser rendering pipeline from HTML/CSS/JS to pixels.?”: Browsers parse HTML/CSS into DOM/CSSOM, compute styles, layout, paint, and composite layers to pixels. Forced synchronous layout and giant layers cause jank even if React code looks fine. Relevant ideas: style → layout → paint → composite; layer promotion; long tasks; critical rendering path. Minimize render-blocking resources, avoid layout thrashing read/write loops, and animate compositor-friendly properties (transform/opacity). More layers can help animations but cost memory; premature will-change hurts.",
+    "integrationProcedure": "1) Measure interactions. 2) Batch DOM reads/writes. 3) Animate transform/opacity. 4) Budget long tasks <50ms.",
+    "example": "// Bad thrash\nfor (const el of els) {\n  const h = el.offsetHeight;\n  el.style.height = h + 10 + 'px';\n}"
+  },
+  "FE-I-0065": {
+    "shortAnswer": "Prefer const/let, understand closures in async loops, and rely on modules for file scope.",
+    "answer": "Answering “How do lexical scope, closures, and garbage collection interact?”: Scope determines where bindings are visible: block, function, module—and closures capture scopes over time. var function-scoping and accidental globals create leaks and racey loop callbacks. Relevant ideas: block scope; lexical scope; closures; modules. Prefer const/let, understand closures in async loops, and rely on modules for file scope. Closures are powerful for hooks/callbacks but can retain memory if they capture large objects.",
+    "integrationProcedure": "1) ESLint no-var. 2) Teach closures. 3) Watch memory retained by listeners. 4) Prefer module scope over globals.",
+    "example": "for (const item of items) {\n  buttons.push(() => console.log(item));\n}"
+  },
+  "FE-I-0066": {
+    "shortAnswer": "Use business IDs as keys; change key intentionally only to reset subtree state.",
+    "answer": "Answering “How does React preserve or reset component state based on identity and keys?”: React keys identify list children across renders so state and DOM reconcile to the correct item. Index keys break state on reorder/insert; random keys remount every render. Relevant ideas: stable ids; key scoped among siblings; remount on key change; don't use key to 'force' often; type+key matching; bail out on same reference. Use business IDs as keys; change key intentionally only to reset subtree state. Keys don't pass as props; forcing remount is a blunt tool that loses state/perf.",
+    "integrationProcedure": "1) Audit list keys. 2) Use stable ids. 3) Add reorder regression tests. 4) Reserve remount keys for resets.",
+    "example": "{todos.map(t => <Todo key={t.id} todo={t} />)}\n\n// Prefer stable type\n{ Cond ? <A/> : <B/> } // remounts when toggled"
+  },
+  "FE-I-0067": {
+    "shortAnswer": "Render UI, interact like a user, assert visible outcomes, and prefer roles/labels over test IDs unless necessary.",
+    "answer": "Answering “How would you test a React feature across unit, component, integration, accessibility, and E2E layers?”: RTL tests components via accessible queries and user events, encouraging tests that resemble usage over implementation details. Testing internal state/class names couples tests to refactors and misses a11y regressions. Relevant ideas: getByRole/Text; userEvent; findBy for async; avoid testing implementation; locators; auto-wait. Render UI, interact like a user, assert visible outcomes, and prefer roles/labels over test IDs unless necessary. RTL unit tests are fast but won't catch routing/CSS integration; complement with a few Playwright journeys.",
+    "integrationProcedure": "1) Adopt RTL for component tests. 2) Require accessible names. 3) Ban unnecessary test IDs. 4) Run on PR. 5) Keep E2E for critical paths only.",
+    "example": "render(<Login />);\nawait userEvent.type(screen.getByLabelText('Email'), 'a@b.com');\nawait userEvent.click(screen.getByRole('button', { name: 'Sign in' }));\n\ntest('login', async ({ page }) => {\n  await page.getByRole('button', { name: 'Sign in' }).click();\n  await expect(page.getByText('Dashboard')).toBeVisible();\n});"
+  },
+  "FE-I-0068": {
+    "shortAnswer": "Core Web Vitals (LCP, INP, CLS) are Google's field metrics for loading, interactivity, and visual stability.",
+    "answer": "Answering “What are common causes of layout shift, and how would you improve CLS?”: Core Web Vitals (LCP, INP, CLS) are Google's field metrics for loading, interactivity, and visual stability. Optimizing lab-only scores while ignoring field RUM leaves real users on slow devices/networks unhappy. Relevant ideas: LCP element; INP event delay; CLS layout shifts; field vs lab; font-display; preload. Identify the LCP element and shorten its critical path; reduce long tasks for INP; reserve space for images/fonts to limit CLS. Micro-optimizations that hurt UX (skeleton flicker) can improve scores incorrectly; prioritize user journeys.",
+    "integrationProcedure": "1) Add RUM for CWV. 2) Fix top LCP resource. 3) Break long tasks. 4) Reserve media space. 5) Budget third parties.",
+    "example": "new PerformanceObserver((list) => {\n  for (const e of list.getEntries()) console.log(e.name, e.startTime);\n}).observe({type: 'largest-contentful-paint', buffered: true});\n\n@font-face {\n  font-family: 'Inter';\n  src: url('/inter.woff2') format('woff2');\n  font-display: swap;\n}"
+  },
+  "FE-I-0069": {
+    "shortAnswer": "Generics parameterize types/functions so APIs stay reusable without losing type safety.",
+    "answer": "Answering “What are generics, mapped types, conditional types, and type narrowing in TypeScript?”: Generics parameterize types/functions so APIs stay reusable without losing type safety. Using any to 'keep it flexible' erases safety and documentation. Relevant ideas: type parameters; constraints extends; inference; defaults; control flow analysis; type predicates. Add type params where values relate, constrain with extends, and let inference work from usage. Too many type params create noise; specialize when only one use exists.",
+    "integrationProcedure": "1) Replace any with generics in shared utils. 2) Constrain wisely. 3) Export examples in docs.",
+    "example": "function first<T>(arr: T[]): T | undefined { return arr[0]; }\n\ntype Shape = {kind:'circle'; r:number} | {kind:'square'; s:number};\nfunction area(s: Shape) {\n  switch (s.kind) {\n    case 'circle': return Math.PI*s.r**2;\n    case 'square': return s.s**2;\n  }\n}"
+  },
+  "FE-I-0070": {
+    "shortAnswer": "React Server Components render on the server, send a serialized UI payload, and keep server-only code out of the client bundle.",
+    "answer": "Answering “What causes hydration mismatches, and how do you debug them?”: React Server Components render on the server, send a serialized UI payload, and keep server-only code out of the client bundle. Importing server-only modules into client components leaks secrets or fails the build. Relevant ideas: no client hooks in RSC; async server components; client islands; props must be serializable; Suspense boundaries; shell + pending UI. Fetch data in RSC, pass serializable props to client children, and keep interactivity behind 'use client' boundaries. RSC reduce JS and waterfalls but debugging and third-party client libs need careful boundaries.",
+    "integrationProcedure": "1) Default new pages to RSC. 2) Push 'use client' to leaves. 3) Audit bundle. 4) Keep secrets server-side. 5) Document boundary rules.",
+    "example": "// Server Component\nexport default async function Page() {\n  const data = await getData();\n  return <ClientTable rows={data} />;\n}\n\n<Suspense fallback={<Skeleton/>}>\n  <SlowPanel />\n</Suspense>"
+  },
+  "FE-I-0071": {
+    "shortAnswer": "Stacking contexts determine how elements paint along the z-axis; new contexts limit z-index influence to descendants.",
+    "answer": "Answering “What creates a new stacking context in CSS, and why does z-index sometimes appear not to work?”: Stacking contexts determine how elements paint along the z-axis; new contexts limit z-index influence to descendants. z-index wars fail when a parent creates an unexpected stacking context (opacity/transform/filter). Relevant ideas: root context; z-index only within context; opacity/transform create contexts; isolation; containing block; offset properties. Identify creating properties, flatten when possible, and plan overlay layers deliberately (dropdown < modal < toast). Many contexts increase compositing cost; don't invent layers casually.",
+    "integrationProcedure": "1) Define layer scale. 2) Portal overlays to body. 3) Avoid unnecessary transform on ancestors. 4) Document.",
+    "example": ".modal-root { position: relative; z-index: 1000; isolation: isolate; }\n\n.parent { position: relative; }\n.badge { position: absolute; top: 0; right: 0; }"
+  },
+  "FE-I-0072": {
+    "shortAnswer": "TanStack Query manages server state: caching, deduping, retries, stale-while-revalidate, and invalidation keyed by queryKey.",
+    "answer": "Answering “What problem does TanStack Query solve that a general client-state store does not?”: TanStack Query manages server state: caching, deduping, retries, stale-while-revalidate, and invalidation keyed by queryKey. Duplicating server cache in Redux/useState causes sync bugs and extra requests. Relevant ideas: queryKey; staleTime/gcTime; invalidation; mutations + optimistic UI. Define stable keys, fetch in useQuery, invalidate on mutations, and tune staleTime so you don't refetch excessively. Great for remote data; bad for purely local UI state. Over-optimistic updates need rollbacks.",
+    "integrationProcedure": "1) Add QueryClientProvider. 2) Migrate GETs to useQuery. 3) Invalidate in mutations. 4) Set defaults for staleTime. 5) Devtools in staging.",
+    "example": "useQuery({\n  queryKey: ['todo', id],\n  queryFn: () => api.getTodo(id),\n  staleTime: 30_000,\n});"
+  },
+  "FE-I-0073": {
+    "shortAnswer": "useMemo caches an expensive computed value between renders when dependencies are unchanged.",
+    "answer": "Answering “When is useMemo/useCallback useful, and when does it add unnecessary complexity?”: useMemo caches an expensive computed value between renders when dependencies are unchanged. Memoizing cheap calculations adds overhead and dependency bugs without measurable gain. Relevant ideas: dependency equality; referential stability for children; not a semantic guarantee in future React; profile first; referential stability; dependency arrays. Memoize heavy derived data or stable object identities required by deps; keep computation pure. Clarity vs micro-opts: React docs advise measuring first.",
+    "integrationProcedure": "1) Profile. 2) Memo hot derived data. 3) Keep pure. 4) Avoid cargo-cult wrapping.",
+    "example": "const total = useMemo(() => items.reduce((a,b)=>a+b.price,0), [items]);\n\nconst onSelect = useCallback((id: string) => setSel(id), []);"
+  },
+  "FE-I-0074": {
+    "shortAnswer": "var function-scoping and accidental globals create leaks and racey loop callbacks.",
+    "answer": "Answering “Why can a stale closure cause bugs in React hooks?”: Scope determines where bindings are visible: block, function, module—and closures capture scopes over time. var function-scoping and accidental globals create leaks and racey loop callbacks. Relevant ideas: block scope; lexical scope; closures; modules; after paint; dependency array. Prefer const/let, understand closures in async loops, and rely on modules for file scope. Closures are powerful for hooks/callbacks but can retain memory if they capture large objects.",
+    "integrationProcedure": "1) ESLint no-var. 2) Teach closures. 3) Watch memory retained by listeners. 4) Prefer module scope over globals.",
+    "example": "for (const item of items) {\n  buttons.push(() => console.log(item));\n}\n\nuseEffect(() => {\n  const sub = api.subscribe(id, handler);\n  return () => sub.unsubscribe();\n}, [id]);"
+  },
+  "FE-I-0081": {
+    "shortAnswer": "Core Web Vitals (LCP, INP, CLS) are Google's field metrics for loading, interactivity, and visual stability.",
+    "answer": "Answering “Explain how browser rendering, React rendering, and network waterfalls can combine to produce a slow interaction.?”: Core Web Vitals (LCP, INP, CLS) are Google's field metrics for loading, interactivity, and visual stability. Optimizing lab-only scores while ignoring field RUM leaves real users on slow devices/networks unhappy. Relevant ideas: LCP element; INP event delay; CLS layout shifts; field vs lab; style → layout → paint → composite; layer promotion. Identify the LCP element and shorten its critical path; reduce long tasks for INP; reserve space for images/fonts to limit CLS. Micro-optimizations that hurt UX (skeleton flicker) can improve scores incorrectly; prioritize user journeys.",
+    "integrationProcedure": "1) Add RUM for CWV. 2) Fix top LCP resource. 3) Break long tasks. 4) Reserve media space. 5) Budget third parties.",
+    "example": "new PerformanceObserver((list) => {\n  for (const e of list.getEntries()) console.log(e.name, e.startTime);\n}).observe({type: 'largest-contentful-paint', buffered: true});\n\n// Bad thrash\nfor (const el of els) {\n  const h = el.offsetHeight;\n  el.style.height = h + 10 + 'px';\n}"
+  },
+  "FE-I-0082": {
+    "shortAnswer": "Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default.",
+    "answer": "Answering “How do Server Components change what code and data can safely remain on the server in a Next.js application?”: Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default. Treating it like Pages Router (client everything) loses streaming, caching, and bundle benefits. Relevant ideas: app/ directory; layouts/templates; Server vs Client Components; loading.js/error.js; no client hooks in RSC; async server components. Place routes under app/, keep data fetching in Server Components, mark interactive islands with 'use client', and compose layouts that preserve state across navigations. Server defaults reduce JS but constrain browser APIs; overusing client components reintroduces waterfalls and large bundles.",
+    "integrationProcedure": "1) Migrate one route segment to app/. 2) Keep interactivity in leaf client components. 3) Use loading UI for suspense. 4) Verify RSC payload size. 5) Document client boundary rules.",
+    "example": "// app/dashboard/layout.tsx (Server Component)\nexport default function Layout({ children }) {\n  return <section>{children}</section>;\n}\n\n// Server Component\nexport default async function Page() {\n  const data = await getData();\n  return <ClientTable rows={data} />;\n}"
+  },
+  "FE-I-0083": {
+    "shortAnswer": "Debounce input, fetch with abort, manage highlight index via keyboard, and wire aria-activedescendant/listbox roles.",
+    "answer": "Answering “How would you design a reusable accessible combobox/autocomplete component with keyboard navigation and async suggestions?”: Autocomplete UIs suggest options as users type, requiring keyboard support, debounced fetch, and accessible combobox patterns. Mouse-only suggestion lists fail WCAG and racey fetches overwrite newer queries. Relevant ideas: combobox pattern; debounce; abort stale requests; active descendant; aria-labelledby > aria-label > content; label elements. Debounce input, fetch with abort, manage highlight index via keyboard, and wire aria-activedescendant/listbox roles. Client filtering is instant but limited; server search scales but needs caching and empty states.",
+    "integrationProcedure": "1) Implement combobox a11y. 2) Debounce+abort. 3) Add keyboard tests. 4) Cache popular queries.",
+    "example": "const ac = new AbortController();\nconst items = await search(q, { signal: ac.signal });\n\n<button aria-label=\"Close\">\n  <CloseIcon aria-hidden />\n</button>"
+  },
+  "FE-I-0084": {
+    "shortAnswer": "Client-side routing updates the URL and UI without full page reloads, preserving SPA state while syncing history.",
+    "answer": "Answering “When should state live in the URL instead of React state or a global store?”: Client-side routing updates the URL and UI without full page reloads, preserving SPA state while syncing history. Broken routing skips focus management, ignores back button, or fails to code-split routes. Relevant ideas: history API; route matching; loaders/data; scroll and focus restoration; colocation; lift state up. Map URLs to components, fetch data per route, handle nested layouts, and manage scroll/focus on navigation. CSR feels fast after load but hurts first load/SEO vs SSR/RSC hybrids.",
+    "integrationProcedure": "1) Adopt a router. 2) Split route chunks. 3) Restore focus on nav. 4) Test deep links and back/forward.",
+    "example": "<Route path='/users/:id' element={<UserPage />} />\n\n// Owner computes; children receive props\nfunction Parent(){ const [q,setQ]=useState(''); return <Search q={q} onChange={setQ}/>; }"
+  },
+  "FE-I-0085": {
+    "shortAnswer": "var function-scoping and accidental globals create leaks and racey loop callbacks.",
+    "answer": "Answering “Why can stale closures appear in React hooks, and what strategies avoid them without blindly adding dependencies?”: Scope determines where bindings are visible: block, function, module—and closures capture scopes over time. var function-scoping and accidental globals create leaks and racey loop callbacks. Relevant ideas: block scope; lexical scope; closures; modules; after paint; dependency array. Prefer const/let, understand closures in async loops, and rely on modules for file scope. Closures are powerful for hooks/callbacks but can retain memory if they capture large objects.",
+    "integrationProcedure": "1) ESLint no-var. 2) Teach closures. 3) Watch memory retained by listeners. 4) Prefer module scope over globals.",
+    "example": "for (const item of items) {\n  buttons.push(() => console.log(item));\n}\n\nuseEffect(() => {\n  const sub = api.subscribe(id, handler);\n  return () => sub.unsubscribe();\n}, [id]);"
+  },
+  "FE-A-0055": {
+    "shortAnswer": "React keys identify list children across renders so state and DOM reconcile to the correct item.",
+    "answer": "Answering “A React application re-renders thousands of components during keystrokes. How would you profile before choosing an optimization?”: React keys identify list children across renders so state and DOM reconcile to the correct item. Index keys break state on reorder/insert; random keys remount every render. Relevant ideas: stable ids; key scoped among siblings; remount on key change; don't use key to 'force' often; type+key matching; bail out on same reference. Use business IDs as keys; change key intentionally only to reset subtree state. Keys don't pass as props; forcing remount is a blunt tool that loses state/perf.",
+    "integrationProcedure": "1) Audit list keys. 2) Use stable ids. 3) Add reorder regression tests. 4) Reserve remount keys for resets.",
+    "example": "{todos.map(t => <Todo key={t.id} todo={t} />)}\n\n// Prefer stable type\n{ Cond ? <A/> : <B/> } // remounts when toggled"
+  },
+  "FE-A-0056": {
+    "shortAnswer": "RSC reduce JS and waterfalls but debugging and third-party client libs need careful boundaries.",
+    "answer": "Answering “Compare RSC boundaries, BFF patterns, and direct browser-to-API access from performance, security, and maintainability perspectives.?”: React Server Components render on the server, send a serialized UI payload, and keep server-only code out of the client bundle. Importing server-only modules into client components leaks secrets or fails the build. Relevant ideas: no client hooks in RSC; async server components; client islands; props must be serializable; GET/POST exports; Request/Response Web APIs. Fetch data in RSC, pass serializable props to client children, and keep interactivity behind 'use client' boundaries. RSC reduce JS and waterfalls but debugging and third-party client libs need careful boundaries. If you see 'async Client Component' errors, move data fetching up to a server parent.",
+    "integrationProcedure": "1) Default new pages to RSC. 2) Push 'use client' to leaves. 3) Audit bundle. 4) Keep secrets server-side. 5) Document boundary rules.",
+    "example": "// Server Component\nexport default async function Page() {\n  const data = await getData();\n  return <ClientTable rows={data} />;\n}\n\n// app/api/health/route.ts\nexport async function GET() {\n  return Response.json({ ok: true });\n}"
+  },
+  "FE-A-0057": {
+    "shortAnswer": "Composition builds complex UI from smaller components via children/slots instead of deep inheritance or prop sprawl.",
+    "answer": "Answering “Design a reusable component API that remains flexible without turning every component into an unmaintainable configuration object.?”: Composition builds complex UI from smaller components via children/slots instead of deep inheritance or prop sprawl. Boolean prop megacomponents become unmaintainable and hard to test. Relevant ideas: children as API; compound components; avoid inheritance; lifting state carefully; tokens; primitives/composites. Prefer composing primitives, expose clear slots, and keep styling/variants at the edges. Composition clarity vs indirection: too many wrappers obscure data flow. If props drill 5+ levels, introduce composition or context for cross-cutting concerns only.",
+    "integrationProcedure": "1) Break megacomponents. 2) Define compound APIs. 3) Document slots. 4) Test primitives independently.",
+    "example": "function Card({ children }) { return <section className='card'>{children}</section>; }\n<Card><Card.Title/><Card.Body/></Card>\n\nexport const Button = ({ variant='primary', ...props }) => (\n  <button className={cx('btn', variant)} {...props} />\n);"
+  },
+  "FE-A-0058": {
+    "shortAnswer": "TanStack Query manages server state: caching, deduping, retries, stale-while-revalidate, and invalidation keyed by queryKey.",
+    "answer": "Answering “Design a robust data-fetching/cache invalidation strategy for an application with optimistic updates and real-time server events.?”: TanStack Query manages server state: caching, deduping, retries, stale-while-revalidate, and invalidation keyed by queryKey. Duplicating server cache in Redux/useState causes sync bugs and extra requests. Relevant ideas: queryKey; staleTime/gcTime; invalidation; mutations + optimistic UI; Cache-Control; ETag/conditional requests. Define stable keys, fetch in useQuery, invalidate on mutations, and tune staleTime so you don't refetch excessively. Great for remote data; bad for purely local UI state. Over-optimistic updates need rollbacks.",
+    "integrationProcedure": "1) Add QueryClientProvider. 2) Migrate GETs to useQuery. 3) Invalidate in mutations. 4) Set defaults for staleTime. 5) Devtools in staging.",
+    "example": "useQuery({\n  queryKey: ['todo', id],\n  queryFn: () => api.getTodo(id),\n  staleTime: 30_000,\n});\n\nfetch(url, { next: { tags: ['product', id], revalidate: 60 } });\n// after mutation: revalidateTag('product');"
+  },
+  "FE-A-0059": {
+    "shortAnswer": "Flexbox lays out items along one main axis with alignment on the cross axis—ideal for toolbars, navs, and distributing space.",
+    "answer": "Answering “Design an accessible virtualized data grid supporting keyboard navigation, screen readers, sorting, filtering, and tens of thousands of rows.?”: Flexbox lays out items along one main axis with alignment on the cross axis—ideal for toolbars, navs, and distributing space. Mis-set flex-shrink/basis causes overflow or crushed content; nested flex without min-width:0 is a common trap. Relevant ideas: main/cross axis; grow/shrink/basis; justify/align; wrapping; grid-template-rows/columns; fr units and minmax. Set display:flex, choose direction, assign grow/shrink/basis intentionally, and use gap instead of margin hacks. Flex for 1D; Grid for 2D. Overusing flex for page grids creates deep nesting.",
+    "integrationProcedure": "1) Replace float/table hacks with flex for 1D UI. 2) Standardize gap tokens. 3) Fix overflow with min-size 0. 4) Document patterns.",
+    "example": ".row { display: flex; gap: 12px; align-items: center; }\n.grow { flex: 1 1 auto; min-width: 0; }\n\n.layout {\n  display: grid;\n  grid-template-columns: 240px minmax(0, 1fr);\n  grid-template-areas: 'nav main';\n}"
+  },
+  "FE-A-0060": {
+    "shortAnswer": "Collaborative editors sync concurrent edits with CRDTs/OT, presence, and conflict-free merging across clients.",
+    "answer": "Answering “Design an application shell that must work offline, synchronize later, and resolve conflicting edits.?”: Collaborative editors sync concurrent edits with CRDTs/OT, presence, and conflict-free merging across clients. Last-write-wins text areas lose work and create conflicting copies. Relevant ideas: OT vs CRDT; awareness/presence; offline queues; undo stacks; origin isolation; string only. Choose a library (Yjs/Automerge), sync via WebSocket, persist documents, and show presence cursors carefully for a11y. CRDTs simplify conflict but grow metadata; OT needs central ordering. Rich-text schemas are hard.",
+    "integrationProcedure": "1) Pick CRDT/OT stack. 2) Persist docs. 3) Add authz on rooms. 4) Test concurrent edits. 5) Plan compaction.",
+    "example": "// Yjs sketch\nconst ydoc = new Y.Doc();\nconst ytext = ydoc.getText('content');\nprovider = new WebsocketProvider(url, room, ydoc);\n\nlocalStorage.setItem('theme', 'dark');\nconst theme = localStorage.getItem('theme');"
+  },
+  "FE-A-0061": {
+    "shortAnswer": "Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default.",
+    "answer": "Answering “Design authentication for an SSR Next.js application using secure cookies, including session rotation, CSRF considerations, and logout.?”: Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default. Treating it like Pages Router (client everything) loses streaming, caching, and bundle benefits. Relevant ideas: app/ directory; layouts/templates; Server vs Client Components; loading.js/error.js; no client hooks in RSC; async server components. Place routes under app/, keep data fetching in Server Components, mark interactive islands with 'use client', and compose layouts that preserve state across navigations. Server defaults reduce JS but constrain browser APIs; overusing client components reintroduces waterfalls and large bundles. If navigation loses state or fetches twice, check layout boundaries, cache settings, and accidental client wrappers around trees.",
+    "integrationProcedure": "1) Migrate one route segment to app/. 2) Keep interactivity in leaf client components. 3) Use loading UI for suspense. 4) Verify RSC payload size. 5) Document client boundary rules.",
+    "example": "// app/dashboard/layout.tsx (Server Component)\nexport default function Layout({ children }) {\n  return <section>{children}</section>;\n}\n\n// Server Component\nexport default async function Page() {\n  const data = await getData();\n  return <ClientTable rows={data} />;\n}"
+  },
+  "FE-A-0062": {
+    "shortAnswer": "A design system packages reusable components, tokens, and guidelines so product UI stays consistent and accessible.",
+    "answer": "Answering “Design the frontend architecture for a large multi-team application with shared design systems and independent feature ownership.?”: A design system packages reusable components, tokens, and guidelines so product UI stays consistent and accessible. Ad-hoc one-off UI creates drift, a11y gaps, and slow feature delivery. Relevant ideas: tokens; primitives/composites; accessibility contracts; versioning; runtime integration; shared deps risk. Publish tokens + components, document variants/states, enforce via lint/review, and version breaking changes. Heavy systems slow teams if rigid; too loose and they aren't systems. Start with tokens + few primitives.",
+    "integrationProcedure": "1) Extract tokens. 2) Build primitives. 3) Document states. 4) Adopt in one app. 5) Version releases.",
+    "example": "export const Button = ({ variant='primary', ...props }) => (\n  <button className={cx('btn', variant)} {...props} />\n);\n\n// Module Federation shared: { react: { singleton: true }, 'react-dom': { singleton: true } }"
+  },
+  "FE-A-0063": {
+    "shortAnswer": "Reconciliation is React's diff of previous and next element trees to decide which DOM updates to commit.",
+    "answer": "Answering “Explain React reconciliation deeply enough to predict when state is preserved, reset, or moved.?”: Reconciliation is React's diff of previous and next element trees to decide which DOM updates to commit. Unstable keys and changing component types force expensive remounts instead of updates. Relevant ideas: type+key matching; bail out on same reference; commit phase; fibers; stable ids; key scoped among siblings. Keep component types stable, key lists correctly, and avoid recreating element trees unnecessarily. Reconciliation is not free; huge trees still cost CPU even with a good diff. Use Profiler to see commit durations; fix keys and state locality first.",
+    "integrationProcedure": "1) Teach keys/identity. 2) Profile commits. 3) Split hot subtrees. 4) Memo only with evidence.",
+    "example": "// Prefer stable type\n{ Cond ? <A/> : <B/> } // remounts when toggled\n\n{todos.map(t => <Todo key={t.id} todo={t} />)}"
+  },
+  "FE-A-0064": {
+    "shortAnswer": "localStorage is a synchronous string key-value store scoped per origin in the browser.",
+    "answer": "Answering “Explain browser storage choices and security implications for cookies, localStorage, sessionStorage, Cache Storage, and IndexedDB.?”: localStorage is a synchronous string key-value store scoped per origin in the browser. Storing secrets there exposes them to XSS; sync large writes can block the main thread. Relevant ideas: origin isolation; string only; sync API; quota errors; HttpOnly; Secure. Serialize JSON carefully, guard with try/catch for quota/private mode, and never store access tokens if avoidable. Simple persistence vs security/perf: prefer httpOnly cookies for sessions; IndexedDB for large data. If data 'vanishes', check private browsing, quota, and JSON parse errors.",
+    "integrationProcedure": "1) Persist non-sensitive prefs only. 2) Wrap IO safely. 3) Migrate schema versions. 4) Document threat model.",
+    "example": "localStorage.setItem('theme', 'dark');\nconst theme = localStorage.getItem('theme');\n\nSet-Cookie: sid=...; HttpOnly; Secure; SameSite=Lax; Path=/; Priority=High"
+  },
+  "FE-A-0065": {
+    "shortAnswer": "Static rendering precomputes HTML at build time for fast CDN delivery and predictable caching.",
+    "answer": "Answering “Explain how Suspense and streaming change loading-state architecture and failure boundaries.?”: Static rendering precomputes HTML at build time for fast CDN delivery and predictable caching. Fully dynamic SSR for rarely changing pages wastes compute and slows TTFB. Relevant ideas: SSG/prerender; ISR revalidation; on-demand revalidate; dynamic escape hatches; Suspense boundaries; shell + pending UI. Prerender stable pages, revalidate on a timer or after CMS webhooks, and mark truly dynamic routes explicitly. Static is fast but can serve stale content; choose TTL by business risk. If content stale after publish, hook revalidate to CMS events.",
+    "integrationProcedure": "1) Classify pages static vs dynamic. 2) Prerender. 3) Webhook revalidate. 4) Monitor staleness complaints.",
+    "example": "export const revalidate = 60; // ISR seconds\n\n<Suspense fallback={<Skeleton/>}>\n  <SlowPanel />\n</Suspense>"
+  },
+  "FE-A-0066": {
+    "shortAnswer": "CSS custom properties (variables) cascade and can change at runtime—ideal for theming and design tokens.",
+    "answer": "Answering “Explain the trade-offs of CSS Modules, utility CSS, runtime CSS-in-JS, compile-time CSS-in-JS, and design-token systems.?”: CSS custom properties (variables) cascade and can change at runtime—ideal for theming and design tokens. Sass variables compile away and can't theme per subtree without rebuilding. Relevant ideas: --token syntax; cascade inheritance; var() fallbacks; typed via @property optional; origin & importance; specificity. Define tokens on :root or theme scopes, consume with var(--token), and override in dark/high-contrast scopes. Too many runtime variables can complicate debugging; huge inline style themes cost. If var is invalid, entire property may be ignored—provide fallbacks.",
+    "integrationProcedure": "1) Map design tokens to CSS variables. 2) Theme via parent scopes. 3) Document naming. 4) Validate contrast.",
+    "example": ":root { --space-2: 8px; --color-fg: #111; }\n.button { padding: var(--space-2); color: var(--color-fg); }\n\n@layer reset, tokens, components;\n@layer components { .btn { padding: .5rem 1rem; } }"
+  },
+  "FE-A-0067": {
+    "shortAnswer": "Configure Vite/Webpack/Turbopack, split by route, mark side-effect-free packages, and analyze chunk sizes.",
+    "answer": "Answering “How do HTTP/2, HTTP/3, CDN caching, compression, and resource prioritization influence frontend performance strategy?”: Bundlers graph modules into optimized assets with code splitting, tree shaking, and asset pipelines. Huge entry bundles delay TTI; misconfigured sideEffects break tree shaking. Relevant ideas: entry/chunk graph; code splitting; tree shaking; source maps; Cache-Control; ETag/conditional requests. Configure Vite/Webpack/Turbopack, split by route, mark side-effect-free packages, and analyze chunk sizes. More splitting improves cache but increases waterfalls/requests; find balance with HTTP/2 and preloads. If bundle balloons, run analyzer and hunt duplicate deps / accidental barrel imports.",
+    "integrationProcedure": "1) Analyze bundles. 2) Route-level split. 3) Fix barrel imports. 4) Set size budgets in CI.",
+    "example": "// dynamic import split\nconst Editor = lazy(() => import('./Editor'));\n\nfetch(url, { next: { tags: ['product', id], revalidate: 60 } });\n// after mutation: revalidateTag('product');"
+  },
+  "FE-A-0068": {
+    "shortAnswer": "Publish tokens + components, document variants/states, enforce via lint/review, and version breaking changes.",
+    "answer": "Answering “How would you build a micro-frontend platform, and what organizational conditions would justify its complexity?”: A design system packages reusable components, tokens, and guidelines so product UI stays consistent and accessible. Ad-hoc one-off UI creates drift, a11y gaps, and slow feature delivery. Relevant ideas: tokens; primitives/composites; accessibility contracts; versioning; runtime integration; shared deps risk. Publish tokens + components, document variants/states, enforce via lint/review, and version breaking changes. Heavy systems slow teams if rigid; too loose and they aren't systems. Start with tokens + few primitives.",
+    "integrationProcedure": "1) Extract tokens. 2) Build primitives. 3) Document states. 4) Adopt in one app. 5) Version releases.",
+    "example": "export const Button = ({ variant='primary', ...props }) => (\n  <button className={cx('btn', variant)} {...props} />\n);\n\n// Module Federation shared: { react: { singleton: true }, 'react-dom': { singleton: true } }"
+  },
+  "FE-A-0069": {
+    "shortAnswer": "Configure Vite/Webpack/Turbopack, split by route, mark side-effect-free packages, and analyze chunk sizes.",
+    "answer": "Answering “How would you design a frontend deployment that allows instant rollback while avoiding asset/version mismatches?”: Bundlers graph modules into optimized assets with code splitting, tree shaking, and asset pipelines. Huge entry bundles delay TTI; misconfigured sideEffects break tree shaking. Relevant ideas: entry/chunk graph; code splitting; tree shaking; source maps; mappings; private vs public maps. Configure Vite/Webpack/Turbopack, split by route, mark side-effect-free packages, and analyze chunk sizes. More splitting improves cache but increases waterfalls/requests; find balance with HTTP/2 and preloads. If bundle balloons, run analyzer and hunt duplicate deps / accidental barrel imports.",
+    "integrationProcedure": "1) Analyze bundles. 2) Route-level split. 3) Fix barrel imports. 4) Set size budgets in CI.",
+    "example": "// dynamic import split\nconst Editor = lazy(() => import('./Editor'));\n\n// vite.config\nbuild: { sourcemap: true }"
+  },
+  "FE-A-0070": {
+    "shortAnswer": "Identify the LCP element and shorten its critical path; reduce long tasks for INP; reserve space for images/fonts to limit CLS.",
+    "answer": "Answering “How would you diagnose an interaction with poor INP when network latency is not the problem?”: Core Web Vitals (LCP, INP, CLS) are Google's field metrics for loading, interactivity, and visual stability. Optimizing lab-only scores while ignoring field RUM leaves real users on slow devices/networks unhappy. Relevant ideas: LCP element; INP event delay; CLS layout shifts; field vs lab; style → layout → paint → composite; layer promotion. Identify the LCP element and shorten its critical path; reduce long tasks for INP; reserve space for images/fonts to limit CLS. Micro-optimizations that hurt UX (skeleton flicker) can improve scores incorrectly; prioritize user journeys. Use CrUX/RUM and Performance panel; correlate regressions with deploys and third-party scripts.",
+    "integrationProcedure": "1) Add RUM for CWV. 2) Fix top LCP resource. 3) Break long tasks. 4) Reserve media space. 5) Budget third parties.",
+    "example": "new PerformanceObserver((list) => {\n  for (const e of list.getEntries()) console.log(e.name, e.startTime);\n}).observe({type: 'largest-contentful-paint', buffered: true});\n\n// Bad thrash\nfor (const el of els) {\n  const h = el.offsetHeight;\n  el.style.height = h + 10 + 'px';\n}"
+  },
+  "FE-A-0071": {
+    "shortAnswer": "Identify the LCP element and shorten its critical path; reduce long tasks for INP; reserve space for images/fonts to limit CLS.",
+    "answer": "Answering “How would you implement frontend observability that correlates browser errors, performance data, API failures, and user sessions?”: Core Web Vitals (LCP, INP, CLS) are Google's field metrics for loading, interactivity, and visual stability. Optimizing lab-only scores while ignoring field RUM leaves real users on slow devices/networks unhappy. Relevant ideas: LCP element; INP event delay; CLS layout shifts; field vs lab; mappings; private vs public maps. Identify the LCP element and shorten its critical path; reduce long tasks for INP; reserve space for images/fonts to limit CLS. Micro-optimizations that hurt UX (skeleton flicker) can improve scores incorrectly; prioritize user journeys. Use CrUX/RUM and Performance panel; correlate regressions with deploys and third-party scripts.",
+    "integrationProcedure": "1) Add RUM for CWV. 2) Fix top LCP resource. 3) Break long tasks. 4) Reserve media space. 5) Budget third parties.",
+    "example": "new PerformanceObserver((list) => {\n  for (const e of list.getEntries()) console.log(e.name, e.startTime);\n}).observe({type: 'largest-contentful-paint', buffered: true});\n\n// vite.config\nbuild: { sourcemap: true }"
+  },
+  "FE-A-0072": {
+    "shortAnswer": "Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default.",
+    "answer": "Answering “How would you migrate a large Pages Router application to App Router without a high-risk rewrite?”: Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default. Treating it like Pages Router (client everything) loses streaming, caching, and bundle benefits. Relevant ideas: app/ directory; layouts/templates; Server vs Client Components; loading.js/error.js; no client hooks in RSC; async server components. Place routes under app/, keep data fetching in Server Components, mark interactive islands with 'use client', and compose layouts that preserve state across navigations. Server defaults reduce JS but constrain browser APIs; overusing client components reintroduces waterfalls and large bundles. If navigation loses state or fetches twice, check layout boundaries, cache settings, and accidental client wrappers around trees.",
+    "integrationProcedure": "1) Migrate one route segment to app/. 2) Keep interactivity in leaf client components. 3) Use loading UI for suspense. 4) Verify RSC payload size. 5) Document client boundary rules.",
+    "example": "// app/dashboard/layout.tsx (Server Component)\nexport default function Layout({ children }) {\n  return <section>{children}</section>;\n}\n\n// Server Component\nexport default async function Page() {\n  const data = await getData();\n  return <ClientTable rows={data} />;\n}"
+  },
+  "FE-A-0073": {
+    "shortAnswer": "Configure Vite/Webpack/Turbopack, split by route, mark side-effect-free packages, and analyze chunk sizes.",
+    "answer": "Answering “How would you prevent dependency and supply-chain attacks in a modern frontend build pipeline?”: Bundlers graph modules into optimized assets with code splitting, tree shaking, and asset pipelines. Huge entry bundles delay TTI; misconfigured sideEffects break tree shaking. Relevant ideas: entry/chunk graph; code splitting; tree shaking; source maps; import/export; static analysis for tree shaking. Configure Vite/Webpack/Turbopack, split by route, mark side-effect-free packages, and analyze chunk sizes. More splitting improves cache but increases waterfalls/requests; find balance with HTTP/2 and preloads. If bundle balloons, run analyzer and hunt duplicate deps / accidental barrel imports.",
+    "integrationProcedure": "1) Analyze bundles. 2) Route-level split. 3) Fix barrel imports. 4) Set size budgets in CI.",
+    "example": "// dynamic import split\nconst Editor = lazy(() => import('./Editor'));\n\nimport { fetchUser } from './api.js';\nexport async function loadProfile(id) {\n  return fetchUser(id);\n}"
+  },
+  "FE-A-0074": {
+    "shortAnswer": "Collaborative editors sync concurrent edits with CRDTs/OT, presence, and conflict-free merging across clients.",
+    "answer": "Answering “In a senior frontend system-design interview, how would you design a real-time collaborative editor or chat UI and reason about state, networking, offline behavior, accessibility, and performance?”: Collaborative editors sync concurrent edits with CRDTs/OT, presence, and conflict-free merging across clients. Last-write-wins text areas lose work and create conflicting copies. Relevant ideas: OT vs CRDT; awareness/presence; offline queues; undo stacks; origin isolation; string only. Choose a library (Yjs/Automerge), sync via WebSocket, persist documents, and show presence cursors carefully for a11y. CRDTs simplify conflict but grow metadata; OT needs central ordering. Rich-text schemas are hard.",
+    "integrationProcedure": "1) Pick CRDT/OT stack. 2) Persist docs. 3) Add authz on rooms. 4) Test concurrent edits. 5) Plan compaction.",
+    "example": "// Yjs sketch\nconst ydoc = new Y.Doc();\nconst ytext = ydoc.getText('content');\nprovider = new WebsocketProvider(url, room, ydoc);\n\nlocalStorage.setItem('theme', 'dark');\nconst theme = localStorage.getItem('theme');"
+  },
+  "FE-A-0081": {
+    "shortAnswer": "Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default.",
+    "answer": "Answering “A Next.js application has good server response times but poor INP and occasional hydration mismatches. Build a debugging plan.?”: Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default. Treating it like Pages Router (client everything) loses streaming, caching, and bundle benefits. Relevant ideas: app/ directory; layouts/templates; Server vs Client Components; loading.js/error.js; no client hooks in RSC; async server components. Place routes under app/, keep data fetching in Server Components, mark interactive islands with 'use client', and compose layouts that preserve state across navigations. Server defaults reduce JS but constrain browser APIs; overusing client components reintroduces waterfalls and large bundles.",
+    "integrationProcedure": "1) Migrate one route segment to app/. 2) Keep interactivity in leaf client components. 3) Use loading UI for suspense. 4) Verify RSC payload size. 5) Document client boundary rules.",
+    "example": "// app/dashboard/layout.tsx (Server Component)\nexport default function Layout({ children }) {\n  return <section>{children}</section>;\n}\n\n// Server Component\nexport default async function Page() {\n  const data = await getData();\n  return <ClientTable rows={data} />;\n}"
+  },
+  "FE-A-0082": {
+    "shortAnswer": "A design system packages reusable components, tokens, and guidelines so product UI stays consistent and accessible.",
+    "answer": "Answering “Design a frontend platform for multiple teams sharing a design system, routing, authentication, observability, and deployment while avoiding both a monolith and unnecessary micro-frontends.?”: A design system packages reusable components, tokens, and guidelines so product UI stays consistent and accessible. Ad-hoc one-off UI creates drift, a11y gaps, and slow feature delivery. Relevant ideas: tokens; primitives/composites; accessibility contracts; versioning; runtime integration; shared deps risk. Publish tokens + components, document variants/states, enforce via lint/review, and version breaking changes. Heavy systems slow teams if rigid; too loose and they aren't systems. Start with tokens + few primitives.",
+    "integrationProcedure": "1) Extract tokens. 2) Build primitives. 3) Document states. 4) Adopt in one app. 5) Version releases.",
+    "example": "export const Button = ({ variant='primary', ...props }) => (\n  <button className={cx('btn', variant)} {...props} />\n);\n\n// Module Federation shared: { react: { singleton: true }, 'react-dom': { singleton: true } }"
+  },
+  "FE-A-0083": {
+    "shortAnswer": "TanStack Query manages server state: caching, deduping, retries, stale-while-revalidate, and invalidation keyed by queryKey.",
+    "answer": "Answering “Design a real-time collaborative editor frontend, including conflict handling, optimistic updates, offline behavior, and presence.?”: TanStack Query manages server state: caching, deduping, retries, stale-while-revalidate, and invalidation keyed by queryKey. Duplicating server cache in Redux/useState causes sync bugs and extra requests. Relevant ideas: queryKey; staleTime/gcTime; invalidation; mutations + optimistic UI; Cache-Control; ETag/conditional requests. Define stable keys, fetch in useQuery, invalidate on mutations, and tune staleTime so you don't refetch excessively. Great for remote data; bad for purely local UI state. Over-optimistic updates need rollbacks.",
+    "integrationProcedure": "1) Add QueryClientProvider. 2) Migrate GETs to useQuery. 3) Invalidate in mutations. 4) Set defaults for staleTime. 5) Devtools in staging.",
+    "example": "useQuery({\n  queryKey: ['todo', id],\n  queryFn: () => api.getTodo(id),\n  staleTime: 30_000,\n});\n\nfetch(url, { next: { tags: ['product', id], revalidate: 60 } });\n// after mutation: revalidateTag('product');"
+  },
+  "FE-A-0084": {
+    "shortAnswer": "Flexbox lays out items along one main axis with alignment on the cross axis—ideal for toolbars, navs, and distributing space.",
+    "answer": "Answering “Design a virtualized data grid supporting 100,000 rows, variable row heights, keyboard navigation, selection, sorting, filtering, and screen-reader usability.?”: Flexbox lays out items along one main axis with alignment on the cross axis—ideal for toolbars, navs, and distributing space. Mis-set flex-shrink/basis causes overflow or crushed content; nested flex without min-width:0 is a common trap. Relevant ideas: main/cross axis; grow/shrink/basis; justify/align; wrapping; grid-template-rows/columns; fr units and minmax. Set display:flex, choose direction, assign grow/shrink/basis intentionally, and use gap instead of margin hacks. Flex for 1D; Grid for 2D. Overusing flex for page grids creates deep nesting.",
+    "integrationProcedure": "1) Replace float/table hacks with flex for 1D UI. 2) Standardize gap tokens. 3) Fix overflow with min-size 0. 4) Document patterns.",
+    "example": ".row { display: flex; gap: 12px; align-items: center; }\n.grow { flex: 1 1 auto; min-width: 0; }\n\n.layout {\n  display: grid;\n  grid-template-columns: 240px minmax(0, 1fr);\n  grid-template-areas: 'nav main';\n}"
+  },
+  "FE-A-0085": {
+    "shortAnswer": "Identify the LCP element and shorten its critical path; reduce long tasks for INP; reserve space for images/fonts to limit CLS.",
+    "answer": "Answering “How would you design frontend observability that connects user-visible failures to network requests, releases, traces, and feature flags without leaking sensitive data?”: Core Web Vitals (LCP, INP, CLS) are Google's field metrics for loading, interactivity, and visual stability. Optimizing lab-only scores while ignoring field RUM leaves real users on slow devices/networks unhappy. Relevant ideas: LCP element; INP event delay; CLS layout shifts; field vs lab; mappings; private vs public maps. Identify the LCP element and shorten its critical path; reduce long tasks for INP; reserve space for images/fonts to limit CLS. Micro-optimizations that hurt UX (skeleton flicker) can improve scores incorrectly; prioritize user journeys. Use CrUX/RUM and Performance panel; correlate regressions with deploys and third-party scripts.",
+    "integrationProcedure": "1) Add RUM for CWV. 2) Fix top LCP resource. 3) Break long tasks. 4) Reserve media space. 5) Budget third parties.",
+    "example": "new PerformanceObserver((list) => {\n  for (const e of list.getEntries()) console.log(e.name, e.startTime);\n}).observe({type: 'largest-contentful-paint', buffered: true});\n\n// vite.config\nbuild: { sourcemap: true }"
+  }
+}

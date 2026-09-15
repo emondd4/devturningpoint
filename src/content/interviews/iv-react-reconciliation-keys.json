@@ -23,5 +23,7 @@
     "frontend",
     "react"
   ],
-  "lastVerified": "2026-09-14"
+  "lastVerified": "2026-09-14",
+  "codeExample": "// Example framing for: Why can using array index as a React list key cause subtle UI bugs when the list is reordered or filtered, and how would you choose stable keys instead?\n// Stack: React, JavaScript\n// Short answer: Index keys tie component identity to position, so reordering reuses the wrong component state. Prefer stable IDs from data.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using React, JavaScript. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

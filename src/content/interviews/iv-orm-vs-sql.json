@@ -21,5 +21,7 @@
     "BACKEND-ORM-VS-QUERY-BUILDER",
     "BACKEND-TRANSACTIONS-API-LAYER"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: When would you bypass an ORM and write SQL or a query builder for a Nest API?\n// Stack: PostgreSQL, TypeORM\n// Short answer: Complex reporting, performance-critical joins, or queries the ORM expresses poorly—while still parameterizing.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using PostgreSQL, TypeORM. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

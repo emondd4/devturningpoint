@@ -25,5 +25,7 @@
     "QA-STLC",
     "QA-CI-QUALITY-GATES"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: You have four hours before a production release. How do you apply risk-based testing to choose what to verify?\n// Stack: QA, Risk-based testing, STLC\n// Short answer: Score features by likelihood × impact, focus on money/auth/data-loss paths and changed code, and time-box exploratory charters plus critical automation.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using QA, Risk-based testing, STLC. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

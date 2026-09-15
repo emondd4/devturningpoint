@@ -24,5 +24,7 @@
     "DATABASE-POSTGRES-VS-MONGODB",
     "DATABASE-POSTGRES-JSON"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: When would you choose PostgreSQL jsonb over introducing MongoDB as a second database?\n// Stack: PostgreSQL, MongoDB\n// Short answer: When most data is relational/transactional and only some attributes are flexible—jsonb avoids dual-write complexity while remaining queryable.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using PostgreSQL, MongoDB. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

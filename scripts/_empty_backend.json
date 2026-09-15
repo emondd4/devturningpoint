@@ -1,0 +1,446 @@
+[
+  {
+    "id": "BE-B-0036",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Explain GET, POST, PUT, PATCH, and DELETE and give an appropriate use case for each."
+  },
+  {
+    "id": "BE-B-0037",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are controllers, providers/services, and modules in NestJS?"
+  },
+  {
+    "id": "BE-B-0038",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are logs, and what information should an application log?"
+  },
+  {
+    "id": "BE-B-0039",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are modules in Node.js?"
+  },
+  {
+    "id": "BE-B-0040",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What does a backend application do?"
+  },
+  {
+    "id": "BE-B-0041",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What happens from the moment an HTTP request reaches a backend server until a response is returned?"
+  },
+  {
+    "id": "BE-B-0042",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is JSON serialization and deserialization?"
+  },
+  {
+    "id": "BE-B-0043",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is Node.js, and why is it suitable for many I/O-heavy services?"
+  },
+  {
+    "id": "BE-B-0044",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is REST, and what makes an API resource-oriented?"
+  },
+  {
+    "id": "BE-B-0045",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a DTO?"
+  },
+  {
+    "id": "BE-B-0046",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a JWT, and what is inside one?"
+  },
+  {
+    "id": "BE-B-0047",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a relational database, and how does a backend typically use one?"
+  },
+  {
+    "id": "BE-B-0048",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is dependency injection, and why does NestJS use it?"
+  },
+  {
+    "id": "BE-B-0049",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is input validation, and why must validation happen on the server?"
+  },
+  {
+    "id": "BE-B-0050",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the Node.js event loop at a high level?"
+  },
+  {
+    "id": "BE-B-0051",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between a 4xx and a 5xx HTTP response?"
+  },
+  {
+    "id": "BE-B-0052",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the purpose of environment variables and configuration files?"
+  },
+  {
+    "id": "BE-B-0053",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the purpose of unit and integration tests in backend development?"
+  },
+  {
+    "id": "BE-B-0054",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Why would an application use Redis?"
+  },
+  {
+    "id": "BE-B-0071",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between authentication middleware and authorization policy?"
+  },
+  {
+    "id": "BE-B-0072",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between synchronous request handling and background job processing?"
+  },
+  {
+    "id": "BE-B-0073",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What makes an HTTP operation idempotent, and why does idempotency matter for retries?"
+  },
+  {
+    "id": "BE-B-0074",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "Why is blocking the Node.js event loop dangerous even when the server has many concurrent connections?"
+  },
+  {
+    "id": "BE-B-0075",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "Why should database connections usually come from a pool?"
+  },
+  {
+    "id": "BE-I-0036",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare CommonJS and ECMAScript modules in Node."
+  },
+  {
+    "id": "BE-I-0037",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare a job queue, pub/sub, and an event stream."
+  },
+  {
+    "id": "BE-I-0038",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare cookie-based sessions with bearer-token authentication."
+  },
+  {
+    "id": "BE-I-0039",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare offset pagination, cursor pagination, and keyset pagination."
+  },
+  {
+    "id": "BE-I-0040",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Describe the N+1 query problem and several ways to eliminate it."
+  },
+  {
+    "id": "BE-I-0041",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Design refresh-token rotation and explain how you would handle token theft."
+  },
+  {
+    "id": "BE-I-0042",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain NestJS middleware, guards, pipes, interceptors, and exception filters and when each runs."
+  },
+  {
+    "id": "BE-I-0043",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain Node.js event-loop phases, microtasks, and why CPU-heavy work can block unrelated requests."
+  },
+  {
+    "id": "BE-I-0044",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain cache-aside and common failure modes such as cache stampede and penetration."
+  },
+  {
+    "id": "BE-I-0045",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain connection pooling and what happens when the pool is exhausted."
+  },
+  {
+    "id": "BE-I-0046",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain graceful shutdown and why it matters during deployment."
+  },
+  {
+    "id": "BE-I-0047",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How do you design consistent API error responses without leaking sensitive internals?"
+  },
+  {
+    "id": "BE-I-0048",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How would you prevent mass assignment, injection, broken object authorization, and brute-force abuse in an API?"
+  },
+  {
+    "id": "BE-I-0049",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How would you test a NestJS service that talks to PostgreSQL and an external API?"
+  },
+  {
+    "id": "BE-I-0050",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How would you use Redis for caching while minimizing stale-data bugs?"
+  },
+  {
+    "id": "BE-I-0051",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are provider scopes in NestJS, and why can request-scoped providers be expensive?"
+  },
+  {
+    "id": "BE-I-0052",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are retries, exponential backoff, jitter, timeouts, and circuit breakers?"
+  },
+  {
+    "id": "BE-I-0053",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are structured logging, correlation IDs, metrics, and distributed traces?"
+  },
+  {
+    "id": "BE-I-0054",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What is backpressure in Node streams, and how should a service handle it?"
+  },
+  {
+    "id": "BE-I-0055",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What makes PUT idempotent, and how would you design an idempotent POST-like payment operation?"
+  },
+  {
+    "id": "BE-I-0072",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How do you design idempotency for a payment endpoint so retries cannot double-charge a customer?"
+  },
+  {
+    "id": "BE-I-0073",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How would you choose between a transaction, optimistic locking, and a distributed lock for competing updates?"
+  },
+  {
+    "id": "BE-I-0074",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How would you debug a Node.js service whose heap grows slowly over several days?"
+  },
+  {
+    "id": "BE-I-0075",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How would you implement refresh-token rotation and detect refresh-token reuse?"
+  },
+  {
+    "id": "BE-I-0076",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "Why can retrying a failed request make an outage worse, and how should retry policy be designed?"
+  },
+  {
+    "id": "BE-A-0035",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "A Node.js API has low CPU but high latency and a growing request queue. Describe a systematic investigation."
+  },
+  {
+    "id": "BE-A-0036",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare Kafka-style logs with traditional queues and describe workloads suited to each."
+  },
+  {
+    "id": "BE-A-0037",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare vertical sharding, horizontal sharding, read replicas, partitioning, and caching for a rapidly growing PostgreSQL-backed system."
+  },
+  {
+    "id": "BE-A-0038",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a modular-monolith backend and explain the signals that would justify extracting a microservice later."
+  },
+  {
+    "id": "BE-A-0039",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a multi-tenant SaaS backend and compare database-per-tenant, schema-per-tenant, and shared-schema models."
+  },
+  {
+    "id": "BE-A-0040",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a real-time notification service and discuss WebSockets/SSE, fan-out, presence, ordering, and backpressure."
+  },
+  {
+    "id": "BE-A-0041",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a secure webhook platform including signing, replay prevention, retries, rate limits, and idempotency."
+  },
+  {
+    "id": "BE-A-0042",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design authorization for a complex system containing organizations, projects, roles, ownership, and delegated permissions."
+  },
+  {
+    "id": "BE-A-0043",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design exactly-once-like payment processing using idempotency keys, durable state, retries, and reconciliation."
+  },
+  {
+    "id": "BE-A-0044",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design observability for a request crossing API gateway, application service, queue, worker, database, and third-party API."
+  },
+  {
+    "id": "BE-A-0045",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain failure modes introduced by distributed caching and how you would design fallback behavior."
+  },
+  {
+    "id": "BE-A-0046",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you choose transaction boundaries in a domain with long-running workflows and external services?"
+  },
+  {
+    "id": "BE-A-0047",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you design disaster recovery for a backend with strict RPO/RTO requirements?"
+  },
+  {
+    "id": "BE-A-0048",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you evolve an API contract without breaking old mobile/web clients?"
+  },
+  {
+    "id": "BE-A-0049",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you handle schema migration during zero-downtime deploys when old and new application versions run simultaneously?"
+  },
+  {
+    "id": "BE-A-0050",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you implement an outbox/inbox pattern to coordinate database transactions and messaging?"
+  },
+  {
+    "id": "BE-A-0051",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you isolate CPU-bound work without losing reliability or observability?"
+  },
+  {
+    "id": "BE-A-0052",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you partition and scale a backend workload where one tenant produces 50% of total traffic?"
+  },
+  {
+    "id": "BE-A-0053",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you profile and reduce memory growth in a long-running Node.js service?"
+  },
+  {
+    "id": "BE-A-0054",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "In a backend system-design interview, design an ecommerce checkout service and discuss inventory, payment, idempotency, transactions, queues, failure recovery, and observability."
+  },
+  {
+    "id": "BE-A-0071",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "A service has p99 latency spikes but low average latency. Explain how you would use traces, metrics, logs, queueing theory, and dependency data to find the cause."
+  },
+  {
+    "id": "BE-A-0072",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a multi-tenant SaaS backend with strong tenant isolation and explain trade-offs between shared schema, separate schemas, and separate databases."
+  },
+  {
+    "id": "BE-A-0073",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a notification platform that delivers email, SMS, and push notifications with retries, rate limits, deduplication, provider failover, and user preferences."
+  },
+  {
+    "id": "BE-A-0074",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design an exactly-once business outcome on top of at-least-once message delivery."
+  },
+  {
+    "id": "BE-A-0075",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Explain how you would split a modular monolith into services only when organizational and runtime boundaries justify it."
+  }
+]

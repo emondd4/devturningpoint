@@ -1,0 +1,446 @@
+{
+  "FL-B-0031": {
+    "shortAnswer": "Row and Column are Flex widgets laying out children horizontally/vertically under incoming constraints.",
+    "answer": "Answering “Compare Row, Column, Stack, Expanded, and Flexible.?”: Row and Column are Flex widgets laying out children horizontally/vertically under incoming constraints. Placing unbounded scroll views inside them without Expanded causes layout exceptions. Relevant ideas: main/cross axis; Expanded/Flexible; MainAxisSize; alignment; flex factor; Fit.tight vs Flexible. Choose axis, align children, expand to fill leftover space, and respect constraints.",
+    "integrationProcedure": "1) Standardize spacing. 2) Expanded patterns. 3) Test small screens. 4) Prefer Wrap when needed.",
+    "example": "Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [...]);\n\nRow(children: [Text('A'), Expanded(child: Text('grows'))]);"
+  },
+  "FL-B-0032": {
+    "shortAnswer": "StatefulWidget State mounts via initState, updates via didUpdateWidget, cleans in deactivate/dispose.",
+    "answer": "Answering “Describe the lifecycle of a StatefulWidget from creation to disposal.?”: StatefulWidget State mounts via initState, updates via didUpdateWidget, cleans in deactivate/dispose. Starting streams in build or skipping dispose leaks and duplicates subscriptions. Relevant ideas: initState; didChangeDependencies; didUpdateWidget; dispose; schedule rebuild; mutate fields then setState. Init controllers/subscriptions in initState, respond to prop changes in didUpdateWidget, dispose all.",
+    "integrationProcedure": "1) Audit dispose. 2) No side effects in build. 3) Tests for remount. 4) Document owned resources.",
+    "example": "@override void dispose(){ sub.cancel(); controller.dispose(); super.dispose(); }\n\nsetState(() => count++);"
+  },
+  "FL-B-0033": {
+    "shortAnswer": "BuildContext is a handle to a widget's location in the tree—used to find InheritedWidgets, navigate, and theme.",
+    "answer": "Answering “Explain the purpose of BuildContext in simple terms.?”: BuildContext is a handle to a widget's location in the tree—used to find InheritedWidgets, navigate, and theme. Using a context across async gaps after dispose, or the wrong context for Provider/Navigator, causes crashes/lookups to fail. Relevant ideas: element location; dependOnInheritedWidget; mounted check; context from builder; mounted; capture navigators before await. Use context only when mounted; capture Navigator/Theme before await or check mounted after; prefer the context that can see the ancestor you need.",
+    "integrationProcedure": "1) Audit async methods. 2) mounted checks. 3) Correct lookup context. 4) Widget tests for async nav.",
+    "example": "await future;\nif (!mounted) return;\nNavigator.of(context).pop();\n\nawait repo.save();\nif (!mounted) return;\nScaffoldMessenger.of(context).showSnackBar(...);"
+  },
+  "FL-B-0034": {
+    "shortAnswer": "Push routes with MaterialPageRoute/named routes, pop with results, and keep a clear routing table.",
+    "answer": "Answering “How do Navigator.push and Navigator.pop work?”: Navigator 1.0 manages a stack of Routes with push/pop and imperative APIs many apps still use. Passing wrong context (below Navigator) fails; not awaiting results loses return values. Relevant ideas: push/pop; MaterialPageRoute; onGenerateRoute; result futures; routes/redirect; ShellRoute. Push routes with MaterialPageRoute/named routes, pop with results, and keep a clear routing table.",
+    "integrationProcedure": "1) Centralize routes. 2) Type results. 3) Handle back. 4) Migrate to go_router when deep links demand.",
+    "example": "final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(builder: (_) => EditPage()));\n\nGoRouter(routes: [GoRoute(path: '/', builder: ...)], redirect: (c,s) => auth ? null : '/login');"
+  },
+  "FL-B-0035": {
+    "shortAnswer": "Prefer final fields, const widgets/constructors deeply when values are compile-time constant.",
+    "answer": "Answering “How do assets and fonts get included in a Flutter application?”: final means single-assignment; const means compile-time constant canonicalized values—key for Flutter perf. Missing const on widgets forces rebuild work that could be reused. Relevant ideas: final fields; const constructors; canonical instances; constables. Prefer final fields, const widgets/constructors deeply when values are compile-time constant.",
+    "integrationProcedure": "1) Prefer final. 2) Const widgets. 3) Lint prefer_const. 4) Review hot paths.",
+    "example": "const EdgeInsets.all(8);\nfinal name = widget.user.name;"
+  },
+  "FL-B-0036": {
+    "shortAnswer": "Branch UI on constraints, keep builders light, and combine with flexible layouts.",
+    "answer": "Answering “How do you make a Flutter UI responsive across different screen sizes?”: LayoutBuilder rebuilds its builder with the parent's incoming BoxConstraints—enabling responsive branching. MediaQuery-only breakpoints ignore that a widget may live in a narrow sidebar. Relevant ideas: constraints.maxWidth; responsive branches; avoid heavy work in builder; nested builders cost; Theme platform; adaptive widgets. Branch UI on constraints, keep builders light, and combine with flexible layouts.",
+    "integrationProcedure": "1) Replace viewport-only assumptions. 2) Adaptive components. 3) Test in sidebars. 4) Keep builders cheap.",
+    "example": "LayoutBuilder(builder: (c, constraints) {\n  if (constraints.maxWidth < 600) return Mobile();\n  return Desktop();\n});\n\nTheme.of(context).platform == TargetPlatform.iOS ? CupertinoButton(...) : ElevatedButton(...);"
+  },
+  "FL-B-0037": {
+    "shortAnswer": "A Future represents a single async result in Dart—completed with a value or error.",
+    "answer": "Answering “What are Futures and async/await in Dart?”: A Future represents a single async result in Dart—completed with a value or error. Unawaited futures hide errors; using BuildContext after await without mounted checks crashes. Relevant ideas: async/await; Future.wait; error handling; microtask scheduling; mounted; capture navigators before await. Await futures, handle errors with try/catch or catchError, and parallelize with Future.wait when independent.",
+    "integrationProcedure": "1) Lint unawaited futures. 2) mounted after await. 3) Parallelize carefully. 4) Surface errors to UI.",
+    "example": "final results = await Future.wait([loadA(), loadB()]);\n\nawait repo.save();\nif (!mounted) return;\nScaffoldMessenger.of(context).showSnackBar(...);"
+  },
+  "FL-B-0038": {
+    "shortAnswer": "Keys (ValueKey/ObjectKey/UniqueKey/GlobalKey) tell Flutter which Element to match when reordering/updating widgets.",
+    "answer": "Answering “What are Keys in Flutter, and when do you need them?”: Keys (ValueKey/ObjectKey/UniqueKey/GlobalKey) tell Flutter which Element to match when reordering/updating widgets. Index-based identity loses State on reorder; UniqueKey every build remounts always. Relevant ideas: local vs global keys; ValueKey(id); Element matching; State preservation; unique identity; currentState. Assign ValueKey with stable business ids on list children that hold State.",
+    "integrationProcedure": "1) Audit list keys. 2) Stable ids. 3) Widget tests reorder. 4) Reserve GlobalKey.",
+    "example": "ListView.builder(itemBuilder: (_, i) => TodoRow(key: ValueKey(todos[i].id), todo: todos[i]));\n\nfinal formKey = GlobalKey<FormState>(); // field on State, not in build"
+  },
+  "FL-B-0039": {
+    "shortAnswer": "final means single-assignment; const means compile-time constant canonicalized values—key for Flutter perf.",
+    "answer": "Answering “What are const constructors, and when can a widget be const?”: final means single-assignment; const means compile-time constant canonicalized values—key for Flutter perf. Missing const on widgets forces rebuild work that could be reused. Relevant ideas: final fields; const constructors; canonical instances; constables; immutable config; build method. Prefer final fields, const widgets/constructors deeply when values are compile-time constant.",
+    "integrationProcedure": "1) Prefer final. 2) Const widgets. 3) Lint prefer_const. 4) Review hot paths.",
+    "example": "const EdgeInsets.all(8);\nfinal name = widget.user.name;\n\nclass Label extends StatelessWidget {\n  const Label(this.text, {super.key});\n  final String text;\n  @override Widget build(BuildContext c) => Text(text);\n}"
+  },
+  "FL-B-0040": {
+    "shortAnswer": "Flutter layout is constraints down, sizes up: parents pass BoxConstraints, children choose a size within them.",
+    "answer": "Answering “What does \"constraints go down, sizes go up, parents set positions\" mean?”: Flutter layout is constraints down, sizes up: parents pass BoxConstraints, children choose a size within them. Fighting constraints with unbounded children (ListView in Column without Expanded) causes overflow/assert. Relevant ideas: tight/loose/unbounded; constraints → size → position; RenderBox; force expand via Expanded. Read incoming constraints, size child, parent positions; use Expanded/SizedBox.expand intentionally.",
+    "integrationProcedure": "1) Learn constraints. 2) Fix unbounded scrollables. 3) Use Inspector. 4) Document layout patterns.",
+    "example": "Column(children: [\n  Expanded(child: ListView(...)), // bounded height\n]);"
+  },
+  "FL-B-0041": {
+    "shortAnswer": "Widgets are immutable configuration objects describing UI; Flutter rebuilds them cheaply compared to Elements/RenderObjects.",
+    "answer": "Answering “What happens when runApp() is called?”: Widgets are immutable configuration objects describing UI; Flutter rebuilds them cheaply compared to Elements/RenderObjects. Mutating widgets or heavy build methods without const causes avoidable work. Relevant ideas: immutable config; build(); const constructors; composition; keys; Builder for context. Compose small widgets, use const, and keep build pure and light.",
+    "integrationProcedure": "1) Const-friendly widgets. 2) Split builds. 3) Pure build. 4) Profile rebuilds.",
+    "example": "const Padding(padding: EdgeInsets.all(8), child: Text('Hi'));\n\n// DevTools → Inspector → Track widget rebuilds"
+  },
+  "FL-B-0042": {
+    "shortAnswer": "Widgets are immutable configuration objects describing UI; Flutter rebuilds them cheaply compared to Elements/RenderObjects.",
+    "answer": "Answering “What is Flutter, and how is it different from the Dart programming language?”: Widgets are immutable configuration objects describing UI; Flutter rebuilds them cheaply compared to Elements/RenderObjects. Mutating widgets or heavy build methods without const causes avoidable work. Relevant ideas: immutable config; build(); const constructors; composition; keys; Builder for context. Compose small widgets, use const, and keep build pure and light.",
+    "integrationProcedure": "1) Const-friendly widgets. 2) Split builds. 3) Pure build. 4) Profile rebuilds.",
+    "example": "const Padding(padding: EdgeInsets.all(8), child: Text('Hi'));\n\n// DevTools → Inspector → Track widget rebuilds"
+  },
+  "FL-B-0043": {
+    "shortAnswer": "A Future represents a single async result in Dart—completed with a value or error.",
+    "answer": "Answering “What is a Stream, and when would you choose one over a Future?”: A Future represents a single async result in Dart—completed with a value or error. Unawaited futures hide errors; using BuildContext after await without mounted checks crashes. Relevant ideas: async/await; Future.wait; error handling; microtask scheduling; mounted; capture navigators before await. Await futures, handle errors with try/catch or catchError, and parallelize with Future.wait when independent.",
+    "integrationProcedure": "1) Lint unawaited futures. 2) mounted after await. 3) Parallelize carefully. 4) Surface errors to UI.",
+    "example": "final results = await Future.wait([loadA(), loadB()]);\n\nawait repo.save();\nif (!mounted) return;\nScaffoldMessenger.of(context).showSnackBar(...);"
+  },
+  "FL-B-0044": {
+    "shortAnswer": "final means single-assignment; const means compile-time constant canonicalized values—key for Flutter perf.",
+    "answer": "Answering “What is pubspec.yaml used for?”: final means single-assignment; const means compile-time constant canonicalized values—key for Flutter perf. Missing const on widgets forces rebuild work that could be reused. Relevant ideas: final fields; const constructors; canonical instances; constables. Prefer final fields, const widgets/constructors deeply when values are compile-time constant.",
+    "integrationProcedure": "1) Prefer final. 2) Const widgets. 3) Lint prefer_const. 4) Review hot paths.",
+    "example": "const EdgeInsets.all(8);\nfinal name = widget.user.name;"
+  },
+  "FL-B-0045": {
+    "shortAnswer": "ListView lazily builds children in a scrollable viewport—default for vertical collections.",
+    "answer": "Answering “What is the difference between ListView and SingleChildScrollView?”: ListView lazily builds children in a scrollable viewport—default for vertical collections. ListView(children: hugeList) builds eagerly; shrinkWrap inside Column causes expensive layouts. Relevant ideas: builder/separated; itemExtent; shrinkWrap caution; primary scroll; SliverList/Grid; SliverAppBar. Use builder constructors, provide keys, consider itemExtent for perf, avoid shrinkWrap when Expanded works.",
+    "integrationProcedure": "1) Always builder for long lists. 2) Keys. 3) Expanded not shrinkWrap. 4) Profile. 5) itemExtent when uniform.",
+    "example": "ListView.builder(itemCount: n, itemBuilder: (_, i) => Item(key: ValueKey(ids[i]), index: i));\n\nCustomScrollView(slivers: [\n  SliverAppBar(pinned: true, title: Text('Feed')),\n  SliverList.builder(itemBuilder: ...),\n]);"
+  },
+  "FL-B-0046": {
+    "shortAnswer": "StatelessWidget describes UI from configuration (props) without local mutable State.",
+    "answer": "Answering “What is the difference between StatelessWidget and StatefulWidget?”: StatelessWidget describes UI from configuration (props) without local mutable State. Pushing ephemeral interaction state into parents unnecessarily creates rebuild churn. Relevant ideas: immutable config; build method; const constructors; when to go Stateful; initState; didChangeDependencies. Prefer const Stateless widgets; escalate to Stateful/Cubit when local mutable state appears.",
+    "integrationProcedure": "1) Prefer const Stateless. 2) Elevate state intentionally. 3) Const all the way. 4) Lint unnecessary stateful.",
+    "example": "class Label extends StatelessWidget {\n  const Label(this.text, {super.key});\n  final String text;\n  @override Widget build(BuildContext c) => Text(text);\n}\n\n@override void dispose(){ sub.cancel(); controller.dispose(); super.dispose(); }"
+  },
+  "FL-B-0047": {
+    "shortAnswer": "Flutter has debug (asserts/JIT), profile (performance-like with tooling), and release (optimized AOT) modes.",
+    "answer": "Answering “What is the difference between hot reload, hot restart, and a full restart?”: Flutter has debug (asserts/JIT), profile (performance-like with tooling), and release (optimized AOT) modes. Judging jank in debug mode misleads—debug is slower by design. Relevant ideas: asserts in debug; profile for perf; release for ship; tree shaking. Develop in debug, measure in profile, ship release; never quote debug FPS as truth.",
+    "integrationProcedure": "1) Educate team on modes. 2) Perf only in profile. 3) QA release builds. 4) Keep asserts for debug checks.",
+    "example": "flutter run --profile\nflutter build apk --release"
+  },
+  "FL-B-0048": {
+    "shortAnswer": "Material 3 theming uses ColorScheme, TextTheme, and component themes for systematic styling.",
+    "answer": "Answering “What is the purpose of ThemeData and ColorScheme?”: Material 3 theming uses ColorScheme, TextTheme, and component themes for systematic styling. Hard-coded colors ignore dark mode and accessibility contrast. Relevant ideas: ColorScheme.fromSeed; ThemeData.useMaterial3; component themes; dynamic color optional; token naming; ThemeExtension. Define seed/scheme, apply Theme, prefer theme colors in widgets, and support dark/light.",
+    "integrationProcedure": "1) Adopt M3 ThemeData. 2) Map brand tokens. 3) Dark scheme. 4) Ban raw colors in widgets. 5) Contrast check.",
+    "example": "ThemeData(useMaterial3: true, colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal));\n\nTheme.of(context).extension<AppTokens>()!.spaceMd"
+  },
+  "FL-B-0049": {
+    "shortAnswer": "setState marks the Element dirty so Flutter rebuilds that State's widget subtree with new fields.",
+    "answer": "Answering “What is the purpose of setState(), and what does it actually trigger?”: setState marks the Element dirty so Flutter rebuilds that State's widget subtree with new fields. Calling setState after dispose or for every tiny leaf without splitting causes crashes/jank. Relevant ideas: schedule rebuild; mutate fields then setState; mounted; scope rebuilds; mounted flag; cancel subscriptions. Update fields and call setState, guard with mounted, and split widgets so setState scope stays small.",
+    "integrationProcedure": "1) Local state via setState. 2) mounted guards. 3) Split trees. 4) Move shared state up/out.",
+    "example": "setState(() => count++);\n\nawait future;\nif (!mounted) return;\nsetState(() => data = x);"
+  },
+  "FL-B-0127": {
+    "shortAnswer": "Flutter has debug (asserts/JIT), profile (performance-like with tooling), and release (optimized AOT) modes.",
+    "answer": "Answering “What does hot reload preserve, and what kinds of changes usually require a hot restart or full restart?”: Flutter has debug (asserts/JIT), profile (performance-like with tooling), and release (optimized AOT) modes. Judging jank in debug mode misleads—debug is slower by design. Relevant ideas: asserts in debug; profile for perf; release for ship; tree shaking. Develop in debug, measure in profile, ship release; never quote debug FPS as truth.",
+    "integrationProcedure": "1) Educate team on modes. 2) Perf only in profile. 3) QA release builds. 4) Keep asserts for debug checks.",
+    "example": "flutter run --profile\nflutter build apk --release"
+  },
+  "FL-B-0128": {
+    "shortAnswer": "Flutter has debug (asserts/JIT), profile (performance-like with tooling), and release (optimized AOT) modes.",
+    "answer": "Answering “What is the difference between debug, profile, and release mode?”: Flutter has debug (asserts/JIT), profile (performance-like with tooling), and release (optimized AOT) modes. Judging jank in debug mode misleads—debug is slower by design. Relevant ideas: asserts in debug; profile for perf; release for ship; tree shaking. Develop in debug, measure in profile, ship release; never quote debug FPS as truth.",
+    "integrationProcedure": "1) Educate team on modes. 2) Perf only in profile. 3) QA release builds. 4) Keep asserts for debug checks.",
+    "example": "flutter run --profile\nflutter build apk --release"
+  },
+  "FL-B-0129": {
+    "shortAnswer": "Federated plugins split app-facing API, platform interface, and platform implementations into packages.",
+    "answer": "Answering “What is the practical difference between a package and a plugin in Flutter?”: Federated plugins split app-facing API, platform interface, and platform implementations into packages. Monolithic plugins make contributions and multi-platform support harder. Relevant ideas: app-facing; platform interface; endorsed implementations; federated stubs; pub scores; recent commits. Follow Flutter federated layout, implement platform interface, and endorse impls in pubspec.",
+    "integrationProcedure": "1) Split plugin. 2) Platform interface. 3) CI per platform. 4) Versioning policy. 5) Example app.",
+    "example": "// my_plugin, my_plugin_platform_interface, my_plugin_android/ios...\n\n// Checklist: last publish, open PRs, license, platforms supported, example runs"
+  },
+  "FL-B-0130": {
+    "shortAnswer": "Mutating widgets or heavy build methods without const causes avoidable work.",
+    "answer": "Answering “Why does Flutter use a declarative UI model, and how does that differ from mutating views imperatively?”: Widgets are immutable configuration objects describing UI; Flutter rebuilds them cheaply compared to Elements/RenderObjects. Mutating widgets or heavy build methods without const causes avoidable work. Relevant ideas: immutable config; build(); const constructors; composition; schedule rebuild; mutate fields then setState. Compose small widgets, use const, and keep build pure and light.",
+    "integrationProcedure": "1) Const-friendly widgets. 2) Split builds. 3) Pure build. 4) Profile rebuilds.",
+    "example": "const Padding(padding: EdgeInsets.all(8), child: Text('Hi'));\n\nsetState(() => count++);"
+  },
+  "FL-B-0131": {
+    "shortAnswer": "Starting streams in build or skipping dispose leaks and duplicates subscriptions.",
+    "answer": "Answering “Why should controllers, focus nodes, animation controllers, and subscriptions commonly be disposed?”: StatefulWidget State mounts via initState, updates via didUpdateWidget, cleans in deactivate/dispose. Starting streams in build or skipping dispose leaks and duplicates subscriptions. Relevant ideas: initState; didChangeDependencies; didUpdateWidget; dispose; vsync/TickerProvider; forward/reverse/repeat. Init controllers/subscriptions in initState, respond to prop changes in didUpdateWidget, dispose all.",
+    "integrationProcedure": "1) Audit dispose. 2) No side effects in build. 3) Tests for remount. 4) Document owned resources.",
+    "example": "@override void dispose(){ sub.cancel(); controller.dispose(); super.dispose(); }\n\nlate final controller = AnimationController(vsync: this, duration: const Duration(ms: 300));\n@override void dispose(){ controller.dispose(); super.dispose(); }"
+  },
+  "FL-I-0031": {
+    "shortAnswer": "Provider exposes values/ChangeNotifiers via InheritedWidget wrappers with convenient read/watch APIs.",
+    "answer": "Answering “Compare ChangeNotifier/Provider, Riverpod, BLoC/Cubit, and ValueNotifier in terms of problem scope and trade-offs.?”: Provider exposes values/ChangeNotifiers via InheritedWidget wrappers with convenient read/watch APIs. Using Provider.of with listen:true indiscriminately rebuilds large subtrees. Relevant ideas: ChangeNotifierProvider; context.watch/read; Consumer; MultiProvider; ProviderContainer; ref.watch/read. Provide at subtree root, watch selectively, call notifyListeners on changes, dispose notifiers. Simple and popular; Riverpod addresses some test/compile-time issues. Don't provide everything globally.",
+    "integrationProcedure": "1) Provide feature models. 2) watch narrowly. 3) read in callbacks. 4) Dispose. 5) Widget tests with overrides.",
+    "example": "ChangeNotifierProvider(create: (_) => CartModel(), child: App());\ncontext.watch<CartModel>().count;\n\nfinal counterProvider = StateProvider((ref) => 0);\nref.watch(counterProvider);"
+  },
+  "FL-I-0032": {
+    "shortAnswer": "ListView is simple; CustomScrollView needed for mixed slivers.",
+    "answer": "Answering “Compare ListView.builder, SliverList, and CustomScrollView.?”: ListView lazily builds children in a scrollable viewport—default for vertical collections. ListView(children: hugeList) builds eagerly; shrinkWrap inside Column causes expensive layouts. Relevant ideas: builder/separated; itemExtent; shrinkWrap caution; primary scroll; SliverList/Grid; SliverAppBar. Use builder constructors, provide keys, consider itemExtent for perf, avoid shrinkWrap when Expanded works. ListView is simple; CustomScrollView needed for mixed slivers.",
+    "integrationProcedure": "1) Always builder for long lists. 2) Keys. 3) Expanded not shrinkWrap. 4) Profile. 5) itemExtent when uniform.",
+    "example": "ListView.builder(itemCount: n, itemBuilder: (_, i) => Item(key: ValueKey(ids[i]), index: i));\n\nCustomScrollView(slivers: [\n  SliverAppBar(pinned: true, title: Text('Feed')),\n  SliverList.builder(itemBuilder: ...),\n]);"
+  },
+  "FL-I-0033": {
+    "shortAnswer": "SharedPreferences stores small key-value prefs locally (NSUserDefaults/SharedPreferences).",
+    "answer": "Answering “Compare SharedPreferences, secure storage, SQLite/sqflite, Drift, and file storage.?”: SharedPreferences stores small key-value prefs locally (NSUserDefaults/SharedPreferences). Storing secrets or large blobs here is insecure/slow; async API misuse assumes sync availability. Relevant ideas: async getInstance; primitive types; not encrypted; migration; Keychain/Keystore; biometric optional. Await instance, read/write simple prefs, and use secure storage for tokens. Simple prefs vs need for typed DB—don't stretch it.",
+    "integrationProcedure": "1) Prefs for UX flags only. 2) Secure tokens elsewhere. 3) Default values. 4) Document keys.",
+    "example": "final p = await SharedPreferences.getInstance();\nawait p.setBool('dark', true);\n\nawait storage.write(key: 'refresh', value: token);"
+  },
+  "FL-I-0034": {
+    "shortAnswer": "A Flutter frame walks build → layout → paint → composite on UI/raster threads targeting ~16ms.",
+    "answer": "Answering “Explain how Flutter performs build, layout, paint, compositing, and rasterization in a frame.?”: A Flutter frame walks build → layout → paint → composite on UI/raster threads targeting ~16ms. Work exceeding budget drops frames and feels janky. Relevant ideas: SchedulerBinding; frame callbacks; UI vs raster; vsync; pure build; setState schedules dirty. Keep per-frame work small, defer heavy tasks, and profile timeline. Some jank is shader/IO—not always your Dart code.",
+    "integrationProcedure": "1) Understand phases. 2) Profile. 3) Cut build/layout/paint costs. 4) Defer non-critical work.",
+    "example": "SchedulerBinding.instance.addPostFrameCallback((_) {/* after first layout */});\n\n// Bad: build(){ setState((){}); }\n// Good: derive UI from state fields only"
+  },
+  "FL-I-0035": {
+    "shortAnswer": "Navigator 1.0 manages a stack of Routes with push/pop and imperative APIs many apps still use.",
+    "answer": "Answering “Explain nested navigation, deep linking, and route restoration in a production app.?”: Navigator 1.0 manages a stack of Routes with push/pop and imperative APIs many apps still use. Passing wrong context (below Navigator) fails; not awaiting results loses return values. Relevant ideas: push/pop; MaterialPageRoute; onGenerateRoute; result futures; routes/redirect; ShellRoute. Push routes with MaterialPageRoute/named routes, pop with results, and keep a clear routing table. 1.0 is simple; complex deep links/web sync often need Router 2.0/go_router.",
+    "integrationProcedure": "1) Centralize routes. 2) Type results. 3) Handle back. 4) Migrate to go_router when deep links demand.",
+    "example": "final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(builder: (_) => EditPage()));\n\nGoRouter(routes: [GoRoute(path: '/', builder: ...)], redirect: (c,s) => auth ? null : '/login');"
+  },
+  "FL-I-0036": {
+    "shortAnswer": "MethodChannel invokes platform methods (Android/iOS) with async results—classic Flutter platform interop.",
+    "answer": "Answering “Explain platform channels, EventChannel, MethodChannel, and Pigeon.?”: MethodChannel invokes platform methods (Android/iOS) with async results—classic Flutter platform interop. Missing native implementations or wrong channel names throw MissingPluginException. Relevant ideas: channel name; invokeMethod; codecs; main thread care on native; API IDL; codegen. Define channel string, implement handlers natively, invoke from Dart, and handle errors. Channels are flexible; Pigeon adds type safety. Heavy traffic may need EventChannel/FFI.",
+    "integrationProcedure": "1) Define API. 2) Implement native. 3) Dart invoke. 4) Tests/mocks. 5) Consider Pigeon if growing.",
+    "example": "const ch = MethodChannel('app.battery');\nfinal level = await ch.invokeMethod<int>('getBatteryLevel');\n\n// pigeons/api.dart → flutter pub run pigeon ..."
+  },
+  "FL-I-0037": {
+    "shortAnswer": "The widget tree is the immutable configuration hierarchy Flutter diffs each build to update elements.",
+    "answer": "Answering “Explain the relationship among Widget, Element, and RenderObject trees.?”: The widget tree is the immutable configuration hierarchy Flutter diffs each build to update elements. Deep unnecessary subtrees and missing keys make diffs remount too much. Relevant ideas: composition; keys; Builder for context; devtools inspector; mount/update/unmount; State attachment. Keep trees intentional, key stateful lists, and inspect with Widget Inspector. Deeper trees vs fewer large builds—split when profiling says so.",
+    "integrationProcedure": "1) Learn inspector. 2) Key lists. 3) Split heavy builds. 4) Avoid mega-build methods.",
+    "example": "// DevTools → Inspector → Track widget rebuilds\n\n// Changing Key or widget type at a slot remounts Element/State"
+  },
+  "FL-I-0038": {
+    "shortAnswer": "Add observer in initState, handle didChangeAppLifecycleState, remove observer on dispose.",
+    "answer": "Answering “How do Android and iOS app lifecycle/background restrictions affect Flutter apps?”: AppLifecycleState reports resumed/inactive/paused/detached/hidden so you can pause work and save state. Ignoring lifecycle wastes battery with timers/sockets in background and loses draft state. Relevant ideas: WidgetsBindingObserver; resumed vs paused; save on inactive; platform differences; BGTaskScheduler/WorkManager; constraints (network/charging). Add observer in initState, handle didChangeAppLifecycleState, remove observer on dispose. Mobile OS may kill paused apps; persist critical state to disk, don't rely on memory.",
+    "integrationProcedure": "1) Observe lifecycle. 2) Pause streams/timers. 3) Persist drafts. 4) Resume carefully. 5) Test backgrounding.",
+    "example": "class _S extends State with WidgetsBindingObserver {\n  @override void didChangeAppLifecycleState(AppLifecycleState s) { /* persist */ }\n}\n\n// workmanager / flutter_background_fetch per platform setup docs"
+  },
+  "FL-I-0039": {
+    "shortAnswer": "Expose static of(context), call context.dependOn..., and implement updateShouldNotify by value compare.",
+    "answer": "Answering “How do inherited widgets propagate dependencies and trigger rebuilds?”: InheritedWidget efficiently broadcasts data downward; dependents rebuild when updateShouldNotify says so. Recreating inherited values every build without notification control causes broad rebuilds—or none when needed. Relevant ideas: dependOnInheritedWidgetOfExactType; updateShouldNotify; of(context) pattern; Provider built on this; ChangeNotifierProvider; context.watch/read. Expose static of(context), call context.dependOn..., and implement updateShouldNotify by value compare. Low-level vs Provider/Riverpod convenience—know it to debug.",
+    "integrationProcedure": "1) Use for true ambient data. 2) Correct of(context). 3) Notify carefully. 4) Prefer community libs for app state.",
+    "example": "static ThemeData of(BuildContext c) => c.dependOnInheritedWidgetOfExactType<_Theme>()!.data;\n\nChangeNotifierProvider(create: (_) => CartModel(), child: App());\ncontext.watch<CartModel>().count;"
+  },
+  "FL-I-0040": {
+    "shortAnswer": "Run profile mode, record interaction, inspect timeline, fix rebuilds/layout/shaders accordingly.",
+    "answer": "Answering “How do you diagnose jank using Flutter DevTools and the performance timeline?”: DevTools Performance timeline shows UI/Raster thread frames to diagnose jank sources. Guessing optimizations without frames data wastes time. Relevant ideas: UI vs Raster; frame budget ~16ms; rebuild shading; shader compilation jank; const; split widgets. Run profile mode, record interaction, inspect timeline, fix rebuilds/layout/shaders accordingly. Debug mode is not representative—always profile in profile/release.",
+    "integrationProcedure": "1) Profile mode. 2) Record jank. 3) Attribute UI/Raster. 4) Fix. 5) Re-measure.",
+    "example": "flutter run --profile\n# open DevTools → Performance → record\n\ncontext.select<Cart,int>((c) => c.count); // rebuild only on count"
+  },
+  "FL-I-0041": {
+    "shortAnswer": "Persist locally first, enqueue mutations, sync with backoff, and show sync state honestly.",
+    "answer": "Answering “How do you implement offline-first behavior and conflict resolution?”: Offline-first apps read/write a local source of truth and sync to network when available. Online-only mobile UX fails in tunnels/planes and feels fragile. Relevant ideas: local DB; outbox; conflict policy; connectivity signals; push/pull; version vectors/etags. Persist locally first, enqueue mutations, sync with backoff, and show sync state honestly. Complexity vs UX—start with read-cache before full bidirectional sync.",
+    "integrationProcedure": "1) Local DB. 2) Outbox. 3) Sync worker. 4) Conflict policy. 5) UX for pending/failed.",
+    "example": "// write local → outbox row → worker POST with idempotency key → mark synced\n\nPUT /notes/{id} If-Match: \"etag\""
+  },
+  "FL-I-0042": {
+    "shortAnswer": "Centralize client, parse with json_serializable, map errors, and optionally isolate heavy parses.",
+    "answer": "Answering “How would you design a robust API layer with retries, cancellation, token refresh, and typed errors?”: Flutter REST integration uses http/dio clients, DTO parsing, auth headers, and resilient error mapping. Parsing JSON in UI isolates janks; ignoring non-2xx statuses mis-handles errors. Relevant ideas: http client; dto/json; auth interceptors; timeouts; idempotent methods; jitter. Centralize client, parse with json_serializable, map errors, and optionally isolate heavy parses. dio features vs http simplicity—pick one and standardize.",
+    "integrationProcedure": "1) API client module. 2) Typed DTOs. 3) Error mapping. 4) Auth refresh. 5) Widget/repo tests.",
+    "example": "final res = await http.get(uri, headers: headers);\nif (res.statusCode >= 400) throw ApiException(res.statusCode);\n\nawait retry(() => client.get(url), maxAttempts: 5, delayFactor: Duration(ms: 200));"
+  },
+  "FL-I-0043": {
+    "shortAnswer": "Isolate frequently changing state, const static subtrees, and profile rebuilds before memo hacks.",
+    "answer": "Answering “How would you minimize unnecessary rebuilds in a large screen?”: Rebuild optimization reduces work by splitting widgets, using const, selectors, and avoiding rebuilding huge subtrees. Mega build methods rebuild charts/lists on every keystroke. Relevant ideas: const; split widgets; Selector/BlocSelector; RepaintBoundary separate concern; final fields; const constructors. Isolate frequently changing state, const static subtrees, and profile rebuilds before memo hacks. Readability vs micro-opts—measure first.",
+    "integrationProcedure": "1) Profile rebuilds. 2) Split. 3) select/watch narrow. 4) const. 5) Re-measure.",
+    "example": "context.select<Cart,int>((c) => c.count); // rebuild only on count\n\nconst EdgeInsets.all(8);\nfinal name = widget.user.name;"
+  },
+  "FL-I-0044": {
+    "shortAnswer": "Extract logic to testable classes and assert outputs/errors with fakes.",
+    "answer": "Answering “How would you write unit, widget, integration, and golden tests for the same feature?”: Flutter unit tests verify pure Dart logic (VMs, parsers) quickly without rendering. Putting logic only in widgets forces slower widget tests for everything. Relevant ideas: test package; arrange-act-assert; fakes; fast CI; integration_test package; patrol optional. Extract logic to testable classes and assert outputs/errors with fakes. Unit vs widget/integration—pyramid with mostly unit.",
+    "integrationProcedure": "1) Extract logic. 2) Unit tests. 3) Fake repos. 4) Keep CI fast. 5) Widget tests for UI wiring.",
+    "example": "test('tax', () => expect(calcTax(100), 10));\n\nIntegrationTestWidgetsFlutterBinding.ensureInitialized();\nawait tester.pumpWidget(MyApp());"
+  },
+  "FL-I-0045": {
+    "shortAnswer": "Dart GC reclaims unreachable objects; GC pauses can contribute to jank if allocation rates are huge.",
+    "answer": "Answering “What are common causes of memory leaks in Flutter applications?”: Dart GC reclaims unreachable objects; GC pauses can contribute to jank if allocation rates are huge. Allocating large temporary graphs every frame increases GC frequency. Relevant ideas: generational GC; allocation rate; leak via listeners; DevTools memory; heap snapshot; diffing. Reduce per-frame allocations, cancel listeners, and inspect memory graphs for leaks. Don't micro-optimize allocations without profiles.",
+    "integrationProcedure": "1) Snapshot before/after flows. 2) Fix leaks. 3) Reduce hot-path allocs. 4) Re-profile frames.",
+    "example": "// DevTools Memory → take heap snapshot, compare\n\n// DevTools Memory → Snapshot → Diff"
+  },
+  "FL-I-0046": {
+    "shortAnswer": "Isolates are Dart's memory-isolated concurrency units—use for CPU-heavy work without blocking UI isolate.",
+    "answer": "Answering “What are isolates, Isolate.run(), and compute(), and what kinds of work belong in an isolate?”: Isolates are Dart's memory-isolated concurrency units—use for CPU-heavy work without blocking UI isolate. Heavy JSON parse/image work on UI isolate drops frames; await does not help CPU. Relevant ideas: Isolate.run; message passing; no shared memory; compute helper. Offload CPU with Isolate.run/compute, pass transferable-ish data, keep UI isolate free. Spawn cost exists—don't isolate tiny work. Prefer async IO which already frees UI.",
+    "integrationProcedure": "1) Profile UI isolate. 2) Isolate.run for CPU. 3) Measure. 4) Avoid for tiny tasks. 5) Error handling.",
+    "example": "final parsed = await Isolate.run(() => jsonDecode(bigJson));"
+  },
+  "FL-I-0047": {
+    "shortAnswer": "RenderFlex overflow (yellow/black stripes) means Row/Column children exceeded available space along main axis.",
+    "answer": "Answering “What causes RenderFlex overflow and unbounded-constraint errors, and how do you debug them?”: RenderFlex overflow (yellow/black stripes) means Row/Column children exceeded available space along main axis. Unbounded text or fixed widths in narrow layouts ignore constraints. Relevant ideas: main axis overflow; Flexible/Expanded; softWrap/ellipsis; Inspect constraints; tight/loose/unbounded; constraints → size → position. Wrap with Flexible/Expanded, allow text to ellipsize, or scroll; never ignore overflow in production. Overflow is a layout bug, not a visual style—fix constraints.",
+    "integrationProcedure": "1) Reproduce narrow sizes. 2) Fix flex/text. 3) Add golden/widget tests at small sizes. 4) Ban ignore overflow.",
+    "example": "Row(children: [Icon(...), Expanded(child: Text(long, overflow: TextOverflow.ellipsis))]);\n\nColumn(children: [\n  Expanded(child: ListView(...)), // bounded height\n]);"
+  },
+  "FL-I-0048": {
+    "shortAnswer": "Flutter web can render via CanvasKit/Skwasm or HTML backends with different perf and download costs.",
+    "answer": "Answering “What changes when targeting Flutter Web compared with native mobile?”: Flutter web can render via CanvasKit/Skwasm or HTML backends with different perf and download costs. Shipping huge CanvasKit wasm without need hurts first load on slow networks. Relevant ideas: CanvasKit vs HTML; wasm size; text/SEO limits; Loader; wasm gc/capabilities; build flags. Choose renderer for app needs, optimize asset sizes, and understand SEO/text selection differences vs DOM apps. Flutter web is great for app-like UIs; content sites often better as HTML frameworks.",
+    "integrationProcedure": "1) Pick renderer. 2) Measure TTI. 3) Optimize assets. 4) Decide SEO strategy. 5) Test browsers.",
+    "example": "flutter build web --web-renderer canvaskit\n\nflutter build web --wasm  # per current Flutter docs/flags"
+  },
+  "FL-I-0049": {
+    "shortAnswer": "Keys (ValueKey/ObjectKey/UniqueKey/GlobalKey) tell Flutter which Element to match when reordering/updating widgets.",
+    "answer": "Answering “What problem do GlobalKey, ValueKey, ObjectKey, and PageStorageKey solve differently?”: Keys (ValueKey/ObjectKey/UniqueKey/GlobalKey) tell Flutter which Element to match when reordering/updating widgets. Index-based identity loses State on reorder; UniqueKey every build remounts always. Relevant ideas: local vs global keys; ValueKey(id); Element matching; State preservation; unique identity; currentState. Assign ValueKey with stable business ids on list children that hold State. Keys solve identity; they are not for styling. Don't over-key static children.",
+    "integrationProcedure": "1) Audit list keys. 2) Stable ids. 3) Widget tests reorder. 4) Reserve GlobalKey.",
+    "example": "ListView.builder(itemBuilder: (_, i) => TodoRow(key: ValueKey(todos[i].id), todo: todos[i]));\n\nfinal formKey = GlobalKey<FormState>(); // field on State, not in build"
+  },
+  "FL-I-0050": {
+    "shortAnswer": "Using a context across async gaps after dispose, or the wrong context for Provider/Navigator, causes crashes/lookups to fail.",
+    "answer": "Answering “Why can using BuildContext after an async gap be unsafe?”: BuildContext is a handle to a widget's location in the tree—used to find InheritedWidgets, navigate, and theme. Using a context across async gaps after dispose, or the wrong context for Provider/Navigator, causes crashes/lookups to fail. Relevant ideas: element location; dependOnInheritedWidget; mounted check; context from builder; mounted; capture navigators before await. Use context only when mounted; capture Navigator/Theme before await or check mounted after; prefer the context that can see the ancestor you need. Passing context deep is fine; storing it long-term is not. Element APIs are advanced.",
+    "integrationProcedure": "1) Audit async methods. 2) mounted checks. 3) Correct lookup context. 4) Widget tests for async nav.",
+    "example": "await future;\nif (!mounted) return;\nNavigator.of(context).pop();\n\nawait repo.save();\nif (!mounted) return;\nScaffoldMessenger.of(context).showSnackBar(...);"
+  },
+  "FL-I-0127": {
+    "shortAnswer": "Assign ValueKey with stable business ids on list children that hold State.",
+    "answer": "Answering “How do keys affect Element reuse when items are inserted, removed, or reordered?”: Keys (ValueKey/ObjectKey/UniqueKey/GlobalKey) tell Flutter which Element to match when reordering/updating widgets. Index-based identity loses State on reorder; UniqueKey every build remounts always. Relevant ideas: local vs global keys; ValueKey(id); Element matching; State preservation; unique identity; currentState. Assign ValueKey with stable business ids on list children that hold State. Keys solve identity; they are not for styling. Don't over-key static children.",
+    "integrationProcedure": "1) Audit list keys. 2) Stable ids. 3) Widget tests reorder. 4) Reserve GlobalKey.",
+    "example": "ListView.builder(itemBuilder: (_, i) => TodoRow(key: ValueKey(todos[i].id), todo: todos[i]));\n\nfinal formKey = GlobalKey<FormState>(); // field on State, not in build"
+  },
+  "FL-I-0128": {
+    "shortAnswer": "Retry GETs and idempotent writes, honor Retry-After, and queue when offline.",
+    "answer": "Answering “How do you prevent stale responses and race conditions when implementing search-as-you-type in Flutter?”: Client retry with exponential backoff+jitter handles transient mobile network failures. Immediate retries drain battery and hammer recovering servers. Relevant ideas: idempotent methods; jitter; max attempts; offline queue; async/await; Future.wait. Retry GETs and idempotent writes, honor Retry-After, and queue when offline. Retries improve resilience; non-idempotent POSTs need keys.",
+    "integrationProcedure": "1) Classify idempotent calls. 2) Backoff+jitter. 3) Honor Retry-After. 4) Metrics. 5) UX for final failure.",
+    "example": "await retry(() => client.get(url), maxAttempts: 5, delayFactor: Duration(ms: 200));\n\nfinal results = await Future.wait([loadA(), loadB()]);"
+  },
+  "FL-I-0129": {
+    "shortAnswer": "Persist locally first, enqueue mutations, sync with backoff, and show sync state honestly.",
+    "answer": "Answering “How would you design an offline-first repository that merges local changes with server updates?”: Offline-first apps read/write a local source of truth and sync to network when available. Online-only mobile UX fails in tunnels/planes and feels fragile. Relevant ideas: local DB; outbox; conflict policy; connectivity signals; push/pull; version vectors/etags. Persist locally first, enqueue mutations, sync with backoff, and show sync state honestly. Complexity vs UX—start with read-cache before full bidirectional sync.",
+    "integrationProcedure": "1) Local DB. 2) Outbox. 3) Sync worker. 4) Conflict policy. 5) UX for pending/failed.",
+    "example": "// write local → outbox row → worker POST with idempotency key → mark synced\n\nPUT /notes/{id} If-Match: \"etag\""
+  },
+  "FL-I-0130": {
+    "shortAnswer": "Provide at subtree root, watch selectively, call notifyListeners on changes, dispose notifiers.",
+    "answer": "Answering “How would you structure state for a screen containing local UI state, cached server state, and global authenticated-user state?”: Provider exposes values/ChangeNotifiers via InheritedWidget wrappers with convenient read/watch APIs. Using Provider.of with listen:true indiscriminately rebuilds large subtrees. Relevant ideas: ChangeNotifierProvider; context.watch/read; Consumer; MultiProvider; ProviderContainer; ref.watch/read. Provide at subtree root, watch selectively, call notifyListeners on changes, dispose notifiers. Simple and popular; Riverpod addresses some test/compile-time issues. Don't provide everything globally.",
+    "integrationProcedure": "1) Provide feature models. 2) watch narrowly. 3) read in callbacks. 4) Dispose. 5) Widget tests with overrides.",
+    "example": "ChangeNotifierProvider(create: (_) => CartModel(), child: App());\ncontext.watch<CartModel>().count;\n\nfinal counterProvider = StateProvider((ref) => 0);\nref.watch(counterProvider);"
+  },
+  "FL-I-0131": {
+    "shortAnswer": "App developers rarely need custom RenderObjects—mistakes break constraints contracts.",
+    "answer": "Answering “Why can a widget rebuild without its RenderObject repainting, and why does that distinction matter for optimization?”: RenderObjects perform layout and painting; widgets configure them via Elements. App developers rarely need custom RenderObjects—mistakes break constraints contracts. Relevant ideas: performLayout; paint; hitTest; ParentData; immutable config; build(). Prefer composing widgets; write custom RenderBox only when existing render objects can't express the layout. Ultimate control vs maintenance cost and a11y complexity.",
+    "integrationProcedure": "1) Exhaust widget options. 2) Study RenderBox docs. 3) Implement carefully. 4) Heavy tests. 5) Semantics.",
+    "example": "// Prefer CustomPainter/box widgets before custom RenderBox\n\nconst Padding(padding: EdgeInsets.all(8), child: Text('Hi'));"
+  },
+  "FL-A-0031": {
+    "shortAnswer": "Navigator 1.0 manages a stack of Routes with push/pop and imperative APIs many apps still use.",
+    "answer": "Answering “A Flutter app leaks memory only after repeated navigation between two complex screens. Describe your investigation from symptom to root cause.?”: Navigator 1.0 manages a stack of Routes with push/pop and imperative APIs many apps still use. Passing wrong context (below Navigator) fails; not awaiting results loses return values. Relevant ideas: push/pop; MaterialPageRoute; onGenerateRoute; result futures; routes/redirect; ShellRoute. Push routes with MaterialPageRoute/named routes, pop with results, and keep a clear routing table. 1.0 is simple; complex deep links/web sync often need Router 2.0/go_router.",
+    "integrationProcedure": "1) Centralize routes. 2) Type results. 3) Handle back. 4) Migrate to go_router when deep links demand.",
+    "example": "final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(builder: (_) => EditPage()));\n\nGoRouter(routes: [GoRoute(path: '/', builder: ...)], redirect: (c,s) => auth ? null : '/login');"
+  },
+  "FL-A-0032": {
+    "shortAnswer": "Impeller improves jank but may lag some rare Skia effects—verify your app.",
+    "answer": "Answering “Compare Skia and Impeller conceptually and explain why renderer-specific bugs can occur.?”: Impeller is Flutter's modern renderer aiming for predictable performance by precompiling shaders (esp. iOS). Skia runtime shader compilation caused first-animation jank on iOS. Relevant ideas: precompiled shaders; Metal/Vulkan backends; feature parity journey; profile comparisons; asserts in debug; profile for perf. Use current Flutter channels where Impeller is default/enabled, profile animations, and report gaps. Impeller improves jank but may lag some rare Skia effects—verify your app.",
+    "integrationProcedure": "1) Upgrade Flutter. 2) Profile animations. 3) Validate visuals. 4) Keep repros for engine bugs.",
+    "example": "flutter run --enable-impeller  # or disable per docs when debugging\n\nflutter run --profile\nflutter build apk --release"
+  },
+  "FL-A-0033": {
+    "shortAnswer": "Offline-first apps read/write a local source of truth and sync to network when available.",
+    "answer": "Answering “Design a Flutter application that must continue working offline for days and later reconcile conflicting server changes.?”: Offline-first apps read/write a local source of truth and sync to network when available. Online-only mobile UX fails in tunnels/planes and feels fragile. Relevant ideas: local DB; outbox; conflict policy; connectivity signals; push/pull; version vectors/etags. Persist locally first, enqueue mutations, sync with backoff, and show sync state honestly. Complexity vs UX—start with read-cache before full bidirectional sync. If duplicates after sync, missing idempotency keys.",
+    "integrationProcedure": "1) Local DB. 2) Outbox. 3) Sync worker. 4) Conflict policy. 5) UX for pending/failed.",
+    "example": "// write local → outbox row → worker POST with idempotency key → mark synced\n\nPUT /notes/{id} If-Match: \"etag\""
+  },
+  "FL-A-0034": {
+    "shortAnswer": "Navigator 1.0 manages a stack of Routes with push/pop and imperative APIs many apps still use.",
+    "answer": "Answering “Design navigation for an app with bottom tabs, nested stacks, web URLs, deep links, and authenticated redirects.?”: Navigator 1.0 manages a stack of Routes with push/pop and imperative APIs many apps still use. Passing wrong context (below Navigator) fails; not awaiting results loses return values. Relevant ideas: push/pop; MaterialPageRoute; onGenerateRoute; result futures; routes/redirect; ShellRoute. Push routes with MaterialPageRoute/named routes, pop with results, and keep a clear routing table. 1.0 is simple; complex deep links/web sync often need Router 2.0/go_router. If push fails, context lacks Navigator—use root navigator or correct context.",
+    "integrationProcedure": "1) Centralize routes. 2) Type results. 3) Handle back. 4) Migrate to go_router when deep links demand.",
+    "example": "final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(builder: (_) => EditPage()));\n\nGoRouter(routes: [GoRoute(path: '/', builder: ...)], redirect: (c,s) => auth ? null : '/login');"
+  },
+  "FL-A-0035": {
+    "shortAnswer": "Secure token storage uses Keychain/Keystore-backed plugins (flutter_secure_storage) instead of plain prefs.",
+    "answer": "Answering “Design secure authentication for Flutter across Android, iOS, and Web, including token storage and refresh behavior.?”: Secure token storage uses Keychain/Keystore-backed plugins (flutter_secure_storage) instead of plain prefs. Tokens in SharedPreferences are readable on rooted/jailbroken devices and backups sometimes. Relevant ideas: Keychain/Keystore; biometric optional; rotation; clear on logout; idToken; auth state streams. Store refresh tokens securely, short-lived access in memory when possible, wipe on logout. Secure storage still not perfect on compromised devices—pair with server revocation. If tokens vanish on upgrade, storage options/accessibility settings wrong.",
+    "integrationProcedure": "1) Secure storage plugin. 2) Memory for access token. 3) Logout wipe. 4) Jailbreak heuristics optional. 5) Revoke server-side.",
+    "example": "await storage.write(key: 'refresh', value: token);\n\nFirebaseAuth.instance.authStateChanges().listen((u) => /* update app state */);"
+  },
+  "FL-A-0036": {
+    "shortAnswer": "Large Flutter apps split into packages/features with clear APIs to keep build times and ownership manageable.",
+    "answer": "Answering “Design the architecture of a very large Flutter application maintained by multiple feature teams.?”: Large Flutter apps split into packages/features with clear APIs to keep build times and ownership manageable. One giant lib/ with circular imports slows teams and analysis. Relevant ideas: feature packages; melos/pub workspaces; public APIs; dependency rules; constructor injection; get_it/riverpod. Extract features into packages, enforce import boundaries, and use melos for scripts. More packages help scale; over-splitting early adds friction. If analyzer slow, modularize hot packages and reduce barrel exports.",
+    "integrationProcedure": "1) Identify features. 2) Extract packages. 3) Boundary lint. 4) Melos CI. 5) Keep shared slim.",
+    "example": "// packages/feature_auth, packages/feature_home, packages/design_system\n\ngetIt.registerLazySingleton<Api>(() => Api(http));\nfinal api = getIt<Api>();"
+  },
+  "FL-A-0037": {
+    "shortAnswer": "Isolates are Dart's memory-isolated concurrency units—use for CPU-heavy work without blocking UI isolate.",
+    "answer": "Answering “Explain Dart isolate message-passing constraints and strategies for efficiently moving large datasets.?”: Isolates are Dart's memory-isolated concurrency units—use for CPU-heavy work without blocking UI isolate. Heavy JSON parse/image work on UI isolate drops frames; await does not help CPU. Relevant ideas: Isolate.run; message passing; no shared memory; compute helper; @JsonSerializable; field rename. Offload CPU with Isolate.run/compute, pass transferable-ish data, keep UI isolate free. Spawn cost exists—don't isolate tiny work. Prefer async IO which already frees UI.",
+    "integrationProcedure": "1) Profile UI isolate. 2) Isolate.run for CPU. 3) Measure. 4) Avoid for tiny tasks. 5) Error handling.",
+    "example": "final parsed = await Isolate.run(() => jsonDecode(bigJson));\n\n@JsonSerializable() class User { factory User.fromJson(Map<String,dynamic> j) => _$UserFromJson(j); }"
+  },
+  "FL-A-0038": {
+    "shortAnswer": "A Flutter frame walks build → layout → paint → composite on UI/raster threads targeting ~16ms.",
+    "answer": "Answering “Explain the UI thread/raster thread relationship and how frame-budget overruns produce visible jank.?”: A Flutter frame walks build → layout → paint → composite on UI/raster threads targeting ~16ms. Work exceeding budget drops frames and feels janky. Relevant ideas: SchedulerBinding; frame callbacks; UI vs raster; vsync; pure build; setState schedules dirty. Keep per-frame work small, defer heavy tasks, and profile timeline. Some jank is shader/IO—not always your Dart code. Attribute jank via DevTools before optimizing.",
+    "integrationProcedure": "1) Understand phases. 2) Profile. 3) Cut build/layout/paint costs. 4) Defer non-critical work.",
+    "example": "SchedulerBinding.instance.addPostFrameCallback((_) {/* after first layout */});\n\n// Bad: build(){ setState((){}); }\n// Good: derive UI from state fields only"
+  },
+  "FL-A-0039": {
+    "shortAnswer": "Large Flutter apps split into packages/features with clear APIs to keep build times and ownership manageable.",
+    "answer": "Answering “Explain the most important trade-offs among modular monorepos, feature packages, and a single app package.?”: Large Flutter apps split into packages/features with clear APIs to keep build times and ownership manageable. One giant lib/ with circular imports slows teams and analysis. Relevant ideas: feature packages; melos/pub workspaces; public APIs; dependency rules. Extract features into packages, enforce import boundaries, and use melos for scripts. More packages help scale; over-splitting early adds friction. If analyzer slow, modularize hot packages and reduce barrel exports.",
+    "integrationProcedure": "1) Identify features. 2) Extract packages. 3) Boundary lint. 4) Melos CI. 5) Keep shared slim.",
+    "example": "// packages/feature_auth, packages/feature_home, packages/design_system"
+  },
+  "FL-A-0040": {
+    "shortAnswer": "Keys (ValueKey/ObjectKey/UniqueKey/GlobalKey) tell Flutter which Element to match when reordering/updating widgets.",
+    "answer": "Answering “Explain when Flutter reuses an Element and when it replaces it; include the role of runtimeType and Key.?”: Keys (ValueKey/ObjectKey/UniqueKey/GlobalKey) tell Flutter which Element to match when reordering/updating widgets. Index-based identity loses State on reorder; UniqueKey every build remounts always. Relevant ideas: local vs global keys; ValueKey(id); Element matching; State preservation. Assign ValueKey with stable business ids on list children that hold State. Keys solve identity; they are not for styling. Don't over-key static children.",
+    "integrationProcedure": "1) Audit list keys. 2) Stable ids. 3) Widget tests reorder. 4) Reserve GlobalKey.",
+    "example": "ListView.builder(itemBuilder: (_, i) => TodoRow(key: ValueKey(todos[i].id), todo: todos[i]));"
+  },
+  "FL-A-0041": {
+    "shortAnswer": "RenderObjects perform layout and painting; widgets configure them via Elements.",
+    "answer": "Answering “Explain when a custom RenderObject is appropriate and what responsibilities it assumes.?”: RenderObjects perform layout and painting; widgets configure them via Elements. App developers rarely need custom RenderObjects—mistakes break constraints contracts. Relevant ideas: performLayout; paint; hitTest; ParentData; paint(Canvas, Size); shouldRepaint. Prefer composing widgets; write custom RenderBox only when existing render objects can't express the layout. Ultimate control vs maintenance cost and a11y complexity. If asserts in performLayout, constraints protocol violated.",
+    "integrationProcedure": "1) Exhaust widget options. 2) Study RenderBox docs. 3) Implement carefully. 4) Heavy tests. 5) Semantics.",
+    "example": "// Prefer CustomPainter/box widgets before custom RenderBox\n\nclass GridPainter extends CustomPainter {\n  @override void paint(Canvas c, Size s) { /* ... */ }\n  @override bool shouldRepaint(covariant GridPainter old) => false;\n}"
+  },
+  "FL-A-0042": {
+    "shortAnswer": "Follow Flutter federated layout, implement platform interface, and endorse impls in pubspec.",
+    "answer": "Answering “How would you build a federated Flutter plugin with platform interfaces and multiple platform implementations?”: Federated plugins split app-facing API, platform interface, and platform implementations into packages. Monolithic plugins make contributions and multi-platform support harder. Relevant ideas: app-facing; platform interface; endorsed implementations; federated stubs. Follow Flutter federated layout, implement platform interface, and endorse impls in pubspec. More packages to version; clearer ownership and testing. If wrong impl resolves, endorsements/pubspec miswired.",
+    "integrationProcedure": "1) Split plugin. 2) Platform interface. 3) CI per platform. 4) Versioning policy. 5) Example app.",
+    "example": "// my_plugin, my_plugin_platform_interface, my_plugin_android/ios..."
+  },
+  "FL-A-0043": {
+    "shortAnswer": "Provide at subtree root, watch selectively, call notifyListeners on changes, dispose notifiers.",
+    "answer": "Answering “How would you choose boundaries between UI state, application state, server state, and persistent state?”: Provider exposes values/ChangeNotifiers via InheritedWidget wrappers with convenient read/watch APIs. Using Provider.of with listen:true indiscriminately rebuilds large subtrees. Relevant ideas: ChangeNotifierProvider; context.watch/read; Consumer; MultiProvider; ProviderContainer; ref.watch/read. Provide at subtree root, watch selectively, call notifyListeners on changes, dispose notifiers. Simple and popular; Riverpod addresses some test/compile-time issues. Don't provide everything globally.",
+    "integrationProcedure": "1) Provide feature models. 2) watch narrowly. 3) read in callbacks. 4) Dispose. 5) Widget tests with overrides.",
+    "example": "ChangeNotifierProvider(create: (_) => CartModel(), child: App());\ncontext.watch<CartModel>().count;\n\nfinal counterProvider = StateProvider((ref) => 0);\nref.watch(counterProvider);"
+  },
+  "FL-A-0044": {
+    "shortAnswer": "Avoid in hot paths; prefer explicit sizes, Expanded, or Align; profile if needed.",
+    "answer": "Answering “How would you debug repeated layout passes caused by intrinsic measurement or poorly designed constraints?”: Intrinsic widgets measure children's intrinsic dimensions—expensive because they may lay out children twice. Using intrinsics in deep trees tanks performance especially in lists. Relevant ideas: intrinsic measurements; costly layout; alternatives: fixed sizes/Align; debug flags; tight/loose/unbounded; constraints → size → position. Avoid in hot paths; prefer explicit sizes, Expanded, or Align; profile if needed. Sometimes correct for menus; almost never inside each list row. If jank in layout phase, search for Intrinsics in tree.",
+    "integrationProcedure": "1) Ban Intrinsics in lists via review. 2) Replace with constraints. 3) Profile layout. 4) Document exceptions.",
+    "example": "// Prefer sized widgets over IntrinsicWidth in ListView children\n\nColumn(children: [\n  Expanded(child: ListView(...)), // bounded height\n]);"
+  },
+  "FL-A-0045": {
+    "shortAnswer": "Extract logic to testable classes and assert outputs/errors with fakes.",
+    "answer": "Answering “How would you design testing strategy and CI for a Flutter app with native plugins and several deployment flavors?”: Flutter unit tests verify pure Dart logic (VMs, parsers) quickly without rendering. Putting logic only in widgets forces slower widget tests for everything. Relevant ideas: test package; arrange-act-assert; fakes; fast CI; integration_test package; patrol optional. Extract logic to testable classes and assert outputs/errors with fakes. Unit vs widget/integration—pyramid with mostly unit. If needing WidgetsFlutterBinding for pure logic, logic not extracted yet.",
+    "integrationProcedure": "1) Extract logic. 2) Unit tests. 3) Fake repos. 4) Keep CI fast. 5) Widget tests for UI wiring.",
+    "example": "test('tax', () => expect(calcTax(100), 10));\n\nIntegrationTestWidgetsFlutterBinding.ensureInitialized();\nawait tester.pumpWidget(MyApp());"
+  },
+  "FL-A-0046": {
+    "shortAnswer": "Use current Flutter channels where Impeller is default/enabled, profile animations, and report gaps.",
+    "answer": "Answering “How would you diagnose a release-only rendering regression that occurs on one GPU/vendor family?”: Impeller is Flutter's modern renderer aiming for predictable performance by precompiling shaders (esp. iOS). Skia runtime shader compilation caused first-animation jank on iOS. Relevant ideas: precompiled shaders; Metal/Vulkan backends; feature parity journey; profile comparisons; asserts in debug; profile for perf. Use current Flutter channels where Impeller is default/enabled, profile animations, and report gaps. Impeller improves jank but may lag some rare Skia effects—verify your app.",
+    "integrationProcedure": "1) Upgrade Flutter. 2) Profile animations. 3) Validate visuals. 4) Keep repros for engine bugs.",
+    "example": "flutter run --enable-impeller  # or disable per docs when debugging\n\nflutter run --profile\nflutter build apk --release"
+  },
+  "FL-A-0047": {
+    "shortAnswer": "Inspect pub.dev, repo activity, open critical issues, and prefer endorsed/popular maintained packages.",
+    "answer": "Answering “How would you evaluate whether a Flutter package is safe and sustainable for a mission-critical production app?”: Evaluating Flutter packages checks maintenance, Flutter compatibility, issue health, and license fit. Adopting abandoned plugins blocks engine upgrades. Relevant ideas: pub scores; recent commits; Flutter version support; fork risk; app-facing; platform interface. Inspect pub.dev, repo activity, open critical issues, and prefer endorsed/popular maintained packages. Vendor vs write-your-own—estimate replacement cost before adopting. If plugin breaks on Flutter upgrade, check issues and be ready to fork/replace.",
+    "integrationProcedure": "1) Score candidates. 2) Spike upgrade. 3) Abstraction layer. 4) Monitor releases. 5) Exit plan.",
+    "example": "// Checklist: last publish, open PRs, license, platforms supported, example runs\n\n// my_plugin, my_plugin_platform_interface, my_plugin_android/ios..."
+  },
+  "FL-A-0048": {
+    "shortAnswer": "Add observer in initState, handle didChangeAppLifecycleState, remove observer on dispose.",
+    "answer": "Answering “How would you implement a resilient background synchronization system under Android and iOS platform restrictions?”: AppLifecycleState reports resumed/inactive/paused/detached/hidden so you can pause work and save state. Ignoring lifecycle wastes battery with timers/sockets in background and loses draft state. Relevant ideas: WidgetsBindingObserver; resumed vs paused; save on inactive; platform differences; BGTaskScheduler/WorkManager; constraints (network/charging). Add observer in initState, handle didChangeAppLifecycleState, remove observer on dispose. Mobile OS may kill paused apps; persist critical state to disk, don't rely on memory. If observer never fires, not registered or removed too early.",
+    "integrationProcedure": "1) Observe lifecycle. 2) Pause streams/timers. 3) Persist drafts. 4) Resume carefully. 5) Test backgrounding.",
+    "example": "class _S extends State with WidgetsBindingObserver {\n  @override void didChangeAppLifecycleState(AppLifecycleState s) { /* persist */ }\n}\n\n// workmanager / flutter_background_fetch per platform setup docs"
+  },
+  "FL-A-0049": {
+    "shortAnswer": "Provide decode sizes for display size, clear caches on memory warnings if needed, and dispose controllers.",
+    "answer": "Answering “How would you profile and reduce image-memory pressure in an image-heavy application?”: Image memory can dominate Flutter RAM; cache width/height and eviction matter for galleries. Decoding full-res images into thumbnails OOMs on low-end devices. Relevant ideas: cacheWidth/cacheHeight; ResizeImage; precacheImage; ImageCache limits. Provide decode sizes for display size, clear caches on memory warnings if needed, and dispose controllers. Quality vs memory—decode near display pixel size. If OOM in gallery, missing cacheWidth—add it.",
+    "integrationProcedure": "1) Decode near display size. 2) Limit cache. 3) Profile memory. 4) Paginate galleries. 5) Test low-end Android.",
+    "example": "Image.network(url, cacheWidth: (200 * devicePixelRatio).round());"
+  },
+  "FL-A-0050": {
+    "shortAnswer": "StatefulWidget State mounts via initState, updates via didUpdateWidget, cleans in deactivate/dispose.",
+    "answer": "Answering “Walk through how an updated StatefulWidget configuration reaches an existing State object via Element reconciliation.?”: StatefulWidget State mounts via initState, updates via didUpdateWidget, cleans in deactivate/dispose. Starting streams in build or skipping dispose leaks and duplicates subscriptions. Relevant ideas: initState; didChangeDependencies; didUpdateWidget; dispose; mount/update/unmount; State attachment. Init controllers/subscriptions in initState, respond to prop changes in didUpdateWidget, dispose all. Lifecycle mastery prevents leaks; prefer higher-level state managers for complex syncing. If double subscription, initState work incorrectly re-run—check keys remounting.",
+    "integrationProcedure": "1) Audit dispose. 2) No side effects in build. 3) Tests for remount. 4) Document owned resources.",
+    "example": "@override void dispose(){ sub.cancel(); controller.dispose(); super.dispose(); }\n\n// Changing Key or widget type at a slot remounts Element/State"
+  },
+  "FL-A-0127": {
+    "shortAnswer": "DevTools Performance timeline shows UI/Raster thread frames to diagnose jank sources.",
+    "answer": "Answering “A Flutter app has periodic jank only on low-end Android devices. Describe a profiling strategy that separates UI-thread, raster-thread, shader, image, GC, and platform-view causes.?”: DevTools Performance timeline shows UI/Raster thread frames to diagnose jank sources. Guessing optimizations without frames data wastes time. Relevant ideas: UI vs Raster; frame budget ~16ms; rebuild shading; shader compilation jank; const; split widgets. Run profile mode, record interaction, inspect timeline, fix rebuilds/layout/shaders accordingly. Debug mode is not representative—always profile in profile/release.",
+    "integrationProcedure": "1) Profile mode. 2) Record jank. 3) Attribute UI/Raster. 4) Fix. 5) Re-measure.",
+    "example": "flutter run --profile\n# open DevTools → Performance → record\n\ncontext.select<Cart,int>((c) => c.count); // rebuild only on count"
+  },
+  "FL-A-0128": {
+    "shortAnswer": "Large Flutter apps split into packages/features with clear APIs to keep build times and ownership manageable.",
+    "answer": "Answering “Design a large multi-team Flutter application so features can be developed and tested independently without creating a dependency graph that becomes impossible to maintain.?”: Large Flutter apps split into packages/features with clear APIs to keep build times and ownership manageable. One giant lib/ with circular imports slows teams and analysis. Relevant ideas: feature packages; melos/pub workspaces; public APIs; dependency rules. Extract features into packages, enforce import boundaries, and use melos for scripts. More packages help scale; over-splitting early adds friction. If analyzer slow, modularize hot packages and reduce barrel exports.",
+    "integrationProcedure": "1) Identify features. 2) Extract packages. 3) Boundary lint. 4) Melos CI. 5) Keep shared slim.",
+    "example": "// packages/feature_auth, packages/feature_home, packages/design_system"
+  },
+  "FL-A-0129": {
+    "shortAnswer": "AppLifecycleState reports resumed/inactive/paused/detached/hidden so you can pause work and save state.",
+    "answer": "Answering “Design a resilient cross-platform background-sync architecture while respecting Android and iOS lifecycle/background-execution restrictions.?”: AppLifecycleState reports resumed/inactive/paused/detached/hidden so you can pause work and save state. Ignoring lifecycle wastes battery with timers/sockets in background and loses draft state. Relevant ideas: WidgetsBindingObserver; resumed vs paused; save on inactive; platform differences; BGTaskScheduler/WorkManager; constraints (network/charging). Add observer in initState, handle didChangeAppLifecycleState, remove observer on dispose. Mobile OS may kill paused apps; persist critical state to disk, don't rely on memory. If observer never fires, not registered or removed too early.",
+    "integrationProcedure": "1) Observe lifecycle. 2) Pause streams/timers. 3) Persist drafts. 4) Resume carefully. 5) Test backgrounding.",
+    "example": "class _S extends State with WidgetsBindingObserver {\n  @override void didChangeAppLifecycleState(AppLifecycleState s) { /* persist */ }\n}\n\n// workmanager / flutter_background_fetch per platform setup docs"
+  },
+  "FL-A-0130": {
+    "shortAnswer": "Define channel string, implement handlers natively, invoke from Dart, and handle errors.",
+    "answer": "Answering “How would you debug a platform-channel call that works on Android but deadlocks or times out on iOS?”: MethodChannel invokes platform methods (Android/iOS) with async results—classic Flutter platform interop. Missing native implementations or wrong channel names throw MissingPluginException. Relevant ideas: channel name; invokeMethod; codecs; main thread care on native; API IDL; codegen. Define channel string, implement handlers natively, invoke from Dart, and handle errors. Channels are flexible; Pigeon adds type safety. Heavy traffic may need EventChannel/FFI.",
+    "integrationProcedure": "1) Define API. 2) Implement native. 3) Dart invoke. 4) Tests/mocks. 5) Consider Pigeon if growing.",
+    "example": "const ch = MethodChannel('app.battery');\nfinal level = await ch.invokeMethod<int>('getBatteryLevel');\n\n// pigeons/api.dart → flutter pub run pigeon ..."
+  },
+  "FL-A-0131": {
+    "shortAnswer": "A Flutter frame walks build → layout → paint → composite on UI/raster threads targeting ~16ms.",
+    "answer": "Answering “Walk through a Flutter frame from scheduler callback through build, layout, paint, compositing, and rasterization.?”: A Flutter frame walks build → layout → paint → composite on UI/raster threads targeting ~16ms. Work exceeding budget drops frames and feels janky. Relevant ideas: SchedulerBinding; frame callbacks; UI vs raster; vsync; pure build; setState schedules dirty. Keep per-frame work small, defer heavy tasks, and profile timeline. Some jank is shader/IO—not always your Dart code. Attribute jank via DevTools before optimizing.",
+    "integrationProcedure": "1) Understand phases. 2) Profile. 3) Cut build/layout/paint costs. 4) Defer non-critical work.",
+    "example": "SchedulerBinding.instance.addPostFrameCallback((_) {/* after first layout */});\n\n// Bad: build(){ setState((){}); }\n// Good: derive UI from state fields only"
+  }
+}

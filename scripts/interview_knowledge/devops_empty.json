@@ -1,0 +1,452 @@
+[
+  {
+    "id": "DO-B-0046",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Explain common Linux directories such as /etc, /var, /home, /tmp, and /proc."
+  },
+  {
+    "id": "DO-B-0047",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "How do Linux file permissions work?"
+  },
+  {
+    "id": "DO-B-0048",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "How would you find which process is listening on a port?"
+  },
+  {
+    "id": "DO-B-0049",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are AWS Regions and Availability Zones?"
+  },
+  {
+    "id": "DO-B-0050",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are DNS, TCP, UDP, HTTP, and HTTPS?"
+  },
+  {
+    "id": "DO-B-0051",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are EC2, S3, IAM, VPC, RDS, and CloudWatch used for?"
+  },
+  {
+    "id": "DO-B-0052",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are GitHub Actions workflows, jobs, steps, and runners?"
+  },
+  {
+    "id": "DO-B-0053",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are Terraform providers, resources, variables, outputs, state, plan, and apply?"
+  },
+  {
+    "id": "DO-B-0054",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are build artifacts?"
+  },
+  {
+    "id": "DO-B-0055",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are logs, metrics, and alerts?"
+  },
+  {
+    "id": "DO-B-0056",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is DevOps, and what problem is it trying to solve?"
+  },
+  {
+    "id": "DO-B-0057",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is Infrastructure as Code?"
+  },
+  {
+    "id": "DO-B-0058",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is Kubernetes, and what are Pods, Deployments, Services, and ConfigMaps?"
+  },
+  {
+    "id": "DO-B-0059",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a CI/CD pipeline?"
+  },
+  {
+    "id": "DO-B-0060",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a Docker image, container, Dockerfile, volume, and network?"
+  },
+  {
+    "id": "DO-B-0061",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a reverse proxy, and why is Nginx commonly used as one?"
+  },
+  {
+    "id": "DO-B-0062",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between CMD and ENTRYPOINT conceptually?"
+  },
+  {
+    "id": "DO-B-0063",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between a virtual machine and a container?"
+  },
+  {
+    "id": "DO-B-0064",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between continuous integration, continuous delivery, and continuous deployment?"
+  },
+  {
+    "id": "DO-B-0065",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What problem does Docker Compose solve?"
+  },
+  {
+    "id": "DO-B-0107",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between a readiness probe and a liveness probe?"
+  },
+  {
+    "id": "DO-B-0108",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between an SLI, SLO, and SLA?"
+  },
+  {
+    "id": "DO-B-0109",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the practical difference between a process being alive and a service being healthy?"
+  },
+  {
+    "id": "DO-B-0110",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What problem does Infrastructure as Code solve beyond saving command history?"
+  },
+  {
+    "id": "DO-B-0111",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "Why is a container not a lightweight virtual machine?"
+  },
+  {
+    "id": "DO-I-0045",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "A Linux server is slow. What sequence of CPU, memory, disk, and network checks would you perform?"
+  },
+  {
+    "id": "DO-I-0046",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare Deployment, StatefulSet, DaemonSet, Job, and CronJob."
+  },
+  {
+    "id": "DO-I-0047",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare requests, limits, HPA, node autoscaling, taints/tolerations, and affinity."
+  },
+  {
+    "id": "DO-I-0048",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare rolling, blue/green, and canary deployments."
+  },
+  {
+    "id": "DO-I-0049",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare stateful and stateless firewalls/security groups."
+  },
+  {
+    "id": "DO-I-0050",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Design monitoring around RED/USE or similar service/resource signals."
+  },
+  {
+    "id": "DO-I-0051",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain IAM users, roles, policies, instance/service identities, and least privilege."
+  },
+  {
+    "id": "DO-I-0052",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain Kubernetes Service types, Ingress/Gateway concepts, DNS, and NetworkPolicy."
+  },
+  {
+    "id": "DO-I-0053",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain Kubernetes control-plane components and kubelet responsibilities."
+  },
+  {
+    "id": "DO-I-0054",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain Terraform state, remote backends, locking, drift, import, and why direct state editing is dangerous."
+  },
+  {
+    "id": "DO-I-0055",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain container networking, port publishing, DNS-based service discovery, and volumes in Compose."
+  },
+  {
+    "id": "DO-I-0056",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain load average and why a high value does not automatically mean CPU saturation."
+  },
+  {
+    "id": "DO-I-0057",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain readiness, liveness, and startup probes and the failure caused by using them incorrectly."
+  },
+  {
+    "id": "DO-I-0058",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How do multi-stage Docker builds improve security and image size?"
+  },
+  {
+    "id": "DO-I-0059",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How does Docker layer caching work, and how do Dockerfile changes affect build speed and image size?"
+  },
+  {
+    "id": "DO-I-0060",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How should reusable Terraform modules be versioned and reviewed?"
+  },
+  {
+    "id": "DO-I-0061",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How would you manage application configuration and secrets in Kubernetes?"
+  },
+  {
+    "id": "DO-I-0062",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How would you secure secrets in a CI/CD pipeline?"
+  },
+  {
+    "id": "DO-I-0063",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are RPO and RTO, and how would you verify that backups actually satisfy them?"
+  },
+  {
+    "id": "DO-I-0064",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are SLI, SLO, SLA, and error budgets?"
+  },
+  {
+    "id": "DO-I-0105",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "A Docker container works locally but cannot reach another Compose service in CI. How do you diagnose networking and DNS?"
+  },
+  {
+    "id": "DO-I-0106",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "A Kubernetes Deployment is healthy but users receive intermittent 502 errors. What layers do you inspect and in what order?"
+  },
+  {
+    "id": "DO-I-0107",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How do you design a CI/CD pipeline so secrets are usable by trusted deployment jobs but inaccessible to untrusted pull-request code?"
+  },
+  {
+    "id": "DO-I-0108",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How would you distinguish CPU saturation, memory pressure, disk I/O bottlenecks, and network problems on a Linux server?"
+  },
+  {
+    "id": "DO-I-0109",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How would you structure Terraform state, modules, and environments for multiple teams without creating a single dangerous global state file?"
+  },
+  {
+    "id": "DO-A-0045",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "A Kubernetes application is intermittently timing out while CPU and memory look normal. Describe a layer-by-layer investigation."
+  },
+  {
+    "id": "DO-A-0046",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "A release causes a cascading failure across dependencies. How would you contain blast radius through architecture and deployment controls?"
+  },
+  {
+    "id": "DO-A-0047",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "An incident affects only one region. Walk through failover, traffic shifting, data consistency, and recovery decision-making."
+  },
+  {
+    "id": "DO-A-0048",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare GitOps with pipeline-driven deployment and describe organizational trade-offs."
+  },
+  {
+    "id": "DO-A-0049",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare transit gateways, VPC peering, private endpoints, NAT gateways, and public endpoints for a complex AWS network."
+  },
+  {
+    "id": "DO-A-0050",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a Kubernetes secret-management strategy using an external secret store and rotation."
+  },
+  {
+    "id": "DO-A-0051",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a Terraform workflow for multiple environments and teams while minimizing state contention and blast radius."
+  },
+  {
+    "id": "DO-A-0052",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a highly available Kubernetes platform spanning multiple failure domains."
+  },
+  {
+    "id": "DO-A-0053",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a secure multi-account AWS landing zone with identity, networking, logging, and guardrails."
+  },
+  {
+    "id": "DO-A-0054",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design an SLO and alerting strategy that minimizes noisy alerts while catching real user impact."
+  },
+  {
+    "id": "DO-A-0055",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design disaster recovery for a stateful platform with database, object storage, queues, and Kubernetes workloads."
+  },
+  {
+    "id": "DO-A-0056",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design observability using metrics, logs, traces, profiling, and OpenTelemetry across hundreds of services."
+  },
+  {
+    "id": "DO-A-0057",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain how to conduct a blameless postmortem while still producing accountable corrective actions."
+  },
+  {
+    "id": "DO-A-0058",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain how you would use SBOMs, signatures/provenance, vulnerability scans, and admission policies together."
+  },
+  {
+    "id": "DO-A-0059",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you diagnose DNS failures that affect only some Pods and only intermittently?"
+  },
+  {
+    "id": "DO-A-0060",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you plan capacity for a bursty service with expensive cold starts and strict latency targets?"
+  },
+  {
+    "id": "DO-A-0061",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you reduce a cloud bill by 40% without degrading reliability?"
+  },
+  {
+    "id": "DO-A-0062",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you safely migrate Terraform state or refactor resource/module addresses without unintended destruction?"
+  },
+  {
+    "id": "DO-A-0063",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you secure the software supply chain from developer commit through container registry and production cluster?"
+  },
+  {
+    "id": "DO-A-0064",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "In a senior DevOps/SRE interview, design a production platform for 100 microservices including CI/CD, IaC, Kubernetes, security, observability, cost controls, SLOs, incident response, and disaster recovery."
+  },
+  {
+    "id": "DO-A-0105",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "An organization wants GitOps for hundreds of services and clusters. Design repository boundaries, promotion, policy, secrets, drift handling, and rollback."
+  },
+  {
+    "id": "DO-A-0106",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a multi-region platform with explicit RPO/RTO goals and explain failover, data replication, DNS/traffic steering, observability, and testing."
+  },
+  {
+    "id": "DO-A-0107",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design an SRE alerting strategy that minimizes both missed incidents and alert fatigue using symptom-based alerts, SLOs, and multi-window burn rates."
+  },
+  {
+    "id": "DO-A-0108",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "How would you migrate a large manually configured cloud estate to IaC without destroying or recreating critical resources?"
+  },
+  {
+    "id": "DO-A-0109",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Your Kubernetes cluster experiences widespread DNS latency. Describe an investigation covering application resolution, CoreDNS, node networking, conntrack, CNI, upstream DNS, and load."
+  }
+]

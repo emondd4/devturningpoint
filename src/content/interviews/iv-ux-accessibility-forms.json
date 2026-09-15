@@ -23,5 +23,7 @@
     "uiux",
     "a11y"
   ],
-  "lastVerified": "2026-09-14"
+  "lastVerified": "2026-09-14",
+  "codeExample": "// Example framing for: A signup form 'looks fine' in Figma but fails keyboard and screen-reader use. What concrete checks do you run before handoff?\n// Stack: Accessibility, Figma, HTML\n// Short answer: Verify labels, focus order, error announcements, contrast, and visible focus states—not only visual layout.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Accessibility, Figma, HTML. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

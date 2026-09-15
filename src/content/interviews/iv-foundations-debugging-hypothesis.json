@@ -21,5 +21,7 @@
     "FOUNDATIONS-ERROR-HANDLING",
     "FOUNDATIONS-AI-ASSISTED-DEV-RISKS"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: Walk through how you debug an intermittent bug that only happens for some users.\n// Stack: debugging\n// Short answer: Reproduce or collect signals, form a hypothesis, change one variable, verify with logs/metrics/tests.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using debugging. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

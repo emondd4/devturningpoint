@@ -19,5 +19,7 @@
   "relatedTopics": [
     "BACKEND-NESTJS-VALIDATION-PIPES"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: How does ValidationPipe with whitelist/forbidNonWhitelisted improve API safety?\n// Stack: NestJS\n// Short answer: It validates DTO rules and strips or rejects unexpected properties to prevent mass assignment.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using NestJS. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

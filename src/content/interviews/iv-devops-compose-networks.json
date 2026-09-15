@@ -25,5 +25,7 @@
     "DEVOPS-DOCKER-COMPOSE",
     "DEVOPS-DOCKER-NETWORKING"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: How does Docker Compose give services DNS names to talk to each other, and when would you still expose a port to the host?\n// Stack: Docker, Compose, Networking\n// Short answer: Compose attaches services to a shared user-defined network where the service name resolves to the container. Publish host ports only for local access or ingress you intentionally expose.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Docker, Compose, Networking. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

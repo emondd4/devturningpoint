@@ -23,5 +23,7 @@
     "DATABASE-REDIS-TTL-SESSIONS-LOCKS",
     "DATABASE-REDIS-DATA-STRUCTURES"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: Design a Redis-backed login session including TTL and what happens on Redis restart.\n// Stack: Redis, Sessions\n// Short answer: Store session id → user payload with EX/TTL; rotate ids on login; treat Redis as ephemeral—users re-auth if data is lost unless persistence is configured and accepted.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Redis, Sessions. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }
