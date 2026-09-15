@@ -19,5 +19,7 @@
     "FRONTEND-REACT-KEYS-IDENTITY",
     "FRONTEND-REACT-RECONCILIATION"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Bad: index keys when list can reorder\n{items.map((item, i) => <Row key={i} item={item} />)}\n\n// Good: stable identity\n{items.map((item) => <Row key={item.id} item={item} />)}",
+  "integrationProcedure": "1) Audit lists that reorder/filter/insert. 2) Ensure each row has a stable business id. 3) Add a Storybook/RTL case that reorders and asserts input state is preserved. 4) Ban index keys in lint for dynamic lists where possible."
 }

@@ -106,12 +106,24 @@ const deepDives = (await getCollection('interviews')).sort((a, b) => a.data.ques
               </p>
               <details class="mt-2 text-sm text-[var(--color-ink-muted)]">
                 <summary class="cursor-pointer font-medium text-[var(--color-ink)]">
-                  {isBn ? 'শক্তিশালী উত্তর' : 'Strong answer'}
+                  {isBn ? 'উত্তর, উদাহরণ ও ইন্টিগ্রেশন' : 'Answer, example & integration'}
                 </summary>
                 <p class="mt-2">{item.data.strongAnswer}</p>
                 {item.data.advancedAnswer && (
                   <p class="mt-2">
                     <strong>Advanced:</strong> {item.data.advancedAnswer}
+                  </p>
+                )}
+                {item.data.codeExample && (
+                  <div class="mt-3">
+                    <p class="font-medium text-[var(--color-ink)]">{isBn ? 'উদাহরণ' : 'Example'}</p>
+                    <pre class="mt-1 overflow-x-auto rounded-[var(--radius-md)] bg-[var(--color-surface-2)] p-3 font-mono text-xs text-[var(--color-ink)] whitespace-pre-wrap">{item.data.codeExample}</pre>
+                  </div>
+                )}
+                {item.data.integrationProcedure && (
+                  <p class="mt-3">
+                    <strong class="text-[var(--color-ink)]">{isBn ? 'ইন্টিগ্রেশন:' : 'Integration:'}</strong>{' '}
+                    {item.data.integrationProcedure}
                   </p>
                 )}
                 {item.data.followUps?.length > 0 && (

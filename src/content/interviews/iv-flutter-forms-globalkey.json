@@ -1,6 +1,6 @@
 {
   "id": "iv-flutter-forms-globalkey",
-  "question": "Why should a Form\u2019s GlobalKey be stored in State rather than created inside build?",
+  "question": "Why should a Form’s GlobalKey be stored in State rather than created inside build?",
   "careerIds": [
     "flutter-developer"
   ],
@@ -20,5 +20,7 @@
     "FLUTTER-FORMS-VALIDATION",
     "FLUTTER-BUILDCONTEXT-KEYS"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: Why should a Form’s GlobalKey be stored in State rather than created inside build?\n// Stack: Flutter\n// Short answer: Creating a new GlobalKey each build resets FormState and is expensive; keep one key in State.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Flutter. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

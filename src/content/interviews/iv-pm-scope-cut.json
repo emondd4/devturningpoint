@@ -21,5 +21,7 @@
     "product",
     "execution"
   ],
-  "lastVerified": "2026-09-14"
+  "lastVerified": "2026-09-14",
+  "codeExample": "// Example framing for: Engineering estimates your 'must-have' launch scope at 10 weeks but the market window is 4 weeks. Walk through how you cut scope without hiding risk.\n// Stack: Product Management\n// Short answer: Separate outcome from output, keep a thin vertical slice that validates the riskiest assumption, and explicitly defer non-critical polish with stakeholder agreement.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Product Management. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

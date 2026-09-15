@@ -20,5 +20,7 @@
   "relatedTopics": [
     "BACKEND-OAUTH-CONCEPTS"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: Name the four OAuth 2.0 roles and give an example of each in a \"Login with Google\" feature.\n// Stack: OAuth\n// Short answer: Resource owner (user), client (your app), authorization server (Google), resource server (Google APIs / your API).\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using OAuth. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

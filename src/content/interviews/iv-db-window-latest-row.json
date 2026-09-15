@@ -24,5 +24,7 @@
     "DATABASE-SQL-WINDOW-FUNCTIONS",
     "DATABASE-POSTGRES-EXPLAIN"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: How would you select each user’s most recent order in SQL without a correlated subquery?\n// Stack: PostgreSQL, SQL\n// Short answer: Use ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY created_at DESC) in a CTE and filter where rn = 1.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using PostgreSQL, SQL. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

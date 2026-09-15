@@ -25,5 +25,7 @@
     "UIUX-DESIGN-HANDOFF",
     "UIUX-COLOR-SYSTEMS"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: Engineering says Figma colors don’t match production. How do you introduce design tokens and improve handoff?\n// Stack: Figma, Design tokens, CSS\n// Short answer: Define semantic tokens shared by name, map them to CSS variables, and hand off states—not only happy-path frames.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Figma, Design tokens, CSS. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

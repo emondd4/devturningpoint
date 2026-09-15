@@ -1,0 +1,527 @@
+[
+  {
+    "id": "FS-B-0023",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How does a React/Next.js frontend call a REST API?"
+  },
+  {
+    "id": "FS-B-0024",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Trace a simple login request from a browser form to a database and back."
+  },
+  {
+    "id": "FS-B-0025",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What information would you include in a README so another developer can run a full-stack project?"
+  },
+  {
+    "id": "FS-B-0026",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is CORS, and why can a frontend request be blocked by a browser?"
+  },
+  {
+    "id": "FS-B-0027",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is Docker, and why might a full-stack team use it?"
+  },
+  {
+    "id": "FS-B-0028",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is SSR, and how does it differ from client-side rendering?"
+  },
+  {
+    "id": "FS-B-0029",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a database transaction, and where might a web application need one?"
+  },
+  {
+    "id": "FS-B-0030",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a migration in database-backed applications?"
+  },
+  {
+    "id": "FS-B-0031",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a monorepo?"
+  },
+  {
+    "id": "FS-B-0032",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is an API, and why should frontend and backend concerns be separated?"
+  },
+  {
+    "id": "FS-B-0033",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is an environment variable, and which kinds of values should not be shipped to the browser?"
+  },
+  {
+    "id": "FS-B-0034",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is end-to-end testing?"
+  },
+  {
+    "id": "FS-B-0035",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between client-side validation and server-side validation?"
+  },
+  {
+    "id": "FS-B-0036",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between cookies, sessions, and local browser storage?"
+  },
+  {
+    "id": "FS-B-0037",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between development, staging, and production?"
+  },
+  {
+    "id": "FS-B-0038",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between frontend, backend, and full-stack development?"
+  },
+  {
+    "id": "FS-B-0039",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the purpose of a backend-for-frontend layer?"
+  },
+  {
+    "id": "FS-B-0040",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the role of a reverse proxy?"
+  },
+  {
+    "id": "FS-B-0041",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What should happen when an API call fails from the frontend?"
+  },
+  {
+    "id": "FS-B-0042",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Why should passwords never be stored in plaintext?"
+  },
+  {
+    "id": "FS-B-0061",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What data should never be embedded in client-side JavaScript bundles?"
+  },
+  {
+    "id": "FS-B-0062",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What is hydration in a server-rendered React application?"
+  },
+  {
+    "id": "FS-B-0063",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What is the difference between same-origin policy, CORS, and CSRF protection?"
+  },
+  {
+    "id": "FS-B-0064",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "Why can a frontend route guard never replace backend authorization?"
+  },
+  {
+    "id": "FS-B-0065",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "Why must server-side validation remain authoritative even when the frontend already validates the form?"
+  },
+  {
+    "id": "FS-I-0023",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Compare CDN, Next.js, Redis, backend, and browser caching layers."
+  },
+  {
+    "id": "FS-I-0024",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Compare generating a typed client from OpenAPI with sharing TypeScript types directly."
+  },
+  {
+    "id": "FS-I-0025",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Compare storing authentication in HTTP-only cookies versus browser-accessible tokens."
+  },
+  {
+    "id": "FS-I-0026",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a full-stack WebSocket feature with reconnection and authorization."
+  },
+  {
+    "id": "FS-I-0027",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design cursor pagination consistently across PostgreSQL, the API, and the UI."
+  },
+  {
+    "id": "FS-I-0028",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain how database transaction failures should surface to users without exposing internal details."
+  },
+  {
+    "id": "FS-I-0029",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain the boundary between Next.js Server Components, Server Actions/Functions, route handlers, and a separate NestJS API."
+  },
+  {
+    "id": "FS-I-0030",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain the complete security story for CORS, CSRF, XSS, SameSite, and secure cookies."
+  },
+  {
+    "id": "FS-I-0031",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain zero-downtime deployment concerns for a full-stack application."
+  },
+  {
+    "id": "FS-I-0032",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you coordinate schema migrations with frontend/backend deployments?"
+  },
+  {
+    "id": "FS-I-0033",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you run realistic integration tests across frontend, backend, database, and authentication?"
+  },
+  {
+    "id": "FS-I-0034",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How should frontend optimistic updates handle backend rejection or concurrent edits?"
+  },
+  {
+    "id": "FS-I-0035",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you implement image/file upload using signed object-storage URLs?"
+  },
+  {
+    "id": "FS-I-0036",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you investigate a feature that feels slow when browser, API, and database each appear individually healthy?"
+  },
+  {
+    "id": "FS-I-0037",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you manage secrets for local development and CI/CD without committing them?"
+  },
+  {
+    "id": "FS-I-0038",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you prevent stale frontend data after a backend mutation?"
+  },
+  {
+    "id": "FS-I-0039",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you share validation rules between frontend and backend without dangerously coupling them?"
+  },
+  {
+    "id": "FS-I-0040",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you structure a monorepo containing Next.js, NestJS, shared schemas, and tooling?"
+  },
+  {
+    "id": "FS-I-0041",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What causes hydration errors when server-rendered data differs from client state?"
+  },
+  {
+    "id": "FS-I-0042",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What should be logged on the browser and server, and how can a single user action be correlated end-to-end?"
+  },
+  {
+    "id": "FS-I-0061",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How do you prevent duplicate form submissions across browser retries, server retries, and database writes?"
+  },
+  {
+    "id": "FS-I-0062",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How should cache invalidation work when the browser, CDN, Next.js server, API, Redis, and database can all cache related data?"
+  },
+  {
+    "id": "FS-I-0063",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you propagate validation errors from PostgreSQL/NestJS through an API contract into accessible field errors in React?"
+  },
+  {
+    "id": "FS-I-0064",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you structure shared schemas/types between a Next.js frontend and NestJS backend without tightly coupling their internal models?"
+  },
+  {
+    "id": "FS-I-0065",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you test an authenticated workflow end-to-end without making tests brittle or sharing dangerous global state?"
+  },
+  {
+    "id": "FS-A-0023",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "A deploy introduced mismatched frontend assets and backend API contracts. How would you prevent and recover from this class of issue?"
+  },
+  {
+    "id": "FS-A-0024",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Compare a Next.js-only architecture with Next.js + NestJS for a growing engineering organization."
+  },
+  {
+    "id": "FS-A-0025",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a CI/CD pipeline that validates frontend/backend compatibility before production deployment."
+  },
+  {
+    "id": "FS-A-0026",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a checkout workflow that spans UI, inventory, payment, order state, retries, and user-facing reconciliation."
+  },
+  {
+    "id": "FS-A-0027",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a multi-region full-stack SaaS application and explain where state lives at each layer."
+  },
+  {
+    "id": "FS-A-0028",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a secure upload pipeline for large user files, including scanning, authorization, resumability, and lifecycle management."
+  },
+  {
+    "id": "FS-A-0029",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design an end-to-end caching strategy and explain invalidation at CDN, framework, service, Redis, and browser layers."
+  },
+  {
+    "id": "FS-A-0030",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design an offline-capable web app with local writes, background synchronization, conflict detection, and server reconciliation."
+  },
+  {
+    "id": "FS-A-0031",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design end-to-end observability from user interaction to database query and asynchronous worker."
+  },
+  {
+    "id": "FS-A-0032",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design real-time collaborative editing with optimistic UI, ordering, conflict resolution, reconnect, and persistence."
+  },
+  {
+    "id": "FS-A-0033",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design tenancy isolation across UI, API, cache keys, object storage, database access, and background jobs."
+  },
+  {
+    "id": "FS-A-0034",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain how you would introduce contract testing between frontend and backend teams working independently."
+  },
+  {
+    "id": "FS-A-0035",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you design authentication/session management so server-rendered pages, APIs, WebSockets, and background jobs agree on identity?"
+  },
+  {
+    "id": "FS-A-0036",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you handle a breaking database migration when rolling back the application must remain possible?"
+  },
+  {
+    "id": "FS-A-0037",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you model feature flags so server rendering and client hydration never disagree?"
+  },
+  {
+    "id": "FS-A-0038",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you perform a strangler migration from a monolith to modular services while keeping one web frontend?"
+  },
+  {
+    "id": "FS-A-0039",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you run load tests that model realistic full-stack behavior instead of hammering only one endpoint?"
+  },
+  {
+    "id": "FS-A-0040",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you secure an internal admin UI differently from the public application?"
+  },
+  {
+    "id": "FS-A-0041",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you set performance budgets across frontend bundle, server latency, database queries, and third-party dependencies?"
+  },
+  {
+    "id": "FS-A-0042",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "In a senior full-stack interview, design a subscription SaaS from browser to infrastructure, including data model, auth, payments, caching, jobs, monitoring, security, deployment, and rollback."
+  },
+  {
+    "id": "FS-A-0061",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "Design a large file upload and processing workflow that remains reliable across browser disconnects, API restarts, and worker failures."
+  },
+  {
+    "id": "FS-A-0062",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "Design a multi-tenant subscription SaaS from browser to database, including auth, billing webhooks, tenant isolation, caching, background jobs, audit logs, and deployment."
+  },
+  {
+    "id": "FS-A-0063",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "Design zero-downtime deployment of a full-stack application when frontend, API, and schema changes cannot all switch at exactly the same instant."
+  },
+  {
+    "id": "FS-A-0064",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you correlate a frontend error report with backend traces, database queries, and the exact deployed commit?"
+  },
+  {
+    "id": "FS-A-0065",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you decide whether a feature belongs in Next.js server code, a separate NestJS service, a background worker, or the client?"
+  }
+]

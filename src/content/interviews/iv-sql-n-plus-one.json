@@ -19,11 +19,12 @@
     "What index helps `WHERE order_id IN (...)`?"
   ],
   "commonWrongAnswer": "Cache each per-order query in Redis without reducing query count at the source.",
-  "codeExample": "-- better: one query for items\nSELECT * FROM order_items WHERE order_id = ANY($1::uuid[]);",
+  "codeExample": "-- N+1 anti-pattern: 1 query for orders + N for items\nSELECT * FROM orders WHERE user_id = $1;\n-- then per order: SELECT * FROM items WHERE order_id = ?;\n\n-- Fix: join or WHERE order_id = ANY($1)\nSELECT o.*, i.*\nFROM orders o\nLEFT JOIN items i ON i.order_id = o.id\nWHERE o.user_id = $1;",
   "productionRelevance": "N+1 silently kills latency as datasets grow—common interview and production topic.",
   "relatedTopics": [
     "database",
     "backend"
   ],
-  "lastVerified": "2026-09-14"
+  "lastVerified": "2026-09-14",
+  "integrationProcedure": "1) Enable ORM query logging in staging. 2) Find endpoints with per-row queries. 3) Replace with join/dataloader/IN batch. 4) Add an assertion on max query count in an integration test. 5) Watch p95 latency after deploy."
 }

@@ -159,6 +159,8 @@ export const interviewSchema = z.object({
   followUps: z.array(z.string()).default([]),
   commonWrongAnswer: z.string().optional(),
   codeExample: z.string().optional(),
+  /** Step-by-step how to apply the idea in a real codebase or team process */
+  integrationProcedure: z.string().optional(),
   productionRelevance: z.string().optional(),
   relatedTopics: z.array(z.string()).default([]),
   lastVerified: dateStringSchema,

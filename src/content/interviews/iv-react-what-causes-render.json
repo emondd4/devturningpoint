@@ -10,7 +10,7 @@
   "difficulty": "junior",
   "shortAnswer": "Initial mount or a state update in the component or an ancestor.",
   "strongAnswer": "Rendering means React calling the component to compute UI. It happens on initial render via createRoot().render and when state updates with a set function. Parent renders typically cause children to render unless memoized.",
-  "advancedAnswer": "Discuss that props are not a separate event stream; children render because reconciliation continues recursively after a parent render, and that render \u2260 commit \u2260 paint.",
+  "advancedAnswer": "Discuss that props are not a separate event stream; children render because reconciliation continues recursively after a parent render, and that render ≠ commit ≠ paint.",
   "followUps": [
     "Does updating a ref re-render?",
     "What is the commit phase?"
@@ -19,5 +19,7 @@
   "relatedTopics": [
     "FRONTEND-REACT-WHAT-CAUSES-RENDER"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "function Counter() {\n  const [n, setN] = useState(0);\n  // Clicking re-renders Counter because setN schedules an update.\n  // Child components re-render too unless memoized.\n  return <button onClick={() => setN(n + 1)}>{n}</button>;\n}\n\n// ref.current = x does NOT re-render.",
+  "integrationProcedure": "1) Add a React DevTools Profiler recording on a slow screen. 2) Log render counts in suspect components during development only. 3) Lift state only when needed; colocate otherwise. 4) Introduce memo/useMemo after measuring. 5) Add a regression test for the interaction that was janky."
 }

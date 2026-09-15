@@ -23,5 +23,7 @@
     "qa",
     "testing"
   ],
-  "lastVerified": "2026-09-14"
+  "lastVerified": "2026-09-14",
+  "codeExample": "// Example framing for: A Playwright suite fails ~20% of the time on CI but passes locally. How do you systematically debug flakiness?\n// Stack: Playwright, CI\n// Short answer: Treat flakes as product bugs in tests: capture traces, eliminate timing assumptions, isolate shared state, and quarantine only temporarily.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Playwright, CI. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

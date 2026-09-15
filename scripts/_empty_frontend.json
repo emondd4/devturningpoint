@@ -1,0 +1,452 @@
+[
+  {
+    "id": "FE-B-0055",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Compare Flexbox and CSS Grid. When would you use each?"
+  },
+  {
+    "id": "FE-B-0056",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Explain promises and async/await."
+  },
+  {
+    "id": "FE-B-0057",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Explain the CSS box model."
+  },
+  {
+    "id": "FE-B-0058",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Explain var, let, and const in JavaScript."
+  },
+  {
+    "id": "FE-B-0059",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are React components, props, and state?"
+  },
+  {
+    "id": "FE-B-0060",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What do useState and useEffect do?"
+  },
+  {
+    "id": "FE-B-0061",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is CSS specificity, and how is the winning declaration chosen?"
+  },
+  {
+    "id": "FE-B-0062",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is TypeScript, and why would a team use it?"
+  },
+  {
+    "id": "FE-B-0063",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a closure in JavaScript?"
+  },
+  {
+    "id": "FE-B-0064",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is client-side routing?"
+  },
+  {
+    "id": "FE-B-0065",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is event bubbling and event capturing?"
+  },
+  {
+    "id": "FE-B-0066",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is responsive design, and what does mobile-first mean?"
+  },
+  {
+    "id": "FE-B-0067",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is semantic HTML, and why does it matter?"
+  },
+  {
+    "id": "FE-B-0068",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the DOM?"
+  },
+  {
+    "id": "FE-B-0069",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between == and === in JavaScript?"
+  },
+  {
+    "id": "FE-B-0070",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between a TypeScript interface and a type alias?"
+  },
+  {
+    "id": "FE-B-0071",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between block, inline, and inline-block elements?"
+  },
+  {
+    "id": "FE-B-0072",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between null and undefined?"
+  },
+  {
+    "id": "FE-B-0073",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the purpose of the key prop when rendering a list in React?"
+  },
+  {
+    "id": "FE-B-0074",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What problem does Next.js solve compared with a purely client-rendered React application?"
+  },
+  {
+    "id": "FE-B-0081",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is event delegation, and why is it useful for dynamic lists?"
+  },
+  {
+    "id": "FE-B-0082",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between `==`, `===`, and `Object.is` in JavaScript?"
+  },
+  {
+    "id": "FE-B-0083",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between `display: none`, `visibility: hidden`, and visually hiding content for accessibility?"
+  },
+  {
+    "id": "FE-B-0084",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between debounce and throttle?"
+  },
+  {
+    "id": "FE-B-0085",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "Why should a button usually be a `<button>` instead of a clickable `<div>`?"
+  },
+  {
+    "id": "FE-I-0055",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare SSR, static generation, streaming, client rendering, and revalidation."
+  },
+  {
+    "id": "FE-I-0056",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare debounce and throttle and give practical UI examples."
+  },
+  {
+    "id": "FE-I-0057",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare local UI state, URL state, global client state, and server state."
+  },
+  {
+    "id": "FE-I-0058",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain Server Components versus Client Components in modern Next.js."
+  },
+  {
+    "id": "FE-I-0059",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain XSS, CSRF, CSP, CORS, and SameSite cookies from a frontend perspective."
+  },
+  {
+    "id": "FE-I-0060",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain controlled versus uncontrolled form inputs in React."
+  },
+  {
+    "id": "FE-I-0061",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain prototype inheritance and how ES classes map onto it."
+  },
+  {
+    "id": "FE-I-0062",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain render versus commit phases in React at a practical level."
+  },
+  {
+    "id": "FE-I-0063",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain the JavaScript event loop, task queue, and microtask queue."
+  },
+  {
+    "id": "FE-I-0064",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain the browser rendering pipeline from HTML/CSS/JS to pixels."
+  },
+  {
+    "id": "FE-I-0065",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How do lexical scope, closures, and garbage collection interact?"
+  },
+  {
+    "id": "FE-I-0066",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How does React preserve or reset component state based on identity and keys?"
+  },
+  {
+    "id": "FE-I-0067",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How would you test a React feature across unit, component, integration, accessibility, and E2E layers?"
+  },
+  {
+    "id": "FE-I-0068",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are common causes of layout shift, and how would you improve CLS?"
+  },
+  {
+    "id": "FE-I-0069",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are generics, mapped types, conditional types, and type narrowing in TypeScript?"
+  },
+  {
+    "id": "FE-I-0070",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What causes hydration mismatches, and how do you debug them?"
+  },
+  {
+    "id": "FE-I-0071",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What creates a new stacking context in CSS, and why does z-index sometimes appear not to work?"
+  },
+  {
+    "id": "FE-I-0072",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What problem does TanStack Query solve that a general client-state store does not?"
+  },
+  {
+    "id": "FE-I-0073",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "When is useMemo/useCallback useful, and when does it add unnecessary complexity?"
+  },
+  {
+    "id": "FE-I-0074",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Why can a stale closure cause bugs in React hooks?"
+  },
+  {
+    "id": "FE-I-0081",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "Explain how browser rendering, React rendering, and network waterfalls can combine to produce a slow interaction."
+  },
+  {
+    "id": "FE-I-0082",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How do Server Components change what code and data can safely remain on the server in a Next.js application?"
+  },
+  {
+    "id": "FE-I-0083",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How would you design a reusable accessible combobox/autocomplete component with keyboard navigation and async suggestions?"
+  },
+  {
+    "id": "FE-I-0084",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "When should state live in the URL instead of React state or a global store?"
+  },
+  {
+    "id": "FE-I-0085",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "Why can stale closures appear in React hooks, and what strategies avoid them without blindly adding dependencies?"
+  },
+  {
+    "id": "FE-A-0055",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "A React application re-renders thousands of components during keystrokes. How would you profile before choosing an optimization?"
+  },
+  {
+    "id": "FE-A-0056",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare RSC boundaries, BFF patterns, and direct browser-to-API access from performance, security, and maintainability perspectives."
+  },
+  {
+    "id": "FE-A-0057",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a reusable component API that remains flexible without turning every component into an unmaintainable configuration object."
+  },
+  {
+    "id": "FE-A-0058",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a robust data-fetching/cache invalidation strategy for an application with optimistic updates and real-time server events."
+  },
+  {
+    "id": "FE-A-0059",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design an accessible virtualized data grid supporting keyboard navigation, screen readers, sorting, filtering, and tens of thousands of rows."
+  },
+  {
+    "id": "FE-A-0060",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design an application shell that must work offline, synchronize later, and resolve conflicting edits."
+  },
+  {
+    "id": "FE-A-0061",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design authentication for an SSR Next.js application using secure cookies, including session rotation, CSRF considerations, and logout."
+  },
+  {
+    "id": "FE-A-0062",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design the frontend architecture for a large multi-team application with shared design systems and independent feature ownership."
+  },
+  {
+    "id": "FE-A-0063",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain React reconciliation deeply enough to predict when state is preserved, reset, or moved."
+  },
+  {
+    "id": "FE-A-0064",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain browser storage choices and security implications for cookies, localStorage, sessionStorage, Cache Storage, and IndexedDB."
+  },
+  {
+    "id": "FE-A-0065",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain how Suspense and streaming change loading-state architecture and failure boundaries."
+  },
+  {
+    "id": "FE-A-0066",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain the trade-offs of CSS Modules, utility CSS, runtime CSS-in-JS, compile-time CSS-in-JS, and design-token systems."
+  },
+  {
+    "id": "FE-A-0067",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How do HTTP/2, HTTP/3, CDN caching, compression, and resource prioritization influence frontend performance strategy?"
+  },
+  {
+    "id": "FE-A-0068",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you build a micro-frontend platform, and what organizational conditions would justify its complexity?"
+  },
+  {
+    "id": "FE-A-0069",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you design a frontend deployment that allows instant rollback while avoiding asset/version mismatches?"
+  },
+  {
+    "id": "FE-A-0070",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you diagnose an interaction with poor INP when network latency is not the problem?"
+  },
+  {
+    "id": "FE-A-0071",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you implement frontend observability that correlates browser errors, performance data, API failures, and user sessions?"
+  },
+  {
+    "id": "FE-A-0072",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you migrate a large Pages Router application to App Router without a high-risk rewrite?"
+  },
+  {
+    "id": "FE-A-0073",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you prevent dependency and supply-chain attacks in a modern frontend build pipeline?"
+  },
+  {
+    "id": "FE-A-0074",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "In a senior frontend system-design interview, how would you design a real-time collaborative editor or chat UI and reason about state, networking, offline behavior, accessibility, and performance?"
+  },
+  {
+    "id": "FE-A-0081",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "A Next.js application has good server response times but poor INP and occasional hydration mismatches. Build a debugging plan."
+  },
+  {
+    "id": "FE-A-0082",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a frontend platform for multiple teams sharing a design system, routing, authentication, observability, and deployment while avoiding both a monolith and unnecessary micro-frontends."
+  },
+  {
+    "id": "FE-A-0083",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a real-time collaborative editor frontend, including conflict handling, optimistic updates, offline behavior, and presence."
+  },
+  {
+    "id": "FE-A-0084",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a virtualized data grid supporting 100,000 rows, variable row heights, keyboard navigation, selection, sorting, filtering, and screen-reader usability."
+  },
+  {
+    "id": "FE-A-0085",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "How would you design frontend observability that connects user-visible failures to network requests, releases, traces, and feature flags without leaking sensitive data?"
+  }
+]

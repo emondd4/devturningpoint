@@ -1,0 +1,446 @@
+[
+  {
+    "id": "FL-B-0031",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Compare Row, Column, Stack, Expanded, and Flexible."
+  },
+  {
+    "id": "FL-B-0032",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Describe the lifecycle of a StatefulWidget from creation to disposal."
+  },
+  {
+    "id": "FL-B-0033",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "Explain the purpose of BuildContext in simple terms."
+  },
+  {
+    "id": "FL-B-0034",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "How do Navigator.push and Navigator.pop work?"
+  },
+  {
+    "id": "FL-B-0035",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "How do assets and fonts get included in a Flutter application?"
+  },
+  {
+    "id": "FL-B-0036",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "How do you make a Flutter UI responsive across different screen sizes?"
+  },
+  {
+    "id": "FL-B-0037",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are Futures and async/await in Dart?"
+  },
+  {
+    "id": "FL-B-0038",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are Keys in Flutter, and when do you need them?"
+  },
+  {
+    "id": "FL-B-0039",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are const constructors, and when can a widget be const?"
+  },
+  {
+    "id": "FL-B-0040",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What does \"constraints go down, sizes go up, parents set positions\" mean?"
+  },
+  {
+    "id": "FL-B-0041",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What happens when runApp() is called?"
+  },
+  {
+    "id": "FL-B-0042",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is Flutter, and how is it different from the Dart programming language?"
+  },
+  {
+    "id": "FL-B-0043",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is a Stream, and when would you choose one over a Future?"
+  },
+  {
+    "id": "FL-B-0044",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is pubspec.yaml used for?"
+  },
+  {
+    "id": "FL-B-0045",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between ListView and SingleChildScrollView?"
+  },
+  {
+    "id": "FL-B-0046",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between StatelessWidget and StatefulWidget?"
+  },
+  {
+    "id": "FL-B-0047",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between hot reload, hot restart, and a full restart?"
+  },
+  {
+    "id": "FL-B-0048",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the purpose of ThemeData and ColorScheme?"
+  },
+  {
+    "id": "FL-B-0049",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the purpose of setState(), and what does it actually trigger?"
+  },
+  {
+    "id": "FL-B-0127",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What does hot reload preserve, and what kinds of changes usually require a hot restart or full restart?"
+  },
+  {
+    "id": "FL-B-0128",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between debug, profile, and release mode?"
+  },
+  {
+    "id": "FL-B-0129",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the practical difference between a package and a plugin in Flutter?"
+  },
+  {
+    "id": "FL-B-0130",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "Why does Flutter use a declarative UI model, and how does that differ from mutating views imperatively?"
+  },
+  {
+    "id": "FL-B-0131",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "Why should controllers, focus nodes, animation controllers, and subscriptions commonly be disposed?"
+  },
+  {
+    "id": "FL-I-0031",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare ChangeNotifier/Provider, Riverpod, BLoC/Cubit, and ValueNotifier in terms of problem scope and trade-offs."
+  },
+  {
+    "id": "FL-I-0032",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare ListView.builder, SliverList, and CustomScrollView."
+  },
+  {
+    "id": "FL-I-0033",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare SharedPreferences, secure storage, SQLite/sqflite, Drift, and file storage."
+  },
+  {
+    "id": "FL-I-0034",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain how Flutter performs build, layout, paint, compositing, and rasterization in a frame."
+  },
+  {
+    "id": "FL-I-0035",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain nested navigation, deep linking, and route restoration in a production app."
+  },
+  {
+    "id": "FL-I-0036",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain platform channels, EventChannel, MethodChannel, and Pigeon."
+  },
+  {
+    "id": "FL-I-0037",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain the relationship among Widget, Element, and RenderObject trees."
+  },
+  {
+    "id": "FL-I-0038",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How do Android and iOS app lifecycle/background restrictions affect Flutter apps?"
+  },
+  {
+    "id": "FL-I-0039",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How do inherited widgets propagate dependencies and trigger rebuilds?"
+  },
+  {
+    "id": "FL-I-0040",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How do you diagnose jank using Flutter DevTools and the performance timeline?"
+  },
+  {
+    "id": "FL-I-0041",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How do you implement offline-first behavior and conflict resolution?"
+  },
+  {
+    "id": "FL-I-0042",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How would you design a robust API layer with retries, cancellation, token refresh, and typed errors?"
+  },
+  {
+    "id": "FL-I-0043",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How would you minimize unnecessary rebuilds in a large screen?"
+  },
+  {
+    "id": "FL-I-0044",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How would you write unit, widget, integration, and golden tests for the same feature?"
+  },
+  {
+    "id": "FL-I-0045",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are common causes of memory leaks in Flutter applications?"
+  },
+  {
+    "id": "FL-I-0046",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are isolates, Isolate.run(), and compute(), and what kinds of work belong in an isolate?"
+  },
+  {
+    "id": "FL-I-0047",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What causes RenderFlex overflow and unbounded-constraint errors, and how do you debug them?"
+  },
+  {
+    "id": "FL-I-0048",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What changes when targeting Flutter Web compared with native mobile?"
+  },
+  {
+    "id": "FL-I-0049",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What problem do GlobalKey, ValueKey, ObjectKey, and PageStorageKey solve differently?"
+  },
+  {
+    "id": "FL-I-0050",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Why can using BuildContext after an async gap be unsafe?"
+  },
+  {
+    "id": "FL-I-0127",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How do keys affect Element reuse when items are inserted, removed, or reordered?"
+  },
+  {
+    "id": "FL-I-0128",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How do you prevent stale responses and race conditions when implementing search-as-you-type in Flutter?"
+  },
+  {
+    "id": "FL-I-0129",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How would you design an offline-first repository that merges local changes with server updates?"
+  },
+  {
+    "id": "FL-I-0130",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How would you structure state for a screen containing local UI state, cached server state, and global authenticated-user state?"
+  },
+  {
+    "id": "FL-I-0131",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "Why can a widget rebuild without its RenderObject repainting, and why does that distinction matter for optimization?"
+  },
+  {
+    "id": "FL-A-0031",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "A Flutter app leaks memory only after repeated navigation between two complex screens. Describe your investigation from symptom to root cause."
+  },
+  {
+    "id": "FL-A-0032",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare Skia and Impeller conceptually and explain why renderer-specific bugs can occur."
+  },
+  {
+    "id": "FL-A-0033",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a Flutter application that must continue working offline for days and later reconcile conflicting server changes."
+  },
+  {
+    "id": "FL-A-0034",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design navigation for an app with bottom tabs, nested stacks, web URLs, deep links, and authenticated redirects."
+  },
+  {
+    "id": "FL-A-0035",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design secure authentication for Flutter across Android, iOS, and Web, including token storage and refresh behavior."
+  },
+  {
+    "id": "FL-A-0036",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design the architecture of a very large Flutter application maintained by multiple feature teams."
+  },
+  {
+    "id": "FL-A-0037",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain Dart isolate message-passing constraints and strategies for efficiently moving large datasets."
+  },
+  {
+    "id": "FL-A-0038",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain the UI thread/raster thread relationship and how frame-budget overruns produce visible jank."
+  },
+  {
+    "id": "FL-A-0039",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain the most important trade-offs among modular monorepos, feature packages, and a single app package."
+  },
+  {
+    "id": "FL-A-0040",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain when Flutter reuses an Element and when it replaces it; include the role of runtimeType and Key."
+  },
+  {
+    "id": "FL-A-0041",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain when a custom RenderObject is appropriate and what responsibilities it assumes."
+  },
+  {
+    "id": "FL-A-0042",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you build a federated Flutter plugin with platform interfaces and multiple platform implementations?"
+  },
+  {
+    "id": "FL-A-0043",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you choose boundaries between UI state, application state, server state, and persistent state?"
+  },
+  {
+    "id": "FL-A-0044",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you debug repeated layout passes caused by intrinsic measurement or poorly designed constraints?"
+  },
+  {
+    "id": "FL-A-0045",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you design testing strategy and CI for a Flutter app with native plugins and several deployment flavors?"
+  },
+  {
+    "id": "FL-A-0046",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you diagnose a release-only rendering regression that occurs on one GPU/vendor family?"
+  },
+  {
+    "id": "FL-A-0047",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you evaluate whether a Flutter package is safe and sustainable for a mission-critical production app?"
+  },
+  {
+    "id": "FL-A-0048",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you implement a resilient background synchronization system under Android and iOS platform restrictions?"
+  },
+  {
+    "id": "FL-A-0049",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you profile and reduce image-memory pressure in an image-heavy application?"
+  },
+  {
+    "id": "FL-A-0050",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Walk through how an updated StatefulWidget configuration reaches an existing State object via Element reconciliation."
+  },
+  {
+    "id": "FL-A-0127",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "A Flutter app has periodic jank only on low-end Android devices. Describe a profiling strategy that separates UI-thread, raster-thread, shader, image, GC, and platform-view causes."
+  },
+  {
+    "id": "FL-A-0128",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a large multi-team Flutter application so features can be developed and tested independently without creating a dependency graph that becomes impossible to maintain."
+  },
+  {
+    "id": "FL-A-0129",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a resilient cross-platform background-sync architecture while respecting Android and iOS lifecycle/background-execution restrictions."
+  },
+  {
+    "id": "FL-A-0130",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "How would you debug a platform-channel call that works on Android but deadlocks or times out on iOS?"
+  },
+  {
+    "id": "FL-A-0131",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Walk through a Flutter frame from scheduler callback through build, layout, paint, compositing, and rasterization."
+  }
+]

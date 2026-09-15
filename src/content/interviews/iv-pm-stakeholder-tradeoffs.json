@@ -25,5 +25,7 @@
     "PM-SCOPE-MANAGEMENT",
     "PM-RELEASE-PLANNING"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: Sales promised a feature that engineering says risks the release date. How do you manage stakeholders and scope?\n// Stack: Product Management, Scope, Stakeholders\n// Short answer: Make trade-offs explicit with options: cut scope, slip date, or add capacity—and document residual risk.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Product Management, Scope, Stakeholders. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

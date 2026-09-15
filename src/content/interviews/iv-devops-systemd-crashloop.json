@@ -22,5 +22,7 @@
     "DEVOPS-SYSTEMD",
     "DEVOPS-BASH"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: A systemd unit exits immediately after start. How do you diagnose it?\n// Stack: Linux, systemd\n// Short answer: Check status and journal logs, verify ExecStart path/permissions/User, and look for missing env or dependency ordering issues.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Linux, systemd. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

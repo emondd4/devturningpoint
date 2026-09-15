@@ -1,0 +1,1901 @@
+{
+  "Indexes": {
+    "summary": "Indexes are auxiliary structures (often B-trees) that speed lookups, sorts, and joins at write/storage cost.",
+    "problem": "Without them, planners fall back to sequential scans that worsen as tables grow.",
+    "concepts": [
+      "selectivity",
+      "covering indexes",
+      "left-most prefix",
+      "write amplification",
+      "unused indexes"
+    ],
+    "mechanics": "CREATE INDEX builds a sorted structure; planner chooses index vs seq scan using stats.",
+    "tradeoffs": "Too many indexes slow writes. Partial/expression indexes target narrow workloads.",
+    "troubleshoot": "Seq scans on selective filters: missing/wrong index—EXPLAIN ANALYZE and check usage stats.",
+    "example": "CREATE INDEX CONCURRENTLY idx_orders_user_created ON orders(user_id, created_at DESC);",
+    "integration": "1) Index FK/filter/sort columns. 2) EXPLAIN slow queries. 3) Drop unused. 4) Create concurrently in prod."
+  },
+  "B-tree index": {
+    "summary": "B-tree indexes keep keys in sorted balanced trees—Postgres’s default for equality and range predicates.",
+    "problem": "They accelerate WHERE, JOIN, and ORDER BY on sortable types.",
+    "concepts": [
+      "sorted keys",
+      "equality/range",
+      "left-most composite",
+      "cache locality",
+      "bloat"
+    ],
+    "mechanics": "Lookups descend to leaf pages; range scans walk leaves. Multicolumn (a,b) supports a and a+b, not b alone.",
+    "tradeoffs": "Hash is narrower; GIN/GiST for composites/docs. B-trees can bloat—VACUUM/REINDEX when needed.",
+    "troubleshoot": "Not used: low selectivity, wrong column order, or functions wrapping the column.",
+    "example": "EXPLAIN ANALYZE SELECT * FROM orders WHERE user_id = 42 ORDER BY created_at DESC LIMIT 20;",
+    "integration": "1) Default to B-tree. 2) Match ORDER BY. 3) Watch bloat. 4) Prefer CONCURRENTLY."
+  },
+  "BRIN index": {
+    "summary": "BRIN stores min/max summaries per page range—tiny indexes for naturally ordered columns.",
+    "problem": "It speeds scans on large append-only time-series when values correlate with physical order.",
+    "concepts": [
+      "block ranges",
+      "correlation",
+      "cheap maintenance",
+      "not for random keys"
+    ],
+    "mechanics": "Planner skips ranges whose summary cannot match. Poor correlation makes BRIN useless.",
+    "tradeoffs": "B-tree wins for selective point lookups on unordered keys.",
+    "troubleshoot": "No speedup: check correlation; consider partitioning.",
+    "example": "CREATE INDEX ON events USING brin (created_at);",
+    "integration": "1) Use on big time-ordered tables. 2) Verify correlation. 3) Pair with partitions. 4) Benchmark."
+  },
+  "GIN index": {
+    "summary": "GIN inverted indexes elements inside arrays, jsonb, and full-text documents.",
+    "problem": "It makes containment and text-search queries practical.",
+    "concepts": [
+      "posting lists",
+      "jsonb/array/fts",
+      "write cost",
+      "fastupdate"
+    ],
+    "mechanics": "Each component maps to rows containing it. Writes cost more than B-tree; tune pending lists.",
+    "tradeoffs": "Extracted B-tree on a generated column can replace GIN for single-field access.",
+    "troubleshoot": "Slow writes under heavy GIN updates—batch loads or reconsider design.",
+    "example": "CREATE INDEX ON docs USING gin (body jsonb_path_ops);\nSELECT * FROM docs WHERE body @> '{\"status\":\"open\"}';",
+    "integration": "1) GIN for jsonb/array search. 2) jsonb_path_ops for @>-only. 3) Watch write latency. 4) EXPLAIN."
+  },
+  "composite index": {
+    "summary": "A composite index covers multiple columns in order for multi-predicate filters and some sorts.",
+    "problem": "It matches combined WHERE clauses better than disjoint single-column indexes.",
+    "concepts": [
+      "column order",
+      "left-most prefix",
+      "equality then range"
+    ],
+    "mechanics": "Put equality columns first, range last. (a,b) helps a and a+b, not b alone.",
+    "tradeoffs": "Too-wide composites waste space; separate indexes may fit disjoint patterns better.",
+    "troubleshoot": "Unused: order doesn't match query—EXPLAIN to confirm.",
+    "example": "CREATE INDEX ON orders (user_id, created_at);",
+    "integration": "1) Mine top queries. 2) Design composites. 3) Drop redundant singles. 4) Validate with EXPLAIN."
+  },
+  "covering/index-only scan": {
+    "summary": "A covering index includes all needed columns so Postgres can use an index-only scan.",
+    "problem": "It avoids heap fetches when the visibility map marks pages all-visible.",
+    "concepts": [
+      "INCLUDE",
+      "index-only scan",
+      "visibility map",
+      "VACUUM"
+    ],
+    "mechanics": "Planner picks index-only when index has required cols and VM allows. INCLUDE adds payload columns.",
+    "tradeoffs": "Wide covering indexes cost writes. Heap fetches remain if VM is stale.",
+    "troubleshoot": "High heap fetches: VACUUM to refresh visibility map.",
+    "example": "CREATE INDEX ON users (email) INCLUDE (id, name);\nEXPLAIN SELECT id, name FROM users WHERE email = 'a@b.com';",
+    "integration": "1) Cover hot reads. 2) Use INCLUDE. 3) Keep VACUUM healthy. 4) Measure index size."
+  },
+  "partial index": {
+    "summary": "A partial index indexes only rows matching a predicate (e.g., active rows).",
+    "problem": "It shrinks indexes and speeds queries that share that predicate.",
+    "concepts": [
+      "predicate",
+      "hot subset",
+      "query must match"
+    ],
+    "mechanics": "CREATE INDEX … WHERE status='open'. Queries need compatible predicates for use.",
+    "tradeoffs": "If queries need all rows, partial won't help those paths.",
+    "troubleshoot": "Not used: query predicate not implied by index predicate.",
+    "example": "CREATE INDEX ON tickets (priority) WHERE status = 'open';",
+    "integration": "1) Find skewed filters. 2) Partial-index hot subset. 3) Align query WHERE. 4) Monitor size."
+  },
+  "EXPLAIN": {
+    "summary": "EXPLAIN shows the planner’s plan; EXPLAIN ANALYZE executes and adds actual timings/rows.",
+    "problem": "It is the primary tool for diagnosing slow SQL.",
+    "concepts": [
+      "plan nodes",
+      "cost vs actual",
+      "row estimates",
+      "buffers"
+    ],
+    "mechanics": "Read inner-out: scans, joins, sorts. Compare estimated vs actual rows—bad stats cause bad plans.",
+    "tradeoffs": "ANALYZE runs the query—wrap writes in a transaction you roll back if needed.",
+    "troubleshoot": "Misestimates: ANALYZE; consider extended statistics.",
+    "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT * FROM orders WHERE user_id = 42;",
+    "integration": "1) EXPLAIN slow SQL. 2) Fix indexes/stats. 3) Re-measure. 4) Attach plans in PRs."
+  },
+  "query planner": {
+    "summary": "The planner costs alternative plans using statistics and chooses the cheapest expected path.",
+    "problem": "Accurate stats and useful indexes are required for good plans.",
+    "concepts": [
+      "cost model",
+      "statistics",
+      "join order",
+      "work_mem"
+    ],
+    "mechanics": "Rewrite → generate paths → cost → pick minimum. Row estimates drive nested loop vs hash/merge joins.",
+    "tradeoffs": "Prefer fixing stats/indexes over hints (limited in Postgres).",
+    "troubleshoot": "Bad plans after bulk load: ANALYZE; check work_mem for sorts/hashes.",
+    "example": "ANALYZE orders;\nEXPLAIN SELECT …",
+    "integration": "1) Healthy autoanalyze. 2) Extended stats when correlated. 3) Tune work_mem. 4) Review after upgrades."
+  },
+  "statistics/analyze": {
+    "summary": "ANALYZE collects histograms and most-common values so the planner estimates selectivities.",
+    "problem": "Stale stats cause catastrophic plan choices.",
+    "concepts": [
+      "pg_statistic",
+      "n_distinct",
+      "autoanalyze",
+      "extended statistics"
+    ],
+    "mechanics": "ANALYZE samples the table; autovacuum triggers autoanalyze after enough modifications.",
+    "tradeoffs": "Override n_distinct for hard skew; create extended stats for correlated columns.",
+    "troubleshoot": "Sudden plan flips: run ANALYZE; check last_analyze.",
+    "example": "ANALYZE VERBOSE orders;\nSELECT last_analyze FROM pg_stat_user_tables WHERE relname='orders';",
+    "integration": "1) Keep autovacuum on. 2) ANALYZE after big loads. 3) Extended stats as needed. 4) Watch plan flips."
+  },
+  "sequential scan": {
+    "summary": "A sequential scan reads the heap entirely—best for large fractions of a table or tiny tables.",
+    "problem": "On selective filters it usually signals a missing or unusable index.",
+    "concepts": [
+      "heap read",
+      "selectivity",
+      "parallel seq scan"
+    ],
+    "mechanics": "Planner chooses seq scan when estimated filtered fraction is high or index cost is worse.",
+    "tradeoffs": "Forcing an index can hurt—measure with EXPLAIN ANALYZE.",
+    "troubleshoot": "Unexpected seq scan: cast/function on column or stale stats.",
+    "example": "EXPLAIN SELECT * FROM events WHERE type = 'x';",
+    "integration": "1) Check selectivity. 2) Add index if selective. 3) Avoid wrapping columns. 4) Re-ANALYZE."
+  },
+  "VACUUM": {
+    "summary": "VACUUM reclaims dead tuple space from MVCC and updates the visibility map; VACUUM ANALYZE also refreshes stats.",
+    "problem": "Without vacuum, tables bloat and performance collapses.",
+    "concepts": [
+      "dead tuples",
+      "visibility map",
+      "VACUUM FULL cost",
+      "xid freeze"
+    ],
+    "mechanics": "Regular VACUUM reclaims in-place without exclusive lock; VACUUM FULL rewrites the table (heavy).",
+    "tradeoffs": "Prefer tuning autovacuum over routine VACUUM FULL.",
+    "troubleshoot": "Wraparound warnings: vacuum more aggressively; find long transactions.",
+    "example": "VACUUM (VERBOSE, ANALYZE) orders;",
+    "integration": "1) Autovacuum adequately. 2) Monitor dead tuples/bloat. 3) Avoid idle-in-transaction. 4) Alert on xid age."
+  },
+  "autovacuum": {
+    "summary": "Autovacuum launches workers that VACUUM/ANALYZE tables based on dead-tuple thresholds and xid age.",
+    "problem": "It is required for healthy MVCC under continuous writes.",
+    "concepts": [
+      "thresholds",
+      "workers",
+      "wraparound vacuum",
+      "per-table tuning"
+    ],
+    "mechanics": "Workers pick dirty tables; wraparound vacuums are forced when xid age is high.",
+    "tradeoffs": "Hot tables often need lower scale_factor overrides.",
+    "troubleshoot": "Lagging cleanup: raise workers or fix long-running transactions blocking vacuum.",
+    "example": "SELECT relname, n_dead_tup, last_autovacuum FROM pg_stat_user_tables ORDER BY n_dead_tup DESC LIMIT 20;",
+    "integration": "1) Ensure enabled. 2) Tune busy tables. 3) Kill idle-in-transaction. 4) Dashboard dead tuples."
+  },
+  "MVCC": {
+    "summary": "MVCC keeps multiple row versions so readers and writers rarely block each other.",
+    "problem": "It underpins Postgres concurrency and creates dead tuples that must be vacuumed.",
+    "concepts": [
+      "xmin/xmax",
+      "snapshots",
+      "dead tuples",
+      "isolation levels"
+    ],
+    "mechanics": "Updates insert new versions; snapshots decide visibility; old versions become dead until VACUUM.",
+    "tradeoffs": "Long transactions delay cleanup and inflate bloat.",
+    "troubleshoot": "Bloat + replication lag: find old snapshots in pg_stat_activity.",
+    "example": "SELECT pid, state, xact_start, query FROM pg_stat_activity WHERE state <> 'idle';",
+    "integration": "1) Short transactions. 2) Monitor bloat. 3) Tune autovacuum. 4) Avoid idle-in-transaction sessions."
+  },
+  "ACID": {
+    "summary": "ACID means Atomicity, Consistency, Isolation, Durability—the classic transaction guarantees.",
+    "problem": "They keep multi-statement changes correct under concurrency and crashes.",
+    "concepts": [
+      "atomicity",
+      "constraints/consistency",
+      "isolation levels",
+      "WAL durability"
+    ],
+    "mechanics": "BEGIN…COMMIT applies all or nothing; isolation controls concurrent visibility; WAL fsync makes commits durable.",
+    "tradeoffs": "Stronger isolation reduces anomalies but raises aborts/latency.",
+    "troubleshoot": "Lost updates: raise isolation or use row locks/version columns.",
+    "example": "BEGIN;\nUPDATE accounts SET bal = bal - 10 WHERE id = 1;\nUPDATE accounts SET bal = bal + 10 WHERE id = 2;\nCOMMIT;",
+    "integration": "1) Wrap multi-row invariants in transactions. 2) Choose isolation deliberately. 3) Keep txns short. 4) Test crash safety."
+  },
+  "READ COMMITTED": {
+    "summary": "READ COMMITTED is Postgres’s default isolation: each statement sees only data committed before it began.",
+    "problem": "It prevents dirty reads while remaining cheap for many OLTP apps.",
+    "concepts": [
+      "per-statement snapshot",
+      "no dirty reads",
+      "nonrepeatable reads possible",
+      "lost update risk"
+    ],
+    "mechanics": "Each statement takes a new snapshot. Concurrent commits can change rows between statements in one transaction.",
+    "tradeoffs": "REPEATABLE READ/SERIALIZABLE for stronger guarantees at abort cost.",
+    "troubleshoot": "Lost updates under RC: use SELECT FOR UPDATE or version checks.",
+    "example": "SHOW transaction_isolation;\n-- read committed by default",
+    "integration": "1) Know default is RC. 2) Escalate isolation for critical flows. 3) Add constraints. 4) Test concurrency."
+  },
+  "SERIALIZABLE": {
+    "summary": "SERIALIZABLE isolation makes concurrent transactions behave as if executed one-at-a-time (SSI in Postgres).",
+    "problem": "It prevents serialization anomalies that weaker levels allow.",
+    "concepts": [
+      "SSI",
+      "serialization failures",
+      "retry",
+      "vs locking"
+    ],
+    "mechanics": "Postgres detects dangerous dependency cycles and aborts with 40001; apps must retry transactions.",
+    "tradeoffs": "Higher abort rates under contention—keep transactions short.",
+    "troubleshoot": "Frequent 40001: reduce txn scope or redesign hot spots.",
+    "example": "-- SQLSTATE 40001: serialize retry loop in app",
+    "integration": "1) Enable for anomaly-sensitive paths. 2) Implement retry. 3) Keep txns tiny. 4) Monitor abort rates."
+  },
+  "deadlock": {
+    "summary": "A deadlock is a cycle of transactions waiting on each other’s locks; Postgres aborts one victim.",
+    "problem": "It freezes progress until the engine breaks the cycle.",
+    "concepts": [
+      "lock order",
+      "40P01",
+      "short txns",
+      "retry"
+    ],
+    "mechanics": "Acquire locks in consistent order; keep transactions short; retry aborted victims idempotently.",
+    "tradeoffs": "Coarse locks reduce deadlock chance but hurt concurrency.",
+    "troubleshoot": "Logs show deadlock detail—reorder updates to match a global order.",
+    "example": "SELECT * FROM pg_stat_activity WHERE wait_event_type='Lock';",
+    "integration": "1) Stable lock ordering. 2) Short txns. 3) Retry on 40P01. 4) Alert on deadlock rate."
+  },
+  "optimistic concurrency": {
+    "summary": "Optimistic concurrency detects write conflicts with version columns/ETags instead of holding long locks.",
+    "problem": "It scales when conflicts are rare.",
+    "concepts": [
+      "version column",
+      "compare-and-swap",
+      "retry",
+      "vs pessimistic locks"
+    ],
+    "mechanics": "Read row+version; write UPDATE … WHERE id=? AND version=?; if 0 rows, conflict—reload/retry.",
+    "tradeoffs": "High conflict rates need pessimistic locking or queuing.",
+    "troubleshoot": "Silent overwrites: missing version predicate.",
+    "example": "UPDATE docs SET body=$1, version=version+1 WHERE id=$2 AND version=$3;",
+    "integration": "1) Add version columns. 2) Enforce in UPDATEs. 3) Return 409 to clients. 4) Retry policy."
+  },
+  "WAL/PITR": {
+    "summary": "WAL (Write-Ahead Log) records changes before data files; PITR replays WAL to restore to a chosen time.",
+    "problem": "It provides durability and continuous recovery beyond nightly dumps.",
+    "concepts": [
+      "WAL segments",
+      "base backup",
+      "archive_command",
+      "recovery target",
+      "checkpoints"
+    ],
+    "mechanics": "Commit flushes WAL; base backup + archived WAL enables restore to timestamp/LSN.",
+    "tradeoffs": "Logical dumps lack fine PITR. Synchronous commit trades latency for durability.",
+    "troubleshoot": "Gap in WAL archive breaks PITR—monitor archive success.",
+    "example": "SELECT pg_walfile_name(pg_current_wal_lsn());\n-- restore: recovery_target_time = '…'",
+    "integration": "1) Enable WAL archiving. 2) Regular base backups. 3) Test PITR. 4) Alert on archive failures."
+  },
+  "logical backup": {
+    "summary": "Logical backups export SQL/objects (pg_dump) rather than copying data files.",
+    "problem": "They are portable across versions and good for selective restores.",
+    "concepts": [
+      "pg_dump/pg_restore",
+      "format custom/dir",
+      "parallel",
+      "vs physical"
+    ],
+    "mechanics": "pg_dump reads tables and writes archives; restore replays. Physical backups+WAL are better for huge DBs/PITR.",
+    "tradeoffs": "Logical restores are slower at scale; combine strategies.",
+    "troubleshoot": "Failed restore: version mismatches or missing roles—dump globals too.",
+    "example": "pg_dump -Fc -f app.dump appdb\npg_restore -d appdb app.dump",
+    "integration": "1) Schedule dumps. 2) Store offsite. 3) Test restore. 4) Also keep physical backups for large prod."
+  },
+  "streaming replication": {
+    "summary": "Streaming replication ships WAL from primary to standbys for HA and read scaling.",
+    "problem": "Standbys apply WAL continuously and can be promoted on failure.",
+    "concepts": [
+      "primary/standby",
+      "WAL sender/receiver",
+      "sync vs async",
+      "lag",
+      "promotion"
+    ],
+    "mechanics": "Standby connects, streams WAL, replays. Sync wait for flush ACK; async acknowledges later (possible data loss).",
+    "tradeoffs": "Async is common; sync for zero-loss RPO at latency cost.",
+    "troubleshoot": "Lag growth: network/disk or long queries on standby. Monitor replay_lag.",
+    "example": "SELECT client_addr, state, replay_lag FROM pg_stat_replication;",
+    "integration": "1) Deploy ≥1 standby. 2) Monitor lag. 3) Rehearse promotion. 4) Choose sync intentionally."
+  },
+  "replication": {
+    "summary": "Replication copies data to other nodes for HA, locality, or read scale (physical or logical).",
+    "problem": "It reduces downtime and can offload reads—but is not a backup by itself.",
+    "concepts": [
+      "physical vs logical",
+      "lag",
+      "failover",
+      "split-brain",
+      "read routing"
+    ],
+    "mechanics": "Primary accepts writes; replicas apply changes. Failover promotes a replica; fencing prevents split-brain.",
+    "tradeoffs": "Replicas don't protect against bad DELETEs—still need backups. Multi-primary is harder.",
+    "troubleshoot": "Lagging replica serving stale reads: route carefully; alert on lag.",
+    "example": "-- physical: pg_basebackup + streaming\n-- logical: publications/subscriptions",
+    "integration": "1) Define HA topology. 2) Monitor lag. 3) Backup still required. 4) Document failover."
+  },
+  "failover": {
+    "summary": "Failover promotes a standby to primary when the old primary fails, restoring write availability.",
+    "problem": "It is the HA mechanism for RTO targets.",
+    "concepts": [
+      "promotion",
+      "DNS/VIP cutover",
+      "fencing",
+      "connection retries",
+      "data loss window"
+    ],
+    "mechanics": "Detect failure; promote standby; repoint clients (DNS/VIP/proxy); fence old primary. Async replication may lose last commits.",
+    "tradeoffs": "Automatic failover can misfire—use consensus/lease systems carefully.",
+    "troubleshoot": "Split-brain: two primaries—require fencing. Test regularly.",
+    "example": "# patroni/repmgr/rds multi-AZ conceptual promote + endpoint flip",
+    "integration": "1) Automate with fencing. 2) Client retry/backoff. 3) Game-day failovers. 4) Measure RTO/RPO."
+  },
+  "PostgreSQL": {
+    "summary": "PostgreSQL is a powerful open-source relational database with strong SQL, MVCC, extensibility, and reliability.",
+    "problem": "It is a default choice for transactional systems needing integrity and rich queries.",
+    "concepts": [
+      "MVCC",
+      "SQL compliance",
+      "extensions",
+      "WAL",
+      "planner"
+    ],
+    "mechanics": "Clients speak SQL over the Postgres protocol; backends execute plans; WAL ensures durability.",
+    "tradeoffs": "Managed services reduce ops. Not ideal as a sole analytics warehouse at extreme scale without care.",
+    "troubleshoot": "Connection storms: use pooling. Slow queries: EXPLAIN + indexes.",
+    "example": "psql \"$DATABASE_URL\" -c 'SELECT version();'",
+    "integration": "1) Run managed Postgres if possible. 2) Migrations as code. 3) Pool connections. 4) Observe slow queries."
+  },
+  "PostgreSQL process model": {
+    "summary": "Postgres uses a multi-process model: postmaster + one backend process per connection, plus workers (autovacuum, WAL writer).",
+    "problem": "It isolates crashes per backend but makes connections relatively heavy.",
+    "concepts": [
+      "postmaster",
+      "backend per connection",
+      "shared buffers",
+      "background workers",
+      "pooling need"
+    ],
+    "mechanics": "Each client connection forks/starts a backend attached to shared memory. Poolers multiplex app threads onto fewer connections.",
+    "tradeoffs": "Thread-per-connection DBs differ. Too many connections exhaust memory—PgBouncer/ODS pool.",
+    "troubleshoot": "Memory pressure with high conn count: lower max_connections and pool.",
+    "example": "SHOW max_connections;\nSELECT count(*) FROM pg_stat_activity;",
+    "integration": "1) Add a pooler. 2) Cap app pool sizes. 3) Monitor connection counts. 4) Separate pools per workload."
+  },
+  "JSONB": {
+    "summary": "JSONB is Postgres’s binary JSON type supporting indexing and efficient operators for semi-structured data.",
+    "problem": "It stores flexible attributes without a separate document database.",
+    "concepts": [
+      "binary storage",
+      "@> containment",
+      "GIN indexes",
+      "generated columns",
+      "vs JSON text"
+    ],
+    "mechanics": "Store jsonb; query with ->/->>/@>; index with GIN; promote hot keys to columns when stable.",
+    "tradeoffs": "Pure relational columns are clearer for core fields. Huge documents can bloat rows.",
+    "troubleshoot": "Slow jsonb filters: missing GIN or high-selectivity needs extracted columns.",
+    "example": "CREATE TABLE events (id bigserial, body jsonb);\nCREATE INDEX ON events USING gin (body jsonb_path_ops);",
+    "integration": "1) Use jsonb for sparse attrs. 2) GIN for search. 3) Promote hot paths to columns. 4) Constrain shape in app."
+  },
+  "row-level security": {
+    "summary": "Row-level security (RLS) filters which rows a role can see/modify via policies on tables.",
+    "problem": "It enforces tenancy in the database, not only in app code.",
+    "concepts": [
+      "ENABLE ROW LEVEL SECURITY",
+      "policies",
+      "FORCE RLS",
+      "current_setting/jwt claims"
+    ],
+    "mechanics": "ENABLE RLS; CREATE POLICY using expressions like tenant_id = current_setting('app.tenant')::uuid. Table owners bypass unless FORCE.",
+    "tradeoffs": "App bugs can still set wrong session vars—combine with careful auth. Policies add planning complexity.",
+    "troubleshoot": "Seeing all rows: RLS off or owner bypass—FORCE RLS and test as non-owner.",
+    "example": "ALTER TABLE orders ENABLE ROW LEVEL SECURITY;\nCREATE POLICY tenant_iso ON orders USING (tenant_id = current_setting('app.tenant')::uuid);",
+    "integration": "1) Enable RLS on tenant tables. 2) Set session vars per request. 3) FORCE RLS. 4) Test with non-owner roles."
+  },
+  "schema migration": {
+    "summary": "Schema migrations version database structure changes as ordered scripts applied by a tool (Flyway, Liquibase, golang-migrate).",
+    "problem": "They keep environments reproducible and reviewable.",
+    "concepts": [
+      "versioned scripts",
+      "expand/contract",
+      "locks",
+      "backward compatibility",
+      "rollback limits"
+    ],
+    "mechanics": "Add forward migrations; deploy expand first (compatible); switch app; contract later. Avoid long ACCESS EXCLUSIVE locks.",
+    "tradeoffs": "Down migrations are often unsafe in prod—prefer forward fixes.",
+    "troubleshoot": "Stuck migration: lock wait—check pg_locks; use CONCURRENTLY for indexes.",
+    "example": "-- 0014_add_orders_status.sql\nALTER TABLE orders ADD COLUMN status text NOT NULL DEFAULT 'new';",
+    "integration": "1) Migrations in Git/CI. 2) Expand/contract. 3) CONCURRENTLY for indexes. 4) Gate deploys on migrate success."
+  },
+  "partitioning": {
+    "summary": "Partitioning splits a logical table into child partitions (range/list/hash) for manageability and pruning.",
+    "problem": "It speeds queries that prune partitions and eases dropping old data.",
+    "concepts": [
+      "range/list/hash",
+      "partition pruning",
+      "keys",
+      "local indexes",
+      "attach/detach"
+    ],
+    "mechanics": "Declare PARTITION BY; insert routes to children; planner prunes irrelevant partitions. Detach/drop old ranges cheaply.",
+    "tradeoffs": "Wrong key prevents pruning. Too many partitions add planning overhead.",
+    "troubleshoot": "No pruning: predicate not on partition key or non-immutable expression.",
+    "example": "CREATE TABLE events (ts timestamptz, payload jsonb) PARTITION BY RANGE (ts);",
+    "integration": "1) Choose key from query filters. 2) Automate creating partitions. 3) Drop old ones. 4) Verify pruning in EXPLAIN."
+  },
+  "primary key": {
+    "summary": "A primary key uniquely identifies each row and implies NOT NULL + UNIQUE (usually indexed).",
+    "problem": "It anchors foreign keys and ORM identity.",
+    "concepts": [
+      "uniqueness",
+      "NOT NULL",
+      "clustered myths",
+      "surrogate vs natural"
+    ],
+    "mechanics": "DECLARE PRIMARY KEY; Postgres builds a unique index. Prefer stable opaque surrogates (bigint/uuid) for mutable natural keys.",
+    "tradeoffs": "Natural keys change and cascade painfully. UUIDs trade locality for global uniqueness.",
+    "troubleshoot": "Duplicate insert errors: constraint working—handle conflicts (UPSERT).",
+    "example": "CREATE TABLE users (id biggenerated always as identity PRIMARY KEY, email text UNIQUE);",
+    "integration": "1) PK every table. 2) Prefer stable surrogates. 3) Index FKs referencing it. 4) Document allocation strategy."
+  },
+  "foreign key": {
+    "summary": "A foreign key enforces that referenced parent rows exist, preserving relational integrity.",
+    "problem": "It prevents orphan child rows at the database layer.",
+    "concepts": [
+      "REFERENCES",
+      "ON DELETE/UPDATE actions",
+      "indexing child cols",
+      "deferrable"
+    ],
+    "mechanics": "INSERT/UPDATE child checks parent; DELETE parent restricted or cascades per action. Index FK columns for joins/deletes.",
+    "tradeoffs": "App-only integrity is fragile. Cascades can surprise—prefer explicit deletes sometimes.",
+    "troubleshoot": "Delete parent blocked: existing children. Check constraint violations in logs.",
+    "example": "ALTER TABLE orders ADD FOREIGN KEY (user_id) REFERENCES users(id);",
+    "integration": "1) Add FKs for critical relations. 2) Index FK columns. 3) Choose delete actions carefully. 4) Test cascades."
+  },
+  "1NF/2NF/3NF": {
+    "summary": "Normal forms (1NF/2NF/3NF) reduce redundancy via atomic columns and dependency rules on keys.",
+    "problem": "They prevent update anomalies in OLTP schemas.",
+    "concepts": [
+      "atomic values",
+      "full key dependency",
+      "no transitive deps",
+      "controlled denormalization"
+    ],
+    "mechanics": "Identify keys and FDs; decompose until non-key attributes depend only on keys. Denormalize later for read performance with clear sync.",
+    "tradeoffs": "Warehouses often denormalize. Over-normalization can force heavy joins.",
+    "troubleshoot": "Anomalies when same fact stored twice—normalize or add strict sync.",
+    "example": "-- customers(id, city); orders(id, customer_id) instead of repeating city per order",
+    "integration": "1) Model FDs. 2) Normalize OLTP. 3) Denormalize with metrics. 4) Document derived data."
+  },
+  "normalization": {
+    "summary": "Normalization structures relational schemas to store each fact once and avoid update anomalies.",
+    "problem": "It keeps transactional data consistent as application writes evolve.",
+    "concepts": [
+      "functional dependencies",
+      "decompose",
+      "anomalies",
+      "denormalize consciously"
+    ],
+    "mechanics": "Decompose tables per normal forms; use joins/views for combined reads.",
+    "tradeoffs": "Read-heavy analytics may intentionally denormalize.",
+    "troubleshoot": "Update bugs fixing many tables: under-normalized design.",
+    "example": "-- split repeating groups into child tables",
+    "integration": "1) Start normalized. 2) Measure join cost. 3) Denormalize with jobs/triggers if needed. 4) Add tests for invariants."
+  },
+  "relational model": {
+    "summary": "The relational model represents data as relations (tables) queried via relational algebra/SQL.",
+    "problem": "It provides a precise foundation for integrity and declarative querying.",
+    "concepts": [
+      "tuples/attributes",
+      "keys",
+      "joins",
+      "constraints"
+    ],
+    "mechanics": "Define schemas; query declaratively; engine chooses plans. Integrity via keys/FKs/CHECK.",
+    "tradeoffs": "Document models fit flexible hierarchies; relational shines for interlocking invariants.",
+    "troubleshoot": "Unexpected fanout: join cardinality—validate with COUNTs.",
+    "example": "SELECT u.email, o.total FROM users u JOIN orders o ON o.user_id=u.id;",
+    "integration": "1) Model entities/keys. 2) Constraints in DB. 3) Index join columns. 4) EXPLAIN heavy queries."
+  },
+  "INNER JOIN": {
+    "summary": "INNER JOIN returns only rows with matches in both tables on the join predicate.",
+    "problem": "It is the default way to combine related relational data.",
+    "concepts": [
+      "match required",
+      "cardinality",
+      "join algorithms",
+      "filter pushdown"
+    ],
+    "mechanics": "Planner may use nested loop/hash/merge. Unmatched rows are excluded (unlike LEFT JOIN).",
+    "tradeoffs": "LEFT JOIN when you must keep unmatched left rows. Accidental CROSS JOIN explodes rows.",
+    "troubleshoot": "Row explosion: many-to-many without aggregation—check distinct counts.",
+    "example": "SELECT u.id, o.id FROM users u INNER JOIN orders o ON o.user_id=u.id;",
+    "integration": "1) Prefer SQL joins over app loops. 2) Index join keys. 3) EXPLAIN large joins. 4) Test unmatched cases with outer joins when needed."
+  },
+  "GROUP BY": {
+    "summary": "GROUP BY aggregates rows sharing key expressions with COUNT/SUM/AVG/etc.",
+    "problem": "It powers reporting and rollups in SQL.",
+    "concepts": [
+      "aggregate functions",
+      "having vs where",
+      "functional dependency",
+      "grouping sets"
+    ],
+    "mechanics": "Filter with WHERE pre-aggregate; HAVING filters groups. SELECT list must be grouped or aggregated (Postgres allows PK FD exceptions).",
+    "tradeoffs": "Window functions for per-row analytics without collapsing groups.",
+    "troubleshoot": "Wrong totals: join fanout before aggregate—aggregate in subquery first.",
+    "example": "SELECT user_id, SUM(total) FROM orders GROUP BY user_id HAVING SUM(total) > 100;",
+    "integration": "1) Index group keys when selective. 2) Pre-aggregate carefully. 3) Prefer windows when keeping detail. 4) Test null groups."
+  },
+  "UNION": {
+    "summary": "UNION combines result sets; UNION removes duplicates, UNION ALL keeps them (faster).",
+    "problem": "It merges homogeneous outputs from different queries.",
+    "concepts": [
+      "same columns/types",
+      "UNION vs ALL",
+      "order/limit outside",
+      "dedup cost"
+    ],
+    "mechanics": "Each branch projects compatible columns; UNION sorts/hashes to dedupe; ALL concatenates.",
+    "tradeoffs": "Prefer ALL when duplicates impossible/irrelevant.",
+    "troubleshoot": "Slow UNION: dedup—switch to ALL or push filters.",
+    "example": "SELECT id FROM a UNION ALL SELECT id FROM b;",
+    "integration": "1) Match schemas. 2) Prefer UNION ALL. 3) Wrap ORDER BY outside. 4) EXPLAIN dedup cost."
+  },
+  "subquery": {
+    "summary": "A subquery is a query nested in another SQL statement (FROM/WHERE/SELECT).",
+    "problem": "It expresses multi-step logic without temp tables.",
+    "concepts": [
+      "scalar/subquery",
+      "IN/EXISTS",
+      "LATERAL",
+      "decorrelation"
+    ],
+    "mechanics": "Planner may decorrelate into joins. EXISTS often beats IN for large nullable sets. LATERAL allows referencing left-hand rows.",
+    "tradeoffs": "CTEs can be optimization fences historically—understand version behavior.",
+    "troubleshoot": "Slow IN lists: rewrite as JOIN/EXISTS.",
+    "example": "SELECT * FROM users u WHERE EXISTS (SELECT 1 FROM orders o WHERE o.user_id=u.id);",
+    "integration": "1) Prefer EXISTS for existence. 2) EXPLAIN. 3) Use LATERAL for top-N per group. 4) Avoid correlated row-by-row when a join works."
+  },
+  "correlated subquery": {
+    "summary": "A correlated subquery references columns from the outer query and conceptually runs per outer row.",
+    "problem": "It expresses per-row dependent lookups but can be expensive if not decorrelated.",
+    "concepts": [
+      "outer references",
+      "EXISTS pattern",
+      "decorrelation",
+      "performance risk"
+    ],
+    "mechanics": "Write EXISTS (SELECT 1 FROM … WHERE outer.id=…). Planner often turns it into a semi-join.",
+    "tradeoffs": "Joins/windows may be clearer/faster for aggregations per parent.",
+    "troubleshoot": "Nested loop explosion: missing index on inner predicate.",
+    "example": "SELECT u.* FROM users u WHERE EXISTS (SELECT 1 FROM sessions s WHERE s.user_id=u.id AND s.active);",
+    "integration": "1) Index inner keys. 2) Prefer EXISTS. 3) EXPLAIN for semi-joins. 4) Rewrite to joins when clearer."
+  },
+  "window function": {
+    "summary": "Window functions compute values across related rows without collapsing the result set (OVER clause).",
+    "problem": "They enable rankings, running totals, and lead/lag analytics in one pass.",
+    "concepts": [
+      "PARTITION BY",
+      "ORDER BY",
+      "frames",
+      "rank/row_number",
+      "vs GROUP BY"
+    ],
+    "mechanics": "Each row stays; function sees a window frame. ROW_NUMBER for top-N per group patterns via subquery filter.",
+    "tradeoffs": "GROUP BY collapses; windows keep detail. Large sorts need memory—watch work_mem.",
+    "troubleshoot": "Wrong totals: frame defaults (RANGE UNBOUNDED PRECEDING). Be explicit.",
+    "example": "SELECT user_id, total, SUM(total) OVER (PARTITION BY user_id ORDER BY created_at) AS running FROM orders;",
+    "integration": "1) Use for rankings/running metrics. 2) Index partition/order keys. 3) Explicit frames. 4) EXPLAIN sorts."
+  },
+  "ROW_NUMBER": {
+    "summary": "ROW_NUMBER() assigns unique ranks within a partition ordered by given keys.",
+    "problem": "It is the standard tool for top-N-per-group queries.",
+    "concepts": [
+      "unique ranks",
+      "PARTITION BY",
+      "ORDER BY",
+      "filter rn=1"
+    ],
+    "mechanics": "Wrap in subquery/CTE and filter WHERE rn <= N. Ties get different numbers (unlike RANK).",
+    "tradeoffs": "RANK/DENSE_RANK for competition ranking with ties.",
+    "troubleshoot": "Unstable order: add deterministic tiebreakers to ORDER BY.",
+    "example": "SELECT * FROM (\n  SELECT *, ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY created_at DESC) rn FROM orders\n) t WHERE rn = 1;",
+    "integration": "1) Deterministic ORDER BY. 2) Filter rn. 3) Index (user_id, created_at). 4) Compare to DISTINCT ON in Postgres."
+  },
+  "NULL semantics": {
+    "summary": "NULL means unknown/missing; comparisons with NULL yield UNKNOWN, so WHERE clauses need IS NULL / IS DISTINCT FROM.",
+    "problem": "Misunderstanding NULL causes wrong filters and broken UNIQUE behavior (multiple NULLs allowed in UNIQUE).",
+    "concepts": [
+      "three-valued logic",
+      "IS NULL",
+      "COALESCE",
+      "NOT IN pitfalls",
+      "UNIQUE + NULL"
+    ],
+    "mechanics": "Use IS NULL / IS NOT NULL; prefer NOT EXISTS over NOT IN with nullable columns; COALESCE for defaults.",
+    "tradeoffs": "Empty string ≠ NULL. Constraints: NOT NULL when required.",
+    "troubleshoot": "Missing rows from NOT IN: NULL in the list—rewrite.",
+    "example": "SELECT * FROM users WHERE deleted_at IS NULL;\nSELECT * FROM t WHERE a IS NOT DISTINCT FROM b;",
+    "integration": "1) NOT NULL on required cols. 2) Ban NOT IN on nullable. 3) Document NULL meaning. 4) Test edge data."
+  },
+  "view": {
+    "summary": "A view is a stored SELECT presented as a table; it encapsulates joins/filters for reuse.",
+    "problem": "It simplifies queries and can restrict column exposure (with security_barrier/RLS care).",
+    "concepts": [
+      "virtual table",
+      "updatable limits",
+      "materialized views",
+      "security_invoker"
+    ],
+    "mechanics": "CREATE VIEW; queries against it are rewritten/planned with the underlying SQL. Materialized views store results and need refresh.",
+    "tradeoffs": "Complex views can hide expensive joins—inspect EXPLAIN. Prefer plain SQL functions carefully.",
+    "troubleshoot": "Unexpected slowness: view expanded into heavy join graph.",
+    "example": "CREATE VIEW open_orders AS SELECT * FROM orders WHERE status='open';",
+    "integration": "1) Encapsulate common joins. 2) EXPLAIN consumer queries. 3) Materialize expensive reports. 4) Version via migrations."
+  },
+  "trigger": {
+    "summary": "A trigger runs a function on INSERT/UPDATE/DELETE events to enforce logic or maintain derived data.",
+    "problem": "It centralizes invariants inside the database.",
+    "concepts": [
+      "BEFORE/AFTER",
+      "row vs statement",
+      "WHEN clause",
+      "recursion risk"
+    ],
+    "mechanics": "CREATE TRIGGER executes function per event. Prefer constraints when they suffice; keep triggers simple and documented.",
+    "tradeoffs": "Hidden write amplification surprises apps. Business logic in DB vs app is a trade-off.",
+    "troubleshoot": "Infinite trigger loops: guard with WHEN or flags.",
+    "example": "CREATE FUNCTION … RETURNS trigger AS $$ BEGIN NEW.updated_at=now(); RETURN NEW; END; $$ LANGUAGE plpgsql;\nCREATE TRIGGER … BEFORE UPDATE ON orders FOR EACH ROW EXECUTE FUNCTION …;",
+    "integration": "1) Prefer constraints. 2) Document triggers. 3) Keep them fast. 4) Test bulk updates."
+  },
+  "function/procedure": {
+    "summary": "SQL functions/procedures encapsulate reusable server-side logic; procedures can manage transactions (in Postgres CALL).",
+    "problem": "They move logic close to data for atomic multi-step operations.",
+    "concepts": [
+      "LANGUAGE sql/plpgsql",
+      "volatility",
+      "SECURITY DEFINER",
+      "procedures vs functions"
+    ],
+    "mechanics": "CREATE FUNCTION returns values; PROCEDURE can COMMIT/ROLLBACK in controlled ways. Mark volatility correctly for optimization.",
+    "tradeoffs": "SECURITY DEFINER is powerful—avoid SQL injection via dynamic SQL; prefer app services for complex domains.",
+    "troubleshoot": "Permission errors: ownership/SECURITY. Deadlocks inside long routines—keep short.",
+    "example": "CREATE FUNCTION add(a int,b int) RETURNS int LANGUAGE sql IMMUTABLE AS $$ SELECT a+b; $$;",
+    "integration": "1) Use for tight data invariants. 2) Avoid dynamic SQL string concat. 3) Grant carefully. 4) Version in migrations."
+  },
+  "N+1 queries": {
+    "summary": "N+1 queries fetch a list then run one query per row for related data, causing O(N) round-trips.",
+    "problem": "It destroys latency as lists grow.",
+    "concepts": [
+      "ORM lazy load",
+      "eager join/prefetch",
+      "IN/JOIN batching",
+      "dataloader"
+    ],
+    "mechanics": "Detect via query logs; fix with JOIN, select-in, or dataloader batching. Index foreign keys.",
+    "tradeoffs": "Over-fetching joins can also hurt—fetch what you need.",
+    "troubleshoot": "Dev fast/prod slow: classic N+1 under larger N—enable ORM query logging.",
+    "example": "-- bad: for each user: SELECT * FROM orders WHERE user_id=?\n-- good: SELECT * FROM orders WHERE user_id = ANY(%s)",
+    "integration": "1) Log SQL in staging. 2) Prefetch relations. 3) Add integration tests for query counts. 4) Index FKs."
+  },
+  "slow query log": {
+    "summary": "A slow query log records statements exceeding a duration threshold for performance triage.",
+    "problem": "It finds real production offenders beyond guesswork.",
+    "concepts": [
+      "log_min_duration_statement",
+      "pg_stat_statements",
+      "normalized queries",
+      "sampling"
+    ],
+    "mechanics": "Set threshold; aggregate with pg_stat_statements; EXPLAIN top offenders; fix indexes/SQL.",
+    "tradeoffs": "Logging everything is noisy/expensive—use thresholds + extensions.",
+    "troubleshoot": "Missing culprits: threshold too high or statements not logged (prep). Use pg_stat_statements.",
+    "example": "ALTER SYSTEM SET log_min_duration_statement = 500; -- ms\nSELECT query, mean_exec_time FROM pg_stat_statements ORDER BY mean_exec_time DESC LIMIT 20;",
+    "integration": "1) Enable duration logging. 2) Install pg_stat_statements. 3) Weekly top-10 review. 4) Track improvements."
+  },
+  "OLTP": {
+    "summary": "OLTP (Online Transaction Processing) systems run many small read/write transactions with strong integrity needs.",
+    "problem": "They power apps like payments and order management.",
+    "concepts": [
+      "short txns",
+      "normalized schemas",
+      "indexes for point lookups",
+      "vs OLAP"
+    ],
+    "mechanics": "Optimize for p99 latency of small statements; keep transactions short; use connection pooling.",
+    "tradeoffs": "Warehouses (OLAP) prefer columnar scans and denormalization. HTAP blends both carefully.",
+    "troubleshoot": "Analytical queries on OLTP primary: move to replicas/warehouse.",
+    "example": "-- typical OLTP: primary key lookup + small update in one txn",
+    "integration": "1) Separate OLTP from heavy analytics. 2) Index point paths. 3) Pool conns. 4) Replica for reports."
+  },
+  "CAP theorem": {
+    "summary": "CAP says in a network partition a distributed system must choose consistency or availability (plus partition tolerance reality).",
+    "problem": "It frames trade-offs for multi-node data systems—not a daily toggle for single-node Postgres.",
+    "concepts": [
+      "consistency",
+      "availability",
+      "partition tolerance",
+      "PACELC"
+    ],
+    "mechanics": "During partitions, CP systems refuse divergent writes; AP systems stay up with potential divergence/conflict resolution.",
+    "tradeoffs": "PACELC adds latency vs consistency when not partitioned. Most app DBs are CP within a primary.",
+    "troubleshoot": "Don't misuse CAP as buzzword—state concrete failure modes (split-brain, stale reads).",
+    "example": "# example: Raft consensus elects one primary (CP leaning) vs Dynamo-style quorum/repair (AP leaning)",
+    "integration": "1) State required consistency. 2) Pick topology accordingly. 3) Document partition behavior. 4) Test failure modes."
+  },
+  "connection pool": {
+    "summary": "A connection pool reuses a limited set of DB connections across many app requests/threads.",
+    "problem": "It prevents connection storms against process-per-connection servers like Postgres.",
+    "concepts": [
+      "pool size",
+      "checkout timeout",
+      "PgBouncer",
+      "idle lifetime",
+      "statement vs transaction pooling"
+    ],
+    "mechanics": "App or proxy maintains N open connections; requests checkout/return. Size ≈ (cores × (1 + wait/service)) carefully; often tens not hundreds.",
+    "tradeoffs": "Pool too large still overwhelms DB. Transaction pooling limits session features (temp tables, prepared).",
+    "troubleshoot": "Timeouts under load: pool exhausted—raise carefully or reduce query time.",
+    "example": "# PgBouncer transaction pooling in front of Postgres",
+    "integration": "1) Add pooler. 2) Cap app pools. 3) Monitor wait/checkout. 4) Prefer transaction mode carefully."
+  },
+  "cache-aside": {
+    "summary": "Cache-aside (lazy loading) makes the app read cache first, load from DB on miss, then populate cache.",
+    "problem": "It is the common pattern for Redis in front of OLTP reads.",
+    "concepts": [
+      "get→miss→load→set",
+      "TTL",
+      "invalidation on write",
+      "stampede control"
+    ],
+    "mechanics": "On write, update DB then delete/update cache key. Use TTL as safety net; singleflight on hot misses.",
+    "tradeoffs": "Write-through simplifies reads but complicates writes. Stale windows are explicit trade-offs.",
+    "troubleshoot": "Stampede after expiry: lock/probabilistic early expire.",
+    "example": "val = redis.get(k)\nif val is None:\n    val = db.load(); redis.setex(k, 60, val)",
+    "integration": "1) Identify hot keys. 2) Implement get/set/invalidate. 3) Cap TTL. 4) Measure hit rate."
+  },
+  "Redis": {
+    "summary": "Redis is an in-memory data structure server used for caches, sessions, locks, rate limits, and queues.",
+    "problem": "It provides microsecond operations and rich types beyond simple KV.",
+    "concepts": [
+      "in-memory",
+      "structures",
+      "TTL",
+      "persistence optional",
+      "single-threaded commands"
+    ],
+    "mechanics": "Clients run commands (GET/SET/HSET/…). Persistence (RDB/AOF) is optional; treat as ephemeral unless configured and tested.",
+    "tradeoffs": "Not a primary durable DB for critical truth without care. Memory cost dominates.",
+    "troubleshoot": "Evictions/OOM: set maxmemory policies; split hot keys.",
+    "example": "redis-cli SET session:1 '{\"uid\":42}' EX 3600\nredis-cli GET session:1",
+    "integration": "1) Use for cache/session/limits. 2) Set maxmemory+policy. 3) Decide persistence needs. 4) Monitor hit/evict."
+  },
+  "Redis string": {
+    "summary": "Redis strings store bytes/text values—and can act as counters/bitmaps—with optional TTL.",
+    "problem": "They are the basic building block for cache entries and session blobs.",
+    "concepts": [
+      "GET/SET",
+      "INCR",
+      "EX/TTL",
+      "size limits",
+      "binary-safe"
+    ],
+    "mechanics": "SET key value EX seconds; GET retrieves; INCR atomically increments integer strings.",
+    "tradeoffs": "Huge values hurt; prefer hashes for many fields. JSON blobs are fine if sized reasonably.",
+    "troubleshoot": "Unexpected nil: expiry or eviction. Check TTL.",
+    "example": "SET user:42:name \"Ada\" EX 300\nINCR pageviews:home",
+    "integration": "1) Standardize key names. 2) Always consider TTL. 3) Cap value size. 4) Use INCR for counters."
+  },
+  "TTL": {
+    "summary": "TTL (time-to-live) expires keys automatically after a duration—central to cache correctness and memory control.",
+    "problem": "It bounds staleness and prevents unbounded growth.",
+    "concepts": [
+      "EX/PEXPIRE",
+      "passive expiry",
+      "active expiration cycle",
+      "TTL jitter"
+    ],
+    "mechanics": "SET with EX or EXPIRE; Redis removes lazily on access and periodically samples. Add jitter to avoid stampedes.",
+    "tradeoffs": "TTL too long serves stale; too short thunders origin.",
+    "troubleshoot": "Keys never die: missing TTL or persistence reload without expiry—audit object idle times.",
+    "example": "SET config:x v EX 60\nTTL config:x",
+    "integration": "1) Default TTLs by data class. 2) Jitter hot keys. 3) Alert on no-TTL growth. 4) Document staleness SLOs."
+  },
+  "set": {
+    "summary": "A Redis set is an unordered unique string collection supporting SADD/SMEMBERS/sinter operations.",
+    "problem": "It models tags, unique visitors, and membership tests.",
+    "concepts": [
+      "unique members",
+      "O(1) add/test",
+      "set algebra",
+      "vs sorted set"
+    ],
+    "mechanics": "SADD inserts; SISMEMBER tests; SUNION/SINTER combine. Sorted sets add scores for rankings.",
+    "tradeoffs": "Large SMEMBERS can block—use SSCAN. For rankings use ZSET.",
+    "troubleshoot": "Blocking ops on huge sets: scan iteratively.",
+    "example": "SADD user:42:tags sports music\nSISMEMBER user:42:tags sports",
+    "integration": "1) Use sets for membership. 2) SSCAN for large. 3) Expire key. 4) Prefer ZSET when order/score needed."
+  },
+  "stream": {
+    "summary": "Redis streams are append-only log structures with consumer groups for messaging patterns.",
+    "problem": "They provide lightweight queue/eventing inside Redis.",
+    "concepts": [
+      "XADD",
+      "XREADGROUP",
+      "consumer groups",
+      "ack",
+      "lag"
+    ],
+    "mechanics": "Producers XADD entries; consumers in groups claim pending entries and XACK. Unlike Kafka, retention/ops differ.",
+    "tradeoffs": "For large durable event buses, Kafka may fit better. Redis streams excel for simpler workloads.",
+    "troubleshoot": "Growing lag: scale consumers or fix poison messages (XPENDING).",
+    "example": "XADD orders * item_id 123\nXREADGROUP GROUP g c COUNT 10 STREAMS orders >",
+    "integration": "1) Define stream keys. 2) Consumer groups. 3) Idempotent handlers. 4) Monitor lag/pending."
+  },
+  "persistence RDB": {
+    "summary": "RDB persistence snapshots Redis memory to disk periodically for restart recovery.",
+    "problem": "It trades durability windows for simpler/faster persistence than full AOF.",
+    "concepts": [
+      "fork snapshot",
+      "save intervals",
+      "data loss window",
+      "AOF alternative"
+    ],
+    "mechanics": "BGSAVE forks and writes .rdb; on restart Redis loads snapshot. Changes since last save can be lost.",
+    "tradeoffs": "AOF fsync policies give stronger durability at cost. Many cache use-cases disable persistence.",
+    "troubleshoot": "Long forks stall under memory pressure—monitor COW and use replicas for bgsave offload.",
+    "example": "# redis.conf: save 60 1000\n# or appendonly yes",
+    "integration": "1) Decide if Redis is durable. 2) Configure RDB/AOF. 3) Test restart restore. 4) Monitor save failures."
+  },
+  "hot key": {
+    "summary": "A hot key receives disproportionate traffic, concentrating CPU/network on one Redis shard/key.",
+    "problem": "It creates latency spikes and uneven cluster load.",
+    "concepts": [
+      "skew",
+      "local cache",
+      "key splitting",
+      "replicas",
+      "request coalescing"
+    ],
+    "mechanics": "Detect via shard CPU and commandstats; mitigate with in-process cache, split keys, or read replicas; coalesce identical gets.",
+    "tradeoffs": "Clustering doesn't help if one key is the hotspot—must split logically.",
+    "troubleshoot": "One key dominates MONITOR/hotstats—add local L1 cache with short TTL.",
+    "example": "# split: likes:post:42:{0..15} and randomize reads",
+    "integration": "1) Detect skew. 2) L1 cache. 3) Split keys. 4) Coalesce stampedes."
+  },
+  "distributed lock": {
+    "summary": "A distributed lock coordinates mutual exclusion across processes using Redis/etcd with TTLs.",
+    "problem": "It prevents duplicate workers from running the same critical section.",
+    "concepts": [
+      "SET NX EX",
+      "token/fencing",
+      "TTL safety",
+      "Redlock debate",
+      "vs DB locks"
+    ],
+    "mechanics": "SET lock:name token NX EX 30; do work; delete only if token matches. Prefer fencing tokens for correctness under pauses.",
+    "tradeoffs": "Locks aren't enough for correctness without fencing in all failure modes. DB constraints often simpler.",
+    "troubleshoot": "Dead lock holders: TTL expiry; ensure work is idempotent.",
+    "example": "SET lock:job:42 token NX EX 30\n# release: if GET==token then DEL",
+    "integration": "1) Prefer DB uniqueness when possible. 2) TTL all locks. 3) Compare-and-del token. 4) Make work idempotent."
+  },
+  "MongoDB index": {
+    "summary": "MongoDB indexes (B-tree-like) speed queries/sorts on document fields, including compound and multikey indexes.",
+    "problem": "Without indexes, queries collection-scan documents.",
+    "concepts": [
+      "compound order",
+      "multikey",
+      "ESR rule",
+      "covered queries",
+      "TTL indexes"
+    ],
+    "mechanics": "createIndex on fields; explain() shows IXSCAN vs COLLSCAN. Equality-Sort-Range field order for compounds.",
+    "tradeoffs": "Too many indexes hurt writes. Wildcards carefully for flexible schemas.",
+    "troubleshoot": "COLLSCAN in explain: add/repair index; check types/selectivity.",
+    "example": "db.orders.createIndex({ userId: 1, createdAt: -1 })\ndb.orders.find({ userId: 42 }).sort({ createdAt: -1 }).explain('executionStats')",
+    "integration": "1) Index common filters/sorts. 2) Follow ESR. 3) Drop unused. 4) explain in review."
+  },
+  "document embedding": {
+    "summary": "Embedding stores related subdocuments inside a parent document instead of referencing another collection.",
+    "problem": "It makes common reads a single fetch when data is tightly bounded.",
+    "concepts": [
+      "embed vs reference",
+      "document size 16MB",
+      "update locality",
+      "duplication"
+    ],
+    "mechanics": "Embed when data is accessed together and bounded; reference when shared/large/many-to-many. Update patterns decide.",
+    "tradeoffs": "Unbounded arrays are an anti-pattern. Transactions across docs cost more.",
+    "troubleshoot": "Huge documents/slow updates: extract to references.",
+    "example": "// embed addresses inside user when few and owned\n{ _id, email, addresses: [{city, zip}] }",
+    "integration": "1) Model access patterns first. 2) Bound arrays. 3) Reference shared entities. 4) Enforce size checks."
+  },
+  "aggregation pipeline": {
+    "summary": "MongoDB aggregation pipelines transform documents through ordered stages ($match, $group, $lookup, …).",
+    "problem": "They express analytics and reshaping without pulling raw data to the app.",
+    "concepts": [
+      "stages",
+      "$match early",
+      "$group",
+      "$lookup",
+      "memory limits"
+    ],
+    "mechanics": "Place $match/$project early to cut data; use indexes for $match/$sort; allowDiskUse for large sorts carefully.",
+    "tradeoffs": "SQL engines may be better for heavy relational analytics. $lookup is not a free join.",
+    "troubleshoot": "OOM/slow: reduce working set; index; simplify groups.",
+    "example": "db.orders.aggregate([\n  { $match: { status: 'paid' } },\n  { $group: { _id: '$userId', total: { $sum: '$amount' } } }\n])",
+    "integration": "1) $match first. 2) Index match/sort fields. 3) Limit stages. 4) Explain pipelines."
+  },
+  "multi-document transaction": {
+    "summary": "MongoDB multi-document transactions provide ACID across documents/collections on replica sets/sharded clusters.",
+    "problem": "They allow relational-style invariants when embedding cannot express them.",
+    "concepts": [
+      "session.startTransaction",
+      "retryable",
+      "perf cost",
+      "snapshot reads"
+    ],
+    "mechanics": "Start session/transaction; perform ops; commit. Keep short; handle TransientTransactionError retries.",
+    "tradeoffs": "Prefer single-document atomicity when possible—it's cheaper and simpler.",
+    "troubleshoot": "Frequent aborts: contention—narrow scope or remodel.",
+    "example": "session = client.start_session()\nwith session.start_transaction():\n    coll.update_one({'_id':1},{'$inc':{'n':1}}, session=session)\n    session.commit_transaction()",
+    "integration": "1) Default to single-doc atomicity. 2) Use multi-doc sparingly. 3) Retry transients. 4) Monitor abort rates."
+  },
+  "replica set": {
+    "summary": "A MongoDB replica set is a primary plus secondaries replicating the oplog for HA and read preference options.",
+    "problem": "It provides automatic failover for the database tier.",
+    "concepts": [
+      "primary",
+      "secondaries",
+      "oplog",
+      "elections",
+      "readPreference"
+    ],
+    "mechanics": "Writes go to primary; secondaries replicate; elections promote on failure. Choose writeConcern/readConcern deliberately.",
+    "tradeoffs": "Secondary reads can be stale. Sharded clusters build on replica sets per shard.",
+    "troubleshoot": "Lagging secondary: check oplog window and load. Test failover.",
+    "example": "rs.status()\ndb.collection.find().readPref('secondaryPreferred')",
+    "integration": "1) Prod as replica set. 2) Tune concerns. 3) Monitor lag. 4) Rehearse failover."
+  },
+  "role": {
+    "summary": "Database roles bundle privileges granted to users (Postgres ROLEs / Mongo roles).",
+    "problem": "They implement least privilege for apps and humans.",
+    "concepts": [
+      "LOGIN roles",
+      "grants",
+      "least privilege",
+      "group roles"
+    ],
+    "mechanics": "Create group roles with grants; assign users/app roles. Avoid superuser for apps.",
+    "tradeoffs": "Too-broad grants increase breach impact. Migrate privileges with schema.",
+    "troubleshoot": "Permission denied: missing GRANT. Audit \\du / roles.",
+    "example": "CREATE ROLE app_rw LOGIN PASSWORD '…';\nGRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO app_rw;",
+    "integration": "1) Role per app. 2) Minimal grants. 3) No superuser apps. 4) Review quarterly."
+  },
+  "_by_id": {
+    "DB-B-0010": {
+      "summary": "INNER keeps matches; LEFT keeps all left rows; RIGHT all right; FULL keeps either side with NULLs for gaps.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SELECT u.id, o.id FROM users u LEFT JOIN orders o ON o.user_id=u.id;",
+      "integration": "1) Choose join type from the question you’re asking. 2) Index join keys. 3) Test unmatched rows. 4) EXPLAIN large joins.",
+      "shortAnswer": "INNER keeps matches; LEFT keeps all left rows; RIGHT all right; FULL keeps either side with NULLs for gaps.",
+      "answer": "Join type decides which unmatched rows survive. Prefer INNER when both sides must exist; LEFT for optional relations."
+    },
+    "DB-B-0011": {
+      "summary": "SELECT reads; INSERT adds rows; UPDATE modifies; DELETE removes—DML for relational tables.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "BEGIN; UPDATE accounts SET bal=bal-1 WHERE id=1; COMMIT;",
+      "integration": "1) Parameterize all SQL. 2) Transactional multi-writes. 3) Audit destructive deletes. 4) Add constraints.",
+      "shortAnswer": "SELECT reads; INSERT adds rows; UPDATE modifies; DELETE removes—DML for relational tables.",
+      "answer": "Wrap multi-step changes in transactions. Prefer soft-delete only with a clear policy."
+    },
+    "DB-B-0012": {
+      "summary": "Common Redis types: strings, hashes, lists, sets, sorted sets, streams—each fits different access patterns.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SADD tags:1 a b; ZADD leaderboard 100 alice; XADD events * type signup",
+      "integration": "1) Pick type by query. 2) TTL keys. 3) Cap memory. 4) Monitor hot keys.",
+      "shortAnswer": "Common Redis types: strings, hashes, lists, sets, sorted sets, streams—each fits different access patterns.",
+      "answer": "Strings for blobs/counters; hashes for objects; lists for queues; sets for membership; zsets for rankings; streams for event logs."
+    },
+    "DB-B-0013": {
+      "summary": "Primary key identifies rows; candidate keys are minimal unique sets; unique constraints enforce alternate keys; foreign keys reference parents.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "email TEXT UNIQUE; id BIGINT PRIMARY KEY; user_id REFERENCES users(id)",
+      "integration": "1) Declare keys in schema. 2) Index FKs. 3) Prefer stable PKs. 4) Document natural vs surrogate keys.",
+      "shortAnswer": "Primary key identifies rows; candidate keys are minimal unique sets; unique constraints enforce alternate keys; foreign keys reference parents.",
+      "answer": "One primary key per table; multiple unique/candidate keys possible; FKs enforce relational integrity."
+    },
+    "DB-B-0014": {
+      "summary": "Atomicity all-or-nothing; Consistency constraints hold; Isolation concurrency behavior; Durability committed data survives crashes.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "BEGIN; …; COMMIT; -- durability via WAL/fsync",
+      "integration": "1) Transactional invariants. 2) Choose isolation. 3) Short txns. 4) Backup/PITR still required.",
+      "shortAnswer": "Atomicity all-or-nothing; Consistency constraints hold; Isolation concurrency behavior; Durability committed data survives crashes.",
+      "answer": "Together they define correct transactions. Isolation level tunes the concurrency/anomaly trade-off."
+    },
+    "DB-B-0015": {
+      "summary": "GROUP BY aggregates rows sharing a key with SUM/COUNT/AVG and filters groups via HAVING.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SELECT user_id, COUNT(*) FROM orders GROUP BY user_id HAVING COUNT(*) > 3;",
+      "integration": "1) Index group keys when helpful. 2) Avoid join fanout before aggregate. 3) Test NULL groups. 4) EXPLAIN.",
+      "shortAnswer": "GROUP BY aggregates rows sharing a key with SUM/COUNT/AVG and filters groups via HAVING.",
+      "answer": "WHERE filters rows before aggregation; HAVING filters after."
+    },
+    "DB-B-0016": {
+      "summary": "MongoDB is a document database storing BSON documents in collections, flexible schema with rich secondary indexes.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "db.users.insertOne({email:'a@b.com', tags:['x']})",
+      "integration": "1) Model access patterns. 2) Index queries. 3) Replica set for prod. 4) explain() slow ops.",
+      "shortAnswer": "MongoDB is a document database storing BSON documents in collections, flexible schema with rich secondary indexes.",
+      "answer": "A document is a JSON-like record. Model by access patterns using embedding or references."
+    },
+    "DB-B-0017": {
+      "summary": "PostgreSQL is a robust open-source relational database with strong SQL, MVCC, and extensibility.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "psql -c 'SELECT version();'",
+      "integration": "1) Managed Postgres when possible. 2) Migrations as code. 3) Pooling. 4) Observe slow queries.",
+      "shortAnswer": "PostgreSQL is a robust open-source relational database with strong SQL, MVCC, and extensibility.",
+      "answer": "It fits transactional applications needing integrity, complex queries, and reliability features like WAL/PITR."
+    },
+    "DB-B-0018": {
+      "summary": "Redis is used for caches, sessions, rate limits, locks, leaderboards, and lightweight queues/streams.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SET session:1 '{…}' EX 3600",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Redis is used for caches, sessions, rate limits, locks, leaderboards, and lightweight queues/streams.",
+      "answer": "In-memory first; persistence is optional and must be tested if durability is required."
+    },
+    "DB-B-0019": {
+      "summary": "Backups copy data; restore tests prove RTO/RPO—untouched backups are not a strategy.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "pg_restore -d scratch app.dump",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Backups copy data; restore tests prove RTO/RPO—untouched backups are not a strategy.",
+      "answer": "Rehearse restores and alert on backup age."
+    },
+    "DB-B-0020": {
+      "summary": "A transaction groups statements into an atomic commit/rollback unit with isolation/durability properties.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "BEGIN; …; COMMIT;",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "A transaction groups statements into an atomic commit/rollback unit with isolation/durability properties.",
+      "answer": "Use whenever partial updates would corrupt invariants."
+    },
+    "DB-B-0021": {
+      "summary": "A relational database stores typed tables with constraints and is queried declaratively with SQL.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "A relational database stores typed tables with constraints and is queried declaratively with SQL.",
+      "answer": "It fits integrity-heavy OLTP and complex joins."
+    },
+    "DB-B-0022": {
+      "summary": "A subquery is nested SQL used in FROM/WHERE/SELECT to express multi-step logic.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "A subquery is nested SQL used in FROM/WHERE/SELECT to express multi-step logic.",
+      "answer": "EXISTS often beats IN for large nullable sets; planners may rewrite as joins."
+    },
+    "DB-B-0023": {
+      "summary": "An index is an auxiliary structure speeding lookups/sorts/joins at write/storage cost.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "CREATE INDEX ON orders(user_id);",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "An index is an auxiliary structure speeding lookups/sorts/joins at write/storage cost.",
+      "answer": "Without suitable indexes, large selective queries sequential-scan."
+    },
+    "DB-B-0024": {
+      "summary": "Normalization reduces redundancy via dependency rules so updates stay consistent.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Normalization reduces redundancy via dependency rules so updates stay consistent.",
+      "answer": "Normalize OLTP by default; denormalize only with measured need and sync rules."
+    },
+    "DB-B-0025": {
+      "summary": "SQL/relational emphasizes schema, joins, strong integrity; NoSQL covers varied models with different trade-offs.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "SQL/relational emphasizes schema, joins, strong integrity; NoSQL covers varied models with different trade-offs.",
+      "answer": "Choose by access patterns and integrity—often both appear in one architecture."
+    },
+    "DB-B-0026": {
+      "summary": "Databases contain schemas; schemas group tables; tables have columns; rows are records.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Databases contain schemas; schemas group tables; tables have columns; rows are records.",
+      "answer": "These layers organize objects and privileges in engines like Postgres."
+    },
+    "DB-B-0027": {
+      "summary": "Embedding stores related data inside a document; referencing stores ids pointing elsewhere.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Embedding stores related data inside a document; referencing stores ids pointing elsewhere.",
+      "answer": "Embed bounded co-accessed data; reference shared/unbounded relations."
+    },
+    "DB-B-0028": {
+      "summary": "Excess indexes slow writes, bloat storage, and add planner overhead without helping reads.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SELECT * FROM pg_stat_user_indexes ORDER BY idx_scan",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Excess indexes slow writes, bloat storage, and add planner overhead without helping reads.",
+      "answer": "Index real query patterns; drop unused indexes."
+    },
+    "DB-B-0031": {
+      "summary": "WHERE filters rows before aggregation; HAVING filters groups after GROUP BY.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SELECT user_id, COUNT(*) c FROM orders WHERE status='paid' GROUP BY user_id HAVING COUNT(*) > 2;",
+      "integration": "1) Push row filters to WHERE. 2) Keep HAVING for aggregates. 3) Index WHERE columns. 4) EXPLAIN.",
+      "shortAnswer": "WHERE filters rows before aggregation; HAVING filters groups after GROUP BY.",
+      "answer": "Use WHERE for row predicates; HAVING for aggregate predicates like COUNT(*) > 1."
+    },
+    "DB-B-0032": {
+      "summary": "Primary keys identify rows; unique constraints enforce alternate keys; foreign keys reference parents.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Primary keys identify rows; unique constraints enforce alternate keys; foreign keys reference parents.",
+      "answer": "PK ⇒ unique+NOT NULL; FKs prevent orphans; index FK columns."
+    },
+    "DB-B-0033": {
+      "summary": "A transaction groups statements into an atomic commit/rollback unit with isolation/durability properties.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "BEGIN; …; COMMIT;",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "A transaction groups statements into an atomic commit/rollback unit with isolation/durability properties.",
+      "answer": "Use whenever partial updates would corrupt invariants."
+    },
+    "DB-B-0034": {
+      "summary": "Indexes speed lookups/sorts by avoiding scans, but each write must maintain those structures.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "CREATE INDEX ON orders(user_id); EXPLAIN SELECT * FROM orders WHERE user_id=1;",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Indexes speed lookups/sorts by avoiding scans, but each write must maintain those structures.",
+      "answer": "Index selective query paths; drop unused indexes that only tax writes."
+    },
+    "DB-B-0035": {
+      "summary": "SQL uses three-valued logic: NULL means unknown, so NULL = NULL is unknown (not true).",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "WHERE a IS NOT DISTINCT FROM b",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "SQL uses three-valued logic: NULL means unknown, so NULL = NULL is unknown (not true).",
+      "answer": "Use IS NULL / IS NOT DISTINCT FROM; avoid NOT IN with nullable columns."
+    },
+    "DB-I-0011": {
+      "summary": "B-tree for equality/range; hash equality; GIN jsonb/array/fts; GiST geometry/ranges; BRIN correlated bulky columns.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "B-tree for equality/range; hash equality; GIN jsonb/array/fts; GiST geometry/ranges; BRIN correlated bulky columns.",
+      "answer": "Pick by operators/data shape; confirm with EXPLAIN."
+    },
+    "DB-I-0012": {
+      "summary": "Pub/Sub is ephemeral fanout; Streams are append logs with consumer groups and acks.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "XADD events * type signup",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Pub/Sub is ephemeral fanout; Streams are append logs with consumer groups and acks.",
+      "answer": "Streams when you need replay/lag control; Pub/Sub for transient notifications."
+    },
+    "DB-I-0013": {
+      "summary": "Physical copies WAL bytes for HA twins; logical decodes row changes for selective/cross-version sync.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Physical copies WAL bytes for HA twins; logical decodes row changes for selective/cross-version sync.",
+      "answer": "Physical for HA; logical for migrations/selective pubs."
+    },
+    "DB-I-0014": {
+      "summary": "Optimistic detects conflicts via versions; pessimistic locks before conflicting work.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "UPDATE t SET ver=ver+1 WHERE id=? AND ver=?",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Optimistic detects conflicts via versions; pessimistic locks before conflicting work.",
+      "answer": "Optimistic for rare conflicts + retry; pessimistic for hot contended rows."
+    },
+    "DB-I-0015": {
+      "summary": "1NF atomic attrs; 2NF full key dependency; 3NF no transitive deps; BCNF stronger key rule—decompose to remove anomalies.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "1NF atomic attrs; 2NF full key dependency; 3NF no transitive deps; BCNF stronger key rule—decompose to remove anomalies.",
+      "answer": "Example: don’t repeat customer city on every order—use customers + FK."
+    },
+    "DB-I-0016": {
+      "summary": "VACUUM reclaims dead MVCC tuples; autovacuum runs continuously; bloat is wasted space from delayed cleanup.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "VACUUM (VERBOSE, ANALYZE) orders;",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "VACUUM reclaims dead MVCC tuples; autovacuum runs continuously; bloat is wasted space from delayed cleanup.",
+      "answer": "Long transactions block cleanup—monitor dead tuples and xid age."
+    },
+    "DB-I-0017": {
+      "summary": "Cache-aside: get cache → on miss load DB → SET; invalidate/TTL on writes; prevent stampedes.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "val=redis.get(k) or db.load() and redis.setex(k,60,val)",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Cache-aside: get cache → on miss load DB → SET; invalidate/TTL on writes; prevent stampedes.",
+      "answer": "Delete-on-write for critical freshness; add jitter/singleflight on hot keys."
+    },
+    "DB-I-0018": {
+      "summary": "Pools reuse limited connections; too many connections waste memory on process-per-connection servers like Postgres.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SHOW max_connections; SELECT count(*) FROM pg_stat_activity;",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Pools reuse limited connections; too many connections waste memory on process-per-connection servers like Postgres.",
+      "answer": "Use PgBouncer and modest app pool sizes."
+    },
+    "DB-I-0019": {
+      "summary": "Dirty reads see uncommitted data; non-repeatable reads see changes on re-read; phantoms see new matching rows.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SHOW transaction_isolation;",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Dirty reads see uncommitted data; non-repeatable reads see changes on re-read; phantoms see new matching rows.",
+      "answer": "Higher isolation prevents more anomalies at abort/latency cost. Ledgers often need SERIALIZABLE or careful locking + retry."
+    },
+    "DB-I-0020": {
+      "summary": "Given a workload, how would you choose among PostgreSQL, Redis, and MongoDB rather than selecting by popularity.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Given a workload, how would you choose among PostgreSQL, Redis, and MongoDB rather than selecting by popularity.",
+      "answer": "Given a workload, how would you choose among PostgreSQL, Redis, and MongoDB rather than selecting by popularity. Explain mechanism, then trade-offs and failure modes. At Intermediate level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-I-0021": {
+      "summary": "Indexes accelerate filters/sorts; aggregation pipelines transform documents through stages.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "db.orders.createIndex({userId:1,createdAt:-1})",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Indexes accelerate filters/sorts; aggregation pipelines transform documents through stages.",
+      "answer": "Put $match early; compound ESR order; explain IXSCAN vs COLLSCAN."
+    },
+    "DB-I-0022": {
+      "summary": "WAL logs changes before data files; base backup + archived WAL enables PITR to a timestamp/LSN.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "recovery_target_time = '…'",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "WAL logs changes before data files; base backup + archived WAL enables PITR to a timestamp/LSN.",
+      "answer": "Monitor archive success and practice restores."
+    },
+    "DB-I-0023": {
+      "summary": "CTEs name subqueries; window functions compute across related rows without collapsing the result set.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SUM(x) OVER (PARTITION BY user_id ORDER BY ts)",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "CTEs name subqueries; window functions compute across related rows without collapsing the result set.",
+      "answer": "Use windows for rankings/running totals; understand CTE optimization behavior on your version."
+    },
+    "DB-I-0024": {
+      "summary": "Multi-document transactions provide ACID across docs but cost more—prefer single-document atomic modeling.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Multi-document transactions provide ACID across docs but cost more—prefer single-document atomic modeling.",
+      "answer": "Keep them short; retry transient errors."
+    },
+    "DB-I-0025": {
+      "summary": "RDB snapshots periodically; AOF appends writes with fsync policies trading durability vs cost.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "RDB snapshots periodically; AOF appends writes with fsync policies trading durability vs cost.",
+      "answer": "Caches may disable persistence; durable Redis must test restart restore."
+    },
+    "DB-I-0026": {
+      "summary": "What causes a database deadlock, and how does PostgreSQL recover from one.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "What causes a database deadlock, and how does PostgreSQL recover from one.",
+      "answer": "What causes a database deadlock, and how does PostgreSQL recover from one. Explain mechanism, then trade-offs and failure modes. At Intermediate level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-I-0027": {
+      "summary": "EXPLAIN shows the planner’s plan; EXPLAIN ANALYZE executes and adds actual timings/rows.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT …",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "EXPLAIN shows the planner’s plan; EXPLAIN ANALYZE executes and adds actual timings/rows.",
+      "answer": "Compare estimates vs actual to find bad stats or missing indexes."
+    },
+    "DB-I-0028": {
+      "summary": "MVCC keeps row versions so readers and writers rarely block; snapshots decide visibility; vacuum removes dead versions.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SELECT * FROM pg_stat_activity WHERE state LIKE 'idle in transaction%';",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "MVCC keeps row versions so readers and writers rarely block; snapshots decide visibility; vacuum removes dead versions.",
+      "answer": "Long transactions cause bloat by delaying cleanup."
+    },
+    "DB-I-0029": {
+      "summary": "Composite indexes follow left-most prefixes; put equality columns first, then range/sort columns matching queries.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "CREATE INDEX ON orders(user_id, created_at);",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Composite indexes follow left-most prefixes; put equality columns first, then range/sort columns matching queries.",
+      "answer": "(a,b) helps a and a+b, not b alone—validate with EXPLAIN."
+    },
+    "DB-I-0030": {
+      "summary": "Planner may seq-scan for low selectivity, stale stats, non-sargable predicates, or cheaper bulk reads.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN ANALYZE SELECT …",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Planner may seq-scan for low selectivity, stale stats, non-sargable predicates, or cheaper bulk reads.",
+      "answer": "ANALYZE; remove casts on indexed columns; redesign indexes."
+    },
+    "DB-I-0033": {
+      "summary": "MVCC snapshots let readers see a stable view without blocking writers; old row versions become dead and need VACUUM.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SELECT pid, state, xact_start FROM pg_stat_activity WHERE state LIKE 'idle in transaction%';",
+      "integration": "1) Short txns. 2) Autovacuum tuned. 3) Alert on idle-in-transaction. 4) Track bloat.",
+      "shortAnswer": "MVCC snapshots let readers see a stable view without blocking writers; old row versions become dead and need VACUUM.",
+      "answer": "Long transactions delay cleanup and cause bloat—keep them short and monitor dead tuples."
+    },
+    "DB-I-0034": {
+      "summary": "Capture deadlock details, enforce global lock order, shorten transactions, and retry victims idempotently.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Capture deadlock details, enforce global lock order, shorten transactions, and retry victims idempotently.",
+      "answer": "Make both workflows lock resources in the same order."
+    },
+    "DB-I-0035": {
+      "summary": "Order composite B-tree columns by equality filters first, then range/sort columns matching real WHERE/ORDER BY patterns.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "CREATE INDEX ON orders(user_id, created_at DESC); -- timelines by user",
+      "integration": "1) Mine top queries. 2) Design left-most prefixes. 3) EXPLAIN on prod-shaped data. 4) Drop redundant singles.",
+      "shortAnswer": "Order composite B-tree columns by equality filters first, then range/sort columns matching real WHERE/ORDER BY patterns.",
+      "answer": "Put equality-filtered columns leftmost, then the range or ORDER BY column. Validate with EXPLAIN that the index supports the leading predicates; (a,b) does not help filter on b alone."
+    },
+    "DB-I-0036": {
+      "summary": "Denormalization can cut read joins but introduces stale copies and harder updates.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Denormalization can cut read joins but introduces stale copies and harder updates.",
+      "answer": "Do it from profiling evidence with clear sync ownership and inconsistency windows."
+    },
+    "DB-I-0037": {
+      "summary": "Planner may seq-scan for low selectivity, stale stats, non-sargable predicates, or cheaper bulk reads.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN ANALYZE SELECT …",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Planner may seq-scan for low selectivity, stale stats, non-sargable predicates, or cheaper bulk reads.",
+      "answer": "ANALYZE; remove casts on indexed columns; redesign indexes."
+    },
+    "DB-A-0009": {
+      "summary": "Sentinel provides HA failover for one primary; Cluster shards data across nodes with more client/ops complexity.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Sentinel provides HA failover for one primary; Cluster shards data across nodes with more client/ops complexity.",
+      "answer": "Use Sentinel for simple HA; Cluster when dataset/throughput requires sharding."
+    },
+    "DB-A-0010": {
+      "summary": "Partitioning splits one database; app sharding splits across databases; distributed Postgres adds cross-node planning complexity.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Partitioning splits one database; app sharding splits across databases; distributed Postgres adds cross-node planning complexity.",
+      "answer": "Prefer partitioning first; shard only when a single primary cannot meet needs."
+    },
+    "DB-A-0011": {
+      "summary": "Relational models separate entities with joins; embedding colocates for single-read access with bounded arrays.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Relational models separate entities with joins; embedding colocates for single-read access with bounded arrays.",
+      "answer": "Embed line items; reference shared catalog entities."
+    },
+    "DB-A-0012": {
+      "summary": "Design Redis caching that survives node failures while preventing stale or inconsistent critical data..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Design Redis caching that survives node failures while preventing stale or inconsistent critical data..",
+      "answer": "Design Redis caching that survives node failures while preventing stale or inconsistent critical data.. Explain mechanism, then trade-offs and failure modes. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0013": {
+      "summary": "Design a Redis-based distributed lock and explain the correctness limitations you must consider..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Design a Redis-based distributed lock and explain the correctness limitations you must consider..",
+      "answer": "Design a Redis-based distributed lock and explain the correctness limitations you must consider.. Explain mechanism, then trade-offs and failure modes. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0014": {
+      "summary": "Design an indexing strategy for a multi-column filtering/sorting workload with several competing query patterns..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Design an indexing strategy for a multi-column filtering/sorting workload with several competing query patterns..",
+      "answer": "Design an indexing strategy for a multi-column filtering/sorting workload with several competing query patterns.. Explain mechanism, then trade-offs and failure modes. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0015": {
+      "summary": "Design backup/PITR/restore procedures and prove they meet specific RPO/RTO objectives..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Design backup/PITR/restore procedures and prove they meet specific RPO/RTO objectives..",
+      "answer": "Design backup/PITR/restore procedures and prove they meet specific RPO/RTO objectives.. Explain mechanism, then trade-offs and failure modes. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0016": {
+      "summary": "Design high availability for PostgreSQL and discuss synchronous versus asynchronous replication trade-offs..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Design high availability for PostgreSQL and discuss synchronous versus asynchronous replication trade-offs..",
+      "answer": "Design high availability for PostgreSQL and discuss synchronous versus asynchronous replication trade-offs.. Explain mechanism, then trade-offs and failure modes. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0017": {
+      "summary": "Design observability for database health: latency, locks, cache hit rates, replication, vacuum, storage, and query distribution..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Design observability for database health: latency, locks, cache hit rates, replication, vacuum, storage, and query distribution..",
+      "answer": "Design observability for database health: latency, locks, cache hit rates, replication, vacuum, storage, and query distribution.. Explain mechanism, then trade-offs and failure modes. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0018": {
+      "summary": "Diagnose a PostgreSQL query whose plan changed from milliseconds to seconds after data growth despite unchanged SQL..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Diagnose a PostgreSQL query whose plan changed from milliseconds to seconds after data growth despite unchanged SQL..",
+      "answer": "Diagnose a PostgreSQL query whose plan changed from milliseconds to seconds after data growth despite unchanged SQL.. Explain mechanism, then trade-offs and failure modes. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0019": {
+      "summary": "Diagnose a production deadlock from database logs and application behavior..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Diagnose a production deadlock from database logs and application behavior..",
+      "answer": "Diagnose a production deadlock from database logs and application behavior.. Explain mechanism, then trade-offs and failure modes. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0020": {
+      "summary": "MVCC snapshots let readers see a stable view without blocking writers; old row versions become dead and need VACUUM.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SELECT pid, state, xact_start FROM pg_stat_activity WHERE state LIKE 'idle in transaction%';",
+      "integration": "1) Short txns. 2) Autovacuum tuned. 3) Alert on idle-in-transaction. 4) Track bloat.",
+      "shortAnswer": "MVCC snapshots let readers see a stable view without blocking writers; old row versions become dead and need VACUUM.",
+      "answer": "Long transactions delay cleanup and cause bloat—keep them short and monitor dead tuples."
+    },
+    "DB-A-0021": {
+      "summary": "Stampede=mass miss reload; avalanche=mass expiry; penetration=missing-key DB hits; hot keys skew—use jitter, locks, bloom filters, splits, L1 cache.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Stampede=mass miss reload; avalanche=mass expiry; penetration=missing-key DB hits; hot keys skew—use jitter, locks, bloom filters, splits, L1 cache.",
+      "answer": "Design cache failure modes; watch hit rate and origin QPS."
+    },
+    "DB-A-0022": {
+      "summary": "Replica lag means read replicas can return old data after primary writes.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SELECT replay_lag FROM pg_stat_replication;",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Replica lag means read replicas can return old data after primary writes.",
+      "answer": "Route read-your-writes to primary or wait on lag thresholds; monitor replay_lag."
+    },
+    "DB-A-0023": {
+      "summary": "Dirty reads see uncommitted data; non-repeatable reads see changes on re-read; phantoms see new matching rows.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SHOW transaction_isolation;",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Dirty reads see uncommitted data; non-repeatable reads see changes on re-read; phantoms see new matching rows.",
+      "answer": "Higher isolation prevents more anomalies at abort/latency cost. Ledgers often need SERIALIZABLE or careful locking + retry."
+    },
+    "DB-A-0024": {
+      "summary": "Avoid monotonically increasing keys that hotspot; choose high-cardinality keys aligned to queries; test chunk distribution.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Avoid monotonically increasing keys that hotspot; choose high-cardinality keys aligned to queries; test chunk distribution.",
+      "answer": "Model access patterns first; consider hashed keys carefully for range needs."
+    },
+    "DB-A-0025": {
+      "summary": "Detect via bloat queries, pg_stat_statements, EXPLAIN; VACUUM/REINDEX carefully; ANALYZE; fix long transactions and bad indexes.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "SELECT query, mean_exec_time FROM pg_stat_statements ORDER BY mean_exec_time DESC LIMIT 10;",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Detect via bloat queries, pg_stat_statements, EXPLAIN; VACUUM/REINDEX carefully; ANALYZE; fix long transactions and bad indexes.",
+      "answer": "Address root causes, not only symptoms."
+    },
+    "DB-A-0026": {
+      "summary": "Use replication cutovers, partition attach/detach, or expand/contract backfills—avoid long exclusive full rewrites.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Use replication cutovers, partition attach/detach, or expand/contract backfills—avoid long exclusive full rewrites.",
+      "answer": "Practice on restores; throttle backfills; monitor lag/locks."
+    },
+    "DB-A-0027": {
+      "summary": "Use expand/contract: add compatible schema, dual-write/read, switch, then remove old—avoid long exclusive locks.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "ALTER TABLE … ADD COLUMN …; -- expand first",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Use expand/contract: add compatible schema, dual-write/read, switch, then remove old—avoid long exclusive locks.",
+      "answer": "CREATE INDEX CONCURRENTLY; keep old app versions working during rollout."
+    },
+    "DB-A-0028": {
+      "summary": "In a database-system-design interview, design the persistence layer for a high-volume order platform and justify schema, indexes, transactions, caching, replication, partitioning, backup, and failure recovery..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "In a database-system-design interview, design the persistence layer for a high-volume order platform and justify schema, indexes, transactions, caching, replication, partitioning, backup, and failure recovery..",
+      "answer": "In a database-system-design interview, design the persistence layer for a high-volume order platform and justify schema, indexes, transactions, caching, replication, partitioning, backup, and failure recovery.. Explain mechanism, then trade-offs and failure modes. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0031": {
+      "summary": "A query was fast for months and suddenly became slow without a code change. Build a PostgreSQL investigation covering data growth, statistics, plan changes, bloat, locks, and infrastructure..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "A query was fast for months and suddenly became slow without a code change. Build a PostgreSQL investigation covering data growth, statistics, plan changes, bloat, locks, and infrastructure..",
+      "answer": "A query was fast for months and suddenly became slow without a code change. Build a PostgreSQL investigation covering data growth, statistics, plan changes, bloat, locks, and infrastructure.. Explain mechanism, then trade-offs and failure modes with production diagnostics. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0032": {
+      "summary": "Design PostgreSQL high availability with backups, PITR, replicas, failover, connection routing, and regular restore testing..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Design PostgreSQL high availability with backups, PITR, replicas, failover, connection routing, and regular restore testing..",
+      "answer": "Design PostgreSQL high availability with backups, PITR, replicas, failover, connection routing, and regular restore testing.. Explain mechanism, then trade-offs and failure modes with production diagnostics. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0033": {
+      "summary": "Design a data model that deliberately combines PostgreSQL, Redis, and a document store, and justify why each datastore owns specific data..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Design a data model that deliberately combines PostgreSQL, Redis, and a document store, and justify why each datastore owns specific data..",
+      "answer": "Design a data model that deliberately combines PostgreSQL, Redis, and a document store, and justify why each datastore owns specific data.. Explain mechanism, then trade-offs and failure modes with production diagnostics. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0034": {
+      "summary": "Design a zero-downtime migration for a multi-billion-row table while application traffic continues..",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "EXPLAIN (ANALYZE, BUFFERS) SELECT 1; -- replace with the slow statement",
+      "integration": "1) Capture EXPLAIN/slow-log evidence. 2) Fix schema/query/index. 3) Regression test the SQL. 4) Monitor p95 after deploy.",
+      "shortAnswer": "Design a zero-downtime migration for a multi-billion-row table while application traffic continues..",
+      "answer": "Design a zero-downtime migration for a multi-billion-row table while application traffic continues.. Explain mechanism, then trade-offs and failure modes with production diagnostics. At Advanced level, be precise and concrete rather than buzzwordy."
+    },
+    "DB-A-0035": {
+      "summary": "Detect skew via shard CPU/hotstats; mitigate with L1 cache, key splits, coalescing; free memory via TTL/eviction and sizing.",
+      "problem": "",
+      "concepts": [],
+      "mechanics": "",
+      "tradeoffs": "",
+      "troubleshoot": "",
+      "example": "",
+      "integration": "1) Align the team on the definition. 2) Prove it with a concrete command/query. 3) Codify in automation or docs. 4) Revisit after related incidents.",
+      "shortAnswer": "Detect skew via shard CPU/hotstats; mitigate with L1 cache, key splits, coalescing; free memory via TTL/eviction and sizing.",
+      "answer": "Alert on evictions and latency; load-test skewed keys."
+    }
+  }
+}

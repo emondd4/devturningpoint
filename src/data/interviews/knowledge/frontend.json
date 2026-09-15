@@ -1,0 +1,1622 @@
+{
+  "_general": {
+    "summary": "Frontend interviews expect you to connect UI behavior to browser/React mechanics, accessibility, and performance budgets.",
+    "problem": "Vague answers skip ownership of rendering cost, a11y, and failure modes users actually hit.",
+    "concepts": [
+      "Render cost and identity",
+      "Network waterfalls",
+      "Accessibility as a requirement",
+      "Measurable UX (CWV)"
+    ],
+    "mechanics": "Clarify the user-visible symptom, name the layer (CSS/DOM/React/network), propose a minimal reproduction, then a fix with a regression check.",
+    "tradeoffs": "Depth vs breadth: interviewers prefer one correct mental model over buzzwords. Over-optimizing early hides product bugs.",
+    "troubleshoot": "Ask for metrics (LCP/INP), repro steps, and which environment; avoid guessing without signals.",
+    "example": "// Prefer: measure → isolate → fix → guard\nperformance.mark('start');\n// ...interaction...\nperformance.measure('op','start');",
+    "integration": "1) Capture the user journey and metric. 2) Reproduce locally with DevTools. 3) Ship the smallest fix. 4) Add a test or RUM alert. 5) Document the failure mode."
+  },
+  "AbortController": {
+    "summary": "AbortController lets you cancel in-flight fetch/streams so stale responses cannot update UI after unmount or newer requests.",
+    "problem": "Without abort, race conditions flash wrong data and waste bandwidth on abandoned navigations.",
+    "concepts": [
+      "AbortSignal",
+      "fetch signal option",
+      "AbortError handling",
+      "One controller per logical request"
+    ],
+    "mechanics": "Create a controller, pass signal to fetch, abort on cleanup or superseding request, and ignore AbortError as expected cancellation.",
+    "tradeoffs": "Aggressive abort vs retry: aborting too early cancels useful work; never aborting leaks races. Prefer abort-on-unmount and abort-previous-search.",
+    "troubleshoot": "If UI shows stale results, log request IDs and ensure older responses check signal.aborted or a generation token before setState.",
+    "example": "const ac = new AbortController();\nuseEffect(() => {\n  fetch(url, { signal: ac.signal }).then(...);\n  return () => ac.abort();\n}, [url]);",
+    "integration": "1) Wrap data fetches with AbortController. 2) Abort in effect cleanup. 3) Treat AbortError as non-fatal. 4) Add races tests for fast typing/navigation."
+  },
+  "accessible modal": {
+    "summary": "An accessible modal traps focus, restores focus on close, uses dialog semantics, and blocks background interaction.",
+    "problem": "Div popovers without focus management strand keyboard and screen-reader users.",
+    "concepts": [
+      "role=dialog / aria-modal",
+      "focus trap",
+      "Escape to close",
+      "initial focus + restore"
+    ],
+    "mechanics": "On open, move focus inside, trap Tab, label via aria-labelledby, close on Escape/backdrop per design, restore focus to invoker.",
+    "tradeoffs": "Custom modals are easy to get wrong; prefer native <dialog> or vetted libraries.",
+    "troubleshoot": "Test with keyboard only and SR; ensure background is inert/aria-hidden correctly.",
+    "example": "<dialog open aria-labelledby=\"t\">\n  <h2 id=\"t\">Confirm</h2>\n  <button autoFocus>OK</button>\n</dialog>",
+    "integration": "1) Pick dialog primitive. 2) Implement focus trap/restore. 3) Add RTL keyboard tests. 4) Audit with axe."
+  },
+  "accessible name computation": {
+    "summary": "Accessible name computation defines how assistive tech names elements from labels, content, aria-label, and labelledby.",
+    "problem": "Icon-only buttons without names are announced as unlabeled, blocking task completion.",
+    "concepts": [
+      "aria-labelledby > aria-label > content",
+      "label elements",
+      "title is last resort",
+      "visible label preferred"
+    ],
+    "mechanics": "Provide visible labels; for icon buttons add aria-label; prefer labelledby to reuse visible text.",
+    "tradeoffs": "aria-label can diverge from visuals—prefer visible text association.",
+    "troubleshoot": "Inspect Accessibility pane 'Name' when SR is silent or wrong.",
+    "example": "<button aria-label=\"Close\">\n  <CloseIcon aria-hidden />\n</button>",
+    "integration": "1) Audit controls missing names. 2) Fix via label/aria. 3) Add eslint a11y rules. 4) Include in design QA."
+  },
+  "App Router": {
+    "summary": "Next.js App Router is a file-system router built around Server Components, nested layouts, and server-first data fetching by default.",
+    "problem": "Treating it like Pages Router (client everything) loses streaming, caching, and bundle benefits.",
+    "concepts": [
+      "app/ directory",
+      "layouts/templates",
+      "Server vs Client Components",
+      "loading.js/error.js"
+    ],
+    "mechanics": "Place routes under app/, keep data fetching in Server Components, mark interactive islands with 'use client', and compose layouts that preserve state across navigations.",
+    "tradeoffs": "Server defaults reduce JS but constrain browser APIs; overusing client components reintroduces waterfalls and large bundles.",
+    "troubleshoot": "If navigation loses state or fetches twice, check layout boundaries, cache settings, and accidental client wrappers around trees.",
+    "example": "// app/dashboard/layout.tsx (Server Component)\nexport default function Layout({ children }) {\n  return <section>{children}</section>;\n}",
+    "integration": "1) Migrate one route segment to app/. 2) Keep interactivity in leaf client components. 3) Use loading UI for suspense. 4) Verify RSC payload size. 5) Document client boundary rules."
+  },
+  "ARIA": {
+    "summary": "ARIA adds accessible names, roles, and states to custom UI when native HTML semantics are insufficient.",
+    "problem": "Wrong ARIA misleads assistive tech worse than no ARIA; many widgets should use native elements instead.",
+    "concepts": [
+      "No ARIA is better than bad ARIA",
+      "Roles/states/properties",
+      "Accessible name",
+      "Keyboard operability"
+    ],
+    "mechanics": "Prefer semantic HTML; if you must build a custom control, set role, manage tabindex/focus, sync aria-* with visual state, and test with a screen reader.",
+    "tradeoffs": "ARIA complexity vs native controls: custom widgets need full keyboard and state contracts. Over-ARIA on static content creates noise.",
+    "troubleshoot": "If SR announces wrong names or ignores clicks, inspect computed role/name in Accessibility tree and verify focus order.",
+    "example": "<button aria-expanded={open} aria-controls=\"menu\">Menu</button>\n<ul id=\"menu\" role=\"menu\" hidden={!open}>...</ul>",
+    "integration": "1) Inventory custom controls. 2) Replace with native where possible. 3) Add ARIA only for gaps. 4) Test keyboard + VoiceOver/NVDA. 5) Lint with eslint-plugin-jsx-a11y."
+  },
+  "async/await": {
+    "summary": "async/await is syntax over promises that linearizes asynchronous control flow while still yielding to the event loop at await points.",
+    "problem": "Awaiting in serial loops creates accidental waterfalls; try/catch must wrap awaited rejections.",
+    "concepts": [
+      "async returns Promise",
+      "await pauses function",
+      "errors via throw/reject",
+      "concurrency with Promise.all"
+    ],
+    "mechanics": "Mark functions async, await I/O, catch errors, and parallelize independent awaits with Promise.all.",
+    "tradeoffs": "Readable sequential code can hide performance cliffs; profile critical paths.",
+    "troubleshoot": "If something never resolves, log before/after await and check hanging promises.",
+    "example": "async function load() {\n  const [u, p] = await Promise.all([getUser(), getPrefs()]);\n  return { u, p };\n}",
+    "integration": "1) Prefer async/await over raw then chains. 2) Lint floating promises. 3) Parallelize independent I/O. 4) Centralize error mapping."
+  },
+  "autocomplete UI": {
+    "summary": "Autocomplete UIs suggest options as users type, requiring keyboard support, debounced fetch, and accessible combobox patterns.",
+    "problem": "Mouse-only suggestion lists fail WCAG and racey fetches overwrite newer queries.",
+    "concepts": [
+      "combobox pattern",
+      "debounce",
+      "abort stale requests",
+      "active descendant"
+    ],
+    "mechanics": "Debounce input, fetch with abort, manage highlight index via keyboard, and wire aria-activedescendant/listbox roles.",
+    "tradeoffs": "Client filtering is instant but limited; server search scales but needs caching and empty states.",
+    "troubleshoot": "If wrong results flash, abort prior requests and key UI by query id.",
+    "example": "const ac = new AbortController();\nconst items = await search(q, { signal: ac.signal });",
+    "integration": "1) Implement combobox a11y. 2) Debounce+abort. 3) Add keyboard tests. 4) Cache popular queries."
+  },
+  "batching": {
+    "summary": "React batches state updates to render once per event/task, reducing layout thrash and wasted work.",
+    "problem": "Assuming every setState paints immediately leads to stale reads and incorrect mental models.",
+    "concepts": [
+      "automatic batching (React 18+)",
+      "flushSync escape hatch",
+      "transitions",
+      "setState updater form"
+    ],
+    "mechanics": "Prefer multiple setStates in handlers; use functional updates when depending on previous state; avoid flushSync unless necessary.",
+    "tradeoffs": "Batching improves performance but complicates reading state mid-handler—use updaters or derived variables.",
+    "troubleshoot": "If UI misses an intermediate state you expected, you are observing batching; derive both values before setState.",
+    "example": "setA(1); setB(2); // one render in React 18 event handlers",
+    "integration": "1) Rely on automatic batching. 2) Use updaters. 3) Reserve flushSync for measured cases. 4) Teach the team the model."
+  },
+  "box model": {
+    "summary": "The CSS box model defines content, padding, border, and margin; box-sizing controls whether width includes padding/border.",
+    "problem": "Mixing content-box widths with padding causes overflow and 'mysterious' layout bugs.",
+    "concepts": [
+      "content-box vs border-box",
+      "margin collapse",
+      "width/height",
+      "overflow"
+    ],
+    "mechanics": "Use border-box globally, understand margin collapse between siblings/parents, and debug with box model overlays.",
+    "tradeoffs": "border-box is usually saner; exotic designs may still need content-box intentionally.",
+    "troubleshoot": "If width math is wrong, check box-sizing and parent padding in computed styles.",
+    "example": "*, *::before, *::after { box-sizing: border-box; }",
+    "integration": "1) Set global border-box. 2) Document spacing scale. 3) Teach margin collapse. 4) Use DevTools box model routinely."
+  },
+  "browser rendering pipeline": {
+    "summary": "Browsers parse HTML/CSS into DOM/CSSOM, compute styles, layout, paint, and composite layers to pixels.",
+    "problem": "Forced synchronous layout and giant layers cause jank even if React code looks fine.",
+    "concepts": [
+      "style → layout → paint → composite",
+      "layer promotion",
+      "long tasks",
+      "critical rendering path"
+    ],
+    "mechanics": "Minimize render-blocking resources, avoid layout thrashing read/write loops, and animate compositor-friendly properties (transform/opacity).",
+    "tradeoffs": "More layers can help animations but cost memory; premature will-change hurts.",
+    "troubleshoot": "Use Performance panel flamecharts to see layout/paint; fix read/write interleaving.",
+    "example": "// Bad thrash\nfor (const el of els) {\n  const h = el.offsetHeight;\n  el.style.height = h + 10 + 'px';\n}",
+    "integration": "1) Measure interactions. 2) Batch DOM reads/writes. 3) Animate transform/opacity. 4) Budget long tasks <50ms."
+  },
+  "bundling": {
+    "summary": "Bundlers graph modules into optimized assets with code splitting, tree shaking, and asset pipelines.",
+    "problem": "Huge entry bundles delay TTI; misconfigured sideEffects break tree shaking.",
+    "concepts": [
+      "entry/chunk graph",
+      "code splitting",
+      "tree shaking",
+      "source maps"
+    ],
+    "mechanics": "Configure Vite/Webpack/Turbopack, split by route, mark side-effect-free packages, and analyze chunk sizes.",
+    "tradeoffs": "More splitting improves cache but increases waterfalls/requests; find balance with HTTP/2 and preloads.",
+    "troubleshoot": "If bundle balloons, run analyzer and hunt duplicate deps / accidental barrel imports.",
+    "example": "// dynamic import split\nconst Editor = lazy(() => import('./Editor'));",
+    "integration": "1) Analyze bundles. 2) Route-level split. 3) Fix barrel imports. 4) Set size budgets in CI."
+  },
+  "caching and revalidation": {
+    "summary": "Caching stores responses; revalidation decides when to refresh—HTTP cache headers and Next/React cache tags coordinate freshness.",
+    "problem": "Cache forever without revalidation serves stale critical data; never caching melts origins.",
+    "concepts": [
+      "Cache-Control",
+      "ETag/conditional requests",
+      "revalidatePath/Tag",
+      "stale-while-revalidate"
+    ],
+    "mechanics": "Set cache policy by data volatility, use tagged revalidation after mutations, and vary caches carefully by auth.",
+    "tradeoffs": "CDN caching public content is cheap; personalized content must not be shared. SWR improves UX with complexity.",
+    "troubleshoot": "If users see stale data, check CDN keys, cookies in Vary, and whether mutations revalidate tags.",
+    "example": "fetch(url, { next: { tags: ['product', id], revalidate: 60 } });\n// after mutation: revalidateTag('product');",
+    "integration": "1) Classify public vs private data. 2) Set TTLs. 3) Wire mutation revalidation. 4) Monitor cache hit ratio."
+  },
+  "call/apply/bind": {
+    "summary": "call/apply invoke a function with an explicit this; bind returns a wrapped function with fixed this/args.",
+    "problem": "Losing this in callbacks (passing obj.method) causes TypeErrors or wrong object access.",
+    "concepts": [
+      "this binding",
+      "call vs apply args",
+      "bound functions",
+      "arrow functions lexically bind"
+    ],
+    "mechanics": "Use bind when passing methods as callbacks, or arrows; prefer call for one-off explicit this.",
+    "tradeoffs": "Modern JS often avoids bind via arrows/class fields; still appears in older code and libraries.",
+    "troubleshoot": "If this is undefined in strict mode, you detached the method—bind or wrap.",
+    "example": "button.addEventListener('click', obj.handleClick.bind(obj));",
+    "integration": "1) Prefer arrows for callbacks. 2) Bind in constructors only if needed. 3) Add lint for unbound methods."
+  },
+  "cascade": {
+    "summary": "The CSS cascade resolves conflicting declarations via origin, importance, specificity, and source order.",
+    "problem": "Fighting cascade with !important everywhere makes overrides impossible to reason about.",
+    "concepts": [
+      "origin & importance",
+      "specificity",
+      "order",
+      "layers (@layer)"
+    ],
+    "mechanics": "Author predictable layers (reset → tokens → components → utilities), minimize !important, and prefer classes over IDs.",
+    "tradeoffs": "Utility-first can reduce cascade wars but thrash HTML readability; design systems use layers deliberately.",
+    "troubleshoot": "If a rule 'doesn't apply', check specificity, layers, and whether another !important wins.",
+    "example": "@layer reset, tokens, components;\n@layer components { .btn { padding: .5rem 1rem; } }",
+    "integration": "1) Introduce @layer order. 2) Ban ID selectors in app CSS. 3) Document token overrides. 4) Audit !important."
+  },
+  "client-side routing": {
+    "summary": "Client-side routing updates the URL and UI without full page reloads, preserving SPA state while syncing history.",
+    "problem": "Broken routing skips focus management, ignores back button, or fails to code-split routes.",
+    "concepts": [
+      "history API",
+      "route matching",
+      "loaders/data",
+      "scroll and focus restoration"
+    ],
+    "mechanics": "Map URLs to components, fetch data per route, handle nested layouts, and manage scroll/focus on navigation.",
+    "tradeoffs": "CSR feels fast after load but hurts first load/SEO vs SSR/RSC hybrids.",
+    "troubleshoot": "If back button breaks state, audit history stack and keying of screens.",
+    "example": "<Route path='/users/:id' element={<UserPage />} />",
+    "integration": "1) Adopt a router. 2) Split route chunks. 3) Restore focus on nav. 4) Test deep links and back/forward."
+  },
+  "code splitting": {
+    "summary": "Code splitting loads JS in smaller chunks (often per route) so users download only what they need now.",
+    "problem": "Monolithic bundles delay interaction on low-end devices.",
+    "concepts": [
+      "dynamic import()",
+      "React.lazy/Suspense",
+      "prefetch",
+      "chunk caching"
+    ],
+    "mechanics": "Lazy-load heavy routes/editors, provide Suspense fallbacks, and prefetch likely next navigations.",
+    "tradeoffs": "Over-splitting increases waterfalls; under-splitting hurts TTI. Measure with Lighthouse and bundle analysis.",
+    "troubleshoot": "If blank screens flash, improve fallbacks and ensure chunks aren't blocked by slow CSS.",
+    "example": "const Chart = lazy(() => import('./Chart'));\n<Suspense fallback={<Spinner />}><Chart /></Suspense>",
+    "integration": "1) Split by route. 2) Lazy heavy widgets. 3) Prefetch critical next routes. 4) Set chunk size budgets."
+  },
+  "collaborative editor": {
+    "summary": "Collaborative editors sync concurrent edits with CRDTs/OT, presence, and conflict-free merging across clients.",
+    "problem": "Last-write-wins text areas lose work and create conflicting copies.",
+    "concepts": [
+      "OT vs CRDT",
+      "awareness/presence",
+      "offline queues",
+      "undo stacks"
+    ],
+    "mechanics": "Choose a library (Yjs/Automerge), sync via WebSocket, persist documents, and show presence cursors carefully for a11y.",
+    "tradeoffs": "CRDTs simplify conflict but grow metadata; OT needs central ordering. Rich-text schemas are hard.",
+    "troubleshoot": "If merges corrupt docs, replay ops on fixtures and verify schema constraints.",
+    "example": "// Yjs sketch\nconst ydoc = new Y.Doc();\nconst ytext = ydoc.getText('content');\nprovider = new WebsocketProvider(url, room, ydoc);",
+    "integration": "1) Pick CRDT/OT stack. 2) Persist docs. 3) Add authz on rooms. 4) Test concurrent edits. 5) Plan compaction."
+  },
+  "component composition": {
+    "summary": "Composition builds complex UI from smaller components via children/slots instead of deep inheritance or prop sprawl.",
+    "problem": "Boolean prop megacomponents become unmaintainable and hard to test.",
+    "concepts": [
+      "children as API",
+      "compound components",
+      "avoid inheritance",
+      "lifting state carefully"
+    ],
+    "mechanics": "Prefer composing primitives, expose clear slots, and keep styling/variants at the edges.",
+    "tradeoffs": "Composition clarity vs indirection: too many wrappers obscure data flow.",
+    "troubleshoot": "If props drill 5+ levels, introduce composition or context for cross-cutting concerns only.",
+    "example": "function Card({ children }) { return <section className='card'>{children}</section>; }\n<Card><Card.Title/><Card.Body/></Card>",
+    "integration": "1) Break megacomponents. 2) Define compound APIs. 3) Document slots. 4) Test primitives independently."
+  },
+  "component identity": {
+    "summary": "React identity is about which component type at which position owns state—keys and stable types preserve that identity across renders.",
+    "problem": "Inline component definitions and index keys remount state unexpectedly.",
+    "concepts": [
+      "element type + position/key",
+      "remount resets state",
+      "stable component references",
+      "keys for lists"
+    ],
+    "mechanics": "Declare components at module scope, key lists by stable IDs, and avoid toggling component types for the same slot unnecessarily.",
+    "tradeoffs": "Remounting can be intentional to reset state; accidental remounts are bugs.",
+    "troubleshoot": "If inputs clear on parent render, you remounted—check keys and inline component functions.",
+    "example": "// Bad: function Item() inside Parent\n// Good: module-level Item with key={item.id}",
+    "integration": "1) Ban inline component types in render. 2) Stable keys. 3) Add regression tests for input state."
+  },
+  "conditional types": {
+    "summary": "Conditional types in TypeScript express types as `T extends U ? X : Y`, enabling precise inference libraries.",
+    "problem": "Overly clever conditionals produce inscrutable errors and slow the typechecker.",
+    "concepts": [
+      "extends checks",
+      "infer keyword",
+      "distributive conditionals",
+      "never filtering"
+    ],
+    "mechanics": "Use conditionals to map/filter unions, infer elements, and build utility types—keep public APIs readable.",
+    "tradeoffs": "Power vs ergonomics: prefer simpler generics when possible.",
+    "troubleshoot": "If types explode, simplify with intermediate named types and tests via expectTypeOf.",
+    "example": "type Elem<T> = T extends (infer U)[] ? U : T;",
+    "integration": "1) Add utilities only when reused. 2) Document with examples. 3) Keep compile times in check."
+  },
+  "container queries": {
+    "summary": "Container queries style elements based on a container's size rather than the viewport—better for reusable components.",
+    "problem": "Viewport media queries force components to know page layout context they shouldn't.",
+    "concepts": [
+      "container-type",
+      "@container",
+      "inline-size",
+      "name containers"
+    ],
+    "mechanics": "Set container-type on parent, write @container rules for children, and design components to adapt in sidebars vs main.",
+    "tradeoffs": "Support is strong in modern browsers; complex nested containers need clear naming.",
+    "troubleshoot": "If queries don't apply, ensure container-type is set and not on the querying element itself incorrectly.",
+    "example": ".card { container-type: inline-size; }\n@container (min-width: 400px) { .card__meta { display: flex; } }",
+    "integration": "1) Identify reusable components. 2) Add containers. 3) Replace brittle media queries. 4) Test in multiple layouts."
+  },
+  "Context": {
+    "summary": "React Context shares values to a subtree without prop drilling; consumers re-render when the selected context value changes.",
+    "problem": "Putting unstable objects in Context Provider value causes widespread re-renders and performance cliffs.",
+    "concepts": [
+      "Provider/Consumer",
+      "useContext",
+      "value identity",
+      "split contexts by update rate"
+    ],
+    "mechanics": "Create context, provide a memoized value near the owner, consume only where needed, and split frequently changing state from rare config.",
+    "tradeoffs": "Context vs props vs external stores: Context is great for theme/auth; high-frequency mouse state belongs in refs or specialized stores.",
+    "troubleshoot": "If unrelated leaves re-render, log Provider value identity and use React Profiler; memoize value or split contexts.",
+    "example": "const ThemeContext = createContext('light');\n<ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>",
+    "integration": "1) Identify shared cross-cutting state. 2) Add context at the owner. 3) Memoize value. 4) Profile consumers. 5) Split hot/cold contexts."
+  },
+  "controlled components": {
+    "summary": "Controlled inputs take value from React state and notify via onChange—React is the source of truth.",
+    "problem": "Mixing controlled/uncontrolled (value then defaultValue) warns and causes cursor jumps.",
+    "concepts": [
+      "value + onChange",
+      "single source of truth",
+      "uncontrolled via defaultValue/ref",
+      "file inputs special"
+    ],
+    "mechanics": "Store field state, pass value, update on change, and validate from state—not the DOM.",
+    "tradeoffs": "Controlled forms are testable but re-render often; large forms may use uncontrolled + schema libs.",
+    "troubleshoot": "If React warns about switching modes, never pass undefined value intermittently—use '' or commit to uncontrolled.",
+    "example": "const [v, setV] = useState('');\n<input value={v} onChange={(e) => setV(e.target.value)} />",
+    "integration": "1) Standardize controlled forms. 2) Centralize validation. 3) Avoid mode switching. 4) Test submissions."
+  },
+  "cookie security": {
+    "summary": "Secure cookies use HttpOnly, Secure, SameSite, and tight Path/Domain to reduce theft and CSRF scope.",
+    "problem": "Tokens in localStorage are XSS-stealable; overly broad Domain cookies leak across subdomains.",
+    "concepts": [
+      "HttpOnly",
+      "Secure",
+      "SameSite",
+      "host-only cookies"
+    ],
+    "mechanics": "Set session cookies HttpOnly+Secure+SameSite, prefer host-only, and pair with CSRF defenses when using cookies for auth.",
+    "tradeoffs": "Cookie auth enables simple SSR but needs CSRF; bearer tokens simplify API clients but need careful storage.",
+    "troubleshoot": "If sessions leak across subdomains, tighten Domain and review Set-Cookie attributes.",
+    "example": "Set-Cookie: sid=...; HttpOnly; Secure; SameSite=Lax; Path=/; Priority=High",
+    "integration": "1) Audit Set-Cookie flags. 2) Remove JS-readable auth tokens if possible. 3) Add CSRF. 4) Test subdomain isolation."
+  },
+  "Core Web Vitals": {
+    "summary": "Core Web Vitals (LCP, INP, CLS) are Google's field metrics for loading, interactivity, and visual stability.",
+    "problem": "Optimizing lab-only scores while ignoring field RUM leaves real users on slow devices/networks unhappy.",
+    "concepts": [
+      "LCP element",
+      "INP event delay",
+      "CLS layout shifts",
+      "field vs lab"
+    ],
+    "mechanics": "Identify the LCP element and shorten its critical path; reduce long tasks for INP; reserve space for images/fonts to limit CLS.",
+    "tradeoffs": "Micro-optimizations that hurt UX (skeleton flicker) can improve scores incorrectly; prioritize user journeys.",
+    "troubleshoot": "Use CrUX/RUM and Performance panel; correlate regressions with deploys and third-party scripts.",
+    "example": "new PerformanceObserver((list) => {\n  for (const e of list.getEntries()) console.log(e.name, e.startTime);\n}).observe({type: 'largest-contentful-paint', buffered: true});",
+    "integration": "1) Add RUM for CWV. 2) Fix top LCP resource. 3) Break long tasks. 4) Reserve media space. 5) Budget third parties."
+  },
+  "CSP": {
+    "summary": "Content Security Policy is an HTTP header (and meta) that restrictively allowlists script/style/connect sources to mitigate XSS impact.",
+    "problem": "Loose CSP (unsafe-inline everywhere) provides theater; broken CSP blocks legitimate assets and breaks the app.",
+    "concepts": [
+      "script-src / default-src",
+      "nonces or hashes",
+      "report-uri/report-to",
+      "frame-ancestors"
+    ],
+    "mechanics": "Serve CSP with nonces for inline scripts you must keep, ban unsafe-eval where possible, start in report-only, then enforce after fixing violations.",
+    "tradeoffs": "Strict CSP vs third-party tags: analytics and widgets often demand weaker policy. Prefer proxies/nonces over unsafe-inline.",
+    "troubleshoot": "Use browser console CSP violation reports to find blocked URLs; fix origins or refactor inline handlers.",
+    "example": "Content-Security-Policy: default-src 'self'; script-src 'nonce-abc123'; connect-src 'self' https://api.example.com",
+    "integration": "1) Deploy Report-Only CSP. 2) Collect violations. 3) Add nonces to required inline. 4) Enforce. 5) Monitor report-to continuously."
+  },
+  "CSRF": {
+    "summary": "CSRF tricks an authenticated browser into sending unwanted state-changing requests using the site's cookies.",
+    "problem": "Cookie-based sessions without anti-CSRF tokens or SameSite protections allow silent destructive actions.",
+    "concepts": [
+      "SameSite cookies",
+      "Anti-CSRF tokens",
+      "Origin/Referer checks",
+      "Safe methods are read-only"
+    ],
+    "mechanics": "For cookie auth, require CSRF tokens on mutating requests or use SameSite=Lax/Strict plus Origin checks; prefer Authorization headers for SPA APIs when practical.",
+    "tradeoffs": "SameSite helps but is not enough alone for all browsers/flows; token double-submit adds complexity but stronger coverage.",
+    "troubleshoot": "Reproduce with a cross-site form POST; if it succeeds without token, fix cookie flags and CSRF middleware.",
+    "example": "// Express-ish\nres.cookie('sid', id, { httpOnly: true, secure: true, sameSite: 'lax' });\n// require CSRF header matching session token on POST/PUT/PATCH/DELETE",
+    "integration": "1) Classify cookie vs bearer auth. 2) Add SameSite+Secure. 3) Enforce CSRF on mutations. 4) Add cross-site regression test. 5) Document auth model."
+  },
+  "CSS Grid": {
+    "summary": "CSS Grid is a two-dimensional layout system for rows and columns, ideal for page scaffolds and overlapping regions.",
+    "problem": "Using only Flexbox for 2D page structure causes brittle nesting and alignment hacks.",
+    "concepts": [
+      "grid-template-rows/columns",
+      "fr units and minmax",
+      "grid areas",
+      "auto-placement"
+    ],
+    "mechanics": "Define tracks with template columns/rows, place items by line or area, and use minmax/fr for responsive tracks without media-query soup.",
+    "tradeoffs": "Grid vs Flexbox: Grid for 2D alignment; Flex for 1D distribution. Over-gridifying simple rows adds cognitive load.",
+    "troubleshoot": "If items collapse oddly, inspect grid overlay in DevTools, check implicit tracks, and min-width:auto overflow.",
+    "example": ".layout {\n  display: grid;\n  grid-template-columns: 240px minmax(0, 1fr);\n  grid-template-areas: 'nav main';\n}",
+    "integration": "1) Sketch areas. 2) Implement grid shell. 3) Keep components content-sized. 4) Test narrow/wide breakpoints. 5) Document layout tokens."
+  },
+  "CSSOM": {
+    "summary": "The CSSOM is the browser's object model of stylesheets that, with the DOM, feeds style calculation and layout.",
+    "problem": "Blocking CSS or huge stylesheets delay first render because HTML parsing waits on CSSOM for accurate rendering.",
+    "concepts": [
+      "Stylesheet parsing",
+      "Render-blocking CSS",
+      "getComputedStyle",
+      "CSSOM + DOM → render tree"
+    ],
+    "mechanics": "Critical CSS should be small and early; defer non-critical sheets; avoid forced sync layout via repeated getComputedStyle in hot paths.",
+    "tradeoffs": "Inlining critical CSS speeds LCP but hurts cacheability; giant single bundles simplify deploy but block render.",
+    "troubleshoot": "If FCP is slow, audit network waterfalls for CSS, coverage of unused rules, and sync style reads in JS.",
+    "example": "// Avoid in loops:\nconst h = el.offsetHeight; // forces layout\nel.style.height = h + 'px';",
+    "integration": "1) Split critical vs deferred CSS. 2) Remove unused selectors. 3) Batch DOM reads/writes. 4) Re-measure LCP/FCP."
+  },
+  "custom hooks": {
+    "summary": "Custom hooks extract reusable stateful logic following the Rules of Hooks, sharing behavior without wrapper hell.",
+    "problem": "Hooks that hide excessive side effects become opaque and hard to test.",
+    "concepts": [
+      "useX naming",
+      "call hooks unconditionally",
+      "return stable APIs",
+      "compose hooks"
+    ],
+    "mechanics": "Move coupled state+effects into useThing, return values/callbacks, and test via components or hook testing utils.",
+    "tradeoffs": "Reuse vs premature abstraction: wait for second use before extracting.",
+    "troubleshoot": "If hook order errors appear, a hook is conditional—restructure.",
+    "example": "function useOnline() {\n  const [on, setOn] = useState(navigator.onLine);\n  useEffect(() => {\n    const f = () => setOn(navigator.onLine);\n    window.addEventListener('online', f);\n    return () => window.removeEventListener('online', f);\n  }, []);\n  return on;\n}",
+    "integration": "1) Extract repeated logic. 2) Keep return surface small. 3) Add tests. 4) Document dependencies."
+  },
+  "custom properties": {
+    "summary": "CSS custom properties (variables) cascade and can change at runtime—ideal for theming and design tokens.",
+    "problem": "Sass variables compile away and can't theme per subtree without rebuilding.",
+    "concepts": [
+      "--token syntax",
+      "cascade inheritance",
+      "var() fallbacks",
+      "typed via @property optional"
+    ],
+    "mechanics": "Define tokens on :root or theme scopes, consume with var(--token), and override in dark/high-contrast scopes.",
+    "tradeoffs": "Too many runtime variables can complicate debugging; huge inline style themes cost.",
+    "troubleshoot": "If var is invalid, entire property may be ignored—provide fallbacks.",
+    "example": ":root { --space-2: 8px; --color-fg: #111; }\n.button { padding: var(--space-2); color: var(--color-fg); }",
+    "integration": "1) Map design tokens to CSS variables. 2) Theme via parent scopes. 3) Document naming. 4) Validate contrast."
+  },
+  "design system": {
+    "summary": "A design system packages reusable components, tokens, and guidelines so product UI stays consistent and accessible.",
+    "problem": "Ad-hoc one-off UI creates drift, a11y gaps, and slow feature delivery.",
+    "concepts": [
+      "tokens",
+      "primitives/composites",
+      "accessibility contracts",
+      "versioning"
+    ],
+    "mechanics": "Publish tokens + components, document variants/states, enforce via lint/review, and version breaking changes.",
+    "tradeoffs": "Heavy systems slow teams if rigid; too loose and they aren't systems. Start with tokens + few primitives.",
+    "troubleshoot": "If adoption fails, measure duplication and involve design early in API decisions.",
+    "example": "export const Button = ({ variant='primary', ...props }) => (\n  <button className={cx('btn', variant)} {...props} />\n);",
+    "integration": "1) Extract tokens. 2) Build primitives. 3) Document states. 4) Adopt in one app. 5) Version releases."
+  },
+  "DOM": {
+    "summary": "The DOM is the browser's tree of document nodes that JS and CSS operate on to present and update pages.",
+    "problem": "Excessive DOM size and frequent mutations make style/layout/paint expensive and interactions janky.",
+    "concepts": [
+      "Nodes and tree structure",
+      "reflow/repaint",
+      "event propagation",
+      "virtual DOM vs real DOM"
+    ],
+    "mechanics": "Read structure via query APIs, batch mutations, prefer event delegation, and keep depth/breadth reasonable for the UI.",
+    "tradeoffs": "Imperative DOM control is powerful but fights React; mixing models causes bugs. Huge DOMs from unvirtualized lists hurt INP.",
+    "troubleshoot": "If updates stutter, profile Long Tasks, count nodes, and check forced synchronous layouts.",
+    "example": "list.addEventListener('click', (e) => {\n  const li = e.target.closest('li');\n  if (li) select(li.dataset.id);\n});",
+    "integration": "1) Cap list DOM via virtualization. 2) Batch updates. 3) Prefer delegation. 4) Monitor DOM size in performance budgets."
+  },
+  "ES modules": {
+    "summary": "ES modules are the native JS module system with static import/export, deferred execution, and strict mode by default.",
+    "problem": "Mixing CJS/ESM incorrectly causes dual-package hazards and runtime 'require of ES Module' errors.",
+    "concepts": [
+      "import/export",
+      "static analysis for tree shaking",
+      "circular dependencies",
+      "import maps / bundlers"
+    ],
+    "mechanics": "Write named exports, keep side-effect-free modules for tree shaking, and let the bundler graph-split by dynamic import().",
+    "tradeoffs": "Granular modules improve caching and shaking but increase request count without bundling; circular imports create TDZ bugs.",
+    "troubleshoot": "If a module is undefined at runtime, check circular imports and whether default vs named export matches.",
+    "example": "import { fetchUser } from './api.js';\nexport async function loadProfile(id) {\n  return fetchUser(id);\n}",
+    "integration": "1) Standardize on ESM in the app. 2) Enable tree shaking. 3) Fix circular deps. 4) Use dynamic import for routes."
+  },
+  "event loop": {
+    "summary": "The JS event loop runs the call stack, then drains microtasks (promises), then macrotasks (timers, I/O), enabling concurrency without threads.",
+    "problem": "Long sync work blocks the loop and freezes UI; misunderstanding microtasks causes ordering bugs.",
+    "concepts": [
+      "call stack",
+      "microtask queue",
+      "task queue",
+      "rendering opportunity between tasks"
+    ],
+    "mechanics": "Keep handlers short, await I/O, schedule heavy work via chunks/workers, and know promise callbacks run before timers.",
+    "tradeoffs": "Microtask storms can starve rendering as badly as long tasks.",
+    "troubleshoot": "If UI freezes, profile long tasks; yield with setTimeout/scheduler.yield.",
+    "example": "Promise.resolve().then(() => console.log('micro'));\nsetTimeout(() => console.log('macro'), 0);",
+    "integration": "1) Educate team on ordering. 2) Break long tasks. 3) Move CPU to workers. 4) Monitor INP."
+  },
+  "feature-based organization": {
+    "summary": "Feature-based folders group UI, state, and tests by product feature rather than by technical layer alone.",
+    "problem": "Layer-only folders (components/, hooks/) scale poorly as features cross-cut many directories.",
+    "concepts": [
+      "feature modules",
+      "public API per feature",
+      "shared kernel",
+      "avoid deep cross-imports"
+    ],
+    "mechanics": "Create features/* with public index exports, keep shared code thin, and restrict cross-feature imports via lint.",
+    "tradeoffs": "Features improve ownership but risk duplication; extract shared only after repeated need.",
+    "troubleshoot": "If circular imports appear, you coupled features—introduce shared interfaces or events.",
+    "example": "features/cart/{CartPage.tsx,useCart.ts,cart.test.tsx,index.ts}",
+    "integration": "1) Pilot one feature folder. 2) Define public exports. 3) Add lint boundaries. 4) Migrate incrementally."
+  },
+  "Fetch API": {
+    "summary": "fetch is the browser's promise-based HTTP API returning a Response; it does not throw on HTTP error statuses by default.",
+    "problem": "Forgetting to check response.ok treats 404/500 as success and silently breaks UI logic.",
+    "concepts": [
+      "Request/Response",
+      "response.ok / status",
+      "AbortSignal",
+      "credentials and CORS"
+    ],
+    "mechanics": "Await fetch, check ok, parse JSON carefully, handle network vs HTTP errors separately, and pass credentials only when required.",
+    "tradeoffs": "fetch is low-level vs libraries (TanStack Query) that add cache/retries. Custom wrappers often reimplement those poorly.",
+    "troubleshoot": "If 'success' shows empty data, log status and body; verify CORS and preflights in Network panel.",
+    "example": "const res = await fetch('/api/items', { headers: { Accept: 'application/json' } });\nif (!res.ok) throw new Error(`HTTP ${res.status}`);\nreturn res.json();",
+    "integration": "1) Centralize fetch wrapper with ok checks. 2) Add abort support. 3) Type responses. 4) Route server state through a cache library if needed."
+  },
+  "Flexbox": {
+    "summary": "Flexbox lays out items along one main axis with alignment on the cross axis—ideal for toolbars, navs, and distributing space.",
+    "problem": "Mis-set flex-shrink/basis causes overflow or crushed content; nested flex without min-width:0 is a common trap.",
+    "concepts": [
+      "main/cross axis",
+      "grow/shrink/basis",
+      "justify/align",
+      "wrapping"
+    ],
+    "mechanics": "Set display:flex, choose direction, assign grow/shrink/basis intentionally, and use gap instead of margin hacks.",
+    "tradeoffs": "Flex for 1D; Grid for 2D. Overusing flex for page grids creates deep nesting.",
+    "troubleshoot": "If a child won't shrink, set min-width:0 (or min-height:0) and inspect flex items in DevTools.",
+    "example": ".row { display: flex; gap: 12px; align-items: center; }\n.grow { flex: 1 1 auto; min-width: 0; }",
+    "integration": "1) Replace float/table hacks with flex for 1D UI. 2) Standardize gap tokens. 3) Fix overflow with min-size 0. 4) Document patterns."
+  },
+  "font loading": {
+    "summary": "Font loading strategies (font-display, preload, subsetting) balance text visibility against layout shift and brand fidelity.",
+    "problem": "Late fonts cause FOIT/FOUT and CLS when metrics swap.",
+    "concepts": [
+      "font-display",
+      "preload",
+      "unicode-range subset",
+      "fallback metric overrides"
+    ],
+    "mechanics": "Preload critical fonts, use font-display: swap/optional, subset, and match fallback metrics to reduce CLS.",
+    "tradeoffs": "optional avoids late swaps but may never show custom font on slow networks.",
+    "troubleshoot": "Measure CLS and LCP; inspect Fonts pane for blocks.",
+    "example": "@font-face {\n  font-family: 'Inter';\n  src: url('/inter.woff2') format('woff2');\n  font-display: swap;\n}",
+    "integration": "1) Subset+self-host. 2) Preload critical face. 3) Set font-display. 4) Tune fallbacks. 5) Recheck CLS."
+  },
+  "formatting context": {
+    "summary": "A formatting context (BFC/FFC/GFC) is a layout region that contains floats and controls how boxes participate in layout.",
+    "problem": "Unexpected collapsing margins and float overflow come from not establishing a BFC when needed.",
+    "concepts": [
+      "block formatting context",
+      "containment",
+      "float containment",
+      "overflow/flex/grid create contexts"
+    ],
+    "mechanics": "Use flow-root/overflow/flex/grid to establish contexts that contain floats and prevent margin collapse when desired.",
+    "tradeoffs": "Creating contexts fixes bugs but can alter scroll/overflow behavior—be intentional.",
+    "troubleshoot": "If margins collapse unwanted, establish a new BFC on the parent.",
+    "example": ".card { display: flow-root; }",
+    "integration": "1) Learn when BFCs form. 2) Prefer flow-root over hack clearfixes. 3) Document layout utilities."
+  },
+  "forms and native validation": {
+    "summary": "Native constraint validation (required, type, pattern) gives built-in checks and :invalid styling hooks before custom JS.",
+    "problem": "Disabling native validation without replacements causes poor mobile UX and missed edge cases.",
+    "concepts": [
+      "constraint validation API",
+      "setCustomValidity",
+      "reportValidity",
+      "progressive enhancement"
+    ],
+    "mechanics": "Use semantic input types, required/pattern, enhance with JS, and keep server validation authoritative.",
+    "tradeoffs": "Native validation UX varies by browser; design systems often customize messaging while keeping constraints.",
+    "troubleshoot": "If submit does nothing, check reportValidity and novalidate accidental usage.",
+    "example": "<form onSubmit={onSubmit}>\n  <input required type='email' name='email' />\n  <button>Save</button>\n</form>",
+    "integration": "1) Use native constraints first. 2) Mirror rules server-side. 3) Customize messages accessibly. 4) Test keyboard submit."
+  },
+  "generics": {
+    "summary": "Generics parameterize types/functions so APIs stay reusable without losing type safety.",
+    "problem": "Using any to 'keep it flexible' erases safety and documentation.",
+    "concepts": [
+      "type parameters",
+      "constraints extends",
+      "inference",
+      "defaults"
+    ],
+    "mechanics": "Add type params where values relate, constrain with extends, and let inference work from usage.",
+    "tradeoffs": "Too many type params create noise; specialize when only one use exists.",
+    "troubleshoot": "If inference fails, add explicit args or simplify signatures.",
+    "example": "function first<T>(arr: T[]): T | undefined { return arr[0]; }",
+    "integration": "1) Replace any with generics in shared utils. 2) Constrain wisely. 3) Export examples in docs."
+  },
+  "hoisting": {
+    "summary": "Hoisting is JS's behavior of binding declarations before evaluation—var/function differently from let/const (TDZ).",
+    "problem": "Using let/const before initialization throws; var yields undefined and hides bugs.",
+    "concepts": [
+      "var vs let/const",
+      "TDZ",
+      "function declarations",
+      "class TDZ"
+    ],
+    "mechanics": "Prefer const/let, declare before use, and don't rely on hoisting for structure.",
+    "tradeoffs": "Hoisting trivia rarely matters vs closures and modules—but TDZ bugs still appear in refactors.",
+    "troubleshoot": "If ReferenceError TDZ appears, move declarations above use or fix circular imports.",
+    "example": "// bad\nconsole.log(a);\nlet a = 1; // TDZ",
+    "integration": "1) ESLint no-use-before-define. 2) Prefer const. 3) Avoid var. 4) Fix circular modules."
+  },
+  "image optimization": {
+    "summary": "Image optimization serves correctly sized modern formats (AVIF/WebP) with responsive srcset and compression.",
+    "problem": "Shipping multi-megabyte PNGs dominates LCP on mobile.",
+    "concepts": [
+      "srcset/sizes",
+      "modern formats",
+      "lazy loading",
+      "CLS width/height"
+    ],
+    "mechanics": "Generate multiple widths, set dimensions, lazy-load below fold, and use a CDN image pipeline when possible.",
+    "tradeoffs": "Quality vs bytes: over-compressing harms brand imagery; under-compressing harms LCP.",
+    "troubleshoot": "If LCP is an image, check URL priority, compression, and priority hints.",
+    "example": "<img\n  src='/hero-800.webp'\n  srcSet='/hero-400.webp 400w, /hero-800.webp 800w'\n  sizes='(max-width:600px) 100vw, 800px'\n  width={800} height={500}\n  alt='Hero'\n/>",
+    "integration": "1) Audit LCP images. 2) Convert+resize. 3) Add srcset. 4) Reserve space. 5) CDN cache."
+  },
+  "infinite feed": {
+    "summary": "Infinite feeds load pages as users scroll, usually via cursor pagination and intersection observers.",
+    "problem": "Offset pagination + scroll listeners cause duplicates, gaps, and jank.",
+    "concepts": [
+      "cursor/keyset pagination",
+      "IntersectionObserver",
+      "dedupe by id",
+      "virtualization for huge lists"
+    ],
+    "mechanics": "Fetch next cursor when sentinel visible, append unique items, keep scroll position stable, and virtualize if needed.",
+    "tradeoffs": "Infinite scroll discovers content but hurts reachability of footer/navigation—offer explicit load more when appropriate.",
+    "troubleshoot": "If duplicates appear, dedupe by id and ensure cursor stability under inserts.",
+    "example": "const { data, fetchNextPage } = useInfiniteQuery({\n  queryKey: ['feed'],\n  queryFn: ({ pageParam }) => api.feed(pageParam),\n  getNextPageParam: (last) => last.nextCursor,\n});",
+    "integration": "1) Use cursor APIs. 2) IO sentinel. 3) Dedupe. 4) Virtualize at scale. 5) Preserve a11y focus."
+  },
+  "IntersectionObserver": {
+    "summary": "IntersectionObserver asynchronously reports when a target intersects a root (viewport/container)—used for lazy-load and infinite scroll.",
+    "problem": "Scroll listeners that read layout each frame cause jank; IO batches visibility checks off the critical path.",
+    "concepts": [
+      "root/rootMargin/threshold",
+      "entries",
+      "lazy mounting",
+      "disconnect cleanup"
+    ],
+    "mechanics": "Create observer with thresholds, observe targets, react in callback (load image/page), and disconnect on unmount.",
+    "tradeoffs": "IO is efficient but approximate; pixel-perfect timing may still need scroll logic. Too-eager rootMargin loads too much.",
+    "troubleshoot": "If callbacks never fire, check root overflow, detached nodes, and whether the element has size.",
+    "example": "const io = new IntersectionObserver((ents) => {\n  ents.forEach(e => { if (e.isIntersecting) loadMore(); });\n}, { rootMargin: '200px' });",
+    "integration": "1) Use IO for image/route lazy-load. 2) Tune rootMargin. 3) Cleanup observers. 4) Add loading guards against duplicate fetches."
+  },
+  "iterators": {
+    "summary": "Iterators implement next() with {value, done}; iterables expose Symbol.iterator for for...of and spread.",
+    "problem": "Confusing arrays with lazy iterators leads to accidental full materialization and memory spikes.",
+    "concepts": [
+      "iterable protocol",
+      "generators",
+      "lazy sequences",
+      "for...of"
+    ],
+    "mechanics": "Implement generators for lazy sequences; consume with for...of; avoid spreading huge lazy iters into arrays.",
+    "tradeoffs": "Lazy iters save memory but can't rewind unless replayed; arrays are random-access.",
+    "troubleshoot": "If memory spikes, you likely spread a generator into an array—consume incrementally.",
+    "example": "function* range(n) { for (let i=0;i<n;i++) yield i; }",
+    "integration": "1) Use generators for lazy pipelines. 2) Avoid unbounded spreads. 3) Prefer well-known lib iterators when complex."
+  },
+  "keyboard focus": {
+    "summary": "Keyboard focus indicates the active element for Tab users; visible focus styles and logical order are required for operability.",
+    "problem": "outline:none without replacements traps keyboard users.",
+    "concepts": [
+      "tabindex",
+      "focus visible",
+      "roving tabindex",
+      "focus restoration"
+    ],
+    "mechanics": "Keep natural DOM order, use tabindex=0 sparingly, never positive tabindex, and style :focus-visible.",
+    "tradeoffs": "Custom widgets need roving tabindex; native controls often suffice.",
+    "troubleshoot": "Tab through the page; if focus disappears, restore outline or component focus styles.",
+    "example": "button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }",
+    "integration": "1) Ban unreplaced outline:none. 2) Fix order. 3) Add focus-visible. 4) Test modals/menus."
+  },
+  "keys": {
+    "summary": "React keys identify list children across renders so state and DOM reconcile to the correct item.",
+    "problem": "Index keys break state on reorder/insert; random keys remount every render.",
+    "concepts": [
+      "stable ids",
+      "key scoped among siblings",
+      "remount on key change",
+      "don't use key to 'force' often"
+    ],
+    "mechanics": "Use business IDs as keys; change key intentionally only to reset subtree state.",
+    "tradeoffs": "Keys don't pass as props; forcing remount is a blunt tool that loses state/perf.",
+    "troubleshoot": "If checkboxes stick to wrong rows after sort, replace index keys with ids.",
+    "example": "{todos.map(t => <Todo key={t.id} todo={t} />)}",
+    "integration": "1) Audit list keys. 2) Use stable ids. 3) Add reorder regression tests. 4) Reserve remount keys for resets."
+  },
+  "localStorage": {
+    "summary": "localStorage is a synchronous string key-value store scoped per origin in the browser.",
+    "problem": "Storing secrets there exposes them to XSS; sync large writes can block the main thread.",
+    "concepts": [
+      "origin isolation",
+      "string only",
+      "sync API",
+      "quota errors"
+    ],
+    "mechanics": "Serialize JSON carefully, guard with try/catch for quota/private mode, and never store access tokens if avoidable.",
+    "tradeoffs": "Simple persistence vs security/perf: prefer httpOnly cookies for sessions; IndexedDB for large data.",
+    "troubleshoot": "If data 'vanishes', check private browsing, quota, and JSON parse errors.",
+    "example": "localStorage.setItem('theme', 'dark');\nconst theme = localStorage.getItem('theme');",
+    "integration": "1) Persist non-sensitive prefs only. 2) Wrap IO safely. 3) Migrate schema versions. 4) Document threat model."
+  },
+  "Map": {
+    "summary": "Map is a keyed collection allowing any key type with insertion-ordered iteration and reliable size.",
+    "problem": "Using plain objects as maps coerces keys to strings and inherits prototype pitfalls.",
+    "concepts": [
+      "any key type",
+      "insertion order",
+      "O(1) typical get/set",
+      "WeakMap for ephemeral keys"
+    ],
+    "mechanics": "Prefer Map for dynamic keyed data; iterate with for...of; choose WeakMap when keys are objects you don't want to retain.",
+    "tradeoffs": "Map serializes poorly to JSON vs objects; converting costs. Objects are fine for fixed string keys.",
+    "troubleshoot": "If keys look wrong, you likely used an object and stringified keys; switch to Map or normalize IDs.",
+    "example": "const byId = new Map(items.map(i => [i.id, i]));\nbyId.get(42);",
+    "integration": "1) Replace dynamic object maps with Map. 2) Keep JSON DTOs as objects at boundaries. 3) Document key types."
+  },
+  "mapped types": {
+    "summary": "Mapped types transform each property of a type (`{ [K in keyof T]: ... }`) to build utilities like Partial/Readonly.",
+    "problem": "Hand-written parallel interfaces drift from source models.",
+    "concepts": [
+      "keyof",
+      "in mapping",
+      "modifiers +/ - ?",
+      "as key remapping"
+    ],
+    "mechanics": "Derive view models from domain types via maps; keep one source of truth.",
+    "tradeoffs": "Deep mapped types can slow TS; prefer generative types only where reused.",
+    "troubleshoot": "If keys disappear, check remapping filters and readonly modifiers.",
+    "example": "type ReadonlyDeep<T> = { readonly [K in keyof T]: T[K] extends object ? ReadonlyDeep<T[K]> : T[K] };",
+    "integration": "1) Replace duplicated interfaces. 2) Add shared mapped utils. 3) Monitor tsc time."
+  },
+  "metadata API": {
+    "summary": "Next.js Metadata API declares title/description/OG tags from Server Components via export const metadata or generateMetadata.",
+    "problem": "Client-only head hacks race and hurt SEO consistency.",
+    "concepts": [
+      "metadata object",
+      "generateMetadata",
+      "Open Graph",
+      "streaming boundaries"
+    ],
+    "mechanics": "Export static metadata or async generateMetadata per route using server data; keep it on the server.",
+    "tradeoffs": "Dynamic metadata per request may limit caching; static is cheaper.",
+    "troubleshoot": "If titles wrong, check nested segment merges and template titles.",
+    "example": "export const metadata = { title: 'Billing', description: 'Manage your plan' };",
+    "integration": "1) Move head tags to Metadata API. 2) Add OG images. 3) Test social previews. 4) Localize carefully."
+  },
+  "micro-frontends": {
+    "summary": "Micro-frontends split a UI into independently deployable vertical slices owned by different teams.",
+    "problem": "A single monolith frontend becomes a coordination bottleneck across many teams.",
+    "concepts": [
+      "runtime integration",
+      "shared deps risk",
+      "routing ownership",
+      "performance isolation"
+    ],
+    "mechanics": "Choose integration (module federation/iframes/web components), share design tokens carefully, and isolate failures.",
+    "tradeoffs": "Independence vs UX consistency and duplicate bytes; often overkill for small orgs.",
+    "troubleshoot": "If double React copies load, fix shared singleton config; monitor performance budgets.",
+    "example": "// Module Federation shared: { react: { singleton: true }, 'react-dom': { singleton: true } }",
+    "integration": "1) Validate org need. 2) Pick integration strategy. 3) Enforce singleton shared libs. 4) Contract test boundaries. 5) Observe bundle cost."
+  },
+  "microtask queue": {
+    "summary": "Microtasks (promise jobs, queueMicrotask) run after the current stack and before the next rendering/macrotask.",
+    "problem": "Scheduling endless microtasks can starve rendering and input.",
+    "concepts": [
+      "promise then",
+      "queueMicrotask",
+      "ordering vs setTimeout(0)",
+      "starvation risk"
+    ],
+    "mechanics": "Use microtasks for ASAP continuity after sync code; use macrotasks to yield to rendering.",
+    "tradeoffs": "Microtasks are faster continuity but can delay paint; yield deliberately for heavy fanout.",
+    "troubleshoot": "If UI stalls with no long task >50ms, check microtask storms.",
+    "example": "queueMicrotask(() => console.log('after stack'));\nsetTimeout(() => console.log('later task'), 0);",
+    "integration": "1) Teach ordering. 2) Yield on large fanout. 3) Prefer await chunking for big loops."
+  },
+  "modules": {
+    "summary": "Modules encapsulate code with explicit exports, enabling reuse, tree shaking, and clearer dependency graphs.",
+    "problem": "Script tags sharing globals create name collisions and hidden coupling.",
+    "concepts": [
+      "ESM vs CJS",
+      "public exports",
+      "side effects",
+      "barrel files caution"
+    ],
+    "mechanics": "Prefer ESM, export minimal public API, avoid side effects at import time, and be careful with barrels that defeat splitting.",
+    "tradeoffs": "Barrels improve DX but can pull huge graphs; sometimes direct imports win.",
+    "troubleshoot": "If circular deps appear, break cycles with interfaces or dependency inversion.",
+    "example": "export function parse() {}\nexport default class Client {}",
+    "integration": "1) ESM everywhere feasible. 2) Limit barrels. 3) Mark sideEffects in package.json. 4) Fix cycles."
+  },
+  "monorepo": {
+    "summary": "A monorepo hosts multiple packages/apps in one VCS repo with shared tooling and atomic cross-package changes.",
+    "problem": "Multi-repo version hell slows coordinated UI/library updates.",
+    "concepts": [
+      "workspaces",
+      "task graph caching",
+      "package boundaries",
+      "versioning strategy"
+    ],
+    "mechanics": "Use pnpm/npm workspaces or Nx/Turborepo, define package boundaries, and cache tasks in CI.",
+    "tradeoffs": "Monorepos help coordination but need ownership discipline and CI scaling.",
+    "troubleshoot": "If CI times explode, add affected-task filtering and remote cache.",
+    "example": "// pnpm-workspace.yaml\npackages:\n  - 'apps/*'\n  - 'packages/*'",
+    "integration": "1) Create workspaces. 2) Extract shared UI package. 3) Add turbo/nx pipelines. 4) Enforce boundaries."
+  },
+  "MutationObserver": {
+    "summary": "MutationObserver notifies when DOM mutations occur (childList/attributes/characterData), useful for integrating with non-React code.",
+    "problem": "Polling the DOM wastes CPU; naive observers without filtering can fire excessively.",
+    "concepts": [
+      "observe options",
+      "mutation records",
+      "batching",
+      "disconnect"
+    ],
+    "mechanics": "Observe a subtree with specific options, process records asynchronously, and disconnect when done.",
+    "tradeoffs": "Prefer React state as source of truth; MO is for third-party widgets, a11y bridges, or measuring layout shifts.",
+    "troubleshoot": "If you miss mutations, expand options; if flooded, narrow filters and debounce work.",
+    "example": "const mo = new MutationObserver((recs) => console.log(recs.length));\nmo.observe(root, { childList: true, subtree: true });",
+    "integration": "1) Identify non-React DOM integration points. 2) Observe minimally. 3) Debounce handlers. 4) Disconnect on teardown."
+  },
+  "Playwright": {
+    "summary": "Playwright is an end-to-end test runner that drives real browsers with auto-waiting locators and trace debugging.",
+    "problem": "Brittle CSS selectors and missing awaits create flaky CI that teams ignore.",
+    "concepts": [
+      "locators",
+      "auto-wait",
+      "traces/videos",
+      "browser projects"
+    ],
+    "mechanics": "Write user-facing locators (getByRole), assert outcomes, run against critical journeys, and attach traces on failure.",
+    "tradeoffs": "E2E coverage is high confidence but slow/flaky risk; keep a thin critical path suite, push details to unit/RTL.",
+    "troubleshoot": "On flake, open trace, check timing/network, replace sleeps with expect auto-wait.",
+    "example": "test('login', async ({ page }) => {\n  await page.getByRole('button', { name: 'Sign in' }).click();\n  await expect(page.getByText('Dashboard')).toBeVisible();\n});",
+    "integration": "1) Pick top user journeys. 2) Use role locators. 3) Enable traces on retry. 4) Quarantine flakes with ownership. 5) Run smoke on PRs."
+  },
+  "positioning": {
+    "summary": "CSS positioning (static/relative/absolute/fixed/sticky) controls how elements are placed relative to containing blocks.",
+    "problem": "Absolute positioning without positioned ancestors attaches to unexpected boxes.",
+    "concepts": [
+      "containing block",
+      "offset properties",
+      "stacking contexts",
+      "sticky constraints"
+    ],
+    "mechanics": "Set position intentionally, understand containing blocks, and prefer flow layouts before absolute hacks.",
+    "tradeoffs": "Absolute is powerful for overlays but fragile for responsive content sizing.",
+    "troubleshoot": "If sticky fails, check ancestor overflow and containment.",
+    "example": ".parent { position: relative; }\n.badge { position: absolute; top: 0; right: 0; }",
+    "integration": "1) Prefer flow/flex/grid. 2) Use absolute for overlays. 3) Document sticky caveats. 4) Test overflow ancestors."
+  },
+  "primitive types": {
+    "summary": "JS primitives (string, number, boolean, null, undefined, symbol, bigint) are immutable values compared by value.",
+    "problem": "Treating primitives like objects (new String) creates subtle equality bugs.",
+    "concepts": [
+      "typeof quirks",
+      "null vs undefined",
+      "immutability",
+      "boxing"
+    ],
+    "mechanics": "Use literals, prefer ===, and handle nullish with ?? and optional chaining carefully.",
+    "tradeoffs": "TypeScript helps but typeof null === 'object' remains a runtime quirk.",
+    "troubleshoot": "If equality fails, check object wrappers and NaN with Number.isNaN.",
+    "example": "const n = 1; // primitive\ntypeof null; // 'object' quirk",
+    "integration": "1) Ban new String/Number. 2) Use ===. 3) Prefer ?? over || for nullish defaults."
+  },
+  "Promise": {
+    "summary": "A Promise represents a future completion (fulfilled/rejected) enabling composable async control flow.",
+    "problem": "Unreturned promises and missing rejection handlers cause silent failures and race bugs.",
+    "concepts": [
+      "pending/fulfilled/rejected",
+      "then/catch/finally",
+      "Promise.all/allSettled/race",
+      "microtasks"
+    ],
+    "mechanics": "Return promises up the chain, handle rejections, prefer async/await for linear flow, and use allSettled when partial failure is OK.",
+    "tradeoffs": "Parallel all is fast but fails fast; sequential is simpler for rate limits. Floating promises hide errors.",
+    "troubleshoot": "If UI hangs, check unawaited promises and swallowed rejections in the console.",
+    "example": "const [a,b] = await Promise.all([fetchA(), fetchB()]);",
+    "integration": "1) Lint no-floating-promises. 2) Standardize error boundaries. 3) Choose all vs allSettled deliberately. 4) Document concurrency limits."
+  },
+  "props": {
+    "summary": "Props are read-only inputs from parent to child that parameterize rendering and callbacks.",
+    "problem": "Mutating props in children breaks one-way data flow and causes hard-to-trace bugs.",
+    "concepts": [
+      "immutable inputs",
+      "callback props",
+      "children",
+      "default props / destructuring"
+    ],
+    "mechanics": "Pass data down, notify up via callbacks, and keep props serializable across RSC boundaries.",
+    "tradeoffs": "Prop drilling vs context: drill for locality; context for cross-cutting. Don't prop-drill server secrets to clients.",
+    "troubleshoot": "If child doesn't update, parent may be mutating arrays in place—copy on update.",
+    "example": "function Avatar({ url, alt }: { url: string; alt: string }) {\n  return <img src={url} alt={alt} />;\n}",
+    "integration": "1) Type props. 2) Avoid mutation. 3) Lift state. 4) Review RSC serializability."
+  },
+  "prototype chain": {
+    "summary": "JS objects delegate property lookup along [[Prototype]], enabling shared methods via prototypes/classes.",
+    "problem": "Accidentally mutating Object.prototype or misunderstanding inheritance causes cross-cutting bugs.",
+    "concepts": [
+      "[[Prototype]]",
+      "Object.create",
+      "class sugar",
+      "own vs inherited props"
+    ],
+    "mechanics": "Prefer class/prototype methods for shared behavior; use hasOwn for ownership checks; avoid prototype pollution.",
+    "tradeoffs": "Prototype inheritance is flexible but less clear than composition for app domain models.",
+    "troubleshoot": "If a property 'appears everywhere', check prototype pollution from unsafe merges.",
+    "example": "const proto = { speak() { return 'hi'; } };\nconst obj = Object.create(proto);",
+    "integration": "1) Prefer composition in app code. 2) Freeze sensitive prototypes. 3) Sanitize merges. 4) Use Map instead of objects for untrusted keys."
+  },
+  "Proxy": {
+    "summary": "Proxy wraps an object to intercept operations (get/set/apply)—foundation for reactivity and validation libraries.",
+    "problem": "Heavy proxies in hot paths add overhead and surprising invariants when traps are incomplete.",
+    "concepts": [
+      "handler traps",
+      "Receiver",
+      "Revocable proxies",
+      "invariants with target"
+    ],
+    "mechanics": "Create Proxy(target, handlers), implement needed traps consistently, and avoid proxying everything without profiling.",
+    "tradeoffs": "Proxies enable elegant APIs (Vue reactivity) but complicate debugging and serialization.",
+    "troubleshoot": "If sets silently fail, check trap return values and frozen targets.",
+    "example": "const p = new Proxy(user, {\n  set(obj, key, val) {\n    if (key === 'age' && val < 0) throw new Error('invalid');\n    obj[key] = val; return true;\n  }\n});",
+    "integration": "1) Limit Proxy to library boundaries. 2) Add tests for traps. 3) Prefer explicit setters for app code unless building a framework."
+  },
+  "React": {
+    "summary": "React is a UI library that models UI as a function of state, rendering a virtual tree and reconciling updates into the DOM efficiently.",
+    "problem": "Mutating state in place or fighting one-way data flow causes stale UI and unpredictable bugs.",
+    "concepts": [
+      "components as functions",
+      "state/props",
+      "reconciliation",
+      "hooks rules"
+    ],
+    "mechanics": "Describe UI with components, update via setState/dispatch, let React re-render and diff by position/keys, and keep side effects in effects.",
+    "tradeoffs": "React abstracts DOM but you still pay for render work; memoization is optional optimization, not default architecture.",
+    "troubleshoot": "Use Profiler to find wasted renders; verify keys and pure render assumptions.",
+    "example": "function Counter() {\n  const [n, setN] = useState(0);\n  return <button onClick={() => setN(n+1)}>{n}</button>;\n}",
+    "integration": "1) Model UI state explicitly. 2) Keep components pure. 3) Colocate state. 4) Profile before memoizing. 5) Align with React docs mental model."
+  },
+  "React Testing Library": {
+    "summary": "RTL tests components via accessible queries and user events, encouraging tests that resemble usage over implementation details.",
+    "problem": "Testing internal state/class names couples tests to refactors and misses a11y regressions.",
+    "concepts": [
+      "getByRole/Text",
+      "userEvent",
+      "findBy for async",
+      "avoid testing implementation"
+    ],
+    "mechanics": "Render UI, interact like a user, assert visible outcomes, and prefer roles/labels over test IDs unless necessary.",
+    "tradeoffs": "RTL unit tests are fast but won't catch routing/CSS integration; complement with a few Playwright journeys.",
+    "troubleshoot": "If queries fail, dump screen.debug and fix missing labels rather than switching to fragile selectors.",
+    "example": "render(<Login />);\nawait userEvent.type(screen.getByLabelText('Email'), 'a@b.com');\nawait userEvent.click(screen.getByRole('button', { name: 'Sign in' }));",
+    "integration": "1) Adopt RTL for component tests. 2) Require accessible names. 3) Ban unnecessary test IDs. 4) Run on PR. 5) Keep E2E for critical paths only."
+  },
+  "real-time chat UI": {
+    "summary": "Real-time chat UIs render ordered messages with sockets/SSE, optimistic sends, and presence while handling reconnects.",
+    "problem": "Naive polling feels laggy; missing idempotency duplicates messages on retry.",
+    "concepts": [
+      "websocket/SSE",
+      "optimistic UI",
+      "message ids",
+      "reconnect backlog"
+    ],
+    "mechanics": "Subscribe to a channel, append by server timestamp/id, reconcile optimistic messages, and virtualize long histories.",
+    "tradeoffs": "Sockets are low-latency but operationally heavier than SSE for one-way updates.",
+    "troubleshoot": "If duplicates appear, key by server id and dedupe; snapshot missed messages on resume.",
+    "example": "socket.on('message', (m) => setMsgs((prev) => prev.some(x => x.id===m.id) ? prev : [...prev, m]));",
+    "integration": "1) Pick transport. 2) Stable message ids. 3) Optimistic send+ack. 4) Reconnect sync. 5) Virtualize history."
+  },
+  "reconciliation": {
+    "summary": "Reconciliation is React's diff of previous and next element trees to decide which DOM updates to commit.",
+    "problem": "Unstable keys and changing component types force expensive remounts instead of updates.",
+    "concepts": [
+      "type+key matching",
+      "bail out on same reference",
+      "commit phase",
+      "fibers"
+    ],
+    "mechanics": "Keep component types stable, key lists correctly, and avoid recreating element trees unnecessarily.",
+    "tradeoffs": "Reconciliation is not free; huge trees still cost CPU even with a good diff.",
+    "troubleshoot": "Use Profiler to see commit durations; fix keys and state locality first.",
+    "example": "// Prefer stable type\n{ Cond ? <A/> : <B/> } // remounts when toggled",
+    "integration": "1) Teach keys/identity. 2) Profile commits. 3) Split hot subtrees. 4) Memo only with evidence."
+  },
+  "Redux Toolkit": {
+    "summary": "Redux Toolkit is the official Redux approach with configureStore, createSlice, and Immer-based reducers for predictable global state.",
+    "problem": "Classic boilerplate Redux and accidental mutations made Redux painful; RTK fixes defaults but global state still isn't free.",
+    "concepts": [
+      "slices",
+      "immutable updates via Immer",
+      "thunks/RTK Query",
+      "selectors"
+    ],
+    "mechanics": "Define slices for domains, dispatch actions, select with memoized selectors, and keep server cache in RTK Query when appropriate.",
+    "tradeoffs": "Global Redux vs local state/Context: use Redux for cross-route shared client state with complex updates—not every form field.",
+    "troubleshoot": "If UI desyncs, check action payloads, immutable mistakes outside Immer, and selector identity.",
+    "example": "const slice = createSlice({\n  name: 'cart',\n  initialState: { items: [] },\n  reducers: { add(state, action) { state.items.push(action.payload); } }\n});",
+    "integration": "1) Introduce RTK store. 2) Migrate one domain slice. 3) Add selectors/tests. 4) Prefer RTK Query for server data. 5) Document what belongs in Redux."
+  },
+  "render phase": {
+    "summary": "React's render phase calculates the next UI (possibly interrupted in concurrent mode) without touching the DOM yet.",
+    "problem": "Side effects during render (subscriptions, random) cause impure bugs amplified by Strict Mode.",
+    "concepts": [
+      "pure render",
+      "no side effects",
+      "comparisons/bailouts",
+      "concurrent rendering"
+    ],
+    "mechanics": "Keep render pure and deterministic; put effects in useEffect/useLayoutEffect; derive values inline.",
+    "tradeoffs": "Concurrent rendering improves UX but surfaces impurity faster—fix purity.",
+    "troubleshoot": "If double-render shows different UI, your render is impure—remove side effects.",
+    "example": "function Price({ cents }) {\n  const label = (cents/100).toFixed(2); // derive, don't setState in render\n  return <span>{label}</span>;\n}",
+    "integration": "1) Ban side effects in render via review. 2) Enable Strict Mode. 3) Derive state. 4) Test concurrent paths."
+  },
+  "responsive images": {
+    "summary": "Responsive images choose appropriate resolution via srcset/sizes (and <picture> for art direction).",
+    "problem": "One huge image for all viewports wastes bandwidth and hurts LCP.",
+    "concepts": [
+      "srcset density/width",
+      "sizes attribute",
+      "picture/source",
+      "art direction vs resolution"
+    ],
+    "mechanics": "Provide multiple widths, correct sizes, and optional art-directed crops with picture.",
+    "tradeoffs": "More variants improve efficiency but increase build complexity/storage.",
+    "troubleshoot": "If wrong size loads, fix sizes attribute—often the real bug.",
+    "example": "<picture>\n  <source media='(max-width:600px)' srcSet='/hero-mobile.avif' />\n  <img src='/hero.avif' alt='' width={1200} height={600} />\n</picture>",
+    "integration": "1) Generate widths. 2) Set sizes. 3) Use picture for art direction. 4) Verify on real devices."
+  },
+  "Route Handlers": {
+    "summary": "Next.js Route Handlers are app/api route modules exporting HTTP method functions that run on the server.",
+    "problem": "Putting secrets or DB access in client components forces awkward API shapes; handlers keep server work on the server.",
+    "concepts": [
+      "GET/POST exports",
+      "Request/Response Web APIs",
+      "caching semantics",
+      "auth on server"
+    ],
+    "mechanics": "Export async function GET/POST(request), read body/searchParams, call services, return Response.json with correct status.",
+    "tradeoffs": "Handlers vs Server Actions: handlers are explicit HTTP endpoints; actions couple to forms/mutations. Choose based on clients and caching needs.",
+    "troubleshoot": "If you see CORS or 405, verify method export names and deployment runtime (edge vs node).",
+    "example": "// app/api/health/route.ts\nexport async function GET() {\n  return Response.json({ ok: true });\n}",
+    "integration": "1) Create route handlers for external clients. 2) Validate input. 3) Enforce auth. 4) Add integration tests. 5) Set cache headers deliberately."
+  },
+  "scope": {
+    "summary": "Scope determines where bindings are visible: block, function, module—and closures capture scopes over time.",
+    "problem": "var function-scoping and accidental globals create leaks and racey loop callbacks.",
+    "concepts": [
+      "block scope",
+      "lexical scope",
+      "closures",
+      "modules"
+    ],
+    "mechanics": "Prefer const/let, understand closures in async loops, and rely on modules for file scope.",
+    "tradeoffs": "Closures are powerful for hooks/callbacks but can retain memory if they capture large objects.",
+    "troubleshoot": "If loop callbacks share the last value, you closed over a mutated let/var incorrectly—bind per iteration.",
+    "example": "for (const item of items) {\n  buttons.push(() => console.log(item));\n}",
+    "integration": "1) ESLint no-var. 2) Teach closures. 3) Watch memory retained by listeners. 4) Prefer module scope over globals."
+  },
+  "semantic HTML": {
+    "summary": "Semantic HTML uses elements according to meaning (button, nav, main, heading levels), giving accessibility and SEO for free.",
+    "problem": "Clickable divs reinvent buttons poorly and break keyboard expectations.",
+    "concepts": [
+      "landmarks",
+      "heading order",
+      "button vs a",
+      "forms labels"
+    ],
+    "mechanics": "Choose elements by meaning, keep heading hierarchy, and add ARIA only when semantics are insufficient.",
+    "tradeoffs": "Design may push non-semantic structures; push back with accessible primitives.",
+    "troubleshoot": "Run axe and check landmark navigation in SR rotors.",
+    "example": "<main>\n  <h1>Settings</h1>\n  <nav aria-label='Settings sections'>...</nav>\n</main>",
+    "integration": "1) Replace div buttons. 2) Fix landmarks/headings. 3) Lint a11y. 4) Include in design reviews."
+  },
+  "Server Actions/Functions": {
+    "summary": "Server Actions are async server functions callable from Client Components/forms, progressive-enhancement friendly for mutations.",
+    "problem": "Treating actions like public RPC without auth/validation enables privilege escalation.",
+    "concepts": [
+      "'use server'",
+      "form actions",
+      "revalidatePath/Tag",
+      "closure serialization limits"
+    ],
+    "mechanics": "Mark functions with 'use server', validate inputs, mutate data, then revalidate caches; keep arguments serializable.",
+    "tradeoffs": "Actions simplify forms but hide network boundaries; heavy use can create chatty round-trips vs dedicated APIs.",
+    "troubleshoot": "If actions fail silently, check serialization errors, auth cookies, and CSRF protections in your Next version.",
+    "example": "'use server'\nexport async function renameItem(id: string, name: string) {\n  await db.item.update({ where: { id }, data: { name } });\n  revalidatePath('/items');\n}",
+    "integration": "1) Use actions for form mutations. 2) Validate with zod. 3) Authz every call. 4) Revalidate precisely. 5) Log failures."
+  },
+  "Server Components": {
+    "summary": "React Server Components render on the server, send a serialized UI payload, and keep server-only code out of the client bundle.",
+    "problem": "Importing server-only modules into client components leaks secrets or fails the build.",
+    "concepts": [
+      "no client hooks in RSC",
+      "async server components",
+      "client islands",
+      "props must be serializable"
+    ],
+    "mechanics": "Fetch data in RSC, pass serializable props to client children, and keep interactivity behind 'use client' boundaries.",
+    "tradeoffs": "RSC reduce JS and waterfalls but debugging and third-party client libs need careful boundaries.",
+    "troubleshoot": "If you see 'async Client Component' errors, move data fetching up to a server parent.",
+    "example": "// Server Component\nexport default async function Page() {\n  const data = await getData();\n  return <ClientTable rows={data} />;\n}",
+    "integration": "1) Default new pages to RSC. 2) Push 'use client' to leaves. 3) Audit bundle. 4) Keep secrets server-side. 5) Document boundary rules."
+  },
+  "Set": {
+    "summary": "Set stores unique values with insertion order—useful for membership checks and deduplication.",
+    "problem": "Using arrays for membership is O(n) and invites duplicates; object-key sets coerce types.",
+    "concepts": [
+      "uniqueness",
+      "has/add/delete",
+      "iteration order",
+      "WeakSet"
+    ],
+    "mechanics": "Build sets from arrays for O(1) membership; convert back with [...set] when needed.",
+    "tradeoffs": "Sets don't serialize to JSON naturally; persist as arrays at boundaries.",
+    "troubleshoot": "If duplicates appear, you compared objects by reference—normalize to IDs first.",
+    "example": "const seen = new Set();\nfor (const id of ids) if (!seen.has(id)) { seen.add(id); out.push(id); }",
+    "integration": "1) Use Set for membership. 2) Normalize object identity to IDs. 3) Serialize as arrays in APIs."
+  },
+  "source maps": {
+    "summary": "Source maps map minified production code back to original sources for readable stack traces.",
+    "problem": "Shipping maps publicly can leak source; omitting maps makes production debugging painful.",
+    "concepts": [
+      "mappings",
+      "private vs public maps",
+      "error reporting upload",
+      "devtool configs"
+    ],
+    "mechanics": "Generate maps in CI, upload to error tracker privately, and avoid exposing them on CDN if policy requires.",
+    "tradeoffs": "Full maps help debug but increase artifact size and leak risk; hidden maps + Sentry upload is common.",
+    "troubleshoot": "If stacks are minified, verify map upload and release versions match.",
+    "example": "// vite.config\nbuild: { sourcemap: true }",
+    "integration": "1) Emit maps. 2) Upload to tracker. 3) Block public access if needed. 4) Tag releases."
+  },
+  "specificity": {
+    "summary": "Specificity scores ID/class/type selectors to decide which declaration wins when cascade order ties on importance.",
+    "problem": "IDs and deep selectors make overrides require even heavier selectors or !important.",
+    "concepts": [
+      "(a,b,c) model",
+      "inline styles",
+      "avoid IDs in app CSS",
+      "@layer interactions"
+    ],
+    "mechanics": "Prefer single classes, avoid IDs, and use layers to manage overrides without specificity wars.",
+    "tradeoffs": "Utility classes keep specificity flat; complex BEM can still escalate.",
+    "troubleshoot": "Compute specificity in DevTools when the 'wrong' rule wins.",
+    "example": "/* (0,1,0) */ .btn {}\n/* (0,2,0) */ .btn.primary {}",
+    "integration": "1) Class-based styling. 2) Introduce layers. 3) Ban IDs. 4) Review !important."
+  },
+  "stacking context": {
+    "summary": "Stacking contexts determine how elements paint along the z-axis; new contexts limit z-index influence to descendants.",
+    "problem": "z-index wars fail when a parent creates an unexpected stacking context (opacity/transform/filter).",
+    "concepts": [
+      "root context",
+      "z-index only within context",
+      "opacity/transform create contexts",
+      "isolation"
+    ],
+    "mechanics": "Identify creating properties, flatten when possible, and plan overlay layers deliberately (dropdown < modal < toast).",
+    "tradeoffs": "Many contexts increase compositing cost; don't invent layers casually.",
+    "troubleshoot": "If a modal appears under content, a parent stacking context is trapping z-index—restructure.",
+    "example": ".modal-root { position: relative; z-index: 1000; isolation: isolate; }",
+    "integration": "1) Define layer scale. 2) Portal overlays to body. 3) Avoid unnecessary transform on ancestors. 4) Document."
+  },
+  "state ownership": {
+    "summary": "State ownership means placing state at the nearest component that can read and update it without pointless global stores.",
+    "problem": "Too-high state causes prop drilling and extra renders; too-low state blocks sharing.",
+    "concepts": [
+      "colocation",
+      "lift state up",
+      "server vs client state",
+      "derived state"
+    ],
+    "mechanics": "Colocate by default, lift when siblings share, and keep server cache in query libraries.",
+    "tradeoffs": "Global stores speed sharing but hide ownership; prefer clarity.",
+    "troubleshoot": "If many unrelated renders fire, state is too high or context value too wide.",
+    "example": "// Owner computes; children receive props\nfunction Parent(){ const [q,setQ]=useState(''); return <Search q={q} onChange={setQ}/>; }",
+    "integration": "1) Audit state locations. 2) Colocate. 3) Lift only when shared. 4) Separate server state."
+  },
+  "static rendering": {
+    "summary": "Static rendering precomputes HTML at build time for fast CDN delivery and predictable caching.",
+    "problem": "Fully dynamic SSR for rarely changing pages wastes compute and slows TTFB.",
+    "concepts": [
+      "SSG/prerender",
+      "ISR revalidation",
+      "on-demand revalidate",
+      "dynamic escape hatches"
+    ],
+    "mechanics": "Prerender stable pages, revalidate on a timer or after CMS webhooks, and mark truly dynamic routes explicitly.",
+    "tradeoffs": "Static is fast but can serve stale content; choose TTL by business risk.",
+    "troubleshoot": "If content stale after publish, hook revalidate to CMS events.",
+    "example": "export const revalidate = 60; // ISR seconds",
+    "integration": "1) Classify pages static vs dynamic. 2) Prerender. 3) Webhook revalidate. 4) Monitor staleness complaints."
+  },
+  "streaming/Suspense": {
+    "summary": "Streaming SSR and Suspense send HTML/UI progressively as data resolves, improving TTFB and perceived performance.",
+    "problem": "Awaiting all data before sending first byte creates long blank screens.",
+    "concepts": [
+      "Suspense boundaries",
+      "shell + pending UI",
+      "error boundaries",
+      "RSC streaming"
+    ],
+    "mechanics": "Wrap slow subtrees in Suspense with fallbacks, stream the shell first, and keep critical LCP content prioritized.",
+    "tradeoffs": "Too many boundaries cause layout jump; too few recreate waterfalls.",
+    "troubleshoot": "If stream stalls, find the blocking await above the first Suspense boundary.",
+    "example": "<Suspense fallback={<Skeleton/>}>\n  <SlowPanel />\n</Suspense>",
+    "integration": "1) Add shell layout. 2) Boundary slow panels. 3) Prioritize LCP. 4) Measure TTFB/LCP."
+  },
+  "Strict Mode": {
+    "summary": "React Strict Mode (dev) double-invokes certain lifecycles/effects to surface impure render and missing effect cleanup.",
+    "problem": "Treating double-mount as a production bug leads to wrong 'fixes' that hide real cleanup issues.",
+    "concepts": [
+      "dev-only double invoke",
+      "impure render detection",
+      "effect cleanup",
+      "not a production behavior"
+    ],
+    "mechanics": "Keep render pure, make effects idempotent with proper cleanup, and fix the underlying impurity Strict Mode reveals.",
+    "tradeoffs": "Strict Mode noise vs safety: keep it on in dev; don't disable to silence warnings without understanding them.",
+    "troubleshoot": "If effects run twice in dev, verify cleanup and that production mounts once.",
+    "example": "useEffect(() => {\n  const id = subscribe();\n  return () => unsubscribe(id);\n}, []);",
+    "integration": "1) Enable Strict Mode. 2) Fix impure renders. 3) Add effect cleanup. 4) Educate team that double-invoke is intentional in dev."
+  },
+  "TanStack Query": {
+    "summary": "TanStack Query manages server state: caching, deduping, retries, stale-while-revalidate, and invalidation keyed by queryKey.",
+    "problem": "Duplicating server cache in Redux/useState causes sync bugs and extra requests.",
+    "concepts": [
+      "queryKey",
+      "staleTime/gcTime",
+      "invalidation",
+      "mutations + optimistic UI"
+    ],
+    "mechanics": "Define stable keys, fetch in useQuery, invalidate on mutations, and tune staleTime so you don't refetch excessively.",
+    "tradeoffs": "Great for remote data; bad for purely local UI state. Over-optimistic updates need rollbacks.",
+    "troubleshoot": "If duplicate fetches occur, check key stability and React Strict Mode; verify QueryClient provider scope.",
+    "example": "useQuery({\n  queryKey: ['todo', id],\n  queryFn: () => api.getTodo(id),\n  staleTime: 30_000,\n});",
+    "integration": "1) Add QueryClientProvider. 2) Migrate GETs to useQuery. 3) Invalidate in mutations. 4) Set defaults for staleTime. 5) Devtools in staging."
+  },
+  "this binding": {
+    "summary": "this is determined by call site (or lexically for arrows), not where the function was defined.",
+    "problem": "Passing methods as callbacks loses the receiver and breaks class components/legacy APIs.",
+    "concepts": [
+      "call-site binding",
+      "arrows lexical this",
+      "bind",
+      "strict mode default undefined"
+    ],
+    "mechanics": "Prefer arrows for callbacks, bind methods when needed, and avoid depending on this in modern function components.",
+    "tradeoffs": "Hooks/function components largely remove this; still appears in older code and DOM APIs.",
+    "troubleshoot": "If this is undefined, the method was detached—bind or wrap.",
+    "example": "class C { handle = () => this.x++; } // lexical field",
+    "integration": "1) Prefer function components. 2) Use arrows for callbacks. 3) Enable lint rules. 4) Refactor class this usage."
+  },
+  "tree shaking": {
+    "summary": "Tree shaking removes unused ESM exports from bundles when modules are side-effect free and statically analyzable.",
+    "problem": "Side-effectful imports and CommonJS prevent elimination and bloat bundles.",
+    "concepts": [
+      "ESM static structure",
+      "sideEffects flag",
+      "named exports",
+      "avoid wild re-exports"
+    ],
+    "mechanics": "Prefer named ESM exports, set package sideEffects, and import leaf modules instead of fat barrels when needed.",
+    "tradeoffs": "Aggressive shaking needs discipline; some libraries can't be shaken.",
+    "troubleshoot": "Confirm with bundle analyzer that dead exports disappeared.",
+    "example": "import { format } from 'date-fns'; // prefer specific imports",
+    "integration": "1) Audit sideEffects. 2) Prefer ESM libs. 3) Avoid fat barrels. 4) CI bundle budgets."
+  },
+  "type coercion": {
+    "summary": "JS coerces types implicitly with == and many operators; === avoids most surprises.",
+    "problem": "Loose equality and truthiness bugs cause production logic errors (0, '', null).",
+    "concepts": [
+      "== vs ===",
+      "ToPrimitive",
+      "truthy/falsy",
+      "Number()/String()"
+    ],
+    "mechanics": "Use ===/!==, explicit conversions, and nullish checks with ?? where appropriate.",
+    "tradeoffs": "Coercion can be concise but is a footgun in teams—prefer explicitness.",
+    "troubleshoot": "Add tests for 0/''/null/undefined branches that have bitten you.",
+    "example": "if (value == null) { /* only null/undefined */ }\nNumber(input)",
+    "integration": "1) ESLint eqeqeq. 2) Explicit converts. 3) Prefer ?? over || for defaults. 4) Cover edge cases."
+  },
+  "type inference": {
+    "summary": "TypeScript infers types from values and context so you write fewer annotations without losing safety.",
+    "problem": "Over-annotating noise or under-annotating public APIs hides intent.",
+    "concepts": [
+      "contextual typing",
+      "return inference",
+      "widening",
+      "as const"
+    ],
+    "mechanics": "Annotate exported APIs and tricky boundaries; let locals infer; use as const for literal tuples.",
+    "tradeoffs": "Inference improves DX but opaque inferred types can confuse consumers—name them.",
+    "troubleshoot": "If types widen too far, add const assertions or explicit annotations.",
+    "example": "const roles = ['admin', 'user'] as const;\ntype Role = typeof roles[number];",
+    "integration": "1) Annotate public functions. 2) Infer internals. 3) Use as const for literals. 4) Review generated .d.ts."
+  },
+  "type narrowing": {
+    "summary": "Narrowing refines union types via control flow (typeof, in, equality, predicates) so fields become safe to use.",
+    "problem": "Asserting with as bypasses safety and crashes at runtime when wrong.",
+    "concepts": [
+      "control flow analysis",
+      "type predicates",
+      "discriminated unions",
+      "never exhaustiveness"
+    ],
+    "mechanics": "Model data as discriminated unions, switch on the discriminant, and use predicates for custom checks.",
+    "tradeoffs": "Predicates help but must be truthful; lying predicates reintroduce unsoundness.",
+    "troubleshoot": "If TS doesn't narrow, add a discriminant field instead of multiple optional fields.",
+    "example": "type Shape = {kind:'circle'; r:number} | {kind:'square'; s:number};\nfunction area(s: Shape) {\n  switch (s.kind) {\n    case 'circle': return Math.PI*s.r**2;\n    case 'square': return s.s**2;\n  }\n}",
+    "integration": "1) Prefer discriminated unions. 2) Avoid as. 3) Exhaustive switches. 4) Add predicates sparingly."
+  },
+  "union types": {
+    "summary": "Union types describe values that can be one of several alternatives, forcing handling of each case.",
+    "problem": "Optional fields everywhere model states poorly and create impossible combinations.",
+    "concepts": [
+      "A | B",
+      "discriminants",
+      "narrowing",
+      "never for exhaustiveness"
+    ],
+    "mechanics": "Encode states as unions, narrow before use, and reject impossible states in the type model.",
+    "tradeoffs": "Wide unions (string | number | boolean...) become noisy—prefer precise domain unions.",
+    "troubleshoot": "If you need many ifs, introduce a discriminant and switch.",
+    "example": "type Result<T> = { ok: true; value: T } | { ok: false; error: string };",
+    "integration": "1) Model UI/async states as unions. 2) Narrow. 3) Make impossible states unrepresentable. 4) Share Result types."
+  },
+  "useCallback": {
+    "summary": "useCallback memoizes a function reference between renders when dependencies stay equal—useful for optimized child props.",
+    "problem": "Wrapping every function in useCallback adds noise without benefit if children aren't memoized.",
+    "concepts": [
+      "referential stability",
+      "dependency arrays",
+      "pair with memo",
+      "avoid premature optimization"
+    ],
+    "mechanics": "Memoize callbacks passed to React.memo children or effect deps that would otherwise churn.",
+    "tradeoffs": "Stability vs clarity: default to plain functions; measure before memoizing.",
+    "troubleshoot": "If child still re-renders, the callback isn't the only changing prop—profile.",
+    "example": "const onSelect = useCallback((id: string) => setSel(id), []);",
+    "integration": "1) Profile. 2) Memo expensive children. 3) Stabilize required callbacks. 4) Keep deps accurate."
+  },
+  "useEffect": {
+    "summary": "useEffect runs side effects after paint—subscriptions, syncing external systems—not for computing render output.",
+    "problem": "Using effects to transform props into state causes extra renders and sync bugs; missing cleanup leaks.",
+    "concepts": [
+      "after paint",
+      "dependency array",
+      "cleanup",
+      "avoid derived state effects"
+    ],
+    "mechanics": "Declare effects with correct deps, clean up subscriptions, and prefer deriving values during render when possible.",
+    "tradeoffs": "Effects are escape hatches to external systems; overuse recreates lifecycle spaghetti.",
+    "troubleshoot": "If infinite loops occur, a dep changes every render—stabilize or revise design.",
+    "example": "useEffect(() => {\n  const sub = api.subscribe(id, handler);\n  return () => sub.unsubscribe();\n}, [id]);",
+    "integration": "1) Audit effects for derived state. 2) Add cleanup. 3) Fix deps with eslint-plugin-react-hooks. 4) Prefer events for user actions."
+  },
+  "useLayoutEffect": {
+    "summary": "useLayoutEffect runs after DOM mutations but before paint—used to measure/adjust layout without flicker.",
+    "problem": "Heavy work in layout effects blocks paint and hurts INP; SSR warns because it cannot run on server.",
+    "concepts": [
+      "before paint",
+      "DOM measurement",
+      "SSR caution",
+      "prefer useEffect when possible"
+    ],
+    "mechanics": "Measure refs in layout effect, sync DOM quietly, and fall back/guard for SSR.",
+    "tradeoffs": "Needed for tooltip positioning; overuse causes jank.",
+    "troubleshoot": "If content flashes then jumps, move measurement to useLayoutEffect; if janky, reduce work.",
+    "example": "useLayoutEffect(() => {\n  const rect = ref.current?.getBoundingClientRect();\n  setWidth(rect?.width ?? 0);\n}, [deps]);",
+    "integration": "1) Use only for measure/sync. 2) Guard SSR. 3) Keep work tiny. 4) Prefer CSS when possible."
+  },
+  "useMemo": {
+    "summary": "useMemo caches an expensive computed value between renders when dependencies are unchanged.",
+    "problem": "Memoizing cheap calculations adds overhead and dependency bugs without measurable gain.",
+    "concepts": [
+      "dependency equality",
+      "referential stability for children",
+      "not a semantic guarantee in future React",
+      "profile first"
+    ],
+    "mechanics": "Memoize heavy derived data or stable object identities required by deps; keep computation pure.",
+    "tradeoffs": "Clarity vs micro-opts: React docs advise measuring first.",
+    "troubleshoot": "If value still changes, deps include unstable objects—stabilize inputs.",
+    "example": "const total = useMemo(() => items.reduce((a,b)=>a+b.price,0), [items]);",
+    "integration": "1) Profile. 2) Memo hot derived data. 3) Keep pure. 4) Avoid cargo-cult wrapping."
+  },
+  "useRef": {
+    "summary": "useRef holds a mutable box (.current) that persists across renders without causing re-renders—also for DOM nodes.",
+    "problem": "Storing reactive UI state in refs means the screen won't update when it changes.",
+    "concepts": [
+      "mutable .current",
+      "DOM refs",
+      "no re-render",
+      "escape hatch for intervals/prev values"
+    ],
+    "mechanics": "Attach to DOM via ref prop, store timer IDs/previous values, and don't use refs as primary UI state.",
+    "tradeoffs": "Refs are great for imperative APIs; overuse bypasses React's model.",
+    "troubleshoot": "If UI doesn't update after ref change, you needed state instead.",
+    "example": "const inputRef = useRef<HTMLInputElement>(null);\nuseEffect(() => { inputRef.current?.focus(); }, []);",
+    "integration": "1) Use refs for DOM/imperative needs. 2) Keep UI in state. 3) Avoid reading refs during render for logic that should be reactive."
+  },
+  "useState": {
+    "summary": "useState declares local reactive state; updating it queues a re-render with the new value.",
+    "problem": "Mutating state objects in place skips re-renders and causes stale UI.",
+    "concepts": [
+      "immutable updates",
+      "functional updates",
+      "lazy init",
+      "state colocation"
+    ],
+    "mechanics": "Replace state immutably, use functional updates when depending on prior state, and initialize lazily for expensive defaults.",
+    "tradeoffs": "Many small states vs one object: prefer readability; avoid deeply nested mirrored server state.",
+    "troubleshoot": "If clicks feel one behind, you read state immediately after setState—use the updater or local variable.",
+    "example": "setItems((prev) => [...prev, item]);",
+    "integration": "1) Immutable updates. 2) Functional setState. 3) Colocate. 4) Don't mirror server cache."
+  },
+  "utility types": {
+    "summary": "TypeScript utility types (Partial, Pick, Omit, ReturnType, etc.) transform existing types for reuse.",
+    "problem": "Copy-pasting near-identical interfaces drifts and multiplies maintenance.",
+    "concepts": [
+      "Partial/Pick/Omit",
+      "Record",
+      "ReturnType/Parameters",
+      "Readonly"
+    ],
+    "mechanics": "Derive DTOs and props from canonical types; avoid deep magic utilities that obscure intent.",
+    "tradeoffs": "Utilities reduce duplication but can create odd optional/required mixes—validate resulting types.",
+    "troubleshoot": "If Omit leaves unexpected keys, check unions and intersections carefully.",
+    "example": "type UserDTO = Omit<User, 'passwordHash'>;\ntype Preview = Pick<User, 'id' | 'name'>;",
+    "integration": "1) Centralize domain types. 2) Derive with utilities. 3) Export clearly named aliases. 4) Test with expectTypeOf."
+  },
+  "virtualization": {
+    "summary": "UI virtualization renders only visible rows/windows of large lists to keep DOM size and work bounded.",
+    "problem": "Mounting 10k DOM nodes destroys scroll performance and memory.",
+    "concepts": [
+      "windowing",
+      "item size",
+      "overscan",
+      "scroll restoration"
+    ],
+    "mechanics": "Use a virtualizer library, provide size estimates, recycle rows, and keep keys stable by data id.",
+    "tradeoffs": "Virtualization complexity vs raw lists: worth it above a few hundred complex rows.",
+    "troubleshoot": "If scroll jumps, fix size measurement and dynamic row heights.",
+    "example": "import { useVirtualizer } from '@tanstack/react-virtual';",
+    "integration": "1) Measure list size. 2) Add virtualizer. 3) Stable keys. 4) Test keyboard scroll/a11y. 5) Tune overscan."
+  },
+  "virtualized data grid": {
+    "summary": "Virtualized data grids window both rows and columns for spreadsheet-scale data with sticky headers and cells.",
+    "problem": "Naive tables with thousands of cells lock up the main thread.",
+    "concepts": [
+      "2D windowing",
+      "sticky headers",
+      "cell reuse",
+      "keyboard navigation"
+    ],
+    "mechanics": "Adopt a grid library or build dual-axis virtualization, keep cell renderers light, and virtualize horizontally too when needed.",
+    "tradeoffs": "Feature-rich grids are heavy dependencies; evaluate against CSV download + simpler tables.",
+    "troubleshoot": "If scrolling blanks, increase overscan and simplify cell render cost.",
+    "example": "// Prefer proven grids (AG Grid, TanStack Table + virtual) over hand-rolled 2D windowing first.",
+    "integration": "1) Define performance budget. 2) Pick grid approach. 3) Light cells. 4) Keyboard nav. 5) Load pages by cursor."
+  },
+  "Vitest/Jest": {
+    "summary": "Vitest/Jest are unit test runners: Jest is established in Node; Vitest is Vite-native with ESM-first DX.",
+    "problem": "Slow, coupled tests and snapshot abuse reduce trust in the suite.",
+    "concepts": [
+      "describe/it/expect",
+      "mocking modules",
+      "jsdom/happy-dom",
+      "watch mode"
+    ],
+    "mechanics": "Colocate tests, mock network boundaries, assert behavior, and keep runs fast on PR.",
+    "tradeoffs": "Unit tests miss integration bugs; balance with RTL and a few E2E tests.",
+    "troubleshoot": "On flake, remove time dependence and shared mutable mocks.",
+    "example": "import { describe, it, expect } from 'vitest';\ndescribe('sum', () => {\n  it('adds', () => expect(sum(1,2)).toBe(3));\n});",
+    "integration": "1) Pick Vitest or Jest per toolchain. 2) Test pure logic + RTL. 3) Mock HTTP. 4) Enforce coverage on critical modules."
+  },
+  "WCAG": {
+    "summary": "WCAG is the shared standard (A/AA/AAA) defining perceivable, operable, understandable, robust accessibility criteria.",
+    "problem": "Visual-only QA fails keyboard and screen-reader users and risks legal/compliance issues.",
+    "concepts": [
+      "POUR principles",
+      "AA as common target",
+      "contrast",
+      "keyboard access"
+    ],
+    "mechanics": "Design to AA, use semantic HTML, ensure focus/contrast/labels, and verify with automated + manual SR testing.",
+    "tradeoffs": "Automation catches ~30–40% of issues; manual testing remains required. AAA may be impractical everywhere.",
+    "troubleshoot": "Triage audit findings by severity; fix name/role/value and keyboard blockers first.",
+    "example": "/* aim for AA contrast */\n--text: #111; --bg: #fff; /* verify with contrast checker */",
+    "integration": "1) Adopt AA as policy. 2) Add a11y lint + axe in CI. 3) Manual keyboard/SR checks. 4) Track defects as product bugs."
+  },
+  "WeakMap/WeakSet": {
+    "summary": "WeakMap/WeakSet hold object keys weakly so entries can be GC'd when no other references exist—ideal for private metadata.",
+    "problem": "Strong Maps keyed by DOM nodes/objects can leak memory for the page lifetime.",
+    "concepts": [
+      "weak keys must be objects",
+      "non-enumerable",
+      "GC-friendly caches",
+      "no iteration on WeakMap"
+    ],
+    "mechanics": "Attach per-object metadata with WeakMap; never expect to enumerate weak collections.",
+    "tradeoffs": "Cannot store primitive keys; debugging is harder because you can't list entries.",
+    "troubleshoot": "If memory grows with DOM churn, search for Maps keyed by elements and switch to WeakMap.",
+    "example": "const meta = new WeakMap();\nmeta.set(el, { opened: true });",
+    "integration": "1) Use WeakMap for element metadata. 2) Avoid strong caches of nodes. 3) Verify with memory profiler."
+  },
+  "Web Worker": {
+    "summary": "Web Workers run JS off the main thread for CPU-heavy work, communicating via postMessage (structured clone/transfer).",
+    "problem": "Heavy JSON parse/crypto on the main thread blocks INP and animation frames.",
+    "concepts": [
+      "dedicated workers",
+      "message passing",
+      "Transferable objects",
+      "no DOM access"
+    ],
+    "mechanics": "Spawn a worker, post inputs, process off-thread, post results back; transfer large ArrayBuffers when possible.",
+    "tradeoffs": "Workers add complexity and copy costs; not worth it for tiny tasks. SharedArrayBuffer has security constraints.",
+    "troubleshoot": "If UI still janks, ensure work truly moved off-main and messages aren't huge unbounded clones.",
+    "example": "// worker.js\nonmessage = (e) => postMessage(heavy(e.data));\n// main\nconst w = new Worker(new URL('./worker.js', import.meta.url));",
+    "integration": "1) Profile main-thread long tasks. 2) Move pure CPU work to workers. 3) Measure INP. 4) Fallback if worker fails."
+  },
+  "XSS": {
+    "summary": "Cross-site scripting injects attacker-controlled script into pages viewed by victims, stealing sessions or performing actions.",
+    "problem": "dangerouslySetInnerHTML, unchecked markdown HTML, and open redirects create XSS sinks.",
+    "concepts": [
+      "stored/reflected/DOM XSS",
+      "output encoding",
+      "CSP defense-in-depth",
+      "httpOnly cookies"
+    ],
+    "mechanics": "Treat all untrusted input as data, encode on output, sanitize HTML with a vetted library if rich text is required, and add CSP.",
+    "tradeoffs": "Sanitizers can be bypassed if misconfigured; prefer text content over HTML. CSP reduces blast radius but isn't a substitute for encoding.",
+    "troubleshoot": "Reproduce with a payload in every reflected field; check DOM sinks in Sources.",
+    "example": "// Bad: el.innerHTML = userInput\nel.textContent = userInput;",
+    "integration": "1) Ban raw HTML sinks in review. 2) Sanitize rich text. 3) httpOnly cookies. 4) CSP. 5) Add security tests for sinks."
+  },
+  "Zustand": {
+    "summary": "Zustand is a minimal React state store using hooks/selectors, avoiding Provider boilerplate for client state.",
+    "problem": "Overusing a global store for local UI state obscures ownership and complicates testing.",
+    "concepts": [
+      "create store",
+      "selectors to limit renders",
+      "immer middleware optional",
+      "no Provider required"
+    ],
+    "mechanics": "Create a store with actions, select slices with stable selectors, and keep server cache in TanStack Query instead.",
+    "tradeoffs": "Zustand is lighter than Redux; you lose opinionated patterns/devtools conventions unless you add them.",
+    "troubleshoot": "If all consumers re-render, you selected the whole store—select narrow fields.",
+    "example": "const useBear = create((set) => ({\n  bears: 0,\n  inc: () => set((s) => ({ bears: s.bears + 1 })),\n}));",
+    "integration": "1) Introduce Zustand for cross-route client state. 2) Use selectors. 3) Keep forms local. 4) Add simple tests for actions."
+  }
+}

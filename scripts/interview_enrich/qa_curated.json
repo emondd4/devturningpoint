@@ -1,0 +1,527 @@
+[
+  {
+    "id": "QA-B-0034",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Compare functional and non-functional testing."
+  },
+  {
+    "id": "QA-B-0035",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Compare smoke, sanity, regression, and retesting."
+  },
+  {
+    "id": "QA-B-0036",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain SDLC and STLC."
+  },
+  {
+    "id": "QA-B-0037",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain equivalence partitioning and boundary-value analysis."
+  },
+  {
+    "id": "QA-B-0038",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What HTTP methods and status-code families should an API tester understand?"
+  },
+  {
+    "id": "QA-B-0039",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What are Postman collections, environments, variables, and assertions?"
+  },
+  {
+    "id": "QA-B-0040",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What are unit, integration, system, acceptance, and end-to-end testing?"
+  },
+  {
+    "id": "QA-B-0041",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is Playwright, and what are browser, browser context, page, locator, and assertion concepts?"
+  },
+  {
+    "id": "QA-B-0042",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a requirements traceability matrix?"
+  },
+  {
+    "id": "QA-B-0043",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a test plan?"
+  },
+  {
+    "id": "QA-B-0044",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is black-box testing?"
+  },
+  {
+    "id": "QA-B-0045",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is exploratory testing?"
+  },
+  {
+    "id": "QA-B-0046",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is positive versus negative testing?"
+  },
+  {
+    "id": "QA-B-0047",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is test automation, and what kinds of tests should not automatically be automated?"
+  },
+  {
+    "id": "QA-B-0048",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between a test scenario and a test case?"
+  },
+  {
+    "id": "QA-B-0049",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between quality assurance, quality control, and software testing?"
+  },
+  {
+    "id": "QA-B-0050",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between severity and priority?"
+  },
+  {
+    "id": "QA-B-0051",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What makes a bug report useful to a developer?"
+  },
+  {
+    "id": "QA-B-0052",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What would you validate in an API response besides its status code?"
+  },
+  {
+    "id": "QA-B-0053",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Why does a QA engineer need basic SQL?"
+  },
+  {
+    "id": "QA-B-0075",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What is the difference between severity and priority, and who should influence each?"
+  },
+  {
+    "id": "QA-B-0076",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What is the difference between smoke, sanity, and regression testing?"
+  },
+  {
+    "id": "QA-B-0077",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What makes a good bug report reproducible?"
+  },
+  {
+    "id": "QA-B-0078",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "Why is a test case not the same thing as a requirement?"
+  },
+  {
+    "id": "QA-B-0079",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "Why should a QA engineer understand HTTP and SQL?"
+  },
+  {
+    "id": "QA-I-0035",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Compare decision-table, state-transition, pairwise, and error-guessing techniques."
+  },
+  {
+    "id": "QA-I-0036",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Compare load, stress, spike, soak, and scalability testing."
+  },
+  {
+    "id": "QA-I-0037",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain Playwright auto-waiting and why hard sleeps are usually a bad test strategy."
+  },
+  {
+    "id": "QA-I-0038",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain mobile testing differences across real devices, emulators/simulators, native apps, web apps, and hybrid apps."
+  },
+  {
+    "id": "QA-I-0039",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain test isolation and how shared test state creates flaky automation."
+  },
+  {
+    "id": "QA-I-0040",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you choose a regression suite under severe time constraints?"
+  },
+  {
+    "id": "QA-I-0041",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you test pagination, filtering, sorting, rate limiting, retries, and idempotency in an API?"
+  },
+  {
+    "id": "QA-I-0042",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you choose robust locators and avoid brittle CSS/XPath selectors?"
+  },
+  {
+    "id": "QA-I-0043",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you derive test cases from an ambiguous user story?"
+  },
+  {
+    "id": "QA-I-0044",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you integrate automated tests into CI without turning the pipeline into a flaky bottleneck?"
+  },
+  {
+    "id": "QA-I-0045",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you manage test data for tests that run in parallel?"
+  },
+  {
+    "id": "QA-I-0046",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you perform practical accessibility testing combining automated tooling and manual keyboard/screen-reader checks?"
+  },
+  {
+    "id": "QA-I-0047",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you test an API contract when the downstream implementation is unavailable?"
+  },
+  {
+    "id": "QA-I-0048",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you test authentication and authorization beyond a happy-path login?"
+  },
+  {
+    "id": "QA-I-0049",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What are Playwright fixtures, projects, traces, retries, sharding, and parallel execution?"
+  },
+  {
+    "id": "QA-I-0050",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What are virtual users, checks, thresholds, and scenarios in k6-style load testing?"
+  },
+  {
+    "id": "QA-I-0051",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What does Appium automate, and how does its driver architecture work?"
+  },
+  {
+    "id": "QA-I-0052",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the Page Object Model, and when can it become an over-engineered abstraction?"
+  },
+  {
+    "id": "QA-I-0053",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What makes an effective exploratory-testing charter?"
+  },
+  {
+    "id": "QA-I-0054",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What security checks should a QA engineer understand for common OWASP web/API risks?"
+  },
+  {
+    "id": "QA-I-0076",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How should contract tests complement, rather than replace, integration and E2E tests?"
+  },
+  {
+    "id": "QA-I-0077",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you design test data so tests can run safely in parallel?"
+  },
+  {
+    "id": "QA-I-0078",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you test an API endpoint for correctness beyond checking for HTTP 200?"
+  },
+  {
+    "id": "QA-I-0079",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you test eventual consistency in a system where data may take several seconds to propagate?"
+  },
+  {
+    "id": "QA-I-0080",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "Why are fixed sleeps a common source of flaky UI automation, and what should replace them?"
+  },
+  {
+    "id": "QA-A-0033",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "A browser test is slow but no single test seems problematic. How would you profile and optimize suite execution?"
+  },
+  {
+    "id": "QA-A-0034",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "A test suite passes locally but fails 5% of CI runs. Explain your method for classifying and eliminating flakiness."
+  },
+  {
+    "id": "QA-A-0035",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a chaos/resilience test for dependency failure, network latency, partial outage, and recovery."
+  },
+  {
+    "id": "QA-A-0036",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a test strategy for a microservice system where individual services deploy independently several times per day."
+  },
+  {
+    "id": "QA-A-0037",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design an automation architecture for hundreds of Playwright tests used by multiple product teams."
+  },
+  {
+    "id": "QA-A-0038",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design contract testing between services owned by independent teams."
+  },
+  {
+    "id": "QA-A-0039",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design mobile release testing across a fragmented Android device matrix and restricted iOS background behavior."
+  },
+  {
+    "id": "QA-A-0040",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design performance tests that model realistic user journeys, arrival rates, think time, data, and service dependencies."
+  },
+  {
+    "id": "QA-A-0041",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design quality gates for a trunk-based team while keeping developer feedback fast."
+  },
+  {
+    "id": "QA-A-0042",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design resilient test-data management for parallel CI runs against shared third-party sandboxes."
+  },
+  {
+    "id": "QA-A-0043",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain mutation testing and when it can reveal weaknesses that code coverage misses."
+  },
+  {
+    "id": "QA-A-0044",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you build a risk-based testing model using business impact, change surface, defect history, and usage data?"
+  },
+  {
+    "id": "QA-A-0045",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you decide the right balance of unit, contract, integration, browser E2E, and production tests?"
+  },
+  {
+    "id": "QA-A-0046",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you identify whether a performance failure is caused by browser rendering, API latency, database contention, or infrastructure?"
+  },
+  {
+    "id": "QA-A-0047",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you test a zero-downtime database migration during a rolling application deployment?"
+  },
+  {
+    "id": "QA-A-0048",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you test authorization for hundreds of roles/resources without manually enumerating every case?"
+  },
+  {
+    "id": "QA-A-0049",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you test eventual consistency and asynchronous workflows driven by queues?"
+  },
+  {
+    "id": "QA-A-0050",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you test idempotency and replay safety in a payment API?"
+  },
+  {
+    "id": "QA-A-0051",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you verify observability itself\u2014logs, metrics, traces, alerts, and correlation\u2014in a production-readiness test?"
+  },
+  {
+    "id": "QA-A-0052",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "In a senior QA/SDET interview, create an end-to-end quality strategy for an ecommerce checkout covering UI, API, data, payments, concurrency, performance, security, accessibility, observability, and rollback."
+  },
+  {
+    "id": "QA-A-0073",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "A browser automation suite has 8% flaky failures in CI but rarely fails locally. Describe how you would classify and eliminate the flakiness systematically."
+  },
+  {
+    "id": "QA-A-0074",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "Design a test strategy for a distributed payment system that includes idempotency, retries, webhook delivery, reconciliation, and partial outages."
+  },
+  {
+    "id": "QA-A-0075",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "Design an organization-wide quality strategy that moves beyond counting test cases and automation percentage."
+  },
+  {
+    "id": "QA-A-0076",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "Design performance tests that distinguish application saturation, database bottlenecks, dependency limits, and load-generator limitations."
+  },
+  {
+    "id": "QA-A-0077",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you validate resilience during dependency outages without turning production testing into uncontrolled chaos?"
+  }
+]

@@ -25,5 +25,7 @@
     "security",
     "owasp"
   ],
-  "lastVerified": "2026-09-14"
+  "lastVerified": "2026-09-14",
+  "codeExample": "// Prefer httpOnly secure cookie for session/refresh where possible.\n// If access token must be in memory:\nlet accessToken: string | null = null;\nexport const setAccess = (t: string) => { accessToken = t; };\n// Avoid localStorage for long-lived tokens (XSS-exfiltrable).",
+  "integrationProcedure": "1) Decide cookie session vs bearer access token. 2) Set Secure/HttpOnly/SameSite for cookies; CSRF strategy if cookie auth. 3) Keep access tokens short-lived. 4) Add CSP and XSS regression tests. 5) Document token theft response (revoke/rotate)."
 }

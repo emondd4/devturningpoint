@@ -1,0 +1,527 @@
+[
+  {
+    "id": "UX-B-0020",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain visual hierarchy."
+  },
+  {
+    "id": "UX-B-0021",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do typography, spacing, alignment, and color affect usability?"
+  },
+  {
+    "id": "UX-B-0022",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you handle design feedback?"
+  },
+  {
+    "id": "UX-B-0023",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you know whether a design was successful?"
+  },
+  {
+    "id": "UX-B-0024",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Walk me through one project in your portfolio."
+  },
+  {
+    "id": "UX-B-0025",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Walk me through your design process from problem to validation."
+  },
+  {
+    "id": "UX-B-0026",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What are components and variants in Figma?"
+  },
+  {
+    "id": "UX-B-0027",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What are design systems?"
+  },
+  {
+    "id": "UX-B-0028",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What design decision in your portfolio are you most proud of, and why?"
+  },
+  {
+    "id": "UX-B-0029",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is Auto Layout, and why is it useful?"
+  },
+  {
+    "id": "UX-B-0030",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is a user flow?"
+  },
+  {
+    "id": "UX-B-0031",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is contrast, and why does accessibility matter in visual design?"
+  },
+  {
+    "id": "UX-B-0032",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is information architecture?"
+  },
+  {
+    "id": "UX-B-0033",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is responsive design from a designer's perspective?"
+  },
+  {
+    "id": "UX-B-0034",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between UI design and UX design?"
+  },
+  {
+    "id": "UX-B-0035",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between a user need, business goal, and feature request?"
+  },
+  {
+    "id": "UX-B-0036",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between a wireframe, mockup, and prototype?"
+  },
+  {
+    "id": "UX-B-0037",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is the difference between qualitative and quantitative research?"
+  },
+  {
+    "id": "UX-B-0038",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is usability testing?"
+  },
+  {
+    "id": "UX-B-0039",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "What is user-centered design?"
+  },
+  {
+    "id": "UX-B-0070",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What is the difference between a user need, a product requirement, and a design solution?"
+  },
+  {
+    "id": "UX-B-0071",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What is the purpose of a wireframe compared with a high-fidelity mockup?"
+  },
+  {
+    "id": "UX-B-0072",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What makes a design accessible beyond passing a color-contrast checker?"
+  },
+  {
+    "id": "UX-B-0073",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "What should a UX case study explain besides the final screens?"
+  },
+  {
+    "id": "UX-B-0074",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "questionType": "Conceptual",
+    "question": "Why is visual consistency useful, and when can consistency itself become harmful?"
+  },
+  {
+    "id": "UX-I-0020",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Critique a familiar application's onboarding or checkout flow by identifying user goals, friction, accessibility issues, trade-offs, and validation ideas."
+  },
+  {
+    "id": "UX-I-0021",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "During a whiteboard challenge, how do you scope the problem before drawing screens?"
+  },
+  {
+    "id": "UX-I-0022",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Engineering says your preferred interaction is too expensive. How do you negotiate the trade-off?"
+  },
+  {
+    "id": "UX-I-0023",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain WCAG principles and how they influence product design decisions."
+  },
+  {
+    "id": "UX-I-0024",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain design tokens and how they connect design and engineering."
+  },
+  {
+    "id": "UX-I-0025",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Explain recognition versus recall and give UI examples."
+  },
+  {
+    "id": "UX-I-0026",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do Jobs-to-be-Done and traditional personas differ?"
+  },
+  {
+    "id": "UX-I-0027",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you choose among interviews, surveys, contextual inquiry, diary studies, and usability testing?"
+  },
+  {
+    "id": "UX-I-0028",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you decide what belongs in a design system versus a local product pattern?"
+  },
+  {
+    "id": "UX-I-0029",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you design for keyboard, screen-reader, low-vision, motor, and cognitive accessibility?"
+  },
+  {
+    "id": "UX-I-0030",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you distinguish correlation from evidence that a design caused a metric change?"
+  },
+  {
+    "id": "UX-I-0031",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you prevent error rather than merely displaying better error messages?"
+  },
+  {
+    "id": "UX-I-0032",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you structure a Figma component library so it remains usable as the product scales?"
+  },
+  {
+    "id": "UX-I-0033",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you turn a vague stakeholder request into a researchable design problem?"
+  },
+  {
+    "id": "UX-I-0034",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you conduct a useful design critique without turning it into taste-based debate?"
+  },
+  {
+    "id": "UX-I-0035",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you design an accessible form including labels, instructions, validation, focus, and error recovery?"
+  },
+  {
+    "id": "UX-I-0036",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you organize navigation for a complex product with several user types?"
+  },
+  {
+    "id": "UX-I-0037",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you test a redesign and choose meaningful success metrics?"
+  },
+  {
+    "id": "UX-I-0038",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "When are personas useful, and when can they become misleading artifacts?"
+  },
+  {
+    "id": "UX-I-0039",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Your PM wants to ship a feature before user testing. How do you respond?"
+  },
+  {
+    "id": "UX-I-0070",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "A stakeholder asks you to skip research because the deadline is short. How would you reduce research effort without pretending uncertainty disappeared?"
+  },
+  {
+    "id": "UX-I-0071",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How do you distinguish a usability problem from a discoverability problem, a content problem, or the wrong product proposition?"
+  },
+  {
+    "id": "UX-I-0072",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you choose between interviews, surveys, analytics, and usability testing for a product question?"
+  },
+  {
+    "id": "UX-I-0073",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you evolve a Figma component library into a governed design system used consistently by design and engineering?"
+  },
+  {
+    "id": "UX-I-0074",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you test whether an onboarding redesign actually improved the user experience?"
+  },
+  {
+    "id": "UX-A-0019",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "A stakeholder insists on a dark pattern because it improves conversion. How do you respond?"
+  },
+  {
+    "id": "UX-A-0020",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "As a design lead, how would you protect product coherence while allowing several teams to ship independently?"
+  },
+  {
+    "id": "UX-A-0021",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Critique a product where user needs, business incentives, and regulatory requirements are in tension."
+  },
+  {
+    "id": "UX-A-0022",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a collaboration model between product design, research, content design, PM, engineering, and analytics."
+  },
+  {
+    "id": "UX-A-0023",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a research strategy for a high-risk product decision where stakeholders disagree about the underlying user problem."
+  },
+  {
+    "id": "UX-A-0024",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design a strategy for migrating a fragmented product UI onto shared foundations without stopping feature delivery."
+  },
+  {
+    "id": "UX-A-0025",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design an experimentation framework for a product where A/B testing every change is neither possible nor ethical."
+  },
+  {
+    "id": "UX-A-0026",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Design an internationalized product that must handle RTL, long translations, multiple writing systems, and regional conventions."
+  },
+  {
+    "id": "UX-A-0027",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you balance accessibility requirements with dense, high-productivity professional interfaces?"
+  },
+  {
+    "id": "UX-A-0028",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you decide when to standardize a pattern and when to allow product-specific divergence?"
+  },
+  {
+    "id": "UX-A-0029",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How do you measure design-system success beyond the number of components created?"
+  },
+  {
+    "id": "UX-A-0030",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you assess UX maturity in an organization and decide what capability to improve first?"
+  },
+  {
+    "id": "UX-A-0031",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you build and govern a design system used across multiple products and autonomous teams?"
+  },
+  {
+    "id": "UX-A-0032",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you conduct research when users are hard to recruit, domain knowledge is specialized, and mistakes are costly?"
+  },
+  {
+    "id": "UX-A-0033",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you design an enterprise workflow for expert users where efficiency conflicts with learnability for newcomers?"
+  },
+  {
+    "id": "UX-A-0034",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you evaluate whether a metric improvement came at the cost of user trust or long-term product health?"
+  },
+  {
+    "id": "UX-A-0035",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "How would you make a design-system component backward-compatible while fixing an accessibility flaw?"
+  },
+  {
+    "id": "UX-A-0036",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "In a portfolio review, explain a project that failed or did not produce the expected outcome and what you learned."
+  },
+  {
+    "id": "UX-A-0037",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Lead a whiteboard solution for \"help first-time users understand a complex financial product\" without jumping directly to screens."
+  },
+  {
+    "id": "UX-A-0038",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "questionType": "Curated",
+    "question": "Tell me about a time evidence contradicted your design intuition. What changed?"
+  },
+  {
+    "id": "UX-A-0069",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "A stakeholder insists on a dark pattern because it improves conversion. How would you challenge the request while accounting for business goals?"
+  },
+  {
+    "id": "UX-A-0070",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "Design a research strategy for a high-stakes workflow where representative users are difficult to recruit and mistakes can have serious consequences."
+  },
+  {
+    "id": "UX-A-0071",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "During a whiteboard challenge, requirements are intentionally ambiguous. Demonstrate how you would frame the problem before sketching any UI."
+  },
+  {
+    "id": "UX-A-0072",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you measure the success of a design-system investment across product quality, delivery speed, accessibility, and consistency?"
+  },
+  {
+    "id": "UX-A-0073",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "questionType": "Scenario",
+    "question": "How would you redesign a critical workflow when qualitative research and product analytics appear to contradict each other?"
+  }
+]

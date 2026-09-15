@@ -1,7 +1,7 @@
 {
   "id": "iv-flutter-keys-list-reorder",
   "question": "What goes wrong when a Flutter ListView uses index-based keys and the list is reordered or filtered?",
-  "questionBn": "ListView-\u098f \u0987\u09a8\u09a1\u09c7\u0995\u09cd\u09b8-\u09ad\u09bf\u09a4\u09cd\u09a4\u09bf\u0995 key \u09a5\u09be\u0995\u09b2\u09c7 \u09b2\u09bf\u09b8\u09cd\u099f \u09b0\u09bf\u0985\u09b0\u09cd\u09a1\u09be\u09b0/\u09ab\u09bf\u09b2\u09cd\u099f\u09be\u09b0\u09c7 \u0995\u09c0 \u09b8\u09ae\u09b8\u09cd\u09af\u09be \u09b9\u09af\u09bc?",
+  "questionBn": "ListView-এ ইনডেক্স-ভিত্তিক key থাকলে লিস্ট রিঅর্ডার/ফিল্টারে কী সমস্যা হয়?",
   "careerIds": [
     "flutter-developer"
   ],
@@ -9,7 +9,7 @@
     "Flutter"
   ],
   "difficulty": "junior",
-  "shortAnswer": "Elements/State attach to the wrong items\u2014lost text, wrong checkboxes, glitchy animations. Use ValueKey(stableId).",
+  "shortAnswer": "Elements/State attach to the wrong items—lost text, wrong checkboxes, glitchy animations. Use ValueKey(stableId).",
   "strongAnswer": "Keys tell the framework which Element to reuse when the widget configuration updates. Index keys make position identity; after reorder, State follows the slot not the item. Prefer ValueKey or ObjectKey tied to a stable business id.",
   "advancedAnswer": "Contrast LocalKey vs GlobalKey costs; discuss UniqueKey anti-pattern that forces remount every build.",
   "followUps": [
@@ -17,11 +17,13 @@
     "How do keys interact with AnimatedList?"
   ],
   "commonWrongAnswer": "Keys are only for performance and never affect correctness.",
-  "productionRelevance": "Todo/cart/chat lists mis-associate draft text with the wrong row after sort/filter\u2014high visibility bugs.",
+  "productionRelevance": "Todo/cart/chat lists mis-associate draft text with the wrong row after sort/filter—high visibility bugs.",
   "relatedTopics": [
     "FLUTTER-BUILDCONTEXT-KEYS",
     "FLUTTER-RENDERING-REBUILDS",
     "FLUTTER-KEYS-IDENTITY"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: What goes wrong when a Flutter ListView uses index-based keys and the list is reordered or filtered?\n// Stack: Flutter\n// Short answer: Elements/State attach to the wrong items—lost text, wrong checkboxes, glitchy animations. Use ValueKey(stableId).\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Flutter. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

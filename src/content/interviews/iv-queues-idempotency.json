@@ -20,5 +20,7 @@
   "relatedTopics": [
     "BACKEND-QUEUES-BULL"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: Why must Bull/BullMQ consumers be idempotent?\n// Stack: BullMQ, Redis\n// Short answer: Jobs may be delivered more than once due to retries/crashes; side effects must not duplicate incorrectly.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using BullMQ, Redis. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

@@ -20,5 +20,7 @@
   "relatedTopics": [
     "FRONTEND-JS-FETCH"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: Does fetch() reject on HTTP 500? How should a frontend handle it?\n// Stack: JavaScript, Fetch\n// Short answer: No—fetch rejects on network failure; HTTP errors resolve with ok=false. Check status and parse accordingly.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using JavaScript, Fetch. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

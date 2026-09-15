@@ -20,5 +20,7 @@
   "relatedTopics": [
     "FRONTEND-TANSTACK-QUERY-MENTAL-MODEL"
   ],
-  "lastVerified": "2026-09-15"
+  "lastVerified": "2026-09-15",
+  "codeExample": "// Example framing for: What problem does TanStack Query solve compared with useEffect + useState for fetching?\n// Stack: TanStack Query, React\n// Short answer: It treats server data as cacheable shared state with deduping, status, and invalidation built in.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using TanStack Query, React. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

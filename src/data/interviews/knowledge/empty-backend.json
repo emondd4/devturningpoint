@@ -1,0 +1,446 @@
+{
+  "BE-B-0036": {
+    "shortAnswer": "HTTP semantics define methods, status codes, headers, and idempotency expectations clients rely on.",
+    "answer": "Answering “Explain GET, POST, PUT, PATCH, and DELETE and give an appropriate use case for each.?”: HTTP semantics define methods, status codes, headers, and idempotency expectations clients rely on. Misusing GET for mutations or 200 for creates breaks caches and client logic. Relevant ideas: safe/idempotent methods; status classes; cache headers; content negotiation; resources & collections; status codes. Use method meaning correctly, pick precise statuses, document error bodies, and set cache headers deliberately.",
+    "integrationProcedure": "1) Document method semantics. 2) Standardize error envelope. 3) Add contract tests. 4) Review caching.",
+    "example": "POST /orders → 201 Created + Location\nPUT /orders/{id} → idempotent replace\n\nGET /orders/{id}\nPOST /orders\nPATCH /orders/{id}"
+  },
+  "BE-B-0037": {
+    "shortAnswer": "NestJS is a structured Node framework using modules, DI, controllers, and providers inspired by Angular patterns.",
+    "answer": "Answering “What are controllers, providers/services, and modules in NestJS?”: NestJS is a structured Node framework using modules, DI, controllers, and providers inspired by Angular patterns. Unstructured Express apps become hard to test and navigate as teams grow. Relevant ideas: modules; DI container; controllers/providers; pipes/guards/interceptors; thin controllers; DTO in. Organize by module, inject dependencies via constructors, push logic to services, and keep controllers thin.",
+    "integrationProcedure": "1) Scaffold Nest module per domain. 2) Wire DI. 3) Add ValidationPipe. 4) Test with TestingModule. 5) Document module boundaries.",
+    "example": "@Injectable() class OrdersService {\n  constructor(private readonly repo: OrdersRepo) {}\n}\n\n@Post() create(@Body() dto: CreateOrderDto) {\n  return this.orders.create(dto);\n}"
+  },
+  "BE-B-0038": {
+    "shortAnswer": "Structured logging emits JSON fields (level, msg, requestId, userId) for queryable observability.",
+    "answer": "Answering “What are logs, and what information should an application log?”: Structured logging emits JSON fields (level, msg, requestId, userId) for queryable observability. String-only logs are hard to filter and correlate during incidents. Relevant ideas: JSON logs; levels; PII redaction; correlation ids; generate at edge; propagate headers. Use pino/winston JSON, include requestIds, redact secrets/PII, and ship to a log backend.",
+    "integrationProcedure": "1) JSON logger. 2) Field standard. 3) Redaction. 4) Ship to stack. 5) Dashboards/alerts.",
+    "example": "logger.info({ requestId, userId, route }, 'order_created');\n\nconst id = req.headers['x-request-id'] ?? crypto.randomUUID();\nlogger.info({ requestId: id }, 'handling');"
+  },
+  "BE-B-0039": {
+    "shortAnswer": "ESM is Node's official module system with import/export, better static analysis, and asynchronous loading semantics.",
+    "answer": "Answering “What are modules in Node.js?”: ESM is Node's official module system with import/export, better static analysis, and asynchronous loading semantics. Dual CJS/ESM packages cause 'ERR_REQUIRE_ESM' and duplicated instances of singleton libs. Relevant ideas: type:module; import assertions/attributes; interop with CJS; package exports; imports/exports; providers. Prefer ESM for new code, set package exports carefully, and avoid dual publishing pitfalls.",
+    "integrationProcedure": "1) Adopt ESM. 2) Fix exports map. 3) Resolve dual-package hazards. 4) Update loaders/tests.",
+    "example": "// package.json\n{ \"type\": \"module\", \"exports\": { \".\": \"./dist/index.js\" } }\n\n@Module({ imports: [DbModule], controllers: [OrdersController], providers: [OrdersService], exports: [OrdersService] })"
+  },
+  "BE-B-0040": {
+    "shortAnswer": "HTTP semantics define methods, status codes, headers, and idempotency expectations clients rely on.",
+    "answer": "Answering “What does a backend application do?”: HTTP semantics define methods, status codes, headers, and idempotency expectations clients rely on. Misusing GET for mutations or 200 for creates breaks caches and client logic. Relevant ideas: safe/idempotent methods; status classes; cache headers; content negotiation; resources & collections; status codes. Use method meaning correctly, pick precise statuses, document error bodies, and set cache headers deliberately.",
+    "integrationProcedure": "1) Document method semantics. 2) Standardize error envelope. 3) Add contract tests. 4) Review caching.",
+    "example": "POST /orders → 201 Created + Location\nPUT /orders/{id} → idempotent replace\n\nGET /orders/{id}\nPOST /orders\nPATCH /orders/{id}"
+  },
+  "BE-B-0041": {
+    "shortAnswer": "HTTP semantics define methods, status codes, headers, and idempotency expectations clients rely on.",
+    "answer": "Answering “What happens from the moment an HTTP request reaches a backend server until a response is returned?”: HTTP semantics define methods, status codes, headers, and idempotency expectations clients rely on. Misusing GET for mutations or 200 for creates breaks caches and client logic. Relevant ideas: safe/idempotent methods; status classes; cache headers; content negotiation; order matters; req/res/next. Use method meaning correctly, pick precise statuses, document error bodies, and set cache headers deliberately.",
+    "integrationProcedure": "1) Document method semantics. 2) Standardize error envelope. 3) Add contract tests. 4) Review caching.",
+    "example": "POST /orders → 201 Created + Location\nPUT /orders/{id} → idempotent replace\n\nconsumer.apply(LoggerMiddleware).forRoutes('*');"
+  },
+  "BE-B-0042": {
+    "shortAnswer": "Response serialization maps domain entities to public DTOs, hiding internal fields and shaping API contracts.",
+    "answer": "Answering “What is JSON serialization and deserialization?”: Response serialization maps domain entities to public DTOs, hiding internal fields and shaping API contracts. Returning ORM entities leaks password hashes and internal columns. Relevant ideas: class-transformer; exclude secrets; view DTOs; consistent envelopes; whitelist properties; class-validator/zod. Use interceptor/serializer to expose allowlisted fields; never return raw entities.",
+    "integrationProcedure": "1) Response DTOs. 2) Global serializer. 3) Leak tests. 4) Document public fields.",
+    "example": "@Exclude() passwordHash: string;\n@Expose() email: string;\n\n@IsString() @MinLength(1) name: string;\n// ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })"
+  },
+  "BE-B-0043": {
+    "shortAnswer": "Node's event loop multiplexes async I/O on a single JS thread, offloading some work to libuv's threadpool.",
+    "answer": "Answering “What is Node.js, and why is it suitable for many I/O-heavy services?”: Node's event loop multiplexes async I/O on a single JS thread, offloading some work to libuv's threadpool. Blocking the loop with sync CPU/fs calls stalls all requests. Relevant ideas: phases (timers, poll, check); microtasks; libuv threadpool; loop delay metrics. Keep handlers non-blocking, tune UV_THREADPOOL_SIZE for fs/dns/crypto, and monitor event-loop lag.",
+    "integrationProcedure": "1) Ban sync FS in request path. 2) Monitor loop delay. 3) Offload CPU. 4) Tune threadpool if needed.",
+    "example": "setImmediate(() => console.log('check phase'));\nawait fs.promises.readFile(path); // non-blocking API"
+  },
+  "BE-B-0044": {
+    "shortAnswer": "REST resource design models nouns as resources with HTTP methods acting on representations and hypermedia/relations as needed.",
+    "answer": "Answering “What is REST, and what makes an API resource-oriented?”: REST resource design models nouns as resources with HTTP methods acting on representations and hypermedia/relations as needed. RPC-ish endpoints (/doThing) proliferate and confuse caching/idempotency. Relevant ideas: resources & collections; status codes; pagination filters; idempotent methods; safe/idempotent methods; status classes. Name resources consistently, use plural collections, nest carefully, and document error shapes.",
+    "integrationProcedure": "1) Agree naming conventions. 2) Map verbs to methods. 3) Add OpenAPI. 4) Review nesting depth.",
+    "example": "GET /orders/{id}\nPOST /orders\nPATCH /orders/{id}\n\nPOST /orders → 201 Created + Location\nPUT /orders/{id} → idempotent replace"
+  },
+  "BE-B-0045": {
+    "shortAnswer": "DTO validation checks inbound shapes at the API boundary so invalid data never reaches domain logic.",
+    "answer": "Answering “What is a DTO?”: DTO validation checks inbound shapes at the API boundary so invalid data never reaches domain logic. Trusting client JSON enables mass assignment and subtle invariant breaks. Relevant ideas: whitelist properties; class-validator/zod; transform pipes; fail fast 400; allowlist DTO fields; forbid non-whitelisted. Define DTOs/schemas, reject unknown fields, validate types/ranges, and return structured errors.",
+    "integrationProcedure": "1) Add schema validation globally. 2) Forbid unknown props. 3) Share error format. 4) Contract-test samples.",
+    "example": "@IsString() @MinLength(1) name: string;\n// ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })\n\nValidationPipe({ whitelist: true, forbidNonWhitelisted: true })"
+  },
+  "BE-B-0046": {
+    "shortAnswer": "JWTs are signed bearer tokens carrying claims so APIs can authenticate without server session lookup each time.",
+    "answer": "Answering “What is a JWT, and what is inside one?”: JWTs are signed bearer tokens carrying claims so APIs can authenticate without server session lookup each time. Long-lived JWTs in localStorage are hard to revoke and XSS-stealable; trusting unverified tokens is fatal. Relevant ideas: header.payload.signature; exp/iss/aud; signature verify; short TTL + refresh. Issue short-lived access tokens, verify signature/exp/aud, authorize from claims, and store refresh tokens carefully (often httpOnly).",
+    "integrationProcedure": "1) Short TTL access tokens. 2) Verify all claims. 3) Secure refresh storage. 4) Rotate keys. 5) Prefer opaque tokens if revocation is critical.",
+    "example": "const payload = await jose.jwtVerify(token, key, { issuer, audience });"
+  },
+  "BE-B-0047": {
+    "shortAnswer": "ORMs map tables to objects/query builders to speed CRUD while abstracting SQL dialects.",
+    "answer": "Answering “What is a relational database, and how does a backend typically use one?”: ORMs map tables to objects/query builders to speed CRUD while abstracting SQL dialects. Hiding SQL entirely invites N+1, unpredictable queries, and weak indexes. Relevant ideas: unit of work; lazy vs eager; migrations; raw SQL escape hatch; ACID unit; keep transactions short. Use ORM for CRUD, explain critical queries, drop to SQL for complex reporting, and own migrations.",
+    "integrationProcedure": "1) Adopt ORM with migrations. 2) Log SQL in staging. 3) Index hot paths. 4) Allow raw SQL where needed.",
+    "example": "const users = await prisma.user.findMany({ include: { posts: true } });\n\nawait prisma.$transaction(async (tx) => {\n  await tx.order.create(...);\n  await tx.stock.update(...);\n});"
+  },
+  "BE-B-0048": {
+    "shortAnswer": "NestJS is a structured Node framework using modules, DI, controllers, and providers inspired by Angular patterns.",
+    "answer": "Answering “What is dependency injection, and why does NestJS use it?”: NestJS is a structured Node framework using modules, DI, controllers, and providers inspired by Angular patterns. Unstructured Express apps become hard to test and navigate as teams grow. Relevant ideas: modules; DI container; controllers/providers; pipes/guards/interceptors; thin controllers; DTO in. Organize by module, inject dependencies via constructors, push logic to services, and keep controllers thin.",
+    "integrationProcedure": "1) Scaffold Nest module per domain. 2) Wire DI. 3) Add ValidationPipe. 4) Test with TestingModule. 5) Document module boundaries.",
+    "example": "@Injectable() class OrdersService {\n  constructor(private readonly repo: OrdersRepo) {}\n}\n\n@Post() create(@Body() dto: CreateOrderDto) {\n  return this.orders.create(dto);\n}"
+  },
+  "BE-B-0049": {
+    "shortAnswer": "DTO validation checks inbound shapes at the API boundary so invalid data never reaches domain logic.",
+    "answer": "Answering “What is input validation, and why must validation happen on the server?”: DTO validation checks inbound shapes at the API boundary so invalid data never reaches domain logic. Trusting client JSON enables mass assignment and subtle invariant breaks. Relevant ideas: whitelist properties; class-validator/zod; transform pipes; fail fast 400; allowlist DTO fields; forbid non-whitelisted. Define DTOs/schemas, reject unknown fields, validate types/ranges, and return structured errors.",
+    "integrationProcedure": "1) Add schema validation globally. 2) Forbid unknown props. 3) Share error format. 4) Contract-test samples.",
+    "example": "@IsString() @MinLength(1) name: string;\n// ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })\n\nValidationPipe({ whitelist: true, forbidNonWhitelisted: true })"
+  },
+  "BE-B-0050": {
+    "shortAnswer": "Node's event loop multiplexes async I/O on a single JS thread, offloading some work to libuv's threadpool.",
+    "answer": "Answering “What is the Node.js event loop at a high level?”: Node's event loop multiplexes async I/O on a single JS thread, offloading some work to libuv's threadpool. Blocking the loop with sync CPU/fs calls stalls all requests. Relevant ideas: phases (timers, poll, check); microtasks; libuv threadpool; loop delay metrics; event loop blocking; worker threads. Keep handlers non-blocking, tune UV_THREADPOOL_SIZE for fs/dns/crypto, and monitor event-loop lag.",
+    "integrationProcedure": "1) Ban sync FS in request path. 2) Monitor loop delay. 3) Offload CPU. 4) Tune threadpool if needed.",
+    "example": "setImmediate(() => console.log('check phase'));\nawait fs.promises.readFile(path); // non-blocking API\n\nimport { Worker } from 'node:worker_threads';\nconst w = new Worker(new URL('./heavy.js', import.meta.url));"
+  },
+  "BE-B-0051": {
+    "shortAnswer": "HTTP semantics define methods, status codes, headers, and idempotency expectations clients rely on.",
+    "answer": "Answering “What is the difference between a 4xx and a 5xx HTTP response?”: HTTP semantics define methods, status codes, headers, and idempotency expectations clients rely on. Misusing GET for mutations or 200 for creates breaks caches and client logic. Relevant ideas: safe/idempotent methods; status classes; cache headers; content negotiation. Use method meaning correctly, pick precise statuses, document error bodies, and set cache headers deliberately.",
+    "integrationProcedure": "1) Document method semantics. 2) Standardize error envelope. 3) Add contract tests. 4) Review caching.",
+    "example": "POST /orders → 201 Created + Location\nPUT /orders/{id} → idempotent replace"
+  },
+  "BE-B-0052": {
+    "shortAnswer": "Environment configuration injects 12-factor settings (DB URLs, secrets, feature flags) without baking them into images.",
+    "answer": "Answering “What is the purpose of environment variables and configuration files?”: Environment configuration injects 12-factor settings (DB URLs, secrets, feature flags) without baking them into images. Committed secrets and undocumented env vars cause breaches and 'works on my machine' failures. Relevant ideas: 12-factor env; schema validation; secrets vs config; per-env overlays; vault/KMS; short-lived credentials. Load env via ConfigModule, validate with zod/joi at boot, fail fast on missing required vars.",
+    "integrationProcedure": "1) Schema-validate env at boot. 2) Keep secrets in a vault. 3) Document vars. 4) Same image across envs.",
+    "example": "const env = z.object({ DATABASE_URL: z.string().url() }).parse(process.env);\n\n# AWS SM / GCP Secret Manager / Vault KV; never COPY .env into Docker images"
+  },
+  "BE-B-0053": {
+    "shortAnswer": "Unit tests verify pure logic and services with dependencies mocked/faked for fast feedback.",
+    "answer": "Answering “What is the purpose of unit and integration tests in backend development?”: Unit tests verify pure logic and services with dependencies mocked/faked for fast feedback. No unit tests make refactors scary; over-mocking tests implementation not behavior. Relevant ideas: arrange-act-assert; mock boundaries; fast suites; deterministic; test app bootstrap; test DB. Test domain rules with fakes, avoid mocking everything, and keep tests readable.",
+    "integrationProcedure": "1) Unit-test domain. 2) Mock IO boundaries. 3) Fast CI target. 4) Pair with API integration tests.",
+    "example": "it('computes tax', () => expect(tax(100, 0.1)).toBe(10));\n\nconst res = await request(app.getHttpServer()).post('/items').send({name:'a'}).expect(201);"
+  },
+  "BE-B-0054": {
+    "shortAnswer": "Keys without TTL grow memory forever; locks without TTL deadlock holders that crash.",
+    "answer": "Answering “Why would an application use Redis?”: Redis TTL expires keys automatically—used for sessions, locks, and cache entries that must not live forever. Keys without TTL grow memory forever; locks without TTL deadlock holders that crash. Relevant ideas: EX/PX; EXPIRE; TTL command; volatile eviction policies; get→miss→load→set; invalidate on write. Set TTL on write (SET key val EX seconds), renew deliberately for sessions, and monitor evictions.",
+    "integrationProcedure": "1) Default TTL on cache keys. 2) TTL all locks. 3) Alert memory. 4) Document key prefixes.",
+    "example": "SET session:123 '{...}' EX 3600\nSET lock:order:9 token NX EX 30\n\nlet v = await redis.get(key);\nif (!v) { v = await db.load(); await redis.set(key, v, 'EX', 60); }"
+  },
+  "BE-B-0071": {
+    "shortAnswer": "Nest guards determine whether a route can run (authn/authz), running after middleware and before pipes/interceptors.",
+    "answer": "Answering “What is the difference between authentication middleware and authorization policy?”: Nest guards determine whether a route can run (authn/authz), running after middleware and before pipes/interceptors. Auth checks duplicated in services are easy to miss on new endpoints. Relevant ideas: CanActivate; Reflector roles; default deny; throw Unauthorized/Forbidden; roles/permissions; least privilege. Implement CanActivate, read metadata, validate credentials/permissions, and register globally or per-route.",
+    "integrationProcedure": "1) Global AuthGuard. 2) Role metadata. 3) @Public exceptions. 4) Integration tests per role.",
+    "example": "@Injectable() class AuthGuard implements CanActivate {\n  canActivate(ctx: ExecutionContext) { /* verify JWT */ return true; }\n}\n\n@Roles('admin') @UseGuards(AuthGuard, RolesGuard)\n@Delete(':id') remove() {}"
+  },
+  "BE-B-0072": {
+    "shortAnswer": "Job queues persist background work (emails, image processing) with retries, concurrency, and delayed jobs.",
+    "answer": "Answering “What is the difference between synchronous request handling and background job processing?”: Job queues persist background work (emails, image processing) with retries, concurrency, and delayed jobs. Doing slow work in HTTP requests times out and couples UX to downstream failures. Relevant ideas: enqueue; workers; retries/backoff; idempotent jobs; acks/retries; idempotency keys. Enqueue from API after durable write, process in workers, retry with backoff, DLQ failures.",
+    "integrationProcedure": "1) Introduce queue. 2) Move slow tasks. 3) Idempotent workers. 4) DLQ alerts. 5) Dashboard lag.",
+    "example": "await queue.add('email', { userId }, { attempts: 5, backoff: { type: 'exponential', delay: 1000 } });\n\nINSERT INTO processed_events(id) VALUES($1) ON CONFLICT DO NOTHING; -- skip if not inserted"
+  },
+  "BE-B-0073": {
+    "shortAnswer": "Idempotency ensures repeating the same logical request (retries) does not apply side effects twice.",
+    "answer": "Answering “What makes an HTTP operation idempotent, and why does idempotency matter for retries?”: Idempotency ensures repeating the same logical request (retries) does not apply side effects twice. Network retries on POST without keys double-charge payments and create duplicate rows. Relevant ideas: Idempotency-Key; dedupe store; same response replay; fingerprint requests; safe/idempotent methods; status classes. Require keys on mutating POSTs, store response/status by key+actor, and replay on retries.",
+    "integrationProcedure": "1) Add Idempotency-Key on payments. 2) Persist outcomes. 3) Atomic insert. 4) Client retry policy. 5) Metrics.",
+    "example": "UNIQUE(user_id, idempotency_key)\n-- return stored response when key exists\n\nPOST /orders → 201 Created + Location\nPUT /orders/{id} → idempotent replace"
+  },
+  "BE-B-0074": {
+    "shortAnswer": "Blocking the loop with sync CPU/fs calls stalls all requests.",
+    "answer": "Answering “Why is blocking the Node.js event loop dangerous even when the server has many concurrent connections?”: Node's event loop multiplexes async I/O on a single JS thread, offloading some work to libuv's threadpool. Blocking the loop with sync CPU/fs calls stalls all requests. Relevant ideas: phases (timers, poll, check); microtasks; libuv threadpool; loop delay metrics; event loop blocking; worker threads. Keep handlers non-blocking, tune UV_THREADPOOL_SIZE for fs/dns/crypto, and monitor event-loop lag.",
+    "integrationProcedure": "1) Ban sync FS in request path. 2) Monitor loop delay. 3) Offload CPU. 4) Tune threadpool if needed.",
+    "example": "setImmediate(() => console.log('check phase'));\nawait fs.promises.readFile(path); // non-blocking API\n\nimport { Worker } from 'node:worker_threads';\nconst w = new Worker(new URL('./heavy.js', import.meta.url));"
+  },
+  "BE-B-0075": {
+    "shortAnswer": "Unbounded connections exhaust Postgres max_connections under traffic spikes.",
+    "answer": "Answering “Why should database connections usually come from a pool?”: Connection pools reuse DB/TCP connections to avoid handshake overhead and limit concurrent connections. Unbounded connections exhaust Postgres max_connections under traffic spikes. Relevant ideas: pool size; idle timeout; checkout timeout; pgbouncer. Size pools per instance relative to DB limits, fail fast on checkout timeout, and prefer transaction pooling for many tenants.",
+    "integrationProcedure": "1) Calculate budgets. 2) Cap pools. 3) Add timeouts. 4) Monitor wait time. 5) Consider pgbouncer.",
+    "example": "// Prisma/Nest: set connection_limit in DATABASE_URL"
+  },
+  "BE-I-0036": {
+    "shortAnswer": "ESM is future-proof but some tooling/CJS deps still friction; use documented interop patterns.",
+    "answer": "Answering “Compare CommonJS and ECMAScript modules in Node.?”: ESM is Node's official module system with import/export, better static analysis, and asynchronous loading semantics. Dual CJS/ESM packages cause 'ERR_REQUIRE_ESM' and duplicated instances of singleton libs. Relevant ideas: type:module; import assertions/attributes; interop with CJS; package exports; imports/exports; providers. Prefer ESM for new code, set package exports carefully, and avoid dual publishing pitfalls. ESM is future-proof but some tooling/CJS deps still friction; use documented interop patterns.",
+    "integrationProcedure": "1) Adopt ESM. 2) Fix exports map. 3) Resolve dual-package hazards. 4) Update loaders/tests.",
+    "example": "// package.json\n{ \"type\": \"module\", \"exports\": { \".\": \"./dist/index.js\" } }\n\n@Module({ imports: [DbModule], controllers: [OrdersController], providers: [OrdersService], exports: [OrdersService] })"
+  },
+  "BE-I-0037": {
+    "shortAnswer": "Queues improve resilience but require ops (Redis/BullMQ).",
+    "answer": "Answering “Compare a job queue, pub/sub, and an event stream.?”: Job queues persist background work (emails, image processing) with retries, concurrency, and delayed jobs. Doing slow work in HTTP requests times out and couples UX to downstream failures. Relevant ideas: enqueue; workers; retries/backoff; idempotent jobs; acks/retries; idempotency keys. Enqueue from API after durable write, process in workers, retry with backoff, DLQ failures. Queues improve resilience but require ops (Redis/BullMQ). Sync may be fine for tiny tasks.",
+    "integrationProcedure": "1) Introduce queue. 2) Move slow tasks. 3) Idempotent workers. 4) DLQ alerts. 5) Dashboard lag.",
+    "example": "await queue.add('email', { userId }, { attempts: 5, backoff: { type: 'exponential', delay: 1000 } });\n\nINSERT INTO processed_events(id) VALUES($1) ON CONFLICT DO NOTHING; -- skip if not inserted"
+  },
+  "BE-I-0038": {
+    "shortAnswer": "Easy revocation vs sticky store scaling; Redis sessions are common.",
+    "answer": "Answering “Compare cookie-based sessions with bearer-token authentication.?”: Session authentication stores server-side session state referenced by an opaque cookie id. Client-side-only auth without revocation options complicates logout and theft response. Relevant ideas: opaque session id; server store; cookie flags; rotation on login; header.payload.signature; exp/iss/aud. Create session on login, set HttpOnly Secure SameSite cookie, validate server-side, destroy on logout. Easy revocation vs sticky store scaling; Redis sessions are common.",
+    "integrationProcedure": "1) Server sessions. 2) Secure cookies. 3) CSRF defenses. 4) Redis store. 5) Rotate session ids.",
+    "example": "req.session.userId = user.id;\n// cookie: sid=...; HttpOnly; Secure; SameSite=Lax\n\nconst payload = await jose.jwtVerify(token, key, { issuer, audience });"
+  },
+  "BE-I-0039": {
+    "shortAnswer": "Offset is simple for admin UIs; cursors for feeds at scale.",
+    "answer": "Answering “Compare offset pagination, cursor pagination, and keyset pagination.?”: Pagination returns result windows via offset/limit or cursors/keyset for stable large lists. Huge unbounded lists time out and freeze UIs; offset deep pages get slow and inconsistent under inserts. Relevant ideas: limit/offset; keyset/cursor; stable sort keys; total count cost; detect via query logs; join/dataloader. Prefer keyset on indexed (created_at,id), return next cursor, and avoid counting every time if expensive. Offset is simple for admin UIs; cursors for feeds at scale.",
+    "integrationProcedure": "1) Replace offset feeds with cursors. 2) Index sort keys. 3) Document cursor opacity. 4) Optional approx totals.",
+    "example": "SELECT * FROM items WHERE (created_at, id) < ($1, $2) ORDER BY created_at DESC, id DESC LIMIT 20\n\n// Bad: for (const u of users) await postsByUser(u.id)\n// Good: SELECT * FROM posts WHERE user_id = ANY($1)"
+  },
+  "BE-I-0040": {
+    "shortAnswer": "N+1 happens when code runs one query plus one query per row instead of a batched join/IN query.",
+    "answer": "Answering “Describe the N+1 query problem and several ways to eliminate it.?”: N+1 happens when code runs one query plus one query per row instead of a batched join/IN query. ORMs make N+1 easy via lazy relations, melting databases under list endpoints. Relevant ideas: detect via query logs; join/dataloader; eager load; batch size; unit of work; lazy vs eager. Log SQL counts, eager-load or batch IDs, and add tests that fail when query count regresses. Joins can over-fetch; dataloaders batch well for graphs. Pick based on shape.",
+    "integrationProcedure": "1) Enable query logging in tests. 2) Fix list endpoints. 3) Add query-count budgets. 4) Review ORM includes.",
+    "example": "// Bad: for (const u of users) await postsByUser(u.id)\n// Good: SELECT * FROM posts WHERE user_id = ANY($1)\n\nconst users = await prisma.user.findMany({ include: { posts: true } });"
+  },
+  "BE-I-0041": {
+    "shortAnswer": "JWTs are signed bearer tokens carrying claims so APIs can authenticate without server session lookup each time.",
+    "answer": "Answering “Design refresh-token rotation and explain how you would handle token theft.?”: JWTs are signed bearer tokens carrying claims so APIs can authenticate without server session lookup each time. Long-lived JWTs in localStorage are hard to revoke and XSS-stealable; trusting unverified tokens is fatal. Relevant ideas: header.payload.signature; exp/iss/aud; signature verify; short TTL + refresh; authorization code + PKCE; client types. Issue short-lived access tokens, verify signature/exp/aud, authorize from claims, and store refresh tokens carefully (often httpOnly). Stateless scale vs revocation difficulty; use blocklists or short TTL+refresh rotation for logout.",
+    "integrationProcedure": "1) Short TTL access tokens. 2) Verify all claims. 3) Secure refresh storage. 4) Rotate keys. 5) Prefer opaque tokens if revocation is critical.",
+    "example": "const payload = await jose.jwtVerify(token, key, { issuer, audience });\n\n// Authorize: /authorize?response_type=code&client_id=...&code_challenge=...\n// Token: exchange code + code_verifier"
+  },
+  "BE-I-0042": {
+    "shortAnswer": "NestJS is a structured Node framework using modules, DI, controllers, and providers inspired by Angular patterns.",
+    "answer": "Answering “Explain NestJS middleware, guards, pipes, interceptors, and exception filters and when each runs.?”: NestJS is a structured Node framework using modules, DI, controllers, and providers inspired by Angular patterns. Unstructured Express apps become hard to test and navigate as teams grow. Relevant ideas: modules; DI container; controllers/providers; pipes/guards/interceptors; thin controllers; DTO in. Organize by module, inject dependencies via constructors, push logic to services, and keep controllers thin. Structure helps large apps but can feel heavy for tiny scripts—don't over-module early.",
+    "integrationProcedure": "1) Scaffold Nest module per domain. 2) Wire DI. 3) Add ValidationPipe. 4) Test with TestingModule. 5) Document module boundaries.",
+    "example": "@Injectable() class OrdersService {\n  constructor(private readonly repo: OrdersRepo) {}\n}\n\n@Post() create(@Body() dto: CreateOrderDto) {\n  return this.orders.create(dto);\n}"
+  },
+  "BE-I-0043": {
+    "shortAnswer": "Node's event loop multiplexes async I/O on a single JS thread, offloading some work to libuv's threadpool.",
+    "answer": "Answering “Explain Node.js event-loop phases, microtasks, and why CPU-heavy work can block unrelated requests.?”: Node's event loop multiplexes async I/O on a single JS thread, offloading some work to libuv's threadpool. Blocking the loop with sync CPU/fs calls stalls all requests. Relevant ideas: phases (timers, poll, check); microtasks; libuv threadpool; loop delay metrics; event loop blocking; worker threads. Keep handlers non-blocking, tune UV_THREADPOOL_SIZE for fs/dns/crypto, and monitor event-loop lag. Single-threaded simplicity vs CPU scaling limits—use clustering/workers for CPU.",
+    "integrationProcedure": "1) Ban sync FS in request path. 2) Monitor loop delay. 3) Offload CPU. 4) Tune threadpool if needed.",
+    "example": "setImmediate(() => console.log('check phase'));\nawait fs.promises.readFile(path); // non-blocking API\n\nimport { Worker } from 'node:worker_threads';\nconst w = new Worker(new URL('./heavy.js', import.meta.url));"
+  },
+  "BE-I-0044": {
+    "shortAnswer": "Cache invalidation removes or updates stale entries so readers see fresh data after writes.",
+    "answer": "Answering “Explain cache-aside and common failure modes such as cache stampede and penetration.?”: Cache invalidation removes or updates stale entries so readers see fresh data after writes. TTL-only caches serve stale critical data; manual deletes miss keys and leave ghosts. Relevant ideas: TTL; write-through/around; tag-based purge; event invalidation; get→miss→load→set; invalidate on write. Choose strategy per data: short TTL, explicit delete on write, or versioned keys after mutations. Invalidation complexity is famous; sometimes prefer short TTL over perfect coherence.",
+    "integrationProcedure": "1) Classify data freshness needs. 2) Invalidate on write paths. 3) Version keys. 4) Monitor stale incidents.",
+    "example": "await redis.del(`user:${id}`);\nawait redis.set(`user:${id}`, json, 'EX', 60);\n\nlet v = await redis.get(key);\nif (!v) { v = await db.load(); await redis.set(key, v, 'EX', 60); }"
+  },
+  "BE-I-0045": {
+    "shortAnswer": "Connection pools reuse DB/TCP connections to avoid handshake overhead and limit concurrent connections.",
+    "answer": "Answering “Explain connection pooling and what happens when the pool is exhausted.?”: Connection pools reuse DB/TCP connections to avoid handshake overhead and limit concurrent connections. Unbounded connections exhaust Postgres max_connections under traffic spikes. Relevant ideas: pool size; idle timeout; checkout timeout; pgbouncer. Size pools per instance relative to DB limits, fail fast on checkout timeout, and prefer transaction pooling for many tenants. Larger pools increase throughput until DB CPU/locks contend; measure.",
+    "integrationProcedure": "1) Calculate budgets. 2) Cap pools. 3) Add timeouts. 4) Monitor wait time. 5) Consider pgbouncer.",
+    "example": "// Prisma/Nest: set connection_limit in DATABASE_URL"
+  },
+  "BE-I-0046": {
+    "shortAnswer": "Graceful shutdown stops accepting new work, drains in-flight requests/jobs, then exits—critical for deploys/K8s.",
+    "answer": "Answering “Explain graceful shutdown and why it matters during deployment.?”: Graceful shutdown stops accepting new work, drains in-flight requests/jobs, then exits—critical for deploys/K8s. Hard kills mid-write cause partial transactions and connection resets for clients. Relevant ideas: SIGTERM handling; server.close; drain timeouts; stop consumers first. Listen for SIGTERM, stop health readiness, close HTTP server with timeout, flush telemetry, then exit. Long drains delay rollouts; too short cuts requests—align with LB idle timeouts.",
+    "integrationProcedure": "1) Handle SIGTERM. 2) Fail readiness first. 3) Drain with timeout. 4) Align K8s grace. 5) Test rolling deploys.",
+    "example": "process.on('SIGTERM', async () => {\n  await app.close();\n  process.exit(0);\n});"
+  },
+  "BE-I-0047": {
+    "shortAnswer": "Use method meaning correctly, pick precise statuses, document error bodies, and set cache headers deliberately.",
+    "answer": "Answering “How do you design consistent API error responses without leaking sensitive internals?”: HTTP semantics define methods, status codes, headers, and idempotency expectations clients rely on. Misusing GET for mutations or 200 for creates breaks caches and client logic. Relevant ideas: safe/idempotent methods; status classes; cache headers; content negotiation; class-transformer; exclude secrets. Use method meaning correctly, pick precise statuses, document error bodies, and set cache headers deliberately. Pragmatic APIs sometimes bend REST purity—document deviations explicitly.",
+    "integrationProcedure": "1) Document method semantics. 2) Standardize error envelope. 3) Add contract tests. 4) Review caching.",
+    "example": "POST /orders → 201 Created + Location\nPUT /orders/{id} → idempotent replace\n\n@Exclude() passwordHash: string;\n@Expose() email: string;"
+  },
+  "BE-I-0048": {
+    "shortAnswer": "Use DTOs with explicit fields, forbid unknowns, and map manually to domain updates.",
+    "answer": "Answering “How would you prevent mass assignment, injection, broken object authorization, and brute-force abuse in an API?”: Mass assignment occurs when clients set sensitive fields (role, balance) because APIs bind raw JSON into models. Without allowlists, attackers escalate privileges via extra JSON properties. Relevant ideas: allowlist DTO fields; forbid non-whitelisted; separate write models; never bind entities directly. Use DTOs with explicit fields, forbid unknowns, and map manually to domain updates. Strict DTOs add boilerplate but prevent an entire vulnerability class.",
+    "integrationProcedure": "1) DTO allowlists. 2) Forbid extras. 3) Security tests. 4) Review ORM entity binding.",
+    "example": "ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })"
+  },
+  "BE-I-0049": {
+    "shortAnswer": "Organize by module, inject dependencies via constructors, push logic to services, and keep controllers thin.",
+    "answer": "Answering “How would you test a NestJS service that talks to PostgreSQL and an external API?”: NestJS is a structured Node framework using modules, DI, controllers, and providers inspired by Angular patterns. Unstructured Express apps become hard to test and navigate as teams grow. Relevant ideas: modules; DI container; controllers/providers; pipes/guards/interceptors; thin controllers; DTO in. Organize by module, inject dependencies via constructors, push logic to services, and keep controllers thin. Structure helps large apps but can feel heavy for tiny scripts—don't over-module early.",
+    "integrationProcedure": "1) Scaffold Nest module per domain. 2) Wire DI. 3) Add ValidationPipe. 4) Test with TestingModule. 5) Document module boundaries.",
+    "example": "@Injectable() class OrdersService {\n  constructor(private readonly repo: OrdersRepo) {}\n}\n\n@Post() create(@Body() dto: CreateOrderDto) {\n  return this.orders.create(dto);\n}"
+  },
+  "BE-I-0050": {
+    "shortAnswer": "Set TTL on write (SET key val EX seconds), renew deliberately for sessions, and monitor evictions.",
+    "answer": "Answering “How would you use Redis for caching while minimizing stale-data bugs?”: Redis TTL expires keys automatically—used for sessions, locks, and cache entries that must not live forever. Keys without TTL grow memory forever; locks without TTL deadlock holders that crash. Relevant ideas: EX/PX; EXPIRE; TTL command; volatile eviction policies; get→miss→load→set; invalidate on write. Set TTL on write (SET key val EX seconds), renew deliberately for sessions, and monitor evictions. Short TTL reduces staleness/memory but increases misses; sliding sessions need careful refresh.",
+    "integrationProcedure": "1) Default TTL on cache keys. 2) TTL all locks. 3) Alert memory. 4) Document key prefixes.",
+    "example": "SET session:123 '{...}' EX 3600\nSET lock:order:9 token NX EX 30\n\nlet v = await redis.get(key);\nif (!v) { v = await db.load(); await redis.set(key, v, 'EX', 60); }"
+  },
+  "BE-I-0051": {
+    "shortAnswer": "NestJS is a structured Node framework using modules, DI, controllers, and providers inspired by Angular patterns.",
+    "answer": "Answering “What are provider scopes in NestJS, and why can request-scoped providers be expensive?”: NestJS is a structured Node framework using modules, DI, controllers, and providers inspired by Angular patterns. Unstructured Express apps become hard to test and navigate as teams grow. Relevant ideas: modules; DI container; controllers/providers; pipes/guards/interceptors; thin controllers; DTO in. Organize by module, inject dependencies via constructors, push logic to services, and keep controllers thin. Structure helps large apps but can feel heavy for tiny scripts—don't over-module early.",
+    "integrationProcedure": "1) Scaffold Nest module per domain. 2) Wire DI. 3) Add ValidationPipe. 4) Test with TestingModule. 5) Document module boundaries.",
+    "example": "@Injectable() class OrdersService {\n  constructor(private readonly repo: OrdersRepo) {}\n}\n\n@Post() create(@Body() dto: CreateOrderDto) {\n  return this.orders.create(dto);\n}"
+  },
+  "BE-I-0052": {
+    "shortAnswer": "Circuit breakers stop calling a failing dependency temporarily, failing fast and allowing recovery.",
+    "answer": "Answering “What are retries, exponential backoff, jitter, timeouts, and circuit breakers?”: Circuit breakers stop calling a failing dependency temporarily, failing fast and allowing recovery. Retry storms against a down dependency amplify outages. Relevant ideas: closed/open/half-open; error thresholds; cooldown; fallback; client timeouts; server deadlines. Trip open after error rate/latency thresholds, short-circuit calls, probe in half-open, and serve fallbacks. Breakers protect systems but hide dependency issues if alerts missing; tune thresholds carefully.",
+    "integrationProcedure": "1) Wrap critical clients. 2) Set thresholds. 3) Fallback behavior. 4) Alert on open. 5) Test chaos.",
+    "example": "// pseudo: if failures/total > 50% in 30s → open for 20s\n\nawait fetch(url, { signal: AbortSignal.timeout(3000) });"
+  },
+  "BE-I-0053": {
+    "shortAnswer": "Structured logging emits JSON fields (level, msg, requestId, userId) for queryable observability.",
+    "answer": "Answering “What are structured logging, correlation IDs, metrics, and distributed traces?”: Structured logging emits JSON fields (level, msg, requestId, userId) for queryable observability. String-only logs are hard to filter and correlate during incidents. Relevant ideas: JSON logs; levels; PII redaction; correlation ids; generate at edge; propagate headers. Use pino/winston JSON, include requestIds, redact secrets/PII, and ship to a log backend. Debug logs in prod explode cost; sample or raise levels carefully.",
+    "integrationProcedure": "1) JSON logger. 2) Field standard. 3) Redaction. 4) Ship to stack. 5) Dashboards/alerts.",
+    "example": "logger.info({ requestId, userId, route }, 'order_created');\n\nconst id = req.headers['x-request-id'] ?? crypto.randomUUID();\nlogger.info({ requestId: id }, 'handling');"
+  },
+  "BE-I-0054": {
+    "shortAnswer": "Backpressure signals producers to slow down when consumers/queues cannot keep up, preventing unbounded memory growth.",
+    "answer": "Answering “What is backpressure in Node streams, and how should a service handle it?”: Backpressure signals producers to slow down when consumers/queues cannot keep up, preventing unbounded memory growth. Unbounded buffers under load OOM the process while appearing 'fine' until collapse. Relevant ideas: high-water marks; pause/resume streams; queue length limits; load shedding; backpressure; pipe/pipeline. Set max queue sizes, use stream backpressure, return 429/503 when overloaded, and autoscale on lag. Dropping/shedding hurts UX but saves the system; buffering hides problems until failure.",
+    "integrationProcedure": "1) Define limits. 2) Shed load. 3) Alert on depth. 4) Load-test. 5) Document degraded modes.",
+    "example": "if (queue.length > MAX) return res.status(503).json({ error: 'overloaded' });\n\nimport { pipeline } from 'node:stream/promises';\nawait pipeline(fs.createReadStream(src), gzip, fs.createWriteStream(dst));"
+  },
+  "BE-I-0055": {
+    "shortAnswer": "Idempotency ensures repeating the same logical request (retries) does not apply side effects twice.",
+    "answer": "Answering “What makes PUT idempotent, and how would you design an idempotent POST-like payment operation?”: Idempotency ensures repeating the same logical request (retries) does not apply side effects twice. Network retries on POST without keys double-charge payments and create duplicate rows. Relevant ideas: Idempotency-Key; dedupe store; same response replay; fingerprint requests; safe/idempotent methods; status classes. Require keys on mutating POSTs, store response/status by key+actor, and replay on retries. Storage cost vs safety; TTL keys carefully. PUT/DELETE are often naturally idempotent.",
+    "integrationProcedure": "1) Add Idempotency-Key on payments. 2) Persist outcomes. 3) Atomic insert. 4) Client retry policy. 5) Metrics.",
+    "example": "UNIQUE(user_id, idempotency_key)\n-- return stored response when key exists\n\nPOST /orders → 201 Created + Location\nPUT /orders/{id} → idempotent replace"
+  },
+  "BE-I-0072": {
+    "shortAnswer": "Use a PSP, store tokens not PANs, idempotent create/capture, verify webhooks, and reconcile ledgers.",
+    "answer": "Answering “How do you design idempotency for a payment endpoint so retries cannot double-charge a customer?”: Payment APIs must be idempotent, PCI-aware (usually via providers), and explicit about capture/refund states. Retries without idempotency double-charge; storing raw card data creates compliance nightmares. Relevant ideas: idempotency keys; provider tokens; state machine; webhooks reconciliation; Idempotency-Key; dedupe store. Use a PSP, store tokens not PANs, idempotent create/capture, verify webhooks, and reconcile ledgers. Building your own card vault is almost never worth it—use Stripe-like providers.",
+    "integrationProcedure": "1) Integrate PSP. 2) Idempotent charges. 3) Webhook verify. 4) Ledger entries. 5) Reconciliation job.",
+    "example": "POST /v1/charges Idempotency-Key: ...\n# webhook: payment_intent.succeeded → mark paid\n\nUNIQUE(user_id, idempotency_key)\n-- return stored response when key exists"
+  },
+  "BE-I-0073": {
+    "shortAnswer": "Open transaction, perform related writes, commit; never call payment providers inside holding DB locks.",
+    "answer": "Answering “How would you choose between a transaction, optimistic locking, and a distributed lock for competing updates?”: Transaction boundaries group DB operations that must commit or roll back together to preserve invariants. Multi-step writes without transactions leave partial state on mid-failure. Relevant ideas: ACID unit; keep transactions short; avoid external I/O inside; isolation levels; version column; compare-and-update. Open transaction, perform related writes, commit; never call payment providers inside holding DB locks. Wide transactions increase contention; chatty small transactions can break invariants—balance carefully.",
+    "integrationProcedure": "1) Identify invariants. 2) Wrap in transactions. 3) Keep short. 4) Outbox for external side effects. 5) Tests for mid-fail.",
+    "example": "await prisma.$transaction(async (tx) => {\n  await tx.order.create(...);\n  await tx.stock.update(...);\n});\n\nUPDATE accounts SET bal=$1, version=version+1 WHERE id=$2 AND version=$3"
+  },
+  "BE-I-0074": {
+    "shortAnswer": "Capture under realistic load, open flamegraphs, fix top frames, and re-measure.",
+    "answer": "Answering “How would you debug a Node.js service whose heap grows slowly over several days?”: Profiling samples CPU/heap to find hot functions and leaks instead of guessing. Optimizing without profiles wastes time on the wrong 90%. Relevant ideas: CPU profiles; heap snapshots; flamegraphs; prod continuous profiling; phases (timers, poll, check); microtasks. Capture under realistic load, open flamegraphs, fix top frames, and re-measure. Sampling overhead is usually small; still avoid leaving debug profilers always-on carelessly.",
+    "integrationProcedure": "1) Baseline latency. 2) Profile under load. 3) Fix top hotspots. 4) Automate periodic profiles in staging.",
+    "example": "node --cpu-prof dist/main.js\n# or clinic flame / 0x\n\nsetImmediate(() => console.log('check phase'));\nawait fs.promises.readFile(path); // non-blocking API"
+  },
+  "BE-I-0075": {
+    "shortAnswer": "Issue short-lived access tokens, verify signature/exp/aud, authorize from claims, and store refresh tokens carefully (often httpOnly).",
+    "answer": "Answering “How would you implement refresh-token rotation and detect refresh-token reuse?”: JWTs are signed bearer tokens carrying claims so APIs can authenticate without server session lookup each time. Long-lived JWTs in localStorage are hard to revoke and XSS-stealable; trusting unverified tokens is fatal. Relevant ideas: header.payload.signature; exp/iss/aud; signature verify; short TTL + refresh; authorization code + PKCE; client types. Issue short-lived access tokens, verify signature/exp/aud, authorize from claims, and store refresh tokens carefully (often httpOnly). Stateless scale vs revocation difficulty; use blocklists or short TTL+refresh rotation for logout.",
+    "integrationProcedure": "1) Short TTL access tokens. 2) Verify all claims. 3) Secure refresh storage. 4) Rotate keys. 5) Prefer opaque tokens if revocation is critical.",
+    "example": "const payload = await jose.jwtVerify(token, key, { issuer, audience });\n\n// Authorize: /authorize?response_type=code&client_id=...&code_challenge=...\n// Token: exchange code + code_verifier"
+  },
+  "BE-I-0076": {
+    "shortAnswer": "Immediate tight retries amplify outages and trip rate limits.",
+    "answer": "Answering “Why can retrying a failed request make an outage worse, and how should retry policy be designed?”: Retry with backoff spaces attempts (often exponential + jitter) to let transient faults recover without stampedes. Immediate tight retries amplify outages and trip rate limits. Relevant ideas: exponential backoff; jitter; max attempts; idempotent ops; closed/open/half-open; error thresholds. Retry only transient errors, add jittered delay, cap attempts, and bubble final failure. Backoff helps clients and servers; don't retry non-idempotent POSTs without keys.",
+    "integrationProcedure": "1) Classify transient errors. 2) Library with jitter. 3) Idempotency. 4) Metrics on retry counts.",
+    "example": "await retry(() => fetch(url), { retries: 5, factor: 2, minTimeout: 100, jitter: true });\n\n// pseudo: if failures/total > 50% in 30s → open for 20s"
+  },
+  "BE-A-0035": {
+    "shortAnswer": "Timeouts bound how long you wait on dependencies so failures surface instead of hanging forever.",
+    "answer": "Answering “A Node.js API has low CPU but high latency and a growing request queue. Describe a systematic investigation.?”: Timeouts bound how long you wait on dependencies so failures surface instead of hanging forever. No timeouts exhaust connection pools as requests pile up waiting on dead deps. Relevant ideas: client timeouts; server deadlines; cancellation; deadline propagation; pool size; idle timeout. Set explicit timeouts on HTTP/DB calls, cancel work when possible, and map to 504/503 appropriately. Too aggressive timeouts false-fail; too long hold resources—align with SLOs.",
+    "integrationProcedure": "1) Default client timeouts. 2) Propagate deadlines. 3) Align with LB. 4) Alert on timeout rates.",
+    "example": "await fetch(url, { signal: AbortSignal.timeout(3000) });\n\n// Prisma/Nest: set connection_limit in DATABASE_URL"
+  },
+  "BE-A-0036": {
+    "shortAnswer": "Debug logs in prod explode cost; sample or raise levels carefully.",
+    "answer": "Answering “Compare Kafka-style logs with traditional queues and describe workloads suited to each.?”: Structured logging emits JSON fields (level, msg, requestId, userId) for queryable observability. String-only logs are hard to filter and correlate during incidents. Relevant ideas: JSON logs; levels; PII redaction; correlation ids; generate at edge; propagate headers. Use pino/winston JSON, include requestIds, redact secrets/PII, and ship to a log backend. Debug logs in prod explode cost; sample or raise levels carefully. If you can't filter by user, fields missing—standardize schema.",
+    "integrationProcedure": "1) JSON logger. 2) Field standard. 3) Redaction. 4) Ship to stack. 5) Dashboards/alerts.",
+    "example": "logger.info({ requestId, userId, route }, 'order_created');\n\nconst id = req.headers['x-request-id'] ?? crypto.randomUUID();\nlogger.info({ requestId: id }, 'handling');"
+  },
+  "BE-A-0037": {
+    "shortAnswer": "Productivity vs control; hybrid approaches (Prisma + SQL) are common.",
+    "answer": "Answering “Compare vertical sharding, horizontal sharding, read replicas, partitioning, and caching for a rapidly growing PostgreSQL-backed system.?”: ORMs map tables to objects/query builders to speed CRUD while abstracting SQL dialects. Hiding SQL entirely invites N+1, unpredictable queries, and weak indexes. Relevant ideas: unit of work; lazy vs eager; migrations; raw SQL escape hatch; pool size; idle timeout. Use ORM for CRUD, explain critical queries, drop to SQL for complex reporting, and own migrations. Productivity vs control; hybrid approaches (Prisma + SQL) are common. If slow endpoints appear, EXPLAIN ORM SQL and check includes/joins.",
+    "integrationProcedure": "1) Adopt ORM with migrations. 2) Log SQL in staging. 3) Index hot paths. 4) Allow raw SQL where needed.",
+    "example": "const users = await prisma.user.findMany({ include: { posts: true } });\n\n// Prisma/Nest: set connection_limit in DATABASE_URL"
+  },
+  "BE-A-0038": {
+    "shortAnswer": "A modular monolith is a single deployable with strong internal module boundaries—often the best step before microservices.",
+    "answer": "Answering “Design a modular-monolith backend and explain the signals that would justify extracting a microservice later.?”: A modular monolith is a single deployable with strong internal module boundaries—often the best step before microservices. Microservices too early multiply ops cost without real team/scale need. Relevant ideas: module boundaries; no cross-DB joins secretly; clear APIs; extract later; data ownership; API contracts. Enforce module public APIs, separate schemas if needed, and forbid deep imports via lint. One deploy is simple; still requires discipline or it becomes a monolith ball of mud. If modules circularly import, boundaries are wrong—revisit context map.",
+    "integrationProcedure": "1) Define modules. 2) Lint boundaries. 3) Separate tables ownership. 4) Extract service only with evidence.",
+    "example": "orders/ public API only; inventory/ cannot import orders/internal/*\n\n// orders service owns orders tables; inventory exposes ReserveStock API/events"
+  },
+  "BE-A-0039": {
+    "shortAnswer": "Multi-tenant SaaS serves many customers with isolation via tenant_id, schemas, or separate databases.",
+    "answer": "Answering “Design a multi-tenant SaaS backend and compare database-per-tenant, schema-per-tenant, and shared-schema models.?”: Multi-tenant SaaS serves many customers with isolation via tenant_id, schemas, or separate databases. Missing tenant filters leak data across customers—the worst class of bug. Relevant ideas: tenant context; row-level filters; isolation levels; per-tenant limits; principal id; resource tenant/owner. Resolve tenant per request, enforce filters in data layer, test cross-tenant access attempts, and isolate noisy neighbors. Shared DB is cheaper; separate DBs isolate better at higher cost. pen-test with another tenant's IDs; must 404/403.",
+    "integrationProcedure": "1) Tenant context middleware. 2) Enforce in repo layer. 3) Automated cross-tenant tests. 4) Quotas. 5) Audit logs.",
+    "example": "WHERE id = $1 AND tenant_id = $2\n\nif (order.userId !== user.id) throw new ForbiddenException();"
+  },
+  "BE-A-0040": {
+    "shortAnswer": "WebSockets provide full-duplex channels over a long-lived TCP connection after an HTTP upgrade.",
+    "answer": "Answering “Design a real-time notification service and discuss WebSockets/SSE, fan-out, presence, ordering, and backpressure.?”: WebSockets provide full-duplex channels over a long-lived TCP connection after an HTTP upgrade. Using request/response for high-frequency bidirectional chat adds latency and load. Relevant ideas: upgrade handshake; frames; heartbeats; horizontal scale via pubsub; text/event-stream; Last-Event-ID resume. Authenticate on connect, heartbeat, handle reconnect, and fanout via Redis/NATS when multiple nodes. Stateful connections complicate load balancing; SSE/polling may suffice for simpler cases. If intermittent drops, check idle timeouts/proxies and ping intervals.",
+    "integrationProcedure": "1) Auth connect. 2) Heartbeats. 3) Pub/sub for multi-instance. 4) Backpressure limits. 5) Reconnect protocol.",
+    "example": "const ws = new WebSocket(url);\nws.on('message', handle);\nsetInterval(() => ws.ping(), 30000);\n\nres.writeHead(200, { 'Content-Type': 'text/event-stream' });\nres.write('id: 1\\ndata: hello\\n\\n');"
+  },
+  "BE-A-0041": {
+    "shortAnswer": "Rate limiting caps request rates per key (IP/user/API key) to protect availability and control abuse.",
+    "answer": "Answering “Design a secure webhook platform including signing, replay prevention, retries, rate limits, and idempotency.?”: Rate limiting caps request rates per key (IP/user/API key) to protect availability and control abuse. Unauthenticated expensive endpoints get DoSed or scraped. Relevant ideas: token bucket/fixed window; key choice; 429 + Retry-After; distributed stores; closed/open/half-open; error thresholds. Apply limits at edge/API gateway and app, return 429 with headers, and store counters in Redis for multi-node. Strict limits protect systems but can block NAT users sharing IPs—prefer user keys when authenticated. If limit not enforced across nodes, local memory store—move to Redis.",
+    "integrationProcedure": "1) Identify expensive routes. 2) Redis-backed limits. 3) 429 headers. 4) Tune with product. 5) Monitor.",
+    "example": "@Throttle(100, 60) // 100 req / 60s\n// or nginx limit_req\n\n// pseudo: if failures/total > 50% in 30s → open for 20s"
+  },
+  "BE-A-0042": {
+    "shortAnswer": "Role-based access control grants permissions via roles assigned to subjects rather than per-user ACLs alone.",
+    "answer": "Answering “Design authorization for a complex system containing organizations, projects, roles, ownership, and delegated permissions.?”: Role-based access control grants permissions via roles assigned to subjects rather than per-user ACLs alone. Hard-coded role checks scattered in controllers drift and miss edge routes. Relevant ideas: roles/permissions; least privilege; role explosion risk; resource checks beyond roles; principal id; resource tenant/owner. Centralize permission maps, enforce in guards, and combine with resource ownership checks for multi-tenant data. RBAC is simple until roles explode; ABAC/ReBAC may fit complex domains. If unauthorized access works, add integration tests per role and audit default-deny.",
+    "integrationProcedure": "1) Define permission matrix. 2) Enforce in guards. 3) Default deny. 4) Audit logs. 5) Test each role.",
+    "example": "@Roles('admin') @UseGuards(AuthGuard, RolesGuard)\n@Delete(':id') remove() {}\n\nif (order.userId !== user.id) throw new ForbiddenException();"
+  },
+  "BE-A-0043": {
+    "shortAnswer": "At-least-once delivery means consumers may see duplicates after retries; handlers must be idempotent.",
+    "answer": "Answering “Design exactly-once-like payment processing using idempotency keys, durable state, retries, and reconciliation.?”: At-least-once delivery means consumers may see duplicates after retries; handlers must be idempotent. Assuming exactly-once without a dedupe store double-charges or double-emails. Relevant ideas: acks/retries; idempotency keys; dedupe stores; poison messages; Idempotency-Key; dedupe store. Acknowledge only after durable side effects, store processed keys, and send poison messages to DLQ. Exactly-once is rare/expensive; usually at-least-once + idempotency is the practical design. If duplicates appear, add idempotency table unique constraints.",
+    "integrationProcedure": "1) Make handlers idempotent. 2) Persist dedupe keys. 3) DLQ. 4) Metric retries/dupes.",
+    "example": "INSERT INTO processed_events(id) VALUES($1) ON CONFLICT DO NOTHING; -- skip if not inserted\n\nUNIQUE(user_id, idempotency_key)\n-- return stored response when key exists"
+  },
+  "BE-A-0044": {
+    "shortAnswer": "Distributed tracing records spans across services (OpenTelemetry) to visualize latency and errors in a request graph.",
+    "answer": "Answering “Design observability for a request crossing API gateway, application service, queue, worker, database, and third-party API.?”: Distributed tracing records spans across services (OpenTelemetry) to visualize latency and errors in a request graph. Metrics alone cannot show which downstream hop caused a slow request. Relevant ideas: trace/span context; W3C headers; sampling; baggage caution; counter/histogram/gauge; labels cardinality. Instrument frameworks, propagate context, export to a backend, and sample appropriately. High sampling costs money; too low misses rare bugs. Tail-based sampling helps.",
+    "integrationProcedure": "1) Add OTel SDK. 2) Propagate headers. 3) Sample. 4) Link logs via trace_id. 5) Create service maps.",
+    "example": "// OTel Node auto-instrument Nest/HTTP and export OTLP\n\nhttp_request_duration_seconds_bucket{path=\"/orders\",status=\"200\"}"
+  },
+  "BE-A-0045": {
+    "shortAnswer": "Cache invalidation removes or updates stale entries so readers see fresh data after writes.",
+    "answer": "Answering “Explain failure modes introduced by distributed caching and how you would design fallback behavior.?”: Cache invalidation removes or updates stale entries so readers see fresh data after writes. TTL-only caches serve stale critical data; manual deletes miss keys and leave ghosts. Relevant ideas: TTL; write-through/around; tag-based purge; event invalidation; get→miss→load→set; invalidate on write. Choose strategy per data: short TTL, explicit delete on write, or versioned keys after mutations. Invalidation complexity is famous; sometimes prefer short TTL over perfect coherence. If stale after write, log keys written vs invalidated and check race windows.",
+    "integrationProcedure": "1) Classify data freshness needs. 2) Invalidate on write paths. 3) Version keys. 4) Monitor stale incidents.",
+    "example": "await redis.del(`user:${id}`);\nawait redis.set(`user:${id}`, json, 'EX', 60);\n\nlet v = await redis.get(key);\nif (!v) { v = await db.load(); await redis.set(key, v, 'EX', 60); }"
+  },
+  "BE-A-0046": {
+    "shortAnswer": "Open transaction, perform related writes, commit; never call payment providers inside holding DB locks.",
+    "answer": "Answering “How would you choose transaction boundaries in a domain with long-running workflows and external services?”: Transaction boundaries group DB operations that must commit or roll back together to preserve invariants. Multi-step writes without transactions leave partial state on mid-failure. Relevant ideas: ACID unit; keep transactions short; avoid external I/O inside; isolation levels; version column; compare-and-update. Open transaction, perform related writes, commit; never call payment providers inside holding DB locks. Wide transactions increase contention; chatty small transactions can break invariants—balance carefully. If partial rows remain after errors, missing transaction or catch swallowed rollback.",
+    "integrationProcedure": "1) Identify invariants. 2) Wrap in transactions. 3) Keep short. 4) Outbox for external side effects. 5) Tests for mid-fail.",
+    "example": "await prisma.$transaction(async (tx) => {\n  await tx.order.create(...);\n  await tx.stock.update(...);\n});\n\nUPDATE accounts SET bal=$1, version=version+1 WHERE id=$2 AND version=$3"
+  },
+  "BE-A-0047": {
+    "shortAnswer": "Inject secrets at runtime, rotate regularly, scope IAM tightly, and scan git history for leaks.",
+    "answer": "Answering “How would you design disaster recovery for a backend with strict RPO/RTO requirements?”: Secrets management stores credentials in a vault/manager with rotation and audited access—not in git or images. Leaked .env in repos and baked Docker secrets cause breaches. Relevant ideas: vault/KMS; short-lived credentials; rotation; least privilege; buckets/keys; presigned URLs. Inject secrets at runtime, rotate regularly, scope IAM tightly, and scan git history for leaks. Vault ops cost vs cloud secret managers convenience—pick what you'll actually operate. If secret leaked, rotate immediately and review access logs.",
+    "integrationProcedure": "1) Move secrets to manager. 2) Remove from git. 3) Rotate. 4) IAM least privilege. 5) Pre-commit secret scan.",
+    "example": "# AWS SM / GCP Secret Manager / Vault KV; never COPY .env into Docker images\n\nconst url = await s3.getSignedUrl('putObject', { Bucket, Key, Expires: 900 });"
+  },
+  "BE-A-0048": {
+    "shortAnswer": "Prefer additive changes; when breaking, introduce v2, dual-run, migrate clients, then sunset with metrics.",
+    "answer": "Answering “How would you evolve an API contract without breaking old mobile/web clients?”: API versioning evolves contracts without silently breaking existing clients—via URL, headers, or media types. Breaking field meanings in place strand old mobile apps that cannot force-upgrade instantly. Relevant ideas: compatibility windows; URI vs header versioning; deprecation policy; additive changes first; paths/schemas; codegen. Prefer additive changes; when breaking, introduce v2, dual-run, migrate clients, then sunset with metrics. URL versions are obvious but noisy; header versions are clean but harder to explore. Avoid infinite parallel versions.",
+    "integrationProcedure": "1) Publish compatibility policy. 2) Version only on breaks. 3) Dual-write/read as needed. 4) Track version usage. 5) Sunset with notice.",
+    "example": "# /v1/orders vs /v2/orders\nGET /v2/orders HTTP/1.1\nAccept: application/vnd.myapp.v2+json\n\nopenapi: 3.1.0\npaths:\n  /health:\n    get:\n      responses:\n        '200': { description: OK }"
+  },
+  "BE-A-0049": {
+    "shortAnswer": "Prefer additive changes; when breaking, introduce v2, dual-run, migrate clients, then sunset with metrics.",
+    "answer": "Answering “How would you handle schema migration during zero-downtime deploys when old and new application versions run simultaneously?”: API versioning evolves contracts without silently breaking existing clients—via URL, headers, or media types. Breaking field meanings in place strand old mobile apps that cannot force-upgrade instantly. Relevant ideas: compatibility windows; URI vs header versioning; deprecation policy; additive changes first; paths/schemas; codegen. Prefer additive changes; when breaking, introduce v2, dual-run, migrate clients, then sunset with metrics. URL versions are obvious but noisy; header versions are clean but harder to explore. Avoid infinite parallel versions.",
+    "integrationProcedure": "1) Publish compatibility policy. 2) Version only on breaks. 3) Dual-write/read as needed. 4) Track version usage. 5) Sunset with notice.",
+    "example": "# /v1/orders vs /v2/orders\nGET /v2/orders HTTP/1.1\nAccept: application/vnd.myapp.v2+json\n\nopenapi: 3.1.0\npaths:\n  /health:\n    get:\n      responses:\n        '200': { description: OK }"
+  },
+  "BE-A-0050": {
+    "shortAnswer": "Model steps/compensations, persist saga state, and ensure each step can retry safely.",
+    "answer": "Answering “How would you implement an outbox/inbox pattern to coordinate database transactions and messaging?”: Sagas coordinate multi-step business processes across services with compensating actions when a step fails. Distributed transactions (2PC) are rarely practical; partial failures leave inconsistent states. Relevant ideas: choreography vs orchestration; compensations; state machine; idempotent steps; ACID unit; keep transactions short. Model steps/compensations, persist saga state, and ensure each step can retry safely. Sagas add complexity; sometimes a modular monolith transaction is better. If stuck mid-saga, inspect state store and compensation failures.",
+    "integrationProcedure": "1) Decide choreography/orchestration. 2) Persist state. 3) Compensations. 4) Timeouts. 5) Dashboards.",
+    "example": "// orchestrator: ReserveStock → ChargeCard → CreateShipment; compensations reverse\n\nawait prisma.$transaction(async (tx) => {\n  await tx.order.create(...);\n  await tx.stock.update(...);\n});"
+  },
+  "BE-A-0051": {
+    "shortAnswer": "Instrument frameworks, propagate context, export to a backend, and sample appropriately.",
+    "answer": "Answering “How would you isolate CPU-bound work without losing reliability or observability?”: Distributed tracing records spans across services (OpenTelemetry) to visualize latency and errors in a request graph. Metrics alone cannot show which downstream hop caused a slow request. Relevant ideas: trace/span context; W3C headers; sampling; baggage caution; counter/histogram/gauge; labels cardinality. Instrument frameworks, propagate context, export to a backend, and sample appropriately. High sampling costs money; too low misses rare bugs. Tail-based sampling helps.",
+    "integrationProcedure": "1) Add OTel SDK. 2) Propagate headers. 3) Sample. 4) Link logs via trace_id. 5) Create service maps.",
+    "example": "// OTel Node auto-instrument Nest/HTTP and export OTLP\n\nhttp_request_duration_seconds_bucket{path=\"/orders\",status=\"200\"}"
+  },
+  "BE-A-0052": {
+    "shortAnswer": "Resolve tenant per request, enforce filters in data layer, test cross-tenant access attempts, and isolate noisy neighbors.",
+    "answer": "Answering “How would you partition and scale a backend workload where one tenant produces 50% of total traffic?”: Multi-tenant SaaS serves many customers with isolation via tenant_id, schemas, or separate databases. Missing tenant filters leak data across customers—the worst class of bug. Relevant ideas: tenant context; row-level filters; isolation levels; per-tenant limits; token bucket/fixed window; key choice. Resolve tenant per request, enforce filters in data layer, test cross-tenant access attempts, and isolate noisy neighbors. Shared DB is cheaper; separate DBs isolate better at higher cost. pen-test with another tenant's IDs; must 404/403.",
+    "integrationProcedure": "1) Tenant context middleware. 2) Enforce in repo layer. 3) Automated cross-tenant tests. 4) Quotas. 5) Audit logs.",
+    "example": "WHERE id = $1 AND tenant_id = $2\n\n@Throttle(100, 60) // 100 req / 60s\n// or nginx limit_req"
+  },
+  "BE-A-0053": {
+    "shortAnswer": "Capture under realistic load, open flamegraphs, fix top frames, and re-measure.",
+    "answer": "Answering “How would you profile and reduce memory growth in a long-running Node.js service?”: Profiling samples CPU/heap to find hot functions and leaks instead of guessing. Optimizing without profiles wastes time on the wrong 90%. Relevant ideas: CPU profiles; heap snapshots; flamegraphs; prod continuous profiling; Worker; message passing. Capture under realistic load, open flamegraphs, fix top frames, and re-measure. Sampling overhead is usually small; still avoid leaving debug profilers always-on carelessly. If profiles empty, missing symbols/source maps—fix build flags.",
+    "integrationProcedure": "1) Baseline latency. 2) Profile under load. 3) Fix top hotspots. 4) Automate periodic profiles in staging.",
+    "example": "node --cpu-prof dist/main.js\n# or clinic flame / 0x\n\nimport { Worker } from 'node:worker_threads';\nconst result = await runInWorker(payload);"
+  },
+  "BE-A-0054": {
+    "shortAnswer": "Distributed tracing records spans across services (OpenTelemetry) to visualize latency and errors in a request graph.",
+    "answer": "Answering “In a backend system-design interview, design an ecommerce checkout service and discuss inventory, payment, idempotency, transactions, queues, failure recovery, and observability.?”: Distributed tracing records spans across services (OpenTelemetry) to visualize latency and errors in a request graph. Metrics alone cannot show which downstream hop caused a slow request. Relevant ideas: trace/span context; W3C headers; sampling; baggage caution; counter/histogram/gauge; labels cardinality. Instrument frameworks, propagate context, export to a backend, and sample appropriately. High sampling costs money; too low misses rare bugs. Tail-based sampling helps.",
+    "integrationProcedure": "1) Add OTel SDK. 2) Propagate headers. 3) Sample. 4) Link logs via trace_id. 5) Create service maps.",
+    "example": "// OTel Node auto-instrument Nest/HTTP and export OTLP\n\nhttp_request_duration_seconds_bucket{path=\"/orders\",status=\"200\"}"
+  },
+  "BE-A-0071": {
+    "shortAnswer": "Structured logging emits JSON fields (level, msg, requestId, userId) for queryable observability.",
+    "answer": "Answering “A service has p99 latency spikes but low average latency. Explain how you would use traces, metrics, logs, queueing theory, and dependency data to find the cause.?”: Structured logging emits JSON fields (level, msg, requestId, userId) for queryable observability. String-only logs are hard to filter and correlate during incidents. Relevant ideas: JSON logs; levels; PII redaction; correlation ids; generate at edge; propagate headers. Use pino/winston JSON, include requestIds, redact secrets/PII, and ship to a log backend. Debug logs in prod explode cost; sample or raise levels carefully.",
+    "integrationProcedure": "1) JSON logger. 2) Field standard. 3) Redaction. 4) Ship to stack. 5) Dashboards/alerts.",
+    "example": "logger.info({ requestId, userId, route }, 'order_created');\n\nconst id = req.headers['x-request-id'] ?? crypto.randomUUID();\nlogger.info({ requestId: id }, 'handling');"
+  },
+  "BE-A-0072": {
+    "shortAnswer": "Multi-tenant SaaS serves many customers with isolation via tenant_id, schemas, or separate databases.",
+    "answer": "Answering “Design a multi-tenant SaaS backend with strong tenant isolation and explain trade-offs between shared schema, separate schemas, and separate databases.?”: Multi-tenant SaaS serves many customers with isolation via tenant_id, schemas, or separate databases. Missing tenant filters leak data across customers—the worst class of bug. Relevant ideas: tenant context; row-level filters; isolation levels; per-tenant limits; principal id; resource tenant/owner. Resolve tenant per request, enforce filters in data layer, test cross-tenant access attempts, and isolate noisy neighbors. Shared DB is cheaper; separate DBs isolate better at higher cost. pen-test with another tenant's IDs; must 404/403.",
+    "integrationProcedure": "1) Tenant context middleware. 2) Enforce in repo layer. 3) Automated cross-tenant tests. 4) Quotas. 5) Audit logs.",
+    "example": "WHERE id = $1 AND tenant_id = $2\n\nif (order.userId !== user.id) throw new ForbiddenException();"
+  },
+  "BE-A-0073": {
+    "shortAnswer": "Rate limiting caps request rates per key (IP/user/API key) to protect availability and control abuse.",
+    "answer": "Answering “Design a notification platform that delivers email, SMS, and push notifications with retries, rate limits, deduplication, provider failover, and user preferences.?”: Rate limiting caps request rates per key (IP/user/API key) to protect availability and control abuse. Unauthenticated expensive endpoints get DoSed or scraped. Relevant ideas: token bucket/fixed window; key choice; 429 + Retry-After; distributed stores; closed/open/half-open; error thresholds. Apply limits at edge/API gateway and app, return 429 with headers, and store counters in Redis for multi-node. Strict limits protect systems but can block NAT users sharing IPs—prefer user keys when authenticated. If limit not enforced across nodes, local memory store—move to Redis.",
+    "integrationProcedure": "1) Identify expensive routes. 2) Redis-backed limits. 3) 429 headers. 4) Tune with product. 5) Monitor.",
+    "example": "@Throttle(100, 60) // 100 req / 60s\n// or nginx limit_req\n\n// pseudo: if failures/total > 50% in 30s → open for 20s"
+  },
+  "BE-A-0074": {
+    "shortAnswer": "At-least-once delivery means consumers may see duplicates after retries; handlers must be idempotent.",
+    "answer": "Answering “Design an exactly-once business outcome on top of at-least-once message delivery.?”: At-least-once delivery means consumers may see duplicates after retries; handlers must be idempotent. Assuming exactly-once without a dedupe store double-charges or double-emails. Relevant ideas: acks/retries; idempotency keys; dedupe stores; poison messages; Idempotency-Key; dedupe store. Acknowledge only after durable side effects, store processed keys, and send poison messages to DLQ. Exactly-once is rare/expensive; usually at-least-once + idempotency is the practical design. If duplicates appear, add idempotency table unique constraints.",
+    "integrationProcedure": "1) Make handlers idempotent. 2) Persist dedupe keys. 3) DLQ. 4) Metric retries/dupes.",
+    "example": "INSERT INTO processed_events(id) VALUES($1) ON CONFLICT DO NOTHING; -- skip if not inserted\n\nUNIQUE(user_id, idempotency_key)\n-- return stored response when key exists"
+  },
+  "BE-A-0075": {
+    "shortAnswer": "A modular monolith is a single deployable with strong internal module boundaries—often the best step before microservices.",
+    "answer": "Answering “Explain how you would split a modular monolith into services only when organizational and runtime boundaries justify it.?”: A modular monolith is a single deployable with strong internal module boundaries—often the best step before microservices. Microservices too early multiply ops cost without real team/scale need. Relevant ideas: module boundaries; no cross-DB joins secretly; clear APIs; extract later; data ownership; API contracts. Enforce module public APIs, separate schemas if needed, and forbid deep imports via lint. One deploy is simple; still requires discipline or it becomes a monolith ball of mud. If modules circularly import, boundaries are wrong—revisit context map.",
+    "integrationProcedure": "1) Define modules. 2) Lint boundaries. 3) Separate tables ownership. 4) Extract service only with evidence.",
+    "example": "orders/ public API only; inventory/ cannot import orders/internal/*\n\n// orders service owns orders tables; inventory exposes ReserveStock API/events"
+  }
+}

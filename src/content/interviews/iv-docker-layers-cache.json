@@ -24,5 +24,7 @@
     "devops",
     "docker"
   ],
-  "lastVerified": "2026-09-14"
+  "lastVerified": "2026-09-14",
+  "codeExample": "// Example framing for: Your CI Docker build is slow. How do you structure a Dockerfile to maximize layer caching for a Node.js API?\n// Stack: Docker, CI/CD, Node.js\n// Short answer: Copy package manifests and install dependencies before copying source so dependency layers reuse when code-only changes.\n// Verify with a failing test first, then implement the strong answer path.",
+  "integrationProcedure": "1) Reproduce the scenario in a small spike using Docker, CI/CD, Node.js. 2) Write the strong answer as an ADR or PR description. 3) Add a test or monitor that would catch the common wrong answer in production. 4) Document rollback/owner. 5) Rehearse the follow-ups aloud once."
 }

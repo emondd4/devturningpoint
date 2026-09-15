@@ -1,0 +1,446 @@
+[
+  {
+    "id": "FND-B-0027",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are HTTP and HTTPS, and what extra protection does HTTPS provide?"
+  },
+  {
+    "id": "FND-B-0028",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are primary keys and foreign keys in a relational database?"
+  },
+  {
+    "id": "FND-B-0029",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are the four commonly taught pillars of object-oriented programming?"
+  },
+  {
+    "id": "FND-B-0030",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are the roles of the CPU, RAM, persistent storage, and I/O devices in a computer?"
+  },
+  {
+    "id": "FND-B-0031",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What are variables, constants, data types, and control-flow statements?"
+  },
+  {
+    "id": "FND-B-0032",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What does Big-O notation describe, and what do O(1), O(log n), O(n), and O(n\u00b2) mean?"
+  },
+  {
+    "id": "FND-B-0033",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What happens at a high level when you type a domain name into a browser?"
+  },
+  {
+    "id": "FND-B-0034",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is Git, and what is the difference between a commit, branch, merge, pull, and push?"
+  },
+  {
+    "id": "FND-B-0035",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is an IP address, and why do devices need one?"
+  },
+  {
+    "id": "FND-B-0036",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is an operating system, and what services does it provide to applications?"
+  },
+  {
+    "id": "FND-B-0037",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the basic difference between SQL/relational databases and document/NoSQL databases?"
+  },
+  {
+    "id": "FND-B-0038",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between TCP and UDP?"
+  },
+  {
+    "id": "FND-B-0039",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between a bit, byte, kilobyte, megabyte, and gigabyte?"
+  },
+  {
+    "id": "FND-B-0040",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between a function parameter and an argument?"
+  },
+  {
+    "id": "FND-B-0041",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between a process and a thread?"
+  },
+  {
+    "id": "FND-B-0042",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between an array/list, stack, queue, set, and map?"
+  },
+  {
+    "id": "FND-B-0043",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between authentication and authorization?"
+  },
+  {
+    "id": "FND-B-0044",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between compiled and interpreted execution?"
+  },
+  {
+    "id": "FND-B-0045",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between stack memory and heap memory at a high level?"
+  },
+  {
+    "id": "FND-B-0046",
+    "level": "Beginner",
+    "questionType": "Curated",
+    "question": "What is the difference between unit, integration, and end-to-end testing?"
+  },
+  {
+    "id": "FND-B-0083",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What four conditions are required for a deadlock to be possible?"
+  },
+  {
+    "id": "FND-B-0084",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What happens, at a high level, from the moment you type a URL in a browser until the page begins rendering?"
+  },
+  {
+    "id": "FND-B-0085",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between a process, a thread, and a coroutine?"
+  },
+  {
+    "id": "FND-B-0086",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "What is the difference between authentication, authorization, and accounting?"
+  },
+  {
+    "id": "FND-B-0087",
+    "level": "Beginner",
+    "questionType": "Conceptual",
+    "question": "Why is a hash table usually O(1) average lookup but not O(1) worst-case lookup?"
+  },
+  {
+    "id": "FND-I-0027",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "At a high level, what happens during a TLS handshake?"
+  },
+  {
+    "id": "FND-I-0028",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare hashing, encryption, and encoding; give a proper use case for each."
+  },
+  {
+    "id": "FND-I-0029",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare inheritance and composition. When is composition preferable?"
+  },
+  {
+    "id": "FND-I-0030",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Compare mutexes, semaphores, and atomic operations."
+  },
+  {
+    "id": "FND-I-0031",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain browser/server caching and the role of Cache-Control, ETag, and conditional requests."
+  },
+  {
+    "id": "FND-I-0032",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain cohesion and coupling and why they matter in module design."
+  },
+  {
+    "id": "FND-I-0033",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain normalization and when deliberate denormalization can be justified."
+  },
+  {
+    "id": "FND-I-0034",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain the CAP theorem without using the misleading phrase \"pick any two\" as the whole answer."
+  },
+  {
+    "id": "FND-I-0035",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "Explain the TCP three-way handshake and why it exists."
+  },
+  {
+    "id": "FND-I-0036",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How does a database index improve reads, and why can it make writes more expensive?"
+  },
+  {
+    "id": "FND-I-0037",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "How does virtual memory let processes use more memory than is physically available?"
+  },
+  {
+    "id": "FND-I-0038",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are common transaction isolation anomalies such as dirty reads, non-repeatable reads, and phantom reads?"
+  },
+  {
+    "id": "FND-I-0039",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What are the four necessary conditions for deadlock?"
+  },
+  {
+    "id": "FND-I-0040",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What do ACID properties mean in practice?"
+  },
+  {
+    "id": "FND-I-0041",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What does dependency inversion mean, and how is it different from dependency injection?"
+  },
+  {
+    "id": "FND-I-0042",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What happens during a context switch, and why are excessive context switches expensive?"
+  },
+  {
+    "id": "FND-I-0043",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What is a race condition, and how would you reproduce and diagnose one?"
+  },
+  {
+    "id": "FND-I-0044",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What is semantic versioning, and why do lock files matter?"
+  },
+  {
+    "id": "FND-I-0045",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What is the difference between Git merge and Git rebase, and when would you choose each?"
+  },
+  {
+    "id": "FND-I-0046",
+    "level": "Intermediate",
+    "questionType": "Curated",
+    "question": "What makes an HTTP method safe or idempotent, and why does that distinction matter?"
+  },
+  {
+    "id": "FND-I-0083",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "Explain how DNS caching at multiple layers can make an incident difficult to diagnose."
+  },
+  {
+    "id": "FND-I-0084",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "Given a recursive algorithm, how would you reason about both its time complexity and stack-space complexity?"
+  },
+  {
+    "id": "FND-I-0085",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How does virtual memory allow a process to use an address space larger than available physical RAM?"
+  },
+  {
+    "id": "FND-I-0086",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "How would you decide whether to normalize or denormalize a relational schema for a read-heavy feature?"
+  },
+  {
+    "id": "FND-I-0087",
+    "level": "Intermediate",
+    "questionType": "Scenario",
+    "question": "Why can TCP head-of-line blocking matter to application performance, and how do newer transports address related problems?"
+  },
+  {
+    "id": "FND-A-0027",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "A service performs the same work twice after a network timeout. Explain why \"exactly once\" is difficult and how you would design for it."
+  },
+  {
+    "id": "FND-A-0028",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare optimistic and pessimistic concurrency control and discuss workloads where each fits."
+  },
+  {
+    "id": "FND-A-0029",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare strong consistency, eventual consistency, and causal consistency using practical application examples."
+  },
+  {
+    "id": "FND-A-0030",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Compare synchronous request/response integration with asynchronous event-driven integration."
+  },
+  {
+    "id": "FND-A-0031",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Design a strategy for diagnosing a production service whose latency increased but CPU utilization remained normal."
+  },
+  {
+    "id": "FND-A-0032",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain how DNS caching, TTLs, load balancers, and connection reuse can complicate incident diagnosis."
+  },
+  {
+    "id": "FND-A-0033",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain how garbage collection can affect latency and what allocation patterns can make GC pressure worse."
+  },
+  {
+    "id": "FND-A-0034",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain how observability signals\u2014logs, metrics, traces, and profiles\u2014complement one another during incident response."
+  },
+  {
+    "id": "FND-A-0035",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain page faults, thrashing, and the working-set idea, and describe how they affect application performance."
+  },
+  {
+    "id": "FND-A-0036",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Explain why distributed clocks cannot be treated as perfectly synchronized and where this matters."
+  },
+  {
+    "id": "FND-A-0037",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "Given an unfamiliar system, how would you build a mental model of its performance bottlenecks before optimizing anything?"
+  },
+  {
+    "id": "FND-A-0038",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you design safe zero-downtime database schema changes for an application deployed across multiple instances?"
+  },
+  {
+    "id": "FND-A-0039",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you investigate a suspected deadlock versus a livelock versus starvation problem?"
+  },
+  {
+    "id": "FND-A-0040",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you make an operation idempotent across retries in a distributed system?"
+  },
+  {
+    "id": "FND-A-0041",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you reason about backpressure in a high-throughput pipeline?"
+  },
+  {
+    "id": "FND-A-0042",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you reason about cache locality and memory-access patterns when optimizing a data-processing routine?"
+  },
+  {
+    "id": "FND-A-0043",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "How would you threat-model an internet-facing API handling sensitive user information?"
+  },
+  {
+    "id": "FND-A-0044",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "What are the trade-offs between vertical scaling, horizontal scaling, sharding, replication, and caching?"
+  },
+  {
+    "id": "FND-A-0045",
+    "level": "Advanced",
+    "questionType": "Curated",
+    "question": "What is the difference between availability, durability, reliability, and recoverability?"
+  },
+  {
+    "id": "FND-A-0082",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "A service is intermittently slow but CPU usage is low. Build a cross-layer debugging plan spanning DNS, networking, I/O, locks, and downstream dependencies."
+  },
+  {
+    "id": "FND-A-0083",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a rate limiter and compare token bucket, leaky bucket, fixed window, and sliding-window approaches."
+  },
+  {
+    "id": "FND-A-0084",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Design a thread-safe bounded producer-consumer queue and explain its synchronization invariants."
+  },
+  {
+    "id": "FND-A-0085",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "Explain how consistency models change the guarantees an application can make after a network partition."
+  },
+  {
+    "id": "FND-A-0086",
+    "level": "Advanced",
+    "questionType": "Scenario",
+    "question": "How would you reason about whether an algorithmic optimization is worth its additional memory, complexity, and maintenance cost in a production service?"
+  }
+]
