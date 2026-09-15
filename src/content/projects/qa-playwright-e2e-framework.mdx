@@ -1,0 +1,257 @@
+---
+id: "PROJECT-QA-PLAYWRIGHT-E2E-FRAMEWORK"
+title: "Playwright E2E Automation Framework"
+titleBn: "Playwright E2E অটোমেশন ফ্রেমওয়ার্ক"
+slug: "qa-playwright-e2e-framework"
+track: "qa"
+level: "intermediate"
+difficulty: "intermediate"
+summary: "Design a maintainable Playwright framework with fixtures, POM/helpers, CI, and flaky-test discipline."
+summaryBn: "ফিক্সচার, POM/helpers, CI এবং ফ্লাকি-টেস্ট ডিসিপ্লিনসহ রক্ষণাবেক্ষণযোগ্য Playwright ফ্রেমওয়ার্ক।"
+portfolioPitch: "Automation engineering: stable selectors, fixtures, CI artifacts, and flake control—not recorded scripts."
+estimatedHours: 34
+prerequisiteSkillIds:
+  - "QA-PLAYWRIGHT"
+  - "QA-TEST-DESIGN"
+  - "QA-CI-INTEGRATION"
+  - "QA-API-TESTING"
+learningOutcomeSkillIds:
+  - "QA-PLAYWRIGHT"
+  - "QA-CI-INTEGRATION"
+  - "QA-API-TESTING"
+  - "QA-TEST-DESIGN"
+  - "QA-BUG-REPORTING"
+recommendedTools:
+  - "Playwright"
+  - "TypeScript"
+  - "GitHub Actions"
+  - "Trace viewer"
+portfolioEvidence:
+  - "Framework README"
+  - "CI workflow with traces"
+  - "Flake playbook"
+  - "Coverage map"
+relatedTopicIds:
+  - "QA-PLAYWRIGHT-E2E"
+  - "QA-FLAKY-TESTS"
+  - "QA-CI-QUALITY-GATES"
+  - "QA-TEST-DATA-MANAGEMENT"
+  - "QA-REGRESSION-TESTING"
+  - "QA-TESTING-PYRAMID"
+  - "QA-ACCESSIBILITY-TESTING"
+relatedInterviewQuestionIds:
+  - "iv-qa-flaky-tests"
+  - "QA-I-0100"
+  - "QA-A-0050"
+  - "QA-I-0020"
+  - "iv-qa-risk-based-release"
+  - "QA-I-0150"
+  - "QA-I-0030"
+sources:
+  - "PLAYWRIGHT-DOCS"
+  - "GHA-WORKFLOWS"
+  - "AXE-CORE"
+  - "ISTQB-GLOSSARY"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PROJECT-QA-ECOMMERCE-QUALITY-PACK"
+nextProjectId: "PROJECT-QA-UNIFIED-QE-PIPELINE"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "qa-pw-m1"
+    title: "Framework scaffold"
+    objective: "Playwright TS project conventions."
+    whyItMatters: "Structure prevents chaos later."
+    prerequisiteTopicIds:
+      - "QA-PLAYWRIGHT-E2E"
+      - "QA-TESTING-PYRAMID"
+    tasks:
+      - "Init Playwright"
+      - "Folders"
+      - "Lint"
+      - "README"
+    expectedArtifacts:
+      - "scaffold"
+    validationChecklist:
+      - "Tests run locally"
+      - "Conventions documented"
+      - "Pyramid note"
+    commonProblems:
+      - "Recorded mess"
+      - "No TS"
+    completionCriteria:
+      - "Scaffold ready"
+  - id: "qa-pw-m2"
+    title: "First critical journeys"
+    objective: "Automate 2–3 journeys stably."
+    whyItMatters: "Value before volume."
+    prerequisiteTopicIds:
+      - "QA-REGRESSION-TESTING"
+      - "QA-TEST-DATA-MANAGEMENT"
+    tasks:
+      - "Login/browse/checkout-like"
+      - "Role selectors"
+      - "Assertions"
+      - "Data strategy"
+    expectedArtifacts:
+      - "specs"
+    validationChecklist:
+      - "Journeys green"
+      - "Data isolated"
+      - "Assertions meaningful"
+    commonProblems:
+      - "Brittle CSS chains"
+      - "Shared users"
+    completionCriteria:
+      - "Journeys stable"
+  - id: "qa-pw-m3"
+    title: "Fixtures and CI artifacts"
+    objective: "Auth/data fixtures + GH Actions traces."
+    whyItMatters: "CI evidence builds trust."
+    prerequisiteTopicIds:
+      - "QA-CI-QUALITY-GATES"
+      - "QA-PLAYWRIGHT-E2E"
+    tasks:
+      - "Fixtures"
+      - "Workflow"
+      - "Trace upload"
+      - "Shards optional"
+    expectedArtifacts:
+      - "workflow"
+      - "fixtures"
+    validationChecklist:
+      - "CI green/red correctly"
+      - "Traces on fail"
+      - "Secrets safe"
+    commonProblems:
+      - "No artifacts"
+      - "Flaky parallel collisions"
+    completionCriteria:
+      - "CI trustworthy"
+  - id: "qa-pw-m4"
+    title: "Flake playbook"
+    objective: "Quarantine process + metrics."
+    whyItMatters: "Flake discipline is senior QA."
+    prerequisiteTopicIds:
+      - "QA-FLAKY-TESTS"
+      - "QA-ACCESSIBILITY-TESTING"
+    tasks:
+      - "Playbook"
+      - "Quarantine label"
+      - "Owner rotation"
+      - "Optional a11y smoke"
+    expectedArtifacts:
+      - "playbook"
+    validationChecklist:
+      - "Flake process documented"
+      - "Example quarantine"
+      - "Suite health noted"
+    commonProblems:
+      - "Ignore flakes"
+      - "Delete tests silently"
+    completionCriteria:
+      - "Framework portfolio-ready"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Fragile E2E suites destroy trust. Framework design is the difference between help and noise.
+
+<Callout type="mental-model">
+  Few high-value journeys. Isolated data. Traces on failure. Quarantine with ownership.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: QA-PLAYWRIGHT, QA-CI-INTEGRATION, QA-API-TESTING, QA-TEST-DESIGN, QA-BUG-REPORTING.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Playwright TS project; fixtures for auth/data; page objects/helpers; CI shards; artifact upload.
+
+Recommended tools: Playwright, TypeScript, GitHub Actions, Trace viewer.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Scaffold. 2) First journey. 3) Fixtures/data. 4) CI+traces. 5) Flake playbook.
+
+## Validation checkpoints
+
+CI fails on real bugs; traces available; flake rate tracked; selectors role-based where possible.
+
+## Common errors
+
+Sleeps everywhere; shared mutable users; huge suite of low-value tests.
+
+## Debugging guidance
+
+Trace viewer; headed mode; network logs; bisect flakes.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+Meta: lint; seed isolation tests; a11y smoke optional.
+
+## Security
+
+Secrets in CI secrets; no prod credentials; sanitize artifacts.
+
+## Performance
+
+Parallel wisely; avoid unnecessary browser startups.
+
+## Accessibility
+
+Optional axe checks on critical pages.
+
+## Deployment / handoff
+
+CI is the deployment of tests.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  How you prevent and quarantine flaky tests.
+</Callout>
+
+## Stretch goals
+
+API setup/teardown hybrid; visual comparisons.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

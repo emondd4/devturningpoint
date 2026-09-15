@@ -1,0 +1,258 @@
+---
+id: "PROJECT-FRONTEND-COLLABORATIVE-ISSUE-BOARD"
+title: "Real-Time Collaborative Issue Board"
+titleBn: "রিয়েল-টাইম কোলাবোরেটিভ ইস্যু বোর্ড"
+slug: "frontend-collaborative-issue-board"
+track: "frontend"
+level: "advanced"
+difficulty: "advanced"
+summary: "Kanban-style issue board with optimistic updates, realtime sync, conflict handling, and performance under load."
+summaryBn: "অপটিমিস্টিক আপডেট, রিয়েলটাইম সিঙ্ক, কনফ্লিক্ট হ্যান্ডলিং এবং লোডের নিচে পারফরম্যান্সসহ ইস্যু বোর্ড।"
+portfolioPitch: "Advanced frontend system design: realtime collaboration, optimistic UI, and reconciliation under contention."
+estimatedHours: 45
+prerequisiteSkillIds:
+  - "FRONTEND-REACT"
+  - "FRONTEND-PERFORMANCE"
+  - "FRONTEND-TYPESCRIPT"
+  - "FRONTEND-NEXTJS"
+learningOutcomeSkillIds:
+  - "FRONTEND-REACT"
+  - "FRONTEND-PERFORMANCE"
+  - "FRONTEND-REACT-TESTING"
+  - "FRONTEND-A11Y"
+  - "FRONTEND-NEXTJS"
+recommendedTools:
+  - "Next.js"
+  - "WebSocket/SSE stub"
+  - "TanStack Query"
+  - "dnd library with a11y"
+portfolioEvidence:
+  - "Realtime sequence diagram"
+  - "Conflict demo"
+  - "Perf profile"
+  - "A11y board keyboard map"
+relatedTopicIds:
+  - "FRONTEND-REACT-RECONCILIATION"
+  - "FRONTEND-REACT-MEMOIZATION"
+  - "FRONTEND-WEB-VITALS"
+  - "FRONTEND-TANSTACK-QUERY"
+  - "FRONTEND-ARIA-PATTERNS"
+  - "FRONTEND-REACT-TESTING-LIBRARY"
+  - "FRONTEND-NEXTJS-DATA-FETCHING"
+relatedInterviewQuestionIds:
+  - "iv-react-reconciliation-keys"
+  - "iv-react-memo-senior"
+  - "iv-react-render-vs-commit"
+  - "FE-A-0100"
+  - "FE-A-0200"
+  - "iv-system-design-feed"
+  - "FE-I-0150"
+sources:
+  - "REACT-DOCS"
+  - "MDN-WEBSOCKETS"
+  - "WEB-VITALS"
+  - "W3C-ARIA-PRACTICES"
+  - "TANSTACK-QUERY-OVERVIEW"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PROJECT-FRONTEND-SAAS-OPS-DASHBOARD"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "fe-board-m1"
+    title: "Board CRUD baseline"
+    objective: "Columns/cards without realtime."
+    whyItMatters: "Solid local model before sync."
+    prerequisiteTopicIds:
+      - "FRONTEND-REACT-COMPONENTS-STATE"
+      - "FRONTEND-NEXTJS-DATA-FETCHING"
+    tasks:
+      - "Data model"
+      - "Board UI"
+      - "CRUD API stub"
+      - "Tests for reducer"
+    expectedArtifacts:
+      - "model"
+      - "UI"
+    validationChecklist:
+      - "CRUD works"
+      - "Keys stable"
+      - "Tests green"
+    commonProblems:
+      - "Index-as-key"
+      - "Prop drilling mess"
+    completionCriteria:
+      - "Baseline board ready"
+  - id: "fe-board-m2"
+    title: "DnD + keyboard moves"
+    objective: "Pointer and keyboard card moves."
+    whyItMatters: "A11y for complex widgets is advanced craft."
+    prerequisiteTopicIds:
+      - "FRONTEND-ARIA-PATTERNS"
+      - "FRONTEND-REACT-RECONCILIATION"
+    tasks:
+      - "DnD"
+      - "Keyboard shortcuts"
+      - "Announcements"
+      - "Focus mgmt"
+    expectedArtifacts:
+      - "a11y map"
+    validationChecklist:
+      - "Keyboard moves cards"
+      - "Announcements fire"
+      - "Focus preserved"
+    commonProblems:
+      - "DnD-only"
+      - "Broken live regions"
+    completionCriteria:
+      - "A11y map saved"
+  - id: "fe-board-m3"
+    title: "Realtime sync"
+    objective: "WebSocket/SSE multi-client sync."
+    whyItMatters: "Realtime is a protocol problem, not a library trick."
+    prerequisiteTopicIds:
+      - "FRONTEND-TANSTACK-QUERY"
+      - "FRONTEND-REACT-MEMOIZATION"
+    tasks:
+      - "WS client"
+      - "Event schema"
+      - "Optimistic moves"
+      - "Rollback"
+    expectedArtifacts:
+      - "sequence diagram"
+    validationChecklist:
+      - "Two clients converge"
+      - "Rollback on nack"
+      - "Reconnect resumes"
+    commonProblems:
+      - "No versioning"
+      - "Event storms re-render all"
+    completionCriteria:
+      - "Sync demo recorded"
+  - id: "fe-board-m4"
+    title: "Conflicts perf polish"
+    objective: "Contention + load hardening."
+    whyItMatters: "Proof under load is the portfolio differentiator."
+    prerequisiteTopicIds:
+      - "FRONTEND-WEB-VITALS"
+      - "FRONTEND-REACT-TESTING-LIBRARY"
+    tasks:
+      - "Conflict UI"
+      - "Windowing"
+      - "Perf profile"
+      - "Case study"
+    expectedArtifacts:
+      - "conflict demo"
+      - "profile"
+    validationChecklist:
+      - "Conflict reproducible"
+      - "500 cards usable"
+      - "Tests cover reconcile"
+    commonProblems:
+      - "Silent overwrite"
+      - "Memo cargo-cult"
+    completionCriteria:
+      - "Case study complete"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Collaborative boards expose concurrency, ordering, and accessibility of complex widgets.
+
+<Callout type="mental-model">
+  Optimistic intent → ack/nack → reconcile. Presence is ephemeral; board state is durable.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: FRONTEND-REACT, FRONTEND-PERFORMANCE, FRONTEND-REACT-TESTING, FRONTEND-A11Y, FRONTEND-NEXTJS.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Board columns/cards; WS events; optimistic moves with rollback; keyboard alternative to drag-drop.
+
+Recommended tools: Next.js, WebSocket/SSE stub, TanStack Query, dnd library with a11y.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Board CRUD. 2) DnD + keyboard moves. 3) WS sync. 4) Conflicts. 5) Perf+a11y hardening.
+
+## Validation checkpoints
+
+Two browsers stay consistent; conflict visible; keyboard can move cards; 500 cards usable.
+
+## Common errors
+
+Key instability; uncontrolled optimistic races; DnD-only interaction.
+
+## Debugging guidance
+
+Event log panel; React profiler; multi-client scripted moves.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+Reducer/reconciliation unit tests; a11y keyboard move tests.
+
+## Security
+
+Authz on mutations; validate event payloads; XSS in issue bodies.
+
+## Performance
+
+Windowing; avoid re-rendering whole board per event.
+
+## Accessibility
+
+Keyboard reordering; live regions for moves; non-pointer path required.
+
+## Deployment / handoff
+
+Compose with WS stub; document scaling limits.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  Optimistic moves + conflict reconciliation strategy.
+</Callout>
+
+## Stretch goals
+
+CRDT experiment, comments threads, offline queue.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

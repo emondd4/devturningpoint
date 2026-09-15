@@ -3,7 +3,8 @@ export type ThemePreference = 'light' | 'dark' | 'system';
 export const THEME_STORAGE_KEY = 'dtp:theme';
 export const LOCALE_STORAGE_KEY = 'dtp:locale';
 export const STORAGE_VERSION_KEY = 'dtp:storageVersion';
-export const CURRENT_STORAGE_VERSION = 1;
+/** Bumped when IndexedDB export shape gains project progress (v2). */
+export const CURRENT_STORAGE_VERSION = 2;
 
 export function getSystemTheme(): 'light' | 'dark' {
   if (typeof window === 'undefined') return 'light';

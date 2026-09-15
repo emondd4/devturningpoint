@@ -1,0 +1,261 @@
+---
+id: "PROJECT-UIUX-CHECKOUT-DESIGN-SYSTEM"
+title: "E-Commerce Checkout + Design System"
+titleBn: "ই-কমার্স চেকআউট + ডিজাইন সিস্টেম"
+slug: "uiux-ecommerce-checkout-design-system"
+track: "uiux"
+level: "intermediate"
+difficulty: "intermediate"
+summary: "Design a checkout experience and a small design system with tokens, components, and developer handoff."
+summaryBn: "টোকেন, কম্পোনেন্ট এবং ডেভেলপার হ্যান্ডঅফসহ চেকআউট অভিজ্ঞতা ও ছোট ডিজাইন সিস্টেম।"
+portfolioPitch: "Shows systems thinking: tokens, components, states, and handoff quality for a high-stakes flow."
+estimatedHours: 34
+prerequisiteSkillIds:
+  - "UIUX-DESIGN-SYSTEMS"
+  - "UIUX-FIGMA"
+  - "UIUX-PROTOTYPING"
+  - "UIUX-A11Y"
+learningOutcomeSkillIds:
+  - "UIUX-DESIGN-SYSTEMS"
+  - "UIUX-PROTOTYPING"
+  - "UIUX-A11Y"
+  - "UIUX-COLOR"
+  - "UIUX-FIGMA"
+recommendedTools:
+  - "Figma variables/tokens"
+  - "Prototype"
+  - "A11y plugins"
+  - "Handoff specs"
+portfolioEvidence:
+  - "Token sheet"
+  - "Component library"
+  - "Checkout prototype"
+  - "Handoff doc"
+relatedTopicIds:
+  - "UIUX-DESIGN-SYSTEMS"
+  - "UIUX-DESIGN-TOKENS"
+  - "UIUX-DESIGN-HANDOFF"
+  - "UIUX-PROTOTYPING"
+  - "UIUX-UI-STATES"
+  - "UIUX-COLOR-SYSTEMS"
+  - "UIUX-MICROCOPY"
+relatedInterviewQuestionIds:
+  - "iv-uiux-tokens-handoff"
+  - "UX-I-0100"
+  - "UX-A-0050"
+  - "iv-ux-accessibility-forms"
+  - "UX-I-0020"
+  - "UX-I-0136"
+  - "UX-I-0030"
+sources:
+  - "FIGMA-HELP"
+  - "W3C-WCAG"
+  - "W3C-CONTRAST"
+  - "NN-G-MICROCOPY"
+  - "MATERIAL-COLOR"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PROJECT-UIUX-LOCAL-SERVICE-REDESIGN"
+nextProjectId: "PROJECT-UIUX-B2B-OPERATIONS-PLATFORM"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "ux-checkout-m1"
+    title: "Tokens foundations"
+    objective: "Type/color/space tokens in Figma."
+    whyItMatters: "Foundations prevent one-off UI."
+    prerequisiteTopicIds:
+      - "UIUX-DESIGN-TOKENS"
+      - "UIUX-TYPOGRAPHY"
+      - "UIUX-COLOR-SYSTEMS"
+    tasks:
+      - "Token set"
+      - "Naming"
+      - "Contrast check"
+      - "Docs"
+    expectedArtifacts:
+      - "token sheet"
+    validationChecklist:
+      - "AA contrast for text pairs"
+      - "Names consistent"
+      - "Docs clear"
+    commonProblems:
+      - "Hex soup"
+      - "Low contrast brand insistence undocumented"
+    completionCriteria:
+      - "Tokens ready"
+  - id: "ux-checkout-m2"
+    title: "Components and states"
+    objective: "Inputs/buttons/alerts with full states."
+    whyItMatters: "States are the product."
+    prerequisiteTopicIds:
+      - "UIUX-UI-STATES"
+      - "UIUX-A11Y-DESIGNERS"
+      - "UIUX-FIGMA-BASICS"
+    tasks:
+      - "Component set"
+      - "Variants"
+      - "Error patterns"
+      - "Content guidelines"
+    expectedArtifacts:
+      - "library"
+    validationChecklist:
+      - "States complete"
+      - "Errors clear"
+      - "Reuse in flow"
+    commonProblems:
+      - "Missing focus"
+      - "Disabled contrast fails"
+    completionCriteria:
+      - "Library usable"
+  - id: "ux-checkout-m3"
+    title: "Checkout flow prototype"
+    objective: "End-to-end checkout mid/hi-fi."
+    whyItMatters: "Flow quality beats isolated artboards."
+    prerequisiteTopicIds:
+      - "UIUX-PROTOTYPING"
+      - "UIUX-USER-FLOWS"
+      - "UIUX-MICROCOPY"
+    tasks:
+      - "Steps"
+      - "Shipping/payment"
+      - "Empty/error"
+      - "Prototype links"
+    expectedArtifacts:
+      - "prototype"
+    validationChecklist:
+      - "Task completable"
+      - "Microcopy helpful"
+      - "Errors recoverable"
+    commonProblems:
+      - "Dead ends"
+      - "Ambiguous CTAs"
+    completionCriteria:
+      - "Prototype testable"
+  - id: "ux-checkout-m4"
+    title: "Handoff + validation"
+    objective: "Specs and usability/a11y evidence."
+    whyItMatters: "Handoff is part of design quality."
+    prerequisiteTopicIds:
+      - "UIUX-DESIGN-HANDOFF"
+      - "UIUX-USABILITY-TESTING"
+    tasks:
+      - "Handoff page"
+      - "Redlines/tokens refs"
+      - "Test notes"
+      - "Case study"
+    expectedArtifacts:
+      - "handoff"
+      - "case study"
+    validationChecklist:
+      - "Engineer can implement without guessing"
+      - "Tests recorded"
+      - "Case study done"
+    commonProblems:
+      - "Screenshot-only handoff"
+      - "No edge cases"
+    completionCriteria:
+      - "System portfolio-ready"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Do not fabricate research">
+  Plans and scripts may be assisted. Interviews, usability findings, and quotes must be yours—or clearly labeled simulated practice data.
+</Callout>
+
+## Why this project matters
+
+Checkout is conversion-critical and state-heavy—perfect for systems and a11y rigor.
+
+<Callout type="mental-model">
+  Tokens → components → flow. Every component needs states. Handoff is a product.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: UIUX-DESIGN-SYSTEMS, UIUX-PROTOTYPING, UIUX-A11Y, UIUX-COLOR, UIUX-FIGMA.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Foundations (type/color/space) → primitives → checkout pattern pages → prototype → handoff.
+
+Recommended tools: Figma variables/tokens, Prototype, A11y plugins, Handoff specs.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Token foundations. 2) Form components+states. 3) Checkout flow. 4) Prototype. 5) Handoff+a11y audit.
+
+## Validation checkpoints
+
+Components cover default/hover/focus/disabled/error; contrast AA; handoff lists spacing/tokens.
+
+## Common errors
+
+Pretty screens without states; one-off colors; handoff as flattened screenshots only.
+
+## Debugging guidance
+
+If engineers ask basic questions, strengthen tokens and specs.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+Prototype task test; contrast checks; content review.
+
+## Security
+
+Privacy microcopy for payments; no real card data in prototypes.
+
+## Performance
+
+Reduce checkout steps/cognitive load; progressive disclosure.
+
+## Accessibility
+
+Focus order in prototype notes; error association; contrast.
+
+## Deployment / handoff
+
+Figma library + published case study.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  How tokens improve consistency and handoff speed.
+</Callout>
+
+## Stretch goals
+
+Dark theme tokens; localization ready layouts.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

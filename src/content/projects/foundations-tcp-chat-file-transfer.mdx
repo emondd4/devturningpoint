@@ -1,0 +1,261 @@
+---
+id: "PROJECT-FOUNDATIONS-TCP-CHAT-FILE-TRANSFER"
+title: "TCP Chat + File Transfer"
+titleBn: "TCP চ্যাট + ফাইল ট্রান্সফার"
+slug: "foundations-tcp-chat-file-transfer"
+track: "foundations"
+level: "intermediate"
+difficulty: "intermediate"
+summary: "Implement a TCP client/server chat with length-prefixed framing and reliable file transfer with checksum verification."
+summaryBn: "লেন্থ-প্রিফিক্সড ফ্রেমিংসহ TCP চ্যাট এবং চেকসাম যাচাইসহ ফাইল ট্রান্সফার।"
+portfolioPitch: "Networking project proving sockets, framing, concurrency, and integrity checks—not only HTTP frameworks."
+estimatedHours: 28
+prerequisiteSkillIds:
+  - "FOUNDATIONS-TCP-IP"
+  - "FOUNDATIONS-PROCESSES"
+  - "FOUNDATIONS-ERROR-HANDLING"
+  - "FOUNDATIONS-DEBUGGING"
+learningOutcomeSkillIds:
+  - "FOUNDATIONS-TCP-IP"
+  - "FOUNDATIONS-PROCESSES"
+  - "FOUNDATIONS-DEBUGGING"
+  - "FOUNDATIONS-SECURITY-BASICS"
+recommendedTools:
+  - "Python asyncio or Node net"
+  - "tcpdump optional"
+  - "Git"
+portfolioEvidence:
+  - "PROTOCOL.md"
+  - "Multi-client demo"
+  - "Checksum proof"
+  - "Framing architecture diagram"
+relatedTopicIds:
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+  - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+  - "FOUNDATIONS-CONCURRENCY-VS-PARALLELISM"
+  - "FOUNDATIONS-BINARY-BITS-BYTES"
+  - "FOUNDATIONS-ENCODING-UTF8"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+  - "FOUNDATIONS-LOGGING-OBSERVABILITY"
+relatedInterviewQuestionIds:
+  - "FND-B-0102"
+  - "FND-B-0103"
+  - "FND-B-0106"
+  - "FND-I-0106"
+  - "FND-A-0105"
+  - "iv-foundations-tls-cert-hostname"
+  - "FND-I-0037"
+  - "FND-B-0038"
+sources:
+  - "RFC-9293-TCP"
+  - "RFC-791-IPV4"
+  - "RFC-8259-JSON"
+  - "LINUX-MAN-PAGES"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PROJECT-FOUNDATIONS-DEV-TOOLBOX-CLI"
+nextProjectId: "PROJECT-FOUNDATIONS-MINI-UNIX-SHELL"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "fnd-tcp-m1"
+    title: "Specify and test framing"
+    objective: "Document and implement length-prefixed frames with split-read tests."
+    whyItMatters: "Without framing tests, bugs look like random flakiness."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+      - "FOUNDATIONS-BINARY-BITS-BYTES"
+    tasks:
+      - "Write PROTOCOL.md"
+      - "Encode/decode"
+      - "Fragment tests"
+      - "Max frame size"
+    expectedArtifacts:
+      - "PROTOCOL.md"
+      - "codec tests"
+    validationChecklist:
+      - "Split tests pass"
+      - "Oversized rejected"
+      - "Byte layout documented"
+    commonProblems:
+      - "Endian bugs"
+      - "Off-by-one lengths"
+    completionCriteria:
+      - "Codec green"
+      - "Protocol clear"
+  - id: "fnd-tcp-m2"
+    title: "Multi-client chat"
+    objective: "Broadcast chat frames among clients."
+    whyItMatters: "Fan-out and connection lifecycle are concurrent networking basics."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+      - "FOUNDATIONS-CONCURRENCY-VS-PARALLELISM"
+    tasks:
+      - "Accept loop"
+      - "Broadcast"
+      - "Disconnect cleanup"
+      - "Structured logs"
+    expectedArtifacts:
+      - "server/client"
+      - "demo script"
+    validationChecklist:
+      - "Bidirectional chat"
+      - "Disconnect safe"
+      - "Logs show lifecycle"
+    commonProblems:
+      - "Unlocked client list"
+      - "Slow client stalls all"
+    completionCriteria:
+      - "Chat demo recorded"
+  - id: "fnd-tcp-m3"
+    title: "Reliable file transfer"
+    objective: "Chunked transfer with checksum verify."
+    whyItMatters: "Chunking + integrity is how systems move artifacts."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-FILESYSTEMS"
+      - "FOUNDATIONS-ENCODING-UTF8"
+    tasks:
+      - "FILE_* messages"
+      - "Stream file"
+      - "SHA-256 verify"
+      - "Safe paths"
+    expectedArtifacts:
+      - "transfer code"
+      - "checksum log"
+    validationChecklist:
+      - "Large fixture matches"
+      - "Abort clean"
+      - "Reject ../ names"
+    commonProblems:
+      - "Path traversal"
+      - "Dropped last chunk"
+    completionCriteria:
+      - "Checksum proof saved"
+  - id: "fnd-tcp-m4"
+    title: "Resilience and polish"
+    objective: "Chaos-test failures and package demo."
+    whyItMatters: "Proof under failure beats happy-path demos."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-DEBUGGING"
+      - "FOUNDATIONS-LOGGING-OBSERVABILITY"
+    tasks:
+      - "Mid-transfer disconnect"
+      - "Recovery errors"
+      - "Architecture diagram"
+      - "E2E recording"
+    expectedArtifacts:
+      - "chaos notes"
+      - "diagram"
+      - "demo"
+    validationChecklist:
+      - "Failure documented"
+      - "README reproducible"
+      - "No secrets"
+    commonProblems:
+      - "Flaky ports"
+      - "Hidden manual steps"
+    completionCriteria:
+      - "Peer can reproduce"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+HTTP hides framing. Raw TCP forces you to own buffering, message boundaries, and partial reads.
+
+<Callout type="mental-model">
+  TCP is a byte stream. You invent framing. Partial reads are normal. Integrity is your job.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: FOUNDATIONS-TCP-IP, FOUNDATIONS-PROCESSES, FOUNDATIONS-DEBUGGING, FOUNDATIONS-SECURITY-BASICS.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Binary header (type/length/checksum). Separate IO from app logic. Stream file chunks with final hash.
+
+Recommended tools: Python asyncio or Node net, tcpdump optional, Git.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) PROTOCOL.md. 2) Framing tests. 3) Chat broadcast. 4) File transfer. 5) Disconnect chaos tests.
+
+## Validation checkpoints
+
+Two clients chat; 10MB+ file matches checksum; client kill does not crash server.
+
+## Common errors
+
+One recv = one message; deadlocks; path traversal on filenames; unbounded frames.
+
+## Debugging guidance
+
+Log headers; hex dump first bytes; fuzz split buffers.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+Codec unit tests with split buffers; integration on ephemeral ports.
+
+## Security
+
+Localhost default; sanitize names; cap frame size; document no TLS yet.
+
+## Performance
+
+Buffered writes; measure large-file throughput.
+
+## Accessibility
+
+If TUI, keep keyboard-only status readable.
+
+## Deployment / handoff
+
+Scripts to run server + two clients; tag release with PROTOCOL.md.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  Why framing is required and how you handled partial reads mid-transfer.
+</Callout>
+
+## Stretch goals
+
+TLS, rooms, resume transfers.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

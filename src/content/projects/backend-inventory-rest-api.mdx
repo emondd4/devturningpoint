@@ -1,0 +1,260 @@
+---
+id: "PROJECT-BACKEND-INVENTORY-REST-API"
+title: "Inventory REST API"
+titleBn: "ইনভেন্টরি REST API"
+slug: "backend-inventory-rest-api"
+track: "backend"
+level: "beginner"
+difficulty: "beginner"
+summary: "NestJS (or Node) REST API for products/stock with validation, pagination, tests, and OpenAPI."
+summaryBn: "ভ্যালিডেশন, পেজিনেশন, টেস্ট এবং OpenAPIসহ প্রোডাক্ট/স্টক REST API।"
+portfolioPitch: "Clean REST API that proves HTTP design, validation, persistence, and testable NestJS structure."
+estimatedHours: 26
+prerequisiteSkillIds:
+  - "BACKEND-NODE"
+  - "BACKEND-REST"
+  - "BACKEND-NESTJS"
+  - "BACKEND-VALIDATION"
+learningOutcomeSkillIds:
+  - "BACKEND-REST"
+  - "BACKEND-NESTJS"
+  - "BACKEND-VALIDATION"
+  - "BACKEND-POSTGRES"
+  - "BACKEND-TESTING"
+recommendedTools:
+  - "NestJS"
+  - "PostgreSQL"
+  - "Prisma/TypeORM"
+  - "Jest"
+  - "Docker Compose"
+portfolioEvidence:
+  - "OpenAPI/Swagger"
+  - "Postman/Insomnia collection"
+  - "Test report"
+  - "ERD snippet"
+relatedTopicIds:
+  - "BACKEND-HTTP-REST-API-DESIGN"
+  - "BACKEND-NESTJS-ARCHITECTURE"
+  - "BACKEND-NESTJS-VALIDATION"
+  - "BACKEND-PAGINATION"
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+  - "BACKEND-TESTING"
+  - "BACKEND-OPENAPI"
+relatedInterviewQuestionIds:
+  - "BE-B-0001"
+  - "BE-B-0010"
+  - "iv-nestjs-validation-pipe"
+  - "iv-orm-vs-sql"
+  - "BE-I-0005"
+  - "iv-docker-multistage-api"
+  - "BE-B-0020"
+sources:
+  - "NESTJS-ARCHITECTURE"
+  - "NESTJS-VALIDATION"
+  - "NESTJS-OPENAPI"
+  - "POSTGRES-DOCS"
+  - "OPENAPI-SPEC"
+  - "RFC-9110-HTTP"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+nextProjectId: "PROJECT-BACKEND-MULTI-TENANT-PM-API"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "be-inv-m1"
+    title: "API scaffold + DB"
+    objective: "Nest app + Postgres compose."
+    whyItMatters: "Reproducible local backend is step one."
+    prerequisiteTopicIds:
+      - "BACKEND-NESTJS-ARCHITECTURE"
+      - "BACKEND-POSTGRESQL-WITH-BACKEND"
+    tasks:
+      - "Nest scaffold"
+      - "Compose Postgres"
+      - "ORM setup"
+      - "Health route"
+    expectedArtifacts:
+      - "compose"
+      - "health"
+    validationChecklist:
+      - "Health 200"
+      - "DB connects"
+      - "Migrations run"
+    commonProblems:
+      - "Committed secrets"
+      - ".env without example"
+    completionCriteria:
+      - "Scaffold ready"
+  - id: "be-inv-m2"
+    title: "Product CRUD + validation"
+    objective: "DTO-validated product resources."
+    whyItMatters: "Validation pipes catch bad input early."
+    prerequisiteTopicIds:
+      - "BACKEND-NESTJS-VALIDATION"
+      - "BACKEND-HTTP-REST-API-DESIGN"
+    tasks:
+      - "DTOs"
+      - "CRUD routes"
+      - "Unique SKU"
+      - "Error shape"
+    expectedArtifacts:
+      - "DTO tests"
+    validationChecklist:
+      - "400 on bad DTO"
+      - "SKU unique"
+      - "Consistent errors"
+    commonProblems:
+      - "Entity leakage"
+      - "Inconsistent error JSON"
+    completionCriteria:
+      - "CRUD verified"
+  - id: "be-inv-m3"
+    title: "Stock movements"
+    objective: "Adjust stock safely with rules."
+    whyItMatters: "Inventory correctness is a business invariant."
+    prerequisiteTopicIds:
+      - "BACKEND-TESTING"
+      - "BACKEND-PAGINATION"
+    tasks:
+      - "Movement endpoint"
+      - "Non-negative rule"
+      - "List movements"
+      - "Pagination"
+    expectedArtifacts:
+      - "stock tests"
+    validationChecklist:
+      - "Negative blocked"
+      - "Pagination stable"
+      - "Tests green"
+    commonProblems:
+      - "Race without tx"
+      - "Missing indexes"
+    completionCriteria:
+      - "Stock rules proven"
+  - id: "be-inv-m4"
+    title: "OpenAPI + polish"
+    objective: "Document and containerize."
+    whyItMatters: "Docs and packaging make it portfolio-real."
+    prerequisiteTopicIds:
+      - "BACKEND-OPENAPI"
+      - "BACKEND-DOCKER-DEPLOY"
+    tasks:
+      - "OpenAPI"
+      - "Collection"
+      - "Dockerfile"
+      - "README"
+    expectedArtifacts:
+      - "swagger"
+      - "image"
+    validationChecklist:
+      - "OpenAPI accurate"
+      - "Image builds"
+      - "README demo works"
+    commonProblems:
+      - "Docs drift"
+      - "Fat images"
+    completionCriteria:
+      - "Portfolio ready"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Inventory CRUD is the classic backend proving ground for REST, validation, and DB modeling.
+
+<Callout type="mental-model">
+  Resources + representations. Validate at the edge. Persist with constraints, not only app checks.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: BACKEND-REST, BACKEND-NESTJS, BACKEND-VALIDATION, BACKEND-POSTGRES, BACKEND-TESTING.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Modules: products, stock movements. DTOs + pipes. Postgres via ORM. Compose for local DB.
+
+Recommended tools: NestJS, PostgreSQL, Prisma/TypeORM, Jest, Docker Compose.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Nest scaffold+compose. 2) Product CRUD. 3) Stock adjust. 4) Pagination/filtering. 5) OpenAPI+tests.
+
+## Validation checkpoints
+
+Invalid DTOs 400; stock never negative if constrained; OpenAPI matches routes; tests cover happy+sad.
+
+## Common errors
+
+Anemic validation; N+1 lists; leaking ORM entities as API types.
+
+## Debugging guidance
+
+SQL logging; supertest failures; constrain DB to catch app bugs.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+e2e with test DB; unit for stock math.
+
+## Security
+
+Least privilege DB user; no secrets in repo; basic rate limit optional.
+
+## Performance
+
+Index SKU/name; paginate list endpoints.
+
+## Accessibility
+
+N/A for API—document client a11y is out of scope.
+
+## Deployment / handoff
+
+Dockerfile multi-stage; compose up demo.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  REST resource design and where validation lives.
+</Callout>
+
+## Stretch goals
+
+AuthN, soft deletes, audit log.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

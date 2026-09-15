@@ -1,0 +1,261 @@
+---
+id: "PROJECT-FLUTTER-EXPENSE-TRACKER"
+title: "Personal Expense Tracker"
+titleBn: "পার্সোনাল এক্সপেন্স ট্র্যাকার"
+slug: "flutter-expense-tracker"
+track: "mobile-flutter"
+level: "beginner"
+difficulty: "beginner"
+summary: "Flutter app to record expenses, categorize spending, and view totals with local persistence."
+summaryBn: "খরচ রেকর্ড, ক্যাটাগরি এবং লোকাল পারসিস্টেন্সসহ টোটাল দেখানো Flutter অ্যাপ।"
+portfolioPitch: "Clean Flutter portfolio app proving widgets, forms, navigation, and local storage with intentional empty/error states."
+estimatedHours: 22
+prerequisiteSkillIds:
+  - "MOBILE-DART-BASICS"
+  - "MOBILE-FLUTTER-WIDGETS"
+  - "MOBILE-FLUTTER-STATE"
+  - "MOBILE-FLUTTER-FORMS"
+learningOutcomeSkillIds:
+  - "MOBILE-FLUTTER-WIDGETS"
+  - "MOBILE-FLUTTER-STATE"
+  - "MOBILE-FLUTTER-FORMS"
+  - "MOBILE-FLUTTER-STORAGE"
+  - "MOBILE-FLUTTER-NAVIGATION"
+recommendedTools:
+  - "Flutter SDK"
+  - "shared_preferences or drift/sqflite"
+  - "VS Code/Android Studio"
+portfolioEvidence:
+  - "GitHub repo"
+  - "Screenshots in README"
+  - "State approach note"
+  - "Optional demo APK"
+relatedTopicIds:
+  - "FLUTTER-DART-FUNDAMENTALS"
+  - "FLUTTER-WIDGET-TREE"
+  - "FLUTTER-STATE-MANAGEMENT"
+  - "FLUTTER-FORMS-VALIDATION"
+  - "FLUTTER-NAVIGATION"
+  - "FLUTTER-LOCAL-STORAGE"
+  - "FLUTTER-TESTING"
+relatedInterviewQuestionIds:
+  - "FL-B-0001"
+  - "FL-B-0010"
+  - "iv-flutter-state-rebuild"
+  - "iv-flutter-forms-globalkey"
+  - "FL-I-0005"
+  - "iv-flutter-keys-list-reorder"
+  - "FL-B-0020"
+sources:
+  - "FLUTTER-DOCS"
+  - "FLUTTER-WIDGETS"
+  - "FLUTTER-STATE"
+  - "FLUTTER-FORMS"
+  - "FLUTTER-NAV"
+  - "DART-LANGUAGE"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+nextProjectId: "PROJECT-FLUTTER-OFFLINE-FIELD-TASKS"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "fl-expense-m1"
+    title: "App shell and navigation"
+    objective: "Themed app with list/form routes."
+    whyItMatters: "Navigation forces early IA."
+    prerequisiteTopicIds:
+      - "FLUTTER-WIDGET-TREE"
+      - "FLUTTER-NAVIGATION"
+    tasks:
+      - "Create project"
+      - "Routes"
+      - "Theme"
+      - "Empty state"
+    expectedArtifacts:
+      - "screenshot"
+      - "router"
+    validationChecklist:
+      - "Launches"
+      - "Navigate to add"
+      - "Empty copy"
+    commonProblems:
+      - "Hardcoded unnamed routes"
+      - "Poor contrast"
+    completionCriteria:
+      - "Nav demo works"
+  - id: "fl-expense-m2"
+    title: "Model + local repository"
+    objective: "Persist expenses via repository API."
+    whyItMatters: "Repo boundaries keep UI testable."
+    prerequisiteTopicIds:
+      - "FLUTTER-LOCAL-STORAGE"
+      - "FLUTTER-DART-FUNDAMENTALS"
+    tasks:
+      - "Expense model"
+      - "Choose storage"
+      - "CRUD repo"
+      - "Seed once"
+    expectedArtifacts:
+      - "model/repo"
+      - "persist proof"
+    validationChecklist:
+      - "Restart retains"
+      - "Delete works"
+      - "Seed once"
+    commonProblems:
+      - "Blocking UI IO"
+      - "Unversioned schema"
+    completionCriteria:
+      - "CRUD after restart"
+  - id: "fl-expense-m3"
+    title: "Validated expense forms"
+    objective: "Add/edit with validation and errors."
+    whyItMatters: "Forms are a common interview gap."
+    prerequisiteTopicIds:
+      - "FLUTTER-FORMS-VALIDATION"
+      - "FLUTTER-STATE-MANAGEMENT"
+    tasks:
+      - "Fields"
+      - "Validation"
+      - "Edit flow"
+      - "Disable while saving"
+    expectedArtifacts:
+      - "forms"
+      - "notes"
+    validationChecklist:
+      - "Reject empty amount"
+      - "Edit updates"
+      - "Errors visible"
+    commonProblems:
+      - "GlobalKey misuse"
+      - "Locale decimal parse"
+    completionCriteria:
+      - "Form demoed"
+  - id: "fl-expense-m4"
+    title: "Summaries and tests"
+    objective: "Category totals + automated tests."
+    whyItMatters: "Totals+tests prove correctness."
+    prerequisiteTopicIds:
+      - "FLUTTER-TESTING"
+      - "FLUTTER-STATE-MANAGEMENT"
+    tasks:
+      - "Summary view"
+      - "Unit totals"
+      - "Widget test"
+      - "README shots"
+    expectedArtifacts:
+      - "tests"
+      - "summary"
+      - "README"
+    validationChecklist:
+      - "Totals match"
+      - "Tests pass"
+      - "README done"
+    commonProblems:
+      - "Logic trapped in widgets"
+      - "No fixtures"
+    completionCriteria:
+      - "Portfolio ready"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Expense trackers exercise CRUD UI, validation, and persistence—core junior Flutter skills.
+
+<Callout type="mental-model">
+  UI widgets vs repository owning persistence; rebuild only what changed.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: MOBILE-FLUTTER-WIDGETS, MOBILE-FLUTTER-STATE, MOBILE-FLUTTER-FORMS, MOBILE-FLUTTER-STORAGE, MOBILE-FLUTTER-NAVIGATION.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Screens: list, add/edit, category summary. Small state layer + local repository; seed demo data.
+
+Recommended tools: Flutter SDK, shared_preferences or drift/sqflite, VS Code/Android Studio.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Shell+theme. 2) Model+repo. 3) Forms. 4) List/filters. 5) Totals. 6) Tests.
+
+## Validation checkpoints
+
+Expense survives restart; invalid amount blocked; totals match fixtures; empty state intentional.
+
+## Common errors
+
+Full-tree rebuilds; money as naive doubles without policy; form key mistakes.
+
+## Debugging guidance
+
+DevTools rebuild overlays; log repository IO; fixed seed DB.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+Unit totals; widget validation; optional golden list tile.
+
+## Security
+
+Local-only scope; avoid logging PII if exporting.
+
+## Performance
+
+ListView.builder; no huge sync loads on UI isolate.
+
+## Accessibility
+
+Semantic labels; contrast; large tap targets.
+
+## Deployment / handoff
+
+Run instructions for simulators; optional analyze CI.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  State choice and how you avoided unnecessary list rebuilds.
+</Callout>
+
+## Stretch goals
+
+Charts, budgets, CSV export, multi-currency.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

@@ -1,0 +1,261 @@
+---
+id: "PROJECT-FRONTEND-SAAS-OPS-DASHBOARD"
+title: "SaaS Operations Dashboard"
+titleBn: "SaaS অপারেশনস ড্যাশবোর্ড"
+slug: "frontend-saas-operations-dashboard"
+track: "frontend"
+level: "intermediate"
+difficulty: "intermediate"
+summary: "Operations dashboard with authenticated views, server state, charts/tables, and resilient loading/error UX."
+summaryBn: "অথেনটিকেটেড ভিউ, সার্ভার স্টেট, চার্ট/টেবিল এবং রেজিলিয়েন্ট লোডিং/এরর UXসহ অপস ড্যাশবোর্ড।"
+portfolioPitch: "Shows production frontend craft: data fetching, caching, authorization-aware UI, and operational density without chaos."
+estimatedHours: 34
+prerequisiteSkillIds:
+  - "FRONTEND-REACT"
+  - "FRONTEND-REACT-HOOKS"
+  - "FRONTEND-TYPESCRIPT"
+  - "FRONTEND-NEXTJS"
+learningOutcomeSkillIds:
+  - "FRONTEND-REACT"
+  - "FRONTEND-NEXTJS"
+  - "FRONTEND-PERFORMANCE"
+  - "FRONTEND-REACT-TESTING"
+  - "FRONTEND-A11Y"
+recommendedTools:
+  - "Next.js"
+  - "TypeScript"
+  - "TanStack Query"
+  - "Recharts or similar"
+  - "MSW"
+portfolioEvidence:
+  - "Architecture note"
+  - "Loading/error gallery"
+  - "Query key design"
+  - "Perf/web-vitals notes"
+relatedTopicIds:
+  - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+  - "FRONTEND-TANSTACK-QUERY"
+  - "FRONTEND-REACT-HOOKS"
+  - "FRONTEND-WEB-VITALS"
+  - "FRONTEND-REACT-TESTING-LIBRARY"
+  - "FRONTEND-TYPESCRIPT-FUNDAMENTALS"
+  - "FRONTEND-XSS-CSP"
+relatedInterviewQuestionIds:
+  - "iv-tanstack-query-server-state"
+  - "iv-nextjs-rsc-boundary"
+  - "iv-react-what-causes-render"
+  - "FE-I-0100"
+  - "FE-A-0050"
+  - "iv-react-render-vs-commit"
+  - "FE-I-0020"
+sources:
+  - "NEXTJS-APP-ROUTER"
+  - "TANSTACK-QUERY-OVERVIEW"
+  - "REACT-HOOKS"
+  - "WEB-VITALS"
+  - "RTL-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PROJECT-FRONTEND-ACCESSIBLE-PRODUCT-EXPLORER"
+nextProjectId: "PROJECT-FRONTEND-COLLABORATIVE-ISSUE-BOARD"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "fe-dash-m1"
+    title: "App shell + auth stub"
+    objective: "Layout, nav, fake session."
+    whyItMatters: "Authz-aware chrome prevents late rewrites."
+    prerequisiteTopicIds:
+      - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+      - "FRONTEND-TYPESCRIPT-FUNDAMENTALS"
+    tasks:
+      - "App router layout"
+      - "Nav"
+      - "Session stub"
+      - "Route guards"
+    expectedArtifacts:
+      - "shell"
+      - "auth note"
+    validationChecklist:
+      - "Guarded route works"
+      - "Logged-out state clear"
+      - "TS strict"
+    commonProblems:
+      - "Client session in URL"
+      - "No loading state"
+    completionCriteria:
+      - "Shell ready"
+  - id: "fe-dash-m2"
+    title: "Server state layer"
+    objective: "TanStack Query with MSW."
+    whyItMatters: "Server state discipline is mid-level signal."
+    prerequisiteTopicIds:
+      - "FRONTEND-TANSTACK-QUERY"
+      - "FRONTEND-REACT-HOOKS"
+    tasks:
+      - "Query hooks"
+      - "Key factory"
+      - "MSW handlers"
+      - "Devtools"
+    expectedArtifacts:
+      - "key design"
+      - "handlers"
+    validationChecklist:
+      - "Cache hits documented"
+      - "Invalidation works"
+      - "MSW demo offline-ish"
+    commonProblems:
+      - "Keys too coarse/fine"
+      - "Fetch waterfalls"
+    completionCriteria:
+      - "Query layer solid"
+  - id: "fe-dash-m3"
+    title: "Tables charts density"
+    objective: "Ops tables + summary charts."
+    whyItMatters: "Dense UI without chaos is the craft."
+    prerequisiteTopicIds:
+      - "FRONTEND-WEB-VITALS"
+      - "FRONTEND-CSS-FLEXBOX-GRID"
+    tasks:
+      - "Sortable table"
+      - "Chart"
+      - "Column visibility"
+      - "Empty/error"
+    expectedArtifacts:
+      - "UI gallery"
+    validationChecklist:
+      - "Sort works"
+      - "Errors retryable"
+      - "Chart has text summary"
+    commonProblems:
+      - "Unvirtualized 10k rows"
+      - "Color-only chart"
+    completionCriteria:
+      - "UI gallery saved"
+  - id: "fe-dash-m4"
+    title: "Hardening tests perf"
+    objective: "Tests + web vitals notes."
+    whyItMatters: "Production readiness is evidence."
+    prerequisiteTopicIds:
+      - "FRONTEND-REACT-TESTING-LIBRARY"
+      - "FRONTEND-XSS-CSP"
+    tasks:
+      - "RTL/MSW tests"
+      - "Perf notes"
+      - "Security pass"
+      - "README case study"
+    expectedArtifacts:
+      - "tests"
+      - "vitals"
+    validationChecklist:
+      - "Tests green"
+      - "Vitals noted"
+      - "XSS review done"
+    commonProblems:
+      - "Flaky MSW"
+      - "Ignoring a11y of tables"
+    completionCriteria:
+      - "Case study done"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Dashboards are where product teams live—fetching, authz, and dense UI correctness matter more than animations.
+
+<Callout type="mental-model">
+  Server state ≠ UI state. Cache keys encode inputs. Failures are first-class UI.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: FRONTEND-REACT, FRONTEND-NEXTJS, FRONTEND-PERFORMANCE, FRONTEND-REACT-TESTING, FRONTEND-A11Y.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+App router pages for overview, entities, detail. TanStack Query for server data; MSW for local demos; role-aware nav.
+
+Recommended tools: Next.js, TypeScript, TanStack Query, Recharts or similar, MSW.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) App shell+auth stub. 2) Query data layer. 3) Tables/charts. 4) Error/empty/retry. 5) Tests+perf pass.
+
+## Validation checkpoints
+
+Retry works; stale data rules documented; unauthorized routes guarded; main interactions keyboardable.
+
+## Common errors
+
+Fetching in render loops; cache key collisions; blocking SSR with client-only assumptions blindly.
+
+## Debugging guidance
+
+React Query devtools; network throttling; render profiling.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+MSW integration tests for table filters; component tests for error banners.
+
+## Security
+
+XSS-safe rendering; no tokens in localStorage without justification; CSRF awareness if cookies.
+
+## Performance
+
+Measure LCP/INP on dashboard; paginate tables; memoize heavy charts carefully.
+
+## Accessibility
+
+Tables with headers; chart non-color encodings; focusable controls.
+
+## Deployment / handoff
+
+Preview deploy + env example without secrets.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  Query key design and RSC/client boundary choices.
+</Callout>
+
+## Stretch goals
+
+Realtime badges, saved views, CSV export.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

@@ -1,0 +1,261 @@
+---
+id: "PROJECT-QA-UNIFIED-QE-PIPELINE"
+title: "Unified Quality Engineering Pipeline"
+titleBn: "ইউনিফাইড কোয়ালিটি ইঞ্জিনিয়ারিং পাইপলাইন"
+slug: "qa-unified-quality-engineering-pipeline"
+track: "qa"
+level: "advanced"
+difficulty: "advanced"
+summary: "Integrate unit/API/E2E/a11y/perf smoke into CI quality gates with risk-based release recommendations."
+summaryBn: "CI কোয়ালিটি গেট এবং রিস্ক-ভিত্তিক রিলিজ সুপারিশসহ unit/API/E2E/a11y/perf ইন্টিগ্রেশন।"
+portfolioPitch: "Quality engineering at pipeline level: gates, signals, and release risk—not only test scripts."
+estimatedHours: 42
+prerequisiteSkillIds:
+  - "QA-CI-INTEGRATION"
+  - "QA-PLAYWRIGHT"
+  - "QA-PERFORMANCE"
+  - "QA-API-TESTING"
+learningOutcomeSkillIds:
+  - "QA-CI-INTEGRATION"
+  - "QA-PERFORMANCE"
+  - "QA-PLAYWRIGHT"
+  - "QA-API-TESTING"
+  - "QA-STLC"
+recommendedTools:
+  - "GitHub Actions"
+  - "Playwright"
+  - "k6 or Lighthouse CI"
+  - "axe"
+  - "Allure/Reportportal optional"
+portfolioEvidence:
+  - "Pipeline diagram"
+  - "Gate policy"
+  - "Sample release go/no-go"
+  - "Perf+a11y reports"
+relatedTopicIds:
+  - "QA-CI-QUALITY-GATES"
+  - "QA-PERFORMANCE-TESTING-AWARENESS"
+  - "QA-ACCESSIBILITY-TESTING"
+  - "QA-SECURITY-TESTING-BASICS"
+  - "QA-RISK-BASED-TESTING"
+  - "QA-FLAKY-TESTS"
+  - "QA-COMPATIBILITY-TESTING"
+relatedInterviewQuestionIds:
+  - "iv-qa-risk-based-release"
+  - "QA-A-0100"
+  - "QA-A-0149"
+  - "iv-qa-flaky-tests"
+  - "QA-A-0055"
+  - "QA-I-0155"
+  - "QA-A-0025"
+sources:
+  - "GHA-WORKFLOWS"
+  - "PLAYWRIGHT-DOCS"
+  - "K6-DOCS"
+  - "AXE-CORE"
+  - "OWASP-TESTING-GUIDE"
+  - "WEB-VITALS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PROJECT-QA-PLAYWRIGHT-E2E-FRAMEWORK"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "qa-pipe-m1"
+    title: "Signal architecture"
+    objective: "Define layers and owners."
+    whyItMatters: "Architecture precedes YAML."
+    prerequisiteTopicIds:
+      - "QA-TESTING-PYRAMID"
+      - "QA-RISK-BASED-TESTING"
+    tasks:
+      - "Signal map"
+      - "Owners"
+      - "SLO for feedback time"
+      - "Docs"
+    expectedArtifacts:
+      - "diagram"
+    validationChecklist:
+      - "Map complete"
+      - "Owners named"
+      - "Feedback targets set"
+    commonProblems:
+      - "E2E-only strategy"
+      - "No owners"
+    completionCriteria:
+      - "Architecture agreed"
+  - id: "qa-pipe-m2"
+    title: "PR quality gates"
+    objective: "Fast gates on pull requests."
+    whyItMatters: "PR speed matters."
+    prerequisiteTopicIds:
+      - "QA-CI-QUALITY-GATES"
+      - "QA-API-TESTING"
+    tasks:
+      - "PR workflow"
+      - "Unit/API"
+      - "Smoke E2E"
+      - "Required checks"
+    expectedArtifacts:
+      - "workflow"
+    validationChecklist:
+      - "Intentional fail blocks"
+      - "Pass is fast enough"
+      - "Artifacts linked"
+    commonProblems:
+      - "Hour-long PR CI"
+      - "Flaky required check"
+    completionCriteria:
+      - "PR gates live"
+  - id: "qa-pipe-m3"
+    title: "Nightly + nonfunctional"
+    objective: "Full E2E + a11y/perf smokes."
+    whyItMatters: "Depth runs when time allows."
+    prerequisiteTopicIds:
+      - "QA-PERFORMANCE-TESTING-AWARENESS"
+      - "QA-ACCESSIBILITY-TESTING"
+      - "QA-SECURITY-TESTING-BASICS"
+    tasks:
+      - "Nightly workflow"
+      - "Budgets"
+      - "axe"
+      - "Security smoke"
+    expectedArtifacts:
+      - "reports"
+    validationChecklist:
+      - "Nightly publishes reports"
+      - "Budgets enforced"
+      - "Security smoke documented"
+    commonProblems:
+      - "No baselines"
+      - "Ignoring a11y fails"
+    completionCriteria:
+      - "Nonfunctional wired"
+  - id: "qa-pipe-m4"
+    title: "Release go/no-go"
+    objective: "Risk rubric + sample decision."
+    whyItMatters: "QE influences release consciously."
+    prerequisiteTopicIds:
+      - "QA-RISK-BASED-TESTING"
+      - "QA-FLAKY-TESTS"
+      - "QA-COMPATIBILITY-TESTING"
+    tasks:
+      - "Rubric"
+      - "Sample go/no-go"
+      - "Flake policy link"
+      - "Case study"
+    expectedArtifacts:
+      - "rubric"
+      - "decision"
+    validationChecklist:
+      - "Decision evidence-based"
+      - "Flakes handled"
+      - "Case study clear"
+    commonProblems:
+      - "Vibe-based release"
+      - "Hidden failures"
+    completionCriteria:
+      - "Pipeline case study done"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Modern QA owns the signal that protects releases—pipelines, not only cases.
+
+<Callout type="mental-model">
+  Multiple quality signals → policy → release decision. Fast feedback on PRs; deeper on main.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: QA-CI-INTEGRATION, QA-PERFORMANCE, QA-PLAYWRIGHT, QA-API-TESTING, QA-STLC.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+CI workflows: unit+API on PR; E2E smoke; nightly full; a11y/perf smoke; publish report; risk rubric.
+
+Recommended tools: GitHub Actions, Playwright, k6 or Lighthouse CI, axe, Allure/Reportportal optional.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Map signals. 2) Wire PR gates. 3) Nightly suite. 4) a11y/perf. 5) Go/no-go template.
+
+## Validation checkpoints
+
+PR blocked on critical fails; reports published; rubric applied on a sample release.
+
+## Common errors
+
+All tests on every PR; flaky gates ignored; vanity metrics without thresholds.
+
+## Debugging guidance
+
+Failed job bisect; flake quarantine; compare baselines.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+Pipeline itself tested via intentional failing PR.
+
+## Security
+
+Secret hygiene; dependency scanning awareness; DAST light optional.
+
+## Performance
+
+Budgets with baselines; fail on regressions beyond threshold.
+
+## Accessibility
+
+axe gate on critical routes.
+
+## Deployment / handoff
+
+Document how teams interpret gates.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  How you design quality gates without becoming a bottleneck.
+</Callout>
+
+## Stretch goals
+
+Contract testing; visual; feature flag exposures.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

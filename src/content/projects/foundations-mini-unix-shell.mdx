@@ -1,0 +1,258 @@
+---
+id: "PROJECT-FOUNDATIONS-MINI-UNIX-SHELL"
+title: "Mini Unix Shell + Process Monitor"
+titleBn: "মিনি Unix শেল + প্রসেস মনিটর"
+slug: "foundations-mini-unix-shell"
+track: "foundations"
+level: "advanced"
+difficulty: "advanced"
+summary: "Build a teaching shell with pipes, redirection, background jobs, and a process monitor."
+summaryBn: "পাইপ, রিডাইরেকশন, ব্যাকগ্রাউন্ড জব এবং প্রসেস মনিটরসহ শিক্ষামূলক শেল।"
+portfolioPitch: "OS-facing project demonstrating process control, pipes, and careful systems judgment."
+estimatedHours: 40
+prerequisiteSkillIds:
+  - "FOUNDATIONS-PROCESSES"
+  - "FOUNDATIONS-FILESYSTEMS"
+  - "FOUNDATIONS-OS-PERMISSIONS"
+  - "FOUNDATIONS-DEBUGGING"
+learningOutcomeSkillIds:
+  - "FOUNDATIONS-PROCESSES"
+  - "FOUNDATIONS-FILESYSTEMS"
+  - "FOUNDATIONS-OS-PERMISSIONS"
+  - "FOUNDATIONS-DEBUGGING"
+recommendedTools:
+  - "C/Rust/Go/Python"
+  - "Linux or macOS"
+  - "strace optional"
+portfolioEvidence:
+  - "Feature matrix vs bash"
+  - "Pipeline demo"
+  - "Process monitor screenshots"
+  - "Signal/zombie write-up"
+relatedTopicIds:
+  - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+  - "FOUNDATIONS-FILESYSTEMS"
+  - "FOUNDATIONS-OS-PERMISSIONS"
+  - "FOUNDATIONS-CLI-BASICS"
+  - "FOUNDATIONS-CONCURRENCY-VS-PARALLELISM"
+  - "FOUNDATIONS-DEBUGGING"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+relatedInterviewQuestionIds:
+  - "FND-B-0041"
+  - "FND-B-0085"
+  - "FND-B-0132"
+  - "FND-B-0133"
+  - "FND-I-0037"
+  - "FND-A-0125"
+  - "iv-foundations-debugging-hypothesis"
+  - "FND-I-0127"
+sources:
+  - "LINUX-MAN-PAGES"
+  - "POSIX-FILESYSTEM"
+  - "GNU-BASH-MANUAL"
+  - "WRITE-THE-DOCS-GUIDE"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PROJECT-FOUNDATIONS-TCP-CHAT-FILE-TRANSFER"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "fnd-shell-m1"
+    title: "REPL + exec"
+    objective: "Execute external programs with argv arrays."
+    whyItMatters: "Correct exec is the security baseline."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-CLI-BASICS"
+      - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+    tasks:
+      - "REPL"
+      - "argv parse"
+      - "fork/exec"
+      - "Reap status"
+    expectedArtifacts:
+      - "REPL"
+      - "exec path"
+    validationChecklist:
+      - "echo works"
+      - "Unknown cmd errors"
+      - "No zombies after 100 cmds"
+    commonProblems:
+      - "shell=True"
+      - "Ignoring statuses"
+    completionCriteria:
+      - "Basic commands work"
+  - id: "fnd-shell-m2"
+    title: "Redirection and pipes"
+    objective: "Support < > and | with correct FD wiring."
+    whyItMatters: "FD plumbing is classic OS skill."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-FILESYSTEMS"
+      - "FOUNDATIONS-OS-PERMISSIONS"
+    tasks:
+      - "Output redirect"
+      - "Input redirect"
+      - "Multi-stage pipes"
+      - "Restore FDs"
+    expectedArtifacts:
+      - "redirect tests"
+      - "pipeline demos"
+    validationChecklist:
+      - "echo > f works"
+      - "cat|wc works"
+      - "Failed open no FD leak"
+    commonProblems:
+      - "Wrong pipe ends"
+      - "Pipe buffer deadlock"
+    completionCriteria:
+      - "Feature matrix updated"
+  - id: "fnd-shell-m3"
+    title: "Background jobs"
+    objective: "Support & and jobs builtin."
+    whyItMatters: "Job tables teach async completion."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+      - "FOUNDATIONS-CONCURRENCY-VS-PARALLELISM"
+    tasks:
+      - "Parse &"
+      - "Job table"
+      - "jobs builtin"
+      - "Reap completed"
+    expectedArtifacts:
+      - "jobs builtin"
+      - "design note"
+    validationChecklist:
+      - "Background does not block"
+      - "jobs lists tasks"
+      - "Reaped on exit"
+    commonProblems:
+      - "Job table races"
+      - "Blocked prompt"
+    completionCriteria:
+      - "Job demo recorded"
+  - id: "fnd-shell-m4"
+    title: "Process monitor"
+    objective: "Live-ish process table with safe refresh."
+    whyItMatters: "Observability connects shell skills to ops."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-DEBUGGING"
+      - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+    tasks:
+      - "Read process list"
+      - "Show PID/cmd/state"
+      - "Permission errors non-fatal"
+      - "Platform docs"
+    expectedArtifacts:
+      - "monitor view"
+      - "platform notes"
+    validationChecklist:
+      - "Updates without crash"
+      - "Errors non-fatal"
+      - "OS differences documented"
+    commonProblems:
+      - "Assuming /proc on macOS"
+      - "High CPU refresh"
+    completionCriteria:
+      - "Write-up honest"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Shells sit at the user/kernel boundary—process trees, FDs, permissions, and signals become concrete.
+
+<Callout type="mental-model">
+  Parse a line into a process graph, wire FDs, fork/exec, wait, stay responsive.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: FOUNDATIONS-PROCESSES, FOUNDATIONS-FILESYSTEMS, FOUNDATIONS-OS-PERMISSIONS, FOUNDATIONS-DEBUGGING.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Lexer/parser → command graph → executor. Builtins in-process; externals via exec. Monitor reads OS process stats.
+
+Recommended tools: C/Rust/Go/Python, Linux or macOS, strace optional.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Single command REPL. 2) Redirection. 3) Pipes. 4) Background jobs. 5) Process monitor. 6) Honest limitation docs.
+
+## Validation checkpoints
+
+Pipelines work; redirection correct; jobs lists background tasks; monitor shows PIDs without crash.
+
+## Common errors
+
+Not restoring FDs; zombies; shelling out instead of execve; busy-loop monitor.
+
+## Debugging guidance
+
+Draw FD graphs; use ps for zombies; log AST for failing lines.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+Parse tests; temp-dir integration; skip OS-incompatible cases cleanly.
+
+## Security
+
+Teaching shell only; careful globbing; warn not a login shell.
+
+## Performance
+
+Interval refresh for monitor; avoid tight loops.
+
+## Accessibility
+
+Non-color monitor mode; readable columns.
+
+## Deployment / handoff
+
+Per-OS build notes; document /proc differences.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  Walk through FD setup for a two-stage pipeline and child reaping.
+</Callout>
+
+## Stretch goals
+
+Job control signals, completion, script mode.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

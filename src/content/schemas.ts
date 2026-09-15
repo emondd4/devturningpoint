@@ -188,22 +188,56 @@ export const issueSchema = z.object({
   lastVerified: dateStringSchema,
 });
 
+export const projectLevelSchema = z.enum(['beginner', 'intermediate', 'advanced']);
+
+export const projectMilestoneSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  objective: z.string().min(1),
+  whyItMatters: z.string().min(1),
+  prerequisiteTopicIds: z.array(z.string()).default([]),
+  tasks: z.array(z.string()).default([]),
+  expectedArtifacts: z.array(z.string()).default([]),
+  validationChecklist: z.array(z.string()).default([]),
+  commonProblems: z.array(z.string()).default([]),
+  completionCriteria: z.array(z.string()).default([]),
+});
+
 export const projectSchema = z.object({
-  id: z.string(),
-  slug: z.string(),
+  id: z.string().regex(/^PROJECT-[A-Z0-9]+(-[A-Z0-9]+)+$/),
   title: z.string(),
   titleBn: z.string().optional(),
-  track: z.string(),
-  difficulty: difficultySchema,
+  slug: z.string().min(1),
+  track: z.string().min(1),
+  level: projectLevelSchema,
+  /** @deprecated use level — kept for gradual migration */
+  difficulty: difficultySchema.optional(),
   summary: z.string(),
+  summaryBn: z.string().optional(),
+  portfolioPitch: z.string(),
+  estimatedHours: z.number().int().positive(),
+  prerequisiteSkillIds: z.array(z.string()).default([]),
+  learningOutcomeSkillIds: z.array(z.string()).default([]),
+  recommendedTools: z.array(z.string()).default([]),
+  portfolioEvidence: z.array(z.string()).default([]),
+  relatedTopicIds: z.array(z.string()).default([]),
+  relatedInterviewQuestionIds: z.array(z.string()).default([]),
+  sources: z.array(z.string()).default([]),
+  createdAt: dateStringSchema,
+  updatedAt: dateStringSchema,
+  lastVerified: dateStringSchema,
+  previousProjectId: z.string().optional(),
+  nextProjectId: z.string().optional(),
+  status: contentStatusSchema.default('published'),
+  translationStatus: z.enum(['complete', 'partial', 'missing']).default('partial'),
+  milestones: z.array(projectMilestoneSchema).min(3),
+  /** Legacy fields — optional so older entries do not break during migration */
   requiredKnowledge: z.array(z.string()).default([]),
   features: z.array(z.string()).default([]),
-  suggestedArchitecture: z.string(),
-  milestones: z.array(z.string()).default([]),
+  suggestedArchitecture: z.string().optional(),
   extensions: z.array(z.string()).default([]),
-  portfolioProof: z.string(),
+  portfolioProof: z.string().optional(),
   relatedTopics: z.array(z.string()).default([]),
-  estimatedHours: z.number().optional(),
 });
 
 export const historyEventSchema = z.object({
@@ -229,5 +263,6 @@ export type Achievement = z.infer<typeof achievementSchema>;
 export type Interview = z.infer<typeof interviewSchema>;
 export type Issue = z.infer<typeof issueSchema>;
 export type Project = z.infer<typeof projectSchema>;
+export type ProjectMilestone = z.infer<typeof projectMilestoneSchema>;
 export type HistoryEvent = z.infer<typeof historyEventSchema>;
 export type Source = z.infer<typeof sourceSchema>;

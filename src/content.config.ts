@@ -42,7 +42,7 @@ const issues = defineCollection({
 });
 
 const projects = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/projects' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
   schema: projectSchema,
 });
 

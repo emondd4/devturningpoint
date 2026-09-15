@@ -1,0 +1,262 @@
+---
+id: "PROJECT-PM-SAAS-MIGRATION-RECOVERY"
+title: "Troubled SaaS Migration Recovery Program"
+titleBn: "সমস্যাগ্রস্ত SaaS মাইগ্রেশন রিকভারি প্রোগ্রাম"
+slug: "pm-saas-migration-recovery-program"
+track: "project-management"
+level: "advanced"
+difficulty: "advanced"
+summary: "Take over a troubled migration program: re-baseline scope, risks, comms, and recovery plan without fabricating approvals."
+summaryBn: "সমস্যাগ্রস্ত মাইগ্রেশন প্রোগ্রাম রিকভারি—স্কোপ, রিস্ক, কমিউনিকেশন এবং রিকভারি প্ল্যান পুনঃবেসলাইন।"
+portfolioPitch: "Senior PM judgment under ambiguity: recovery planning, stakeholder tradeoffs, and credible re-baselining."
+estimatedHours: 36
+prerequisiteSkillIds:
+  - "PM-RISK"
+  - "PM-STAKEHOLDERS"
+  - "PM-SDLC"
+  - "PM-ESTIMATION"
+learningOutcomeSkillIds:
+  - "PM-RISK"
+  - "PM-STAKEHOLDERS"
+  - "PM-SCRUM"
+  - "PM-ESTIMATION"
+  - "PM-SDLC"
+recommendedTools:
+  - "RAID log"
+  - "Decision log"
+  - "Program plan"
+  - "Executive brief template"
+portfolioEvidence:
+  - "Situation assessment"
+  - "Re-baseline plan"
+  - "RAID log"
+  - "Exec brief"
+  - "Change decision records (simulated)"
+relatedTopicIds:
+  - "PM-CHANGE-MANAGEMENT"
+  - "PM-ESTIMATION-RISK"
+  - "PM-STAKEHOLDERS"
+  - "PM-TECH-DEBT"
+  - "PM-OKRS-METRICS"
+  - "PM-INCIDENT-COMMS"
+  - "PM-ESTIMATION-RISK"
+relatedInterviewQuestionIds:
+  - "iv-pm-stakeholder-tradeoffs"
+  - "iv-pm-scope-cut"
+  - "PM-A-0100"
+  - "PM-A-0141"
+  - "PM-A-0055"
+  - "PM-I-0141"
+  - "PM-A-0025"
+sources:
+  - "SCRUM-GUIDE"
+  - "GOOGLE-OKRS"
+  - "PMI-PMP"
+  - "GOOGLE-SRE-EMERGENCY"
+  - "WRITE-THE-DOCS-GUIDE"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PROJECT-PM-CROSS-FUNCTIONAL-RELEASE"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "pm-recovery-m1"
+    title: "Situation assessment"
+    objective: "Establish facts and failure modes."
+    whyItMatters: "Recovery starts with truth."
+    prerequisiteTopicIds:
+      - "PM-STAKEHOLDERS"
+      - "PM-TECH-DEBT"
+    tasks:
+      - "Timeline of issues"
+      - "What's done/not"
+      - "Root causes"
+      - "Confidence levels"
+    expectedArtifacts:
+      - "assessment"
+    validationChecklist:
+      - "Facts vs assumptions split"
+      - "Causes plausible"
+      - "Confidence explicit"
+    commonProblems:
+      - "Blame-only narrative"
+      - "No data"
+    completionCriteria:
+      - "Assessment done"
+  - id: "pm-recovery-m2"
+    title: "Options and tradeoffs"
+    objective: "Present cut/extend/staff options."
+    whyItMatters: "Leaders need choices, not miracles."
+    prerequisiteTopicIds:
+      - "PM-PRIORITIZATION"
+      - "PM-ESTIMATION-RISK"
+      - "PM-CHANGE-MANAGEMENT"
+    tasks:
+      - "3 options"
+      - "Tradeoff table"
+      - "Recommendation"
+      - "Impacts"
+    expectedArtifacts:
+      - "options memo"
+    validationChecklist:
+      - "Options distinct"
+      - "Impacts clear"
+      - "Recommendation justified"
+    commonProblems:
+      - "Single hidden plan"
+      - "No cuts considered"
+    completionCriteria:
+      - "Options ready"
+  - id: "pm-recovery-m3"
+    title: "Re-baseline + RAID"
+    objective: "Lock recovery plan and RAID log."
+    whyItMatters: "RAID makes uncertainty manageable."
+    prerequisiteTopicIds:
+      - "PM-ESTIMATION-RISK"
+      - "PM-DEPENDENCIES"
+      - "PM-OKRS-METRICS"
+    tasks:
+      - "Re-baseline plan"
+      - "RAID"
+      - "Metrics"
+      - "30-day increments"
+    expectedArtifacts:
+      - "plan"
+      - "RAID"
+    validationChecklist:
+      - "Owners on risks"
+      - "Increments concrete"
+      - "Metrics leading+lagging"
+    commonProblems:
+      - "Ownerless RAID"
+      - "Vague milestones"
+    completionCriteria:
+      - "Re-baseline set"
+  - id: "pm-recovery-m4"
+    title: "Exec brief + recovery drill"
+    objective: "Honest comms and tabletop drill."
+    whyItMatters: "Communication restores trust."
+    prerequisiteTopicIds:
+      - "PM-INCIDENT-COMMS"
+      - "PM-FACILITATION"
+      - "PM-STAKEHOLDERS"
+    tasks:
+      - "Exec brief"
+      - "FAQ"
+      - "Tabletop notes"
+      - "Portfolio case"
+    expectedArtifacts:
+      - "brief"
+      - "drill"
+    validationChecklist:
+      - "Brief honest"
+      - "Asks clear"
+      - "Simulation labeled"
+    commonProblems:
+      - "Sugarcoating"
+      - "No asks"
+    completionCriteria:
+      - "Recovery pack complete"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Simulated vs real evidence">
+  Practice artifacts are fine when labeled simulated. Never claim fabricated approvals, budgets, or outcomes as real results.
+</Callout>
+
+## Why this project matters
+
+Recovering troubled programs is where PM seniority is tested—truth, tradeoffs, and credible plans.
+
+<Callout type="mental-model">
+  Diagnose reality → re-baseline options → decide tradeoffs → communicate risks → execute recovery increments.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: PM-RISK, PM-STAKEHOLDERS, PM-SCRUM, PM-ESTIMATION, PM-SDLC.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Use a simulated troubled SaaS migration scenario (legacy→new). Produce assessment, options, chosen recovery plan, RAID, and exec comms—all labeled simulated.
+
+Recommended tools: RAID log, Decision log, Program plan, Executive brief template.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Situation assessment. 2) Options+tradeoffs. 3) Re-baseline plan. 4) RAID+comms. 5) First 30-day recovery increments.
+
+## Validation checkpoints
+
+Options include cuts; risks quantified qualitatively; exec brief honest; no fake approvals presented as real.
+
+## Common errors
+
+Hero timelines; hiding bad news; scope unchanged with magical productivity.
+
+## Debugging guidance
+
+If plan still impossible, cut scope or extend time—document the decision.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+Pre-mortem; stakeholder Q&A rehearsal notes.
+
+## Security
+
+Data migration risks and access controls in RAID.
+
+## Performance
+
+Migration performance risks and checkpoints.
+
+## Accessibility
+
+If UI migrates, include a11y regression risk.
+
+## Deployment / handoff
+
+Program pack with decision log.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  How you delivered bad news and re-baselined without losing trust.
+</Callout>
+
+## Stretch goals
+
+Vendor management addendum; benefit tracking OKRs.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

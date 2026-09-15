@@ -1,0 +1,258 @@
+---
+id: "PROJECT-QA-ECOMMERCE-QUALITY-PACK"
+title: "E-Commerce Quality Pack"
+titleBn: "ই-কমার্স কোয়ালিটি প্যাক"
+slug: "qa-ecommerce-quality-pack"
+track: "qa"
+level: "beginner"
+difficulty: "beginner"
+summary: "Manual + API quality pack for an e-commerce flow: strategy, cases, bug reports, and SQL validation."
+summaryBn: "ই-কমার্স ফ্লোর জন্য ম্যানুয়াল+API কোয়ালিটি প্যাক—স্ট্র্যাটেজি, কেস, বাগ রিপোর্ট, SQL ভ্যালিডেশন।"
+portfolioPitch: "Shows structured QA thinking: risk-based strategy, clear cases, and reproducible bug reports."
+estimatedHours: 20
+prerequisiteSkillIds:
+  - "QA-STLC"
+  - "QA-TEST-DESIGN"
+  - "QA-BUG-REPORTING"
+  - "QA-API-TESTING"
+learningOutcomeSkillIds:
+  - "QA-STLC"
+  - "QA-TEST-DESIGN"
+  - "QA-BUG-REPORTING"
+  - "QA-API-TESTING"
+  - "QA-MANUAL-TESTING"
+recommendedTools:
+  - "Test case sheet"
+  - "Postman"
+  - "Browser"
+  - "SQL client"
+  - "Any demo shop or local app"
+portfolioEvidence:
+  - "Test strategy"
+  - "Test cases"
+  - "Bug reports"
+  - "API collection + SQL checks"
+relatedTopicIds:
+  - "QA-STLC"
+  - "QA-MANUAL-TEST-DESIGN"
+  - "QA-BUG-REPORTING"
+  - "QA-API-TESTING"
+  - "QA-POSTMAN-API-WORKFLOWS"
+  - "QA-SQL-DATA-VALIDATION"
+  - "QA-RISK-BASED-TESTING"
+relatedInterviewQuestionIds:
+  - "QA-B-0001"
+  - "QA-B-0010"
+  - "iv-qa-risk-based-release"
+  - "QA-I-0005"
+  - "QA-B-0020"
+  - "iv-qa-flaky-tests"
+  - "QA-B-0030"
+sources:
+  - "ISTQB-GLOSSARY"
+  - "POSTMAN-DOCS"
+  - "OWASP-TESTING-GUIDE"
+  - "PLAYWRIGHT-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+nextProjectId: "PROJECT-QA-PLAYWRIGHT-E2E-FRAMEWORK"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "qa-pack-m1"
+    title: "Risk-based strategy"
+    objective: "Write strategy and risk matrix."
+    whyItMatters: "Strategy prevents random clicking."
+    prerequisiteTopicIds:
+      - "QA-STLC"
+      - "QA-RISK-BASED-TESTING"
+    tasks:
+      - "Scope"
+      - "Risks"
+      - "In/out"
+      - "Environments"
+    expectedArtifacts:
+      - "strategy doc"
+    validationChecklist:
+      - "Risks ranked"
+      - "Scope clear"
+      - "Oracles defined"
+    commonProblems:
+      - "No risks"
+      - "Infinite scope"
+    completionCriteria:
+      - "Strategy done"
+  - id: "qa-pack-m2"
+    title: "Functional cases"
+    objective: "Design browse/cart/checkout cases."
+    whyItMatters: "Cases must be executable by others."
+    prerequisiteTopicIds:
+      - "QA-MANUAL-TEST-DESIGN"
+      - "QA-BUG-REPORTING"
+    tasks:
+      - "Case sheet"
+      - "Traceability"
+      - "Negative cases"
+      - "Peer review"
+    expectedArtifacts:
+      - "cases"
+    validationChecklist:
+      - "Steps clear"
+      - "Data specified"
+      - "Expected results precise"
+    commonProblems:
+      - "UI-map only"
+      - "Missing negatives"
+    completionCriteria:
+      - "Cases reviewable"
+  - id: "qa-pack-m3"
+    title: "API + SQL validation"
+    objective: "Postman pack + DB checks."
+    whyItMatters: "UI lies; data tells truth."
+    prerequisiteTopicIds:
+      - "QA-API-TESTING"
+      - "QA-SQL-DATA-VALIDATION"
+      - "QA-POSTMAN-API-WORKFLOWS"
+    tasks:
+      - "Collection"
+      - "Assertions"
+      - "SQL scripts"
+      - "Auth negatives"
+    expectedArtifacts:
+      - "collection"
+      - "sql"
+    validationChecklist:
+      - "Assertions fail on breakage"
+      - "SQL confirms orders"
+      - "Negatives included"
+    commonProblems:
+      - "No status asserts"
+      - "Prod DB writes"
+    completionCriteria:
+      - "API/SQL pack ready"
+  - id: "qa-pack-m4"
+    title: "Bug reporting quality"
+    objective: "File excellent bugs/findings."
+    whyItMatters: "Communication is the QA product."
+    prerequisiteTopicIds:
+      - "QA-BUG-REPORTING"
+    tasks:
+      - "Bug template"
+      - "Severity/priority"
+      - "Evidence"
+      - "Retro"
+    expectedArtifacts:
+      - "bugs"
+      - "retro"
+    validationChecklist:
+      - "Repro reliable"
+      - "Evidence attached"
+      - "Severity justified"
+    commonProblems:
+      - "One-liners"
+      - "No expected result"
+    completionCriteria:
+      - "Pack complete"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Before automation fame, strong manual/API design and bug communication make QA credible.
+
+<Callout type="mental-model">
+  Risk → coverage ideas → cases → evidence. Bugs need reproduce steps and expected vs actual.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: QA-STLC, QA-TEST-DESIGN, QA-BUG-REPORTING, QA-API-TESTING, QA-MANUAL-TESTING.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Pick a target store (open demo or self-built). Layers: strategy, functional cases, API checks, data validation.
+
+Recommended tools: Test case sheet, Postman, Browser, SQL client, Any demo shop or local app.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Strategy. 2) Cases for browse→cart→checkout. 3) API pack. 4) SQL checks. 5) Bug reports.
+
+## Validation checkpoints
+
+Cases trace to risks; ≥3 high-quality bugs (or findings); API assertions pass on fixtures.
+
+## Common errors
+
+Vague cases; bugs without environment; only UI clicking without data checks.
+
+## Debugging guidance
+
+Narrow with logs/network; capture HAR; compare DB state.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+This project produces tests—peer review cases for clarity.
+
+## Security
+
+Include authz/negative API cases; never attack systems you do not own.
+
+## Performance
+
+Light awareness checks only at this level.
+
+## Accessibility
+
+Include a few keyboard/contrast smoke checks.
+
+## Deployment / handoff
+
+Publish pack in Git with README how to run against target.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  How you prioritized cases using risk.
+</Callout>
+
+## Stretch goals
+
+Exploratory charter sessions; accessibility deeper pass.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.
