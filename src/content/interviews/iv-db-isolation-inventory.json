@@ -1,0 +1,28 @@
+{
+  "id": "iv-db-isolation-inventory",
+  "question": "Which isolation level and locking pattern would you use to avoid overselling inventory?",
+  "questionBn": "ইনভেন্টরি ওভারসেল এড়াতে কোন আইসোলেশন লেভেল ও লকিং প্যাটার্ন ব্যবহার করবেন?",
+  "careerIds": [
+    "database-engineer",
+    "backend-engineer"
+  ],
+  "technology": [
+    "PostgreSQL",
+    "Transactions"
+  ],
+  "difficulty": "senior",
+  "shortAnswer": "Use a short transaction with SELECT … FOR UPDATE or a conditional UPDATE … WHERE stock >= n, and retry on conflicts.",
+  "strongAnswer": "Default Read Committed plus careful writes often works: UPDATE products SET stock = stock - 1 WHERE id = $1 AND stock >= 1 RETURNING *. Alternatively lock the row FOR UPDATE before decrement. Serializable can work with retry logic but increases aborts. Keep transactions free of external HTTP calls.",
+  "advancedAnswer": "Discuss lost updates, advisory locks for multi-row reservations, and Redis locks as a cache—not source of truth—for inventory.",
+  "followUps": [
+    "Does Read Committed prevent lost updates by itself?",
+    "What happens on deadlock?"
+  ],
+  "commonWrongAnswer": "Read stock in the app, sleep, then write the new value without conditions.",
+  "productionRelevance": "Checkout correctness is revenue-critical for e-commerce and ticketing.",
+  "relatedTopics": [
+    "DATABASE-ISOLATION-LEVELS",
+    "DATABASE-LOCKING-CONCURRENCY"
+  ],
+  "lastVerified": "2026-09-15"
+}

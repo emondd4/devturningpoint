@@ -1,0 +1,85 @@
+---
+id: FOUNDATIONS-SEMANTIC-VERSIONING
+title: "Semantic Versioning"
+titleBn: "সিমান্টিক ভার্সনিং"
+description: "Read MAJOR.MINOR.PATCH correctly so upgrades and caret/tilde ranges stop surprising you."
+descriptionBn: "MAJOR.MINOR.PATCH সঠিকভাবে পড়ুন—কেয়ারট/টিল্ড রেঞ্জ।"
+track: foundations
+category: tools
+difficulty: beginner
+estimatedMinutes: 25
+prerequisites:
+  - "FOUNDATIONS-PACKAGE-MANAGERS"
+unlocks: []
+related:
+  - "FOUNDATIONS-API-CONCEPTS"
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+careers:
+  - "software-engineer"
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "semver"
+  - "versioning"
+  - "dependencies"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "SEMVER-SPEC"
+  - "NPM-ABOUT-SEMVER"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why SemVer exists
+
+Without shared meaning for version numbers, “upgrade” is gambling. Semantic Versioning defines when it is safe to expect compatibility.
+
+## Mental model
+
+<Callout type="mental-model">
+  Given `MAJOR.MINOR.PATCH`: **MAJOR** breaks API compatibility, **MINOR** adds features compatibly, **PATCH** fixes bugs compatibly (for public API). Pre-1.0 versions are often unstable by convention.
+</Callout>
+
+## Ranges (npm / many ecosystems)
+
+```text
+^1.2.3  → >=1.2.3 <2.0.0
+~1.2.3  → >=1.2.3 <1.3.0
+1.2.3   → exact
+```
+
+```json
+{
+  "dependencies": {
+    "left-pad": "^1.3.0"
+  }
+}
+```
+
+Always verify what *your* package manager’s caret means—Dart pub’s `^` follows similar ideas but read pub docs for edge cases.
+
+## Common mistakes
+
+- Bumping only PATCH while shipping a breaking rename
+- Assuming 0.x means “safe to upgrade wildly”
+- Ignoring changelogs because “SemVer promised safety”
+
+## Interview angle
+
+<Callout type="interview">
+  Your library renames a public function. Which SemVer component do you bump and how do you communicate migration?
+</Callout>
+
+## Sources
+
+`SEMVER-SPEC`, `NPM-ABOUT-SEMVER`.

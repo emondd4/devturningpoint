@@ -1,0 +1,101 @@
+---
+id: FOUNDATIONS-DNS
+title: "DNS Fundamentals"
+titleBn: "DNS এর মৌলিক বিষয়"
+description: "Map human names to addresses—and understand caching, records, and failure modes that look like “the API is down.”"
+descriptionBn: "মানুষের নামকে অ্যাড্রেসে ম্যাপ করুন—ক্যাশিং, রেকর্ড ও ব্যর্থতা যা API ডাউন বলে মনে হয়।"
+track: foundations
+category: networking
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites:
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+unlocks:
+  - "FOUNDATIONS-HTTPS-TLS"
+related:
+  - "FOUNDATIONS-API-CONCEPTS"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+careers:
+  - "software-engineer"
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "dns"
+  - "networking"
+  - "http"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "RFC-1034-DNS"
+  - "RFC-1035-DNS"
+  - "MDN-DNS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why DNS is on the critical path
+
+Before TCP/TLS/HTTP to `api.example.com`, something must answer: “Which IP?” DNS failures present as timeouts, intermittent outages, or “works on my machine” after local hosts file tricks.
+
+## Mental model
+
+<Callout type="mental-model">
+  DNS is a distributed hierarchical database. Stub resolvers ask recursive resolvers, which walk from root toward authoritative name servers, caching answers along the way (TTL-bound).
+</Callout>
+
+## Common record types
+
+| Type | Role |
+| --- | --- |
+| A / AAAA | IPv4 / IPv6 address |
+| CNAME | alias to another name |
+| MX | mail routing |
+| TXT | arbitrary text (SPF, verification) |
+| NS | delegates a zone |
+
+```bash
+# Explore resolution (tooling varies by OS)
+dig example.com A +short
+# or: nslookup example.com
+```
+
+## Caching and TTL
+
+Short TTLs make changes propagate faster but increase query load. Long TTLs make mistakes linger. Cutover plans must respect TTL, not just “I updated the panel.”
+
+## Common mistakes
+
+- **Blaming the app for a DNS cutover** — half of clients still cache old answers.
+- **Single point of DNS config** — one typo removes a product from the internet.
+- **Hard-coding IPs** — bypasses DNS but creates brittle deploys.
+
+## Interview angle
+
+<Callout type="interview">
+  A deploy changed an A record but some users still hit the old server—what is the most likely cause?
+</Callout>
+
+## Practice checklist
+
+- [ ] Resolve a domain and note TTL.
+- [ ] Explain the difference between recursive and authoritative servers at a high level.
+- [ ] Find where your staging hostname is defined.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `RFC-1034-DNS`
+- `RFC-1035-DNS`
+- `MDN-DNS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

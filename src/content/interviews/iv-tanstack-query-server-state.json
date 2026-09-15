@@ -1,0 +1,24 @@
+{
+  "id": "iv-tanstack-query-server-state",
+  "question": "What problem does TanStack Query solve compared with useEffect + useState for fetching?",
+  "careerIds": [
+    "frontend-engineer"
+  ],
+  "technology": [
+    "TanStack Query",
+    "React"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "It treats server data as cacheable shared state with deduping, status, and invalidation built in.",
+  "strongAnswer": "Server state is async, shared, and can become stale. Hand-rolled effects reinvent caching, race handling, retries, and background refetch poorly. TanStack Query keys data, exposes status/fetchStatus, deduplicates requests, and makes invalidation after mutations explicit.",
+  "followUps": [
+    "What makes a good queryKey?",
+    "How do mutations stay consistent with lists?"
+  ],
+  "commonWrongAnswer": "It replaces all client UI state including form inputs.",
+  "productionRelevance": "Reduces duplicated network calls and stale UI bugs in dashboards.",
+  "relatedTopics": [
+    "FRONTEND-TANSTACK-QUERY-MENTAL-MODEL"
+  ],
+  "lastVerified": "2026-09-15"
+}

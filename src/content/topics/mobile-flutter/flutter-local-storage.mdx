@@ -1,0 +1,46 @@
+---
+id: FLUTTER-LOCAL-STORAGE
+title: "Local Storage and Persistence"
+titleBn: "Local Storage ও Persistence"
+description: "SharedPreferences, secure storage, and local DB options—and when each fits."
+descriptionBn: "SharedPreferences, secure storage, local DB।"
+track: mobile-flutter
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - FLUTTER-STATE-MANAGEMENT
+unlocks: []
+related:
+  - FLUTTER-JSON-SERIALIZATION
+careers:
+  - flutter-developer
+tags:
+  - storage
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - FLUTTER-DOCS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+## Decision guide
+
+| Need | Typical choice |
+|------|----------------|
+| Simple flags/settings | shared_preferences |
+| Tokens/secrets | flutter_secure_storage |
+| Relational offline data | sqflite / drift |
+| Flexible document cache | hive / isar (evaluate current ecosystem) |
+
+Never store long-lived secrets in plain SharedPreferences.
+
+## Interview
+
+Where should you store a refresh token on mobile, and why?
+

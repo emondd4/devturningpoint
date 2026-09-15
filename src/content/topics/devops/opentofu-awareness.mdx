@@ -1,0 +1,89 @@
+---
+id: DEVOPS-OPENTOFU-AWARENESS
+title: "OpenTofu Awareness for Terraform Users"
+titleBn: "Terraform ব্যবহারকারীদের জন্য OpenTofu সচেতনতা"
+description: "Understand OpenTofu as an open IaC fork—compatibility mindset, providers, and when teams evaluate it."
+descriptionBn: "ওপেন IaC ফর্ক হিসেবে OpenTofu—কম্প্যাটিবিলিটি মানসিকতা, প্রোভাইডার, এবং টিম কখন মূল্যায়ন করে।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 28
+prerequisites:
+  - "DEVOPS-TERRAFORM-BASICS"
+unlocks: []
+related:
+  - "DEVOPS-AWS-CLOUD-FUNDAMENTALS"
+  - "DEVOPS-ANSIBLE-INTRO"
+careers:
+  - "devops-engineer"
+tags:
+  - "opentofu"
+  - "terraform"
+  - "iac"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "OPENTOFU-DOCS"
+  - "TERRAFORM-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why OpenTofu exists in the conversation
+
+Teams that standardize on Terraform-compatible HCL may evaluate OpenTofu for licensing, governance, or community roadmap reasons. Awareness beats surprise mid-migration.
+
+## Mental model
+
+<Callout type="mental-model">
+  OpenTofu aims to remain largely compatible with Terraform workflows: `.tf` configs, providers, state. Always verify version pin and provider constraints before switching CLIs.
+</Callout>
+
+```hcl
+terraform {
+  required_version = ">= 1.6.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+```
+
+Treat state backends, lock files, and CI binary choice as explicit decisions—not defaults.
+
+## Common mistakes
+
+- **Assuming 100% drop-in forever** — Read release notes; test plan/apply in non-prod.
+- **Mixing CLIs casually on one state** — Standardize tooling per environment.
+- **Ignoring provider registry differences** — Confirm sources you actually use.
+
+## Interview angle
+
+<Callout type="interview">
+  What would you validate before proposing OpenTofu for an existing Terraform AWS stack?
+</Callout>
+
+## Practice checklist
+
+- [ ] Read OpenTofu intro docs and note compatibility claims.
+- [ ] Run `plan` against a tiny module in a sandbox.
+- [ ] Document CLI version pinning for CI.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `OPENTOFU-DOCS`
+- `TERRAFORM-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

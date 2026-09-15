@@ -1,0 +1,24 @@
+{
+  "id": "iv-flutter-forms-globalkey",
+  "question": "Why should a Form\u2019s GlobalKey be stored in State rather than created inside build?",
+  "careerIds": [
+    "flutter-developer"
+  ],
+  "technology": [
+    "Flutter"
+  ],
+  "difficulty": "junior",
+  "shortAnswer": "Creating a new GlobalKey each build resets FormState and is expensive; keep one key in State.",
+  "strongAnswer": "GlobalKey identity must be stable across rebuilds so FormState persists. Instantiating GlobalKey in build assigns a new identity every frame, dropping validation state and hurting performance. Official form cookbook keeps the key on the State object.",
+  "followUps": [
+    "When is Form.of(context) preferable?",
+    "How do you dispose TextEditingControllers?"
+  ],
+  "commonWrongAnswer": "Keys should always be recreated so the form stays fresh.",
+  "productionRelevance": "Login/KYC forms that clear errors mid-typing frustrate users and look like flaky bugs.",
+  "relatedTopics": [
+    "FLUTTER-FORMS-VALIDATION",
+    "FLUTTER-BUILDCONTEXT-KEYS"
+  ],
+  "lastVerified": "2026-09-15"
+}

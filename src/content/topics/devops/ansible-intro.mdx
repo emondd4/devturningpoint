@@ -1,0 +1,93 @@
+---
+id: DEVOPS-ANSIBLE-INTRO
+title: "Ansible Intro for Configuration Management"
+titleBn: "কনফিগারেশন ম্যানেজমেন্টের জন্য Ansible পরিচিতি"
+description: "Agentless SSH automation with playbooks and idempotent tasks for fleets of servers."
+descriptionBn: "সার্ভার ফ্লিটের জন্য প্লেবুক ও আইডেমপোটেন্ট টাস্কসহ এজেন্টলেস SSH অটোমেশন।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites:
+  - "DEVOPS-LINUX-FUNDAMENTALS"
+  - "DEVOPS-BASH"
+unlocks: []
+related:
+  - "DEVOPS-TERRAFORM-BASICS"
+  - "DEVOPS-SYSTEMD"
+careers:
+  - "devops-engineer"
+tags:
+  - "ansible"
+  - "configuration-management"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "ANSIBLE-DOCS"
+  - "LINUX-MAN-PAGES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why manual SSH drifts every host
+
+Golden images help, but package versions and config files still diverge. Ansible applies declared state over SSH without installing agents on every box.
+
+## Mental model
+
+<Callout type="mental-model">
+  Inventory lists hosts. Playbooks list plays → tasks. Modules should be idempotent: re-running converges to the same desired state.
+</Callout>
+
+```yaml
+- name: Ensure nginx present
+  hosts: web
+  become: true
+  tasks:
+    - name: Install nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present
+    - name: Enable and start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+```
+
+Use Terraform/OpenTofu for cloud resources; Ansible often shines for OS config and app bootstrap on VMs.
+
+## Common mistakes
+
+- **Shell tasks for everything** — Prefer modules for idempotency.
+- **No inventory groups** — Untargeted plays are dangerous.
+- **Secrets in playbooks** — Use Ansible Vault or external secret injection.
+
+## Interview angle
+
+<Callout type="interview">
+  When would you choose Ansible versus container immutability for app deploys?
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a playbook that installs a package and starts a service.
+- [ ] Run with `--check` first.
+- [ ] Organize hosts into inventory groups.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `ANSIBLE-DOCS`
+- `LINUX-MAN-PAGES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

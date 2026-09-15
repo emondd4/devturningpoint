@@ -1,0 +1,74 @@
+---
+id: FULLSTACK-CSRF
+title: "CSRF Defenses Across the Stack"
+titleBn: "স্ট্যাক জুড়ে CSRF প্রতিরোধ"
+description: "Why cookie-authenticated state changes need CSRF defenses beyond SameSite."
+descriptionBn: "কুকি-অথেন্টিকেটেড স্টেট পরিবর্তনে SameSite-এর বাইরে CSRF ডিফেন্স কেন লাগে।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "FULLSTACK-COOKIES-SESSIONS-TOKENS"
+  - "FULLSTACK-CORS"
+unlocks:
+  []
+related:
+  - "FULLSTACK-CORS-CSRF"
+  - "QA-SECURITY-TESTING-BASICS"
+careers:
+  - "fullstack-engineer"
+tags:
+  - "fullstack"
+  - "csrf"
+  - "security"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "MDN-CSRF"
+  - "OWASP-TOP10"
+  - "MDN-COOKIES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why CSRF still matters
+
+If the browser automatically attaches cookies, a malicious site may trigger state-changing requests. SameSite helps but is not a complete defense.
+
+## Mental model
+
+<Callout type="mental-model">
+  Defense in depth: anti-CSRF tokens / Fetch Metadata checks, SameSite cookies, careful CORS credentials, and avoiding cookie auth on cross-site APIs when possible.
+</Callout>
+
+## Common mistakes
+
+- **Assuming SameSite=Lax is enough for all cases**.
+- **CSRF tokens on safe GETs that mutate**.
+- **Disabling security to “fix CORS”**.
+
+## Interview angle
+
+<Callout type="interview">
+  Design CSRF protection for a Nest API used by a cookie-authenticated Next app.
+</Callout>
+
+## Practice checklist
+
+- [ ] List which endpoints are state-changing.
+- [ ] Pick a CSRF strategy and document it.
+- [ ] Add a QA negative case for cross-site POST.
+
+## Sources
+
+- `MDN-CSRF`
+- `OWASP-TOP10`
+- `MDN-COOKIES`

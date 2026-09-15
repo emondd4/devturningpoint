@@ -1,0 +1,3418 @@
+[
+  {
+    "id": "DB-B-0001",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "CAP theorem",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using CAP theorem correctly?"
+  },
+  {
+    "id": "DB-B-0002",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "CAP theorem",
+    "questionType": "Definition",
+    "question": "What is CAP theorem, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0003",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "OLTP",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using OLTP correctly?"
+  },
+  {
+    "id": "DB-B-0004",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "OLTP",
+    "questionType": "Definition",
+    "question": "What is OLTP, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0005",
+    "level": "Beginner",
+    "category": "Backup",
+    "topic": "WAL/PITR",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using WAL/PITR correctly?"
+  },
+  {
+    "id": "DB-B-0006",
+    "level": "Beginner",
+    "category": "Backup",
+    "topic": "WAL/PITR",
+    "questionType": "Definition",
+    "question": "What is WAL/PITR, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0007",
+    "level": "Beginner",
+    "category": "Backup",
+    "topic": "logical backup",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using logical backup correctly?"
+  },
+  {
+    "id": "DB-B-0008",
+    "level": "Beginner",
+    "category": "Backup",
+    "topic": "logical backup",
+    "questionType": "Definition",
+    "question": "What is logical backup, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0009",
+    "level": "Beginner",
+    "category": "Connections",
+    "topic": "connection pool",
+    "questionType": "Definition",
+    "question": "What is connection pool, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0010",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN."
+  },
+  {
+    "id": "DB-B-0011",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain SELECT, INSERT, UPDATE, and DELETE."
+  },
+  {
+    "id": "DB-B-0012",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Name common Redis data structures and typical use cases."
+  },
+  {
+    "id": "DB-B-0013",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are primary, foreign, candidate, and unique keys?"
+  },
+  {
+    "id": "DB-B-0014",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What do the ACID properties mean?"
+  },
+  {
+    "id": "DB-B-0015",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is GROUP BY used for?"
+  },
+  {
+    "id": "DB-B-0016",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is MongoDB, and what is a document?"
+  },
+  {
+    "id": "DB-B-0017",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is PostgreSQL?"
+  },
+  {
+    "id": "DB-B-0018",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is Redis commonly used for?"
+  },
+  {
+    "id": "DB-B-0019",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a database backup, and why is testing restore more important than only creating backups?"
+  },
+  {
+    "id": "DB-B-0020",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a database transaction?"
+  },
+  {
+    "id": "DB-B-0021",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a relational database?"
+  },
+  {
+    "id": "DB-B-0022",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a subquery?"
+  },
+  {
+    "id": "DB-B-0023",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is an index?"
+  },
+  {
+    "id": "DB-B-0024",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is normalization, and why do we normalize data?"
+  },
+  {
+    "id": "DB-B-0025",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between SQL and NoSQL databases at a high level?"
+  },
+  {
+    "id": "DB-B-0026",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between a table, row, column, schema, and database?"
+  },
+  {
+    "id": "DB-B-0027",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between embedding and referencing in a document model?"
+  },
+  {
+    "id": "DB-B-0028",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Why can adding too many indexes be harmful?"
+  },
+  {
+    "id": "DB-B-0029",
+    "level": "Beginner",
+    "category": "HA",
+    "topic": "failover",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using failover correctly?"
+  },
+  {
+    "id": "DB-B-0030",
+    "level": "Beginner",
+    "category": "HA",
+    "topic": "failover",
+    "questionType": "Definition",
+    "question": "What is failover, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0031",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between `WHERE` and `HAVING`?"
+  },
+  {
+    "id": "DB-B-0032",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between a primary key, a unique constraint, and a foreign key?"
+  },
+  {
+    "id": "DB-B-0033",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the purpose of a transaction?"
+  },
+  {
+    "id": "DB-B-0034",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "Why can adding an index improve reads but make writes more expensive?"
+  },
+  {
+    "id": "DB-B-0035",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "Why does `NULL = NULL` not behave like ordinary equality in SQL?"
+  },
+  {
+    "id": "DB-B-0036",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "B-tree index",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using B-tree index correctly?"
+  },
+  {
+    "id": "DB-B-0037",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "B-tree index",
+    "questionType": "Definition",
+    "question": "What is B-tree index, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0038",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "BRIN index",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using BRIN index correctly?"
+  },
+  {
+    "id": "DB-B-0039",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "BRIN index",
+    "questionType": "Definition",
+    "question": "What is BRIN index, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0040",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "GIN index",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using GIN index correctly?"
+  },
+  {
+    "id": "DB-B-0041",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "GIN index",
+    "questionType": "Definition",
+    "question": "What is GIN index, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0042",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "composite index",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using composite index correctly?"
+  },
+  {
+    "id": "DB-B-0043",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "composite index",
+    "questionType": "Definition",
+    "question": "What is composite index, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0044",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "covering/index-only scan",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using covering/index-only scan correctly?"
+  },
+  {
+    "id": "DB-B-0045",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "covering/index-only scan",
+    "questionType": "Definition",
+    "question": "What is covering/index-only scan, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0046",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "partial index",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using partial index correctly?"
+  },
+  {
+    "id": "DB-B-0047",
+    "level": "Beginner",
+    "category": "Indexes",
+    "topic": "partial index",
+    "questionType": "Definition",
+    "question": "What is partial index, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0048",
+    "level": "Beginner",
+    "category": "Maintenance",
+    "topic": "VACUUM",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using VACUUM correctly?"
+  },
+  {
+    "id": "DB-B-0049",
+    "level": "Beginner",
+    "category": "Maintenance",
+    "topic": "VACUUM",
+    "questionType": "Definition",
+    "question": "What is VACUUM, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0050",
+    "level": "Beginner",
+    "category": "Maintenance",
+    "topic": "autovacuum",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using autovacuum correctly?"
+  },
+  {
+    "id": "DB-B-0051",
+    "level": "Beginner",
+    "category": "Maintenance",
+    "topic": "autovacuum",
+    "questionType": "Definition",
+    "question": "What is autovacuum, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0052",
+    "level": "Beginner",
+    "category": "Modeling",
+    "topic": "1NF/2NF/3NF",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using 1NF/2NF/3NF correctly?"
+  },
+  {
+    "id": "DB-B-0053",
+    "level": "Beginner",
+    "category": "Modeling",
+    "topic": "1NF/2NF/3NF",
+    "questionType": "Definition",
+    "question": "What is 1NF/2NF/3NF, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0054",
+    "level": "Beginner",
+    "category": "Modeling",
+    "topic": "normalization",
+    "questionType": "Definition",
+    "question": "What is normalization, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0055",
+    "level": "Beginner",
+    "category": "MongoDB",
+    "topic": "MongoDB index",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using MongoDB index correctly?"
+  },
+  {
+    "id": "DB-B-0056",
+    "level": "Beginner",
+    "category": "MongoDB",
+    "topic": "MongoDB index",
+    "questionType": "Definition",
+    "question": "What is MongoDB index, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0057",
+    "level": "Beginner",
+    "category": "MongoDB",
+    "topic": "aggregation pipeline",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using aggregation pipeline correctly?"
+  },
+  {
+    "id": "DB-B-0058",
+    "level": "Beginner",
+    "category": "MongoDB",
+    "topic": "aggregation pipeline",
+    "questionType": "Definition",
+    "question": "What is aggregation pipeline, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0059",
+    "level": "Beginner",
+    "category": "MongoDB",
+    "topic": "document embedding",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using document embedding correctly?"
+  },
+  {
+    "id": "DB-B-0060",
+    "level": "Beginner",
+    "category": "MongoDB",
+    "topic": "document embedding",
+    "questionType": "Definition",
+    "question": "What is document embedding, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0061",
+    "level": "Beginner",
+    "category": "MongoDB",
+    "topic": "multi-document transaction",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using multi-document transaction correctly?"
+  },
+  {
+    "id": "DB-B-0062",
+    "level": "Beginner",
+    "category": "MongoDB",
+    "topic": "multi-document transaction",
+    "questionType": "Definition",
+    "question": "What is multi-document transaction, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0063",
+    "level": "Beginner",
+    "category": "MongoDB",
+    "topic": "replica set",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using replica set correctly?"
+  },
+  {
+    "id": "DB-B-0064",
+    "level": "Beginner",
+    "category": "MongoDB",
+    "topic": "replica set",
+    "questionType": "Definition",
+    "question": "What is replica set, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0065",
+    "level": "Beginner",
+    "category": "Monitoring",
+    "topic": "slow query log",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using slow query log correctly?"
+  },
+  {
+    "id": "DB-B-0066",
+    "level": "Beginner",
+    "category": "Monitoring",
+    "topic": "slow query log",
+    "questionType": "Definition",
+    "question": "What is slow query log, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0067",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "N+1 queries",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using N+1 queries correctly?"
+  },
+  {
+    "id": "DB-B-0068",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "N+1 queries",
+    "questionType": "Definition",
+    "question": "What is N+1 queries, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0069",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "sequential scan",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using sequential scan correctly?"
+  },
+  {
+    "id": "DB-B-0070",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "sequential scan",
+    "questionType": "Definition",
+    "question": "What is sequential scan, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0071",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "statistics/analyze",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using statistics/analyze correctly?"
+  },
+  {
+    "id": "DB-B-0072",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "statistics/analyze",
+    "questionType": "Definition",
+    "question": "What is statistics/analyze, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0073",
+    "level": "Beginner",
+    "category": "Planner",
+    "topic": "EXPLAIN",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using EXPLAIN correctly?"
+  },
+  {
+    "id": "DB-B-0074",
+    "level": "Beginner",
+    "category": "Planner",
+    "topic": "EXPLAIN",
+    "questionType": "Definition",
+    "question": "What is EXPLAIN, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0075",
+    "level": "Beginner",
+    "category": "Planner",
+    "topic": "query planner",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using query planner correctly?"
+  },
+  {
+    "id": "DB-B-0076",
+    "level": "Beginner",
+    "category": "Planner",
+    "topic": "query planner",
+    "questionType": "Definition",
+    "question": "What is query planner, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0077",
+    "level": "Beginner",
+    "category": "PostgreSQL",
+    "topic": "JSONB",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using JSONB correctly?"
+  },
+  {
+    "id": "DB-B-0078",
+    "level": "Beginner",
+    "category": "PostgreSQL",
+    "topic": "JSONB",
+    "questionType": "Definition",
+    "question": "What is JSONB, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0079",
+    "level": "Beginner",
+    "category": "PostgreSQL",
+    "topic": "MVCC",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using MVCC correctly?"
+  },
+  {
+    "id": "DB-B-0080",
+    "level": "Beginner",
+    "category": "PostgreSQL",
+    "topic": "MVCC",
+    "questionType": "Definition",
+    "question": "What is MVCC, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0081",
+    "level": "Beginner",
+    "category": "PostgreSQL",
+    "topic": "PostgreSQL process model",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using PostgreSQL process model correctly?"
+  },
+  {
+    "id": "DB-B-0082",
+    "level": "Beginner",
+    "category": "PostgreSQL",
+    "topic": "PostgreSQL process model",
+    "questionType": "Definition",
+    "question": "What is PostgreSQL process model, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0083",
+    "level": "Beginner",
+    "category": "PostgreSQL",
+    "topic": "partitioning",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using partitioning correctly?"
+  },
+  {
+    "id": "DB-B-0084",
+    "level": "Beginner",
+    "category": "PostgreSQL",
+    "topic": "partitioning",
+    "questionType": "Definition",
+    "question": "What is partitioning, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0085",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "Redis string",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Redis string correctly?"
+  },
+  {
+    "id": "DB-B-0086",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "Redis string",
+    "questionType": "Definition",
+    "question": "What is Redis string, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0087",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "TTL",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using TTL correctly?"
+  },
+  {
+    "id": "DB-B-0088",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "TTL",
+    "questionType": "Definition",
+    "question": "What is TTL, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0089",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "cache-aside",
+    "questionType": "Definition",
+    "question": "What is cache-aside, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0090",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "distributed lock",
+    "questionType": "Definition",
+    "question": "What is distributed lock, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0091",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "hot key",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using hot key correctly?"
+  },
+  {
+    "id": "DB-B-0092",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "hot key",
+    "questionType": "Definition",
+    "question": "What is hot key, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0093",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "persistence RDB",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using persistence RDB correctly?"
+  },
+  {
+    "id": "DB-B-0094",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "persistence RDB",
+    "questionType": "Definition",
+    "question": "What is persistence RDB, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0095",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "replication",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using replication correctly?"
+  },
+  {
+    "id": "DB-B-0096",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "replication",
+    "questionType": "Definition",
+    "question": "What is replication, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0097",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "set",
+    "questionType": "Definition",
+    "question": "What is set, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0098",
+    "level": "Beginner",
+    "category": "Redis",
+    "topic": "stream",
+    "questionType": "Definition",
+    "question": "What is stream, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0099",
+    "level": "Beginner",
+    "category": "Relational",
+    "topic": "foreign key",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using foreign key correctly?"
+  },
+  {
+    "id": "DB-B-0100",
+    "level": "Beginner",
+    "category": "Relational",
+    "topic": "foreign key",
+    "questionType": "Definition",
+    "question": "What is foreign key, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0101",
+    "level": "Beginner",
+    "category": "Relational",
+    "topic": "primary key",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using primary key correctly?"
+  },
+  {
+    "id": "DB-B-0102",
+    "level": "Beginner",
+    "category": "Relational",
+    "topic": "primary key",
+    "questionType": "Definition",
+    "question": "What is primary key, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0103",
+    "level": "Beginner",
+    "category": "Relational",
+    "topic": "relational model",
+    "questionType": "Definition",
+    "question": "What is relational model, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0104",
+    "level": "Beginner",
+    "category": "Replication",
+    "topic": "streaming replication",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using streaming replication correctly?"
+  },
+  {
+    "id": "DB-B-0105",
+    "level": "Beginner",
+    "category": "Replication",
+    "topic": "streaming replication",
+    "questionType": "Definition",
+    "question": "What is streaming replication, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0106",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "GROUP BY",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using GROUP BY correctly?"
+  },
+  {
+    "id": "DB-B-0107",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "GROUP BY",
+    "questionType": "Definition",
+    "question": "What is GROUP BY, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0108",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "INNER JOIN",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using INNER JOIN correctly?"
+  },
+  {
+    "id": "DB-B-0109",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "INNER JOIN",
+    "questionType": "Definition",
+    "question": "What is INNER JOIN, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0110",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "NULL semantics",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using NULL semantics correctly?"
+  },
+  {
+    "id": "DB-B-0111",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "NULL semantics",
+    "questionType": "Definition",
+    "question": "What is NULL semantics, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0112",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "ROW_NUMBER",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using ROW_NUMBER correctly?"
+  },
+  {
+    "id": "DB-B-0113",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "ROW_NUMBER",
+    "questionType": "Definition",
+    "question": "What is ROW_NUMBER, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0114",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "UNION",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using UNION correctly?"
+  },
+  {
+    "id": "DB-B-0115",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "UNION",
+    "questionType": "Definition",
+    "question": "What is UNION, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0116",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "correlated subquery",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using correlated subquery correctly?"
+  },
+  {
+    "id": "DB-B-0117",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "correlated subquery",
+    "questionType": "Definition",
+    "question": "What is correlated subquery, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0118",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "subquery",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using subquery correctly?"
+  },
+  {
+    "id": "DB-B-0119",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "subquery",
+    "questionType": "Definition",
+    "question": "What is subquery, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0120",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "window function",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using window function correctly?"
+  },
+  {
+    "id": "DB-B-0121",
+    "level": "Beginner",
+    "category": "SQL",
+    "topic": "window function",
+    "questionType": "Definition",
+    "question": "What is window function, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0122",
+    "level": "Beginner",
+    "category": "Schema",
+    "topic": "schema migration",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using schema migration correctly?"
+  },
+  {
+    "id": "DB-B-0123",
+    "level": "Beginner",
+    "category": "Schema",
+    "topic": "schema migration",
+    "questionType": "Definition",
+    "question": "What is schema migration, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0124",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "role",
+    "questionType": "Definition",
+    "question": "What is role, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0125",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "row-level security",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using row-level security correctly?"
+  },
+  {
+    "id": "DB-B-0126",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "row-level security",
+    "questionType": "Definition",
+    "question": "What is row-level security, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0127",
+    "level": "Beginner",
+    "category": "Selection",
+    "topic": "PostgreSQL",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using PostgreSQL correctly?"
+  },
+  {
+    "id": "DB-B-0128",
+    "level": "Beginner",
+    "category": "Selection",
+    "topic": "PostgreSQL",
+    "questionType": "Definition",
+    "question": "What is PostgreSQL, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0129",
+    "level": "Beginner",
+    "category": "Selection",
+    "topic": "Redis",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Redis correctly?"
+  },
+  {
+    "id": "DB-B-0130",
+    "level": "Beginner",
+    "category": "Selection",
+    "topic": "Redis",
+    "questionType": "Definition",
+    "question": "What is Redis, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0131",
+    "level": "Beginner",
+    "category": "Server Logic",
+    "topic": "function/procedure",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using function/procedure correctly?"
+  },
+  {
+    "id": "DB-B-0132",
+    "level": "Beginner",
+    "category": "Server Logic",
+    "topic": "function/procedure",
+    "questionType": "Definition",
+    "question": "What is function/procedure, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0133",
+    "level": "Beginner",
+    "category": "Server Logic",
+    "topic": "trigger",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using trigger correctly?"
+  },
+  {
+    "id": "DB-B-0134",
+    "level": "Beginner",
+    "category": "Server Logic",
+    "topic": "trigger",
+    "questionType": "Definition",
+    "question": "What is trigger, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0135",
+    "level": "Beginner",
+    "category": "Transactions",
+    "topic": "ACID",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using ACID correctly?"
+  },
+  {
+    "id": "DB-B-0136",
+    "level": "Beginner",
+    "category": "Transactions",
+    "topic": "ACID",
+    "questionType": "Definition",
+    "question": "What is ACID, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0137",
+    "level": "Beginner",
+    "category": "Transactions",
+    "topic": "READ COMMITTED",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using READ COMMITTED correctly?"
+  },
+  {
+    "id": "DB-B-0138",
+    "level": "Beginner",
+    "category": "Transactions",
+    "topic": "READ COMMITTED",
+    "questionType": "Definition",
+    "question": "What is READ COMMITTED, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0139",
+    "level": "Beginner",
+    "category": "Transactions",
+    "topic": "SERIALIZABLE",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using SERIALIZABLE correctly?"
+  },
+  {
+    "id": "DB-B-0140",
+    "level": "Beginner",
+    "category": "Transactions",
+    "topic": "SERIALIZABLE",
+    "questionType": "Definition",
+    "question": "What is SERIALIZABLE, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0141",
+    "level": "Beginner",
+    "category": "Transactions",
+    "topic": "deadlock",
+    "questionType": "Definition",
+    "question": "What is deadlock, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0142",
+    "level": "Beginner",
+    "category": "Transactions",
+    "topic": "optimistic concurrency",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using optimistic concurrency correctly?"
+  },
+  {
+    "id": "DB-B-0143",
+    "level": "Beginner",
+    "category": "Transactions",
+    "topic": "optimistic concurrency",
+    "questionType": "Definition",
+    "question": "What is optimistic concurrency, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-B-0144",
+    "level": "Beginner",
+    "category": "Views",
+    "topic": "view",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using view correctly?"
+  },
+  {
+    "id": "DB-B-0145",
+    "level": "Beginner",
+    "category": "Views",
+    "topic": "view",
+    "questionType": "Definition",
+    "question": "What is view, and what problem does it solve in database engineering and data persistence?"
+  },
+  {
+    "id": "DB-I-0001",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "CAP theorem",
+    "questionType": "Compare",
+    "question": "Compare CAP theorem with ACID. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0002",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "CAP theorem",
+    "questionType": "Mechanics",
+    "question": "Walk through how CAP theorem works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0003",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "OLTP",
+    "questionType": "Compare",
+    "question": "Compare OLTP with OLAP. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0004",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "OLTP",
+    "questionType": "Mechanics",
+    "question": "Walk through how OLTP works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0005",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "replication",
+    "questionType": "Compare",
+    "question": "Compare replication with sharding. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0006",
+    "level": "Intermediate",
+    "category": "Backup",
+    "topic": "WAL/PITR",
+    "questionType": "Compare",
+    "question": "Compare WAL/PITR with nightly dump. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0007",
+    "level": "Intermediate",
+    "category": "Backup",
+    "topic": "WAL/PITR",
+    "questionType": "Mechanics",
+    "question": "Walk through how WAL/PITR works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0008",
+    "level": "Intermediate",
+    "category": "Backup",
+    "topic": "logical backup",
+    "questionType": "Compare",
+    "question": "Compare logical backup with physical backup. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0009",
+    "level": "Intermediate",
+    "category": "Backup",
+    "topic": "logical backup",
+    "questionType": "Mechanics",
+    "question": "Walk through how logical backup works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0010",
+    "level": "Intermediate",
+    "category": "Connections",
+    "topic": "connection pool",
+    "questionType": "Compare",
+    "question": "Compare connection pool with direct connection per request. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0011",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare B-tree, hash, GIN, GiST, and BRIN indexes conceptually in PostgreSQL."
+  },
+  {
+    "id": "DB-I-0012",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare Redis Pub/Sub and Redis Streams."
+  },
+  {
+    "id": "DB-I-0013",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare logical and physical replication at a conceptual level."
+  },
+  {
+    "id": "DB-I-0014",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare optimistic and pessimistic locking."
+  },
+  {
+    "id": "DB-I-0015",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain 1NF, 2NF, 3NF, and BCNF with an example of a normalization problem."
+  },
+  {
+    "id": "DB-I-0016",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain PostgreSQL VACUUM, autovacuum, dead tuples, and table bloat."
+  },
+  {
+    "id": "DB-I-0017",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain cache-aside with Redis and common invalidation problems."
+  },
+  {
+    "id": "DB-I-0018",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain connection pooling and why too many database connections can reduce throughput."
+  },
+  {
+    "id": "DB-I-0019",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain transaction isolation levels and common anomalies."
+  },
+  {
+    "id": "DB-I-0020",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Given a workload, how would you choose among PostgreSQL, Redis, and MongoDB rather than selecting by popularity?"
+  },
+  {
+    "id": "DB-I-0021",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do MongoDB indexes and aggregation pipelines work at a high level?"
+  },
+  {
+    "id": "DB-I-0022",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do WAL and point-in-time recovery work in PostgreSQL?"
+  },
+  {
+    "id": "DB-I-0023",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are CTEs and window functions, and when are they useful?"
+  },
+  {
+    "id": "DB-I-0024",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are MongoDB multi-document transactions, and why should data modelling still try to avoid unnecessary cross-document transactions?"
+  },
+  {
+    "id": "DB-I-0025",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are Redis RDB and AOF persistence strategies?"
+  },
+  {
+    "id": "DB-I-0026",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What causes a database deadlock, and how does PostgreSQL recover from one?"
+  },
+  {
+    "id": "DB-I-0027",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What does EXPLAIN show, and how is EXPLAIN ANALYZE different?"
+  },
+  {
+    "id": "DB-I-0028",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is MVCC, and how does PostgreSQL use it to support concurrency?"
+  },
+  {
+    "id": "DB-I-0029",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a composite index, and how does column order affect its usefulness?"
+  },
+  {
+    "id": "DB-I-0030",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Why might PostgreSQL choose a sequential scan even when an index exists?"
+  },
+  {
+    "id": "DB-I-0031",
+    "level": "Intermediate",
+    "category": "HA",
+    "topic": "failover",
+    "questionType": "Compare",
+    "question": "Compare failover with backup restore. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0032",
+    "level": "Intermediate",
+    "category": "HA",
+    "topic": "failover",
+    "questionType": "Mechanics",
+    "question": "Walk through how failover works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0033",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How do MVCC snapshots let readers and writers proceed concurrently, and what cleanup problem does this create?"
+  },
+  {
+    "id": "DB-I-0034",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How do you diagnose and resolve a recurring deadlock between two application workflows?"
+  },
+  {
+    "id": "DB-I-0035",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you choose column order for a composite B-tree index based on real query patterns?"
+  },
+  {
+    "id": "DB-I-0036",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "When does denormalization improve a system, and what consistency costs does it introduce?"
+  },
+  {
+    "id": "DB-I-0037",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Why might PostgreSQL choose a sequential scan even when a relevant index exists?"
+  },
+  {
+    "id": "DB-I-0038",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "B-tree index",
+    "questionType": "Compare",
+    "question": "Compare B-tree index with hash index. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0039",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "B-tree index",
+    "questionType": "Mechanics",
+    "question": "Walk through how B-tree index works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0040",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "BRIN index",
+    "questionType": "Compare",
+    "question": "Compare BRIN index with B-tree index. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0041",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "BRIN index",
+    "questionType": "Mechanics",
+    "question": "Walk through how BRIN index works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0042",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "GIN index",
+    "questionType": "Compare",
+    "question": "Compare GIN index with GiST index. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0043",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "GIN index",
+    "questionType": "Mechanics",
+    "question": "Walk through how GIN index works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0044",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "composite index",
+    "questionType": "Compare",
+    "question": "Compare composite index with multiple single-column indexes. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0045",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "composite index",
+    "questionType": "Mechanics",
+    "question": "Walk through how composite index works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0046",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "covering/index-only scan",
+    "questionType": "Compare",
+    "question": "Compare covering/index-only scan with heap lookup. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0047",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "covering/index-only scan",
+    "questionType": "Mechanics",
+    "question": "Walk through how covering/index-only scan works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0048",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "partial index",
+    "questionType": "Compare",
+    "question": "Compare partial index with full index. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0049",
+    "level": "Intermediate",
+    "category": "Indexes",
+    "topic": "partial index",
+    "questionType": "Mechanics",
+    "question": "Walk through how partial index works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0050",
+    "level": "Intermediate",
+    "category": "Maintenance",
+    "topic": "VACUUM",
+    "questionType": "Compare",
+    "question": "Compare VACUUM with ANALYZE. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0051",
+    "level": "Intermediate",
+    "category": "Maintenance",
+    "topic": "VACUUM",
+    "questionType": "Mechanics",
+    "question": "Walk through how VACUUM works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0052",
+    "level": "Intermediate",
+    "category": "Maintenance",
+    "topic": "autovacuum",
+    "questionType": "Compare",
+    "question": "Compare autovacuum with manual vacuum. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0053",
+    "level": "Intermediate",
+    "category": "Maintenance",
+    "topic": "autovacuum",
+    "questionType": "Mechanics",
+    "question": "Walk through how autovacuum works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0054",
+    "level": "Intermediate",
+    "category": "Modeling",
+    "topic": "1NF/2NF/3NF",
+    "questionType": "Compare",
+    "question": "Compare 1NF/2NF/3NF with BCNF. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0055",
+    "level": "Intermediate",
+    "category": "Modeling",
+    "topic": "1NF/2NF/3NF",
+    "questionType": "Mechanics",
+    "question": "Walk through how 1NF/2NF/3NF works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0056",
+    "level": "Intermediate",
+    "category": "MongoDB",
+    "topic": "MongoDB index",
+    "questionType": "Compare",
+    "question": "Compare MongoDB index with collection scan. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0057",
+    "level": "Intermediate",
+    "category": "MongoDB",
+    "topic": "MongoDB index",
+    "questionType": "Mechanics",
+    "question": "Walk through how MongoDB index works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0058",
+    "level": "Intermediate",
+    "category": "MongoDB",
+    "topic": "aggregation pipeline",
+    "questionType": "Compare",
+    "question": "Compare aggregation pipeline with application-side aggregation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0059",
+    "level": "Intermediate",
+    "category": "MongoDB",
+    "topic": "aggregation pipeline",
+    "questionType": "Mechanics",
+    "question": "Walk through how aggregation pipeline works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0060",
+    "level": "Intermediate",
+    "category": "MongoDB",
+    "topic": "document embedding",
+    "questionType": "Compare",
+    "question": "Compare document embedding with references. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0061",
+    "level": "Intermediate",
+    "category": "MongoDB",
+    "topic": "document embedding",
+    "questionType": "Mechanics",
+    "question": "Walk through how document embedding works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0062",
+    "level": "Intermediate",
+    "category": "MongoDB",
+    "topic": "multi-document transaction",
+    "questionType": "Compare",
+    "question": "Compare multi-document transaction with single-document atomicity. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0063",
+    "level": "Intermediate",
+    "category": "MongoDB",
+    "topic": "multi-document transaction",
+    "questionType": "Mechanics",
+    "question": "Walk through how multi-document transaction works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0064",
+    "level": "Intermediate",
+    "category": "MongoDB",
+    "topic": "replica set",
+    "questionType": "Compare",
+    "question": "Compare replica set with sharded cluster. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0065",
+    "level": "Intermediate",
+    "category": "MongoDB",
+    "topic": "replica set",
+    "questionType": "Mechanics",
+    "question": "Walk through how replica set works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0066",
+    "level": "Intermediate",
+    "category": "Monitoring",
+    "topic": "slow query log",
+    "questionType": "Compare",
+    "question": "Compare slow query log with application log. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0067",
+    "level": "Intermediate",
+    "category": "Monitoring",
+    "topic": "slow query log",
+    "questionType": "Mechanics",
+    "question": "Walk through how slow query log works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0068",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "N+1 queries",
+    "questionType": "Compare",
+    "question": "Compare N+1 queries with set-based SQL. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0069",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "N+1 queries",
+    "questionType": "Mechanics",
+    "question": "Walk through how N+1 queries works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0070",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "sequential scan",
+    "questionType": "Compare",
+    "question": "Compare sequential scan with index scan. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0071",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "sequential scan",
+    "questionType": "Mechanics",
+    "question": "Walk through how sequential scan works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0072",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "statistics/analyze",
+    "questionType": "Compare",
+    "question": "Compare statistics/analyze with query hints. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0073",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "statistics/analyze",
+    "questionType": "Mechanics",
+    "question": "Walk through how statistics/analyze works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0074",
+    "level": "Intermediate",
+    "category": "Planner",
+    "topic": "EXPLAIN",
+    "questionType": "Compare",
+    "question": "Compare EXPLAIN with EXPLAIN ANALYZE. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0075",
+    "level": "Intermediate",
+    "category": "Planner",
+    "topic": "EXPLAIN",
+    "questionType": "Mechanics",
+    "question": "Walk through how EXPLAIN works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0076",
+    "level": "Intermediate",
+    "category": "Planner",
+    "topic": "query planner",
+    "questionType": "Compare",
+    "question": "Compare query planner with query executor. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0077",
+    "level": "Intermediate",
+    "category": "Planner",
+    "topic": "query planner",
+    "questionType": "Mechanics",
+    "question": "Walk through how query planner works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0078",
+    "level": "Intermediate",
+    "category": "PostgreSQL",
+    "topic": "JSONB",
+    "questionType": "Compare",
+    "question": "Compare JSONB with normalized tables. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0079",
+    "level": "Intermediate",
+    "category": "PostgreSQL",
+    "topic": "JSONB",
+    "questionType": "Mechanics",
+    "question": "Walk through how JSONB works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0080",
+    "level": "Intermediate",
+    "category": "PostgreSQL",
+    "topic": "MVCC",
+    "questionType": "Compare",
+    "question": "Compare MVCC with locking-only concurrency. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0081",
+    "level": "Intermediate",
+    "category": "PostgreSQL",
+    "topic": "MVCC",
+    "questionType": "Mechanics",
+    "question": "Walk through how MVCC works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0082",
+    "level": "Intermediate",
+    "category": "PostgreSQL",
+    "topic": "PostgreSQL process model",
+    "questionType": "Compare",
+    "question": "Compare PostgreSQL process model with threaded server. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0083",
+    "level": "Intermediate",
+    "category": "PostgreSQL",
+    "topic": "PostgreSQL process model",
+    "questionType": "Mechanics",
+    "question": "Walk through how PostgreSQL process model works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0084",
+    "level": "Intermediate",
+    "category": "PostgreSQL",
+    "topic": "partitioning",
+    "questionType": "Compare",
+    "question": "Compare partitioning with sharding. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0085",
+    "level": "Intermediate",
+    "category": "PostgreSQL",
+    "topic": "partitioning",
+    "questionType": "Mechanics",
+    "question": "Walk through how partitioning works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0086",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "Redis string",
+    "questionType": "Compare",
+    "question": "Compare Redis string with hash. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0087",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "Redis string",
+    "questionType": "Mechanics",
+    "question": "Walk through how Redis string works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0088",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "TTL",
+    "questionType": "Compare",
+    "question": "Compare TTL with manual expiration job. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0089",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "TTL",
+    "questionType": "Mechanics",
+    "question": "Walk through how TTL works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0090",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "cache-aside",
+    "questionType": "Compare",
+    "question": "Compare cache-aside with write-through cache. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0091",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "distributed lock",
+    "questionType": "Compare",
+    "question": "Compare distributed lock with database advisory lock. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0092",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "hot key",
+    "questionType": "Compare",
+    "question": "Compare hot key with even key distribution. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0093",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "hot key",
+    "questionType": "Mechanics",
+    "question": "Walk through how hot key works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0094",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "persistence RDB",
+    "questionType": "Compare",
+    "question": "Compare persistence RDB with AOF. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0095",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "persistence RDB",
+    "questionType": "Mechanics",
+    "question": "Walk through how persistence RDB works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0096",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "replication",
+    "questionType": "Compare",
+    "question": "Compare replication with Redis Cluster. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0097",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "replication",
+    "questionType": "Mechanics",
+    "question": "Walk through how replication works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0098",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "set",
+    "questionType": "Compare",
+    "question": "Compare set with sorted set. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0099",
+    "level": "Intermediate",
+    "category": "Redis",
+    "topic": "stream",
+    "questionType": "Compare",
+    "question": "Compare stream with pub/sub. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0100",
+    "level": "Intermediate",
+    "category": "Relational",
+    "topic": "foreign key",
+    "questionType": "Compare",
+    "question": "Compare foreign key with application-only relationship. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0101",
+    "level": "Intermediate",
+    "category": "Relational",
+    "topic": "foreign key",
+    "questionType": "Mechanics",
+    "question": "Walk through how foreign key works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0102",
+    "level": "Intermediate",
+    "category": "Relational",
+    "topic": "primary key",
+    "questionType": "Compare",
+    "question": "Compare primary key with unique constraint. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0103",
+    "level": "Intermediate",
+    "category": "Relational",
+    "topic": "primary key",
+    "questionType": "Mechanics",
+    "question": "Walk through how primary key works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0104",
+    "level": "Intermediate",
+    "category": "Replication",
+    "topic": "streaming replication",
+    "questionType": "Compare",
+    "question": "Compare streaming replication with logical replication. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0105",
+    "level": "Intermediate",
+    "category": "Replication",
+    "topic": "streaming replication",
+    "questionType": "Mechanics",
+    "question": "Walk through how streaming replication works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0106",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "GROUP BY",
+    "questionType": "Compare",
+    "question": "Compare GROUP BY with window function. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0107",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "GROUP BY",
+    "questionType": "Mechanics",
+    "question": "Walk through how GROUP BY works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0108",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "INNER JOIN",
+    "questionType": "Compare",
+    "question": "Compare INNER JOIN with LEFT JOIN. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0109",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "INNER JOIN",
+    "questionType": "Mechanics",
+    "question": "Walk through how INNER JOIN works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0110",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "NULL semantics",
+    "questionType": "Compare",
+    "question": "Compare NULL semantics with empty string. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0111",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "NULL semantics",
+    "questionType": "Mechanics",
+    "question": "Walk through how NULL semantics works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0112",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "ROW_NUMBER",
+    "questionType": "Compare",
+    "question": "Compare ROW_NUMBER with RANK/DENSE_RANK. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0113",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "ROW_NUMBER",
+    "questionType": "Mechanics",
+    "question": "Walk through how ROW_NUMBER works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0114",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "UNION",
+    "questionType": "Compare",
+    "question": "Compare UNION with UNION ALL. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0115",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "UNION",
+    "questionType": "Mechanics",
+    "question": "Walk through how UNION works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0116",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "correlated subquery",
+    "questionType": "Compare",
+    "question": "Compare correlated subquery with join. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0117",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "correlated subquery",
+    "questionType": "Mechanics",
+    "question": "Walk through how correlated subquery works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0118",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "subquery",
+    "questionType": "Compare",
+    "question": "Compare subquery with CTE. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0119",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "subquery",
+    "questionType": "Mechanics",
+    "question": "Walk through how subquery works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0120",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "window function",
+    "questionType": "Compare",
+    "question": "Compare window function with GROUP BY. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0121",
+    "level": "Intermediate",
+    "category": "SQL",
+    "topic": "window function",
+    "questionType": "Mechanics",
+    "question": "Walk through how window function works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0122",
+    "level": "Intermediate",
+    "category": "Schema",
+    "topic": "schema migration",
+    "questionType": "Compare",
+    "question": "Compare schema migration with manual production edit. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0123",
+    "level": "Intermediate",
+    "category": "Schema",
+    "topic": "schema migration",
+    "questionType": "Mechanics",
+    "question": "Walk through how schema migration works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0124",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "role",
+    "questionType": "Compare",
+    "question": "Compare role with user. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0125",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "row-level security",
+    "questionType": "Compare",
+    "question": "Compare row-level security with application filtering. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0126",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "row-level security",
+    "questionType": "Mechanics",
+    "question": "Walk through how row-level security works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0127",
+    "level": "Intermediate",
+    "category": "Selection",
+    "topic": "PostgreSQL",
+    "questionType": "Compare",
+    "question": "Compare PostgreSQL with MongoDB. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0128",
+    "level": "Intermediate",
+    "category": "Selection",
+    "topic": "PostgreSQL",
+    "questionType": "Mechanics",
+    "question": "Walk through how PostgreSQL works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0129",
+    "level": "Intermediate",
+    "category": "Selection",
+    "topic": "Redis",
+    "questionType": "Compare",
+    "question": "Compare Redis with PostgreSQL. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0130",
+    "level": "Intermediate",
+    "category": "Selection",
+    "topic": "Redis",
+    "questionType": "Mechanics",
+    "question": "Walk through how Redis works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0131",
+    "level": "Intermediate",
+    "category": "Server Logic",
+    "topic": "function/procedure",
+    "questionType": "Compare",
+    "question": "Compare function/procedure with application service. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0132",
+    "level": "Intermediate",
+    "category": "Server Logic",
+    "topic": "function/procedure",
+    "questionType": "Mechanics",
+    "question": "Walk through how function/procedure works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0133",
+    "level": "Intermediate",
+    "category": "Server Logic",
+    "topic": "trigger",
+    "questionType": "Compare",
+    "question": "Compare trigger with application hook. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0134",
+    "level": "Intermediate",
+    "category": "Server Logic",
+    "topic": "trigger",
+    "questionType": "Mechanics",
+    "question": "Walk through how trigger works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0135",
+    "level": "Intermediate",
+    "category": "Transactions",
+    "topic": "ACID",
+    "questionType": "Compare",
+    "question": "Compare ACID with eventual consistency. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0136",
+    "level": "Intermediate",
+    "category": "Transactions",
+    "topic": "ACID",
+    "questionType": "Mechanics",
+    "question": "Walk through how ACID works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0137",
+    "level": "Intermediate",
+    "category": "Transactions",
+    "topic": "READ COMMITTED",
+    "questionType": "Compare",
+    "question": "Compare READ COMMITTED with REPEATABLE READ. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0138",
+    "level": "Intermediate",
+    "category": "Transactions",
+    "topic": "READ COMMITTED",
+    "questionType": "Mechanics",
+    "question": "Walk through how READ COMMITTED works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0139",
+    "level": "Intermediate",
+    "category": "Transactions",
+    "topic": "SERIALIZABLE",
+    "questionType": "Compare",
+    "question": "Compare SERIALIZABLE with REPEATABLE READ. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0140",
+    "level": "Intermediate",
+    "category": "Transactions",
+    "topic": "SERIALIZABLE",
+    "questionType": "Mechanics",
+    "question": "Walk through how SERIALIZABLE works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0141",
+    "level": "Intermediate",
+    "category": "Transactions",
+    "topic": "deadlock",
+    "questionType": "Compare",
+    "question": "Compare deadlock with lock wait. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0142",
+    "level": "Intermediate",
+    "category": "Transactions",
+    "topic": "optimistic concurrency",
+    "questionType": "Compare",
+    "question": "Compare optimistic concurrency with pessimistic locking. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0143",
+    "level": "Intermediate",
+    "category": "Transactions",
+    "topic": "optimistic concurrency",
+    "questionType": "Mechanics",
+    "question": "Walk through how optimistic concurrency works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-I-0144",
+    "level": "Intermediate",
+    "category": "Views",
+    "topic": "view",
+    "questionType": "Compare",
+    "question": "Compare view with materialized view. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "DB-I-0145",
+    "level": "Intermediate",
+    "category": "Views",
+    "topic": "view",
+    "questionType": "Mechanics",
+    "question": "Walk through how view works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "DB-A-0001",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "CAP theorem",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around CAP theorem. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0002",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "CAP theorem",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with CAP theorem? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0003",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "OLTP",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around OLTP. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0004",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "OLTP",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with OLTP? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0005",
+    "level": "Advanced",
+    "category": "Backup",
+    "topic": "WAL/PITR",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around WAL/PITR. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0006",
+    "level": "Advanced",
+    "category": "Backup",
+    "topic": "WAL/PITR",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with WAL/PITR? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0007",
+    "level": "Advanced",
+    "category": "Backup",
+    "topic": "logical backup",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around logical backup. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0008",
+    "level": "Advanced",
+    "category": "Backup",
+    "topic": "logical backup",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with logical backup? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0009",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare Redis Sentinel and Cluster concepts and the trade-offs of sharding data across nodes."
+  },
+  {
+    "id": "DB-A-0010",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare native partitioning, application sharding, and distributed PostgreSQL approaches."
+  },
+  {
+    "id": "DB-A-0011",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare normalized relational modelling with document embedding for the same ecommerce domain."
+  },
+  {
+    "id": "DB-A-0012",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design Redis caching that survives node failures while preventing stale or inconsistent critical data."
+  },
+  {
+    "id": "DB-A-0013",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a Redis-based distributed lock and explain the correctness limitations you must consider."
+  },
+  {
+    "id": "DB-A-0014",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design an indexing strategy for a multi-column filtering/sorting workload with several competing query patterns."
+  },
+  {
+    "id": "DB-A-0015",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design backup/PITR/restore procedures and prove they meet specific RPO/RTO objectives."
+  },
+  {
+    "id": "DB-A-0016",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design high availability for PostgreSQL and discuss synchronous versus asynchronous replication trade-offs."
+  },
+  {
+    "id": "DB-A-0017",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design observability for database health: latency, locks, cache hit rates, replication, vacuum, storage, and query distribution."
+  },
+  {
+    "id": "DB-A-0018",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Diagnose a PostgreSQL query whose plan changed from milliseconds to seconds after data growth despite unchanged SQL."
+  },
+  {
+    "id": "DB-A-0019",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Diagnose a production deadlock from database logs and application behavior."
+  },
+  {
+    "id": "DB-A-0020",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain MVCC snapshots deeply and how long-running transactions can interfere with vacuuming."
+  },
+  {
+    "id": "DB-A-0021",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain cache stampede, avalanche, penetration, hot keys, and eviction-induced failures and their mitigations."
+  },
+  {
+    "id": "DB-A-0022",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain how replication lag can produce stale reads and how application architecture can accommodate it."
+  },
+  {
+    "id": "DB-A-0023",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you choose an appropriate transaction isolation level for financial ledger operations?"
+  },
+  {
+    "id": "DB-A-0024",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you design a MongoDB shard key for an access pattern that has both hotspot and range-query risks?"
+  },
+  {
+    "id": "DB-A-0025",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you identify and fix index bloat, table bloat, poor statistics, or parameter-sensitive query planning?"
+  },
+  {
+    "id": "DB-A-0026",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you migrate a multi-terabyte PostgreSQL table with minimal downtime?"
+  },
+  {
+    "id": "DB-A-0027",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you safely change a frequently queried large table's schema in a zero-downtime deployment?"
+  },
+  {
+    "id": "DB-A-0028",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "In a database-system-design interview, design the persistence layer for a high-volume order platform and justify schema, indexes, transactions, caching, replication, partitioning, backup, and failure recovery."
+  },
+  {
+    "id": "DB-A-0029",
+    "level": "Advanced",
+    "category": "HA",
+    "topic": "failover",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around failover. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0030",
+    "level": "Advanced",
+    "category": "HA",
+    "topic": "failover",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with failover? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0031",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "A query was fast for months and suddenly became slow without a code change. Build a PostgreSQL investigation covering data growth, statistics, plan changes, bloat, locks, and infrastructure."
+  },
+  {
+    "id": "DB-A-0032",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design PostgreSQL high availability with backups, PITR, replicas, failover, connection routing, and regular restore testing."
+  },
+  {
+    "id": "DB-A-0033",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design a data model that deliberately combines PostgreSQL, Redis, and a document store, and justify why each datastore owns specific data."
+  },
+  {
+    "id": "DB-A-0034",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design a zero-downtime migration for a multi-billion-row table while application traffic continues."
+  },
+  {
+    "id": "DB-A-0035",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Explain how you would detect and mitigate Redis hot keys and memory pressure in a high-throughput cache."
+  },
+  {
+    "id": "DB-A-0036",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "B-tree index",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around B-tree index. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0037",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "B-tree index",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with B-tree index? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0038",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "BRIN index",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around BRIN index. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0039",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "BRIN index",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with BRIN index? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0040",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "GIN index",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around GIN index. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0041",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "GIN index",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with GIN index? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0042",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "composite index",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around composite index. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0043",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "composite index",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with composite index? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0044",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "covering/index-only scan",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around covering/index-only scan. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0045",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "covering/index-only scan",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with covering/index-only scan? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0046",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "partial index",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around partial index. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0047",
+    "level": "Advanced",
+    "category": "Indexes",
+    "topic": "partial index",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with partial index? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0048",
+    "level": "Advanced",
+    "category": "Maintenance",
+    "topic": "VACUUM",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around VACUUM. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0049",
+    "level": "Advanced",
+    "category": "Maintenance",
+    "topic": "VACUUM",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with VACUUM? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0050",
+    "level": "Advanced",
+    "category": "Maintenance",
+    "topic": "autovacuum",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around autovacuum. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0051",
+    "level": "Advanced",
+    "category": "Maintenance",
+    "topic": "autovacuum",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with autovacuum? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0052",
+    "level": "Advanced",
+    "category": "Modeling",
+    "topic": "1NF/2NF/3NF",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around 1NF/2NF/3NF. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0053",
+    "level": "Advanced",
+    "category": "Modeling",
+    "topic": "1NF/2NF/3NF",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with 1NF/2NF/3NF? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0054",
+    "level": "Advanced",
+    "category": "MongoDB",
+    "topic": "MongoDB index",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around MongoDB index. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0055",
+    "level": "Advanced",
+    "category": "MongoDB",
+    "topic": "MongoDB index",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with MongoDB index? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0056",
+    "level": "Advanced",
+    "category": "MongoDB",
+    "topic": "aggregation pipeline",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around aggregation pipeline. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0057",
+    "level": "Advanced",
+    "category": "MongoDB",
+    "topic": "aggregation pipeline",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with aggregation pipeline? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0058",
+    "level": "Advanced",
+    "category": "MongoDB",
+    "topic": "document embedding",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around document embedding. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0059",
+    "level": "Advanced",
+    "category": "MongoDB",
+    "topic": "document embedding",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with document embedding? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0060",
+    "level": "Advanced",
+    "category": "MongoDB",
+    "topic": "multi-document transaction",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around multi-document transaction. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0061",
+    "level": "Advanced",
+    "category": "MongoDB",
+    "topic": "multi-document transaction",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with multi-document transaction? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0062",
+    "level": "Advanced",
+    "category": "MongoDB",
+    "topic": "replica set",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around replica set. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0063",
+    "level": "Advanced",
+    "category": "MongoDB",
+    "topic": "replica set",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with replica set? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0064",
+    "level": "Advanced",
+    "category": "Monitoring",
+    "topic": "slow query log",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around slow query log. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0065",
+    "level": "Advanced",
+    "category": "Monitoring",
+    "topic": "slow query log",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with slow query log? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0066",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "N+1 queries",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around N+1 queries. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0067",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "N+1 queries",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with N+1 queries? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0068",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "sequential scan",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around sequential scan. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0069",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "sequential scan",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with sequential scan? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0070",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "statistics/analyze",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around statistics/analyze. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0071",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "statistics/analyze",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with statistics/analyze? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0072",
+    "level": "Advanced",
+    "category": "Planner",
+    "topic": "EXPLAIN",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around EXPLAIN. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0073",
+    "level": "Advanced",
+    "category": "Planner",
+    "topic": "EXPLAIN",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with EXPLAIN? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0074",
+    "level": "Advanced",
+    "category": "Planner",
+    "topic": "query planner",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around query planner. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0075",
+    "level": "Advanced",
+    "category": "Planner",
+    "topic": "query planner",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with query planner? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0076",
+    "level": "Advanced",
+    "category": "PostgreSQL",
+    "topic": "JSONB",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around JSONB. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0077",
+    "level": "Advanced",
+    "category": "PostgreSQL",
+    "topic": "JSONB",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with JSONB? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0078",
+    "level": "Advanced",
+    "category": "PostgreSQL",
+    "topic": "MVCC",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around MVCC. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0079",
+    "level": "Advanced",
+    "category": "PostgreSQL",
+    "topic": "MVCC",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with MVCC? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0080",
+    "level": "Advanced",
+    "category": "PostgreSQL",
+    "topic": "PostgreSQL process model",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around PostgreSQL process model. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0081",
+    "level": "Advanced",
+    "category": "PostgreSQL",
+    "topic": "PostgreSQL process model",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with PostgreSQL process model? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0082",
+    "level": "Advanced",
+    "category": "PostgreSQL",
+    "topic": "partitioning",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around partitioning. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0083",
+    "level": "Advanced",
+    "category": "PostgreSQL",
+    "topic": "partitioning",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with partitioning? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0084",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "Redis string",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Redis string. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0085",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "Redis string",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Redis string? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0086",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "TTL",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around TTL. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0087",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "TTL",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with TTL? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0088",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "hot key",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around hot key. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0089",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "hot key",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with hot key? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0090",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "persistence RDB",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around persistence RDB. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0091",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "persistence RDB",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with persistence RDB? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0092",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "replication",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around replication. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0093",
+    "level": "Advanced",
+    "category": "Redis",
+    "topic": "replication",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with replication? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0094",
+    "level": "Advanced",
+    "category": "Relational",
+    "topic": "foreign key",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around foreign key. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0095",
+    "level": "Advanced",
+    "category": "Relational",
+    "topic": "foreign key",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with foreign key? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0096",
+    "level": "Advanced",
+    "category": "Relational",
+    "topic": "primary key",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around primary key. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0097",
+    "level": "Advanced",
+    "category": "Relational",
+    "topic": "primary key",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with primary key? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0098",
+    "level": "Advanced",
+    "category": "Replication",
+    "topic": "streaming replication",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around streaming replication. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0099",
+    "level": "Advanced",
+    "category": "Replication",
+    "topic": "streaming replication",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with streaming replication? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0100",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "GROUP BY",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around GROUP BY. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0101",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "GROUP BY",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with GROUP BY? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0102",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "INNER JOIN",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around INNER JOIN. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0103",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "INNER JOIN",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with INNER JOIN? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0104",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "NULL semantics",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around NULL semantics. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0105",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "NULL semantics",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with NULL semantics? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0106",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "ROW_NUMBER",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around ROW_NUMBER. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0107",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "ROW_NUMBER",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with ROW_NUMBER? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0108",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "UNION",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around UNION. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0109",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "UNION",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with UNION? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0110",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "correlated subquery",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around correlated subquery. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0111",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "correlated subquery",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with correlated subquery? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0112",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "subquery",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around subquery. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0113",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "subquery",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with subquery? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0114",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "window function",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around window function. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0115",
+    "level": "Advanced",
+    "category": "SQL",
+    "topic": "window function",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with window function? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0116",
+    "level": "Advanced",
+    "category": "Schema",
+    "topic": "schema migration",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around schema migration. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0117",
+    "level": "Advanced",
+    "category": "Schema",
+    "topic": "schema migration",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with schema migration? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0118",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "row-level security",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around row-level security. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0119",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "row-level security",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with row-level security? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0120",
+    "level": "Advanced",
+    "category": "Selection",
+    "topic": "PostgreSQL",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around PostgreSQL. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0121",
+    "level": "Advanced",
+    "category": "Selection",
+    "topic": "PostgreSQL",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with PostgreSQL? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0122",
+    "level": "Advanced",
+    "category": "Selection",
+    "topic": "Redis",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Redis. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0123",
+    "level": "Advanced",
+    "category": "Selection",
+    "topic": "Redis",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Redis? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0124",
+    "level": "Advanced",
+    "category": "Server Logic",
+    "topic": "function/procedure",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around function/procedure. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0125",
+    "level": "Advanced",
+    "category": "Server Logic",
+    "topic": "function/procedure",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with function/procedure? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0126",
+    "level": "Advanced",
+    "category": "Server Logic",
+    "topic": "trigger",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around trigger. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0127",
+    "level": "Advanced",
+    "category": "Server Logic",
+    "topic": "trigger",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with trigger? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0128",
+    "level": "Advanced",
+    "category": "Transactions",
+    "topic": "ACID",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around ACID. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0129",
+    "level": "Advanced",
+    "category": "Transactions",
+    "topic": "ACID",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with ACID? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0130",
+    "level": "Advanced",
+    "category": "Transactions",
+    "topic": "READ COMMITTED",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around READ COMMITTED. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0131",
+    "level": "Advanced",
+    "category": "Transactions",
+    "topic": "READ COMMITTED",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with READ COMMITTED? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0132",
+    "level": "Advanced",
+    "category": "Transactions",
+    "topic": "SERIALIZABLE",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around SERIALIZABLE. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0133",
+    "level": "Advanced",
+    "category": "Transactions",
+    "topic": "SERIALIZABLE",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with SERIALIZABLE? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0134",
+    "level": "Advanced",
+    "category": "Transactions",
+    "topic": "optimistic concurrency",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around optimistic concurrency. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0135",
+    "level": "Advanced",
+    "category": "Transactions",
+    "topic": "optimistic concurrency",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with optimistic concurrency? How would you design around them?"
+  },
+  {
+    "id": "DB-A-0136",
+    "level": "Advanced",
+    "category": "Views",
+    "topic": "view",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around view. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "DB-A-0137",
+    "level": "Advanced",
+    "category": "Views",
+    "topic": "view",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with view? How would you design around them?"
+  }
+]

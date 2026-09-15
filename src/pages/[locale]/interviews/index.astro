@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { locales, type Locale, isLocale } from '../../../i18n/config';
+import { localePath, locales, type Locale, isLocale } from '../../../i18n/config';
+import { interviewCatalog, trackMetaForInterview } from '../../../data/interviews';
 
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale } }));
@@ -10,30 +11,121 @@ export function getStaticPaths() {
 const localeParam = Astro.params.locale ?? 'en';
 const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
 const isBn = locale === 'bn';
-const interviews = await getCollection('interviews');
+const deepDives = (await getCollection('interviews')).sort((a, b) => a.data.question.localeCompare(b.data.question));
 ---
 
-<BaseLayout locale={locale} title={isBn ? 'ইন্টারভিউ ব্যাংক' : 'Interview bank'} description="Career and technology interview questions with depth by level.">
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-    <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold">{isBn ? 'ইন্টারভিউ ব্যাংক' : 'Interview bank'}</h1>
-    <p class="mt-3 text-[var(--color-ink-muted)]">
-      {isBn ? 'গভীরতা অগ্রাধিকার—তুচ্ছ “X কী?” প্রশ্ন নয়।' : 'Depth over trivia—junior through senior/lead framing.'}
-    </p>
-    <div class="mt-8 space-y-4">
-      {
-        interviews.map((item) => (
-          <article class="surface-card">
-            <p class="badge">{item.data.difficulty}</p>
-            <h2 class="mt-2 text-lg font-semibold text-[var(--color-ink)]">{item.data.question}</h2>
-            <p class="mt-2 text-sm text-[var(--color-ink-muted)]"><strong>Short:</strong> {item.data.shortAnswer}</p>
-            <details class="mt-2 text-sm text-[var(--color-ink-muted)]">
-              <summary class="cursor-pointer font-medium text-[var(--color-ink)]">{isBn ? 'শক্তিশালী উত্তর' : 'Strong answer'}</summary>
-              <p class="mt-2">{item.data.strongAnswer}</p>
-              {item.data.advancedAnswer && <p class="mt-2"><strong>Advanced:</strong> {item.data.advancedAnswer}</p>}
-            </details>
-          </article>
-        ))
-      }
-    </div>
+<BaseLayout
+  locale={locale}
+  title={isBn ? 'ইন্টারভিউ ব্যাংক' : 'Interview bank'}
+  description={
+    isBn
+      ? 'ট্র্যাক ও লেভেল অনুযায়ী ক্যানোনিকাল ইন্টারভিউ প্রশ্ন—সহ গভীর উত্তরসহ ডিপ ডাইভ।'
+      : 'Canonical interview prompts by track and level, plus deep-dive answers.'
+  }
+>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+    <header class="max-w-3xl">
+      <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold text-[var(--color-ink)]">
+        {isBn ? 'ইন্টারভিউ ব্যাংক' : 'Interview bank'}
+      </h1>
+      <p class="mt-3 text-[var(--color-ink-muted)]">
+        {
+          isBn
+            ? `${interviewCatalog.totalQuestions.toLocaleString('en-US')}টি ক্যানোনিকাল প্রশ্ন—১০টি ট্র্যাকে Beginner / Intermediate / Advanced।`
+            : `${interviewCatalog.totalQuestions.toLocaleString('en-US')} canonical prompts across 10 tracks—Beginner, Intermediate, and Advanced.`
+        }
+      </p>
+      <p class="mt-2 text-sm text-[var(--color-ink-subtle)]">
+        {interviewCatalog.methodology.goal}
+      </p>
+    </header>
+
+    <section class="mt-10">
+      <div class="mb-4 flex items-end justify-between gap-3">
+        <h2 class="font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--color-ink)]">
+          {isBn ? 'ট্র্যাক অনুযায়ী ব্রাউজ' : 'Browse by track'}
+        </h2>
+        <p class="text-xs text-[var(--color-ink-subtle)]">
+          {isBn ? `আপডেট: ${interviewCatalog.generatedAt}` : `Updated ${interviewCatalog.generatedAt}`}
+        </p>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {
+          interviewCatalog.tracks.map((track) => {
+            const meta = trackMetaForInterview(track.slug);
+            const title = meta ? (isBn ? meta.titleBn : meta.title) : track.label;
+            return (
+              <a
+                href={localePath(locale, `interviews/${track.slug}`)}
+                class="surface-card block no-underline transition hover:border-[var(--color-accent)]"
+              >
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="text-lg font-semibold text-[var(--color-ink)]">{title}</h3>
+                  <span class="badge">{track.count}</span>
+                </div>
+                <p class="mt-3 text-xs text-[var(--color-ink-subtle)]">
+                  B {track.byLevel.Beginner} · I {track.byLevel.Intermediate} · A {track.byLevel.Advanced}
+                </p>
+                <p class="mt-2 line-clamp-2 text-sm text-[var(--color-ink-muted)]">
+                  {track.categories.slice(0, 6).join(' · ')}
+                  {track.categories.length > 6 ? '…' : ''}
+                </p>
+              </a>
+            );
+          })
+        }
+      </div>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--color-ink)]">
+        {isBn ? 'ডিপ ডাইভ উত্তর' : 'Deep-dive answers'}
+      </h2>
+      <p class="mt-2 max-w-2xl text-sm text-[var(--color-ink-muted)]">
+        {
+          isBn
+            ? 'ছোট সেট—শর্ট/স্ট্রং/অ্যাডভান্সড উত্তরসহ। প্র্যাকটিস প্রম্পটের জন্য উপরে ট্র্যাক বেছে নিন।'
+            : 'Curated set with short/strong/advanced answers. Use the track browser above for the full prompt bank.'
+        }
+      </p>
+      <div class="mt-6 space-y-4">
+        {
+          deepDives.map((item) => (
+            <article class="surface-card">
+              <div class="flex flex-wrap items-center gap-2">
+                <p class="badge">{item.data.difficulty}</p>
+                {item.data.technology.slice(0, 3).map((tech) => (
+                  <span class="rounded-full bg-[var(--color-surface-2)] px-2 py-0.5 text-xs text-[var(--color-ink-subtle)]">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <h3 class="mt-2 text-lg font-semibold text-[var(--color-ink)]">{item.data.question}</h3>
+              <p class="mt-2 text-sm text-[var(--color-ink-muted)]">
+                <strong>{isBn ? 'সংক্ষিপ্ত:' : 'Short:'}</strong> {item.data.shortAnswer}
+              </p>
+              <details class="mt-2 text-sm text-[var(--color-ink-muted)]">
+                <summary class="cursor-pointer font-medium text-[var(--color-ink)]">
+                  {isBn ? 'শক্তিশালী উত্তর' : 'Strong answer'}
+                </summary>
+                <p class="mt-2">{item.data.strongAnswer}</p>
+                {item.data.advancedAnswer && (
+                  <p class="mt-2">
+                    <strong>Advanced:</strong> {item.data.advancedAnswer}
+                  </p>
+                )}
+                {item.data.followUps?.length > 0 && (
+                  <ul class="mt-2 list-disc space-y-1 pl-5">
+                    {item.data.followUps.map((f) => (
+                      <li>{f}</li>
+                    ))}
+                  </ul>
+                )}
+              </details>
+            </article>
+          ))
+        }
+      </div>
+    </section>
   </div>
 </BaseLayout>

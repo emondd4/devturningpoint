@@ -1,0 +1,92 @@
+---
+id: FRONTEND-TANSTACK-QUERY
+title: "TanStack Query (React Query) Overview"
+titleBn: "TanStack Query (React Query) সংক্ষিপ্ত পরিচিতি"
+description: "Server state: caching, deduping, staleness, and mutations without reinventing useEffect fetch."
+descriptionBn: "সার্ভার স্টেট: ক্যাশিং, ডিডুপ, staleness ও mutation—useEffect fetch পুনর্লিখন ছাড়া।"
+track: frontend
+category: data
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites:
+  - "FRONTEND-REACT-HOOKS"
+  - "FRONTEND-FETCH-HTTP-CLIENT"
+unlocks: []
+related:
+  - "FRONTEND-ZUSTAND-STATE"
+  - "FRONTEND-NEXTJS-DATA-FETCHING"
+careers:
+  - "frontend-engineer"
+tags:
+  - "tanstack-query"
+  - "react-query"
+  - "caching"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "TANSTACK-QUERY-OVERVIEW"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Ad-hoc `useEffect` + `useState` for every GET breeds race conditions, duplicate requests, and no shared cache. TanStack Query treats server data as a first-class cache with lifecycle.
+
+## Mental model
+
+<Callout type="mental-model">
+  Query keys identify cached data. Stale-while-revalidate keeps UI fast while refreshing. Mutations update server then invalidate/refetch related queries.
+</Callout>
+
+## How it works
+
+Wrap the app in QueryClientProvider. Use `useQuery` for reads and `useMutation` + `invalidateQueries` for writes. Keep keys stable and hierarchical.
+
+```tsx
+const topicsQuery = useQuery({
+  queryKey: ['topics', { track: 'frontend' }],
+  queryFn: () => getJson('/api/topics?track=frontend'),
+  staleTime: 30_000,
+});
+
+const createTopic = useMutation({
+  mutationFn: (body: { id: string }) =>
+    fetch('/api/topics', { method: 'POST', body: JSON.stringify(body) }),
+  onSuccess: () => queryClient.invalidateQueries({ queryKey: ['topics'] }),
+});
+```
+
+## Common mistakes
+
+- **Putting server cache into Redux/Zustand by default** — Use Query for server state; local UI state elsewhere.
+- **Unstable query keys** — New object identity every render busts the cache.
+- **Ignoring error/loading states** — Ship explicit UI for each.
+
+## Interview angle
+
+<Callout type="interview">
+  What is a query key, and how does invalidation after a mutation keep lists fresh?
+</Callout>
+
+## Practice checklist
+
+- [ ] Add useQuery for a list
+- [ ] Invalidate on create
+- [ ] Set a sensible staleTime
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `TANSTACK-QUERY-OVERVIEW`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

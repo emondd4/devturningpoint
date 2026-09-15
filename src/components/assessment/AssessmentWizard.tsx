@@ -5,6 +5,8 @@ import { saveAssessment, savePath } from '../../stores/progress';
 import { buildRoadmap } from '../../utils/graph';
 import { masterGraph } from '../../data/skill-graphs/master-graph';
 import { localePath, type Locale } from '../../i18n/config';
+import { learnPathForId, resolveTopicId } from '../../utils/topic-links';
+import { getTrackCurriculum } from '../../utils/topic-links';
 
 interface Props {
   locale: Locale;
@@ -34,12 +36,32 @@ export default function AssessmentWizard({ locale, bank, trackSlug, goalSkillIds
 
   const roadmap = useMemo(() => {
     if (!result) return null;
+    // Prefer published curriculum topics for actionable links; fall back to graph order.
+    const curriculum = getTrackCurriculum(bank.trackId);
+    if (curriculum.length > 0) {
+      const knownTopics = new Set(
+        result.demonstrated
+          .map((id) => resolveTopicId(id))
+          .filter((id): id is string => Boolean(id)),
+      );
+      const ordered = curriculum.filter((id) => !knownTopics.has(id));
+      const reasons: Record<string, string> = {};
+      for (const id of ordered) {
+        reasons[id] = 'Next published topic in this track curriculum';
+      }
+      return {
+        known: [...knownTopics],
+        missing: ordered,
+        ordered: ordered.length > 0 ? ordered : curriculum,
+        reasons,
+      };
+    }
     return buildRoadmap({
       graph: masterGraph,
       knownSkillIds: result.demonstrated,
       goalSkillIds,
     });
-  }, [result, goalSkillIds]);
+  }, [result, goalSkillIds, bank.trackId]);
 
   const onSubmit = async () => {
     setSaving(true);
@@ -60,11 +82,25 @@ export default function AssessmentWizard({ locale, bank, trackSlug, goalSkillIds
         recommendedStartId: score.recommendedStartId ?? undefined,
         answers,
       });
-      const path = buildRoadmap({
-        graph: masterGraph,
-        knownSkillIds: score.demonstrated,
-        goalSkillIds,
-      });
+      const path = (() => {
+        const curriculum = getTrackCurriculum(bank.trackId);
+        if (curriculum.length > 0) {
+          const knownTopics = new Set(
+            score.demonstrated
+              .map((id) => resolveTopicId(id))
+              .filter((id): id is string => Boolean(id)),
+          );
+          const ordered = curriculum.filter((id) => !knownTopics.has(id));
+          return {
+            ordered: ordered.length > 0 ? ordered : curriculum,
+          };
+        }
+        return buildRoadmap({
+          graph: masterGraph,
+          knownSkillIds: score.demonstrated,
+          goalSkillIds,
+        });
+      })();
       await savePath({
         trackId: bank.trackId,
         orderedSkillIds: path.ordered,
@@ -106,20 +142,26 @@ export default function AssessmentWizard({ locale, bank, trackSlug, goalSkillIds
           </div>
         </div>
         <ol className="space-y-3">
-          {roadmap.ordered.map((id, index) => (
+          {roadmap.ordered.map((id, index) => {
+            const href = learnPathForId(locale, id);
+            return (
             <li key={id} className="surface-card">
               <p className="font-medium text-[var(--color-ink)]">
                 {index + 1}. {id}
               </p>
               <p className="mt-1 text-sm text-[var(--color-ink-muted)]">{roadmap.reasons[id]}</p>
-              <a
-                className="mt-2 inline-block text-sm"
-                href={localePath(locale, `learn/${id.toLowerCase().replace(/_/g, '-')}`)}
-              >
-                {isBn ? 'টপিক খুলুন' : 'Open topic'}
-              </a>
+              {href ? (
+                <a className="mt-2 inline-block text-sm" href={href}>
+                  {isBn ? 'টপিক খুলুন' : 'Open topic'}
+                </a>
+              ) : (
+                <p className="mt-2 text-sm text-[var(--color-ink-subtle)]">
+                  {isBn ? 'প্রকাশিত টপিক নেই' : 'No published topic yet'}
+                </p>
+              )}
             </li>
-          ))}
+            );
+          })}
         </ol>
         <a className="btn btn-secondary" href={localePath(locale, `tracks/${trackSlug}`)}>
           {isBn ? 'ট্র্যাকে ফিরে যান' : 'Back to track'}

@@ -1,0 +1,84 @@
+---
+id: QA-SECURITY-TESTING-BASICS
+title: "Security Testing Awareness (OWASP)"
+titleBn: "সিকিউরিটি টেস্টিং সচেতনতা (OWASP)"
+description: "QA-oriented awareness of OWASP risks: auth, injection, XSS, and basic verification habits."
+descriptionBn: "OWASP ঝুঁকি নিয়ে QA সচেতনতা: অথ, ইনজেকশন, XSS ও মৌলিক যাচাই অভ্যাস।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites:
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+  - "QA-API-TESTING"
+unlocks:
+  []
+related:
+  - "QA-RISK-BASED-TESTING"
+  - "FULLSTACK-CSRF"
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+careers:
+  - "qa-engineer"
+  - "backend-engineer"
+tags:
+  - "qa"
+  - "security"
+  - "owasp"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "OWASP-TOP10"
+  - "OWASP-TESTING-GUIDE"
+  - "MDN-CSRF"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why QA cares about security
+
+You may not be a penetration tester, but you can catch missing authz, sensitive data leaks, and insecure defaults before release.
+
+## Mental model
+
+<Callout type="mental-model">
+  Use OWASP Top 10 as a risk lens: for each feature ask “what if an attacker or curious user abuses this?” Verify negative cases—forbidden roles, tampered IDs, unexpected payloads—not only happy paths.
+</Callout>
+
+## Awareness tests (non-exhaustive)
+
+- Horizontal/vertical privilege checks (IDOR-style).
+- Session logout and cookie flags at a high level.
+- Basic XSS/input reflection in UI fields.
+- CSRF awareness on cookie-authenticated state changes (see fullstack CSRF topic).
+
+## Common mistakes
+
+- **Only testing as admin** — Miss authorization bugs.
+- **Storing secrets in bug tickets** — Protect PII and tokens.
+- **Calling yourself a pentester after a checklist** — Know limits; escalate.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you test that user A cannot access user B’s invoices via the API?
+</Callout>
+
+## Practice checklist
+
+- [ ] Map Top 10 items to your product surfaces.
+- [ ] Add two negative authz cases to API tests.
+- [ ] Review one PR for security-relevant AC.
+
+## Sources
+
+- `OWASP-TOP10`
+- `OWASP-TESTING-GUIDE`
+- `MDN-CSRF`

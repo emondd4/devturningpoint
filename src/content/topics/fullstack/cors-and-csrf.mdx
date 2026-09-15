@@ -1,0 +1,43 @@
+---
+id: FULLSTACK-CORS-CSRF
+title: "CORS and CSRF Across the Stack"
+titleBn: "স্ট্যাক জুড়ে CORS ও CSRF"
+description: "Browser same-origin rules, CORS as a browser gate, and CSRF for cookie sessions."
+descriptionBn: "Same-origin, CORS এবং cookie session-এ CSRF।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 45
+prerequisites:
+  - FULLSTACK-AUTH-ACROSS-STACK
+  - FOUNDATIONS-NETWORKING-TCP-IP-HTTP
+unlocks: []
+related:
+  - BACKEND-SECURITY-BASICS
+careers:
+  - fullstack-engineer
+tags:
+  - security
+  - cors
+  - csrf
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - RFC-9110-HTTP
+  - OWASP-TOP10
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+<Callout type="warning" title="CORS is not auth">
+  CORS is enforced by browsers. Non-browser clients are unaffected. Never treat CORS as your authorization layer.
+</Callout>
+
+## CSRF
+
+If you use cookie-based sessions, attackers can trick browsers into sending those cookies on cross-site requests. Prefer anti-CSRF tokens or designs that avoid simple cookie session traps for state-changing requests.
+

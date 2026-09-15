@@ -1,0 +1,104 @@
+---
+id: FRONTEND-REACT-SERVER-COMPONENTS
+title: "React Server Components Overview"
+titleBn: "React Server Components সংক্ষিপ্ত পরিচিতি"
+description: "What RSC changes about the client bundle, data access, and the server/client boundary."
+descriptionBn: "RSC ক্লায়েন্ট বান্ডেল, ডেটা অ্যাক্সেস ও server/client সীমানা কীভাবে বদলায়।"
+track: frontend
+category: react
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FRONTEND-REACT-COMPONENTS-STATE"
+  - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+unlocks:
+  - "FRONTEND-NEXTJS-DATA-FETCHING"
+related:
+  - "FRONTEND-REACT-HOOKS"
+careers:
+  - "frontend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "react"
+  - "rsc"
+  - "nextjs"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "REACT-SERVER-COMPONENTS"
+  - "NEXTJS-SERVER-COMPONENTS"
+  - "REACT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Shipping all data-fetching and UI logic to the browser inflates bundles and leaks server concerns. Server Components render on the server, keep secrets/DB access off the client, and send a serialized UI result.
+
+## Mental model
+
+<Callout type="mental-model">
+  Default in App Router: Server Components. Add `"use client"` only for interactivity (state, effects, browser APIs). You can nest Client Components inside Server Components, not the reverse without composition patterns.
+</Callout>
+
+## How it works
+
+Fetch in Server Components, pass serializable props to Client Components. Do not import server-only modules into client files.
+
+```tsx
+// app/topics/page.tsx — Server Component (default)
+async function TopicsPage() {
+  const topics = await db.topics.findMany(); // server-only
+  return <TopicList initial={topics} />;
+}
+
+// TopicList.tsx
+'use client';
+export function TopicList({ initial }: { initial: { id: string }[] }) {
+  const [q, setQ] = useState('');
+  const filtered = initial.filter((t) => t.id.includes(q));
+  return (
+    <>
+      <input value={q} onChange={(e) => setQ(e.target.value)} />
+      <ul>{filtered.map((t) => <li key={t.id}>{t.id}</li>)}</ul>
+    </>
+  );
+}
+```
+
+## Common mistakes
+
+- **Marking everything use client** — Defeats RSC benefits.
+- **Passing non-serializable props** — Functions/classes across the boundary fail.
+- **Fetching secrets in client components** — Exposes keys; keep on server.
+
+## Interview angle
+
+<Callout type="interview">
+  What problem do Server Components solve versus classic CSR React, and when must a component be a Client Component?
+</Callout>
+
+## Practice checklist
+
+- [ ] Split a page into server shell + client island
+- [ ] Move a DB read to a Server Component
+- [ ] Find an accidental use client at the root
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `REACT-SERVER-COMPONENTS`
+- `NEXTJS-SERVER-COMPONENTS`
+- `REACT-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

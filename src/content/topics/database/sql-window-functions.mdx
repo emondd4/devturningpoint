@@ -1,0 +1,94 @@
+---
+id: DATABASE-SQL-WINDOW-FUNCTIONS
+title: "CTEs and Window Functions"
+titleBn: "CTE ও Window Function"
+description: "Readable multi-step SQL with WITH clauses and analytic window functions for rankings and running totals."
+descriptionBn: "WITH ক্লজ ও অ্যানালিটিক window function দিয়ে পঠনযোগ্য মাল্টি-স্টেপ SQL—র‍্যাঙ্কিং ও রানিং টোটাল।"
+track: database
+difficulty: advanced
+estimatedMinutes: 42
+prerequisites:
+  - "DATABASE-SQL-JOINS-AGGREGATION"
+unlocks:
+  - "DATABASE-POSTGRES-EXPLAIN"
+related:
+  - "DATABASE-POSTGRESQL-INDEXING"
+careers:
+  - "backend-engineer"
+  - "database-engineer"
+tags:
+  - "sql"
+  - "cte"
+  - "window-functions"
+  - "postgresql"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTGRES-QUERIES"
+  - "POSTGRES-WINDOW"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why nested subqueries become unreadable
+
+Business questions often need intermediate result sets: filter cohorts, then rank, then aggregate. CTEs name those steps; window functions compute across related rows without collapsing the grain.
+
+## Mental model
+
+<Callout type="mental-model">
+  `WITH` defines named subqueries you can reference. Window functions (`OVER (...)`) look at a partition of rows while keeping each row. `PARTITION BY` is the group; `ORDER BY` inside the window defines peer ordering.
+</Callout>
+
+```sql
+WITH recent_orders AS (
+  SELECT id, user_id, total_cents, created_at
+  FROM orders
+  WHERE created_at >= CURRENT_DATE - INTERVAL '30 days'
+)
+SELECT
+  user_id,
+  total_cents,
+  RANK() OVER (PARTITION BY user_id ORDER BY total_cents DESC) AS rank_in_user,
+  SUM(total_cents) OVER (PARTITION BY user_id ORDER BY created_at) AS running_total
+FROM recent_orders;
+```
+
+Use `ROW_NUMBER`, `RANK`, `SUM() OVER`, and frame clauses carefully—defaults matter.
+
+## Common mistakes
+
+- **Using windows when a simple GROUP BY suffices** — Extra complexity.
+- **Forgetting PARTITION BY** — Global ranking when you meant per-user.
+- **Recursive CTEs without a termination story** — Can loop pathologically.
+
+## Interview angle
+
+<Callout type="interview">
+  Write SQL to show each user’s latest order without a correlated subquery—or explain a window approach.
+</Callout>
+
+## Practice checklist
+
+- [ ] Rewrite a nested subquery using `WITH`.
+- [ ] Compute a running total with `SUM() OVER`.
+- [ ] Compare `RANK` vs `DENSE_RANK` on ties.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-QUERIES`
+- `POSTGRES-WINDOW`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

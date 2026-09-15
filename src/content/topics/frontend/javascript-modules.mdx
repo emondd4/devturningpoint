@@ -1,0 +1,84 @@
+---
+id: "FRONTEND-JS-MODULES"
+title: "JavaScript Modules (ESM)"
+titleBn: "JavaScript \u09ae\u09a1\u09bf\u0989\u09b2 (ESM)"
+description: "import/export, module boundaries, and why bundlers and browsers care about static module graphs."
+descriptionBn: "import/export, \u09ae\u09a1\u09bf\u0989\u09b2 \u09b8\u09c0\u09ae\u09be\u09a8\u09be, \u098f\u09ac\u0982 \u0995\u09c7\u09a8 bundler \u0993 \u09ac\u09cd\u09b0\u09be\u0989\u099c\u09be\u09b0 \u09b8\u09cd\u099f\u09cd\u09af\u09be\u099f\u09bf\u0995 \u09ae\u09a1\u09bf\u0989\u09b2 \u0997\u09cd\u09b0\u09be\u09ab\u0995\u09c7 \u0997\u09c1\u09b0\u09c1\u09a4\u09cd\u09ac \u09a6\u09c7\u09af\u09bc\u0964"
+track: "frontend"
+category: "javascript"
+difficulty: "beginner"
+estimatedMinutes: 30
+prerequisites:
+  - "FRONTEND-JAVASCRIPT-FUNDAMENTALS"
+unlocks:
+  - "FRONTEND-TYPESCRIPT-FUNDAMENTALS"
+related:
+  - "FRONTEND-JS-FETCH"
+careers:
+  - "frontend-engineer"
+tags:
+  - "esm"
+  - "modules"
+  - "javascript"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "MDN-JS-MODULES"
+  - "TC39-ECMASCRIPT"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Large apps need clear boundaries. ES modules give browsers and tools a standard way to load files once, share bindings, and analyze dependencies statically.
+
+<Callout type="mental-model">
+  Each module has its own scope. Named exports are live bindings; default export is one primary value. Circular imports often signal a design smell.
+</Callout>
+
+## ESM in practice
+
+Prefer named exports for code you own. Remember that directives like `"use client"` also create module-graph boundaries in Next.js.
+
+```ts
+export type TopicId = string;
+
+export function formatTopicId(id: TopicId): string {
+  return id.toUpperCase();
+}
+```
+
+## Common mistakes
+
+- **Relying on global scripts** — Order-dependent and hard to tree-shake.
+- **Default-export everything** — Harder refactors and worse autocomplete.
+- **Ignoring circular deps** — Subtle undefined exports at runtime.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain the difference between a live named export binding and a copied CommonJS export.
+</Callout>
+
+## Practice checklist
+
+- [ ] Split a file into two modules with named exports.
+- [ ] Draw the import graph for a small feature.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `MDN-JS-MODULES`
+- `TC39-ECMASCRIPT`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

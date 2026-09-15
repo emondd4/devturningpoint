@@ -1,0 +1,72 @@
+---
+id: PM-RELEASE-PLANNING
+title: "Release Planning"
+titleBn: "রিলিজ প্ল্যানিং"
+description: "Sequence value, manage risk, and coordinate launch readiness across roles."
+descriptionBn: "ভ্যালু সিকোয়েন্স, ঝুঁকি ব্যবস্থাপনা ও রোল জুড়ে লঞ্চ রেডিনেস।"
+track: project-management
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "PM-SCOPE-MANAGEMENT"
+  - "PM-SPRINT-CEREMONIES"
+unlocks:
+  - "PM-DELIVERY-METRICS"
+related:
+  - "PM-DEPENDENCIES"
+  - "FULLSTACK-DEPLOYMENT-PIPELINE"
+careers:
+  - "product-manager"
+  - "devops-engineer"
+tags:
+  - "pm"
+  - "release"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "SCRUM-GUIDE"
+  - "GHA-WORKFLOWS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why release planning
+
+Shipping is a cross-functional event: feature flags, migrations, support scripts, store reviews, and comms.
+
+## Mental model
+
+<Callout type="mental-model">
+  Plan by outcomes and risk reduction. Prefer incremental releases. Maintain a launch checklist covering QA signoff, rollback, monitoring, and stakeholder comms.
+</Callout>
+
+## Common mistakes
+
+- **Big-bang releases by default**.
+- **No rollback story**.
+- **Marketing date without eng capacity**.
+
+## Interview angle
+
+<Callout type="interview">
+  Design a release plan for a breaking API change with mobile clients.
+</Callout>
+
+## Practice checklist
+
+- [ ] Draft a launch checklist.
+- [ ] Identify one feature-flaggable slice.
+- [ ] Define rollback owners.
+
+## Sources
+
+- `SCRUM-GUIDE`
+- `GHA-WORKFLOWS`

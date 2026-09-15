@@ -1,0 +1,90 @@
+---
+id: FLUTTER-PACKAGES-PLUGINS
+title: "Packages and Plugins"
+titleBn: "প্যাকেজ ও প্লাগইন"
+description: "Add pub.dev dependencies wisely—versioning, federated plugins, and evaluating maintenance risk."
+descriptionBn: "pub.dev ডিপেন্ডেন্সি বুঝে যোগ করুন—ভার্সন ও রক্ষণাবেক্ষণ ঝুঁকি।"
+track: mobile-flutter
+category: flutter
+difficulty: intermediate
+estimatedMinutes: 35
+prerequisites:
+  - "FLUTTER-DART-FUNDAMENTALS"
+unlocks:
+  - "FLUTTER-PLATFORM-CHANNELS"
+related:
+  - "FLUTTER-ANTI-PATTERNS"
+  - "FLUTTER-CI-CD"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "packages"
+  - "plugins"
+  - "pub"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-PACKAGES"
+  - "src-flutter-docs"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why dependency choice is architecture
+
+Every package is code you did not write but must secure and upgrade. Plugins may include native Android/iOS projects—supply-chain and maintenance matter.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prefer well-maintained packages with clear licenses, Flutter 3 compatibility, and issue response. Pin versions thoughtfully; read changelogs before major bumps.
+</Callout>
+
+## How
+
+### Declare dependencies
+
+```dart
+# pubspec.yaml (illustrative)
+# dependencies:
+#   http: ^1.2.0
+#   # Prefer official or widely used plugins for camera/maps/etc.
+```
+
+## Common mistakes
+
+- **Adding five packages to avoid 20 lines of code**
+- **Ignoring discontinued plugins**
+- **Not testing plugin upgrades on both Android and iOS**
+
+## Interview angle
+
+<Callout type="interview">
+  How do you evaluate whether to vendor a thin wrapper yourself instead of depending on a stale plugin?
+</Callout>
+
+## Practice checklist
+
+- [ ] Audit pubspec for unused deps.
+- [ ] Check last publish date of a critical plugin.
+- [ ] Read Flutter using-packages docs.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-PACKAGES`
+- `src-flutter-docs`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

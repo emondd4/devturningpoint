@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import InterviewBankBrowser from '../../../components/interviews/InterviewBankBrowser';
+import { locales, type Locale, isLocale, localePath } from '../../../i18n/config';
+import {
+  getInterviewQuestions,
+  getInterviewTrack,
+  interviewTrackSlugs,
+  trackMetaForInterview,
+} from '../../../data/interviews';
+
+export function getStaticPaths() {
+  return locales.flatMap((locale) =>
+    interviewTrackSlugs.map((track) => ({
+      params: { locale, track },
+    })),
+  );
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const trackSlug = Astro.params.track ?? 'foundations';
+const catalogTrack = getInterviewTrack(trackSlug);
+const meta = trackMetaForInterview(trackSlug);
+
+if (!catalogTrack) {
+  return Astro.redirect(localePath(locale, 'interviews'));
+}
+
+const questions = getInterviewQuestions(trackSlug);
+const title = meta ? (isBn ? meta.titleBn : meta.title) : catalogTrack.label;
+---
+
+<BaseLayout
+  locale={locale}
+  title={isBn ? `${title} · ইন্টারভিউ` : `${title} · Interviews`}
+  description={`${catalogTrack.count} interview prompts for ${catalogTrack.label}.`}
+>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+    <nav class="text-sm text-[var(--color-ink-muted)]">
+      <a class="hover:text-[var(--color-accent)]" href={localePath(locale, 'interviews')}>
+        {isBn ? 'ইন্টারভিউ ব্যাংক' : 'Interview bank'}
+      </a>
+      <span class="mx-2">/</span>
+      <span class="text-[var(--color-ink)]">{title}</span>
+    </nav>
+
+    <header class="mt-6 max-w-3xl">
+      <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold text-[var(--color-ink)]">
+        {title}
+      </h1>
+      <p class="mt-3 text-[var(--color-ink-muted)]">
+        {
+          isBn
+            ? `${catalogTrack.count}টি প্রশ্ন · Beginner ${catalogTrack.byLevel.Beginner} · Intermediate ${catalogTrack.byLevel.Intermediate} · Advanced ${catalogTrack.byLevel.Advanced}`
+            : `${catalogTrack.count} prompts · Beginner ${catalogTrack.byLevel.Beginner} · Intermediate ${catalogTrack.byLevel.Intermediate} · Advanced ${catalogTrack.byLevel.Advanced}`
+        }
+      </p>
+      <p class="mt-2 text-sm text-[var(--color-ink-subtle)]">
+        {
+          isBn
+            ? 'লেভেল, ক্যাটাগরি ও ধরন দিয়ে ফিল্টার করুন। এগুলো প্র্যাকটিস প্রম্পট—ডিপ ডাইভ উত্তর ইন্টারভিউ হোমে আছে।'
+            : 'Filter by level, category, and type. These are practice prompts—deep-dive answers live on the interview home.'
+        }
+      </p>
+    </header>
+
+    <div class="mt-8">
+      <InterviewBankBrowser
+        client:load
+        locale={locale}
+        trackLabel={title}
+        questions={questions}
+        categories={catalogTrack.categories}
+      />
+    </div>
+  </div>
+</BaseLayout>

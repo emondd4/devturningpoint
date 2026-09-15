@@ -1,0 +1,88 @@
+---
+id: FULLSTACK-TESTING-ACROSS-STACK
+title: "Testing Across the Stack"
+titleBn: "স্ট্যাক জুড়ে টেস্টিং"
+description: "Combine unit, API, component, and E2E tests with clear ownership and CI gates."
+descriptionBn: "ইউনিট, API, কম্পোনেন্ট ও E2E—মালিকানা ও CI গেটসহ।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FULLSTACK-ARCHITECTURE-OVERVIEW"
+  - "QA-TESTING-PYRAMID"
+unlocks:
+  []
+related:
+  - "FULLSTACK-DEPLOYMENT-PIPELINE"
+  - "QA-PLAYWRIGHT-E2E"
+  - "QA-API-TESTING"
+careers:
+  - "fullstack-engineer"
+  - "qa-engineer"
+tags:
+  - "testing"
+  - "e2e"
+  - "ci"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "PLAYWRIGHT-DOCS"
+  - "GHA-WORKFLOWS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why fullstack testing is a portfolio of bets
+
+One giant E2E suite is slow and brittle. Fullstack teams win by placing **cheap tests close to the code** and a few journey tests at the edges.
+
+## Mental model
+
+<Callout type="mental-model">
+  Pyramid by default: many unit/contract tests, fewer API/integration tests, sparse E2E for critical user journeys. Own tests with the code that can break them.
+</Callout>
+
+```text
+UI components  → unit / component tests
+API handlers   → unit + supertest/contract
+DB queries     → integration against test DB
+Checkout path  → Playwright E2E (staging)
+```
+
+## How to divide ownership
+
+- Frontend: components, hooks, a11y smoke.
+- Backend: domain logic, authz, API contracts.
+- Shared: OpenAPI/contract checks; E2E owned jointly with QA.
+
+## Common mistakes
+
+- **Only E2E** — Slow feedback, flake culture.
+- **Mocking the world** — Tests that never catch integration bugs.
+- **No test data strategy** — Flakes and collisions in shared envs.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you test a NestJS + Next.js checkout without making CI take 40 minutes?
+</Callout>
+
+## Practice checklist
+
+- [ ] Map five risks to the cheapest test layer.
+- [ ] Add one API contract check idea.
+- [ ] Pick two E2E journeys worth keeping.
+
+## Sources
+
+- `PLAYWRIGHT-DOCS`
+- `GHA-WORKFLOWS`

@@ -1,0 +1,91 @@
+---
+id: FOUNDATIONS-PACKAGE-MANAGERS
+title: "Package Managers Overview"
+titleBn: "প্যাকেজ ম্যানেজার ওভারভিউ"
+description: "Understand lockfiles, registries, and transitive dependencies so installs are reproducible and safer."
+descriptionBn: "লকফাইল, রেজিস্ট্রি ও ট্রানজিটিভ ডিপেনডেন্সি—পুনরুৎপাদনযোগ্য ইনস্টল।"
+track: foundations
+category: tools
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites:
+  - "FOUNDATIONS-CLI-BASICS"
+unlocks:
+  - "FOUNDATIONS-SEMANTIC-VERSIONING"
+related:
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+  - "FLUTTER-PLUGINS-PACKAGES"
+careers:
+  - "software-engineer"
+  - "frontend-engineer"
+  - "backend-engineer"
+  - "flutter-developer"
+tags:
+  - "npm"
+  - "pub"
+  - "dependencies"
+  - "lockfiles"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NPM-ABOUT-SEMVER"
+  - "PUB-DEV-PACKAGE"
+  - "SEMVER-SPEC"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why package managers exist
+
+Copy-pasting libraries does not scale. Package managers resolve **declared** dependencies from a registry, fetch transitive trees, and (with lockfiles) pin exact versions for CI and teammates.
+
+## Mental model
+
+<Callout type="mental-model">
+  Manifest (`package.json`, `pubspec.yaml`) = ranges you allow. Lockfile = exact graph that was resolved. CI should install from the lockfile, not re-resolve casually.
+</Callout>
+
+## Ecosystem map
+
+| Ecosystem | Manifest | Lockfile | Registry |
+| --- | --- | --- | --- |
+| JS/TS | package.json | package-lock / pnpm-lock / yarn.lock | npm |
+| Dart/Flutter | pubspec.yaml | pubspec.lock | pub.dev |
+| Python | pyproject / requirements | poetry.lock / pip freeze | PyPI |
+
+```bash
+# npm example
+npm ci          # clean install from lockfile (CI-friendly)
+npm install lodash
+```
+
+```yaml
+# pubspec.yaml sketch
+dependencies:
+  http: ^1.2.0
+```
+
+## Common mistakes
+
+- Committing node_modules / build artifacts instead of lockfiles
+- Deleting lockfiles “to fix conflicts” without reviewing the new graph
+- Trusting every package—supply-chain risk is real; prefer maintained, audited libs
+
+## Interview angle
+
+<Callout type="interview">
+  What is the difference between `npm install` and `npm ci`, and why do lockfiles matter in production deploys?
+</Callout>
+
+## Sources
+
+`NPM-ABOUT-SEMVER`, `PUB-DEV-PACKAGE`, `SEMVER-SPEC`.

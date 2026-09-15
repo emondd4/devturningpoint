@@ -1,0 +1,29 @@
+{
+  "id": "iv-qa-risk-based-release",
+  "question": "You have four hours before a production release. How do you apply risk-based testing to choose what to verify?",
+  "questionBn": "প্রোডাকশন রিলিজের আগে চার ঘণ্টা আছে। কী টেস্ট করবেন তা রিস্ক-ভিত্তিকভাবে কীভাবে বেছে নেবেন?",
+  "careerIds": [
+    "qa-engineer"
+  ],
+  "technology": [
+    "QA",
+    "Risk-based testing",
+    "STLC"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Score features by likelihood × impact, focus on money/auth/data-loss paths and changed code, and time-box exploratory charters plus critical automation.",
+  "strongAnswer": "Build a quick risk matrix from diff size, historical hotspots, and business impact (payments, auth, PII). Run smoke on critical journeys (Playwright/API), prioritize negative authz cases, and charter exploratory time on the riskiest new UI. Explicitly communicate untested areas and residual risk rather than claiming full coverage.",
+  "advancedAnswer": "Tie gates to CI history and feature flags; propose staged rollout with monitoring as a risk valve.",
+  "followUps": [
+    "What do you skip deliberately?",
+    "How do you involve product in residual risk?"
+  ],
+  "commonWrongAnswer": "Try to re-run the entire regression pack and hope.",
+  "productionRelevance": "Release pressure is normal in BD product teams—structured triage beats panic clicking.",
+  "relatedTopics": [
+    "QA-RISK-BASED-TESTING",
+    "QA-STLC",
+    "QA-CI-QUALITY-GATES"
+  ],
+  "lastVerified": "2026-09-15"
+}

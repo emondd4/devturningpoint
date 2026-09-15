@@ -1,0 +1,25 @@
+{
+  "id": "iv-orm-vs-sql",
+  "question": "When would you bypass an ORM and write SQL or a query builder for a Nest API?",
+  "careerIds": [
+    "backend-engineer"
+  ],
+  "technology": [
+    "PostgreSQL",
+    "TypeORM"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Complex reporting, performance-critical joins, or queries the ORM expresses poorly—while still parameterizing.",
+  "strongAnswer": "ORMs excel at CRUD and simple relations but can hide N+1 issues and awkward SQL. For analytical queries, careful join strategies, or verified EXPLAIN plans, query builders/raw SQL are appropriate. Keep transactions at the use-case layer and never concatenate user input into SQL.",
+  "followUps": [
+    "How do you detect N+1?",
+    "Where should transactions begin?"
+  ],
+  "commonWrongAnswer": "Never write SQL if an ORM exists.",
+  "productionRelevance": "Avoids production slowdowns from naive ORM usage.",
+  "relatedTopics": [
+    "BACKEND-ORM-VS-QUERY-BUILDER",
+    "BACKEND-TRANSACTIONS-API-LAYER"
+  ],
+  "lastVerified": "2026-09-15"
+}

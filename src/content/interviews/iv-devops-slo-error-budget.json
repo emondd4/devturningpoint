@@ -1,0 +1,29 @@
+{
+  "id": "iv-devops-slo-error-budget",
+  "question": "Propose an SLI and SLO for a checkout API and explain how the error budget influences release decisions.",
+  "questionBn": "চেকআউট API-এর জন্য একটি SLI ও SLO প্রস্তাব করুন এবং এরর বাজেট কীভাবে রিলিজ সিদ্ধান্তকে প্রভাবিত করে ব্যাখ্যা করুন।",
+  "careerIds": [
+    "devops-engineer",
+    "backend-engineer"
+  ],
+  "technology": [
+    "SRE",
+    "Observability",
+    "Prometheus"
+  ],
+  "difficulty": "senior",
+  "shortAnswer": "SLI could be successful non-5xx checkouts / total checkout attempts; SLO e.g. 99.9% over 30 days. When the error budget is burned, prioritize reliability over features.",
+  "strongAnswer": "Choose a user-centric SLI (availability and/or latency at a percentile). Set an SLO with a clear window. Track burn rate; page on fast burn, ticket on slow burn. SLA to customers should be looser than the internal SLO. Error budget exhaustion pauses risky deploys and focuses on toil reduction.",
+  "advancedAnswer": "Multi-window burn-rate alerts; separate SLIs for auth vs pay; latency SLOs with exclusivity of availability.",
+  "followUps": [
+    "Why is CPU utilization a poor SLI?",
+    "How does an SLA differ from an SLO?"
+  ],
+  "commonWrongAnswer": "Set 100% availability so customers never see errors.",
+  "productionRelevance": "Makes reliability negotiations concrete between product and engineering.",
+  "relatedTopics": [
+    "DEVOPS-SLO-SLI",
+    "DEVOPS-INCIDENT-RESPONSE"
+  ],
+  "lastVerified": "2026-09-15"
+}

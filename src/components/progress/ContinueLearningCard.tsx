@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getPath } from '../../stores/progress';
 import { localePath, type Locale } from '../../i18n/config';
+import { learnPathForId } from '../../utils/topic-links';
 
 interface Props {
   locale: Locale;
@@ -34,6 +35,8 @@ export default function ContinueLearningCard({ locale, trackId, trackSlug }: Pro
 
   const lastDate = path.lastVisitedAt ? new Date(path.lastVisitedAt).toLocaleString(locale === 'bn' ? 'bn-BD' : 'en-US') : '';
 
+  const continueHref = path.currentTopicId ? learnPathForId(locale, path.currentTopicId) : undefined;
+
   return (
     <div className="surface-card border-[var(--color-accent)]" role="region" aria-label={isBn ? 'শেখা চালিয়ে যান' : 'Continue learning'}>
       <p className="font-semibold text-[var(--color-ink)]">
@@ -45,9 +48,15 @@ export default function ContinueLearningCard({ locale, trackId, trackSlug }: Pro
         {lastDate ? ` · ${lastDate}` : ''}
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
-        <a className="btn btn-primary" href={localePath(locale, `learn/${path.currentTopicId.toLowerCase().replace(/_/g, '-')}`)}>
-          {isBn ? 'চালিয়ে যান' : 'Continue'}
-        </a>
+        {continueHref ? (
+          <a className="btn btn-primary" href={continueHref}>
+            {isBn ? 'চালিয়ে যান' : 'Continue'}
+          </a>
+        ) : (
+          <a className="btn btn-primary" href={localePath(locale, `tracks/${trackSlug}`)}>
+            {isBn ? 'ট্র্যাক দেখুন' : 'View track'}
+          </a>
+        )}
         <a className="btn btn-secondary" href={localePath(locale, `tracks/${trackSlug}`)}>
           {isBn ? 'রোডম্যাপ' : 'View roadmap'}
         </a>

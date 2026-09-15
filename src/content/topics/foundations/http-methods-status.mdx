@@ -1,0 +1,104 @@
+---
+id: FOUNDATIONS-HTTP-METHODS-STATUS
+title: "HTTP Methods and Status Codes"
+titleBn: "HTTP মেথড ও স্ট্যাটাস কোড"
+description: "Use safe/idempotent methods correctly and read status classes so clients, caches, and monitors behave."
+descriptionBn: "সেফ/আইডেমপোটেন্ট মেথড সঠিকভাবে ব্যবহার ও স্ট্যাটাস ক্লাস পড়া।"
+track: foundations
+category: networking
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites:
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+unlocks:
+  - "FOUNDATIONS-API-CONCEPTS"
+  - "FOUNDATIONS-REST-VS-RPC"
+related:
+  - "FOUNDATIONS-JSON-DATA"
+  - "FOUNDATIONS-HTTPS-TLS"
+careers:
+  - "software-engineer"
+  - "frontend-engineer"
+  - "backend-engineer"
+  - "flutter-developer"
+tags:
+  - "http"
+  - "rest"
+  - "status-codes"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "RFC-9110-HTTP"
+  - "MDN-HTTP-METHODS"
+  - "MDN-HTTP-STATUS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why methods and statuses are contracts
+
+HTTP is not “JSON over a URL.” Methods declare **intent**; status codes declare **outcome**. Misusing either breaks caches, retries, and monitoring.
+
+## Mental model
+
+<Callout type="mental-model">
+  Think in three axes: **safety** (does it change server state?), **idempotency** (can I retry safely?), and **status class** (2xx/3xx/4xx/5xx tell different stories).
+</Callout>
+
+## Common methods
+
+| Method | Typical use | Safe? | Idempotent? |
+| --- | --- | --- | --- |
+| GET | Read | Yes | Yes |
+| HEAD | Headers only | Yes | Yes |
+| POST | Create / non-idempotent action | No | No |
+| PUT | Replace resource | No | Yes |
+| PATCH | Partial update | No | Often no |
+| DELETE | Remove | No | Yes |
+
+```http
+POST /orders HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+
+{"sku":"BOOK-1","qty":1}
+```
+
+```http
+HTTP/1.1 201 Created
+Location: /orders/9f3a
+```
+
+## Status classes you must memorize
+
+- **2xx** — success (`200`, `201`, `204`)
+- **3xx** — redirect / cache negotiation
+- **4xx** — client mistake (`400`, `401`, `403`, `404`, `409`, `429`)
+- **5xx** — server failure (`500`, `502`, `503`)
+
+Never hide failures behind `200 OK` with `{ "error": true }` if you can use a real status—ops tooling depends on it.
+
+## Common mistakes
+
+- Retrying POST without idempotency keys (duplicate charges)
+- Using GET for mutations (CSRF and cache nightmares)
+- Treating all 4xx as “user typos” (401 vs 403 vs 429 differ)
+
+## Interview angle
+
+<Callout type="interview">
+  Explain idempotency for payments retries and which status codes a mobile client should retry with backoff.
+</Callout>
+
+## Sources
+
+`RFC-9110-HTTP`, `MDN-HTTP-METHODS`, `MDN-HTTP-STATUS`.

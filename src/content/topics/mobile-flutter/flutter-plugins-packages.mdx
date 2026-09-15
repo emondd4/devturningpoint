@@ -1,0 +1,85 @@
+---
+id: FLUTTER-PLUGINS-PACKAGES
+title: "Flutter Packages and Plugins"
+titleBn: "Flutter প্যাকেজ ও প্লাগইন"
+description: "Use pub.dev wisely—pure Dart packages vs platform plugins, versions, and federated plugins."
+descriptionBn: "pub.dev সঠিকভাবে—ডার্ট প্যাকেজ বনাম প্ল্যাটফর্ম প্লাগইন।"
+track: mobile-flutter
+category: flutter
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites:
+  - "FLUTTER-DART-FUNDAMENTALS"
+  - "FOUNDATIONS-PACKAGE-MANAGERS"
+unlocks:
+  - "FLUTTER-PLATFORM-CHANNELS"
+related:
+  - "FOUNDATIONS-SEMANTIC-VERSIONING"
+  - "FLUTTER-TESTING"
+careers:
+  - "flutter-developer"
+  - "mobile-engineer"
+tags:
+  - "pub.dev"
+  - "plugins"
+  - "packages"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-PACKAGES"
+  - "PUB-DEV-PACKAGE"
+  - "SEMVER-SPEC"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why not every dependency should be a plugin
+
+Packages share Dart code. Plugins add Android/iOS (and other) native implementations. Each plugin increases build complexity and platform failure surface.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prefer **pure Dart** packages when possible. Prefer **maintained plugins** over writing channels. Read pub.dev scores, platforms supported, and last publish date before adopting.
+</Callout>
+
+## Adding deps
+
+```yaml
+# pubspec.yaml
+dependencies:
+  http: ^1.2.0
+  shared_preferences: ^2.3.0
+```
+
+```bash
+flutter pub get
+flutter pub outdated
+```
+
+Commit `pubspec.lock` for apps so CI resolves the same graph.
+
+## Common mistakes
+
+- Depending on abandoned plugins pinned to old Android embeddings
+- Adding five plugins for one permission prompt
+- Ignoring license obligations for shipping binaries
+
+## Interview angle
+
+<Callout type="interview">
+  How do you evaluate a camera plugin for production before adopting it?
+</Callout>
+
+## Sources
+
+`FLUTTER-PACKAGES`, `PUB-DEV-PACKAGE`, `SEMVER-SPEC`.

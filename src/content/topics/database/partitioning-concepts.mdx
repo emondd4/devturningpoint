@@ -1,0 +1,90 @@
+---
+id: DATABASE-PARTITIONING-CONCEPTS
+title: "Table Partitioning Concepts"
+titleBn: "টেবিল পার্টিশনিং ধারণা"
+description: "Range/list/hash partitioning—when splitting large tables helps pruning, retention, and maintenance."
+descriptionBn: "রেঞ্জ/লিস্ট/হ্যাশ পার্টিশনিং—বড় টেবিল ভাগ করলে কখন pruning, রিটেনশন ও রক্ষণাবেক্ষণে সাহায্য করে।"
+track: database
+difficulty: advanced
+estimatedMinutes: 40
+prerequisites:
+  - "DATABASE-POSTGRESQL-INDEXING"
+  - "DATABASE-POSTGRES-EXPLAIN"
+unlocks: []
+related:
+  - "DATABASE-REPLICATION-BASICS"
+careers:
+  - "database-engineer"
+  - "backend-engineer"
+tags:
+  - "postgresql"
+  - "partitioning"
+  - "scalability"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTGRES-PARTITIONING"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why one giant table becomes operationally painful
+
+Billions of rows slow vacuums, bloat indexes, and complicate retention deletes. Partitioning splits a logical table into physical children the planner can prune.
+
+## Mental model
+
+<Callout type="mental-model">
+  Parent table + partitions by RANGE (time), LIST (tenant/region), or HASH. Queries with partition keys skip irrelevant children. Detach/drop old partitions for cheap retention.
+</Callout>
+
+```sql
+CREATE TABLE measurements (
+  measured_at timestamptz NOT NULL,
+  device_id   text NOT NULL,
+  reading     numeric NOT NULL
+) PARTITION BY RANGE (measured_at);
+
+CREATE TABLE measurements_2026_09
+  PARTITION OF measurements
+  FOR VALUES FROM ('2026-09-01') TO ('2026-10-01');
+```
+
+Partitioning is not a substitute for good indexes or query design.
+
+## Common mistakes
+
+- **Partitioning tiny tables** — Overhead without benefit.
+- **Queries that omit the partition key** — Touch all children.
+- **Too many partitions** — Planning and catalog bloat.
+
+## Interview angle
+
+<Callout type="interview">
+  Would you partition an orders table by day or by customer_id—and why?
+</Callout>
+
+## Practice checklist
+
+- [ ] Sketch a monthly range partition plan.
+- [ ] EXPLAIN a query that should prune.
+- [ ] Plan dropping an old partition vs DELETE.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-PARTITIONING`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

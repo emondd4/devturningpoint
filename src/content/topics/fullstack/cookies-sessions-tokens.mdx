@@ -1,0 +1,81 @@
+---
+id: FULLSTACK-COOKIES-SESSIONS-TOKENS
+title: "Cookies, Sessions, and Tokens"
+titleBn: "কুকি, সেশন ও টোকেন"
+description: "Choose cookie sessions vs bearer tokens across Next and Nest with secure defaults."
+descriptionBn: "Next ও Nest জুড়ে নিরাপদ ডিফল্টসহ কুকি সেশন বনাম বেয়ারার টোকেন।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites:
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+  - "FULLSTACK-HTTP-BOUNDARIES"
+unlocks:
+  - "FULLSTACK-CSRF"
+  - "FULLSTACK-CORS"
+related:
+  - "FULLSTACK-CORS-CSRF"
+  - "BACKEND-NESTJS-AUTH-JWT"
+careers:
+  - "fullstack-engineer"
+tags:
+  - "fullstack"
+  - "auth"
+  - "cookies"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "MDN-COOKIES"
+  - "NEXTJS-AUTH"
+  - "NESTJS-AUTH"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this choice dominates architecture
+
+Auth storage decides CSRF needs, CORS credentials mode, mobile client design, and XSS blast radius.
+
+## Mental model
+
+<Callout type="mental-model">
+  Browser apps often use httpOnly Secure cookies for session IDs or tokens. SPAs/mobile may use bearer tokens in memory. SameSite and Secure flags matter; localStorage is XSS-sensitive.
+</Callout>
+
+## Practical guidance
+
+- Prefer httpOnly cookies for web session tokens when possible.
+- Understand SameSite=Lax/Strict/None (+ Secure).
+- Rotate/revoke server-side session state when using opaque session IDs.
+
+## Common mistakes
+
+- **JWT in localStorage by default** — XSS steals sessions.
+- **Missing Secure/SameSite in production**.
+- **Assuming cookies work cross-site without CORS credentials plan**.
+
+## Interview angle
+
+<Callout type="interview">
+  Compare cookie session vs Authorization header for a Next web app talking to Nest.
+</Callout>
+
+## Practice checklist
+
+- [ ] Inspect Set-Cookie flags on a login response.
+- [ ] Document where refresh tokens live.
+- [ ] List XSS vs CSRF trade-offs for your choice.
+
+## Sources
+
+- `MDN-COOKIES`
+- `NEXTJS-AUTH`
+- `NESTJS-AUTH`

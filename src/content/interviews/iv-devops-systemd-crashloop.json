@@ -1,0 +1,26 @@
+{
+  "id": "iv-devops-systemd-crashloop",
+  "question": "A systemd unit exits immediately after start. How do you diagnose it?",
+  "questionBn": "একটি systemd ইউনিট স্টার্টের পরই বেরিয়ে যায়। কীভাবে ডায়াগনোজ করবেন?",
+  "careerIds": [
+    "devops-engineer"
+  ],
+  "technology": [
+    "Linux",
+    "systemd"
+  ],
+  "difficulty": "junior",
+  "shortAnswer": "Check status and journal logs, verify ExecStart path/permissions/User, and look for missing env or dependency ordering issues.",
+  "strongAnswer": "Run systemctl status and journalctl -u with --no-pager. Confirm WorkingDirectory, binary path, and that the service User can read files. Use systemd-analyze verify. For Restart=on-failure loops, inspect the first failure, not only the latest. Fix root cause before raising RestartSec blindly.",
+  "followUps": [
+    "When do you need daemon-reload?",
+    "How do After= and Requires= differ?"
+  ],
+  "commonWrongAnswer": "chmod 777 the app directory and run as root.",
+  "productionRelevance": "VM-based and hybrid fleets still rely on systemd units alongside containers.",
+  "relatedTopics": [
+    "DEVOPS-SYSTEMD",
+    "DEVOPS-BASH"
+  ],
+  "lastVerified": "2026-09-15"
+}

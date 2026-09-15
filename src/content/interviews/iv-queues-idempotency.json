@@ -1,0 +1,24 @@
+{
+  "id": "iv-queues-idempotency",
+  "question": "Why must Bull/BullMQ consumers be idempotent?",
+  "careerIds": [
+    "backend-engineer"
+  ],
+  "technology": [
+    "BullMQ",
+    "Redis"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Jobs may be delivered more than once due to retries/crashes; side effects must not duplicate incorrectly.",
+  "strongAnswer": "Queues provide reliability via retries and crash recovery, which implies at-least-once processing in common setups. Consumers should use idempotency keys, upserts, or dedupe tables so repeated jobs do not double-charge, double-email, or corrupt counters. Keep payloads small and transactions appropriately scoped.",
+  "followUps": [
+    "What belongs in the job payload vs object storage?",
+    "How do you poison-pill handle bad jobs?"
+  ],
+  "commonWrongAnswer": "The queue guarantees exactly-once execution always.",
+  "productionRelevance": "Prevents duplicate emails/charges during deploy restarts.",
+  "relatedTopics": [
+    "BACKEND-QUEUES-BULL"
+  ],
+  "lastVerified": "2026-09-15"
+}

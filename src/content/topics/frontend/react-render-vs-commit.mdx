@@ -1,0 +1,97 @@
+---
+id: FRONTEND-REACT-RENDER-VS-COMMIT
+title: "Render vs Commit in React"
+titleBn: "React-এ Render বনাম Commit"
+description: "The three-step UI update pipeline: trigger, render (calculate), commit (DOM)."
+descriptionBn: "UI আপডেটের তিন ধাপ: trigger, render, commit।"
+track: frontend
+category: react-internals
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - FRONTEND-REACT-WHAT-CAUSES-RENDER
+unlocks:
+  - FRONTEND-REACT-RECONCILIATION
+  - FRONTEND-REACT-RENDER-PURITY
+related:
+  - FRONTEND-REACT-STRICT-MODE
+careers:
+  - frontend-engineer
+  - fullstack-engineer
+tags:
+  - react
+  - rendering
+status: published
+translationStatus: partial
+applicableVersions:
+  react: "19.x — verify against react.dev"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - REACT-RENDER-COMMIT
+  - REACT-DOCS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+<Callout type="info" title="Translation status">
+  Body is English for V1; Bangla title/description provided.
+</Callout>
+
+## What is this?
+
+React updates the screen in three steps (official docs):
+
+1. **Trigger** a render
+2. **Render** components (call them to produce JSX)
+3. **Commit** changes to the DOM
+
+Browser **paint** happens after commit.
+
+## Why the split matters
+
+If you put side effects (network calls, subscriptions, DOM reads/writes) in the wrong phase, you get:
+
+- duplicated requests in development Strict Mode
+- flicker and race conditions
+- “why did this run twice?” confusion
+
+## Mental model
+
+<Callout type="mental-model">
+  Render = pure calculation of the next UI tree. Commit = apply the diff to the DOM. Paint = browser draws pixels.
+</Callout>
+
+## During render
+
+React calls your component. On re-render it compares the new output to the previous one and **plans** DOM updates. It still should not mutate existing objects “on the side”.
+
+## During commit
+
+- Initial render: React creates DOM nodes and inserts them.
+- Re-render: React applies the **minimal** DOM operations needed.
+
+If the rendered output for a node is the same, React can leave that DOM node alone—so uncontrolled inputs can keep user-typed text across parent re-renders when the `input` element is reused.
+
+## Debugging tip
+
+When something “re-renders but the DOM looks unchanged”, that can be normal: render ran, commit decided no DOM surgery was required.
+
+## Common mistakes
+
+1. Fetching in render body (impure + can loop).
+2. Measuring layout during render instead of after commit/effect.
+3. Assuming every render paints.
+
+## Interview angles
+
+**Mid:** Explain trigger → render → commit.  
+**Senior:** How would you locate a commit-phase layout thrash (forced reflow) in a large app?
+
+## Sources
+
+- React: Render and Commit (`REACT-RENDER-COMMIT`)
+

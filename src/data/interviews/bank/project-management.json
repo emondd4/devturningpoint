@@ -1,0 +1,3394 @@
+[
+  {
+    "id": "PM-B-0001",
+    "level": "Beginner",
+    "category": "Agile",
+    "topic": "Agile values",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Agile values correctly?"
+  },
+  {
+    "id": "PM-B-0002",
+    "level": "Beginner",
+    "category": "Agile",
+    "topic": "Agile values",
+    "questionType": "Definition",
+    "question": "What is Agile values, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0003",
+    "level": "Beginner",
+    "category": "Behavioral",
+    "topic": "STAR interview response",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using STAR interview response correctly?"
+  },
+  {
+    "id": "PM-B-0004",
+    "level": "Beginner",
+    "category": "Behavioral",
+    "topic": "STAR interview response",
+    "questionType": "Definition",
+    "question": "What is STAR interview response, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0005",
+    "level": "Beginner",
+    "category": "Budget",
+    "topic": "budget baseline",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using budget baseline correctly?"
+  },
+  {
+    "id": "PM-B-0006",
+    "level": "Beginner",
+    "category": "Budget",
+    "topic": "budget baseline",
+    "questionType": "Definition",
+    "question": "What is budget baseline, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0007",
+    "level": "Beginner",
+    "category": "Budget",
+    "topic": "earned value concepts",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using earned value concepts correctly?"
+  },
+  {
+    "id": "PM-B-0008",
+    "level": "Beginner",
+    "category": "Budget",
+    "topic": "earned value concepts",
+    "questionType": "Definition",
+    "question": "What is earned value concepts, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0009",
+    "level": "Beginner",
+    "category": "Career",
+    "topic": "PMP",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using PMP correctly?"
+  },
+  {
+    "id": "PM-B-0010",
+    "level": "Beginner",
+    "category": "Career",
+    "topic": "PMP",
+    "questionType": "Definition",
+    "question": "What is PMP, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0011",
+    "level": "Beginner",
+    "category": "Change",
+    "topic": "change control",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using change control correctly?"
+  },
+  {
+    "id": "PM-B-0012",
+    "level": "Beginner",
+    "category": "Change",
+    "topic": "change control",
+    "questionType": "Definition",
+    "question": "What is change control, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0013",
+    "level": "Beginner",
+    "category": "Client",
+    "topic": "client expectation management",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using client expectation management correctly?"
+  },
+  {
+    "id": "PM-B-0014",
+    "level": "Beginner",
+    "category": "Client",
+    "topic": "client expectation management",
+    "questionType": "Definition",
+    "question": "What is client expectation management, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0015",
+    "level": "Beginner",
+    "category": "Communication",
+    "topic": "escalation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using escalation correctly?"
+  },
+  {
+    "id": "PM-B-0016",
+    "level": "Beginner",
+    "category": "Communication",
+    "topic": "escalation",
+    "questionType": "Definition",
+    "question": "What is escalation, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0017",
+    "level": "Beginner",
+    "category": "Communication",
+    "topic": "project status report",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using project status report correctly?"
+  },
+  {
+    "id": "PM-B-0018",
+    "level": "Beginner",
+    "category": "Communication",
+    "topic": "project status report",
+    "questionType": "Definition",
+    "question": "What is project status report, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0019",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you communicate that a task is delayed without hiding the problem?"
+  },
+  {
+    "id": "PM-B-0020",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are scope, schedule, cost, quality, and risk?"
+  },
+  {
+    "id": "PM-B-0021",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are the Scrum accountabilities, events, and artifacts?"
+  },
+  {
+    "id": "PM-B-0022",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are the common phases of a software project lifecycle?"
+  },
+  {
+    "id": "PM-B-0023",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is Agile, and what does it not mean?"
+  },
+  {
+    "id": "PM-B-0024",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is Jira used for?"
+  },
+  {
+    "id": "PM-B-0025",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is Scrum?"
+  },
+  {
+    "id": "PM-B-0026",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a Sprint Goal?"
+  },
+  {
+    "id": "PM-B-0027",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a dependency?"
+  },
+  {
+    "id": "PM-B-0028",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a milestone?"
+  },
+  {
+    "id": "PM-B-0029",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a project charter or project brief?"
+  },
+  {
+    "id": "PM-B-0030",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a project, and how is project work different from ongoing operations?"
+  },
+  {
+    "id": "PM-B-0031",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a stakeholder?"
+  },
+  {
+    "id": "PM-B-0032",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a status report, and what information should it contain?"
+  },
+  {
+    "id": "PM-B-0033",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a user story, and what are acceptance criteria?"
+  },
+  {
+    "id": "PM-B-0034",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is backlog refinement?"
+  },
+  {
+    "id": "PM-B-0035",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the Product Backlog?"
+  },
+  {
+    "id": "PM-B-0036",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between Scrum and Kanban at a high level?"
+  },
+  {
+    "id": "PM-B-0037",
+    "level": "Beginner",
+    "category": "Delivery",
+    "topic": "DORA-style delivery metrics",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using DORA-style delivery metrics correctly?"
+  },
+  {
+    "id": "PM-B-0038",
+    "level": "Beginner",
+    "category": "Delivery",
+    "topic": "DORA-style delivery metrics",
+    "questionType": "Definition",
+    "question": "What is DORA-style delivery metrics, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0039",
+    "level": "Beginner",
+    "category": "Documentation",
+    "topic": "RAID log",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using RAID log correctly?"
+  },
+  {
+    "id": "PM-B-0040",
+    "level": "Beginner",
+    "category": "Documentation",
+    "topic": "RAID log",
+    "questionType": "Definition",
+    "question": "What is RAID log, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0041",
+    "level": "Beginner",
+    "category": "Estimation",
+    "topic": "story points",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using story points correctly?"
+  },
+  {
+    "id": "PM-B-0042",
+    "level": "Beginner",
+    "category": "Estimation",
+    "topic": "story points",
+    "questionType": "Definition",
+    "question": "What is story points, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0043",
+    "level": "Beginner",
+    "category": "Estimation",
+    "topic": "three-point estimation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using three-point estimation correctly?"
+  },
+  {
+    "id": "PM-B-0044",
+    "level": "Beginner",
+    "category": "Estimation",
+    "topic": "three-point estimation",
+    "questionType": "Definition",
+    "question": "What is three-point estimation, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0045",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "project",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using project correctly?"
+  },
+  {
+    "id": "PM-B-0046",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "project",
+    "questionType": "Definition",
+    "question": "What is project, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0047",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "project management",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using project management correctly?"
+  },
+  {
+    "id": "PM-B-0048",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "project management",
+    "questionType": "Definition",
+    "question": "What is project management, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0049",
+    "level": "Beginner",
+    "category": "Governance",
+    "topic": "steering committee",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using steering committee correctly?"
+  },
+  {
+    "id": "PM-B-0050",
+    "level": "Beginner",
+    "category": "Governance",
+    "topic": "steering committee",
+    "questionType": "Definition",
+    "question": "What is steering committee, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0051",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What information belongs in a useful project status update?"
+  },
+  {
+    "id": "PM-B-0052",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between a project objective, deliverable, milestone, and task?"
+  },
+  {
+    "id": "PM-B-0053",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between a risk and an issue?"
+  },
+  {
+    "id": "PM-B-0054",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the purpose of a retrospective?"
+  },
+  {
+    "id": "PM-B-0055",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What makes acceptance criteria useful to developers, testers, and stakeholders?"
+  },
+  {
+    "id": "PM-B-0056",
+    "level": "Beginner",
+    "category": "Incident",
+    "topic": "incident management",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using incident management correctly?"
+  },
+  {
+    "id": "PM-B-0057",
+    "level": "Beginner",
+    "category": "Incident",
+    "topic": "incident management",
+    "questionType": "Definition",
+    "question": "What is incident management, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0058",
+    "level": "Beginner",
+    "category": "Kanban",
+    "topic": "WIP limit",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using WIP limit correctly?"
+  },
+  {
+    "id": "PM-B-0059",
+    "level": "Beginner",
+    "category": "Kanban",
+    "topic": "WIP limit",
+    "questionType": "Definition",
+    "question": "What is WIP limit, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0060",
+    "level": "Beginner",
+    "category": "Kanban",
+    "topic": "cycle time",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using cycle time correctly?"
+  },
+  {
+    "id": "PM-B-0061",
+    "level": "Beginner",
+    "category": "Kanban",
+    "topic": "cycle time",
+    "questionType": "Definition",
+    "question": "What is cycle time, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0062",
+    "level": "Beginner",
+    "category": "Leadership",
+    "topic": "conflict resolution",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using conflict resolution correctly?"
+  },
+  {
+    "id": "PM-B-0063",
+    "level": "Beginner",
+    "category": "Leadership",
+    "topic": "conflict resolution",
+    "questionType": "Definition",
+    "question": "What is conflict resolution, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0064",
+    "level": "Beginner",
+    "category": "Leadership",
+    "topic": "servant leadership",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using servant leadership correctly?"
+  },
+  {
+    "id": "PM-B-0065",
+    "level": "Beginner",
+    "category": "Leadership",
+    "topic": "servant leadership",
+    "questionType": "Definition",
+    "question": "What is servant leadership, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0066",
+    "level": "Beginner",
+    "category": "Lifecycle",
+    "topic": "project charter",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using project charter correctly?"
+  },
+  {
+    "id": "PM-B-0067",
+    "level": "Beginner",
+    "category": "Lifecycle",
+    "topic": "project charter",
+    "questionType": "Definition",
+    "question": "What is project charter, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0068",
+    "level": "Beginner",
+    "category": "Lifecycle",
+    "topic": "project initiation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using project initiation correctly?"
+  },
+  {
+    "id": "PM-B-0069",
+    "level": "Beginner",
+    "category": "Lifecycle",
+    "topic": "project initiation",
+    "questionType": "Definition",
+    "question": "What is project initiation, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0070",
+    "level": "Beginner",
+    "category": "Metrics",
+    "topic": "burndown",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using burndown correctly?"
+  },
+  {
+    "id": "PM-B-0071",
+    "level": "Beginner",
+    "category": "Metrics",
+    "topic": "burndown",
+    "questionType": "Definition",
+    "question": "What is burndown, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0072",
+    "level": "Beginner",
+    "category": "Metrics",
+    "topic": "lead time",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using lead time correctly?"
+  },
+  {
+    "id": "PM-B-0073",
+    "level": "Beginner",
+    "category": "Metrics",
+    "topic": "lead time",
+    "questionType": "Definition",
+    "question": "What is lead time, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0074",
+    "level": "Beginner",
+    "category": "Metrics",
+    "topic": "throughput",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using throughput correctly?"
+  },
+  {
+    "id": "PM-B-0075",
+    "level": "Beginner",
+    "category": "Metrics",
+    "topic": "throughput",
+    "questionType": "Definition",
+    "question": "What is throughput, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0076",
+    "level": "Beginner",
+    "category": "Metrics",
+    "topic": "velocity",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using velocity correctly?"
+  },
+  {
+    "id": "PM-B-0077",
+    "level": "Beginner",
+    "category": "Metrics",
+    "topic": "velocity",
+    "questionType": "Definition",
+    "question": "What is velocity, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0078",
+    "level": "Beginner",
+    "category": "Planning",
+    "topic": "milestone",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using milestone correctly?"
+  },
+  {
+    "id": "PM-B-0079",
+    "level": "Beginner",
+    "category": "Planning",
+    "topic": "milestone",
+    "questionType": "Definition",
+    "question": "What is milestone, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0080",
+    "level": "Beginner",
+    "category": "Planning",
+    "topic": "work breakdown structure",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using work breakdown structure correctly?"
+  },
+  {
+    "id": "PM-B-0081",
+    "level": "Beginner",
+    "category": "Planning",
+    "topic": "work breakdown structure",
+    "questionType": "Definition",
+    "question": "What is work breakdown structure, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0082",
+    "level": "Beginner",
+    "category": "Prioritization",
+    "topic": "MoSCoW",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using MoSCoW correctly?"
+  },
+  {
+    "id": "PM-B-0083",
+    "level": "Beginner",
+    "category": "Prioritization",
+    "topic": "MoSCoW",
+    "questionType": "Definition",
+    "question": "What is MoSCoW, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0084",
+    "level": "Beginner",
+    "category": "Prioritization",
+    "topic": "value vs effort",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using value vs effort correctly?"
+  },
+  {
+    "id": "PM-B-0085",
+    "level": "Beginner",
+    "category": "Prioritization",
+    "topic": "value vs effort",
+    "questionType": "Definition",
+    "question": "What is value vs effort, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0086",
+    "level": "Beginner",
+    "category": "Quality",
+    "topic": "quality assurance",
+    "questionType": "Definition",
+    "question": "What is quality assurance, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0087",
+    "level": "Beginner",
+    "category": "Quality",
+    "topic": "quality gate",
+    "questionType": "Definition",
+    "question": "What is quality gate, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0088",
+    "level": "Beginner",
+    "category": "Release",
+    "topic": "release plan",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using release plan correctly?"
+  },
+  {
+    "id": "PM-B-0089",
+    "level": "Beginner",
+    "category": "Release",
+    "topic": "release plan",
+    "questionType": "Definition",
+    "question": "What is release plan, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0090",
+    "level": "Beginner",
+    "category": "Remote",
+    "topic": "distributed team management",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using distributed team management correctly?"
+  },
+  {
+    "id": "PM-B-0091",
+    "level": "Beginner",
+    "category": "Remote",
+    "topic": "distributed team management",
+    "questionType": "Definition",
+    "question": "What is distributed team management, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0092",
+    "level": "Beginner",
+    "category": "Requirements",
+    "topic": "acceptance criteria",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using acceptance criteria correctly?"
+  },
+  {
+    "id": "PM-B-0093",
+    "level": "Beginner",
+    "category": "Requirements",
+    "topic": "acceptance criteria",
+    "questionType": "Definition",
+    "question": "What is acceptance criteria, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0094",
+    "level": "Beginner",
+    "category": "Requirements",
+    "topic": "business requirement",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using business requirement correctly?"
+  },
+  {
+    "id": "PM-B-0095",
+    "level": "Beginner",
+    "category": "Requirements",
+    "topic": "business requirement",
+    "questionType": "Definition",
+    "question": "What is business requirement, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0096",
+    "level": "Beginner",
+    "category": "Resources",
+    "topic": "capacity planning",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using capacity planning correctly?"
+  },
+  {
+    "id": "PM-B-0097",
+    "level": "Beginner",
+    "category": "Resources",
+    "topic": "capacity planning",
+    "questionType": "Definition",
+    "question": "What is capacity planning, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0098",
+    "level": "Beginner",
+    "category": "Resources",
+    "topic": "resource leveling",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using resource leveling correctly?"
+  },
+  {
+    "id": "PM-B-0099",
+    "level": "Beginner",
+    "category": "Resources",
+    "topic": "resource leveling",
+    "questionType": "Definition",
+    "question": "What is resource leveling, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0100",
+    "level": "Beginner",
+    "category": "Risk",
+    "topic": "mitigation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using mitigation correctly?"
+  },
+  {
+    "id": "PM-B-0101",
+    "level": "Beginner",
+    "category": "Risk",
+    "topic": "mitigation",
+    "questionType": "Definition",
+    "question": "What is mitigation, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0102",
+    "level": "Beginner",
+    "category": "Risk",
+    "topic": "risk probability/impact",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using risk probability/impact correctly?"
+  },
+  {
+    "id": "PM-B-0103",
+    "level": "Beginner",
+    "category": "Risk",
+    "topic": "risk probability/impact",
+    "questionType": "Definition",
+    "question": "What is risk probability/impact, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0104",
+    "level": "Beginner",
+    "category": "Risk",
+    "topic": "risk register",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using risk register correctly?"
+  },
+  {
+    "id": "PM-B-0105",
+    "level": "Beginner",
+    "category": "Risk",
+    "topic": "risk register",
+    "questionType": "Definition",
+    "question": "What is risk register, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0106",
+    "level": "Beginner",
+    "category": "Scaling",
+    "topic": "multi-team dependency management",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using multi-team dependency management correctly?"
+  },
+  {
+    "id": "PM-B-0107",
+    "level": "Beginner",
+    "category": "Scaling",
+    "topic": "multi-team dependency management",
+    "questionType": "Definition",
+    "question": "What is multi-team dependency management, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0108",
+    "level": "Beginner",
+    "category": "Scheduling",
+    "topic": "critical path",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using critical path correctly?"
+  },
+  {
+    "id": "PM-B-0109",
+    "level": "Beginner",
+    "category": "Scheduling",
+    "topic": "critical path",
+    "questionType": "Definition",
+    "question": "What is critical path, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0110",
+    "level": "Beginner",
+    "category": "Scheduling",
+    "topic": "dependency",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using dependency correctly?"
+  },
+  {
+    "id": "PM-B-0111",
+    "level": "Beginner",
+    "category": "Scheduling",
+    "topic": "dependency",
+    "questionType": "Definition",
+    "question": "What is dependency, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0112",
+    "level": "Beginner",
+    "category": "Scope",
+    "topic": "scope baseline",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using scope baseline correctly?"
+  },
+  {
+    "id": "PM-B-0113",
+    "level": "Beginner",
+    "category": "Scope",
+    "topic": "scope baseline",
+    "questionType": "Definition",
+    "question": "What is scope baseline, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0114",
+    "level": "Beginner",
+    "category": "Scope",
+    "topic": "scope creep",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using scope creep correctly?"
+  },
+  {
+    "id": "PM-B-0115",
+    "level": "Beginner",
+    "category": "Scope",
+    "topic": "scope creep",
+    "questionType": "Definition",
+    "question": "What is scope creep, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0116",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Daily Scrum",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Daily Scrum correctly?"
+  },
+  {
+    "id": "PM-B-0117",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Daily Scrum",
+    "questionType": "Definition",
+    "question": "What is Daily Scrum, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0118",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Definition of Done",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Definition of Done correctly?"
+  },
+  {
+    "id": "PM-B-0119",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Definition of Done",
+    "questionType": "Definition",
+    "question": "What is Definition of Done, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0120",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Product Backlog",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Product Backlog correctly?"
+  },
+  {
+    "id": "PM-B-0121",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Product Backlog",
+    "questionType": "Definition",
+    "question": "What is Product Backlog, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0122",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Product Owner",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Product Owner correctly?"
+  },
+  {
+    "id": "PM-B-0123",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Product Owner",
+    "questionType": "Definition",
+    "question": "What is Product Owner, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0124",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Scrum Master",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Scrum Master correctly?"
+  },
+  {
+    "id": "PM-B-0125",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Scrum Master",
+    "questionType": "Definition",
+    "question": "What is Scrum Master, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0126",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Sprint",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Sprint correctly?"
+  },
+  {
+    "id": "PM-B-0127",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Sprint",
+    "questionType": "Definition",
+    "question": "What is Sprint, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0128",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Sprint Goal",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Sprint Goal correctly?"
+  },
+  {
+    "id": "PM-B-0129",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Sprint Goal",
+    "questionType": "Definition",
+    "question": "What is Sprint Goal, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0130",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Sprint Review",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Sprint Review correctly?"
+  },
+  {
+    "id": "PM-B-0131",
+    "level": "Beginner",
+    "category": "Scrum",
+    "topic": "Sprint Review",
+    "questionType": "Definition",
+    "question": "What is Sprint Review, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0132",
+    "level": "Beginner",
+    "category": "Stakeholders",
+    "topic": "expectation management",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using expectation management correctly?"
+  },
+  {
+    "id": "PM-B-0133",
+    "level": "Beginner",
+    "category": "Stakeholders",
+    "topic": "expectation management",
+    "questionType": "Definition",
+    "question": "What is expectation management, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0134",
+    "level": "Beginner",
+    "category": "Stakeholders",
+    "topic": "stakeholder mapping",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using stakeholder mapping correctly?"
+  },
+  {
+    "id": "PM-B-0135",
+    "level": "Beginner",
+    "category": "Stakeholders",
+    "topic": "stakeholder mapping",
+    "questionType": "Definition",
+    "question": "What is stakeholder mapping, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0136",
+    "level": "Beginner",
+    "category": "Technical Debt",
+    "topic": "technical debt",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using technical debt correctly?"
+  },
+  {
+    "id": "PM-B-0137",
+    "level": "Beginner",
+    "category": "Technical Debt",
+    "topic": "technical debt",
+    "questionType": "Definition",
+    "question": "What is technical debt, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0138",
+    "level": "Beginner",
+    "category": "Tools",
+    "topic": "Jira workflow",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Jira workflow correctly?"
+  },
+  {
+    "id": "PM-B-0139",
+    "level": "Beginner",
+    "category": "Tools",
+    "topic": "Jira workflow",
+    "questionType": "Definition",
+    "question": "What is Jira workflow, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-B-0140",
+    "level": "Beginner",
+    "category": "Vendor",
+    "topic": "vendor management",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using vendor management correctly?"
+  },
+  {
+    "id": "PM-B-0141",
+    "level": "Beginner",
+    "category": "Vendor",
+    "topic": "vendor management",
+    "questionType": "Definition",
+    "question": "What is vendor management, and what problem does it solve in software project management and Agile delivery?"
+  },
+  {
+    "id": "PM-I-0001",
+    "level": "Intermediate",
+    "category": "Agile",
+    "topic": "Agile values",
+    "questionType": "Compare",
+    "question": "Compare Agile values with Scrum framework. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0002",
+    "level": "Intermediate",
+    "category": "Agile",
+    "topic": "Agile values",
+    "questionType": "Mechanics",
+    "question": "Walk through how Agile values works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0003",
+    "level": "Intermediate",
+    "category": "Behavioral",
+    "topic": "STAR interview response",
+    "questionType": "Compare",
+    "question": "Compare STAR interview response with unstructured story. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0004",
+    "level": "Intermediate",
+    "category": "Behavioral",
+    "topic": "STAR interview response",
+    "questionType": "Mechanics",
+    "question": "Walk through how STAR interview response works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0005",
+    "level": "Intermediate",
+    "category": "Budget",
+    "topic": "budget baseline",
+    "questionType": "Compare",
+    "question": "Compare budget baseline with forecast. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0006",
+    "level": "Intermediate",
+    "category": "Budget",
+    "topic": "budget baseline",
+    "questionType": "Mechanics",
+    "question": "Walk through how budget baseline works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0007",
+    "level": "Intermediate",
+    "category": "Budget",
+    "topic": "earned value concepts",
+    "questionType": "Compare",
+    "question": "Compare earned value concepts with simple spend tracking. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0008",
+    "level": "Intermediate",
+    "category": "Budget",
+    "topic": "earned value concepts",
+    "questionType": "Mechanics",
+    "question": "Walk through how earned value concepts works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0009",
+    "level": "Intermediate",
+    "category": "Career",
+    "topic": "PMP",
+    "questionType": "Compare",
+    "question": "Compare PMP with Scrum certification. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0010",
+    "level": "Intermediate",
+    "category": "Career",
+    "topic": "PMP",
+    "questionType": "Mechanics",
+    "question": "Walk through how PMP works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0011",
+    "level": "Intermediate",
+    "category": "Change",
+    "topic": "change control",
+    "questionType": "Compare",
+    "question": "Compare change control with scope creep. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0012",
+    "level": "Intermediate",
+    "category": "Change",
+    "topic": "change control",
+    "questionType": "Mechanics",
+    "question": "Walk through how change control works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0013",
+    "level": "Intermediate",
+    "category": "Client",
+    "topic": "client expectation management",
+    "questionType": "Compare",
+    "question": "Compare client expectation management with internal stakeholder management. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0014",
+    "level": "Intermediate",
+    "category": "Client",
+    "topic": "client expectation management",
+    "questionType": "Mechanics",
+    "question": "Walk through how client expectation management works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0015",
+    "level": "Intermediate",
+    "category": "Communication",
+    "topic": "escalation",
+    "questionType": "Compare",
+    "question": "Compare escalation with complaint. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0016",
+    "level": "Intermediate",
+    "category": "Communication",
+    "topic": "escalation",
+    "questionType": "Mechanics",
+    "question": "Walk through how escalation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0017",
+    "level": "Intermediate",
+    "category": "Communication",
+    "topic": "project status report",
+    "questionType": "Compare",
+    "question": "Compare project status report with raw task list. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0018",
+    "level": "Intermediate",
+    "category": "Communication",
+    "topic": "project status report",
+    "questionType": "Mechanics",
+    "question": "Walk through how project status report works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0019",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "A stakeholder requests a major feature halfway through the release. How do you handle it?"
+  },
+  {
+    "id": "PM-I-0020",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare mitigation, avoidance, transfer, acceptance, and contingency."
+  },
+  {
+    "id": "PM-I-0021",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain lead time, cycle time, throughput, velocity, and burn charts."
+  },
+  {
+    "id": "PM-I-0022",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you build a realistic project schedule around dependencies and uncertainty?"
+  },
+  {
+    "id": "PM-I-0023",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you communicate a likely schedule slip to executives?"
+  },
+  {
+    "id": "PM-I-0024",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you decide which project metrics are useful rather than vanity metrics?"
+  },
+  {
+    "id": "PM-I-0025",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you estimate work when the engineering team has limited historical data?"
+  },
+  {
+    "id": "PM-I-0026",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you handle disagreement between Product, Engineering, and QA over release readiness?"
+  },
+  {
+    "id": "PM-I-0027",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you identify, analyze, prioritize, and respond to project risks?"
+  },
+  {
+    "id": "PM-I-0028",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you manage a dependency on another team that repeatedly misses commitments?"
+  },
+  {
+    "id": "PM-I-0029",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you manage technical debt when business stakeholders want only feature work?"
+  },
+  {
+    "id": "PM-I-0030",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you prevent scope creep while still responding to legitimate new information?"
+  },
+  {
+    "id": "PM-I-0031",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you run a useful retrospective when the team is tired of retrospectives?"
+  },
+  {
+    "id": "PM-I-0032",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you start planning a software project when requirements are incomplete?"
+  },
+  {
+    "id": "PM-I-0033",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you facilitate a Sprint Planning session that keeps the Sprint Goal meaningful?"
+  },
+  {
+    "id": "PM-I-0034",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you manage multiple stakeholders with conflicting priorities?"
+  },
+  {
+    "id": "PM-I-0035",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Tell me about a project that went off track. How did you recognize it and recover?"
+  },
+  {
+    "id": "PM-I-0036",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are story points intended to represent, and how are they commonly misused?"
+  },
+  {
+    "id": "PM-I-0037",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a RAID log, and when is it useful?"
+  },
+  {
+    "id": "PM-I-0038",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What should happen when the team repeatedly fails to complete planned Sprint work?"
+  },
+  {
+    "id": "PM-I-0039",
+    "level": "Intermediate",
+    "category": "Delivery",
+    "topic": "DORA-style delivery metrics",
+    "questionType": "Compare",
+    "question": "Compare DORA-style delivery metrics with project milestones. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0040",
+    "level": "Intermediate",
+    "category": "Delivery",
+    "topic": "DORA-style delivery metrics",
+    "questionType": "Mechanics",
+    "question": "Walk through how DORA-style delivery metrics works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0041",
+    "level": "Intermediate",
+    "category": "Documentation",
+    "topic": "RAID log",
+    "questionType": "Compare",
+    "question": "Compare RAID log with status report. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0042",
+    "level": "Intermediate",
+    "category": "Documentation",
+    "topic": "RAID log",
+    "questionType": "Mechanics",
+    "question": "Walk through how RAID log works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0043",
+    "level": "Intermediate",
+    "category": "Estimation",
+    "topic": "story points",
+    "questionType": "Compare",
+    "question": "Compare story points with hours. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0044",
+    "level": "Intermediate",
+    "category": "Estimation",
+    "topic": "story points",
+    "questionType": "Mechanics",
+    "question": "Walk through how story points works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0045",
+    "level": "Intermediate",
+    "category": "Estimation",
+    "topic": "three-point estimation",
+    "questionType": "Compare",
+    "question": "Compare three-point estimation with single-point estimate. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0046",
+    "level": "Intermediate",
+    "category": "Estimation",
+    "topic": "three-point estimation",
+    "questionType": "Mechanics",
+    "question": "Walk through how three-point estimation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0047",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "project",
+    "questionType": "Compare",
+    "question": "Compare project with product. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0048",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "project",
+    "questionType": "Mechanics",
+    "question": "Walk through how project works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0049",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "project management",
+    "questionType": "Compare",
+    "question": "Compare project management with program management. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0050",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "project management",
+    "questionType": "Mechanics",
+    "question": "Walk through how project management works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0051",
+    "level": "Intermediate",
+    "category": "Governance",
+    "topic": "steering committee",
+    "questionType": "Compare",
+    "question": "Compare steering committee with daily team sync. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0052",
+    "level": "Intermediate",
+    "category": "Governance",
+    "topic": "steering committee",
+    "questionType": "Mechanics",
+    "question": "Walk through how steering committee works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0053",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "A sprint repeatedly carries unfinished work forward. How would you determine whether the problem is estimation, scope, flow, dependencies, capacity, or something else?"
+  },
+  {
+    "id": "PM-I-0054",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How do you use velocity responsibly without turning it into an individual productivity metric?"
+  },
+  {
+    "id": "PM-I-0055",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you manage a fixed-date software launch when scope is still flexible?"
+  },
+  {
+    "id": "PM-I-0056",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Requirements are changing faster than the team can estimate them. How would you plan while making uncertainty visible?"
+  },
+  {
+    "id": "PM-I-0057",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Two senior stakeholders demand conflicting priorities for the same team. How do you reach a decision and document the trade-off?"
+  },
+  {
+    "id": "PM-I-0058",
+    "level": "Intermediate",
+    "category": "Incident",
+    "topic": "incident management",
+    "questionType": "Compare",
+    "question": "Compare incident management with project risk management. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0059",
+    "level": "Intermediate",
+    "category": "Incident",
+    "topic": "incident management",
+    "questionType": "Mechanics",
+    "question": "Walk through how incident management works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0060",
+    "level": "Intermediate",
+    "category": "Kanban",
+    "topic": "WIP limit",
+    "questionType": "Compare",
+    "question": "Compare WIP limit with sprint commitment. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0061",
+    "level": "Intermediate",
+    "category": "Kanban",
+    "topic": "WIP limit",
+    "questionType": "Mechanics",
+    "question": "Walk through how WIP limit works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0062",
+    "level": "Intermediate",
+    "category": "Kanban",
+    "topic": "cycle time",
+    "questionType": "Compare",
+    "question": "Compare cycle time with lead time. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0063",
+    "level": "Intermediate",
+    "category": "Kanban",
+    "topic": "cycle time",
+    "questionType": "Mechanics",
+    "question": "Walk through how cycle time works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0064",
+    "level": "Intermediate",
+    "category": "Leadership",
+    "topic": "conflict resolution",
+    "questionType": "Compare",
+    "question": "Compare conflict resolution with avoidance. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0065",
+    "level": "Intermediate",
+    "category": "Leadership",
+    "topic": "conflict resolution",
+    "questionType": "Mechanics",
+    "question": "Walk through how conflict resolution works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0066",
+    "level": "Intermediate",
+    "category": "Leadership",
+    "topic": "servant leadership",
+    "questionType": "Compare",
+    "question": "Compare servant leadership with command-and-control. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0067",
+    "level": "Intermediate",
+    "category": "Leadership",
+    "topic": "servant leadership",
+    "questionType": "Mechanics",
+    "question": "Walk through how servant leadership works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0068",
+    "level": "Intermediate",
+    "category": "Lifecycle",
+    "topic": "project charter",
+    "questionType": "Compare",
+    "question": "Compare project charter with project plan. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0069",
+    "level": "Intermediate",
+    "category": "Lifecycle",
+    "topic": "project charter",
+    "questionType": "Mechanics",
+    "question": "Walk through how project charter works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0070",
+    "level": "Intermediate",
+    "category": "Lifecycle",
+    "topic": "project initiation",
+    "questionType": "Compare",
+    "question": "Compare project initiation with project execution. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0071",
+    "level": "Intermediate",
+    "category": "Lifecycle",
+    "topic": "project initiation",
+    "questionType": "Mechanics",
+    "question": "Walk through how project initiation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0072",
+    "level": "Intermediate",
+    "category": "Metrics",
+    "topic": "burndown",
+    "questionType": "Compare",
+    "question": "Compare burndown with burnup. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0073",
+    "level": "Intermediate",
+    "category": "Metrics",
+    "topic": "burndown",
+    "questionType": "Mechanics",
+    "question": "Walk through how burndown works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0074",
+    "level": "Intermediate",
+    "category": "Metrics",
+    "topic": "lead time",
+    "questionType": "Compare",
+    "question": "Compare lead time with cycle time. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0075",
+    "level": "Intermediate",
+    "category": "Metrics",
+    "topic": "lead time",
+    "questionType": "Mechanics",
+    "question": "Walk through how lead time works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0076",
+    "level": "Intermediate",
+    "category": "Metrics",
+    "topic": "throughput",
+    "questionType": "Compare",
+    "question": "Compare throughput with velocity. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0077",
+    "level": "Intermediate",
+    "category": "Metrics",
+    "topic": "throughput",
+    "questionType": "Mechanics",
+    "question": "Walk through how throughput works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0078",
+    "level": "Intermediate",
+    "category": "Metrics",
+    "topic": "velocity",
+    "questionType": "Compare",
+    "question": "Compare velocity with productivity. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0079",
+    "level": "Intermediate",
+    "category": "Metrics",
+    "topic": "velocity",
+    "questionType": "Mechanics",
+    "question": "Walk through how velocity works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0080",
+    "level": "Intermediate",
+    "category": "Planning",
+    "topic": "milestone",
+    "questionType": "Compare",
+    "question": "Compare milestone with task. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0081",
+    "level": "Intermediate",
+    "category": "Planning",
+    "topic": "milestone",
+    "questionType": "Mechanics",
+    "question": "Walk through how milestone works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0082",
+    "level": "Intermediate",
+    "category": "Planning",
+    "topic": "work breakdown structure",
+    "questionType": "Compare",
+    "question": "Compare work breakdown structure with product backlog. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0083",
+    "level": "Intermediate",
+    "category": "Planning",
+    "topic": "work breakdown structure",
+    "questionType": "Mechanics",
+    "question": "Walk through how work breakdown structure works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0084",
+    "level": "Intermediate",
+    "category": "Prioritization",
+    "topic": "MoSCoW",
+    "questionType": "Compare",
+    "question": "Compare MoSCoW with RICE. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0085",
+    "level": "Intermediate",
+    "category": "Prioritization",
+    "topic": "MoSCoW",
+    "questionType": "Mechanics",
+    "question": "Walk through how MoSCoW works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0086",
+    "level": "Intermediate",
+    "category": "Prioritization",
+    "topic": "value vs effort",
+    "questionType": "Compare",
+    "question": "Compare value vs effort with urgency. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0087",
+    "level": "Intermediate",
+    "category": "Prioritization",
+    "topic": "value vs effort",
+    "questionType": "Mechanics",
+    "question": "Walk through how value vs effort works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0088",
+    "level": "Intermediate",
+    "category": "Quality",
+    "topic": "quality gate",
+    "questionType": "Compare",
+    "question": "Compare quality gate with late manual review. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0089",
+    "level": "Intermediate",
+    "category": "Release",
+    "topic": "release plan",
+    "questionType": "Compare",
+    "question": "Compare release plan with project plan. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0090",
+    "level": "Intermediate",
+    "category": "Release",
+    "topic": "release plan",
+    "questionType": "Mechanics",
+    "question": "Walk through how release plan works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0091",
+    "level": "Intermediate",
+    "category": "Remote",
+    "topic": "distributed team management",
+    "questionType": "Compare",
+    "question": "Compare distributed team management with co-located team. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0092",
+    "level": "Intermediate",
+    "category": "Remote",
+    "topic": "distributed team management",
+    "questionType": "Mechanics",
+    "question": "Walk through how distributed team management works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0093",
+    "level": "Intermediate",
+    "category": "Requirements",
+    "topic": "acceptance criteria",
+    "questionType": "Compare",
+    "question": "Compare acceptance criteria with definition of done. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0094",
+    "level": "Intermediate",
+    "category": "Requirements",
+    "topic": "acceptance criteria",
+    "questionType": "Mechanics",
+    "question": "Walk through how acceptance criteria works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0095",
+    "level": "Intermediate",
+    "category": "Requirements",
+    "topic": "business requirement",
+    "questionType": "Compare",
+    "question": "Compare business requirement with user story. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0096",
+    "level": "Intermediate",
+    "category": "Requirements",
+    "topic": "business requirement",
+    "questionType": "Mechanics",
+    "question": "Walk through how business requirement works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0097",
+    "level": "Intermediate",
+    "category": "Resources",
+    "topic": "capacity planning",
+    "questionType": "Compare",
+    "question": "Compare capacity planning with utilization maximization. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0098",
+    "level": "Intermediate",
+    "category": "Resources",
+    "topic": "capacity planning",
+    "questionType": "Mechanics",
+    "question": "Walk through how capacity planning works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0099",
+    "level": "Intermediate",
+    "category": "Resources",
+    "topic": "resource leveling",
+    "questionType": "Compare",
+    "question": "Compare resource leveling with resource smoothing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0100",
+    "level": "Intermediate",
+    "category": "Resources",
+    "topic": "resource leveling",
+    "questionType": "Mechanics",
+    "question": "Walk through how resource leveling works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0101",
+    "level": "Intermediate",
+    "category": "Risk",
+    "topic": "mitigation",
+    "questionType": "Compare",
+    "question": "Compare mitigation with contingency. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0102",
+    "level": "Intermediate",
+    "category": "Risk",
+    "topic": "mitigation",
+    "questionType": "Mechanics",
+    "question": "Walk through how mitigation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0103",
+    "level": "Intermediate",
+    "category": "Risk",
+    "topic": "risk probability/impact",
+    "questionType": "Compare",
+    "question": "Compare risk probability/impact with priority. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0104",
+    "level": "Intermediate",
+    "category": "Risk",
+    "topic": "risk probability/impact",
+    "questionType": "Mechanics",
+    "question": "Walk through how risk probability/impact works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0105",
+    "level": "Intermediate",
+    "category": "Risk",
+    "topic": "risk register",
+    "questionType": "Compare",
+    "question": "Compare risk register with issue log. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0106",
+    "level": "Intermediate",
+    "category": "Risk",
+    "topic": "risk register",
+    "questionType": "Mechanics",
+    "question": "Walk through how risk register works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0107",
+    "level": "Intermediate",
+    "category": "Scaling",
+    "topic": "multi-team dependency management",
+    "questionType": "Compare",
+    "question": "Compare multi-team dependency management with single-team sprint. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0108",
+    "level": "Intermediate",
+    "category": "Scaling",
+    "topic": "multi-team dependency management",
+    "questionType": "Mechanics",
+    "question": "Walk through how multi-team dependency management works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0109",
+    "level": "Intermediate",
+    "category": "Scheduling",
+    "topic": "critical path",
+    "questionType": "Compare",
+    "question": "Compare critical path with critical chain. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0110",
+    "level": "Intermediate",
+    "category": "Scheduling",
+    "topic": "critical path",
+    "questionType": "Mechanics",
+    "question": "Walk through how critical path works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0111",
+    "level": "Intermediate",
+    "category": "Scheduling",
+    "topic": "dependency",
+    "questionType": "Compare",
+    "question": "Compare dependency with constraint. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0112",
+    "level": "Intermediate",
+    "category": "Scheduling",
+    "topic": "dependency",
+    "questionType": "Mechanics",
+    "question": "Walk through how dependency works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0113",
+    "level": "Intermediate",
+    "category": "Scope",
+    "topic": "scope baseline",
+    "questionType": "Compare",
+    "question": "Compare scope baseline with product backlog. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0114",
+    "level": "Intermediate",
+    "category": "Scope",
+    "topic": "scope baseline",
+    "questionType": "Mechanics",
+    "question": "Walk through how scope baseline works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0115",
+    "level": "Intermediate",
+    "category": "Scope",
+    "topic": "scope creep",
+    "questionType": "Compare",
+    "question": "Compare scope creep with controlled change. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0116",
+    "level": "Intermediate",
+    "category": "Scope",
+    "topic": "scope creep",
+    "questionType": "Mechanics",
+    "question": "Walk through how scope creep works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0117",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Daily Scrum",
+    "questionType": "Compare",
+    "question": "Compare Daily Scrum with status meeting. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0118",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Daily Scrum",
+    "questionType": "Mechanics",
+    "question": "Walk through how Daily Scrum works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0119",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Definition of Done",
+    "questionType": "Compare",
+    "question": "Compare Definition of Done with acceptance criteria. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0120",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Definition of Done",
+    "questionType": "Mechanics",
+    "question": "Walk through how Definition of Done works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0121",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Product Backlog",
+    "questionType": "Compare",
+    "question": "Compare Product Backlog with Sprint Backlog. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0122",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Product Backlog",
+    "questionType": "Mechanics",
+    "question": "Walk through how Product Backlog works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0123",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Product Owner",
+    "questionType": "Compare",
+    "question": "Compare Product Owner with Project Manager. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0124",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Product Owner",
+    "questionType": "Mechanics",
+    "question": "Walk through how Product Owner works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0125",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Scrum Master",
+    "questionType": "Compare",
+    "question": "Compare Scrum Master with Project Manager. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0126",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Scrum Master",
+    "questionType": "Mechanics",
+    "question": "Walk through how Scrum Master works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0127",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Sprint",
+    "questionType": "Compare",
+    "question": "Compare Sprint with Kanban flow. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0128",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Sprint",
+    "questionType": "Mechanics",
+    "question": "Walk through how Sprint works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0129",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Sprint Goal",
+    "questionType": "Compare",
+    "question": "Compare Sprint Goal with task list. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0130",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Sprint Goal",
+    "questionType": "Mechanics",
+    "question": "Walk through how Sprint Goal works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0131",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Sprint Review",
+    "questionType": "Compare",
+    "question": "Compare Sprint Review with Retrospective. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0132",
+    "level": "Intermediate",
+    "category": "Scrum",
+    "topic": "Sprint Review",
+    "questionType": "Mechanics",
+    "question": "Walk through how Sprint Review works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0133",
+    "level": "Intermediate",
+    "category": "Stakeholders",
+    "topic": "expectation management",
+    "questionType": "Compare",
+    "question": "Compare expectation management with status reporting. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0134",
+    "level": "Intermediate",
+    "category": "Stakeholders",
+    "topic": "expectation management",
+    "questionType": "Mechanics",
+    "question": "Walk through how expectation management works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0135",
+    "level": "Intermediate",
+    "category": "Stakeholders",
+    "topic": "stakeholder mapping",
+    "questionType": "Compare",
+    "question": "Compare stakeholder mapping with org chart. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0136",
+    "level": "Intermediate",
+    "category": "Stakeholders",
+    "topic": "stakeholder mapping",
+    "questionType": "Mechanics",
+    "question": "Walk through how stakeholder mapping works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0137",
+    "level": "Intermediate",
+    "category": "Technical Debt",
+    "topic": "technical debt",
+    "questionType": "Compare",
+    "question": "Compare technical debt with feature backlog. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0138",
+    "level": "Intermediate",
+    "category": "Technical Debt",
+    "topic": "technical debt",
+    "questionType": "Mechanics",
+    "question": "Walk through how technical debt works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0139",
+    "level": "Intermediate",
+    "category": "Tools",
+    "topic": "Jira workflow",
+    "questionType": "Compare",
+    "question": "Compare Jira workflow with process. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0140",
+    "level": "Intermediate",
+    "category": "Tools",
+    "topic": "Jira workflow",
+    "questionType": "Mechanics",
+    "question": "Walk through how Jira workflow works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-I-0141",
+    "level": "Intermediate",
+    "category": "Vendor",
+    "topic": "vendor management",
+    "questionType": "Compare",
+    "question": "Compare vendor management with internal team management. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "PM-I-0142",
+    "level": "Intermediate",
+    "category": "Vendor",
+    "topic": "vendor management",
+    "questionType": "Mechanics",
+    "question": "Walk through how vendor management works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "PM-A-0001",
+    "level": "Advanced",
+    "category": "Agile",
+    "topic": "Agile values",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Agile values. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0002",
+    "level": "Advanced",
+    "category": "Agile",
+    "topic": "Agile values",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Agile values? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0003",
+    "level": "Advanced",
+    "category": "Behavioral",
+    "topic": "STAR interview response",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around STAR interview response. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0004",
+    "level": "Advanced",
+    "category": "Behavioral",
+    "topic": "STAR interview response",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with STAR interview response? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0005",
+    "level": "Advanced",
+    "category": "Budget",
+    "topic": "budget baseline",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around budget baseline. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0006",
+    "level": "Advanced",
+    "category": "Budget",
+    "topic": "budget baseline",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with budget baseline? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0007",
+    "level": "Advanced",
+    "category": "Budget",
+    "topic": "earned value concepts",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around earned value concepts. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0008",
+    "level": "Advanced",
+    "category": "Budget",
+    "topic": "earned value concepts",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with earned value concepts? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0009",
+    "level": "Advanced",
+    "category": "Career",
+    "topic": "PMP",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around PMP. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0010",
+    "level": "Advanced",
+    "category": "Career",
+    "topic": "PMP",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with PMP? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0011",
+    "level": "Advanced",
+    "category": "Change",
+    "topic": "change control",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around change control. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0012",
+    "level": "Advanced",
+    "category": "Change",
+    "topic": "change control",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with change control? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0013",
+    "level": "Advanced",
+    "category": "Client",
+    "topic": "client expectation management",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around client expectation management. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0014",
+    "level": "Advanced",
+    "category": "Client",
+    "topic": "client expectation management",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with client expectation management? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0015",
+    "level": "Advanced",
+    "category": "Communication",
+    "topic": "escalation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around escalation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0016",
+    "level": "Advanced",
+    "category": "Communication",
+    "topic": "escalation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with escalation? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0017",
+    "level": "Advanced",
+    "category": "Communication",
+    "topic": "project status report",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around project status report. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0018",
+    "level": "Advanced",
+    "category": "Communication",
+    "topic": "project status report",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with project status report? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0019",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "A vendor misses a critical dependency and contract penalties are possible. How do you manage delivery and relationships?"
+  },
+  {
+    "id": "PM-A-0020",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a governance model for a program involving five product teams, vendors, security, compliance, and executive sponsors."
+  },
+  {
+    "id": "PM-A-0021",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a release-readiness framework covering product, engineering, QA, security, operations, support, rollback, and communications."
+  },
+  {
+    "id": "PM-A-0022",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a stakeholder communication plan for a politically sensitive project with bad news likely."
+  },
+  {
+    "id": "PM-A-0023",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain how you would model schedule risk rather than presenting a single false-precision delivery date."
+  },
+  {
+    "id": "PM-A-0024",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you decide whether to recover, re-scope, pause, or cancel a failing project?"
+  },
+  {
+    "id": "PM-A-0025",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you establish psychological safety while still maintaining accountability for delivery commitments?"
+  },
+  {
+    "id": "PM-A-0026",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you handle executives who demand individual developer utilization metrics or story-point targets?"
+  },
+  {
+    "id": "PM-A-0027",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you manage dependencies across teams that use different planning cadences and methodologies?"
+  },
+  {
+    "id": "PM-A-0028",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you manage portfolio-level prioritization when every stakeholder labels their work \"critical\"?"
+  },
+  {
+    "id": "PM-A-0029",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you prevent Agile ceremonies from becoming process theatre?"
+  },
+  {
+    "id": "PM-A-0030",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How should project management interact with SRE/DevOps practices such as SLOs, incident reviews, and release risk?"
+  },
+  {
+    "id": "PM-A-0031",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you build a delivery plan when scope is uncertain but a regulatory deadline is fixed?"
+  },
+  {
+    "id": "PM-A-0032",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you lead a project where technical discovery reveals the original business plan is no longer feasible?"
+  },
+  {
+    "id": "PM-A-0033",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you manage a major production incident while a high-profile launch is in progress?"
+  },
+  {
+    "id": "PM-A-0034",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you measure whether a transformation to Agile ways of working is actually improving outcomes?"
+  },
+  {
+    "id": "PM-A-0035",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you negotiate scope, time, and quality when none of the stakeholders is willing to compromise?"
+  },
+  {
+    "id": "PM-A-0036",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "In a senior software-project-management interview, walk through how you would recover a troubled multi-team SaaS migration involving technical debt, unclear scope, customer commitments, compliance constraints, vendor dependencies, and a fixed market deadline."
+  },
+  {
+    "id": "PM-A-0037",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Tell me about a high-impact conflict between senior stakeholders and how you would facilitate resolution."
+  },
+  {
+    "id": "PM-A-0038",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "You inherit a critical project six months late with low team morale and conflicting stakeholder expectations. What do you do in the first two weeks?"
+  },
+  {
+    "id": "PM-A-0039",
+    "level": "Advanced",
+    "category": "Delivery",
+    "topic": "DORA-style delivery metrics",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around DORA-style delivery metrics. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0040",
+    "level": "Advanced",
+    "category": "Delivery",
+    "topic": "DORA-style delivery metrics",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with DORA-style delivery metrics? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0041",
+    "level": "Advanced",
+    "category": "Documentation",
+    "topic": "RAID log",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around RAID log. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0042",
+    "level": "Advanced",
+    "category": "Documentation",
+    "topic": "RAID log",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with RAID log? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0043",
+    "level": "Advanced",
+    "category": "Estimation",
+    "topic": "story points",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around story points. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0044",
+    "level": "Advanced",
+    "category": "Estimation",
+    "topic": "story points",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with story points? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0045",
+    "level": "Advanced",
+    "category": "Estimation",
+    "topic": "three-point estimation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around three-point estimation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0046",
+    "level": "Advanced",
+    "category": "Estimation",
+    "topic": "three-point estimation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with three-point estimation? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0047",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "project",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around project. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0048",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "project",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with project? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0049",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "project management",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around project management. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0050",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "project management",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with project management? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0051",
+    "level": "Advanced",
+    "category": "Governance",
+    "topic": "steering committee",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around steering committee. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0052",
+    "level": "Advanced",
+    "category": "Governance",
+    "topic": "steering committee",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with steering committee? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0053",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "A strategic software program is six months late, morale is low, stakeholders have lost trust, and estimates are unreliable. Describe your recovery plan."
+  },
+  {
+    "id": "PM-A-0054",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "An executive wants an unrealistic date publicly committed before engineering discovery is complete. How do you handle the situation?"
+  },
+  {
+    "id": "PM-A-0055",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design governance for a program involving several engineering teams, external vendors, security, operations, and a regulatory deadline."
+  },
+  {
+    "id": "PM-A-0056",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How do you decide when a software project should be stopped rather than rescued?"
+  },
+  {
+    "id": "PM-A-0057",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you manage a critical production incident while also protecting the delivery team from chaotic stakeholder communication?"
+  },
+  {
+    "id": "PM-A-0058",
+    "level": "Advanced",
+    "category": "Incident",
+    "topic": "incident management",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around incident management. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0059",
+    "level": "Advanced",
+    "category": "Incident",
+    "topic": "incident management",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with incident management? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0060",
+    "level": "Advanced",
+    "category": "Kanban",
+    "topic": "WIP limit",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around WIP limit. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0061",
+    "level": "Advanced",
+    "category": "Kanban",
+    "topic": "WIP limit",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with WIP limit? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0062",
+    "level": "Advanced",
+    "category": "Kanban",
+    "topic": "cycle time",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around cycle time. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0063",
+    "level": "Advanced",
+    "category": "Kanban",
+    "topic": "cycle time",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with cycle time? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0064",
+    "level": "Advanced",
+    "category": "Leadership",
+    "topic": "conflict resolution",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around conflict resolution. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0065",
+    "level": "Advanced",
+    "category": "Leadership",
+    "topic": "conflict resolution",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with conflict resolution? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0066",
+    "level": "Advanced",
+    "category": "Leadership",
+    "topic": "servant leadership",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around servant leadership. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0067",
+    "level": "Advanced",
+    "category": "Leadership",
+    "topic": "servant leadership",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with servant leadership? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0068",
+    "level": "Advanced",
+    "category": "Lifecycle",
+    "topic": "project charter",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around project charter. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0069",
+    "level": "Advanced",
+    "category": "Lifecycle",
+    "topic": "project charter",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with project charter? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0070",
+    "level": "Advanced",
+    "category": "Lifecycle",
+    "topic": "project initiation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around project initiation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0071",
+    "level": "Advanced",
+    "category": "Lifecycle",
+    "topic": "project initiation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with project initiation? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0072",
+    "level": "Advanced",
+    "category": "Metrics",
+    "topic": "burndown",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around burndown. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0073",
+    "level": "Advanced",
+    "category": "Metrics",
+    "topic": "burndown",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with burndown? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0074",
+    "level": "Advanced",
+    "category": "Metrics",
+    "topic": "lead time",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around lead time. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0075",
+    "level": "Advanced",
+    "category": "Metrics",
+    "topic": "lead time",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with lead time? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0076",
+    "level": "Advanced",
+    "category": "Metrics",
+    "topic": "throughput",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around throughput. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0077",
+    "level": "Advanced",
+    "category": "Metrics",
+    "topic": "throughput",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with throughput? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0078",
+    "level": "Advanced",
+    "category": "Metrics",
+    "topic": "velocity",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around velocity. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0079",
+    "level": "Advanced",
+    "category": "Metrics",
+    "topic": "velocity",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with velocity? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0080",
+    "level": "Advanced",
+    "category": "Planning",
+    "topic": "milestone",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around milestone. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0081",
+    "level": "Advanced",
+    "category": "Planning",
+    "topic": "milestone",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with milestone? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0082",
+    "level": "Advanced",
+    "category": "Planning",
+    "topic": "work breakdown structure",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around work breakdown structure. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0083",
+    "level": "Advanced",
+    "category": "Planning",
+    "topic": "work breakdown structure",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with work breakdown structure? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0084",
+    "level": "Advanced",
+    "category": "Prioritization",
+    "topic": "MoSCoW",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around MoSCoW. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0085",
+    "level": "Advanced",
+    "category": "Prioritization",
+    "topic": "MoSCoW",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with MoSCoW? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0086",
+    "level": "Advanced",
+    "category": "Prioritization",
+    "topic": "value vs effort",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around value vs effort. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0087",
+    "level": "Advanced",
+    "category": "Prioritization",
+    "topic": "value vs effort",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with value vs effort? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0088",
+    "level": "Advanced",
+    "category": "Release",
+    "topic": "release plan",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around release plan. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0089",
+    "level": "Advanced",
+    "category": "Release",
+    "topic": "release plan",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with release plan? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0090",
+    "level": "Advanced",
+    "category": "Remote",
+    "topic": "distributed team management",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around distributed team management. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0091",
+    "level": "Advanced",
+    "category": "Remote",
+    "topic": "distributed team management",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with distributed team management? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0092",
+    "level": "Advanced",
+    "category": "Requirements",
+    "topic": "acceptance criteria",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around acceptance criteria. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0093",
+    "level": "Advanced",
+    "category": "Requirements",
+    "topic": "acceptance criteria",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with acceptance criteria? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0094",
+    "level": "Advanced",
+    "category": "Requirements",
+    "topic": "business requirement",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around business requirement. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0095",
+    "level": "Advanced",
+    "category": "Requirements",
+    "topic": "business requirement",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with business requirement? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0096",
+    "level": "Advanced",
+    "category": "Resources",
+    "topic": "capacity planning",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around capacity planning. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0097",
+    "level": "Advanced",
+    "category": "Resources",
+    "topic": "capacity planning",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with capacity planning? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0098",
+    "level": "Advanced",
+    "category": "Resources",
+    "topic": "resource leveling",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around resource leveling. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0099",
+    "level": "Advanced",
+    "category": "Resources",
+    "topic": "resource leveling",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with resource leveling? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0100",
+    "level": "Advanced",
+    "category": "Risk",
+    "topic": "mitigation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around mitigation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0101",
+    "level": "Advanced",
+    "category": "Risk",
+    "topic": "mitigation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with mitigation? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0102",
+    "level": "Advanced",
+    "category": "Risk",
+    "topic": "risk probability/impact",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around risk probability/impact. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0103",
+    "level": "Advanced",
+    "category": "Risk",
+    "topic": "risk probability/impact",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with risk probability/impact? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0104",
+    "level": "Advanced",
+    "category": "Risk",
+    "topic": "risk register",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around risk register. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0105",
+    "level": "Advanced",
+    "category": "Risk",
+    "topic": "risk register",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with risk register? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0106",
+    "level": "Advanced",
+    "category": "Scaling",
+    "topic": "multi-team dependency management",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around multi-team dependency management. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0107",
+    "level": "Advanced",
+    "category": "Scaling",
+    "topic": "multi-team dependency management",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with multi-team dependency management? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0108",
+    "level": "Advanced",
+    "category": "Scheduling",
+    "topic": "critical path",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around critical path. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0109",
+    "level": "Advanced",
+    "category": "Scheduling",
+    "topic": "critical path",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with critical path? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0110",
+    "level": "Advanced",
+    "category": "Scheduling",
+    "topic": "dependency",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around dependency. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0111",
+    "level": "Advanced",
+    "category": "Scheduling",
+    "topic": "dependency",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with dependency? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0112",
+    "level": "Advanced",
+    "category": "Scope",
+    "topic": "scope baseline",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around scope baseline. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0113",
+    "level": "Advanced",
+    "category": "Scope",
+    "topic": "scope baseline",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with scope baseline? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0114",
+    "level": "Advanced",
+    "category": "Scope",
+    "topic": "scope creep",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around scope creep. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0115",
+    "level": "Advanced",
+    "category": "Scope",
+    "topic": "scope creep",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with scope creep? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0116",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Daily Scrum",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Daily Scrum. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0117",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Daily Scrum",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Daily Scrum? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0118",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Definition of Done",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Definition of Done. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0119",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Definition of Done",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Definition of Done? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0120",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Product Backlog",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Product Backlog. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0121",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Product Backlog",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Product Backlog? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0122",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Product Owner",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Product Owner. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0123",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Product Owner",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Product Owner? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0124",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Scrum Master",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Scrum Master. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0125",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Scrum Master",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Scrum Master? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0126",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Sprint",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Sprint. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0127",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Sprint",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Sprint? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0128",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Sprint Goal",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Sprint Goal. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0129",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Sprint Goal",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Sprint Goal? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0130",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Sprint Review",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Sprint Review. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0131",
+    "level": "Advanced",
+    "category": "Scrum",
+    "topic": "Sprint Review",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Sprint Review? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0132",
+    "level": "Advanced",
+    "category": "Stakeholders",
+    "topic": "expectation management",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around expectation management. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0133",
+    "level": "Advanced",
+    "category": "Stakeholders",
+    "topic": "expectation management",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with expectation management? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0134",
+    "level": "Advanced",
+    "category": "Stakeholders",
+    "topic": "stakeholder mapping",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around stakeholder mapping. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0135",
+    "level": "Advanced",
+    "category": "Stakeholders",
+    "topic": "stakeholder mapping",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with stakeholder mapping? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0136",
+    "level": "Advanced",
+    "category": "Technical Debt",
+    "topic": "technical debt",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around technical debt. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0137",
+    "level": "Advanced",
+    "category": "Technical Debt",
+    "topic": "technical debt",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with technical debt? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0138",
+    "level": "Advanced",
+    "category": "Tools",
+    "topic": "Jira workflow",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Jira workflow. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0139",
+    "level": "Advanced",
+    "category": "Tools",
+    "topic": "Jira workflow",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Jira workflow? How would you design around them?"
+  },
+  {
+    "id": "PM-A-0140",
+    "level": "Advanced",
+    "category": "Vendor",
+    "topic": "vendor management",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around vendor management. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "PM-A-0141",
+    "level": "Advanced",
+    "category": "Vendor",
+    "topic": "vendor management",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with vendor management? How would you design around them?"
+  }
+]

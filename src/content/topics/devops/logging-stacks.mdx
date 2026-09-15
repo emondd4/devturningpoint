@@ -1,0 +1,88 @@
+---
+id: DEVOPS-LOGGING-STACKS
+title: "Logging Stacks for Operators"
+titleBn: "অপারেটরদের জন্য লগিং স্ট্যাক"
+description: "Structured logs, retention, and central aggregation—from journald to ELK-style pipelines."
+descriptionBn: "স্ট্রাকচার্ড লগ, রিটেনশন ও কেন্দ্রীয় অ্যাগ্রিগেশন—journald থেকে ELK-স্টাইল পাইপলাইন।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites:
+  - "DEVOPS-LINUX-FUNDAMENTALS"
+  - "DEVOPS-OBSERVABILITY-PROMETHEUS-GRAFANA"
+unlocks:
+  - "DEVOPS-INCIDENT-RESPONSE"
+related:
+  - "DEVOPS-OPENTELEMETRY"
+  - "DEVOPS-SYSTEMD"
+careers:
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "logging"
+  - "elk"
+  - "observability"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "ELASTIC-LOGS"
+  - "SYSTEMD-DOCS"
+  - "OPENTELEMETRY-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why `tail -f` does not scale past one box
+
+Incidents span many hosts and containers. You need structured events, shippers, searchable storage, and retention that matches compliance and cost.
+
+## Mental model
+
+<Callout type="mental-model">
+  Emit JSON (or consistent key=value) → ship via agent/collector → index/store → query during incidents. Correlate with metrics and traces via request ids.
+</Callout>
+
+```bash
+# App emits structured logs to stdout; container runtime collects them
+node -e 'console.log(JSON.stringify({level:"info",msg:"order_created",orderId:"o_1",traceId:"abc"}))'
+journalctl -u topics-api -o json-pretty | head
+```
+
+Choose stacks deliberately (ELK/EFK, Loki+Grafana, cloud logging). Cost is dominated by volume and high-cardinality fields.
+
+## Common mistakes
+
+- **Logging secrets/PII** — Redact at source.
+- **Unstructured multi-line dumps only** — Hard to query.
+- **Infinite retention “just in case”** — Budget hot vs cold storage.
+
+## Interview angle
+
+<Callout type="interview">
+  Design a minimal logging path from a Node container to a searchable backend.
+</Callout>
+
+## Practice checklist
+
+- [ ] Convert one `console.log` string into JSON fields.
+- [ ] Query journald for a unit since a timestamp.
+- [ ] Sketch retention tiers for prod logs.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `ELASTIC-LOGS`
+- `SYSTEMD-DOCS`
+- `OPENTELEMETRY-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

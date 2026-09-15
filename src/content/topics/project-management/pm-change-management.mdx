@@ -1,0 +1,79 @@
+---
+id: PM-CHANGE-MANAGEMENT
+title: "Change Management for Software Teams"
+titleBn: "সফটওয়্যার টিমের জন্য চেঞ্জ ম্যানেজমেন্ট"
+description: "Control scope and production change: requests, impact analysis, approvals, and communication."
+descriptionBn: "স্কোপ ও প্রোডাকশন চেঞ্জ নিয়ন্ত্রণ: রিকোয়েস্ট, ইমপ্যাক্ট অ্যানালাইসিস, অ্যাপ্রুভাল।"
+track: project-management
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "PM-SOFTWARE-DELIVERY"
+  - "PM-SCOPE-MANAGEMENT"
+unlocks:
+  []
+related:
+  - "PM-RELEASE-MANAGEMENT"
+  - "PM-INCIDENT-COMMS"
+  - "PM-STAKEHOLDERS"
+careers:
+  - "project-manager"
+tags:
+  - "change"
+  - "scope"
+  - "governance"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "SCRUM-GUIDE"
+  - "GOOGLE-SRE-EMERGENCY"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why “just one small change” hurts
+
+Untracked changes create surprise scope, broken timelines, and risky hotfixes. Change management separates **product scope change** from **production change**, with clear impact and owners.
+
+## Mental model
+
+<Callout type="mental-model">
+  Request → impact (scope/schedule/risk) → decision (accept/defer/reject) → communicate → implement via normal delivery or controlled prod change window.
+</Callout>
+
+## Two layers
+
+1. **Backlog/scope change** — New asks enter prioritization; tradeoffs explicit.
+2. **Production change** — Deploy/config/data fixes with rollback and comms.
+
+## Common mistakes
+
+- **Verbal yes without replanning** — Hidden debt.
+- **Emergency path used for convenience** — Bypasses learning.
+- **No stakeholder update after acceptance** — Expectation drift.
+
+## Interview angle
+
+<Callout type="interview">
+  Mid-sprint, a VIP asks for a new report. How do you run change control without saying only “no”?
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a one-page change request template.
+- [ ] Define what qualifies as emergency change.
+- [ ] Link change decisions to roadmap/OKR impact.
+
+## Sources
+
+- `SCRUM-GUIDE`
+- `GOOGLE-SRE-EMERGENCY`

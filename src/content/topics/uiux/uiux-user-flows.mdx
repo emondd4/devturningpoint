@@ -1,0 +1,78 @@
+---
+id: UIUX-USER-FLOWS
+title: "User Flows"
+titleBn: "ইউজার ফ্লো"
+description: "Map task paths, decision points, and edge cases before high-fidelity UI."
+descriptionBn: "হাই-ফাই UI-এর আগে টাস্ক পাথ, ডিসিশন পয়েন্ট ও এজ কেস ম্যাপ করুন।"
+track: uiux
+difficulty: intermediate
+estimatedMinutes: 30
+prerequisites:
+  - "UIUX-INFORMATION-ARCHITECTURE"
+unlocks:
+  - "UIUX-WIREFRAMING"
+  - "UIUX-UI-STATES"
+related:
+  - "UIUX-USER-RESEARCH"
+  - "PM-USER-STORIES-AC"
+careers:
+  - "CAREER-UIUX-DESIGNER"
+  - "product-manager"
+tags:
+  - "uiux"
+  - "flows"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FIGMA-HELP"
+  - "NN-G-HEURISTICS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why flows first
+
+Jumping to pixels hides missing steps: OTP failures, permission denials, and back-button traps.
+
+## Mental model
+
+<Callout type="mental-model">
+  A flow is a graph: entry → steps → decisions → success/failure exits. Annotate data needed and system feedback at each node.
+</Callout>
+
+## Tips
+
+- Start from a user goal.
+- Include alternate and exception paths.
+- Align with acceptance criteria.
+
+## Common mistakes
+
+- **Happy path only**.
+- **Flows without copy ownership**.
+- **Over-detailed flows too early**.
+
+## Interview angle
+
+<Callout type="interview">
+  Draw the flow for forgot password including expired token and rate limiting.
+</Callout>
+
+## Practice checklist
+
+- [ ] Flow one critical journey with exceptions.
+- [ ] Mark where errors appear.
+- [ ] Review with eng + QA.
+
+## Sources
+
+- `FIGMA-HELP`
+- `NN-G-HEURISTICS`

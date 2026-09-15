@@ -1,0 +1,104 @@
+---
+id: FOUNDATIONS-AI-ASSISTED-DEV-RISKS
+title: "AI-Assisted Development Risks"
+titleBn: "AI-সহায়ক ডেভেলপমেন্টের ঝুঁকি"
+description: "Use coding assistants productively while avoiding hallucinated APIs, leaked secrets, license traps, and untested suggestions."
+descriptionBn: "কোডিং সহায়ক কাজে লাগান—হ্যালুসিনেটেড API, সিক্রেট লিক ও অপরীক্ষিত সাজেশন এড়িয়ে।"
+track: foundations
+category: craft
+difficulty: intermediate
+estimatedMinutes: 35
+prerequisites:
+  - "FOUNDATIONS-DEBUGGING"
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+unlocks: []
+related:
+  - "FOUNDATIONS-DOCUMENTATION"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+  - "FOUNDATIONS-ERROR-HANDLING"
+careers:
+  - "software-engineer"
+  - "frontend-engineer"
+  - "backend-engineer"
+  - "flutter-developer"
+tags:
+  - "ai"
+  - "productivity"
+  - "security"
+  - "review"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "OWASP-TOP10"
+  - "WRITE-THE-DOCS-GUIDE"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this belongs in foundations
+
+AI assistants accelerate typing—they do not own production outcomes. Juniors who paste unchecked snippets import **security holes, wrong APIs, and confident nonsense**.
+
+## Mental model
+
+<Callout type="mental-model">
+  Treat model output like an untrusted junior PR: useful drafts, mandatory review, tests required, secrets never pasted into prompts from production.
+</Callout>
+
+## High-risk failure modes
+
+| Risk | What it looks like | Mitigation |
+| --- | --- | --- |
+| Hallucinated APIs | Package/method that does not exist | Verify against official docs |
+| Insecure defaults | disabled TLS verify, string-built SQL | Security checklist |
+| Secret leakage | pasting `.env` into chat | Redact; use local tooling policies |
+| License contamination | copying GPL into proprietary code | Know license of suggestions/snippets |
+| Silent logic errors | off-by-one, wrong authz | Tests + code review |
+
+## A sane workflow
+
+1. Ask for a design sketch or options, not a giant dump.
+2. Integrate in small diffs.
+3. Run tests/linters.
+4. Cross-check unfamiliar APIs on S1 docs.
+5. You remain the author accountable for the change.
+
+<Callout type="danger">
+  Never paste production credentials, customer PII, or private keys into third-party AI tools unless your org explicitly allows that tool with proper controls.
+</Callout>
+
+## Common mistakes
+
+- **Shipping generated code you cannot explain**
+- **Skipping tests because “the model said it’s fine”**
+- **Using AI to bypass understanding fundamentals** — interviews and outages will notice
+
+## Interview angle
+
+<Callout type="interview">
+  How do you review AI-generated code differently from human-authored code?
+</Callout>
+
+## Practice checklist
+
+- [ ] Verify one unfamiliar API from an assistant against official docs.
+- [ ] Write a personal “never paste” secrets list.
+- [ ] Require a test for any AI-touched business logic change.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `OWASP-TOP10`
+- `WRITE-THE-DOCS-GUIDE`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

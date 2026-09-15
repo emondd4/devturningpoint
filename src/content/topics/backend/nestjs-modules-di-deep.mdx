@@ -1,0 +1,110 @@
+---
+id: BACKEND-NESTJS-MODULES-DI
+title: "NestJS Modules and DI Deep Dive"
+titleBn: "NestJS Modules ও DI গভীর আলোচনা"
+description: "Providers, scopes, exports, and avoiding circular dependencies in real Nest apps."
+descriptionBn: "Providers, scopes, exports, এবং বাস্তব Nest অ্যাপে circular dependency এড়ানো।"
+track: backend
+category: nestjs
+difficulty: advanced
+estimatedMinutes: 40
+prerequisites:
+  - "BACKEND-NESTJS-ARCHITECTURE"
+unlocks: []
+related:
+  - "BACKEND-NESTJS-MIDDLEWARE"
+  - "BACKEND-TESTING"
+careers:
+  - "backend-engineer"
+tags:
+  - "nestjs"
+  - "di"
+  - "modules"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NESTJS-PROVIDERS"
+  - "NESTJS-INJECTION-SCOPES"
+  - "NESTJS-ARCHITECTURE"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Shallow “put everything in AppModule” apps become untestable and circular. Explicit module boundaries and DI scopes are how Nest stays maintainable at team scale.
+
+## Mental model
+
+<Callout type="mental-model">
+  Modules declare and export providers. Importers see only exports. Default scope is singleton; request scope exists for per-request state but has cost. Prefer constructor injection over manual `new`.
+</Callout>
+
+## How it works
+
+One domain module per bounded context. Export only what others need. Use custom providers for interfaces. Reach for `forwardRef` last—usually a boundary smell.
+
+```ts
+import { Injectable, Module, Scope } from '@nestjs/common';
+
+export const TOPIC_REPO = Symbol('TOPIC_REPO');
+
+@Injectable()
+export class TopicsService {
+  constructor(
+    // interface-style token
+    // @Inject(TOPIC_REPO) private readonly repo: TopicRepo,
+  ) {}
+}
+
+@Module({
+  providers: [
+    TopicsService,
+    { provide: TOPIC_REPO, useClass: PostgresTopicRepo },
+  ],
+  exports: [TopicsService],
+})
+export class TopicsModule {}
+
+// Request-scoped example (use sparingly):
+@Injectable({ scope: Scope.REQUEST })
+export class RequestContext {
+  userId?: string;
+}
+```
+
+## Common mistakes
+
+- **Circular module imports** — Extract a shared module or invert the dependency.
+- **Request-scoping everything** — Performance and mental overhead; keep rare.
+- **new Service() inside controllers** — Breaks DI and testing.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain singleton vs request scope in Nest, and how module exports control visibility of providers.
+</Callout>
+
+## Practice checklist
+
+- [ ] Split a fat module
+- [ ] Export only a service
+- [ ] Inject via a custom token once
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-PROVIDERS`
+- `NESTJS-INJECTION-SCOPES`
+- `NESTJS-ARCHITECTURE`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

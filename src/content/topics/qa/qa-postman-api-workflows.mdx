@@ -1,0 +1,79 @@
+---
+id: QA-POSTMAN-API-WORKFLOWS
+title: "Postman and API Test Workflows"
+titleBn: "Postman ও API টেস্ট ওয়ার্কফ্লো"
+description: "Collections, environments, assertions, and Newman-style CI for API quality."
+descriptionBn: "API কোয়ালিটির জন্য কালেকশন, এনভায়রনমেন্ট, অ্যাসারশন ও Newman-স্টাইল CI।"
+track: qa
+difficulty: beginner
+estimatedMinutes: 30
+prerequisites:
+  - "QA-API-TESTING"
+unlocks:
+  - "QA-SQL-DATA-VALIDATION"
+related:
+  - "QA-CI-QUALITY-GATES"
+  - "QA-API-TESTING"
+careers:
+  - "qa-engineer"
+tags:
+  - "qa"
+  - "postman"
+  - "api"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTMAN-DOCS"
+  - "RFC-9110-HTTP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why Postman still matters
+
+Teams collaborate on HTTP collections as living documentation and executable checks—especially useful before full code-based API suites exist.
+
+## Mental model
+
+<Callout type="mental-model">
+  Environment variables hold base URLs and secrets (never commit secrets). Pre-request scripts set auth; tests assert status, schema, and business fields. Folders mirror API domains; CI runs collections headlessly.
+</Callout>
+
+## Workflow tips
+
+- Separate local/staging environments.
+- Chain requests with saved variables (login → token → protected call).
+- Contract-ish checks: required fields and types.
+- Export and version collections thoughtfully.
+
+## Common mistakes
+
+- **Hard-coded tokens in shared collections** — Rotate and use secrets vaults.
+- **Only 200 assertions** — Miss authorization and validation errors.
+- **No cleanup** — Polluting shared staging data.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you structure a Postman collection for auth + CRUD of a resource?
+</Callout>
+
+## Practice checklist
+
+- [ ] Build a three-request folder with env vars.
+- [ ] Add negative tests (401/403/422).
+- [ ] Sketch how Newman would run in CI.
+
+## Sources
+
+- `POSTMAN-DOCS`
+- `RFC-9110-HTTP`

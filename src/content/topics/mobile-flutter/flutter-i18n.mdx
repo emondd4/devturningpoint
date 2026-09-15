@@ -1,0 +1,81 @@
+---
+id: FLUTTER-I18N
+title: "Flutter Internationalization (i18n)"
+titleBn: "Flutter আন্তর্জাতিকীকরণ (i18n)"
+description: "Localize strings, dates, and layout direction—including Bangla—without hardcoding UI text."
+descriptionBn: "স্ট্রিং, তারিখ ও লেআউট দিক লোকালাইজ—বাংলাসহ।"
+track: mobile-flutter
+category: flutter
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FLUTTER-WIDGET-TREE"
+  - "FOUNDATIONS-ENCODING-UTF8"
+unlocks: []
+related:
+  - "FLUTTER-ACCESSIBILITY"
+  - "FLUTTER-INHERITED-WIDGET"
+careers:
+  - "flutter-developer"
+  - "mobile-engineer"
+tags:
+  - "i18n"
+  - "l10n"
+  - "localization"
+  - "bangla"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-I18N"
+  - "FLUTTER-INHERITED"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why hardcoded English strings fail products
+
+Bangladesh and global apps need Bangla (and often RTL-aware layout for other locales). Hardcoded `Text('Submit')` blocks translators and creates inconsistent copy.
+
+## Mental model
+
+<Callout type="mental-model">
+  Separate **messages** (ARB/JSON) from widgets. `Localizations` (an InheritedWidget descendant) supplies the active locale. Format dates/numbers with locale-aware formatters—not string concat.
+</Callout>
+
+## Approach
+
+1. Enable Flutter gen-l10n / official internationalization workflow.
+2. Keep placeholders for names and counts (`{count, plural, ...}` patterns where supported).
+3. Test font coverage for Bangla glyphs.
+
+```dart
+// After codegen, widgets typically call something like:
+// Text(AppLocalizations.of(context)!.submit);
+```
+
+Also localize store listings and push notification text—not only in-app UI.
+
+## Common mistakes
+
+- Concatenating sentences (`'Hello ' + name`) breaking grammar in other languages
+- Ignoring text overflow when Bangla strings are longer
+- Forgetting device locale vs in-app language switcher
+
+## Interview angle
+
+<Callout type="interview">
+  Design a language switcher that updates Material widgets and persists user preference.
+</Callout>
+
+## Sources
+
+`FLUTTER-I18N`, `FLUTTER-INHERITED`.

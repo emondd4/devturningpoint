@@ -1,0 +1,101 @@
+---
+id: DEVOPS-SYSTEMD
+title: "Processes and systemd Units"
+titleBn: "প্রসেস ও systemd ইউনিট"
+description: "Manage long-running services with unit files, restart policies, journals, and dependency ordering."
+descriptionBn: "ইউনিট ফাইল, রিস্টার্ট পলিসি, জার্নাল ও ডিপেনডেন্সি অর্ডারিং দিয়ে দীর্ঘমেয়াদী সার্ভিস ম্যানেজমেন্ট।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites:
+  - "DEVOPS-LINUX-FUNDAMENTALS"
+  - "DEVOPS-BASH"
+unlocks:
+  - "DEVOPS-NGINX-REVERSE-PROXY"
+related:
+  - "DEVOPS-LOGGING-STACKS"
+careers:
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "systemd"
+  - "linux"
+  - "services"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "SYSTEMD-DOCS"
+  - "LINUX-MAN-PAGES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why process supervisors matter
+
+SSH-ing in and running `node app.js &` dies on logout, loses logs, and restarts unpredictably. systemd (or a container orchestrator) owns lifecycle.
+
+## Mental model
+
+<Callout type="mental-model">
+  A unit declares desired state: ExecStart, User, Restart, After=. journald captures stdout/stderr. `systemctl` is the control plane for that machine.
+</Callout>
+
+```ini
+# /etc/systemd/system/topics-api.service
+[Unit]
+Description=Topics API
+After=network.target
+
+[Service]
+Type=simple
+User=app
+WorkingDirectory=/opt/topics-api
+ExecStart=/usr/bin/node dist/main.js
+Restart=on-failure
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now topics-api
+journalctl -u topics-api -f
+```
+
+## Common mistakes
+
+- **Running as root “for convenience”** — Drop privileges with `User=`.
+- **Forgetting daemon-reload** — Unit edits are invisible until reload.
+- **Restart=always without backoff awareness** — Crash loops hide root causes.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you debug a service that exits immediately after `systemctl start`?
+</Callout>
+
+## Practice checklist
+
+- [ ] Write a unit for a small HTTP process.
+- [ ] Use `journalctl -u` and `--since`.
+- [ ] Explore `systemctl cat` and drop-in overrides.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `SYSTEMD-DOCS`
+- `LINUX-MAN-PAGES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

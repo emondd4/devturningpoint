@@ -1,0 +1,72 @@
+---
+id: QA-FLAKY-TESTS
+title: "Diagnosing Flaky Tests"
+titleBn: "ফ্ল্যাকি টেস্ট নির্ণয়"
+description: "Systematic approaches to timing, isolation, and environment flakes in automation."
+descriptionBn: "অটোমেশনে টাইমিং, আইসোলেশন ও এনভায়রনমেন্ট ফ্লেকের পদ্ধতিগত সমাধান।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "QA-PLAYWRIGHT-E2E"
+  - "QA-TESTING-PYRAMID"
+unlocks:
+  - "QA-CI-QUALITY-GATES"
+related:
+  - "QA-PERFORMANCE-TESTING-AWARENESS"
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+careers:
+  - "qa-engineer"
+  - "frontend-engineer"
+tags:
+  - "qa"
+  - "flaky"
+  - "playwright"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "PLAYWRIGHT-DOCS"
+  - "GHA-WORKFLOWS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why flakes destroy trust
+
+Random red CI trains teams to ignore failures.
+
+## Mental model
+
+<Callout type="mental-model">
+  Artifacts → classify (race, shared state, env drift) → fix root cause before retries. Quarantine is temporary debt.
+</Callout>
+
+## Fixes
+
+Prefer auto-waiting assertions; isolate data; compare local vs CI environments.
+
+## Interview angle
+
+<Callout type="interview">
+  Suite fails 20% on CI, passes locally—debug plan?
+</Callout>
+
+## Practice checklist
+
+- [ ] Traces on first retry
+- [ ] Remove one hard sleep
+- [ ] Define a flake triage ritual
+
+## Sources
+
+- `PLAYWRIGHT-DOCS`
+- `GHA-WORKFLOWS`

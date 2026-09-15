@@ -1,0 +1,81 @@
+---
+id: DEVOPS-COST-AWARENESS
+title: "Cloud Cost Awareness"
+titleBn: "ক্লাউড খরচ সচেতনতা"
+description: "See where money goes: idle resources, data transfer, rightsizing, and ownership tags."
+descriptionBn: "খরচ কোথায় যায়: idle রিসোর্স, ডেটা ট্রান্সফার, রাইটসাইজিং, ট্যাগ।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "DEVOPS-AWS-CLOUD-FUNDAMENTALS"
+unlocks:
+  []
+related:
+  - "DEVOPS-AWS-IAM"
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+careers:
+  - "devops-engineer"
+  - "project-manager"
+tags:
+  - "cost"
+  - "aws"
+  - "finops"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "AWS-WELL-ARCHITECTED-COST"
+  - "AWS-CLOUD-CONCEPTS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why engineers own cost signals
+
+Cloud bills are architecture feedback. Idle load balancers, oversized nodes, chatty cross-AZ traffic, and forgotten snapshots silently tax the team.
+
+## Mental model
+
+<Callout type="mental-model">
+  Cost ≈ rate × usage × waste. You control usage (scale policies) and waste (turn things off, rightsize, lifecycle data). Tags make spend attributable to a service or team.
+</Callout>
+
+## Practical levers
+
+- Tag `service`, `env`, `owner` on every resource.
+- Prefer autoscaling and schedules for non-prod.
+- Watch data transfer and NAT gateway surprises.
+- Delete orphan volumes, old AMIs, unused elastic IPs.
+
+## Common mistakes
+
+- **Optimizing before measuring** — Guessing saves nothing.
+- **Non-prod always-on** — Often half the bill.
+- **No owner tags** — Orphans live forever.
+
+## Interview angle
+
+<Callout type="interview">
+  Your AWS bill doubled overnight. How do you investigate in the first hour?
+</Callout>
+
+## Practice checklist
+
+- [ ] List top 5 cost drivers for a sample account conceptually.
+- [ ] Propose tags for a 3-service stack.
+- [ ] Identify one non-prod schedule opportunity.
+
+## Sources
+
+- `AWS-WELL-ARCHITECTED-COST`
+- `AWS-CLOUD-CONCEPTS`
+

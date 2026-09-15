@@ -1,0 +1,38 @@
+---
+id: DATABASE-NORMALIZATION
+title: "Normalization Basics"
+titleBn: "Normalization বেসিকস"
+description: "1NF/2NF/3NF intuition for eliminating update anomalies—without dogma."
+descriptionBn: "1NF/2NF/3NF ধারণা।"
+track: database
+difficulty: beginner
+estimatedMinutes: 40
+prerequisites:
+  - DATABASE-RELATIONAL-MODELING
+unlocks: []
+related:
+  - DATABASE-SQL-JOINS-AGGREGATION
+careers:
+  - database-engineer
+  - backend-engineer
+tags:
+  - modeling
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - POSTGRES-DOCS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+Normalize to reduce duplication anomalies. Denormalize deliberately for read performance with clear ownership of truth.
+
+## Interview
+
+Give an example of an update anomaly from storing customer address on every order row only.
+

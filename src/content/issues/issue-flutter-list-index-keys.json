@@ -1,0 +1,24 @@
+{
+  "id": "issue-flutter-list-index-keys",
+  "title": "Flutter list items show wrong TextField contents after reorder",
+  "technology": "Flutter",
+  "platform": "Flutter",
+  "symptoms": [
+    "Checkbox/text state sticks to index instead of item id",
+    "Reordering or filtering swaps visible state between rows",
+    "Animations look attached to the wrong child"
+  ],
+  "cause": "Widgets use Key based on list index (or no key), so Element/State reuse follows position rather than item identity.",
+  "solution": "Assign ValueKey(item.id) (or ObjectKey) for stable identities; avoid UniqueKey in build for persistent rows.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "FLUTTER-BUILDCONTEXT-KEYS",
+    "FLUTTER-KEYS-IDENTITY",
+    "FLUTTER-RENDERING-REBUILDS"
+  ],
+  "sources": [
+    "FLUTTER-KEYS",
+    "FLUTTER-WIDGETS"
+  ],
+  "lastVerified": "2026-09-15"
+}

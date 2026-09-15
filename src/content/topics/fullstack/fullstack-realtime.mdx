@@ -1,0 +1,72 @@
+---
+id: FULLSTACK-REALTIME
+title: "Realtime Across the Stack"
+titleBn: "স্ট্যাক জুড়ে রিয়েলটাইম"
+description: "WebSockets and SSE patterns with Nest gateways and Next clients."
+descriptionBn: "Nest গেটওয়ে ও Next ক্লায়েন্টসহ WebSocket ও SSE প্যাটার্ন।"
+track: fullstack
+difficulty: advanced
+estimatedMinutes: 34
+prerequisites:
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+  - "FULLSTACK-HTTP-BOUNDARIES"
+unlocks:
+  []
+related:
+  - "FULLSTACK-OBSERVABILITY"
+  - "FULLSTACK-OBSERVABILITY"
+careers:
+  - "fullstack-engineer"
+tags:
+  - "fullstack"
+  - "websocket"
+  - "realtime"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NESTJS-WEBSCOCKETS"
+  - "MDN-CORS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why realtime is integration-heavy
+
+Auth, sticky sessions, reconnects, and fan-out make realtime a system design problem—not a socket snippet.
+
+## Mental model
+
+<Callout type="mental-model">
+  Choose SSE for server→client streams; WebSockets for bidirectional. Authenticate the upgrade. Design reconnect/backoff and idempotent event payloads.
+</Callout>
+
+## Common mistakes
+
+- **No auth on the socket handshake**.
+- **Assuming one server process forever** — need pub/sub for scale.
+- **Huge payloads over the socket**.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you push “topic updated” events to online learners?
+</Callout>
+
+## Practice checklist
+
+- [ ] Pick SSE vs WebSocket for one use case.
+- [ ] Document reconnect behavior.
+- [ ] Sketch Redis pub/sub with two Nest instances.
+
+## Sources
+
+- `NESTJS-WEBSCOCKETS`
+- `MDN-CORS`

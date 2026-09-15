@@ -1,0 +1,77 @@
+---
+id: UIUX-DESIGN-TOKENS
+title: "Design Tokens"
+titleBn: "ডিজাইন টোকেন"
+description: "Shared decisions for color, space, and type that bridge design and code."
+descriptionBn: "রঙ, স্পেস ও টাইপের শেয়ার্ড সিদ্ধান্ত যা ডিজাইন ও কোডকে জোড়ে।"
+track: uiux
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "UIUX-TYPOGRAPHY"
+  - "UIUX-COLOR-SYSTEMS"
+  - "UIUX-SPACING-AND-GRIDS"
+unlocks:
+  - "UIUX-DESIGN-HANDOFF"
+related:
+  - "UIUX-FIGMA-BASICS"
+  - "FRONTEND-CSS-CASCADE-BOX-MODEL"
+careers:
+  - "CAREER-UIUX-DESIGNER"
+  - "frontend-engineer"
+tags:
+  - "uiux"
+  - "design-tokens"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FIGMA-HELP"
+  - "MATERIAL-COLOR"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why tokens
+
+Hard-coded hex and magic spacing diverge across Figma and CSS. Tokens are the contract.
+
+## Mental model
+
+<Callout type="mental-model">
+  Primitive tokens → semantic tokens → component usage. Themes swap semantic mappings without rewriting screens.
+</Callout>
+
+## Handoff tip
+
+Name tokens for meaning (`text.muted`), not appearance (`gray-500`).
+
+## Common mistakes
+
+- **Only documenting colors**.
+- **One-off overrides everywhere**.
+- **Tokens without ownership**.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you introduce tokens to a team shipping without a design system?
+</Callout>
+
+## Practice checklist
+
+- [ ] List 10 semantic tokens.
+- [ ] Map them to CSS variables.
+- [ ] Align Figma variables with eng names.
+
+## Sources
+
+- `FIGMA-HELP`
+- `MATERIAL-COLOR`

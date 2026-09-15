@@ -1,0 +1,101 @@
+---
+id: "FRONTEND-TANSTACK-QUERY-MENTAL-MODEL"
+title: "TanStack Query Mental Model"
+titleBn: "TanStack Query \u09ae\u09be\u09a8\u09b8\u09bf\u0995 \u09ae\u09a1\u09c7\u09b2"
+description: "The problem server state creates\u2014and how query keys, caching, and status separate UI from fetch bookkeeping."
+descriptionBn: "\u09b8\u09be\u09b0\u09cd\u09ad\u09be\u09b0 \u09b8\u09cd\u099f\u09c7\u099f \u09af\u09c7 \u09b8\u09ae\u09b8\u09cd\u09af\u09be \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09c7\u2014\u098f\u09ac\u0982 query key, \u0995\u09cd\u09af\u09be\u09b6 \u0993 status \u0995\u09c0\u09ad\u09be\u09ac\u09c7 UI-\u0995\u09c7 fetch \u09b9\u09bf\u09b8\u09be\u09ac\u09b0\u0995\u09cd\u09b7\u09a3 \u09a5\u09c7\u0995\u09c7 \u0986\u09b2\u09be\u09a6\u09be \u0995\u09b0\u09c7\u0964"
+track: "frontend"
+category: "data-fetching"
+difficulty: "intermediate"
+estimatedMinutes: 45
+prerequisites:
+  - "FRONTEND-REACT-HOOKS"
+  - "FRONTEND-JS-FETCH"
+related:
+  - "FRONTEND-NEXTJS-CACHING"
+careers:
+  - "frontend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "tanstack-query"
+  - "caching"
+  - "react"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "TANSTACK-QUERY-OVERVIEW"
+  - "MDN-FETCH"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Server data is not the same as local UI state: it is shared, async, stale-able, and owned by the backend. Hand-rolling useEffect + useState for every endpoint recreates caching, deduping, and race handling poorly.
+
+<Callout type="mental-model">
+  A query is a declarative dependency on async data keyed by a stable queryKey. status describes the data; fetchStatus describes the in-flight request.
+</Callout>
+
+## Minimal useQuery
+
+Provide QueryClientProvider once. Treat queryKey as part of your public API for invalidation.
+
+```tsx
+import { useQuery } from '@tanstack/react-query';
+
+type Topic = { id: string; title: string };
+
+export function TopicTitle({ id }: { id: string }) {
+  const { status, data, error, isFetching } = useQuery({
+    queryKey: ['topic', id],
+    queryFn: async (): Promise<Topic> => {
+      const res = await fetch(`/api/topics/${id}`);
+      if (!res.ok) throw new Error('Failed to load topic');
+      return res.json();
+    },
+  });
+
+  if (status === 'pending') return <p>Loading…</p>;
+  if (status === 'error') return <p>{(error as Error).message}</p>;
+  return (
+    <h1>
+      {data.title} {isFetching ? '…' : ''}
+    </h1>
+  );
+}
+```
+
+## Common mistakes
+
+- **Putting server lists in global client stores** — You reimplement cache + freshness poorly.
+- **Unstable query keys** — New array/object identity every render breaks caching.
+- **Ignoring mutations/invalidation** — UI shows stale data after writes.
+
+## Interview angle
+
+<Callout type="interview">
+  What problem does TanStack Query solve that useEffect+useState does not?
+</Callout>
+
+## Practice checklist
+
+- [ ] Replace one effect-fetch with useQuery.
+- [ ] Invalidate a list after a create mutation.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `TANSTACK-QUERY-OVERVIEW`
+- `MDN-FETCH`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

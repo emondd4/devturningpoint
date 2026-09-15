@@ -1,0 +1,29 @@
+{
+  "id": "iv-flutter-isolates-ui-jank",
+  "question": "Why can an awaited JSON parse still freeze a Flutter UI, and how would you fix it with isolates?",
+  "questionBn": "\u0985\u09cd\u09af\u09be\u0993\u09af\u09bc\u09c7\u099f\u09c7\u09a1 JSON \u09aa\u09be\u09b0\u09cd\u09b8 \u0995\u09c7\u09a8 Flutter UI \u09ab\u09cd\u09b0\u09bf\u099c \u0995\u09b0\u09a4\u09c7 \u09aa\u09be\u09b0\u09c7, \u098f\u09ac\u0982 isolates \u09a6\u09bf\u09af\u09bc\u09c7 \u0995\u09c0\u09ad\u09be\u09ac\u09c7 \u09a0\u09bf\u0995 \u0995\u09b0\u09ac\u09c7\u09a8?",
+  "careerIds": [
+    "flutter-developer",
+    "mobile-engineer"
+  ],
+  "technology": [
+    "Flutter",
+    "Dart"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "await yields on async gaps, not during CPU-bound work on the UI isolate; parse off-main with Isolate.run.",
+  "strongAnswer": "Futures schedule continuation after async I/O, but jsonDecode of a large payload still runs on the current isolate\u2019s event loop\u2014typically the UI isolate\u2014so frames hitch. Move heavy decode/compute to Isolate.run (or a long-lived worker) and pass results back as messages. Measure with DevTools before/after.",
+  "advancedAnswer": "Discuss spawn overhead, message copy costs, Flutter web isolate limitations, and when compute helpers / background isolates are preferable to Isolate.run.",
+  "followUps": [
+    "When is Isolate.run the wrong tool?",
+    "How do you keep models immutable across the isolate boundary?"
+  ],
+  "commonWrongAnswer": "Just wrap it in async/await and the UI cannot jank.",
+  "productionRelevance": "Feed/timeline apps decoding large API payloads on scroll are a classic Bangladesh interview and production jank case.",
+  "relatedTopics": [
+    "FLUTTER-DART-ISOLATES",
+    "FLUTTER-PERFORMANCE-DEVTOOLS",
+    "FLUTTER-JSON-SERIALIZATION"
+  ],
+  "lastVerified": "2026-09-15"
+}

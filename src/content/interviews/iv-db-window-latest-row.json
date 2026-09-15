@@ -1,0 +1,28 @@
+{
+  "id": "iv-db-window-latest-row",
+  "question": "How would you select each user’s most recent order in SQL without a correlated subquery?",
+  "questionBn": "করেলেটেড সাবকুয়েরি ছাড়া SQL-এ প্রতিটি ইউজারের সবচেয়ে সাম্প্রতিক অর্ডার কীভাবে বাছাই করবেন?",
+  "careerIds": [
+    "database-engineer",
+    "backend-engineer"
+  ],
+  "technology": [
+    "PostgreSQL",
+    "SQL"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Use ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY created_at DESC) in a CTE and filter where rn = 1.",
+  "strongAnswer": "WITH ranked AS (SELECT ..., ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY created_at DESC) rn FROM orders) SELECT ... FROM ranked WHERE rn = 1. Discuss DISTINCT ON (user_id) as a Postgres-specific alternative, and indexing (user_id, created_at DESC).",
+  "advancedAnswer": "Compare RANK vs ROW_NUMBER for ties; DISTINCT ON semantics; planner implications.",
+  "followUps": [
+    "When is GROUP BY insufficient for this?",
+    "How do CTEs improve readability here?"
+  ],
+  "commonWrongAnswer": "MAX(created_at) alone without joining back loses other columns safely.",
+  "productionRelevance": "Common pattern for feeds, ledgers, and audit timelines.",
+  "relatedTopics": [
+    "DATABASE-SQL-WINDOW-FUNCTIONS",
+    "DATABASE-POSTGRES-EXPLAIN"
+  ],
+  "lastVerified": "2026-09-15"
+}

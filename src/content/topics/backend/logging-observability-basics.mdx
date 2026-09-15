@@ -1,0 +1,90 @@
+---
+id: "BACKEND-LOGGING"
+title: "Backend Logging Basics"
+titleBn: "\u09ac\u09cd\u09af\u09be\u0995\u098f\u09a8\u09cd\u09a1 \u09b2\u0997\u09bf\u0982 \u09ac\u09c7\u09b8\u09bf\u0995\u09b8"
+description: "Structured logs, correlation ids, and Nest's Logger\u2014so incidents are debuggable without printf chaos."
+descriptionBn: "\u09b8\u09cd\u099f\u09cd\u09b0\u09be\u0995\u099a\u09be\u09b0\u09cd\u09a1 \u09b2\u0997, correlation id \u0993 Nest Logger\u2014\u09af\u09be\u09a4\u09c7 \u0998\u099f\u09a8\u09be \u09a1\u09bf\u09ac\u09be\u0997 \u0995\u09b0\u09be \u09af\u09be\u09af\u09bc\u0964"
+track: "backend"
+category: "observability"
+difficulty: "intermediate"
+estimatedMinutes: 30
+prerequisites:
+  - "BACKEND-NESTJS-ARCHITECTURE"
+related:
+  - "BACKEND-HEALTH-CHECKS"
+  - "BACKEND-SECURITY-BASICS"
+careers:
+  - "backend-engineer"
+  - "devops-engineer"
+tags:
+  - "logging"
+  - "observability"
+  - "nestjs"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NESTJS-LOGGER"
+  - "OPENTELEMETRY-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+You cannot SSH into every production failure. Logs (and later traces/metrics) are how teams reconstruct what happened.
+
+<Callout type="mental-model">
+  Prefer structured JSON logs with request/correlation ids. Log at boundaries; avoid secrets and giant payloads.
+</Callout>
+
+## Nest Logger usage
+
+Inject or compose Logger with a context name. Coordinate with a request id middleware.
+
+```ts
+import { Injectable, Logger } from '@nestjs/common';
+
+@Injectable()
+export class TopicsService {
+  private readonly logger = new Logger(TopicsService.name);
+
+  findOne(id: string) {
+    this.logger.log({ msg: 'findOne', topicId: id });
+    return { id };
+  }
+}
+```
+
+## Common mistakes
+
+- **Logging secrets/tokens** — Credential leak via log sinks.
+- **Unstructured string concatenation only** — Hard to query in log platforms.
+- **Log volume without sampling** — Cost explosion; drown signal.
+
+## Interview angle
+
+<Callout type="interview">
+  What fields belong in every request log line?
+</Callout>
+
+## Practice checklist
+
+- [ ] Add a correlation id middleware.
+- [ ] Convert one console.log to structured Logger.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-LOGGER`
+- `OPENTELEMETRY-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1,0 +1,2682 @@
+[
+  {
+    "id": "FS-B-0001",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "BFF pattern",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using BFF pattern correctly?"
+  },
+  {
+    "id": "FS-B-0002",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "BFF pattern",
+    "questionType": "Definition",
+    "question": "What is BFF pattern, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0003",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "Next.js plus NestJS boundary",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Next.js plus NestJS boundary correctly?"
+  },
+  {
+    "id": "FS-B-0004",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "Next.js plus NestJS boundary",
+    "questionType": "Definition",
+    "question": "What is Next.js plus NestJS boundary, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0005",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "browser-to-database request path",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using browser-to-database request path correctly?"
+  },
+  {
+    "id": "FS-B-0006",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "browser-to-database request path",
+    "questionType": "Definition",
+    "question": "What is browser-to-database request path, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0007",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "modular monolith full stack",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using modular monolith full stack correctly?"
+  },
+  {
+    "id": "FS-B-0008",
+    "level": "Beginner",
+    "category": "Architecture",
+    "topic": "modular monolith full stack",
+    "questionType": "Definition",
+    "question": "What is modular monolith full stack, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0009",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "refresh-token flow",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using refresh-token flow correctly?"
+  },
+  {
+    "id": "FS-B-0010",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "refresh-token flow",
+    "questionType": "Definition",
+    "question": "What is refresh-token flow, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0011",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "secure cookie session",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using secure cookie session correctly?"
+  },
+  {
+    "id": "FS-B-0012",
+    "level": "Beginner",
+    "category": "Auth",
+    "topic": "secure cookie session",
+    "questionType": "Definition",
+    "question": "What is secure cookie session, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0013",
+    "level": "Beginner",
+    "category": "Caching",
+    "topic": "CDN cache",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using CDN cache correctly?"
+  },
+  {
+    "id": "FS-B-0014",
+    "level": "Beginner",
+    "category": "Caching",
+    "topic": "CDN cache",
+    "questionType": "Definition",
+    "question": "What is CDN cache, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0015",
+    "level": "Beginner",
+    "category": "Caching",
+    "topic": "browser cache",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using browser cache correctly?"
+  },
+  {
+    "id": "FS-B-0016",
+    "level": "Beginner",
+    "category": "Caching",
+    "topic": "browser cache",
+    "questionType": "Definition",
+    "question": "What is browser cache, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0017",
+    "level": "Beginner",
+    "category": "Caching",
+    "topic": "multi-layer invalidation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using multi-layer invalidation correctly?"
+  },
+  {
+    "id": "FS-B-0018",
+    "level": "Beginner",
+    "category": "Caching",
+    "topic": "multi-layer invalidation",
+    "questionType": "Definition",
+    "question": "What is multi-layer invalidation, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0019",
+    "level": "Beginner",
+    "category": "Contracts",
+    "topic": "OpenAPI-generated clients",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using OpenAPI-generated clients correctly?"
+  },
+  {
+    "id": "FS-B-0020",
+    "level": "Beginner",
+    "category": "Contracts",
+    "topic": "OpenAPI-generated clients",
+    "questionType": "Definition",
+    "question": "What is OpenAPI-generated clients, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0021",
+    "level": "Beginner",
+    "category": "Contracts",
+    "topic": "shared API types",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using shared API types correctly?"
+  },
+  {
+    "id": "FS-B-0022",
+    "level": "Beginner",
+    "category": "Contracts",
+    "topic": "shared API types",
+    "questionType": "Definition",
+    "question": "What is shared API types, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0023",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How does a React/Next.js frontend call a REST API?"
+  },
+  {
+    "id": "FS-B-0024",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Trace a simple login request from a browser form to a database and back."
+  },
+  {
+    "id": "FS-B-0025",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What information would you include in a README so another developer can run a full-stack project?"
+  },
+  {
+    "id": "FS-B-0026",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is CORS, and why can a frontend request be blocked by a browser?"
+  },
+  {
+    "id": "FS-B-0027",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is Docker, and why might a full-stack team use it?"
+  },
+  {
+    "id": "FS-B-0028",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is SSR, and how does it differ from client-side rendering?"
+  },
+  {
+    "id": "FS-B-0029",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a database transaction, and where might a web application need one?"
+  },
+  {
+    "id": "FS-B-0030",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a migration in database-backed applications?"
+  },
+  {
+    "id": "FS-B-0031",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a monorepo?"
+  },
+  {
+    "id": "FS-B-0032",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is an API, and why should frontend and backend concerns be separated?"
+  },
+  {
+    "id": "FS-B-0033",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is an environment variable, and which kinds of values should not be shipped to the browser?"
+  },
+  {
+    "id": "FS-B-0034",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is end-to-end testing?"
+  },
+  {
+    "id": "FS-B-0035",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between client-side validation and server-side validation?"
+  },
+  {
+    "id": "FS-B-0036",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between cookies, sessions, and local browser storage?"
+  },
+  {
+    "id": "FS-B-0037",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between development, staging, and production?"
+  },
+  {
+    "id": "FS-B-0038",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between frontend, backend, and full-stack development?"
+  },
+  {
+    "id": "FS-B-0039",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the purpose of a backend-for-frontend layer?"
+  },
+  {
+    "id": "FS-B-0040",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the role of a reverse proxy?"
+  },
+  {
+    "id": "FS-B-0041",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What should happen when an API call fails from the frontend?"
+  },
+  {
+    "id": "FS-B-0042",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Why should passwords never be stored in plaintext?"
+  },
+  {
+    "id": "FS-B-0043",
+    "level": "Beginner",
+    "category": "Data",
+    "topic": "optimistic update",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using optimistic update correctly?"
+  },
+  {
+    "id": "FS-B-0044",
+    "level": "Beginner",
+    "category": "Data",
+    "topic": "optimistic update",
+    "questionType": "Definition",
+    "question": "What is optimistic update, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0045",
+    "level": "Beginner",
+    "category": "Data",
+    "topic": "server state",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using server state correctly?"
+  },
+  {
+    "id": "FS-B-0046",
+    "level": "Beginner",
+    "category": "Data",
+    "topic": "server state",
+    "questionType": "Definition",
+    "question": "What is server state, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0047",
+    "level": "Beginner",
+    "category": "Data",
+    "topic": "transactional workflow",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using transactional workflow correctly?"
+  },
+  {
+    "id": "FS-B-0048",
+    "level": "Beginner",
+    "category": "Data",
+    "topic": "transactional workflow",
+    "questionType": "Definition",
+    "question": "What is transactional workflow, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0049",
+    "level": "Beginner",
+    "category": "Deployment",
+    "topic": "backward-compatible API change",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using backward-compatible API change correctly?"
+  },
+  {
+    "id": "FS-B-0050",
+    "level": "Beginner",
+    "category": "Deployment",
+    "topic": "backward-compatible API change",
+    "questionType": "Definition",
+    "question": "What is backward-compatible API change, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0051",
+    "level": "Beginner",
+    "category": "Deployment",
+    "topic": "feature flag",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using feature flag correctly?"
+  },
+  {
+    "id": "FS-B-0052",
+    "level": "Beginner",
+    "category": "Deployment",
+    "topic": "feature flag",
+    "questionType": "Definition",
+    "question": "What is feature flag, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0053",
+    "level": "Beginner",
+    "category": "Deployment",
+    "topic": "zero-downtime database migration",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using zero-downtime database migration correctly?"
+  },
+  {
+    "id": "FS-B-0054",
+    "level": "Beginner",
+    "category": "Deployment",
+    "topic": "zero-downtime database migration",
+    "questionType": "Definition",
+    "question": "What is zero-downtime database migration, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0055",
+    "level": "Beginner",
+    "category": "Dev Environment",
+    "topic": "Docker Compose full-stack environment",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Docker Compose full-stack environment correctly?"
+  },
+  {
+    "id": "FS-B-0056",
+    "level": "Beginner",
+    "category": "Dev Environment",
+    "topic": "Docker Compose full-stack environment",
+    "questionType": "Definition",
+    "question": "What is Docker Compose full-stack environment, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0057",
+    "level": "Beginner",
+    "category": "Errors",
+    "topic": "full-stack error model",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using full-stack error model correctly?"
+  },
+  {
+    "id": "FS-B-0058",
+    "level": "Beginner",
+    "category": "Errors",
+    "topic": "full-stack error model",
+    "questionType": "Definition",
+    "question": "What is full-stack error model, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0059",
+    "level": "Beginner",
+    "category": "Files",
+    "topic": "direct-to-object-storage upload",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using direct-to-object-storage upload correctly?"
+  },
+  {
+    "id": "FS-B-0060",
+    "level": "Beginner",
+    "category": "Files",
+    "topic": "direct-to-object-storage upload",
+    "questionType": "Definition",
+    "question": "What is direct-to-object-storage upload, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0061",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What data should never be embedded in client-side JavaScript bundles?"
+  },
+  {
+    "id": "FS-B-0062",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is hydration in a server-rendered React application?"
+  },
+  {
+    "id": "FS-B-0063",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between same-origin policy, CORS, and CSRF protection?"
+  },
+  {
+    "id": "FS-B-0064",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "Why can a frontend route guard never replace backend authorization?"
+  },
+  {
+    "id": "FS-B-0065",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "Why must server-side validation remain authoritative even when the frontend already validates the form?"
+  },
+  {
+    "id": "FS-B-0066",
+    "level": "Beginner",
+    "category": "Monorepo",
+    "topic": "shared packages",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using shared packages correctly?"
+  },
+  {
+    "id": "FS-B-0067",
+    "level": "Beginner",
+    "category": "Monorepo",
+    "topic": "shared packages",
+    "questionType": "Definition",
+    "question": "What is shared packages, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0068",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "end-to-end correlation ID",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using end-to-end correlation ID correctly?"
+  },
+  {
+    "id": "FS-B-0069",
+    "level": "Beginner",
+    "category": "Observability",
+    "topic": "end-to-end correlation ID",
+    "questionType": "Definition",
+    "question": "What is end-to-end correlation ID, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0070",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "full-stack performance budget",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using full-stack performance budget correctly?"
+  },
+  {
+    "id": "FS-B-0071",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "full-stack performance budget",
+    "questionType": "Definition",
+    "question": "What is full-stack performance budget, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0072",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "waterfall request chain",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using waterfall request chain correctly?"
+  },
+  {
+    "id": "FS-B-0073",
+    "level": "Beginner",
+    "category": "Performance",
+    "topic": "waterfall request chain",
+    "questionType": "Definition",
+    "question": "What is waterfall request chain, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0074",
+    "level": "Beginner",
+    "category": "Realtime",
+    "topic": "WebSocket end-to-end flow",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using WebSocket end-to-end flow correctly?"
+  },
+  {
+    "id": "FS-B-0075",
+    "level": "Beginner",
+    "category": "Realtime",
+    "topic": "WebSocket end-to-end flow",
+    "questionType": "Definition",
+    "question": "What is WebSocket end-to-end flow, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0076",
+    "level": "Beginner",
+    "category": "Realtime",
+    "topic": "presence system",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using presence system correctly?"
+  },
+  {
+    "id": "FS-B-0077",
+    "level": "Beginner",
+    "category": "Realtime",
+    "topic": "presence system",
+    "questionType": "Definition",
+    "question": "What is presence system, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0078",
+    "level": "Beginner",
+    "category": "Rendering",
+    "topic": "RSC boundary",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using RSC boundary correctly?"
+  },
+  {
+    "id": "FS-B-0079",
+    "level": "Beginner",
+    "category": "Rendering",
+    "topic": "RSC boundary",
+    "questionType": "Definition",
+    "question": "What is RSC boundary, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0080",
+    "level": "Beginner",
+    "category": "Rendering",
+    "topic": "SSR",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using SSR correctly?"
+  },
+  {
+    "id": "FS-B-0081",
+    "level": "Beginner",
+    "category": "Rendering",
+    "topic": "SSR",
+    "questionType": "Definition",
+    "question": "What is SSR, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0082",
+    "level": "Beginner",
+    "category": "Rendering",
+    "topic": "hydration",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using hydration correctly?"
+  },
+  {
+    "id": "FS-B-0083",
+    "level": "Beginner",
+    "category": "Rendering",
+    "topic": "hydration",
+    "questionType": "Definition",
+    "question": "What is hydration, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0084",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "CORS",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using CORS correctly?"
+  },
+  {
+    "id": "FS-B-0085",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "CORS",
+    "questionType": "Definition",
+    "question": "What is CORS, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0086",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "CSP and frontend headers",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using CSP and frontend headers correctly?"
+  },
+  {
+    "id": "FS-B-0087",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "CSP and frontend headers",
+    "questionType": "Definition",
+    "question": "What is CSP and frontend headers, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0088",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "CSRF",
+    "questionType": "Definition",
+    "question": "What is CSRF, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0089",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "authentication vs authorization across layers",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using authentication vs authorization across layers correctly?"
+  },
+  {
+    "id": "FS-B-0090",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "authentication vs authorization across layers",
+    "questionType": "Definition",
+    "question": "What is authentication vs authorization across layers, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0091",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "audit trail across frontend and backend",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using audit trail across frontend and backend correctly?"
+  },
+  {
+    "id": "FS-B-0092",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "audit trail across frontend and backend",
+    "questionType": "Definition",
+    "question": "What is audit trail across frontend and backend, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0093",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "ecommerce checkout flow",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using ecommerce checkout flow correctly?"
+  },
+  {
+    "id": "FS-B-0094",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "ecommerce checkout flow",
+    "questionType": "Definition",
+    "question": "What is ecommerce checkout flow, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0095",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "file-processing pipeline",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using file-processing pipeline correctly?"
+  },
+  {
+    "id": "FS-B-0096",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "file-processing pipeline",
+    "questionType": "Definition",
+    "question": "What is file-processing pipeline, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0097",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "multi-tenant full-stack app",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using multi-tenant full-stack app correctly?"
+  },
+  {
+    "id": "FS-B-0098",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "multi-tenant full-stack app",
+    "questionType": "Definition",
+    "question": "What is multi-tenant full-stack app, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0099",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "offline-capable web app",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using offline-capable web app correctly?"
+  },
+  {
+    "id": "FS-B-0100",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "offline-capable web app",
+    "questionType": "Definition",
+    "question": "What is offline-capable web app, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0101",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "real-time dashboard",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using real-time dashboard correctly?"
+  },
+  {
+    "id": "FS-B-0102",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "real-time dashboard",
+    "questionType": "Definition",
+    "question": "What is real-time dashboard, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0103",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "subscription SaaS",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using subscription SaaS correctly?"
+  },
+  {
+    "id": "FS-B-0104",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "subscription SaaS",
+    "questionType": "Definition",
+    "question": "What is subscription SaaS, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0105",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "E2E test",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using E2E test correctly?"
+  },
+  {
+    "id": "FS-B-0106",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "E2E test",
+    "questionType": "Definition",
+    "question": "What is E2E test, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0107",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "contract test",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using contract test correctly?"
+  },
+  {
+    "id": "FS-B-0108",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "contract test",
+    "questionType": "Definition",
+    "question": "What is contract test, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0109",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "test data management",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using test data management correctly?"
+  },
+  {
+    "id": "FS-B-0110",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "test data management",
+    "questionType": "Definition",
+    "question": "What is test data management, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-B-0111",
+    "level": "Beginner",
+    "category": "Validation",
+    "topic": "client validation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using client validation correctly?"
+  },
+  {
+    "id": "FS-B-0112",
+    "level": "Beginner",
+    "category": "Validation",
+    "topic": "client validation",
+    "questionType": "Definition",
+    "question": "What is client validation, and what problem does it solve in React/Next.js + NestJS full-stack engineering?"
+  },
+  {
+    "id": "FS-I-0001",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "BFF pattern",
+    "questionType": "Compare",
+    "question": "Compare BFF pattern with separate generic API. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0002",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "BFF pattern",
+    "questionType": "Mechanics",
+    "question": "Walk through how BFF pattern works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0003",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "Next.js plus NestJS boundary",
+    "questionType": "Compare",
+    "question": "Compare Next.js plus NestJS boundary with Next.js-only full stack. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0004",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "Next.js plus NestJS boundary",
+    "questionType": "Mechanics",
+    "question": "Walk through how Next.js plus NestJS boundary works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0005",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "browser-to-database request path",
+    "questionType": "Compare",
+    "question": "Compare browser-to-database request path with frontend-only request. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0006",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "browser-to-database request path",
+    "questionType": "Mechanics",
+    "question": "Walk through how browser-to-database request path works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0007",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "modular monolith full stack",
+    "questionType": "Compare",
+    "question": "Compare modular monolith full stack with distributed microservices. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0008",
+    "level": "Intermediate",
+    "category": "Architecture",
+    "topic": "modular monolith full stack",
+    "questionType": "Mechanics",
+    "question": "Walk through how modular monolith full stack works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0009",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "refresh-token flow",
+    "questionType": "Compare",
+    "question": "Compare refresh-token flow with long-lived access token. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0010",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "refresh-token flow",
+    "questionType": "Mechanics",
+    "question": "Walk through how refresh-token flow works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0011",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "secure cookie session",
+    "questionType": "Compare",
+    "question": "Compare secure cookie session with localStorage JWT. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0012",
+    "level": "Intermediate",
+    "category": "Auth",
+    "topic": "secure cookie session",
+    "questionType": "Mechanics",
+    "question": "Walk through how secure cookie session works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0013",
+    "level": "Intermediate",
+    "category": "Caching",
+    "topic": "CDN cache",
+    "questionType": "Compare",
+    "question": "Compare CDN cache with Redis cache. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0014",
+    "level": "Intermediate",
+    "category": "Caching",
+    "topic": "CDN cache",
+    "questionType": "Mechanics",
+    "question": "Walk through how CDN cache works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0015",
+    "level": "Intermediate",
+    "category": "Caching",
+    "topic": "browser cache",
+    "questionType": "Compare",
+    "question": "Compare browser cache with server cache. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0016",
+    "level": "Intermediate",
+    "category": "Caching",
+    "topic": "browser cache",
+    "questionType": "Mechanics",
+    "question": "Walk through how browser cache works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0017",
+    "level": "Intermediate",
+    "category": "Caching",
+    "topic": "multi-layer invalidation",
+    "questionType": "Compare",
+    "question": "Compare multi-layer invalidation with single-layer cache. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0018",
+    "level": "Intermediate",
+    "category": "Caching",
+    "topic": "multi-layer invalidation",
+    "questionType": "Mechanics",
+    "question": "Walk through how multi-layer invalidation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0019",
+    "level": "Intermediate",
+    "category": "Contracts",
+    "topic": "OpenAPI-generated clients",
+    "questionType": "Compare",
+    "question": "Compare OpenAPI-generated clients with handwritten clients. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0020",
+    "level": "Intermediate",
+    "category": "Contracts",
+    "topic": "OpenAPI-generated clients",
+    "questionType": "Mechanics",
+    "question": "Walk through how OpenAPI-generated clients works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0021",
+    "level": "Intermediate",
+    "category": "Contracts",
+    "topic": "shared API types",
+    "questionType": "Compare",
+    "question": "Compare shared API types with duplicated manual types. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0022",
+    "level": "Intermediate",
+    "category": "Contracts",
+    "topic": "shared API types",
+    "questionType": "Mechanics",
+    "question": "Walk through how shared API types works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0023",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare CDN, Next.js, Redis, backend, and browser caching layers."
+  },
+  {
+    "id": "FS-I-0024",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare generating a typed client from OpenAPI with sharing TypeScript types directly."
+  },
+  {
+    "id": "FS-I-0025",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare storing authentication in HTTP-only cookies versus browser-accessible tokens."
+  },
+  {
+    "id": "FS-I-0026",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a full-stack WebSocket feature with reconnection and authorization."
+  },
+  {
+    "id": "FS-I-0027",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design cursor pagination consistently across PostgreSQL, the API, and the UI."
+  },
+  {
+    "id": "FS-I-0028",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain how database transaction failures should surface to users without exposing internal details."
+  },
+  {
+    "id": "FS-I-0029",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain the boundary between Next.js Server Components, Server Actions/Functions, route handlers, and a separate NestJS API."
+  },
+  {
+    "id": "FS-I-0030",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain the complete security story for CORS, CSRF, XSS, SameSite, and secure cookies."
+  },
+  {
+    "id": "FS-I-0031",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain zero-downtime deployment concerns for a full-stack application."
+  },
+  {
+    "id": "FS-I-0032",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you coordinate schema migrations with frontend/backend deployments?"
+  },
+  {
+    "id": "FS-I-0033",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you run realistic integration tests across frontend, backend, database, and authentication?"
+  },
+  {
+    "id": "FS-I-0034",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How should frontend optimistic updates handle backend rejection or concurrent edits?"
+  },
+  {
+    "id": "FS-I-0035",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you implement image/file upload using signed object-storage URLs?"
+  },
+  {
+    "id": "FS-I-0036",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you investigate a feature that feels slow when browser, API, and database each appear individually healthy?"
+  },
+  {
+    "id": "FS-I-0037",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you manage secrets for local development and CI/CD without committing them?"
+  },
+  {
+    "id": "FS-I-0038",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you prevent stale frontend data after a backend mutation?"
+  },
+  {
+    "id": "FS-I-0039",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you share validation rules between frontend and backend without dangerously coupling them?"
+  },
+  {
+    "id": "FS-I-0040",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you structure a monorepo containing Next.js, NestJS, shared schemas, and tooling?"
+  },
+  {
+    "id": "FS-I-0041",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What causes hydration errors when server-rendered data differs from client state?"
+  },
+  {
+    "id": "FS-I-0042",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What should be logged on the browser and server, and how can a single user action be correlated end-to-end?"
+  },
+  {
+    "id": "FS-I-0043",
+    "level": "Intermediate",
+    "category": "Data",
+    "topic": "optimistic update",
+    "questionType": "Compare",
+    "question": "Compare optimistic update with pessimistic refresh. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0044",
+    "level": "Intermediate",
+    "category": "Data",
+    "topic": "optimistic update",
+    "questionType": "Mechanics",
+    "question": "Walk through how optimistic update works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0045",
+    "level": "Intermediate",
+    "category": "Data",
+    "topic": "server state",
+    "questionType": "Compare",
+    "question": "Compare server state with client UI state. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0046",
+    "level": "Intermediate",
+    "category": "Data",
+    "topic": "server state",
+    "questionType": "Mechanics",
+    "question": "Walk through how server state works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0047",
+    "level": "Intermediate",
+    "category": "Data",
+    "topic": "transactional workflow",
+    "questionType": "Compare",
+    "question": "Compare transactional workflow with multiple independent API calls. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0048",
+    "level": "Intermediate",
+    "category": "Data",
+    "topic": "transactional workflow",
+    "questionType": "Mechanics",
+    "question": "Walk through how transactional workflow works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0049",
+    "level": "Intermediate",
+    "category": "Deployment",
+    "topic": "backward-compatible API change",
+    "questionType": "Compare",
+    "question": "Compare backward-compatible API change with breaking deploy. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0050",
+    "level": "Intermediate",
+    "category": "Deployment",
+    "topic": "backward-compatible API change",
+    "questionType": "Mechanics",
+    "question": "Walk through how backward-compatible API change works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0051",
+    "level": "Intermediate",
+    "category": "Deployment",
+    "topic": "feature flag",
+    "questionType": "Compare",
+    "question": "Compare feature flag with long-lived branch. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0052",
+    "level": "Intermediate",
+    "category": "Deployment",
+    "topic": "feature flag",
+    "questionType": "Mechanics",
+    "question": "Walk through how feature flag works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0053",
+    "level": "Intermediate",
+    "category": "Deployment",
+    "topic": "zero-downtime database migration",
+    "questionType": "Compare",
+    "question": "Compare zero-downtime database migration with deploy code before migration. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0054",
+    "level": "Intermediate",
+    "category": "Deployment",
+    "topic": "zero-downtime database migration",
+    "questionType": "Mechanics",
+    "question": "Walk through how zero-downtime database migration works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0055",
+    "level": "Intermediate",
+    "category": "Dev Environment",
+    "topic": "Docker Compose full-stack environment",
+    "questionType": "Compare",
+    "question": "Compare Docker Compose full-stack environment with manual local services. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0056",
+    "level": "Intermediate",
+    "category": "Dev Environment",
+    "topic": "Docker Compose full-stack environment",
+    "questionType": "Mechanics",
+    "question": "Walk through how Docker Compose full-stack environment works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0057",
+    "level": "Intermediate",
+    "category": "Errors",
+    "topic": "full-stack error model",
+    "questionType": "Compare",
+    "question": "Compare full-stack error model with ad hoc error strings. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0058",
+    "level": "Intermediate",
+    "category": "Errors",
+    "topic": "full-stack error model",
+    "questionType": "Mechanics",
+    "question": "Walk through how full-stack error model works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0059",
+    "level": "Intermediate",
+    "category": "Files",
+    "topic": "direct-to-object-storage upload",
+    "questionType": "Compare",
+    "question": "Compare direct-to-object-storage upload with proxy upload through app server. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0060",
+    "level": "Intermediate",
+    "category": "Files",
+    "topic": "direct-to-object-storage upload",
+    "questionType": "Mechanics",
+    "question": "Walk through how direct-to-object-storage upload works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0061",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How do you prevent duplicate form submissions across browser retries, server retries, and database writes?"
+  },
+  {
+    "id": "FS-I-0062",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How should cache invalidation work when the browser, CDN, Next.js server, API, Redis, and database can all cache related data?"
+  },
+  {
+    "id": "FS-I-0063",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you propagate validation errors from PostgreSQL/NestJS through an API contract into accessible field errors in React?"
+  },
+  {
+    "id": "FS-I-0064",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you structure shared schemas/types between a Next.js frontend and NestJS backend without tightly coupling their internal models?"
+  },
+  {
+    "id": "FS-I-0065",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you test an authenticated workflow end-to-end without making tests brittle or sharing dangerous global state?"
+  },
+  {
+    "id": "FS-I-0066",
+    "level": "Intermediate",
+    "category": "Monorepo",
+    "topic": "shared packages",
+    "questionType": "Compare",
+    "question": "Compare shared packages with copy-pasted utilities. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0067",
+    "level": "Intermediate",
+    "category": "Monorepo",
+    "topic": "shared packages",
+    "questionType": "Mechanics",
+    "question": "Walk through how shared packages works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0068",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "end-to-end correlation ID",
+    "questionType": "Compare",
+    "question": "Compare end-to-end correlation ID with separate frontend/backend logs. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0069",
+    "level": "Intermediate",
+    "category": "Observability",
+    "topic": "end-to-end correlation ID",
+    "questionType": "Mechanics",
+    "question": "Walk through how end-to-end correlation ID works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0070",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "full-stack performance budget",
+    "questionType": "Compare",
+    "question": "Compare full-stack performance budget with frontend-only optimization. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0071",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "full-stack performance budget",
+    "questionType": "Mechanics",
+    "question": "Walk through how full-stack performance budget works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0072",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "waterfall request chain",
+    "questionType": "Compare",
+    "question": "Compare waterfall request chain with parallel fetching. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0073",
+    "level": "Intermediate",
+    "category": "Performance",
+    "topic": "waterfall request chain",
+    "questionType": "Mechanics",
+    "question": "Walk through how waterfall request chain works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0074",
+    "level": "Intermediate",
+    "category": "Realtime",
+    "topic": "WebSocket end-to-end flow",
+    "questionType": "Compare",
+    "question": "Compare WebSocket end-to-end flow with HTTP polling. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0075",
+    "level": "Intermediate",
+    "category": "Realtime",
+    "topic": "WebSocket end-to-end flow",
+    "questionType": "Mechanics",
+    "question": "Walk through how WebSocket end-to-end flow works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0076",
+    "level": "Intermediate",
+    "category": "Realtime",
+    "topic": "presence system",
+    "questionType": "Compare",
+    "question": "Compare presence system with static status. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0077",
+    "level": "Intermediate",
+    "category": "Realtime",
+    "topic": "presence system",
+    "questionType": "Mechanics",
+    "question": "Walk through how presence system works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0078",
+    "level": "Intermediate",
+    "category": "Rendering",
+    "topic": "RSC boundary",
+    "questionType": "Compare",
+    "question": "Compare RSC boundary with all-client React. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0079",
+    "level": "Intermediate",
+    "category": "Rendering",
+    "topic": "RSC boundary",
+    "questionType": "Mechanics",
+    "question": "Walk through how RSC boundary works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0080",
+    "level": "Intermediate",
+    "category": "Rendering",
+    "topic": "SSR",
+    "questionType": "Compare",
+    "question": "Compare SSR with CSR. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0081",
+    "level": "Intermediate",
+    "category": "Rendering",
+    "topic": "SSR",
+    "questionType": "Mechanics",
+    "question": "Walk through how SSR works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0082",
+    "level": "Intermediate",
+    "category": "Rendering",
+    "topic": "hydration",
+    "questionType": "Compare",
+    "question": "Compare hydration with client-only rendering. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0083",
+    "level": "Intermediate",
+    "category": "Rendering",
+    "topic": "hydration",
+    "questionType": "Mechanics",
+    "question": "Walk through how hydration works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0084",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "CORS",
+    "questionType": "Compare",
+    "question": "Compare CORS with same-origin policy. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0085",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "CORS",
+    "questionType": "Mechanics",
+    "question": "Walk through how CORS works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0086",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "CSP and frontend headers",
+    "questionType": "Compare",
+    "question": "Compare CSP and frontend headers with backend input validation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0087",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "CSP and frontend headers",
+    "questionType": "Mechanics",
+    "question": "Walk through how CSP and frontend headers works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0088",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "CSRF",
+    "questionType": "Compare",
+    "question": "Compare CSRF with XSS. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0089",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "authentication vs authorization across layers",
+    "questionType": "Compare",
+    "question": "Compare authentication vs authorization across layers with frontend route guard. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0090",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "authentication vs authorization across layers",
+    "questionType": "Mechanics",
+    "question": "Walk through how authentication vs authorization across layers works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0091",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "audit trail across frontend and backend",
+    "questionType": "Compare",
+    "question": "Compare audit trail across frontend and backend with application logs only. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0092",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "audit trail across frontend and backend",
+    "questionType": "Mechanics",
+    "question": "Walk through how audit trail across frontend and backend works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0093",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "ecommerce checkout flow",
+    "questionType": "Compare",
+    "question": "Compare ecommerce checkout flow with CRUD cart. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0094",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "ecommerce checkout flow",
+    "questionType": "Mechanics",
+    "question": "Walk through how ecommerce checkout flow works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0095",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "file-processing pipeline",
+    "questionType": "Compare",
+    "question": "Compare file-processing pipeline with synchronous upload handler. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0096",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "file-processing pipeline",
+    "questionType": "Mechanics",
+    "question": "Walk through how file-processing pipeline works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0097",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "multi-tenant full-stack app",
+    "questionType": "Compare",
+    "question": "Compare multi-tenant full-stack app with single-tenant app. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0098",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "multi-tenant full-stack app",
+    "questionType": "Mechanics",
+    "question": "Walk through how multi-tenant full-stack app works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0099",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "offline-capable web app",
+    "questionType": "Compare",
+    "question": "Compare offline-capable web app with always-online app. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0100",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "offline-capable web app",
+    "questionType": "Mechanics",
+    "question": "Walk through how offline-capable web app works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0101",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "real-time dashboard",
+    "questionType": "Compare",
+    "question": "Compare real-time dashboard with periodic page refresh. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0102",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "real-time dashboard",
+    "questionType": "Mechanics",
+    "question": "Walk through how real-time dashboard works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0103",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "subscription SaaS",
+    "questionType": "Compare",
+    "question": "Compare subscription SaaS with simple login app. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0104",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "subscription SaaS",
+    "questionType": "Mechanics",
+    "question": "Walk through how subscription SaaS works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0105",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "E2E test",
+    "questionType": "Compare",
+    "question": "Compare E2E test with integration test. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0106",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "E2E test",
+    "questionType": "Mechanics",
+    "question": "Walk through how E2E test works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0107",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "contract test",
+    "questionType": "Compare",
+    "question": "Compare contract test with only UI E2E. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0108",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "contract test",
+    "questionType": "Mechanics",
+    "question": "Walk through how contract test works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0109",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "test data management",
+    "questionType": "Compare",
+    "question": "Compare test data management with shared mutable test database. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0110",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "test data management",
+    "questionType": "Mechanics",
+    "question": "Walk through how test data management works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-I-0111",
+    "level": "Intermediate",
+    "category": "Validation",
+    "topic": "client validation",
+    "questionType": "Compare",
+    "question": "Compare client validation with server validation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FS-I-0112",
+    "level": "Intermediate",
+    "category": "Validation",
+    "topic": "client validation",
+    "questionType": "Mechanics",
+    "question": "Walk through how client validation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FS-A-0001",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "BFF pattern",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around BFF pattern. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0002",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "BFF pattern",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with BFF pattern? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0003",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "Next.js plus NestJS boundary",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Next.js plus NestJS boundary. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0004",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "Next.js plus NestJS boundary",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Next.js plus NestJS boundary? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0005",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "browser-to-database request path",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around browser-to-database request path. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0006",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "browser-to-database request path",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with browser-to-database request path? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0007",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "modular monolith full stack",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around modular monolith full stack. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0008",
+    "level": "Advanced",
+    "category": "Architecture",
+    "topic": "modular monolith full stack",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with modular monolith full stack? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0009",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "refresh-token flow",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around refresh-token flow. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0010",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "refresh-token flow",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with refresh-token flow? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0011",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "secure cookie session",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around secure cookie session. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0012",
+    "level": "Advanced",
+    "category": "Auth",
+    "topic": "secure cookie session",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with secure cookie session? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0013",
+    "level": "Advanced",
+    "category": "Caching",
+    "topic": "CDN cache",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around CDN cache. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0014",
+    "level": "Advanced",
+    "category": "Caching",
+    "topic": "CDN cache",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with CDN cache? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0015",
+    "level": "Advanced",
+    "category": "Caching",
+    "topic": "browser cache",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around browser cache. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0016",
+    "level": "Advanced",
+    "category": "Caching",
+    "topic": "browser cache",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with browser cache? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0017",
+    "level": "Advanced",
+    "category": "Caching",
+    "topic": "multi-layer invalidation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around multi-layer invalidation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0018",
+    "level": "Advanced",
+    "category": "Caching",
+    "topic": "multi-layer invalidation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with multi-layer invalidation? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0019",
+    "level": "Advanced",
+    "category": "Contracts",
+    "topic": "OpenAPI-generated clients",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around OpenAPI-generated clients. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0020",
+    "level": "Advanced",
+    "category": "Contracts",
+    "topic": "OpenAPI-generated clients",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with OpenAPI-generated clients? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0021",
+    "level": "Advanced",
+    "category": "Contracts",
+    "topic": "shared API types",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around shared API types. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0022",
+    "level": "Advanced",
+    "category": "Contracts",
+    "topic": "shared API types",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with shared API types? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0023",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "A deploy introduced mismatched frontend assets and backend API contracts. How would you prevent and recover from this class of issue?"
+  },
+  {
+    "id": "FS-A-0024",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare a Next.js-only architecture with Next.js + NestJS for a growing engineering organization."
+  },
+  {
+    "id": "FS-A-0025",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a CI/CD pipeline that validates frontend/backend compatibility before production deployment."
+  },
+  {
+    "id": "FS-A-0026",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a checkout workflow that spans UI, inventory, payment, order state, retries, and user-facing reconciliation."
+  },
+  {
+    "id": "FS-A-0027",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a multi-region full-stack SaaS application and explain where state lives at each layer."
+  },
+  {
+    "id": "FS-A-0028",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a secure upload pipeline for large user files, including scanning, authorization, resumability, and lifecycle management."
+  },
+  {
+    "id": "FS-A-0029",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design an end-to-end caching strategy and explain invalidation at CDN, framework, service, Redis, and browser layers."
+  },
+  {
+    "id": "FS-A-0030",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design an offline-capable web app with local writes, background synchronization, conflict detection, and server reconciliation."
+  },
+  {
+    "id": "FS-A-0031",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design end-to-end observability from user interaction to database query and asynchronous worker."
+  },
+  {
+    "id": "FS-A-0032",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design real-time collaborative editing with optimistic UI, ordering, conflict resolution, reconnect, and persistence."
+  },
+  {
+    "id": "FS-A-0033",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design tenancy isolation across UI, API, cache keys, object storage, database access, and background jobs."
+  },
+  {
+    "id": "FS-A-0034",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain how you would introduce contract testing between frontend and backend teams working independently."
+  },
+  {
+    "id": "FS-A-0035",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you design authentication/session management so server-rendered pages, APIs, WebSockets, and background jobs agree on identity?"
+  },
+  {
+    "id": "FS-A-0036",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you handle a breaking database migration when rolling back the application must remain possible?"
+  },
+  {
+    "id": "FS-A-0037",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you model feature flags so server rendering and client hydration never disagree?"
+  },
+  {
+    "id": "FS-A-0038",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you perform a strangler migration from a monolith to modular services while keeping one web frontend?"
+  },
+  {
+    "id": "FS-A-0039",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you run load tests that model realistic full-stack behavior instead of hammering only one endpoint?"
+  },
+  {
+    "id": "FS-A-0040",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you secure an internal admin UI differently from the public application?"
+  },
+  {
+    "id": "FS-A-0041",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you set performance budgets across frontend bundle, server latency, database queries, and third-party dependencies?"
+  },
+  {
+    "id": "FS-A-0042",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "In a senior full-stack interview, design a subscription SaaS from browser to infrastructure, including data model, auth, payments, caching, jobs, monitoring, security, deployment, and rollback."
+  },
+  {
+    "id": "FS-A-0043",
+    "level": "Advanced",
+    "category": "Data",
+    "topic": "optimistic update",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around optimistic update. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0044",
+    "level": "Advanced",
+    "category": "Data",
+    "topic": "optimistic update",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with optimistic update? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0045",
+    "level": "Advanced",
+    "category": "Data",
+    "topic": "server state",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around server state. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0046",
+    "level": "Advanced",
+    "category": "Data",
+    "topic": "server state",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with server state? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0047",
+    "level": "Advanced",
+    "category": "Data",
+    "topic": "transactional workflow",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around transactional workflow. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0048",
+    "level": "Advanced",
+    "category": "Data",
+    "topic": "transactional workflow",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with transactional workflow? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0049",
+    "level": "Advanced",
+    "category": "Deployment",
+    "topic": "backward-compatible API change",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around backward-compatible API change. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0050",
+    "level": "Advanced",
+    "category": "Deployment",
+    "topic": "backward-compatible API change",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with backward-compatible API change? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0051",
+    "level": "Advanced",
+    "category": "Deployment",
+    "topic": "feature flag",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around feature flag. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0052",
+    "level": "Advanced",
+    "category": "Deployment",
+    "topic": "feature flag",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with feature flag? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0053",
+    "level": "Advanced",
+    "category": "Deployment",
+    "topic": "zero-downtime database migration",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around zero-downtime database migration. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0054",
+    "level": "Advanced",
+    "category": "Deployment",
+    "topic": "zero-downtime database migration",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with zero-downtime database migration? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0055",
+    "level": "Advanced",
+    "category": "Dev Environment",
+    "topic": "Docker Compose full-stack environment",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Docker Compose full-stack environment. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0056",
+    "level": "Advanced",
+    "category": "Dev Environment",
+    "topic": "Docker Compose full-stack environment",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Docker Compose full-stack environment? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0057",
+    "level": "Advanced",
+    "category": "Errors",
+    "topic": "full-stack error model",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around full-stack error model. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0058",
+    "level": "Advanced",
+    "category": "Errors",
+    "topic": "full-stack error model",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with full-stack error model? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0059",
+    "level": "Advanced",
+    "category": "Files",
+    "topic": "direct-to-object-storage upload",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around direct-to-object-storage upload. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0060",
+    "level": "Advanced",
+    "category": "Files",
+    "topic": "direct-to-object-storage upload",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with direct-to-object-storage upload? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0061",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design a large file upload and processing workflow that remains reliable across browser disconnects, API restarts, and worker failures."
+  },
+  {
+    "id": "FS-A-0062",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design a multi-tenant subscription SaaS from browser to database, including auth, billing webhooks, tenant isolation, caching, background jobs, audit logs, and deployment."
+  },
+  {
+    "id": "FS-A-0063",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design zero-downtime deployment of a full-stack application when frontend, API, and schema changes cannot all switch at exactly the same instant."
+  },
+  {
+    "id": "FS-A-0064",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you correlate a frontend error report with backend traces, database queries, and the exact deployed commit?"
+  },
+  {
+    "id": "FS-A-0065",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you decide whether a feature belongs in Next.js server code, a separate NestJS service, a background worker, or the client?"
+  },
+  {
+    "id": "FS-A-0066",
+    "level": "Advanced",
+    "category": "Monorepo",
+    "topic": "shared packages",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around shared packages. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0067",
+    "level": "Advanced",
+    "category": "Monorepo",
+    "topic": "shared packages",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with shared packages? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0068",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "end-to-end correlation ID",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around end-to-end correlation ID. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0069",
+    "level": "Advanced",
+    "category": "Observability",
+    "topic": "end-to-end correlation ID",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with end-to-end correlation ID? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0070",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "full-stack performance budget",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around full-stack performance budget. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0071",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "full-stack performance budget",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with full-stack performance budget? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0072",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "waterfall request chain",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around waterfall request chain. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0073",
+    "level": "Advanced",
+    "category": "Performance",
+    "topic": "waterfall request chain",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with waterfall request chain? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0074",
+    "level": "Advanced",
+    "category": "Realtime",
+    "topic": "WebSocket end-to-end flow",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around WebSocket end-to-end flow. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0075",
+    "level": "Advanced",
+    "category": "Realtime",
+    "topic": "WebSocket end-to-end flow",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with WebSocket end-to-end flow? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0076",
+    "level": "Advanced",
+    "category": "Realtime",
+    "topic": "presence system",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around presence system. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0077",
+    "level": "Advanced",
+    "category": "Realtime",
+    "topic": "presence system",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with presence system? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0078",
+    "level": "Advanced",
+    "category": "Rendering",
+    "topic": "RSC boundary",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around RSC boundary. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0079",
+    "level": "Advanced",
+    "category": "Rendering",
+    "topic": "RSC boundary",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with RSC boundary? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0080",
+    "level": "Advanced",
+    "category": "Rendering",
+    "topic": "SSR",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around SSR. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0081",
+    "level": "Advanced",
+    "category": "Rendering",
+    "topic": "SSR",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with SSR? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0082",
+    "level": "Advanced",
+    "category": "Rendering",
+    "topic": "hydration",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around hydration. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0083",
+    "level": "Advanced",
+    "category": "Rendering",
+    "topic": "hydration",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with hydration? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0084",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "CORS",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around CORS. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0085",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "CORS",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with CORS? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0086",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "CSP and frontend headers",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around CSP and frontend headers. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0087",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "CSP and frontend headers",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with CSP and frontend headers? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0088",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "authentication vs authorization across layers",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around authentication vs authorization across layers. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0089",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "authentication vs authorization across layers",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with authentication vs authorization across layers? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0090",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "audit trail across frontend and backend",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around audit trail across frontend and backend. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0091",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "audit trail across frontend and backend",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with audit trail across frontend and backend? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0092",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "ecommerce checkout flow",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around ecommerce checkout flow. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0093",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "ecommerce checkout flow",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with ecommerce checkout flow? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0094",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "file-processing pipeline",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around file-processing pipeline. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0095",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "file-processing pipeline",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with file-processing pipeline? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0096",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "multi-tenant full-stack app",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around multi-tenant full-stack app. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0097",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "multi-tenant full-stack app",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with multi-tenant full-stack app? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0098",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "offline-capable web app",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around offline-capable web app. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0099",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "offline-capable web app",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with offline-capable web app? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0100",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "real-time dashboard",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around real-time dashboard. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0101",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "real-time dashboard",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with real-time dashboard? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0102",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "subscription SaaS",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around subscription SaaS. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0103",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "subscription SaaS",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with subscription SaaS? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0104",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "E2E test",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around E2E test. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0105",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "E2E test",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with E2E test? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0106",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "contract test",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around contract test. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0107",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "contract test",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with contract test? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0108",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "test data management",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around test data management. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0109",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "test data management",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with test data management? How would you design around them?"
+  },
+  {
+    "id": "FS-A-0110",
+    "level": "Advanced",
+    "category": "Validation",
+    "topic": "client validation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around client validation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FS-A-0111",
+    "level": "Advanced",
+    "category": "Validation",
+    "topic": "client validation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with client validation? How would you design around them?"
+  }
+]

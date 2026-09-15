@@ -1,0 +1,91 @@
+---
+id: "BACKEND-OAUTH-CONCEPTS"
+title: "OAuth 2.0 Concepts"
+titleBn: "OAuth 2.0 \u0995\u09a8\u09b8\u09c7\u09aa\u09cd\u099f"
+description: "Delegated authorization roles\u2014resource owner, client, authorization server, resource server\u2014without confusing OAuth with authentication."
+descriptionBn: "\u09a1\u09c7\u09b2\u09bf\u0997\u09c7\u099f\u09c7\u09a1 \u0985\u09a5\u09b0\u09be\u0987\u099c\u09c7\u09b6\u09a8 \u09b0\u09cb\u09b2\u2014OAuth-\u0995\u09c7 \u0985\u09a5\u09c7\u09a8\u09cd\u099f\u09bf\u0995\u09c7\u09b6\u09a8\u09c7\u09b0 \u09b8\u09be\u09a5\u09c7 \u0997\u09c1\u09b2\u09bf\u09af\u09bc\u09c7 \u09a8\u09be \u09ab\u09c7\u09b2\u09c7\u0964"
+track: "backend"
+category: "auth"
+difficulty: "advanced"
+estimatedMinutes: 40
+prerequisites:
+  - "BACKEND-JWT-VS-SESSIONS"
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+related:
+  - "BACKEND-NESTJS-AUTH-JWT"
+careers:
+  - "backend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "oauth"
+  - "oidc"
+  - "auth"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "RFC-6749-OAUTH2"
+  - "RFC-7519-JWT"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Users should not give your app their Google password. OAuth delegates authorization to an authorization server; OpenID Connect layers identity (authentication) on top.
+
+<Callout type="mental-model">
+  Know the roles and the authorization code flow with PKCE for public clients. Access tokens authorize API calls; ID tokens assert login (OIDC).
+</Callout>
+
+## Role map
+
+Your API is often the resource server. Your SPA/mobile app is the client. Google/GitHub/Auth0 may be the authorization server.
+
+```ts
+export type OAuthRole =
+  | 'resource-owner'
+  | 'client'
+  | 'authorization-server'
+  | 'resource-server';
+
+export const googleLoginRoles: Record<OAuthRole, string> = {
+  'resource-owner': 'end user',
+  client: 'Dev Turning Point web app',
+  'authorization-server': 'Google',
+  'resource-server': 'Google APIs / your API if validating tokens',
+};
+```
+
+## Common mistakes
+
+- **Using implicit flow for new apps** — Deprecated for SPAs; prefer auth code + PKCE.
+- **Treating access tokens as proof of UI login only** — Know OIDC id_token vs access token.
+- **Custom crypto instead of battle-tested libraries** — Easy to get redirects/state wrong.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain OAuth roles in one sentence each.
+</Callout>
+
+## Practice checklist
+
+- [ ] Draw the auth code + PKCE redirect sequence.
+- [ ] List what belongs in state/nonce.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `RFC-6749-OAUTH2`
+- `RFC-7519-JWT`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1,0 +1,29 @@
+{
+  "id": "iv-devops-compose-networks",
+  "question": "How does Docker Compose give services DNS names to talk to each other, and when would you still expose a port to the host?",
+  "questionBn": "Docker Compose কীভাবে সার্ভিসগুলোকে একে অপরের সাথে কথা বলতে DNS নাম দেয়, এবং কখন হোস্টে পোর্ট এক্সপোজ করবেন?",
+  "careerIds": [
+    "devops-engineer",
+    "backend-engineer"
+  ],
+  "technology": [
+    "Docker",
+    "Compose",
+    "Networking"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Compose attaches services to a shared user-defined network where the service name resolves to the container. Publish host ports only for local access or ingress you intentionally expose.",
+  "strongAnswer": "Each Compose project gets an isolated bridge network by default. Service names become DNS names for inter-container traffic (e.g. postgres://db:5432). depends_on waits for start, not readiness—use healthchecks for app-level readiness. Expose ports to the host for browser/API access during local dev; keep databases internal on shared Wi-Fi or CI where possible.",
+  "advancedAnswer": "Discuss network aliases, multiple networks for front/back tiers, and how Compose networking differs from Kubernetes Services/ClusterIP.",
+  "followUps": [
+    "What is the difference between depends_on and a healthcheck?",
+    "How would you inject DB credentials without committing them?"
+  ],
+  "commonWrongAnswer": "Containers share localhost with the host by default, so use localhost:5432 from the API container.",
+  "productionRelevance": "Local multi-service stacks mirror production topology enough to catch config mistakes early.",
+  "relatedTopics": [
+    "DEVOPS-DOCKER-COMPOSE",
+    "DEVOPS-DOCKER-NETWORKING"
+  ],
+  "lastVerified": "2026-09-15"
+}

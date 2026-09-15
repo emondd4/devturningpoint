@@ -1,0 +1,83 @@
+---
+id: DEVOPS-OPENTELEMETRY
+title: "OpenTelemetry Fundamentals"
+titleBn: "OpenTelemetry মৌলিক"
+description: "Vendor-neutral traces, metrics, and logs—instrument once, export to your observability backend."
+descriptionBn: "ভেন্ডর-নিরপেক্ষ ট্রেস, মেট্রিক্স ও লগ—একবার ইন্সট্রুমেন্ট করে আপনার অবজারভেবিলিটি ব্যাকেন্ডে এক্সপোর্ট।"
+track: devops
+difficulty: advanced
+estimatedMinutes: 42
+prerequisites:
+  - "DEVOPS-OBSERVABILITY-PROMETHEUS-GRAFANA"
+unlocks:
+  - "DEVOPS-LOGGING-STACKS"
+related:
+  - "DEVOPS-SLO-SLI"
+careers:
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "opentelemetry"
+  - "tracing"
+  - "observability"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "OPENTELEMETRY-DOCS"
+  - "PROMETHEUS-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why proprietary agents lock you in
+
+Swapping APM vendors should not mean rewriting instrumentation. OpenTelemetry standardizes signals and context propagation across languages.
+
+## Mental model
+
+<Callout type="mental-model">
+  Apps create spans (traces), instruments (metrics), and logs with shared context. An SDK + exporter ships OTLP to a collector or backend. Trace IDs stitch requests across services.
+</Callout>
+
+```bash
+# Conceptual collector pipeline sketch
+# receivers: [otlp] → processors: [batch] → exporters: [otlp/jaeger, prometheus]
+```
+
+Start with auto-instrumentation where available; add custom spans around business-critical boundaries (payments, auth).
+
+## Common mistakes
+
+- **Tracing everything at 100% in huge fleets** — Sample thoughtfully.
+- **Missing context propagation** — Broken traces across HTTP/gRPC.
+- **Metrics cardinality explosions** — High-cardinality labels kill backends.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain how a single user request becomes a distributed trace across API and worker services.
+</Callout>
+
+## Practice checklist
+
+- [ ] Read OTel signals overview.
+- [ ] Enable auto-instrumentation for one language demo.
+- [ ] Correlate a log line with a trace id.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `OPENTELEMETRY-DOCS`
+- `PROMETHEUS-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

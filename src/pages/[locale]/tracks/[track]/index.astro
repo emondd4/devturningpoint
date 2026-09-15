@@ -1,9 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { getTrack, tracks } from '../../../../data/tracks/tracks';
 import { localePath, type Locale, isLocale } from '../../../../i18n/config';
 import { masterGraph } from '../../../../data/skill-graphs/master-graph';
-import { suggestLearningOrder, getDirectPrerequisites } from '../../../../utils/graph';
+import { getDirectPrerequisites } from '../../../../utils/graph';
+import { getTrackCurriculum, learnPathForId, resolveTopicId } from '../../../../utils/topic-links';
 import SkillGraphView from '../../../../components/graph/SkillGraphView';
 import ContinueLearningCard from '../../../../components/progress/ContinueLearningCard';
 
@@ -25,11 +27,32 @@ if (!track) {
 }
 
 const isBn = locale === 'bn';
-const trackNodes = masterGraph.nodes.filter((n) => n.track === track.id || track.goalSkillIds.includes(n.id));
-const ordered = suggestLearningOrder(
-  masterGraph,
-  trackNodes.map((n) => n.id),
+const allTopics = await getCollection('topics');
+const topicById = new Map(allTopics.map((t) => [t.data.id, t]));
+
+const curriculumIds = getTrackCurriculum(track.id);
+const orderedTopics = curriculumIds
+  .map((id) => topicById.get(id))
+  .filter((t): t is (typeof allTopics)[number] => Boolean(t));
+
+// Fallback: any topics tagged with this track that aren't in curriculum yet
+const extras = allTopics.filter(
+  (t) => t.data.track === track.id && !curriculumIds.includes(t.data.id),
 );
+
+const trackNodes = masterGraph.nodes.filter(
+  (n) => n.track === track.id || track.goalSkillIds.includes(n.id),
+);
+const graphEdges = masterGraph.edges.filter(
+  (e) =>
+    trackNodes.some((n) => n.id === e.from) &&
+    (trackNodes.some((n) => n.id === e.to) || e.type === 'belongsToTrack'),
+);
+
+const nodeLinks: Record<string, string | undefined> = {};
+for (const node of trackNodes) {
+  nodeLinks[node.id] = learnPathForId(locale, node.id);
+}
 ---
 
 <BaseLayout
@@ -52,6 +75,9 @@ const ordered = suggestLearningOrder(
           {isBn ? track.titleBn : track.title}
         </h1>
         <p class="mt-3 max-w-2xl text-[var(--color-ink-muted)]">{isBn ? track.summaryBn : track.summary}</p>
+        <p class="mt-2 text-sm text-[var(--color-ink-subtle)]">
+          {orderedTopics.length} {isBn ? 'লার্নিং টপিক' : 'learning topics'} · {track.primaryStack.join(' · ')}
+        </p>
       </div>
       <a class="btn btn-primary" href={localePath(locale, `tracks/${track.slug}/assessment`)}>
         {isBn ? 'Assessment শুরু করুন' : 'Start assessment'}
@@ -63,48 +89,120 @@ const ordered = suggestLearningOrder(
     </div>
 
     <section class="mt-10">
+      <h2 class="text-xl font-semibold text-[var(--color-ink)]">{isBn ? 'শেখার ক্রম' : 'Learning path'}</h2>
+      <p class="mt-2 text-sm text-[var(--color-ink-muted)]">
+        {
+          isBn
+            ? 'Prerequisite-first ক্রম। প্রতিটি আইটেম একটি বাস্তব টপিক পেজে নিয়ে যায়।'
+            : 'Prerequisite-first order. Every item opens a real topic page.'
+        }
+      </p>
+      {
+        orderedTopics.length === 0 ? (
+          <p class="mt-4 text-[var(--color-ink-muted)]">
+            {isBn ? 'এই ট্র্যাকের টপিক এখনো প্রকাশিত হয়নি।' : 'No published topics for this track yet.'}
+          </p>
+        ) : (
+          <ol class="mt-4 space-y-2">
+            {orderedTopics.map((topic, index) => {
+              const href = learnPathForId(locale, topic.data.id)!;
+              const title = isBn && topic.data.titleBn ? topic.data.titleBn : topic.data.title;
+              const prereqs = topic.data.prerequisites
+                .map((id) => resolveTopicId(id) ?? id)
+                .filter(Boolean);
+              return (
+                <li class="surface-card">
+                  <div class="flex flex-wrap items-baseline gap-2">
+                    <span class="text-sm text-[var(--color-ink-subtle)]">{index + 1}.</span>
+                    <a class="font-medium text-[var(--color-ink)] no-underline hover:text-[var(--color-accent)]" href={href}>
+                      {title}
+                    </a>
+                    <span class="badge">{topic.data.difficulty}</span>
+                    <span class="badge">{topic.data.estimatedMinutes} {isBn ? 'মিনিট' : 'min'}</span>
+                  </div>
+                  <p class="mt-1 text-sm text-[var(--color-ink-muted)]">
+                    {isBn && topic.data.descriptionBn ? topic.data.descriptionBn : topic.data.description}
+                  </p>
+                  {prereqs.length > 0 && (
+                    <p class="mt-1 text-xs text-[var(--color-ink-subtle)]">
+                      {isBn ? 'পূর্বশর্ত' : 'Prerequisites'}: {prereqs.join(', ')}
+                    </p>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        )
+      }
+      {
+        extras.length > 0 && (
+          <div class="mt-6">
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">{isBn ? 'অতিরিক্ত টপিক' : 'Additional topics'}</h3>
+            <ul class="mt-2 space-y-2">
+              {extras.map((topic) => (
+                <li>
+                  <a href={learnPathForId(locale, topic.data.id)} class="text-sm">
+                    {isBn && topic.data.titleBn ? topic.data.titleBn : topic.data.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </section>
+
+    <section class="mt-10">
       <h2 class="text-xl font-semibold text-[var(--color-ink)]">{isBn ? 'স্কিল গ্রাফ' : 'Skill graph'}</h2>
       <p class="mt-2 text-sm text-[var(--color-ink-muted)]">
-        {isBn ? 'ভিজ্যুয়াল গ্রাফের পাশাপাশি accessible তালিকাও আছে।' : 'Visual graph plus an accessible ordered list.'}
+        {
+          isBn
+            ? 'গ্রাফ নোডগুলো প্রকাশিত টপিকে লিঙ্ক করে যেখানে ম্যাপিং আছে।'
+            : 'Graph nodes link to published topics where a mapping exists.'
+        }
       </p>
       <div class="mt-4">
         <SkillGraphView
           client:load
           locale={locale}
           nodes={trackNodes}
-          edges={masterGraph.edges.filter(
-            (e) => trackNodes.some((n) => n.id === e.from) && (trackNodes.some((n) => n.id === e.to) || e.type === 'belongsToTrack'),
-          )}
+          edges={graphEdges}
+          nodeLinks={nodeLinks}
         />
       </div>
-    </section>
-
-    <section class="mt-10">
-      <h2 class="text-xl font-semibold text-[var(--color-ink)]">{isBn ? 'প্রস্তাবিত ক্রম' : 'Suggested order'}</h2>
-      <ol class="mt-4 space-y-2">
-        {
-          ordered.map((id, index) => {
-            const node = masterGraph.nodes.find((n) => n.id === id);
-            const prereqs = getDirectPrerequisites(masterGraph, id);
-            return (
-              <li class="surface-card">
-                <div class="flex flex-wrap items-baseline gap-2">
-                  <span class="text-sm text-[var(--color-ink-subtle)]">{index + 1}.</span>
-                  <a class="font-medium no-underline" href={localePath(locale, `learn/${id.toLowerCase().replace(/_/g, '-')}`)}>
-                    {node?.title ?? id}
-                  </a>
-                  {node?.difficulty && <span class="badge">{node.difficulty}</span>}
-                </div>
-                {prereqs.length > 0 && (
-                  <p class="mt-1 text-xs text-[var(--color-ink-subtle)]">
-                    {isBn ? 'প্রয়োজন' : 'Requires'}: {prereqs.join(', ')}
-                  </p>
-                )}
-              </li>
-            );
-          })
-        }
-      </ol>
+      <details class="surface-card mt-4">
+        <summary class="cursor-pointer font-medium text-[var(--color-ink)]">
+          {isBn ? 'স্কিল → টপিক ম্যাপিং' : 'Skill → topic mapping'}
+        </summary>
+        <ul class="mt-3 space-y-1 text-sm text-[var(--color-ink-muted)]">
+          {
+            trackNodes.map((node) => {
+              const topicId = resolveTopicId(node.id);
+              const href = learnPathForId(locale, node.id);
+              const prereqs = getDirectPrerequisites(masterGraph, node.id);
+              return (
+                <li>
+                  <span class="font-medium text-[var(--color-ink)]">{node.title}</span>
+                  <span class="text-xs"> ({node.id})</span>
+                  {href && topicId ? (
+                    <>
+                      {' → '}
+                      <a href={href}>{topicId}</a>
+                    </>
+                  ) : (
+                    <span class="text-xs"> — {isBn ? 'টপিক ম্যাপ নেই' : 'no topic mapped yet'}</span>
+                  )}
+                  {prereqs.length > 0 && (
+                    <span class="block text-xs text-[var(--color-ink-subtle)]">
+                      {isBn ? 'প্রয়োজন' : 'Requires'}: {prereqs.join(', ')}
+                    </span>
+                  )}
+                </li>
+              );
+            })
+          }
+        </ul>
+      </details>
     </section>
   </div>
 </BaseLayout>

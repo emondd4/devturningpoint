@@ -1,0 +1,38 @@
+---
+id: BACKEND-PAGINATION
+title: "API Pagination Patterns"
+titleBn: "API Pagination Patterns"
+description: "Offset vs cursor pagination trade-offs for list endpoints."
+descriptionBn: "Offset বনাম cursor।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 35
+prerequisites:
+  - BACKEND-HTTP-REST-API-DESIGN
+  - BACKEND-POSTGRESQL-WITH-BACKEND
+unlocks: []
+related:
+  - DATABASE-POSTGRESQL-INDEXING
+careers:
+  - backend-engineer
+tags:
+  - api
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - RFC-9110-HTTP
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+Offset is simple and breaks under deep pages/churn. Cursor/keyset pagination is stable for infinite scroll feeds. Always bound page size.
+
+## Interview
+
+Why can `OFFSET 100000` get slow?
+

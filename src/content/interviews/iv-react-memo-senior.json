@@ -1,0 +1,22 @@
+{
+  "id": "iv-react-memo-senior",
+  "question": "A large React tree feels slow. How do you decide whether to add React.memo?",
+  "careerIds": [
+    "frontend-engineer"
+  ],
+  "technology": [
+    "React"
+  ],
+  "difficulty": "senior",
+  "shortAnswer": "Profile first; fix state placement; memoize hot subtrees with unstable props addressed.",
+  "strongAnswer": "Use profiler to confirm CPU time in renders. Check whether state lives too high, causing broad renders. Only then memoize children and stabilize props/callbacks. Premature memo adds complexity and shallow-compare costs.",
+  "advancedAnswer": "Discuss concurrent rendering, transitions, and list virtualization as alternatives to blanket memo.",
+  "followUps": [
+    "How do you stabilize callback identities responsibly?"
+  ],
+  "relatedTopics": [
+    "FRONTEND-REACT-MEMOIZATION",
+    "FRONTEND-REACT-RENDER-PURITY"
+  ],
+  "lastVerified": "2026-09-15"
+}

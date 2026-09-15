@@ -1,0 +1,104 @@
+---
+id: DEVOPS-KUBERNETES-NETWORKING
+title: "Kubernetes Networking: Services and Ingress"
+titleBn: "Kubernetes নেটওয়ার্কিং: Service ও Ingress"
+description: "ClusterIP, NodePort, LoadBalancer, and Ingress mental models for exposing pods safely."
+descriptionBn: "ClusterIP, NodePort, LoadBalancer ও Ingress—পড এক্সপোজ করার মানসিক মডেল।"
+track: devops
+difficulty: advanced
+estimatedMinutes: 42
+prerequisites:
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+  - "DEVOPS-NETWORKING-FOR-DEVOPS"
+unlocks:
+  []
+related:
+  - "DEVOPS-HELM-BASICS"
+  - "DEVOPS-NGINX-REVERSE-PROXY"
+careers:
+  - "devops-engineer"
+tags:
+  - "kubernetes"
+  - "networking"
+  - "ingress"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "K8S-SERVICES"
+  - "K8S-INGRESS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why Services and Ingress exist
+
+Pods are ephemeral with changing IPs. Clients need a **stable virtual endpoint** (Service). External HTTP routing usually needs an **Ingress** (or Gateway) in front.
+
+## Mental model
+
+<Callout type="mental-model">
+  Service selects pods by labels and load-balances to endpoints. Ingress maps host/path rules to Services via an Ingress controller. Prefer ClusterIP + Ingress over NodePort sprawl for HTTP APIs.
+</Callout>
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: topics-api
+spec:
+  selector:
+    app: topics-api
+  ports:
+    - port: 80
+      targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: topics-api
+spec:
+  rules:
+    - host: api.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: topics-api
+                port:
+                  number: 80
+```
+
+## Common mistakes
+
+- **Exposing NodePort publicly “for a demo”** — Hard to audit later.
+- **Forgetting readiness probes** — Service sends traffic to starting pods.
+- **TLS termination confusion** — Know whether TLS ends at LB, Ingress, or app.
+
+## Interview angle
+
+<Callout type="interview">
+  Explain ClusterIP vs LoadBalancer vs Ingress for a public HTTPS API.
+</Callout>
+
+## Practice checklist
+
+- [ ] Expose an app with ClusterIP + Ingress in a lab.
+- [ ] Break label selectors and observe empty Endpoints.
+- [ ] Trace a request: DNS → Ingress → Service → Pod.
+
+## Sources
+
+- `K8S-SERVICES`
+- `K8S-INGRESS`
+

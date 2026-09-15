@@ -1,0 +1,29 @@
+{
+  "id": "iv-uiux-tokens-handoff",
+  "question": "Engineering says Figma colors don’t match production. How do you introduce design tokens and improve handoff?",
+  "questionBn": "ইঞ্জিনিয়ারিং বলে Figma-এর রঙ প্রোডাকশনের সাথে মেলে না। ডিজাইন টোকেন ও হ্যান্ডঅফ কীভাবে উন্নত করবেন?",
+  "careerIds": [
+    "ui-ux-designer",
+    "frontend-engineer"
+  ],
+  "technology": [
+    "Figma",
+    "Design tokens",
+    "CSS"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Define semantic tokens shared by name, map them to CSS variables, and hand off states—not only happy-path frames.",
+  "strongAnswer": "Inventory primitives vs semantic roles (bg, text-muted, danger). Align Figma variables with code names. Document empty/error/loading and a11y notes. Schedule a short pairing ritual so drift is caught early. Prefer meaning-based names so themes don’t break.",
+  "followUps": [
+    "Why not name tokens gray-500?",
+    "What belongs in handoff besides screenshots?"
+  ],
+  "commonWrongAnswer": "Send more screenshots and ask eng to eyeball hex values.",
+  "productionRelevance": "Token drift is a common design-system failure mode on fast-moving teams.",
+  "relatedTopics": [
+    "UIUX-DESIGN-TOKENS",
+    "UIUX-DESIGN-HANDOFF",
+    "UIUX-COLOR-SYSTEMS"
+  ],
+  "lastVerified": "2026-09-15"
+}

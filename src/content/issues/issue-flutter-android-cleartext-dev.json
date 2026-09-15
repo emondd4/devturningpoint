@@ -1,0 +1,25 @@
+{
+  "id": "issue-flutter-android-cleartext-dev",
+  "title": "Flutter Android blocks HTTP API while iOS debug build succeeds",
+  "technology": "Flutter",
+  "platform": "Android",
+  "symptoms": [
+    "Cleartext HTTP traffic not permitted",
+    "SocketException / Failed host lookup after switching to device",
+    "Same URL works on iOS simulator"
+  ],
+  "cause": "Android disallows cleartext by default; iOS simulator ATS behavior and local networking can differ, masking the issue.",
+  "solution": "Use HTTPS for shared environments. For local-only development, scope network security config tightly and never ship broad cleartext allowances.",
+  "workaround": "adb reverse + local HTTPS proxy for device testing.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "FLUTTER-ANDROID-IOS-CAVEATS",
+    "FLUTTER-NETWORKING-REST",
+    "FOUNDATIONS-HTTPS-TLS"
+  ],
+  "sources": [
+    "src-flutter-docs",
+    "OWASP-TLS-CHEATSHEET"
+  ],
+  "lastVerified": "2026-09-15"
+}

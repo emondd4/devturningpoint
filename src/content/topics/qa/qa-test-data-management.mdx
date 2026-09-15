@@ -1,0 +1,88 @@
+---
+id: QA-TEST-DATA-MANAGEMENT
+title: "Test Data Management"
+titleBn: "টেস্ট ডেটা ম্যানেজমেন্ট"
+description: "Create, isolate, and refresh data so tests stay deterministic without polluting production."
+descriptionBn: "ডেটা তৈরি, আইসোলেট ও রিফ্রেশ—টেস্ট নির্ধারক রাখুন, প্রোড দূষিত করবেন না।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 34
+prerequisites:
+  - "QA-MANUAL-TEST-DESIGN"
+  - "QA-SQL-DATA-VALIDATION"
+unlocks:
+  []
+related:
+  - "QA-FLAKY-TESTS"
+  - "QA-API-TESTING"
+careers:
+  - "qa-engineer"
+  - "backend-engineer"
+tags:
+  - "qa"
+  - "testdata"
+  - "sql"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "ISTQB-GLOSSARY"
+  - "PLAYWRIGHT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why data is half the test
+
+Flaky and false failures often come from shared users, leftover orders, or production clones with PII. Good test data is **designed**, not scavenged.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prefer create-in-test → assert → cleanup (or transactional rollback). When sharing environments, isolate by unique prefixes and avoid mutating golden records other suites need.
+</Callout>
+
+```ts
+// Conceptual Playwright setup
+const email = `buyer+${Date.now()}@example.test`;
+await api.createUser({ email, role: "buyer" });
+// ... exercise UI ...
+await api.deleteUser(email);
+```
+
+## Patterns
+
+- Factories/builders for entities.
+- Seed scripts for reference data (currencies, roles).
+- Masked/synthetic data—not raw prod dumps with PII.
+
+## Common mistakes
+
+- **One shared admin password in docs** — Collisions and mystery state.
+- **Prod data in local DB** — Privacy and surprise deletes.
+- **No cleanup** — Environments rot until someone resets.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you keep parallel CI workers from fighting over the same test user?
+</Callout>
+
+## Practice checklist
+
+- [ ] Design a factory for “order with 2 line items”.
+- [ ] List PII fields you must never copy from prod.
+- [ ] Add cleanup to one automated flow.
+
+## Sources
+
+- `ISTQB-GLOSSARY`
+- `PLAYWRIGHT-DOCS`

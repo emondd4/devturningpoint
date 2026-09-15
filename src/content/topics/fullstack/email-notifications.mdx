@@ -1,0 +1,90 @@
+---
+id: FULLSTACK-EMAIL-NOTIFICATIONS
+title: "Email and Notifications Across the Stack"
+titleBn: "স্ট্যাক জুড়ে ইমেইল ও নোটিফিকেশন"
+description: "Reliable transactional email and in-app notifications: templates, queues, idempotency, and preferences."
+descriptionBn: "ট্রানজ্যাকশনাল ইমেইল ও ইন-অ্যাপ নোটিফিকেশন: টেমপ্লেট, কিউ, আইডেমপোটেন্সি।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites:
+  - "FULLSTACK-DATA-FLOW"
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+unlocks:
+  []
+related:
+  - "FULLSTACK-OBSERVABILITY"
+  - "BACKEND-QUEUES"
+careers:
+  - "fullstack-engineer"
+  - "backend-engineer"
+tags:
+  - "email"
+  - "notifications"
+  - "queues"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "12FACTOR-APP"
+  - "RFC-9110-HTTP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why notifications are a product feature
+
+Password resets, invoice receipts, and “your order shipped” are not side effects you fire-and-forget from a request thread. They need **delivery guarantees, templates, and user preferences**.
+
+## Mental model
+
+<Callout type="mental-model">
+  API records intent → queue/worker sends via provider → store delivery status → user preference center gates channels (email/push/SMS). Retries must be idempotent.
+</Callout>
+
+```ts
+// Conceptual: enqueue, do not SMTP inside the HTTP handler
+await bus.publish("notification.send", {
+  type: "password_reset",
+  userId,
+  correlationId: req.id,
+  idempotencyKey: `pwdreset:${userId}:${tokenHash}`,
+});
+```
+
+## Practical rules
+
+- Keep templates versioned; never hardcode critical copy only in code deploys if marketing edits often.
+- Separate transactional vs marketing streams (unsubscribe rules differ).
+- Log provider message IDs; never log raw tokens/OTP codes.
+
+## Common mistakes
+
+- **Sending email in the request path** — Latency and double-sends on retries.
+- **No preference/unsubscribe story** — Compliance risk.
+- **HTML-only bodies** — Accessibility and client quirks.
+
+## Interview angle
+
+<Callout type="interview">
+  Design password-reset email delivery so refreshes and worker retries cannot spam the user.
+</Callout>
+
+## Practice checklist
+
+- [ ] Sketch queue + worker for one transactional email.
+- [ ] Define an idempotency key scheme.
+- [ ] List preference toggles you would expose.
+
+## Sources
+
+- `12FACTOR-APP`
+- `RFC-9110-HTTP`

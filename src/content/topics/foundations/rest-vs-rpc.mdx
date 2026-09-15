@@ -1,0 +1,90 @@
+---
+id: FOUNDATIONS-REST-VS-RPC
+title: "REST vs RPC Overview"
+titleBn: "REST বনাম RPC ওভারভিউ"
+description: "Choose resource-oriented HTTP APIs vs procedure calls (JSON-RPC/gRPC) based on coupling and evolution needs."
+descriptionBn: "রিসোর্স-ভিত্তিক HTTP বনাম প্রসিজার কল—কাপলিং ও বিবর্তন।"
+track: foundations
+category: networking
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FOUNDATIONS-API-CONCEPTS"
+  - "FOUNDATIONS-HTTP-METHODS-STATUS"
+unlocks: []
+related:
+  - "FOUNDATIONS-JSON-DATA"
+  - "FOUNDATIONS-HTTPS-TLS"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "frontend-engineer"
+tags:
+  - "rest"
+  - "rpc"
+  - "grpc"
+  - "api-design"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "RFC-9110-HTTP"
+  - "GRPC-CONCEPTS"
+  - "MDN-HTTP-OVERVIEW"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this choice shows up in every architecture review
+
+Teams argue “REST vs GraphQL vs gRPC” when they really mean: **resource model vs procedure model**, human-debuggable HTTP vs typed binary streams, and how clients evolve.
+
+## Mental model
+
+<Callout type="mental-model">
+  **REST-ish HTTP APIs** expose nouns (resources) with methods and representations. **RPC** exposes verbs (procedures) you call with arguments—gRPC is a popular modern RPC stack over HTTP/2 with schemas.
+</Callout>
+
+## Side-by-side
+
+| | REST-style HTTP | RPC (e.g. gRPC) |
+| --- | --- | --- |
+| Shape | `/users/42` + GET/PATCH | `UserService.GetUser` |
+| Payload | Often JSON | Often Protobuf |
+| Caching | URL-friendly | Less natural |
+| Browser/tooling | Excellent | Needs generated stubs |
+
+```http
+GET /users/42 HTTP/1.1
+Accept: application/json
+```
+
+```text
+rpc GetUser(GetUserRequest) returns (User);
+```
+
+Neither is “more senior.” Public partner APIs often prefer HTTP+JSON; internal high-QPS service meshes often prefer gRPC.
+
+## Common mistakes
+
+- Naming RPC endpoints as nouns then using only POST for everything
+- Pretending every JSON API is “RESTful” without resource design
+- Ignoring versioning and idempotency in both styles
+
+## Interview angle
+
+<Callout type="interview">
+  When would you pick gRPC between two backend services but keep REST for a mobile app?
+</Callout>
+
+## Sources
+
+`RFC-9110-HTTP`, `GRPC-CONCEPTS`, `MDN-HTTP-OVERVIEW`.

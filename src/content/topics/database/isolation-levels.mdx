@@ -1,0 +1,87 @@
+---
+id: DATABASE-ISOLATION-LEVELS
+title: "Transaction Isolation Levels Deep Dive"
+titleBn: "ট্রানজ্যাকশন আইসোলেশন লেভেল গভীর আলোচনা"
+description: "Dirty reads, nonrepeatable reads, phantoms, and what Postgres Read Committed vs Repeatable Read actually prevent."
+descriptionBn: "ডার্টি রিড, ননরিপিটেবল রিড, ফ্যান্টম, এবং Postgres Read Committed বনাম Repeatable Read কী আটকায়।"
+track: database
+difficulty: advanced
+estimatedMinutes: 40
+prerequisites:
+  - "DATABASE-POSTGRESQL-TRANSACTIONS"
+unlocks:
+  - "DATABASE-LOCKING-CONCURRENCY"
+related:
+  - "DATABASE-REPLICATION-BASICS"
+careers:
+  - "backend-engineer"
+  - "database-engineer"
+tags:
+  - "postgresql"
+  - "isolation"
+  - "acid"
+  - "concurrency"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTGRES-TX"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why default isolation is a product decision
+
+Checkout, inventory, and feed ranking behave differently under concurrency. Isolation levels trade anomaly prevention for throughput and lock contention.
+
+## Mental model
+
+<Callout type="mental-model">
+  Phenomena: dirty read, nonrepeatable read, phantom. SQL defines levels; Postgres implements Read Committed (default) and Repeatable Read/Serializable with MVCC plus additional checks—not every textbook lock story.
+</Callout>
+
+```sql
+BEGIN ISOLATION LEVEL REPEATABLE READ;
+SELECT balance FROM accounts WHERE id = 1;
+-- another session may commit changes; this snapshot stays stable
+SELECT balance FROM accounts WHERE id = 1;
+COMMIT;
+```
+
+Prefer application patterns (conditional updates, `SELECT … FOR UPDATE`) when Read Committed + careful writes suffice.
+
+## Common mistakes
+
+- **Assuming Read Committed prevents lost updates** — Two read-modify-write races still lose.
+- **Serializable everywhere** — Aborts rise; must retry.
+- **Long-lived Repeatable Read** — Snapshot bloat / conflicts.
+
+## Interview angle
+
+<Callout type="interview">
+  Which isolation would you choose for seat reservation and how would you handle conflicts?
+</Callout>
+
+## Practice checklist
+
+- [ ] Reproduce a nonrepeatable read under Read Committed.
+- [ ] Try Repeatable Read and observe snapshot behavior.
+- [ ] Document retry policy for serialization failures.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-TX`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

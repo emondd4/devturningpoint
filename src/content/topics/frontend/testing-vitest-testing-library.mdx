@@ -1,0 +1,101 @@
+---
+id: "FRONTEND-TESTING-VITEST-TESTING-LIBRARY"
+title: "Testing with Vitest & Testing Library"
+titleBn: "Vitest \u0993 Testing Library \u09a6\u09bf\u09af\u09bc\u09c7 \u099f\u09c7\u09b8\u09cd\u099f\u09bf\u0982"
+description: "Concept-first component testing: user-centric queries, arrange/act/assert, and a Vite-native runner."
+descriptionBn: "\u0995\u09a8\u09b8\u09c7\u09aa\u09cd\u099f-\u09aa\u09cd\u09b0\u09a5\u09ae \u0995\u09ae\u09cd\u09aa\u09cb\u09a8\u09c7\u09a8\u09cd\u099f \u099f\u09c7\u09b8\u09cd\u099f\u09bf\u0982: \u09ac\u09cd\u09af\u09ac\u09b9\u09be\u09b0\u0995\u09be\u09b0\u09c0-\u0995\u09c7\u09a8\u09cd\u09a6\u09cd\u09b0\u09bf\u0995 query, arrange/act/assert, \u098f\u09ac\u0982 Vite-\u09a8\u09c7\u099f\u09bf\u09ad \u09b0\u09be\u09a8\u09be\u09b0\u0964"
+track: "frontend"
+category: "testing"
+difficulty: "intermediate"
+estimatedMinutes: 40
+prerequisites:
+  - "FRONTEND-REACT-COMPONENTS-STATE"
+related:
+  - "FRONTEND-REACT-HOOKS"
+  - "FRONTEND-A11Y-FORMS"
+careers:
+  - "frontend-engineer"
+  - "qa-engineer"
+tags:
+  - "vitest"
+  - "testing-library"
+  - "react"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "VITEST-DOCS"
+  - "TESTING-LIBRARY-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+UI regressions are expensive. Tests that assert implementation details churn; tests that assert what users see/do stay valuable when you refactor.
+
+<Callout type="mental-model">
+  Vitest runs fast unit/component tests. Testing Library pushes you to query by role/label—the same affordances assistive tech uses.
+</Callout>
+
+## A focused component test
+
+Prefer getByRole. Assert outcomes, not internal state variables.
+
+```tsx
+import { useState } from 'react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { describe, expect, it } from 'vitest';
+
+function Counter() {
+  const [n, setN] = useState(0);
+  return (
+    <button type="button" onClick={() => setN((x) => x + 1)}>
+      Count {n}
+    </button>
+  );
+}
+
+describe('Counter', () => {
+  it('increments on click', async () => {
+    const user = userEvent.setup();
+    render(<Counter />);
+    await user.click(screen.getByRole('button', { name: /count 0/i }));
+    expect(screen.getByRole('button', { name: /count 1/i })).toBeInTheDocument();
+  });
+});
+```
+
+## Common mistakes
+
+- **Testing class names / enzyme internals** — Brittle; couple tests to styling.
+- **Only snapshotting huge trees** — Noise without behavioral signal.
+- **Forgetting jsdom/setup matchers** — toBeInTheDocument missing until setupFiles configured.
+
+## Interview angle
+
+<Callout type="interview">
+  Why prefer getByRole over getByTestId for most assertions?
+</Callout>
+
+## Practice checklist
+
+- [ ] Write one RTL test for a form label.
+- [ ] Configure vitest environment jsdom.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `VITEST-DOCS`
+- `TESTING-LIBRARY-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

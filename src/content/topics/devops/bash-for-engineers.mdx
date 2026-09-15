@@ -1,0 +1,92 @@
+---
+id: DEVOPS-BASH
+title: "Bash Scripting for Engineers"
+titleBn: "ইঞ্জিনিয়ারদের জন্য Bash স্ক্রিপ্টিং"
+description: "Safe shell scripts with set -euo pipefail, functions, quoting, and exit codes for automation."
+descriptionBn: "অটোমেশনের জন্য set -euo pipefail, ফাংশন, কোট ও এক্সিট কোডসহ নিরাপদ শেল স্ক্রিপ্ট।"
+track: devops
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites:
+  - "DEVOPS-LINUX-FUNDAMENTALS"
+unlocks:
+  - "DEVOPS-SYSTEMD"
+  - "DEVOPS-DOCKER-COMPOSE"
+related:
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+careers:
+  - "devops-engineer"
+  - "backend-engineer"
+  - "software-engineer"
+tags:
+  - "bash"
+  - "shell"
+  - "automation"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "GNU-BASH-MANUAL"
+  - "LINUX-MAN-PAGES"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why bash scripts fail in production
+
+Ad-hoc one-liners become ops glue. Unquoted variables, ignored exit codes, and missing `set -e` turn rare failures into silent corruption.
+
+## Mental model
+
+<Callout type="mental-model">
+  A script is a program: fail fast on errors, quote expansions, prefer arrays/functions over copy-paste. Exit codes are the API between tools.
+</Callout>
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+deploy() {
+  local env="$1"
+  echo "Deploying to ${env}"
+  ./bin/migrate --env "${env}"
+}
+
+deploy "${1:?usage: deploy.sh <env>}"
+```
+
+Prefer `[[ ]]` tests, `"${var}"` quoting, and `trap` cleanup for temporary files.
+
+## Common mistakes
+
+- **Unquoted `$paths`** — Word-splitting and globbing break filenames with spaces.
+- **Ignoring pipeline status** — Use `set -o pipefail`.
+- **Hardcoding secrets** — Inject via env or a secrets manager.
+
+## Interview angle
+
+<Callout type="interview">
+  What does `set -euo pipefail` change, and when would you intentionally disable `-e`?
+</Callout>
+
+## Practice checklist
+
+- [ ] Rewrite a manual deploy checklist as a script with functions.
+- [ ] Add usage/`:?` parameter checks.
+- [ ] Log to stderr; keep stdout for machine-readable output.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `GNU-BASH-MANUAL`
+- `LINUX-MAN-PAGES`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

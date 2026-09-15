@@ -1,0 +1,107 @@
+---
+id: FRONTEND-REACT-MEMOIZATION
+title: "Memoization in React (memo, useMemo, useCallback)"
+titleBn: "React Memoization (memo, useMemo, useCallback)"
+description: "When memoization helps—and when it adds complexity without wins."
+descriptionBn: "Memoization কখন কাজে লাগে—কখন শুধু জটিলতা বাড়ায়।"
+track: frontend
+category: react-internals
+difficulty: advanced
+estimatedMinutes: 45
+prerequisites:
+  - FRONTEND-REACT-RENDER-PURITY
+  - FRONTEND-REACT-HOOKS
+unlocks: []
+related:
+  - FRONTEND-REACT-RECONCILIATION
+careers:
+  - frontend-engineer
+  - fullstack-engineer
+tags:
+  - react
+  - rendering
+status: published
+translationStatus: partial
+applicableVersions:
+  react: "19.x — verify against react.dev"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - REACT-MEMO
+  - REACT-USEMEMO
+  - REACT-DOCS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+<Callout type="info" title="Translation status">
+  Body is English for V1; Bangla title/description provided.
+</Callout>
+
+## What is this?
+
+Memoization skips work when inputs are unchanged:
+
+- `React.memo` — skip re-rendering a child if props are shallow-equal
+- `useMemo` — cache an expensive calculated value
+- `useCallback` — cache a function identity for referential equality
+
+## Why it exists
+
+By default, when a parent renders, children render too. That is usually fine. When profiling shows a hot subtree, memoization is an **opt-in** tool.
+
+## Mental model
+
+<Callout type="mental-model">
+  Correctness first, measure second, memoize third. Memoization caches equality—not a substitute for better state placement.
+</Callout>
+
+## Example
+
+```tsx
+import { memo, useMemo, useState } from 'react';
+
+const List = memo(function List({ items }: { items: string[] }) {
+  return (
+    <ul>
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
+});
+
+export function Filtered({ all }: { all: string[] }) {
+  const [q, setQ] = useState('');
+  const items = useMemo(
+    () => all.filter((x) => x.toLowerCase().includes(q.toLowerCase())),
+    [all, q],
+  );
+  return (
+    <div>
+      <input value={q} onChange={(e) => setQ(e.target.value)} aria-label="Filter" />
+      <List items={items} />
+    </div>
+  );
+}
+```
+
+## When NOT to use it
+
+- Prematurely wrapping every component in `memo`
+- `useMemo` for trivial string concatenations
+- Stabilizing callbacks that no memoized child needs
+
+## Interview angles
+
+**Mid:** Difference between `memo` and `useMemo`.  
+**Senior:** A tree renders too often—describe your investigation before adding memo.
+
+## Sources
+
+- React: memo (`REACT-MEMO`)
+- React: useMemo (`REACT-USEMEMO`)
+

@@ -1,0 +1,111 @@
+---
+id: FOUNDATIONS-DEBUGGING
+title: "Debugging Fundamentals"
+titleBn: "ডিবাগিং এর মৌলিক বিষয়"
+description: "Turn vague bugs into reproducible hypotheses—observe, isolate, fix, and verify without random code thrashing."
+descriptionBn: "অস্পষ্ট বাগকে পুনরুৎপাদনযোগ্য অনুমানে রূপান্তর করুন—পর্যবেক্ষণ, আলাদা করা, ঠিক করা ও যাচাই।"
+track: foundations
+category: programming
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites:
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+unlocks:
+  - "FOUNDATIONS-ERROR-HANDLING"
+  - "FOUNDATIONS-AI-ASSISTED-DEV-RISKS"
+related:
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+  - "FOUNDATIONS-OS-PROCESSES-MEMORY"
+careers:
+  - "software-engineer"
+  - "frontend-engineer"
+  - "backend-engineer"
+  - "flutter-developer"
+tags:
+  - "debugging"
+  - "devtools"
+  - "troubleshooting"
+status: published
+translationStatus: partial
+createdAt: 2026-09-15
+updatedAt: 2026-09-15
+lastVerified: 2026-09-15
+sources:
+  - "CHROME-DEVTOOLS-DEBUG"
+  - "GIT-SCM-BOOK"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why debugging skill beats more libraries
+
+Most production incidents are not “missing a framework feature.” They are **wrong assumptions** about state, timing, or data. Debugging is the discipline of making those assumptions visible and testable.
+
+## Mental model
+
+<Callout type="mental-model">
+  Treat every bug as a science problem: reproduce → form a hypothesis → design the smallest experiment that would falsify it → change one thing → verify. Logging without a hypothesis is noise.
+</Callout>
+
+## A practical loop
+
+1. **Reproduce** — note inputs, environment, and steps. If you cannot reproduce, you cannot confirm a fix.
+2. **Localize** — bisect: which layer fails (UI, API, DB, network, OS)?
+3. **Observe** — debugger breakpoints, structured logs, network traces, stack traces.
+4. **Fix minimally** — prefer the root cause over a symptom patch.
+5. **Regression-proof** — add a test or checklist item when the bug class will return.
+
+```js
+// Bad: shotgun logging
+console.log('here1', data);
+console.log('here2', data?.user);
+
+// Better: assert the hypothesis
+function assertUserLoaded(user) {
+  if (!user?.id) {
+    throw new Error(`Expected user.id after fetch; got ${JSON.stringify(user)}`);
+  }
+}
+```
+
+## Tools by layer
+
+| Layer | Typical tools |
+| --- | --- |
+| Browser / SPA | DevTools breakpoints, Network, Performance |
+| Backend | structured logs, request IDs, profilers |
+| Mobile | Flutter DevTools / Xcode / Android Studio |
+| Data | SQL `EXPLAIN`, sample rows, migrations |
+
+## Common mistakes
+
+- **Changing three things at once** — you lose causality.
+- **Fixing symptoms only** — retries that hide a poisoned cache.
+- **Ignoring environment drift** — works on your laptop, fails in CI or production config.
+
+## Interview angle
+
+<Callout type="interview">
+  Walk through how you would debug an intermittent “works for some users” auth failure—what signals would you collect first?
+</Callout>
+
+## Practice checklist
+
+- [ ] Reproduce a bug twice before proposing a fix.
+- [ ] Use a breakpoint instead of ten `print`s once this week.
+- [ ] Write a one-sentence root-cause note after each nontrivial bug.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `CHROME-DEVTOOLS-DEBUG`
+- `GIT-SCM-BOOK`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

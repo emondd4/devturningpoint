@@ -1,0 +1,86 @@
+---
+id: FOUNDATIONS-ENCODING-UTF8
+title: "Character Encoding and UTF-8"
+titleBn: "ক্যারেক্টার এনকোডিং ও UTF-8"
+description: "Bytes are not characters—learn UTF-8, mojibake, and why APIs must declare charset explicitly."
+descriptionBn: "বাইট মানে অক্ষর নয়—UTF-8, mojibake ও charset ঘোষণা।"
+track: foundations
+category: programming
+difficulty: beginner
+estimatedMinutes: 30
+prerequisites:
+  - "FOUNDATIONS-BINARY-BITS-BYTES"
+unlocks:
+  - "FOUNDATIONS-JSON-DATA"
+related:
+  - "FOUNDATIONS-HTTP-METHODS-STATUS"
+  - "FOUNDATIONS-CLI-BASICS"
+careers:
+  - "software-engineer"
+  - "frontend-engineer"
+  - "backend-engineer"
+tags:
+  - "utf-8"
+  - "encoding"
+  - "unicode"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "UNICODE-UTF8-FAQ"
+  - "W3C-CHARSET"
+  - "RFC-8259-JSON"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why encoding bugs look like “random garbage”
+
+Bangla, emoji, and many European letters need more than one byte. If a system writes UTF-8 and another reads Latin-1, you get **mojibake**—corrupted text that is not a font problem.
+
+## Mental model
+
+<Callout type="mental-model">
+  Unicode assigns each character a code point. **UTF-8** is a variable-width encoding of those code points into bytes. Files, sockets, and DBs store bytes; you must agree on the encoding.
+</Callout>
+
+## Practical rules
+
+1. Prefer **UTF-8 everywhere** (source files, DB collation strategy, HTTP `charset=utf-8`).
+2. JSON text is defined as Unicode; treat payloads as UTF-8 on the wire.
+3. Never truncate multi-byte sequences mid-character when slicing strings by byte length.
+
+```js
+const text = 'বাংলা';
+const bytes = new TextEncoder().encode(text);
+console.log(bytes.length); // more than character count
+console.log(new TextDecoder('utf-8').decode(bytes));
+```
+
+```http
+Content-Type: application/json; charset=utf-8
+```
+
+## Common mistakes
+
+- Assuming `string.length` equals byte length in every language
+- Opening CSV exports in Excel without UTF-8 BOM/awareness
+- Mixing Windows-1252 and UTF-8 in legacy DBs
+
+## Interview angle
+
+<Callout type="interview">
+  A user’s name shows as `` in production but looks fine in your terminal. How do you isolate encoding vs font vs font-fallback?
+</Callout>
+
+## Sources
+
+`UNICODE-UTF8-FAQ`, `W3C-CHARSET`, `RFC-8259-JSON`.

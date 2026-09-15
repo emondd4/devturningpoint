@@ -1,0 +1,26 @@
+{
+  "id": "issue-dns-ttl-stale-api-host",
+  "title": "API hostname cutover leaves subset of clients on old IP for hours",
+  "technology": "DNS",
+  "platform": "Networking",
+  "symptoms": [
+    "Some regions/users still reach decommissioned servers",
+    "Mixed old/new responses from dig @different resolvers",
+    "Application errors look like intermittent outages"
+  ],
+  "cause": "Previous A/AAAA answers remain cached until TTL expires on recursive resolvers and clients.",
+  "solution": "Lower TTL well before cutover, perform switch, keep old target healthy for max(old TTL), verify with multiple resolvers.",
+  "workaround": "Temporarily serve both stacks; use load balancer weighted routing when applicable.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "FOUNDATIONS-DNS",
+    "FOUNDATIONS-DNS-RECORDS-TTL",
+    "FOUNDATIONS-API-CONCEPTS"
+  ],
+  "sources": [
+    "RFC-1034-DNS",
+    "RFC-1035-DNS",
+    "MDN-DNS"
+  ],
+  "lastVerified": "2026-09-15"
+}

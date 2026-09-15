@@ -1,0 +1,26 @@
+{
+  "id": "iv-docker-multistage-api",
+  "question": "Why use Docker multi-stage builds for a Node/Nest API image?",
+  "careerIds": [
+    "backend-engineer",
+    "devops-engineer"
+  ],
+  "technology": [
+    "Docker",
+    "Node.js"
+  ],
+  "difficulty": "junior",
+  "shortAnswer": "Build with compilers/dev deps in one stage; ship a smaller runtime stage with only artifacts.",
+  "strongAnswer": "Multi-stage builds keep toolchains and unused deps out of production images, reducing size and CVE surface. Typical pattern: npm ci + build in a builder stage, then copy dist and production node_modules into a minimal runner as non-root.",
+  "followUps": [
+    "What should HEALTHCHECK/readiness do?",
+    "How do you cache dependency layers?"
+  ],
+  "commonWrongAnswer": "Multi-stage is only for compiled languages like Go/C++.",
+  "productionRelevance": "Faster deploys and fewer vulnerabilities in runtime images.",
+  "relatedTopics": [
+    "BACKEND-DOCKER-MULTI-STAGE",
+    "BACKEND-HEALTH-CHECKS"
+  ],
+  "lastVerified": "2026-09-15"
+}

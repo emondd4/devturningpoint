@@ -1,0 +1,95 @@
+---
+id: BACKEND-HEALTH-CHECKS
+title: "Health Checks for Backend Services"
+titleBn: "ব্যাকএন্ড সার্ভিসের Health Check"
+description: "Liveness vs readiness: how orchestrators know when to route traffic or restart your API."
+descriptionBn: "Liveness বনাম readiness: অর্কেস্ট্রেটর কখন ট্রাফিক পাঠাবে বা API রিস্টার্ট করবে।"
+track: backend
+category: deploy
+difficulty: intermediate
+estimatedMinutes: 25
+prerequisites:
+  - BACKEND-DOCKER-DEPLOY
+  - BACKEND-NESTJS-ARCHITECTURE
+related:
+  - BACKEND-LOGGING
+  - BACKEND-DOCKER-MULTI-STAGE
+  - DEVOPS-KUBERNETES-FUNDAMENTALS
+careers:
+  - backend-engineer
+  - devops-engineer
+tags:
+  - health
+  - terminus
+  - kubernetes
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - NESTJS-TERMINUS
+  - NODE-HEALTH
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Load balancers need a signal. Without health endpoints, bad deploys keep receiving traffic or get flapped incorrectly.
+
+<Callout type="mental-model">
+  Liveness: process should be restarted if dead. Readiness: dependencies ready to accept work (DB, migrations). Do not make liveness fail on downstream blips casually—or you thrash restarts.
+</Callout>
+
+## Terminus-style checks
+
+Expose separate live/ready endpoints with appropriate checks (Nest Terminus is a common recipe).
+
+```ts
+export type HealthStatus = {
+  status: 'ok' | 'degraded' | 'down';
+  details?: Record<string, string>;
+};
+
+export async function readiness(
+  checkDb: () => Promise<boolean>,
+): Promise<HealthStatus> {
+  const db = await checkDb();
+  return db
+    ? { status: 'ok' }
+    : { status: 'down', details: { db: 'unreachable' } };
+}
+```
+
+## Common mistakes
+
+- **Heavy dependency checks on liveness** — Cascading restarts during DB blips.
+- **No readiness during migrations** — Traffic hits half-migrated schema.
+- **Unauthenticated deep health exposing internals** — Info leak—keep public details minimal.
+
+## Interview angle
+
+<Callout type="interview">
+  Contrast liveness and readiness with one example each.
+</Callout>
+
+## Practice checklist
+
+- [ ] Add a readiness check that pings Postgres.
+- [ ] Document probes for your compose/k8s file.
+- [ ] Ensure liveness does not call flaky downstreams.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-TERMINUS`
+- `NODE-HEALTH`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

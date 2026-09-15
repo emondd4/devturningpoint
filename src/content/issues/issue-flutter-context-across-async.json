@@ -1,0 +1,25 @@
+{
+  "id": "issue-flutter-context-across-async",
+  "title": "Flutter Navigator/Theme.of crashes after await with disposed BuildContext",
+  "technology": "Flutter",
+  "platform": "Flutter",
+  "symptoms": [
+    "Looking up a deactivated widget's ancestor is unsafe",
+    "Crash after awaiting a network call then calling Navigator.of(context)",
+    "Works if the user stays on the screen; fails if they pop early"
+  ],
+  "cause": "BuildContext from a widget that unmounted during the async gap is used after the Element is deactivated.",
+  "solution": "Capture the Navigator/Router before the await when appropriate, or check context.mounted (or mounted on State) before using context after awaits.",
+  "workaround": "Disable the button and ignore late responses with a cancelled flag / package request cancellation.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "FLUTTER-BUILDCONTEXT-KEYS",
+    "FLUTTER-NAVIGATION",
+    "FLUTTER-DART-ASYNC-FUTURES-STREAMS"
+  ],
+  "sources": [
+    "FLUTTER-WIDGETS",
+    "src-flutter-docs"
+  ],
+  "lastVerified": "2026-09-15"
+}

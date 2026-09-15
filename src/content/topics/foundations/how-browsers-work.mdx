@@ -1,0 +1,94 @@
+---
+id: FOUNDATIONS-HOW-BROWSERS-WORK
+title: "How Browsers Work (Overview)"
+titleBn: "ব্রাউজার কীভাবে কাজ করে (ওভারভিউ)"
+description: "From bytes on the wire to pixels—DOM, CSSOM, render tree, and why scripts block parsing."
+descriptionBn: "নেটওয়ার্ক বাইট থেকে পিক্সেল—DOM, CSSOM, রেন্ডার ট্রি।"
+track: foundations
+category: web
+difficulty: intermediate
+estimatedMinutes: 45
+prerequisites:
+  - "FOUNDATIONS-NETWORKING-TCP-IP-HTTP"
+  - "FOUNDATIONS-ENCODING-UTF8"
+unlocks:
+  - "FOUNDATIONS-HTTP-METHODS-STATUS"
+related:
+  - "FOUNDATIONS-HTTPS-TLS"
+  - "FOUNDATIONS-JSON-DATA"
+careers:
+  - "software-engineer"
+  - "frontend-engineer"
+tags:
+  - "browser"
+  - "dom"
+  - "performance"
+  - "rendering"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "MDN-HOW-BROWSERS-WORK"
+  - "W3C-HTML"
+  - "MDN-DOM"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why browser internals matter to every web developer
+
+Slow pages, FOUC, and “why did my script not see the DOM?” are not framework bugs—they are **critical rendering path** realities.
+
+## Mental model
+
+<Callout type="mental-model">
+  Network bytes → parse HTML into **DOM** → parse CSS into **CSSOM** → combine into a **render tree** → layout → paint → composite. JS can interrupt parsing and mutate trees after load.
+</Callout>
+
+## Sketch of the path
+
+1. Resolve DNS, TCP/TLS, fetch HTML.
+2. Tokenize HTML; build DOM (preload scanner may fetch CSS/JS early).
+3. Build CSSOM from stylesheets.
+4. Layout (geometry), paint (pixels), composite layers.
+5. Event loop handles input, timers, and callbacks.
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/app.css" />
+    <script defer src="/app.js"></script>
+  </head>
+  <body>
+    <h1>Dev Turning Point</h1>
+  </body>
+</html>
+```
+
+`defer`/`async` change when scripts run relative to parsing—choose deliberately.
+
+## Common mistakes
+
+- Giant synchronous scripts in `<head>` blocking first paint
+- Assuming CSS never blocks rendering
+- Measuring only “backend TTFB” while ignoring client parse/layout cost
+
+## Interview angle
+
+<Callout type="interview">
+  Explain DOM vs CSSOM vs render tree and one concrete way to improve Largest Contentful Paint.
+</Callout>
+
+## Sources
+
+`MDN-HOW-BROWSERS-WORK`, `W3C-HTML`, `MDN-DOM`.

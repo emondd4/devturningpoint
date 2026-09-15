@@ -1,0 +1,81 @@
+---
+id: QA-CI-QUALITY-GATES
+title: "CI Quality Gates for Testing"
+titleBn: "টেস্টিংয়ের জন্য CI কোয়ালিটি গেট"
+description: "Make pipelines enforce the right checks—fast suites, required statuses, and release blockers."
+descriptionBn: "পাইপলাইনে সঠিক চেক বাধ্যতামূলক করুন—দ্রুত স্যুট, রিকোয়ার্ড স্ট্যাটাস ও রিলিজ ব্লকার।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 30
+prerequisites:
+  - "QA-PLAYWRIGHT-E2E"
+  - "QA-RISK-BASED-TESTING"
+unlocks:
+  []
+related:
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+  - "QA-FLAKY-TESTS"
+careers:
+  - "qa-engineer"
+  - "devops-engineer"
+tags:
+  - "qa"
+  - "ci"
+  - "quality-gates"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "GHA-WORKFLOWS"
+  - "PLAYWRIGHT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why gates
+
+Tests that are optional get skipped under pressure. Branch protection and required checks turn quality into a contract.
+
+## Mental model
+
+<Callout type="mental-model">
+  Layer gates: lint/unit on every PR (minutes) → integration/API on merge → critical E2E on main/release. Fail loud on high-risk regressions; keep flake rate visible as its own metric.
+</Callout>
+
+## Design tips
+
+- Required status checks on protected branches.
+- Shard long E2E; fail fast on smoke.
+- Publish artifacts (reports, traces) for debugging.
+- Separate “informational” jobs from blockers.
+
+## Common mistakes
+
+- **All E2E on every commit** — Slow feedback kills adoption.
+- **No ownership of red builds** — Culture failure.
+- **Skipping gates for “hotfixes” without audit** — Recurring outages.
+
+## Interview angle
+
+<Callout type="interview">
+  Design CI gates for a Nest + Next monorepo with a 15-minute PR budget.
+</Callout>
+
+## Practice checklist
+
+- [ ] List required vs optional checks on your main branch.
+- [ ] Add a smoke Playwright job for critical paths.
+- [ ] Define flake SLO (e.g., &lt;2% retries).
+
+## Sources
+
+- `GHA-WORKFLOWS`
+- `PLAYWRIGHT-DOCS`

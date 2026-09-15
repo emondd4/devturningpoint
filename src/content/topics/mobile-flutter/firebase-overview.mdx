@@ -1,0 +1,96 @@
+---
+id: FLUTTER-FIREBASE-OVERVIEW
+title: "Firebase Overview for Flutter"
+titleBn: "Flutter-এর জন্য Firebase ওভারভিউ"
+description: "Map Auth, Firestore, Cloud Messaging, and Crashlytics tradeoffs—when Firebase accelerates and when it locks you in."
+descriptionBn: "Auth, Firestore, FCM ও Crashlytics-এর ট্রেডঅফ বুঝুন।"
+track: mobile-flutter
+category: flutter
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FLUTTER-NETWORKING-REST"
+  - "FLUTTER-JSON-SERIALIZATION"
+unlocks:
+  - "FLUTTER-CI-CD"
+related:
+  - "FLUTTER-LOCAL-DATABASE"
+  - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "firebase"
+  - "backend"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FIREBASE-FLUTTER-SETUP"
+  - "FLUTTER-NETWORKING"
+  - "OWASP-TOP10"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why teams reach for Firebase
+
+Many Flutter products need auth, push, analytics, and a managed backend quickly. Firebase can shorten time-to-MVP—but security rules, cost, and vendor coupling are real.
+
+## Mental model
+
+<Callout type="mental-model">
+  Treat Firebase as a set of cloud services behind repositories. Never put privileged secrets in the client. Design data models and security rules together.
+</Callout>
+
+## How
+
+### Setup mindset (not a full project)
+
+```dart
+// After flutterfire configure / official setup:
+// - Initialize Firebase in main()
+// - Keep Auth/Firestore access behind repository interfaces
+// - Enforce App Check + security rules for production
+
+abstract class UserProfileRepository {
+  Stream<UserProfile?> watchProfile(String uid);
+}
+```
+
+## Common mistakes
+
+- **Open Firestore rules in production “temporarily”**
+- **Business logic only in the client** — rules must encode authorization
+- **Unbounded realtime listeners** — battery and cost
+
+## Interview angle
+
+<Callout type="interview">
+  What belongs in Firestore security rules versus Cloud Functions for a multi-tenant app?
+</Callout>
+
+## Practice checklist
+
+- [ ] Skim FlutterFire setup docs.
+- [ ] List which Firebase products your sample app would use.
+- [ ] Draft one security rule in plain language.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FIREBASE-FLUTTER-SETUP`
+- `FLUTTER-NETWORKING`
+- `OWASP-TOP10`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

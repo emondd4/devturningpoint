@@ -1,0 +1,95 @@
+---
+id: BACKEND-PRISMA-TYPEORM
+title: "Prisma and TypeORM Overview"
+titleBn: "Prisma ও TypeORM সংক্ষিপ্ত পরিচিতি"
+description: "Two popular Node ORMs—schema workflows, query styles, and when raw SQL still wins."
+descriptionBn: "দুই জনপ্রিয় Node ORM—স্কিমা ওয়ার্কফ্লো, কোয়েরি স্টাইল, এবং কখন raw SQL জেতে।"
+track: backend
+category: data
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites:
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+  - "BACKEND-TYPESCRIPT-FOR-BACKEND"
+unlocks: []
+related:
+  - "BACKEND-ORM-VS-SQL"
+  - "DATABASE-MIGRATIONS"
+careers:
+  - "backend-engineer"
+tags:
+  - "prisma"
+  - "typeorm"
+  - "orm"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "PRISMA-DOCS"
+  - "TYPEORM-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Hand-writing every SQL string slows teams; uncontrolled ORMs hide N+1 and weak transactions. Knowing Prisma vs TypeORM tradeoffs helps you pick deliberately.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prisma: schema-first, generated client, strong DX migrations. TypeORM: Active Record/Data Mapper styles, decorators, flexible but easier to misuse. Both need explicit query discipline for hot paths.
+</Callout>
+
+## How it works
+
+Use ORM for CRUD and migrations velocity. Drop to SQL/EXPLAIN for complex reporting. Watch relations loading strategies to avoid N+1.
+
+```ts
+// Prisma-style read
+const topics = await prisma.topic.findMany({
+  where: { track: 'backend' },
+  include: { tags: true }, // careful: can over-fetch
+});
+
+// TypeORM-style query builder
+const rows = await dataSource
+  .getRepository(Topic)
+  .createQueryBuilder('t')
+  .where('t.track = :track', { track: 'backend' })
+  .getMany();
+```
+
+## Common mistakes
+
+- **Lazy-loading in loops** — Classic N+1.
+- **Business logic only in ORM hooks** — Hard to test and reason about.
+- **Ignoring migration review** — Destructive schema changes need care.
+
+## Interview angle
+
+<Callout type="interview">
+  When would you choose Prisma over TypeORM (or vice versa), and when would you bypass both for SQL?
+</Callout>
+
+## Practice checklist
+
+- [ ] Sketch a schema model
+- [ ] Write one relation query
+- [ ] Identify an N+1 risk
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `PRISMA-DOCS`
+- `TYPEORM-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

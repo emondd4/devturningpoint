@@ -1,0 +1,80 @@
+---
+id: QA-REGRESSION-TESTING
+title: "Regression Testing"
+titleBn: "রিগ্রেশন টেস্টিং"
+description: "Protect existing behavior after change: suites, smoke packs, and risk-based selection."
+descriptionBn: "পরিবর্তনের পর বিদ্যমান আচরণ রক্ষা: স্যুট, স্মোক প্যাক, ঝুঁকি-ভিত্তিক নির্বাচন।"
+track: qa
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "QA-TESTING-PYRAMID"
+  - "QA-RISK-BASED-TESTING"
+unlocks:
+  []
+related:
+  - "QA-CI-QUALITY-GATES"
+  - "QA-FLAKY-TESTS"
+  - "QA-PLAYWRIGHT-E2E"
+careers:
+  - "qa-engineer"
+tags:
+  - "qa"
+  - "regression"
+  - "ci"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "ISTQB-GLOSSARY"
+  - "PLAYWRIGHT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why regression exists
+
+Every fix can break something else. Regression testing asks: **did we keep the promises we already made to users?**
+
+## Mental model
+
+<Callout type="mental-model">
+  Maintain a living suite: smoke (fast gate), core regression (business critical), and deep packs triggered by risk/area. Prefer automation for stable paths; explore novel risk manually.
+</Callout>
+
+## Practical approach
+
+1. Tag cases by area and criticality.
+2. On each PR: smoke + affected area packs.
+3. Before release: broader regression + exploratory charter on changed surfaces.
+
+## Common mistakes
+
+- **Rerunning everything always** — Slow and ignored.
+- **Never pruning** — Dead tests hide real signal.
+- **No owner for failures** — Red builds rot.
+
+## Interview angle
+
+<Callout type="interview">
+  A one-line CSS change shipped. What regression scope do you run and why?
+</Callout>
+
+## Practice checklist
+
+- [ ] Define a 10-case smoke pack for your app.
+- [ ] Tag 20 cases by product area.
+- [ ] Write exit criteria for “regression done”.
+
+## Sources
+
+- `ISTQB-GLOSSARY`
+- `PLAYWRIGHT-DOCS`

@@ -1,0 +1,58 @@
+---
+id: FLUTTER-KEYS-IDENTITY
+title: "Flutter Keys and Element Identity"
+titleBn: "Flutter Keys ও Element Identity"
+description: "When keys preserve State across rebuilds and reorders—and when they remount widgets."
+descriptionBn: "Key কখন State বাঁচায় এবং কখন remount করে।"
+track: mobile-flutter
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - FLUTTER-WIDGET-TREE
+unlocks: []
+related:
+  - FLUTTER-STATE-MANAGEMENT
+  - FLUTTER-PERFORMANCE-DEVTOOLS
+careers:
+  - flutter-developer
+tags:
+  - flutter
+  - keys
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - FLUTTER-WIDGETS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+<Callout type="mental-model">
+  Widgets are configuration. Elements hold State. Keys help Flutter decide which Element to reuse when the widget list changes.
+</Callout>
+
+## Why keys exist
+
+When children reorder (lists, tabs), Flutter needs identity—not just position—to keep the correct `State` (scroll offset, text controllers, animation controllers).
+
+## Example
+
+```dart
+ListView(
+  children: items.map((item) => TodoTile(key: ValueKey(item.id), item: item)).toList(),
+);
+```
+
+## Anti-patterns
+
+- `UniqueKey()` on every rebuild (forces remount)
+- Missing keys in reorderable lists
+
+## Interview
+
+Compare Flutter keys with React keys at a conceptual level (identity across rebuilds).
+

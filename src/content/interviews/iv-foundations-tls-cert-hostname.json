@@ -1,0 +1,30 @@
+{
+  "id": "iv-foundations-tls-cert-hostname",
+  "question": "What does a TLS client verify in a server certificate before trusting an HTTPS connection?",
+  "questionBn": "HTTPS \u09b8\u0982\u09af\u09cb\u0997 \u09ac\u09bf\u09b6\u09cd\u09ac\u09be\u09b8 \u0995\u09b0\u09be\u09b0 \u0986\u0997\u09c7 TLS \u0995\u09cd\u09b2\u09be\u09af\u09bc\u09c7\u09a8\u09cd\u099f \u09b8\u09be\u09b0\u09cd\u09ad\u09be\u09b0 \u09b8\u09be\u09b0\u09cd\u099f\u09bf\u09ab\u09bf\u0995\u09c7\u099f\u09c7 \u0995\u09c0 \u09af\u09be\u099a\u09be\u0987 \u0995\u09b0\u09c7?",
+  "careerIds": [
+    "software-engineer",
+    "backend-engineer",
+    "devops-engineer"
+  ],
+  "technology": [
+    "TLS",
+    "HTTPS"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Chain of trust to a trusted CA, validity period, and hostname (SAN) match\u2014among other policy checks.",
+  "strongAnswer": "The client validates the certificate chain against trust anchors, checks not-before/not-after, and ensures the requested hostname matches Subject Alternative Name. Modern stacks also consider key usage and revocation/policy signals. Disabling verification for \u2018temporary\u2019 debugging is a critical production risk.",
+  "advancedAnswer": "Discuss TLS 1.3 handshake goals from RFC 8446, HSTS, and pinning tradeoffs.",
+  "followUps": [
+    "What is a hostname mismatch error?",
+    "Does TLS encrypt DNS by itself?"
+  ],
+  "commonWrongAnswer": "If the lock icon appears once, all future requests are safe forever without HSTS or cert renewal concerns.",
+  "productionRelevance": "Mobile cleartext exceptions and broken staging certs are frequent release blockers.",
+  "relatedTopics": [
+    "FOUNDATIONS-HTTPS-TLS",
+    "FOUNDATIONS-DNS",
+    "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+  ],
+  "lastVerified": "2026-09-15"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "issue-redis-lock-no-expiry",
+  "title": "Distributed lock in Redis never released after worker crash",
+  "technology": "Redis",
+  "platform": "Database",
+  "symptoms": [
+    "Jobs stuck waiting for lock",
+    "Lock key exists indefinitely",
+    "Owning process already dead"
+  ],
+  "cause": "Lock acquired without TTL/expiry, so a crashed owner cannot release it.",
+  "solution": "Acquire with SET key token NX EX seconds; release only via compare-and-delete of the token; prefer a maintained library for fencing. Size EX to max critical-section time with margin.",
+  "workaround": "Manual DEL by operators during incidents after verifying no live owner.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "DATABASE-REDIS-TTL-SESSIONS-LOCKS",
+    "DATABASE-LOCKING-CONCURRENCY"
+  ],
+  "sources": [
+    "REDIS-SET",
+    "REDIS-EXPIRE"
+  ],
+  "lastVerified": "2026-09-15"
+}

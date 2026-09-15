@@ -1,0 +1,86 @@
+---
+id: DEVOPS-BACKUPS-DISASTER-RECOVERY
+title: "Backups and Disaster Recovery Concepts"
+titleBn: "ব্যাকআপ ও ডিজাস্টার রিকভারি ধারণা"
+description: "RPO/RTO, backup testing, and recovery strategies—backups that have never been restored are hope."
+descriptionBn: "RPO/RTO, ব্যাকআপ টেস্টিং ও রিকভারি কৌশল—কখনও রিস্টোর না করা ব্যাকআপ আশা মাত্র।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 36
+prerequisites:
+  - "DEVOPS-AWS-CLOUD-FUNDAMENTALS"
+  - "DEVOPS-LINUX-FUNDAMENTALS"
+unlocks: []
+related:
+  - "DATABASE-REPLICATION-BASICS"
+  - "DEVOPS-INCIDENT-RESPONSE"
+careers:
+  - "devops-engineer"
+  - "database-engineer"
+tags:
+  - "backups"
+  - "dr"
+  - "rpo"
+  - "rto"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "AWS-BACKUP"
+  - "POSTGRES-REPLICATION"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why “we have snapshots” is not a DR plan
+
+Disk failure, ransomware, and bad migrations need tested restores with known RPO (how much data loss is tolerable) and RTO (how fast you must be back).
+
+## Mental model
+
+<Callout type="mental-model">
+  Backup = durable copy. Restore test = proof. Replication ≠ backup (logical deletes replicate). Match strategy to RPO/RTO and data criticality.
+</Callout>
+
+```bash
+# Conceptual Postgres logical backup (verify in staging)
+pg_dump --format=custom --file=app.dump "$DATABASE_URL"
+pg_restore --clean --if-exists --dbname="$RESTORE_URL" app.dump
+```
+
+Automate backups; alert on failure; periodically restore to a scratch environment.
+
+## Common mistakes
+
+- **Never testing restores** — Corrupt dumps surprise you during outages.
+- **Same-account-only copies** — Account compromise can delete backups too.
+- **Ignoring application consistency** — Quiesce or use DB-native backup tools.
+
+## Interview angle
+
+<Callout type="interview">
+  Define RPO/RTO for a payments database and choose a backup approach.
+</Callout>
+
+## Practice checklist
+
+- [ ] Measure current backup age and last restore test date.
+- [ ] Document where backups live and who can restore.
+- [ ] Run a restore drill in non-prod.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `AWS-BACKUP`
+- `POSTGRES-REPLICATION`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

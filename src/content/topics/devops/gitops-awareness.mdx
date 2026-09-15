@@ -1,0 +1,78 @@
+---
+id: DEVOPS-GITOPS-AWARENESS
+title: "GitOps Awareness"
+titleBn: "GitOps সচেতনতা"
+description: "Desired state in git, controllers reconcile clusters—benefits, limits, and when GitOps helps."
+descriptionBn: "গিটে desired state, কন্ট্রোলার ক্লাস্টার reconcile করে—সুবিধা ও সীমা।"
+track: devops
+difficulty: advanced
+estimatedMinutes: 34
+prerequisites:
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+unlocks:
+  []
+related:
+  - "DEVOPS-HELM-BASICS"
+  - "DEVOPS-SECRETS-MANAGEMENT"
+careers:
+  - "devops-engineer"
+tags:
+  - "gitops"
+  - "kubernetes"
+  - "cd"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "ARGOCD-DOCS"
+  - "K8S-CONCEPTS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why GitOps caught on
+
+Click-ops drifts. GitOps stores desired cluster state in git; a controller continuously reconciles reality to that state—auditable, reviewable, revertible.
+
+## Mental model
+
+<Callout type="mental-model">
+  Git is the source of truth for declarative config. Humans merge PRs; agents apply. Rollbacks are `git revert` + sync, not SSH edits.
+</Callout>
+
+```text
+dev PR → main → CI builds image → updates manifest tag in git → Argo CD syncs cluster
+```
+
+## Common mistakes
+
+- **Secrets in plain git** — Use sealed/external secrets patterns.
+- **Bypassing git with kubectl apply forever** — Drift returns.
+- **Giant mono-manifests without review discipline** — Dangerous “apply all”.
+
+## Interview angle
+
+<Callout type="interview">
+  Compare a classic CI push deploy with a pull-based GitOps controller for Kubernetes.
+</Callout>
+
+## Practice checklist
+
+- [ ] Sketch a GitOps flow for one service.
+- [ ] List what should *not* live in git.
+- [ ] Explain how rollback works via git history.
+
+## Sources
+
+- `ARGOCD-DOCS`
+- `K8S-CONCEPTS`
+

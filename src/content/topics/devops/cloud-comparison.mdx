@@ -1,0 +1,89 @@
+---
+id: DEVOPS-CLOUD-COMPARISON
+title: "Cloud Comparison Awareness (AWS Primary)"
+titleBn: "ক্লাউড তুলনা সচেতনতা (AWS প্রাথমিক)"
+description: "Map AWS core services to Azure and GCP equivalents—enough fluency to evaluate tradeoffs without dogma."
+descriptionBn: "AWS মূল সার্ভিসকে Azure ও GCP সমতুল্যের সাথে ম্যাপ করুন—ডগমা ছাড়াই ট্রেডঅফ মূল্যায়নের যথেষ্ট ফ্লুয়েন্সি।"
+track: devops
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "DEVOPS-AWS-CLOUD-FUNDAMENTALS"
+unlocks: []
+related:
+  - "DEVOPS-AWS-IAM"
+  - "DEVOPS-TERRAFORM-BASICS"
+careers:
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "aws"
+  - "azure"
+  - "gcp"
+  - "cloud"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "AWS-CLOUD-CONCEPTS"
+  - "AZURE-OVERVIEW"
+  - "GCP-OVERVIEW"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why multi-cloud literacy matters even if you standardize on AWS
+
+Job posts, clients, and acquisitions mix clouds. You need conceptual maps—not memorized every SKU—so you can translate architecture.
+
+## Mental model
+
+<Callout type="mental-model">
+  Think in capabilities: compute, object storage, managed DB, IAM, networking, messaging. AWS is the primary lens; Azure/GCP have close cousins with different names and packaging.
+</Callout>
+
+| Capability | AWS | Azure | GCP |
+|---|---|---|---|
+| Object storage | S3 | Blob Storage | Cloud Storage |
+| VMs | EC2 | Virtual Machines | Compute Engine |
+| Managed Postgres | RDS/Aurora | Azure Database for PostgreSQL | Cloud SQL |
+| Serverless functions | Lambda | Functions | Cloud Functions |
+| Kubernetes | EKS | AKS | GKE |
+
+Prefer portable skills (containers, IaC, observability) over trivia contests.
+
+## Common mistakes
+
+- **Claiming clouds are identical** — IAM, networking, and billing differ deeply.
+- **Multi-cloud for vanity** — Complexity tax; choose deliberately.
+- **Ignoring data egress costs** — Architecture economics matter.
+
+## Interview angle
+
+<Callout type="interview">
+  A client asks to move an S3+RDS app to GCP. What capability mapping and risks do you discuss first?
+</Callout>
+
+## Practice checklist
+
+- [ ] Map your current AWS stack to Azure/GCP names.
+- [ ] Note one IAM difference that would change design.
+- [ ] Estimate where egress fees might appear.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `AWS-CLOUD-CONCEPTS`
+- `AZURE-OVERVIEW`
+- `GCP-OVERVIEW`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

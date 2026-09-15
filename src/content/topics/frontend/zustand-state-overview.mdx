@@ -1,0 +1,95 @@
+---
+id: FRONTEND-ZUSTAND-STATE
+title: "Zustand and Client State Libraries"
+titleBn: "Zustand ও ক্লায়েন্ট স্টেট লাইব্রেরি"
+description: "When global client state helps—and how Zustand compares to Context for UI state."
+descriptionBn: "গ্লোবাল ক্লায়েন্ট স্টেট কখন কাজে লাগে—এবং UI স্টেটের জন্য Zustand বনাম Context।"
+track: frontend
+category: state
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "FRONTEND-REACT-COMPONENTS-STATE"
+unlocks: []
+related:
+  - "FRONTEND-TANSTACK-QUERY"
+  - "FRONTEND-REACT-HOOKS"
+careers:
+  - "frontend-engineer"
+tags:
+  - "zustand"
+  - "state"
+  - "react"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "ZUSTAND-DOCS"
+  - "REACT-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Prop drilling and mega-Context providers make features brittle. Small external stores (Zustand) update only subscribed components—useful for client UI state, not a replacement for server cache.
+
+## Mental model
+
+<Callout type="mental-model">
+  Server state → TanStack Query. Form/ephemeral UI → local state. Cross-cutting client UI (sidebar, wizard step, feature flags in memory) → Zustand/Context. Prefer the smallest tool that works.
+</Callout>
+
+## How it works
+
+Create a store with `create`, select slices with selectors to avoid rerendering the world, and keep stores domain-sized.
+
+```ts
+import { create } from 'zustand';
+
+type UiState = {
+  sidebarOpen: boolean;
+  toggleSidebar: () => void;
+};
+
+export const useUiStore = create<UiState>((set) => ({
+  sidebarOpen: false,
+  toggleSidebar: () => set((s) => ({ sidebarOpen: !s.sidebarOpen })),
+}));
+
+// In a component: const open = useUiStore((s) => s.sidebarOpen);
+```
+
+## Common mistakes
+
+- **Mirroring all API data into Zustand** — Duplicates TanStack Query / RSC.
+- **Selecting the whole store** — Causes broad rerenders; select fields.
+- **Giant god-store** — Split by domain.
+
+## Interview angle
+
+<Callout type="interview">
+  When is Zustand a better fit than React Context, and what state should stay out of both?
+</Callout>
+
+## Practice checklist
+
+- [ ] Create a tiny UI store
+- [ ] Subscribe with a selector
+- [ ] Move one prop-drilled flag into the store
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `ZUSTAND-DOCS`
+- `REACT-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

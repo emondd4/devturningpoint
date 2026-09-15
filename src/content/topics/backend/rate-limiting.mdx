@@ -1,0 +1,85 @@
+---
+id: "BACKEND-RATE-LIMITING"
+title: "API Rate Limiting"
+titleBn: "API \u09b0\u09c7\u099f \u09b2\u09bf\u09ae\u09bf\u099f\u09bf\u0982"
+description: "Protecting APIs from abuse and noisy neighbors with throttling strategies and Nest Throttler concepts."
+descriptionBn: "\u0985\u09aa\u09ac\u09cd\u09af\u09ac\u09b9\u09be\u09b0 \u0993 noisy neighbor \u09a5\u09c7\u0995\u09c7 API \u09b0\u0995\u09cd\u09b7\u09be\u2014throttling \u0995\u09cc\u09b6\u09b2 \u0993 Nest Throttler \u0995\u09a8\u09b8\u09c7\u09aa\u09cd\u099f\u0964"
+track: "backend"
+category: "security"
+difficulty: "intermediate"
+estimatedMinutes: 30
+prerequisites:
+  - "BACKEND-HTTP-REST-API-DESIGN"
+  - "BACKEND-NESTJS-GUARDS"
+related:
+  - "BACKEND-SECURITY-BASICS"
+  - "BACKEND-REDIS-CACHING"
+careers:
+  - "backend-engineer"
+tags:
+  - "rate-limit"
+  - "throttler"
+  - "security"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NESTJS-THROTTLER"
+  - "RFC-9110-HTTP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Public endpoints attract bots and accidental loops. Rate limits preserve availability and reduce credential-stuffing throughput.
+
+<Callout type="mental-model">
+  Choose a key (IP, user id, API key), a window, and a limit. Return 429 with clear semantics. Distributed apps need a shared store (often Redis).
+</Callout>
+
+## Conceptual throttle policy
+
+Nest's Throttler module implements guard-based limits; tune differently for auth vs read APIs.
+
+```ts
+// Conceptual policy object — configure via @nestjs/throttler in app module
+export const loginThrottle = {
+  name: 'login',
+  ttl: 60_000,
+  limit: 5,
+} as const;
+```
+
+## Common mistakes
+
+- **Global identical limits for all routes** — Login needs stricter limits than public GETs.
+- **IP-only behind NAT** — May punish whole offices; combine with user keys when authed.
+- **Silent drops** — Prefer explicit 429 + Retry-After when appropriate.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you rate-limit login differently from a public catalog API?
+</Callout>
+
+## Practice checklist
+
+- [ ] Define two throttle policies.
+- [ ] Explain where Redis fits in multi-instance deploys.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-THROTTLER`
+- `RFC-9110-HTTP`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

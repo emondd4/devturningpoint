@@ -1,0 +1,4194 @@
+[
+  {
+    "id": "FND-B-0001",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "BFS",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using BFS correctly?"
+  },
+  {
+    "id": "FND-B-0002",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "BFS",
+    "questionType": "Definition",
+    "question": "What is BFS, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0003",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "Big-O complexity",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Big-O complexity correctly?"
+  },
+  {
+    "id": "FND-B-0004",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "Big-O complexity",
+    "questionType": "Definition",
+    "question": "What is Big-O complexity, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0005",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "binary search",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using binary search correctly?"
+  },
+  {
+    "id": "FND-B-0006",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "binary search",
+    "questionType": "Definition",
+    "question": "What is binary search, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0007",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "divide and conquer",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using divide and conquer correctly?"
+  },
+  {
+    "id": "FND-B-0008",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "divide and conquer",
+    "questionType": "Definition",
+    "question": "What is divide and conquer, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0009",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "dynamic programming",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using dynamic programming correctly?"
+  },
+  {
+    "id": "FND-B-0010",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "dynamic programming",
+    "questionType": "Definition",
+    "question": "What is dynamic programming, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0011",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "sorting algorithms",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using sorting algorithms correctly?"
+  },
+  {
+    "id": "FND-B-0012",
+    "level": "Beginner",
+    "category": "Algorithms",
+    "topic": "sorting algorithms",
+    "questionType": "Definition",
+    "question": "What is sorting algorithms, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0013",
+    "level": "Beginner",
+    "category": "Cloud",
+    "topic": "horizontal scaling",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using horizontal scaling correctly?"
+  },
+  {
+    "id": "FND-B-0014",
+    "level": "Beginner",
+    "category": "Cloud",
+    "topic": "horizontal scaling",
+    "questionType": "Definition",
+    "question": "What is horizontal scaling, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0015",
+    "level": "Beginner",
+    "category": "Cloud",
+    "topic": "virtual machine",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using virtual machine correctly?"
+  },
+  {
+    "id": "FND-B-0016",
+    "level": "Beginner",
+    "category": "Cloud",
+    "topic": "virtual machine",
+    "questionType": "Definition",
+    "question": "What is virtual machine, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0017",
+    "level": "Beginner",
+    "category": "Computer Architecture",
+    "topic": "CPU cache hierarchy",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using CPU cache hierarchy correctly?"
+  },
+  {
+    "id": "FND-B-0018",
+    "level": "Beginner",
+    "category": "Computer Architecture",
+    "topic": "CPU cache hierarchy",
+    "questionType": "Definition",
+    "question": "What is CPU cache hierarchy, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0019",
+    "level": "Beginner",
+    "category": "Computer Architecture",
+    "topic": "CPU instruction cycle",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using CPU instruction cycle correctly?"
+  },
+  {
+    "id": "FND-B-0020",
+    "level": "Beginner",
+    "category": "Computer Architecture",
+    "topic": "CPU instruction cycle",
+    "questionType": "Definition",
+    "question": "What is CPU instruction cycle, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0021",
+    "level": "Beginner",
+    "category": "Computer Architecture",
+    "topic": "CPU registers",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using CPU registers correctly?"
+  },
+  {
+    "id": "FND-B-0022",
+    "level": "Beginner",
+    "category": "Computer Architecture",
+    "topic": "CPU registers",
+    "questionType": "Definition",
+    "question": "What is CPU registers, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0023",
+    "level": "Beginner",
+    "category": "Computer Architecture",
+    "topic": "RAM and persistent storage",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using RAM and persistent storage correctly?"
+  },
+  {
+    "id": "FND-B-0024",
+    "level": "Beginner",
+    "category": "Computer Architecture",
+    "topic": "RAM and persistent storage",
+    "questionType": "Definition",
+    "question": "What is RAM and persistent storage, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0025",
+    "level": "Beginner",
+    "category": "Computer Architecture",
+    "topic": "virtual memory",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using virtual memory correctly?"
+  },
+  {
+    "id": "FND-B-0026",
+    "level": "Beginner",
+    "category": "Computer Architecture",
+    "topic": "virtual memory",
+    "questionType": "Definition",
+    "question": "What is virtual memory, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0027",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are HTTP and HTTPS, and what extra protection does HTTPS provide?"
+  },
+  {
+    "id": "FND-B-0028",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are primary keys and foreign keys in a relational database?"
+  },
+  {
+    "id": "FND-B-0029",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are the four commonly taught pillars of object-oriented programming?"
+  },
+  {
+    "id": "FND-B-0030",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are the roles of the CPU, RAM, persistent storage, and I/O devices in a computer?"
+  },
+  {
+    "id": "FND-B-0031",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are variables, constants, data types, and control-flow statements?"
+  },
+  {
+    "id": "FND-B-0032",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What does Big-O notation describe, and what do O(1), O(log n), O(n), and O(n²) mean?"
+  },
+  {
+    "id": "FND-B-0033",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What happens at a high level when you type a domain name into a browser?"
+  },
+  {
+    "id": "FND-B-0034",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is Git, and what is the difference between a commit, branch, merge, pull, and push?"
+  },
+  {
+    "id": "FND-B-0035",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is an IP address, and why do devices need one?"
+  },
+  {
+    "id": "FND-B-0036",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is an operating system, and what services does it provide to applications?"
+  },
+  {
+    "id": "FND-B-0037",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the basic difference between SQL/relational databases and document/NoSQL databases?"
+  },
+  {
+    "id": "FND-B-0038",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between TCP and UDP?"
+  },
+  {
+    "id": "FND-B-0039",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between a bit, byte, kilobyte, megabyte, and gigabyte?"
+  },
+  {
+    "id": "FND-B-0040",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between a function parameter and an argument?"
+  },
+  {
+    "id": "FND-B-0041",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between a process and a thread?"
+  },
+  {
+    "id": "FND-B-0042",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between an array/list, stack, queue, set, and map?"
+  },
+  {
+    "id": "FND-B-0043",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between authentication and authorization?"
+  },
+  {
+    "id": "FND-B-0044",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between compiled and interpreted execution?"
+  },
+  {
+    "id": "FND-B-0045",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between stack memory and heap memory at a high level?"
+  },
+  {
+    "id": "FND-B-0046",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between unit, integration, and end-to-end testing?"
+  },
+  {
+    "id": "FND-B-0047",
+    "level": "Beginner",
+    "category": "Data Representation",
+    "topic": "character encoding and Unicode",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using character encoding and Unicode correctly?"
+  },
+  {
+    "id": "FND-B-0048",
+    "level": "Beginner",
+    "category": "Data Representation",
+    "topic": "character encoding and Unicode",
+    "questionType": "Definition",
+    "question": "What is character encoding and Unicode, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0049",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "array",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using array correctly?"
+  },
+  {
+    "id": "FND-B-0050",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "array",
+    "questionType": "Definition",
+    "question": "What is array, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0051",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "binary search tree",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using binary search tree correctly?"
+  },
+  {
+    "id": "FND-B-0052",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "binary search tree",
+    "questionType": "Definition",
+    "question": "What is binary search tree, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0053",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "graph representation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using graph representation correctly?"
+  },
+  {
+    "id": "FND-B-0054",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "graph representation",
+    "questionType": "Definition",
+    "question": "What is graph representation, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0055",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "hash table",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using hash table correctly?"
+  },
+  {
+    "id": "FND-B-0056",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "hash table",
+    "questionType": "Definition",
+    "question": "What is hash table, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0057",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "heap",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using heap correctly?"
+  },
+  {
+    "id": "FND-B-0058",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "heap",
+    "questionType": "Definition",
+    "question": "What is heap, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0059",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "stack",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using stack correctly?"
+  },
+  {
+    "id": "FND-B-0060",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "stack",
+    "questionType": "Definition",
+    "question": "What is stack, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0061",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "trie",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using trie correctly?"
+  },
+  {
+    "id": "FND-B-0062",
+    "level": "Beginner",
+    "category": "Data Structures",
+    "topic": "trie",
+    "questionType": "Definition",
+    "question": "What is trie, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0063",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "ACID transactions",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using ACID transactions correctly?"
+  },
+  {
+    "id": "FND-B-0064",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "ACID transactions",
+    "questionType": "Definition",
+    "question": "What is ACID transactions, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0065",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "SQL joins",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using SQL joins correctly?"
+  },
+  {
+    "id": "FND-B-0066",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "SQL joins",
+    "questionType": "Definition",
+    "question": "What is SQL joins, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0067",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "database index",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using database index correctly?"
+  },
+  {
+    "id": "FND-B-0068",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "database index",
+    "questionType": "Definition",
+    "question": "What is database index, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0069",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "normalization",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using normalization correctly?"
+  },
+  {
+    "id": "FND-B-0070",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "normalization",
+    "questionType": "Definition",
+    "question": "What is normalization, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0071",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "relational model",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using relational model correctly?"
+  },
+  {
+    "id": "FND-B-0072",
+    "level": "Beginner",
+    "category": "Database",
+    "topic": "relational model",
+    "questionType": "Definition",
+    "question": "What is relational model, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0073",
+    "level": "Beginner",
+    "category": "Delivery",
+    "topic": "continuous integration",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using continuous integration correctly?"
+  },
+  {
+    "id": "FND-B-0074",
+    "level": "Beginner",
+    "category": "Delivery",
+    "topic": "continuous integration",
+    "questionType": "Definition",
+    "question": "What is continuous integration, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0075",
+    "level": "Beginner",
+    "category": "Design Principles",
+    "topic": "SOLID principles",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using SOLID principles correctly?"
+  },
+  {
+    "id": "FND-B-0076",
+    "level": "Beginner",
+    "category": "Design Principles",
+    "topic": "SOLID principles",
+    "questionType": "Definition",
+    "question": "What is SOLID principles, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0077",
+    "level": "Beginner",
+    "category": "Git",
+    "topic": "branching",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using branching correctly?"
+  },
+  {
+    "id": "FND-B-0078",
+    "level": "Beginner",
+    "category": "Git",
+    "topic": "branching",
+    "questionType": "Definition",
+    "question": "What is branching, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0079",
+    "level": "Beginner",
+    "category": "Git",
+    "topic": "commit",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using commit correctly?"
+  },
+  {
+    "id": "FND-B-0080",
+    "level": "Beginner",
+    "category": "Git",
+    "topic": "commit",
+    "questionType": "Definition",
+    "question": "What is commit, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0081",
+    "level": "Beginner",
+    "category": "Git",
+    "topic": "merge",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using merge correctly?"
+  },
+  {
+    "id": "FND-B-0082",
+    "level": "Beginner",
+    "category": "Git",
+    "topic": "merge",
+    "questionType": "Definition",
+    "question": "What is merge, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0083",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What four conditions are required for a deadlock to be possible?"
+  },
+  {
+    "id": "FND-B-0084",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What happens, at a high level, from the moment you type a URL in a browser until the page begins rendering?"
+  },
+  {
+    "id": "FND-B-0085",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between a process, a thread, and a coroutine?"
+  },
+  {
+    "id": "FND-B-0086",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between authentication, authorization, and accounting?"
+  },
+  {
+    "id": "FND-B-0087",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "Why is a hash table usually O(1) average lookup but not O(1) worst-case lookup?"
+  },
+  {
+    "id": "FND-B-0088",
+    "level": "Beginner",
+    "category": "Memory",
+    "topic": "garbage collection",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using garbage collection correctly?"
+  },
+  {
+    "id": "FND-B-0089",
+    "level": "Beginner",
+    "category": "Memory",
+    "topic": "garbage collection",
+    "questionType": "Definition",
+    "question": "What is garbage collection, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0090",
+    "level": "Beginner",
+    "category": "Memory",
+    "topic": "stack memory",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using stack memory correctly?"
+  },
+  {
+    "id": "FND-B-0091",
+    "level": "Beginner",
+    "category": "Memory",
+    "topic": "stack memory",
+    "questionType": "Definition",
+    "question": "What is stack memory, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0092",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "DNS resolution",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using DNS resolution correctly?"
+  },
+  {
+    "id": "FND-B-0093",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "DNS resolution",
+    "questionType": "Definition",
+    "question": "What is DNS resolution, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0094",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "IPv4 subnetting",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using IPv4 subnetting correctly?"
+  },
+  {
+    "id": "FND-B-0095",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "IPv4 subnetting",
+    "questionType": "Definition",
+    "question": "What is IPv4 subnetting, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0096",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "MAC address",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using MAC address correctly?"
+  },
+  {
+    "id": "FND-B-0097",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "MAC address",
+    "questionType": "Definition",
+    "question": "What is MAC address, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0098",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "NAT",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using NAT correctly?"
+  },
+  {
+    "id": "FND-B-0099",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "NAT",
+    "questionType": "Definition",
+    "question": "What is NAT, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0100",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "OSI model",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using OSI model correctly?"
+  },
+  {
+    "id": "FND-B-0101",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "OSI model",
+    "questionType": "Definition",
+    "question": "What is OSI model, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0102",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "TCP",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using TCP correctly?"
+  },
+  {
+    "id": "FND-B-0103",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "TCP",
+    "questionType": "Definition",
+    "question": "What is TCP, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0104",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "TCP three-way handshake",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using TCP three-way handshake correctly?"
+  },
+  {
+    "id": "FND-B-0105",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "TCP three-way handshake",
+    "questionType": "Definition",
+    "question": "What is TCP three-way handshake, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0106",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "socket",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using socket correctly?"
+  },
+  {
+    "id": "FND-B-0107",
+    "level": "Beginner",
+    "category": "Networking",
+    "topic": "socket",
+    "questionType": "Definition",
+    "question": "What is socket, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0108",
+    "level": "Beginner",
+    "category": "Number Systems",
+    "topic": "binary representation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using binary representation correctly?"
+  },
+  {
+    "id": "FND-B-0109",
+    "level": "Beginner",
+    "category": "Number Systems",
+    "topic": "binary representation",
+    "questionType": "Definition",
+    "question": "What is binary representation, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0110",
+    "level": "Beginner",
+    "category": "Number Systems",
+    "topic": "two's complement",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using two's complement correctly?"
+  },
+  {
+    "id": "FND-B-0111",
+    "level": "Beginner",
+    "category": "Number Systems",
+    "topic": "two's complement",
+    "questionType": "Definition",
+    "question": "What is two's complement, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0112",
+    "level": "Beginner",
+    "category": "OOP",
+    "topic": "encapsulation",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using encapsulation correctly?"
+  },
+  {
+    "id": "FND-B-0113",
+    "level": "Beginner",
+    "category": "OOP",
+    "topic": "encapsulation",
+    "questionType": "Definition",
+    "question": "What is encapsulation, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0114",
+    "level": "Beginner",
+    "category": "OOP",
+    "topic": "inheritance",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using inheritance correctly?"
+  },
+  {
+    "id": "FND-B-0115",
+    "level": "Beginner",
+    "category": "OOP",
+    "topic": "inheritance",
+    "questionType": "Definition",
+    "question": "What is inheritance, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0116",
+    "level": "Beginner",
+    "category": "OOP",
+    "topic": "interfaces and abstract classes",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using interfaces and abstract classes correctly?"
+  },
+  {
+    "id": "FND-B-0117",
+    "level": "Beginner",
+    "category": "OOP",
+    "topic": "interfaces and abstract classes",
+    "questionType": "Definition",
+    "question": "What is interfaces and abstract classes, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0118",
+    "level": "Beginner",
+    "category": "OOP",
+    "topic": "polymorphism",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using polymorphism correctly?"
+  },
+  {
+    "id": "FND-B-0119",
+    "level": "Beginner",
+    "category": "OOP",
+    "topic": "polymorphism",
+    "questionType": "Definition",
+    "question": "What is polymorphism, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0120",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "CPU scheduling",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using CPU scheduling correctly?"
+  },
+  {
+    "id": "FND-B-0121",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "CPU scheduling",
+    "questionType": "Definition",
+    "question": "What is CPU scheduling, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0122",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "context switching",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using context switching correctly?"
+  },
+  {
+    "id": "FND-B-0123",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "context switching",
+    "questionType": "Definition",
+    "question": "What is context switching, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0124",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "deadlock",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using deadlock correctly?"
+  },
+  {
+    "id": "FND-B-0125",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "deadlock",
+    "questionType": "Definition",
+    "question": "What is deadlock, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0126",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "filesystem",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using filesystem correctly?"
+  },
+  {
+    "id": "FND-B-0127",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "filesystem",
+    "questionType": "Definition",
+    "question": "What is filesystem, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0128",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "mutex",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using mutex correctly?"
+  },
+  {
+    "id": "FND-B-0129",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "mutex",
+    "questionType": "Definition",
+    "question": "What is mutex, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0130",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "paging",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using paging correctly?"
+  },
+  {
+    "id": "FND-B-0131",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "paging",
+    "questionType": "Definition",
+    "question": "What is paging, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0132",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "process",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using process correctly?"
+  },
+  {
+    "id": "FND-B-0133",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "process",
+    "questionType": "Definition",
+    "question": "What is process, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0134",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "race condition",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using race condition correctly?"
+  },
+  {
+    "id": "FND-B-0135",
+    "level": "Beginner",
+    "category": "Operating Systems",
+    "topic": "race condition",
+    "questionType": "Definition",
+    "question": "What is race condition, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0136",
+    "level": "Beginner",
+    "category": "Programming",
+    "topic": "compiler",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using compiler correctly?"
+  },
+  {
+    "id": "FND-B-0137",
+    "level": "Beginner",
+    "category": "Programming",
+    "topic": "compiler",
+    "questionType": "Definition",
+    "question": "What is compiler, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0138",
+    "level": "Beginner",
+    "category": "Programming",
+    "topic": "recursion",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using recursion correctly?"
+  },
+  {
+    "id": "FND-B-0139",
+    "level": "Beginner",
+    "category": "Programming",
+    "topic": "recursion",
+    "questionType": "Definition",
+    "question": "What is recursion, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0140",
+    "level": "Beginner",
+    "category": "Programming",
+    "topic": "scope and lifetime",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using scope and lifetime correctly?"
+  },
+  {
+    "id": "FND-B-0141",
+    "level": "Beginner",
+    "category": "Programming",
+    "topic": "scope and lifetime",
+    "questionType": "Definition",
+    "question": "What is scope and lifetime, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0142",
+    "level": "Beginner",
+    "category": "Programming",
+    "topic": "static typing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using static typing correctly?"
+  },
+  {
+    "id": "FND-B-0143",
+    "level": "Beginner",
+    "category": "Programming",
+    "topic": "static typing",
+    "questionType": "Definition",
+    "question": "What is static typing, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0144",
+    "level": "Beginner",
+    "category": "Programming",
+    "topic": "value semantics",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using value semantics correctly?"
+  },
+  {
+    "id": "FND-B-0145",
+    "level": "Beginner",
+    "category": "Programming",
+    "topic": "value semantics",
+    "questionType": "Definition",
+    "question": "What is value semantics, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0146",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "SQL injection",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using SQL injection correctly?"
+  },
+  {
+    "id": "FND-B-0147",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "SQL injection",
+    "questionType": "Definition",
+    "question": "What is SQL injection, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0148",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "XSS",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using XSS correctly?"
+  },
+  {
+    "id": "FND-B-0149",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "XSS",
+    "questionType": "Definition",
+    "question": "What is XSS, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0150",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "authentication",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using authentication correctly?"
+  },
+  {
+    "id": "FND-B-0151",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "authentication",
+    "questionType": "Definition",
+    "question": "What is authentication, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0152",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "hashing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using hashing correctly?"
+  },
+  {
+    "id": "FND-B-0153",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "hashing",
+    "questionType": "Definition",
+    "question": "What is hashing, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0154",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "symmetric encryption",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using symmetric encryption correctly?"
+  },
+  {
+    "id": "FND-B-0155",
+    "level": "Beginner",
+    "category": "Security",
+    "topic": "symmetric encryption",
+    "questionType": "Definition",
+    "question": "What is symmetric encryption, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0156",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "cache",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using cache correctly?"
+  },
+  {
+    "id": "FND-B-0157",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "cache",
+    "questionType": "Definition",
+    "question": "What is cache, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0158",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "load balancer",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using load balancer correctly?"
+  },
+  {
+    "id": "FND-B-0159",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "load balancer",
+    "questionType": "Definition",
+    "question": "What is load balancer, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0160",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "message queue",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using message queue correctly?"
+  },
+  {
+    "id": "FND-B-0161",
+    "level": "Beginner",
+    "category": "System Design",
+    "topic": "message queue",
+    "questionType": "Definition",
+    "question": "What is message queue, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0162",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "mock",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using mock correctly?"
+  },
+  {
+    "id": "FND-B-0163",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "mock",
+    "questionType": "Definition",
+    "question": "What is mock, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0164",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "unit testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using unit testing correctly?"
+  },
+  {
+    "id": "FND-B-0165",
+    "level": "Beginner",
+    "category": "Testing",
+    "topic": "unit testing",
+    "questionType": "Definition",
+    "question": "What is unit testing, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0166",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "HTTP caching",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using HTTP caching correctly?"
+  },
+  {
+    "id": "FND-B-0167",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "HTTP caching",
+    "questionType": "Definition",
+    "question": "What is HTTP caching, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0168",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "HTTP methods",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using HTTP methods correctly?"
+  },
+  {
+    "id": "FND-B-0169",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "HTTP methods",
+    "questionType": "Definition",
+    "question": "What is HTTP methods, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0170",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "REST",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using REST correctly?"
+  },
+  {
+    "id": "FND-B-0171",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "REST",
+    "questionType": "Definition",
+    "question": "What is REST, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0172",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "TLS",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using TLS correctly?"
+  },
+  {
+    "id": "FND-B-0173",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "TLS",
+    "questionType": "Definition",
+    "question": "What is TLS, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-B-0174",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "cookies",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using cookies correctly?"
+  },
+  {
+    "id": "FND-B-0175",
+    "level": "Beginner",
+    "category": "Web",
+    "topic": "cookies",
+    "questionType": "Definition",
+    "question": "What is cookies, and what problem does it solve in software engineering fundamentals?"
+  },
+  {
+    "id": "FND-I-0001",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "BFS",
+    "questionType": "Compare",
+    "question": "Compare BFS with DFS. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0002",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "BFS",
+    "questionType": "Mechanics",
+    "question": "Walk through how BFS works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0003",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "Big-O complexity",
+    "questionType": "Compare",
+    "question": "Compare Big-O complexity with Big-Theta and Big-Omega. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0004",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "Big-O complexity",
+    "questionType": "Mechanics",
+    "question": "Walk through how Big-O complexity works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0005",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "binary search",
+    "questionType": "Compare",
+    "question": "Compare binary search with linear search. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0006",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "binary search",
+    "questionType": "Mechanics",
+    "question": "Walk through how binary search works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0007",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "divide and conquer",
+    "questionType": "Compare",
+    "question": "Compare divide and conquer with dynamic programming. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0008",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "divide and conquer",
+    "questionType": "Mechanics",
+    "question": "Walk through how divide and conquer works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0009",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "dynamic programming",
+    "questionType": "Compare",
+    "question": "Compare dynamic programming with greedy algorithms. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0010",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "dynamic programming",
+    "questionType": "Mechanics",
+    "question": "Walk through how dynamic programming works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0011",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "sorting algorithms",
+    "questionType": "Compare",
+    "question": "Compare sorting algorithms with selection and partitioning. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0012",
+    "level": "Intermediate",
+    "category": "Algorithms",
+    "topic": "sorting algorithms",
+    "questionType": "Mechanics",
+    "question": "Walk through how sorting algorithms works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0013",
+    "level": "Intermediate",
+    "category": "Cloud",
+    "topic": "horizontal scaling",
+    "questionType": "Compare",
+    "question": "Compare horizontal scaling with vertical scaling. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0014",
+    "level": "Intermediate",
+    "category": "Cloud",
+    "topic": "horizontal scaling",
+    "questionType": "Mechanics",
+    "question": "Walk through how horizontal scaling works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0015",
+    "level": "Intermediate",
+    "category": "Cloud",
+    "topic": "virtual machine",
+    "questionType": "Compare",
+    "question": "Compare virtual machine with container. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0016",
+    "level": "Intermediate",
+    "category": "Cloud",
+    "topic": "virtual machine",
+    "questionType": "Mechanics",
+    "question": "Walk through how virtual machine works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0017",
+    "level": "Intermediate",
+    "category": "Computer Architecture",
+    "topic": "CPU cache hierarchy",
+    "questionType": "Compare",
+    "question": "Compare CPU cache hierarchy with main memory. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0018",
+    "level": "Intermediate",
+    "category": "Computer Architecture",
+    "topic": "CPU cache hierarchy",
+    "questionType": "Mechanics",
+    "question": "Walk through how CPU cache hierarchy works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0019",
+    "level": "Intermediate",
+    "category": "Computer Architecture",
+    "topic": "CPU instruction cycle",
+    "questionType": "Compare",
+    "question": "Compare CPU instruction cycle with pipelining and out-of-order execution. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0020",
+    "level": "Intermediate",
+    "category": "Computer Architecture",
+    "topic": "CPU instruction cycle",
+    "questionType": "Mechanics",
+    "question": "Walk through how CPU instruction cycle works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0021",
+    "level": "Intermediate",
+    "category": "Computer Architecture",
+    "topic": "CPU registers",
+    "questionType": "Compare",
+    "question": "Compare CPU registers with cache and RAM. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0022",
+    "level": "Intermediate",
+    "category": "Computer Architecture",
+    "topic": "CPU registers",
+    "questionType": "Mechanics",
+    "question": "Walk through how CPU registers works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0023",
+    "level": "Intermediate",
+    "category": "Computer Architecture",
+    "topic": "RAM and persistent storage",
+    "questionType": "Compare",
+    "question": "Compare RAM and persistent storage with CPU cache. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0024",
+    "level": "Intermediate",
+    "category": "Computer Architecture",
+    "topic": "RAM and persistent storage",
+    "questionType": "Mechanics",
+    "question": "Walk through how RAM and persistent storage works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0025",
+    "level": "Intermediate",
+    "category": "Computer Architecture",
+    "topic": "virtual memory",
+    "questionType": "Compare",
+    "question": "Compare virtual memory with physical memory. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0026",
+    "level": "Intermediate",
+    "category": "Computer Architecture",
+    "topic": "virtual memory",
+    "questionType": "Mechanics",
+    "question": "Walk through how virtual memory works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0027",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "At a high level, what happens during a TLS handshake?"
+  },
+  {
+    "id": "FND-I-0028",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare hashing, encryption, and encoding; give a proper use case for each."
+  },
+  {
+    "id": "FND-I-0029",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare inheritance and composition. When is composition preferable?"
+  },
+  {
+    "id": "FND-I-0030",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare mutexes, semaphores, and atomic operations."
+  },
+  {
+    "id": "FND-I-0031",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain browser/server caching and the role of Cache-Control, ETag, and conditional requests."
+  },
+  {
+    "id": "FND-I-0032",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain cohesion and coupling and why they matter in module design."
+  },
+  {
+    "id": "FND-I-0033",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain normalization and when deliberate denormalization can be justified."
+  },
+  {
+    "id": "FND-I-0034",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain the CAP theorem without using the misleading phrase \"pick any two\" as the whole answer."
+  },
+  {
+    "id": "FND-I-0035",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain the TCP three-way handshake and why it exists."
+  },
+  {
+    "id": "FND-I-0036",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How does a database index improve reads, and why can it make writes more expensive?"
+  },
+  {
+    "id": "FND-I-0037",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How does virtual memory let processes use more memory than is physically available?"
+  },
+  {
+    "id": "FND-I-0038",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are common transaction isolation anomalies such as dirty reads, non-repeatable reads, and phantom reads?"
+  },
+  {
+    "id": "FND-I-0039",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are the four necessary conditions for deadlock?"
+  },
+  {
+    "id": "FND-I-0040",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What do ACID properties mean in practice?"
+  },
+  {
+    "id": "FND-I-0041",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What does dependency inversion mean, and how is it different from dependency injection?"
+  },
+  {
+    "id": "FND-I-0042",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What happens during a context switch, and why are excessive context switches expensive?"
+  },
+  {
+    "id": "FND-I-0043",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a race condition, and how would you reproduce and diagnose one?"
+  },
+  {
+    "id": "FND-I-0044",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is semantic versioning, and why do lock files matter?"
+  },
+  {
+    "id": "FND-I-0045",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between Git merge and Git rebase, and when would you choose each?"
+  },
+  {
+    "id": "FND-I-0046",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What makes an HTTP method safe or idempotent, and why does that distinction matter?"
+  },
+  {
+    "id": "FND-I-0047",
+    "level": "Intermediate",
+    "category": "Data Representation",
+    "topic": "character encoding and Unicode",
+    "questionType": "Compare",
+    "question": "Compare character encoding and Unicode with ASCII. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0048",
+    "level": "Intermediate",
+    "category": "Data Representation",
+    "topic": "character encoding and Unicode",
+    "questionType": "Mechanics",
+    "question": "Walk through how character encoding and Unicode works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0049",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "array",
+    "questionType": "Compare",
+    "question": "Compare array with linked list. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0050",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "array",
+    "questionType": "Mechanics",
+    "question": "Walk through how array works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0051",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "binary search tree",
+    "questionType": "Compare",
+    "question": "Compare binary search tree with balanced search tree. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0052",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "binary search tree",
+    "questionType": "Mechanics",
+    "question": "Walk through how binary search tree works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0053",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "graph representation",
+    "questionType": "Compare",
+    "question": "Compare graph representation with tree representation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0054",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "graph representation",
+    "questionType": "Mechanics",
+    "question": "Walk through how graph representation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0055",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "hash table",
+    "questionType": "Compare",
+    "question": "Compare hash table with tree-based map. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0056",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "hash table",
+    "questionType": "Mechanics",
+    "question": "Walk through how hash table works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0057",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "heap",
+    "questionType": "Compare",
+    "question": "Compare heap with balanced search tree. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0058",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "heap",
+    "questionType": "Mechanics",
+    "question": "Walk through how heap works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0059",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "stack",
+    "questionType": "Compare",
+    "question": "Compare stack with queue. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0060",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "stack",
+    "questionType": "Mechanics",
+    "question": "Walk through how stack works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0061",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "trie",
+    "questionType": "Compare",
+    "question": "Compare trie with hash map. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0062",
+    "level": "Intermediate",
+    "category": "Data Structures",
+    "topic": "trie",
+    "questionType": "Mechanics",
+    "question": "Walk through how trie works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0063",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "ACID transactions",
+    "questionType": "Compare",
+    "question": "Compare ACID transactions with eventual consistency. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0064",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "ACID transactions",
+    "questionType": "Mechanics",
+    "question": "Walk through how ACID transactions works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0065",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "SQL joins",
+    "questionType": "Compare",
+    "question": "Compare SQL joins with subqueries. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0066",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "SQL joins",
+    "questionType": "Mechanics",
+    "question": "Walk through how SQL joins works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0067",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "database index",
+    "questionType": "Compare",
+    "question": "Compare database index with full table scan. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0068",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "database index",
+    "questionType": "Mechanics",
+    "question": "Walk through how database index works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0069",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "normalization",
+    "questionType": "Compare",
+    "question": "Compare normalization with denormalization. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0070",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "normalization",
+    "questionType": "Mechanics",
+    "question": "Walk through how normalization works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0071",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "relational model",
+    "questionType": "Compare",
+    "question": "Compare relational model with document model. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0072",
+    "level": "Intermediate",
+    "category": "Database",
+    "topic": "relational model",
+    "questionType": "Mechanics",
+    "question": "Walk through how relational model works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0073",
+    "level": "Intermediate",
+    "category": "Delivery",
+    "topic": "continuous integration",
+    "questionType": "Compare",
+    "question": "Compare continuous integration with continuous delivery. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0074",
+    "level": "Intermediate",
+    "category": "Delivery",
+    "topic": "continuous integration",
+    "questionType": "Mechanics",
+    "question": "Walk through how continuous integration works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0075",
+    "level": "Intermediate",
+    "category": "Design Principles",
+    "topic": "SOLID principles",
+    "questionType": "Compare",
+    "question": "Compare SOLID principles with procedural design. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0076",
+    "level": "Intermediate",
+    "category": "Design Principles",
+    "topic": "SOLID principles",
+    "questionType": "Mechanics",
+    "question": "Walk through how SOLID principles works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0077",
+    "level": "Intermediate",
+    "category": "Git",
+    "topic": "branching",
+    "questionType": "Compare",
+    "question": "Compare branching with trunk-based development. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0078",
+    "level": "Intermediate",
+    "category": "Git",
+    "topic": "branching",
+    "questionType": "Mechanics",
+    "question": "Walk through how branching works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0079",
+    "level": "Intermediate",
+    "category": "Git",
+    "topic": "commit",
+    "questionType": "Compare",
+    "question": "Compare commit with working tree and staging area. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0080",
+    "level": "Intermediate",
+    "category": "Git",
+    "topic": "commit",
+    "questionType": "Mechanics",
+    "question": "Walk through how commit works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0081",
+    "level": "Intermediate",
+    "category": "Git",
+    "topic": "merge",
+    "questionType": "Compare",
+    "question": "Compare merge with rebase. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0082",
+    "level": "Intermediate",
+    "category": "Git",
+    "topic": "merge",
+    "questionType": "Mechanics",
+    "question": "Walk through how merge works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0083",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Explain how DNS caching at multiple layers can make an incident difficult to diagnose."
+  },
+  {
+    "id": "FND-I-0084",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Given a recursive algorithm, how would you reason about both its time complexity and stack-space complexity?"
+  },
+  {
+    "id": "FND-I-0085",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How does virtual memory allow a process to use an address space larger than available physical RAM?"
+  },
+  {
+    "id": "FND-I-0086",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you decide whether to normalize or denormalize a relational schema for a read-heavy feature?"
+  },
+  {
+    "id": "FND-I-0087",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Why can TCP head-of-line blocking matter to application performance, and how do newer transports address related problems?"
+  },
+  {
+    "id": "FND-I-0088",
+    "level": "Intermediate",
+    "category": "Memory",
+    "topic": "garbage collection",
+    "questionType": "Compare",
+    "question": "Compare garbage collection with manual memory management. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0089",
+    "level": "Intermediate",
+    "category": "Memory",
+    "topic": "garbage collection",
+    "questionType": "Mechanics",
+    "question": "Walk through how garbage collection works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0090",
+    "level": "Intermediate",
+    "category": "Memory",
+    "topic": "stack memory",
+    "questionType": "Compare",
+    "question": "Compare stack memory with heap memory. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0091",
+    "level": "Intermediate",
+    "category": "Memory",
+    "topic": "stack memory",
+    "questionType": "Mechanics",
+    "question": "Walk through how stack memory works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0092",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "DNS resolution",
+    "questionType": "Compare",
+    "question": "Compare DNS resolution with HTTP request. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0093",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "DNS resolution",
+    "questionType": "Mechanics",
+    "question": "Walk through how DNS resolution works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0094",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "IPv4 subnetting",
+    "questionType": "Compare",
+    "question": "Compare IPv4 subnetting with IPv6 addressing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0095",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "IPv4 subnetting",
+    "questionType": "Mechanics",
+    "question": "Walk through how IPv4 subnetting works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0096",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "MAC address",
+    "questionType": "Compare",
+    "question": "Compare MAC address with IP address. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0097",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "MAC address",
+    "questionType": "Mechanics",
+    "question": "Walk through how MAC address works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0098",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "NAT",
+    "questionType": "Compare",
+    "question": "Compare NAT with routing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0099",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "NAT",
+    "questionType": "Mechanics",
+    "question": "Walk through how NAT works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0100",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "OSI model",
+    "questionType": "Compare",
+    "question": "Compare OSI model with TCP/IP model. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0101",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "OSI model",
+    "questionType": "Mechanics",
+    "question": "Walk through how OSI model works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0102",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "TCP",
+    "questionType": "Compare",
+    "question": "Compare TCP with UDP. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0103",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "TCP",
+    "questionType": "Mechanics",
+    "question": "Walk through how TCP works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0104",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "TCP three-way handshake",
+    "questionType": "Compare",
+    "question": "Compare TCP three-way handshake with TLS handshake. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0105",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "TCP three-way handshake",
+    "questionType": "Mechanics",
+    "question": "Walk through how TCP three-way handshake works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0106",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "socket",
+    "questionType": "Compare",
+    "question": "Compare socket with HTTP connection. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0107",
+    "level": "Intermediate",
+    "category": "Networking",
+    "topic": "socket",
+    "questionType": "Mechanics",
+    "question": "Walk through how socket works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0108",
+    "level": "Intermediate",
+    "category": "Number Systems",
+    "topic": "binary representation",
+    "questionType": "Compare",
+    "question": "Compare binary representation with hexadecimal representation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0109",
+    "level": "Intermediate",
+    "category": "Number Systems",
+    "topic": "binary representation",
+    "questionType": "Mechanics",
+    "question": "Walk through how binary representation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0110",
+    "level": "Intermediate",
+    "category": "Number Systems",
+    "topic": "two's complement",
+    "questionType": "Compare",
+    "question": "Compare two's complement with unsigned integer representation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0111",
+    "level": "Intermediate",
+    "category": "Number Systems",
+    "topic": "two's complement",
+    "questionType": "Mechanics",
+    "question": "Walk through how two's complement works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0112",
+    "level": "Intermediate",
+    "category": "OOP",
+    "topic": "encapsulation",
+    "questionType": "Compare",
+    "question": "Compare encapsulation with abstraction. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0113",
+    "level": "Intermediate",
+    "category": "OOP",
+    "topic": "encapsulation",
+    "questionType": "Mechanics",
+    "question": "Walk through how encapsulation works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0114",
+    "level": "Intermediate",
+    "category": "OOP",
+    "topic": "inheritance",
+    "questionType": "Compare",
+    "question": "Compare inheritance with composition. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0115",
+    "level": "Intermediate",
+    "category": "OOP",
+    "topic": "inheritance",
+    "questionType": "Mechanics",
+    "question": "Walk through how inheritance works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0116",
+    "level": "Intermediate",
+    "category": "OOP",
+    "topic": "interfaces and abstract classes",
+    "questionType": "Compare",
+    "question": "Compare interfaces and abstract classes with concrete classes. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0117",
+    "level": "Intermediate",
+    "category": "OOP",
+    "topic": "interfaces and abstract classes",
+    "questionType": "Mechanics",
+    "question": "Walk through how interfaces and abstract classes works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0118",
+    "level": "Intermediate",
+    "category": "OOP",
+    "topic": "polymorphism",
+    "questionType": "Compare",
+    "question": "Compare polymorphism with method overloading and overriding. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0119",
+    "level": "Intermediate",
+    "category": "OOP",
+    "topic": "polymorphism",
+    "questionType": "Mechanics",
+    "question": "Walk through how polymorphism works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0120",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "CPU scheduling",
+    "questionType": "Compare",
+    "question": "Compare CPU scheduling with I/O scheduling. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0121",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "CPU scheduling",
+    "questionType": "Mechanics",
+    "question": "Walk through how CPU scheduling works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0122",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "context switching",
+    "questionType": "Compare",
+    "question": "Compare context switching with cooperative scheduling. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0123",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "context switching",
+    "questionType": "Mechanics",
+    "question": "Walk through how context switching works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0124",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "deadlock",
+    "questionType": "Compare",
+    "question": "Compare deadlock with livelock and starvation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0125",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "deadlock",
+    "questionType": "Mechanics",
+    "question": "Walk through how deadlock works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0126",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "filesystem",
+    "questionType": "Compare",
+    "question": "Compare filesystem with database storage engine. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0127",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "filesystem",
+    "questionType": "Mechanics",
+    "question": "Walk through how filesystem works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0128",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "mutex",
+    "questionType": "Compare",
+    "question": "Compare mutex with semaphore. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0129",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "mutex",
+    "questionType": "Mechanics",
+    "question": "Walk through how mutex works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0130",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "paging",
+    "questionType": "Compare",
+    "question": "Compare paging with segmentation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0131",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "paging",
+    "questionType": "Mechanics",
+    "question": "Walk through how paging works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0132",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "process",
+    "questionType": "Compare",
+    "question": "Compare process with thread. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0133",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "process",
+    "questionType": "Mechanics",
+    "question": "Walk through how process works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0134",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "race condition",
+    "questionType": "Compare",
+    "question": "Compare race condition with atomic operation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0135",
+    "level": "Intermediate",
+    "category": "Operating Systems",
+    "topic": "race condition",
+    "questionType": "Mechanics",
+    "question": "Walk through how race condition works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0136",
+    "level": "Intermediate",
+    "category": "Programming",
+    "topic": "compiler",
+    "questionType": "Compare",
+    "question": "Compare compiler with interpreter. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0137",
+    "level": "Intermediate",
+    "category": "Programming",
+    "topic": "compiler",
+    "questionType": "Mechanics",
+    "question": "Walk through how compiler works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0138",
+    "level": "Intermediate",
+    "category": "Programming",
+    "topic": "recursion",
+    "questionType": "Compare",
+    "question": "Compare recursion with iteration. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0139",
+    "level": "Intermediate",
+    "category": "Programming",
+    "topic": "recursion",
+    "questionType": "Mechanics",
+    "question": "Walk through how recursion works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0140",
+    "level": "Intermediate",
+    "category": "Programming",
+    "topic": "scope and lifetime",
+    "questionType": "Compare",
+    "question": "Compare scope and lifetime with closure. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0141",
+    "level": "Intermediate",
+    "category": "Programming",
+    "topic": "scope and lifetime",
+    "questionType": "Mechanics",
+    "question": "Walk through how scope and lifetime works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0142",
+    "level": "Intermediate",
+    "category": "Programming",
+    "topic": "static typing",
+    "questionType": "Compare",
+    "question": "Compare static typing with dynamic typing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0143",
+    "level": "Intermediate",
+    "category": "Programming",
+    "topic": "static typing",
+    "questionType": "Mechanics",
+    "question": "Walk through how static typing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0144",
+    "level": "Intermediate",
+    "category": "Programming",
+    "topic": "value semantics",
+    "questionType": "Compare",
+    "question": "Compare value semantics with reference semantics. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0145",
+    "level": "Intermediate",
+    "category": "Programming",
+    "topic": "value semantics",
+    "questionType": "Mechanics",
+    "question": "Walk through how value semantics works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0146",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "SQL injection",
+    "questionType": "Compare",
+    "question": "Compare SQL injection with parameterized queries. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0147",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "SQL injection",
+    "questionType": "Mechanics",
+    "question": "Walk through how SQL injection works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0148",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "XSS",
+    "questionType": "Compare",
+    "question": "Compare XSS with CSRF. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0149",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "XSS",
+    "questionType": "Mechanics",
+    "question": "Walk through how XSS works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0150",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "authentication",
+    "questionType": "Compare",
+    "question": "Compare authentication with authorization. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0151",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "authentication",
+    "questionType": "Mechanics",
+    "question": "Walk through how authentication works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0152",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "hashing",
+    "questionType": "Compare",
+    "question": "Compare hashing with encryption. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0153",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "hashing",
+    "questionType": "Mechanics",
+    "question": "Walk through how hashing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0154",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "symmetric encryption",
+    "questionType": "Compare",
+    "question": "Compare symmetric encryption with asymmetric encryption. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0155",
+    "level": "Intermediate",
+    "category": "Security",
+    "topic": "symmetric encryption",
+    "questionType": "Mechanics",
+    "question": "Walk through how symmetric encryption works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0156",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "cache",
+    "questionType": "Compare",
+    "question": "Compare cache with persistent database. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0157",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "cache",
+    "questionType": "Mechanics",
+    "question": "Walk through how cache works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0158",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "load balancer",
+    "questionType": "Compare",
+    "question": "Compare load balancer with reverse proxy. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0159",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "load balancer",
+    "questionType": "Mechanics",
+    "question": "Walk through how load balancer works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0160",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "message queue",
+    "questionType": "Compare",
+    "question": "Compare message queue with synchronous API. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0161",
+    "level": "Intermediate",
+    "category": "System Design",
+    "topic": "message queue",
+    "questionType": "Mechanics",
+    "question": "Walk through how message queue works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0162",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "mock",
+    "questionType": "Compare",
+    "question": "Compare mock with fake and stub. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0163",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "mock",
+    "questionType": "Mechanics",
+    "question": "Walk through how mock works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0164",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "unit testing",
+    "questionType": "Compare",
+    "question": "Compare unit testing with integration testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0165",
+    "level": "Intermediate",
+    "category": "Testing",
+    "topic": "unit testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how unit testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0166",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "HTTP caching",
+    "questionType": "Compare",
+    "question": "Compare HTTP caching with application caching. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0167",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "HTTP caching",
+    "questionType": "Mechanics",
+    "question": "Walk through how HTTP caching works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0168",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "HTTP methods",
+    "questionType": "Compare",
+    "question": "Compare HTTP methods with HTTP status codes. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0169",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "HTTP methods",
+    "questionType": "Mechanics",
+    "question": "Walk through how HTTP methods works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0170",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "REST",
+    "questionType": "Compare",
+    "question": "Compare REST with RPC. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0171",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "REST",
+    "questionType": "Mechanics",
+    "question": "Walk through how REST works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0172",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "TLS",
+    "questionType": "Compare",
+    "question": "Compare TLS with plain HTTP. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0173",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "TLS",
+    "questionType": "Mechanics",
+    "question": "Walk through how TLS works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-I-0174",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "cookies",
+    "questionType": "Compare",
+    "question": "Compare cookies with server-side sessions. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "FND-I-0175",
+    "level": "Intermediate",
+    "category": "Web",
+    "topic": "cookies",
+    "questionType": "Mechanics",
+    "question": "Walk through how cookies works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "FND-A-0001",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "BFS",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around BFS. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0002",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "BFS",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with BFS? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0003",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "Big-O complexity",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Big-O complexity. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0004",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "Big-O complexity",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Big-O complexity? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0005",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "binary search",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around binary search. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0006",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "binary search",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with binary search? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0007",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "divide and conquer",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around divide and conquer. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0008",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "divide and conquer",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with divide and conquer? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0009",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "dynamic programming",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around dynamic programming. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0010",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "dynamic programming",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with dynamic programming? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0011",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "sorting algorithms",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around sorting algorithms. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0012",
+    "level": "Advanced",
+    "category": "Algorithms",
+    "topic": "sorting algorithms",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with sorting algorithms? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0013",
+    "level": "Advanced",
+    "category": "Cloud",
+    "topic": "horizontal scaling",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around horizontal scaling. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0014",
+    "level": "Advanced",
+    "category": "Cloud",
+    "topic": "horizontal scaling",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with horizontal scaling? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0015",
+    "level": "Advanced",
+    "category": "Cloud",
+    "topic": "virtual machine",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around virtual machine. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0016",
+    "level": "Advanced",
+    "category": "Cloud",
+    "topic": "virtual machine",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with virtual machine? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0017",
+    "level": "Advanced",
+    "category": "Computer Architecture",
+    "topic": "CPU cache hierarchy",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around CPU cache hierarchy. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0018",
+    "level": "Advanced",
+    "category": "Computer Architecture",
+    "topic": "CPU cache hierarchy",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with CPU cache hierarchy? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0019",
+    "level": "Advanced",
+    "category": "Computer Architecture",
+    "topic": "CPU instruction cycle",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around CPU instruction cycle. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0020",
+    "level": "Advanced",
+    "category": "Computer Architecture",
+    "topic": "CPU instruction cycle",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with CPU instruction cycle? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0021",
+    "level": "Advanced",
+    "category": "Computer Architecture",
+    "topic": "CPU registers",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around CPU registers. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0022",
+    "level": "Advanced",
+    "category": "Computer Architecture",
+    "topic": "CPU registers",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with CPU registers? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0023",
+    "level": "Advanced",
+    "category": "Computer Architecture",
+    "topic": "RAM and persistent storage",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around RAM and persistent storage. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0024",
+    "level": "Advanced",
+    "category": "Computer Architecture",
+    "topic": "RAM and persistent storage",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with RAM and persistent storage? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0025",
+    "level": "Advanced",
+    "category": "Computer Architecture",
+    "topic": "virtual memory",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around virtual memory. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0026",
+    "level": "Advanced",
+    "category": "Computer Architecture",
+    "topic": "virtual memory",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with virtual memory? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0027",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "A service performs the same work twice after a network timeout. Explain why \"exactly once\" is difficult and how you would design for it."
+  },
+  {
+    "id": "FND-A-0028",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare optimistic and pessimistic concurrency control and discuss workloads where each fits."
+  },
+  {
+    "id": "FND-A-0029",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare strong consistency, eventual consistency, and causal consistency using practical application examples."
+  },
+  {
+    "id": "FND-A-0030",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Compare synchronous request/response integration with asynchronous event-driven integration."
+  },
+  {
+    "id": "FND-A-0031",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a strategy for diagnosing a production service whose latency increased but CPU utilization remained normal."
+  },
+  {
+    "id": "FND-A-0032",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain how DNS caching, TTLs, load balancers, and connection reuse can complicate incident diagnosis."
+  },
+  {
+    "id": "FND-A-0033",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain how garbage collection can affect latency and what allocation patterns can make GC pressure worse."
+  },
+  {
+    "id": "FND-A-0034",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain how observability signals—logs, metrics, traces, and profiles—complement one another during incident response."
+  },
+  {
+    "id": "FND-A-0035",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain page faults, thrashing, and the working-set idea, and describe how they affect application performance."
+  },
+  {
+    "id": "FND-A-0036",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain why distributed clocks cannot be treated as perfectly synchronized and where this matters."
+  },
+  {
+    "id": "FND-A-0037",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Given an unfamiliar system, how would you build a mental model of its performance bottlenecks before optimizing anything?"
+  },
+  {
+    "id": "FND-A-0038",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you design safe zero-downtime database schema changes for an application deployed across multiple instances?"
+  },
+  {
+    "id": "FND-A-0039",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you investigate a suspected deadlock versus a livelock versus starvation problem?"
+  },
+  {
+    "id": "FND-A-0040",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you make an operation idempotent across retries in a distributed system?"
+  },
+  {
+    "id": "FND-A-0041",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you reason about backpressure in a high-throughput pipeline?"
+  },
+  {
+    "id": "FND-A-0042",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you reason about cache locality and memory-access patterns when optimizing a data-processing routine?"
+  },
+  {
+    "id": "FND-A-0043",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you threat-model an internet-facing API handling sensitive user information?"
+  },
+  {
+    "id": "FND-A-0044",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are the trade-offs between vertical scaling, horizontal scaling, sharding, replication, and caching?"
+  },
+  {
+    "id": "FND-A-0045",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between availability, durability, reliability, and recoverability?"
+  },
+  {
+    "id": "FND-A-0046",
+    "level": "Advanced",
+    "category": "Data Representation",
+    "topic": "character encoding and Unicode",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around character encoding and Unicode. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0047",
+    "level": "Advanced",
+    "category": "Data Representation",
+    "topic": "character encoding and Unicode",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with character encoding and Unicode? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0048",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "array",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around array. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0049",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "array",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with array? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0050",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "binary search tree",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around binary search tree. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0051",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "binary search tree",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with binary search tree? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0052",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "graph representation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around graph representation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0053",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "graph representation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with graph representation? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0054",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "hash table",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around hash table. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0055",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "hash table",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with hash table? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0056",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "heap",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around heap. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0057",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "heap",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with heap? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0058",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "stack",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around stack. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0059",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "stack",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with stack? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0060",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "trie",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around trie. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0061",
+    "level": "Advanced",
+    "category": "Data Structures",
+    "topic": "trie",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with trie? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0062",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "ACID transactions",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around ACID transactions. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0063",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "ACID transactions",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with ACID transactions? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0064",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "SQL joins",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around SQL joins. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0065",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "SQL joins",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with SQL joins? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0066",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "database index",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around database index. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0067",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "database index",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with database index? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0068",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "normalization",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around normalization. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0069",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "normalization",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with normalization? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0070",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "relational model",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around relational model. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0071",
+    "level": "Advanced",
+    "category": "Database",
+    "topic": "relational model",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with relational model? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0072",
+    "level": "Advanced",
+    "category": "Delivery",
+    "topic": "continuous integration",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around continuous integration. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0073",
+    "level": "Advanced",
+    "category": "Delivery",
+    "topic": "continuous integration",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with continuous integration? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0074",
+    "level": "Advanced",
+    "category": "Design Principles",
+    "topic": "SOLID principles",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around SOLID principles. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0075",
+    "level": "Advanced",
+    "category": "Design Principles",
+    "topic": "SOLID principles",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with SOLID principles? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0076",
+    "level": "Advanced",
+    "category": "Git",
+    "topic": "branching",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around branching. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0077",
+    "level": "Advanced",
+    "category": "Git",
+    "topic": "branching",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with branching? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0078",
+    "level": "Advanced",
+    "category": "Git",
+    "topic": "commit",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around commit. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0079",
+    "level": "Advanced",
+    "category": "Git",
+    "topic": "commit",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with commit? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0080",
+    "level": "Advanced",
+    "category": "Git",
+    "topic": "merge",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around merge. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0081",
+    "level": "Advanced",
+    "category": "Git",
+    "topic": "merge",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with merge? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0082",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "A service is intermittently slow but CPU usage is low. Build a cross-layer debugging plan spanning DNS, networking, I/O, locks, and downstream dependencies."
+  },
+  {
+    "id": "FND-A-0083",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design a rate limiter and compare token bucket, leaky bucket, fixed window, and sliding-window approaches."
+  },
+  {
+    "id": "FND-A-0084",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design a thread-safe bounded producer-consumer queue and explain its synchronization invariants."
+  },
+  {
+    "id": "FND-A-0085",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Explain how consistency models change the guarantees an application can make after a network partition."
+  },
+  {
+    "id": "FND-A-0086",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you reason about whether an algorithmic optimization is worth its additional memory, complexity, and maintenance cost in a production service?"
+  },
+  {
+    "id": "FND-A-0087",
+    "level": "Advanced",
+    "category": "Memory",
+    "topic": "garbage collection",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around garbage collection. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0088",
+    "level": "Advanced",
+    "category": "Memory",
+    "topic": "garbage collection",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with garbage collection? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0089",
+    "level": "Advanced",
+    "category": "Memory",
+    "topic": "stack memory",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around stack memory. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0090",
+    "level": "Advanced",
+    "category": "Memory",
+    "topic": "stack memory",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with stack memory? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0091",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "DNS resolution",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around DNS resolution. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0092",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "DNS resolution",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with DNS resolution? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0093",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "IPv4 subnetting",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around IPv4 subnetting. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0094",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "IPv4 subnetting",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with IPv4 subnetting? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0095",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "MAC address",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around MAC address. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0096",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "MAC address",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with MAC address? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0097",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "NAT",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around NAT. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0098",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "NAT",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with NAT? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0099",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "OSI model",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around OSI model. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0100",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "OSI model",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with OSI model? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0101",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "TCP",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around TCP. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0102",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "TCP",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with TCP? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0103",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "TCP three-way handshake",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around TCP three-way handshake. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0104",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "TCP three-way handshake",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with TCP three-way handshake? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0105",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "socket",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around socket. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0106",
+    "level": "Advanced",
+    "category": "Networking",
+    "topic": "socket",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with socket? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0107",
+    "level": "Advanced",
+    "category": "Number Systems",
+    "topic": "binary representation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around binary representation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0108",
+    "level": "Advanced",
+    "category": "Number Systems",
+    "topic": "binary representation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with binary representation? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0109",
+    "level": "Advanced",
+    "category": "Number Systems",
+    "topic": "two's complement",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around two's complement. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0110",
+    "level": "Advanced",
+    "category": "Number Systems",
+    "topic": "two's complement",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with two's complement? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0111",
+    "level": "Advanced",
+    "category": "OOP",
+    "topic": "encapsulation",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around encapsulation. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0112",
+    "level": "Advanced",
+    "category": "OOP",
+    "topic": "encapsulation",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with encapsulation? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0113",
+    "level": "Advanced",
+    "category": "OOP",
+    "topic": "inheritance",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around inheritance. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0114",
+    "level": "Advanced",
+    "category": "OOP",
+    "topic": "inheritance",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with inheritance? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0115",
+    "level": "Advanced",
+    "category": "OOP",
+    "topic": "interfaces and abstract classes",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around interfaces and abstract classes. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0116",
+    "level": "Advanced",
+    "category": "OOP",
+    "topic": "interfaces and abstract classes",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with interfaces and abstract classes? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0117",
+    "level": "Advanced",
+    "category": "OOP",
+    "topic": "polymorphism",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around polymorphism. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0118",
+    "level": "Advanced",
+    "category": "OOP",
+    "topic": "polymorphism",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with polymorphism? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0119",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "CPU scheduling",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around CPU scheduling. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0120",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "CPU scheduling",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with CPU scheduling? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0121",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "context switching",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around context switching. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0122",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "context switching",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with context switching? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0123",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "deadlock",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around deadlock. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0124",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "deadlock",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with deadlock? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0125",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "filesystem",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around filesystem. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0126",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "filesystem",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with filesystem? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0127",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "mutex",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around mutex. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0128",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "mutex",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with mutex? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0129",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "paging",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around paging. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0130",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "paging",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with paging? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0131",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "process",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around process. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0132",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "process",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with process? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0133",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "race condition",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around race condition. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0134",
+    "level": "Advanced",
+    "category": "Operating Systems",
+    "topic": "race condition",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with race condition? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0135",
+    "level": "Advanced",
+    "category": "Programming",
+    "topic": "compiler",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around compiler. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0136",
+    "level": "Advanced",
+    "category": "Programming",
+    "topic": "compiler",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with compiler? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0137",
+    "level": "Advanced",
+    "category": "Programming",
+    "topic": "recursion",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around recursion. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0138",
+    "level": "Advanced",
+    "category": "Programming",
+    "topic": "recursion",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with recursion? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0139",
+    "level": "Advanced",
+    "category": "Programming",
+    "topic": "scope and lifetime",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around scope and lifetime. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0140",
+    "level": "Advanced",
+    "category": "Programming",
+    "topic": "scope and lifetime",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with scope and lifetime? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0141",
+    "level": "Advanced",
+    "category": "Programming",
+    "topic": "static typing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around static typing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0142",
+    "level": "Advanced",
+    "category": "Programming",
+    "topic": "static typing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with static typing? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0143",
+    "level": "Advanced",
+    "category": "Programming",
+    "topic": "value semantics",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around value semantics. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0144",
+    "level": "Advanced",
+    "category": "Programming",
+    "topic": "value semantics",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with value semantics? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0145",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "SQL injection",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around SQL injection. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0146",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "SQL injection",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with SQL injection? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0147",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "XSS",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around XSS. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0148",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "XSS",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with XSS? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0149",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "authentication",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around authentication. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0150",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "authentication",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with authentication? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0151",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "hashing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around hashing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0152",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "hashing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with hashing? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0153",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "symmetric encryption",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around symmetric encryption. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0154",
+    "level": "Advanced",
+    "category": "Security",
+    "topic": "symmetric encryption",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with symmetric encryption? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0155",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "cache",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around cache. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0156",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "cache",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with cache? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0157",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "load balancer",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around load balancer. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0158",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "load balancer",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with load balancer? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0159",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "message queue",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around message queue. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0160",
+    "level": "Advanced",
+    "category": "System Design",
+    "topic": "message queue",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with message queue? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0161",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "mock",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around mock. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0162",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "mock",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with mock? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0163",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "unit testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around unit testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0164",
+    "level": "Advanced",
+    "category": "Testing",
+    "topic": "unit testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with unit testing? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0165",
+    "level": "Advanced",
+    "category": "Web",
+    "topic": "HTTP caching",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around HTTP caching. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0166",
+    "level": "Advanced",
+    "category": "Web",
+    "topic": "HTTP caching",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with HTTP caching? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0167",
+    "level": "Advanced",
+    "category": "Web",
+    "topic": "HTTP methods",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around HTTP methods. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0168",
+    "level": "Advanced",
+    "category": "Web",
+    "topic": "HTTP methods",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with HTTP methods? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0169",
+    "level": "Advanced",
+    "category": "Web",
+    "topic": "REST",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around REST. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0170",
+    "level": "Advanced",
+    "category": "Web",
+    "topic": "REST",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with REST? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0171",
+    "level": "Advanced",
+    "category": "Web",
+    "topic": "TLS",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around TLS. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0172",
+    "level": "Advanced",
+    "category": "Web",
+    "topic": "TLS",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with TLS? How would you design around them?"
+  },
+  {
+    "id": "FND-A-0173",
+    "level": "Advanced",
+    "category": "Web",
+    "topic": "cookies",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around cookies. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "FND-A-0174",
+    "level": "Advanced",
+    "category": "Web",
+    "topic": "cookies",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with cookies? How would you design around them?"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "id": "issue-compose-localhost-db",
+  "title": "API container cannot connect to Compose Postgres via localhost",
+  "technology": "Docker Compose",
+  "platform": "DevOps",
+  "symptoms": [
+    "ECONNREFUSED 127.0.0.1:5432 from API container",
+    "DB works from host browser tools",
+    "compose.yaml defines a db service"
+  ],
+  "cause": "localhost inside a container refers to that container, not the sibling Compose service or the host.",
+  "solution": "Use the Compose service name as hostname (e.g. db) on the shared network, matching the service’s internal port. Publish host ports only for host-side clients.",
+  "workaround": "host.docker.internal on Docker Desktop when intentionally targeting a host-run database.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "DEVOPS-DOCKER-COMPOSE",
+    "DEVOPS-DOCKER-NETWORKING"
+  ],
+  "sources": [
+    "DOCKER-COMPOSE",
+    "DOCKER-NETWORKING"
+  ],
+  "lastVerified": "2026-09-15"
+}

@@ -1,0 +1,112 @@
+---
+id: BACKEND-NESTJS-VALIDATION
+title: "NestJS Validation Pipes"
+titleBn: "NestJS Validation Pipe"
+description: "Transform and validate DTO input at the edge with ValidationPipe, whitelist, and transform."
+descriptionBn: "ValidationPipe, whitelist ও transform দিয়ে এজ-এ DTO ইনপুট রূপান্তর ও যাচাই।"
+track: backend
+category: nestjs
+difficulty: intermediate
+estimatedMinutes: 35
+prerequisites:
+  - BACKEND-NESTJS-ARCHITECTURE
+  - BACKEND-TYPESCRIPT-FOR-BACKEND
+related:
+  - BACKEND-NESTJS-GUARDS
+  - BACKEND-SECURITY-BASICS
+  - BACKEND-OPENAPI
+careers:
+  - backend-engineer
+tags:
+  - nestjs
+  - validation
+  - dto
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - NESTJS-PIPES
+  - NESTJS-VALIDATION
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Untrusted input is the root of many incidents. Validating in controllers ad-hoc is inconsistent; pipes make validation a cross-cutting boundary.
+
+<Callout type="mental-model">
+  Pipes transform/validate arguments before handlers run. ValidationPipe + class-validator decorators keep rules next to DTO shapes.
+</Callout>
+
+## Global ValidationPipe sketch
+
+Enable whitelist/forbidNonWhitelisted to drop or reject unknown fields; transform to hydrate DTO class instances.
+
+```ts
+import { IsEmail, IsString, MinLength } from 'class-validator';
+import { Body, Controller, Post, ValidationPipe } from '@nestjs/common';
+
+export class CreateUserDto {
+  @IsEmail()
+  email!: string;
+
+  @IsString()
+  @MinLength(8)
+  password!: string;
+}
+
+@Controller('users')
+export class UsersController {
+  @Post()
+  create(
+    @Body(
+      new ValidationPipe({
+        whitelist: true,
+        forbidNonWhitelisted: true,
+        transform: true,
+      }),
+    )
+    body: CreateUserDto,
+  ) {
+    return { email: body.email };
+  }
+}
+```
+
+Prefer registering a global pipe via `APP_PIPE` when you need dependency injection.
+
+## Common mistakes
+
+- **Trusting body fields blindly** — Mass assignment / unexpected properties.
+- **Validating only in the frontend** — Clients are hostile; server must enforce.
+- **Global pipe without transform** — Param/query strings stay strings unexpectedly.
+- **Assuming TypeScript types validate runtime JSON** — Types erase at runtime.
+
+## Interview angle
+
+<Callout type="interview">
+  What do whitelist and forbidNonWhitelisted protect you from?
+</Callout>
+
+## Practice checklist
+
+- [ ] Add a DTO with class-validator.
+- [ ] Enable ValidationPipe globally via APP_PIPE.
+- [ ] Attempt a payload with an extra privileged field and confirm rejection.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `NESTJS-PIPES`
+- `NESTJS-VALIDATION`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

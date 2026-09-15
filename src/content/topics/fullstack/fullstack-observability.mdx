@@ -1,0 +1,74 @@
+---
+id: FULLSTACK-OBSERVABILITY
+title: "Observability Across the Stack"
+titleBn: "স্ট্যাক জুড়ে অবজারভেবিলিটি"
+description: "Correlate logs, metrics, and traces from browser to Nest to Postgres."
+descriptionBn: "ব্রাউজার থেকে Nest থেকে Postgres পর্যন্ত লগ, মেট্রিক ও ট্রেস কোরিলেট করুন।"
+track: fullstack
+difficulty: advanced
+estimatedMinutes: 34
+prerequisites:
+  - "FULLSTACK-ARCHITECTURE-OVERVIEW"
+  - "DEVOPS-OBSERVABILITY-PROMETHEUS-GRAFANA"
+unlocks:
+  []
+related:
+  - "FULLSTACK-ENV-CONFIG"
+  - "FULLSTACK-DEPLOYMENT-PIPELINE"
+careers:
+  - "fullstack-engineer"
+  - "devops-engineer"
+tags:
+  - "fullstack"
+  - "observability"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "OPENTELEMETRY-DOCS"
+  - "PROMETHEUS-DOCS"
+  - "GRAFANA-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why cross-stack observability
+
+A slow page may be React, network, Nest, or SQL. You need correlation IDs and traces that cross boundaries.
+
+## Mental model
+
+<Callout type="mental-model">
+  Propagate trace context from Next to Nest. Structured logs with request IDs. RED/USE metrics on APIs; watch DB and queue health. Alert on user-impacting SLOs.
+</Callout>
+
+## Common mistakes
+
+- **Only logging inside Nest**.
+- **Metrics without dashboards/alerts**.
+- **PII in logs**.
+
+## Interview angle
+
+<Callout type="interview">
+  How do you trace a single checkout from button click to DB commit?
+</Callout>
+
+## Practice checklist
+
+- [ ] Add a request ID across Next and Nest.
+- [ ] Define two SLIs for a critical API.
+- [ ] Sketch an OpenTelemetry path.
+
+## Sources
+
+- `OPENTELEMETRY-DOCS`
+- `PROMETHEUS-DOCS`
+- `GRAFANA-DOCS`

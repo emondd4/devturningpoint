@@ -1,0 +1,99 @@
+---
+id: FOUNDATIONS-ABSTRACTION-MODULARITY
+title: "Abstraction and Modularity"
+titleBn: "অ্যাবস্ট্রাকশন ও মডুলারিটি"
+description: "Hide complexity behind stable interfaces—modules, layers, and boundaries that keep code changeable as systems grow."
+descriptionBn: "স্থিতিশীল ইন্টারফেসের পেছনে জটিলতা লুকান—মডিউল ও সীমানা যা পরিবর্তন সহজ রাখে।"
+track: foundations
+category: programming
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+  - "FOUNDATIONS-FUNCTIONS-SCOPE"
+unlocks:
+  - "FOUNDATIONS-DOCUMENTATION"
+related:
+  - "FOUNDATIONS-ERROR-HANDLING"
+  - "FLUTTER-ARCHITECTURE-PATTERNS"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "frontend-engineer"
+tags:
+  - "architecture"
+  - "modules"
+  - "design"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "WRITE-THE-DOCS-GUIDE"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why abstraction is not “more classes”
+
+Abstraction means **separating what from how**. Good modules let you change storage, HTTP clients, or UI without rewriting the business rules. Bad abstraction adds layers that all know each other’s secrets.
+
+## Mental model
+
+<Callout type="mental-model">
+  Draw a boundary: one side depends on an interface (ports); the other side provides an implementation (adapters). Depend inward on stable ideas, not outward on frameworks.
+</Callout>
+
+```ts
+// Port
+interface PaymentGateway {
+  charge(input: { orderId: string; amountMinor: number }): Promise<void>;
+}
+
+// Adapter
+class StripeGateway implements PaymentGateway {
+  async charge(input) {
+    /* Stripe SDK details stay here */
+  }
+}
+```
+
+## Cohesion and coupling
+
+- **High cohesion** — a module’s parts serve one purpose.
+- **Low coupling** — modules communicate through narrow APIs.
+
+If every change requires editing five unrelated folders, boundaries are wrong—or missing.
+
+## Common mistakes
+
+- **God modules** — `utils.ts` that imports the world.
+- **Premature frameworks** — abstractions before the second use case.
+- **Leaking ORM entities** into UI/API layers.
+
+## Interview angle
+
+<Callout type="interview">
+  How would you structure a codebase so swapping Postgres for another DB touches the fewest files?
+</Callout>
+
+## Practice checklist
+
+- [ ] Name three modules in a project and their single responsibilities.
+- [ ] Find one leaky abstraction and propose a narrower interface.
+- [ ] Split a “utils” dump into purpose-named files.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `WRITE-THE-DOCS-GUIDE`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

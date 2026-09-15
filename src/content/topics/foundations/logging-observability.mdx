@@ -1,0 +1,90 @@
+---
+id: FOUNDATIONS-LOGGING-OBSERVABILITY
+title: "Logging and Observability Basics"
+titleBn: "লগিং ও অবজারভেবিলিটি বেসিক"
+description: "Use structured logs, metrics, and traces so production failures are diagnosable—not mysterious."
+descriptionBn: "স্ট্রাকচার্ড লগ, মেট্রিক্স ও ট্রেস—প্রোডাকশন ব্যর্থতা নির্ণয়যোগ্য করুন।"
+track: foundations
+category: operations
+difficulty: beginner
+estimatedMinutes: 40
+prerequisites:
+  - "FOUNDATIONS-DEBUGGING"
+  - "FOUNDATIONS-ERROR-HANDLING"
+unlocks: []
+related:
+  - "FOUNDATIONS-CLI-BASICS"
+  - "FOUNDATIONS-API-CONCEPTS"
+careers:
+  - "software-engineer"
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "logging"
+  - "observability"
+  - "metrics"
+  - "tracing"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "OPENTELEMETRY-DOCS"
+  - "PROMETHEUS-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why printf debugging does not scale to production
+
+You cannot attach a debugger to every user’s phone. Observability means asking new questions of running systems using **logs**, **metrics**, and **traces**.
+
+## Mental model
+
+<Callout type="mental-model">
+  Logs narrate events; metrics aggregate health (latency, error rate); traces connect a request across services. Together they answer *what happened*, *how bad*, and *where*.
+</Callout>
+
+## Structured logging habit
+
+```js
+// Prefer structured fields over string soup
+console.log(JSON.stringify({
+  level: 'error',
+  msg: 'payment_failed',
+  orderId: 'ord_123',
+  code: 'CARD_DECLINED',
+}));
+```
+
+Include correlation IDs so one user action can be found across services.
+
+## Starter metrics
+
+- Request rate, error rate, latency percentiles (RED method)
+- Saturation (CPU, queue depth) for capacity
+
+OpenTelemetry provides vendor-neutral instrumentation concepts used widely in industry.
+
+## Common mistakes
+
+- Logging secrets (tokens, passwords, card data)
+- Unbounded debug logs that cost more than the product
+- Metrics without labels that distinguish endpoints
+
+## Interview angle
+
+<Callout type="interview">
+  A spike in p99 latency hit one endpoint. How do you use metrics vs traces vs logs to find the culprit?
+</Callout>
+
+## Sources
+
+`OPENTELEMETRY-DOCS`, `PROMETHEUS-DOCS`.

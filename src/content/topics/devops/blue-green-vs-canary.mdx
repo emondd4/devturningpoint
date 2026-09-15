@@ -1,0 +1,89 @@
+---
+id: DEVOPS-BLUE-GREEN-CANARY
+title: "Blue/Green vs Canary Deployments"
+titleBn: "Blue/Green বনাম Canary ডিপ্লয়মেন্ট"
+description: "Compare progressive delivery strategies: instant cutover vs gradual traffic shifting and rollback tradeoffs."
+descriptionBn: "প্রগ্রেসিভ ডেলিভারি: ইনস্ট্যান্ট কাটওভার বনাম ধাপে ধাপে ট্রাফিক শিফট।"
+track: devops
+difficulty: advanced
+estimatedMinutes: 38
+prerequisites:
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+  - "DEVOPS-KUBERNETES-FUNDAMENTALS"
+unlocks:
+  []
+related:
+  - "DEVOPS-SLO-SLI"
+  - "DEVOPS-INCIDENT-RESPONSE"
+careers:
+  - "devops-engineer"
+  - "fullstack-engineer"
+tags:
+  - "deployments"
+  - "reliability"
+  - "kubernetes"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "K8S-CONCEPTS"
+  - "GOOGLE-SRE-SLO"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why progressive delivery exists
+
+“Stop the world and hope” deploys amplify risk. Blue/green and canary reduce blast radius by controlling **how traffic meets a new version**.
+
+## Mental model
+
+<Callout type="mental-model">
+  Blue/green: two complete environments; flip a router when green is healthy. Canary: send a small % of traffic (or users) to the new version and expand if signals stay green.
+</Callout>
+
+```text
+Blue/green:   users --> LB --100%--> blue(v1)   | green(v2) waiting
+After cutover: users --> LB --100%--> green(v2)
+
+Canary:       users --> LB --95%--> v1
+                           --5% --> v2  (watch error rate / latency)
+```
+
+## When to choose which
+
+- **Blue/green** — Need fast full rollback; schema changes must be carefully dual-compatible; infra cost of two stacks is acceptable.
+- **Canary** — Want real production signal before full exposure; good observability and automated abort rules exist.
+- **Neither alone** — Feature flags can decouple *code deploy* from *feature exposure*.
+
+## Common mistakes
+
+- **Canary without metrics** — You are gambling slowly.
+- **Incompatible DB migrations** — Neither strategy saves a one-way destructive migration.
+- **Manual “looks fine” gates** — Prefer SLO-based auto-rollback.
+
+## Interview angle
+
+<Callout type="interview">
+  When would you pick blue/green over canary for a NestJS API behind a load balancer?
+</Callout>
+
+## Practice checklist
+
+- [ ] Draw both patterns for your current app.
+- [ ] List three metrics that would abort a canary.
+- [ ] Identify one migration that breaks progressive delivery.
+
+## Sources
+
+- `K8S-CONCEPTS`
+- `GOOGLE-SRE-SLO`
+

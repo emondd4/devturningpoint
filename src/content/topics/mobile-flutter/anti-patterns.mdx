@@ -1,0 +1,98 @@
+---
+id: FLUTTER-ANTI-PATTERNS
+title: "Flutter Anti-Patterns"
+titleBn: "Flutter অ্যান্টি-প্যাটার্ন"
+description: "Recognize rebuild abuse, god widgets, blocking isolates, and state sprawl before they become production incidents."
+descriptionBn: "রিবিল্ড অ্যাবিউজ, গড উইজেট ও স্টেট স্প্রল চিনুন।"
+track: mobile-flutter
+category: flutter
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "FLUTTER-STATE-MANAGEMENT"
+  - "FLUTTER-RENDERING-REBUILDS"
+unlocks: []
+related:
+  - "FLUTTER-ARCHITECTURE-PATTERNS"
+  - "FLUTTER-DART-ISOLATES"
+  - "FLUTTER-PERFORMANCE-DEVTOOLS"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "anti-patterns"
+  - "quality"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-PERF"
+  - "FLUTTER-STATE"
+  - "FLUTTER-ARCH-OVERVIEW"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why anti-patterns cost real users
+
+Janky lists, untestable widgets, and mysterious setState loops come from a small set of recurring mistakes. Naming them makes code review faster.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prefer small widgets, localized rebuilds, async-safe context, typed models, and clear state ownership. Profile before micro-optimizing.
+</Callout>
+
+## How
+
+### Anti-pattern → better shape
+
+```dart
+// Anti-pattern: setState at root for every keystroke in a huge tree
+// Better: TextField local state or a selective provider
+
+// Anti-pattern: jsonDecode(huge) in build()
+// Better: parse in repository / Isolate.run, cache model
+
+Widget build(BuildContext context) {
+  // Do not start network calls directly in build without caching strategy
+  return const SizedBox.shrink();
+}
+```
+
+## Common mistakes
+
+- **Business logic inside build methods**
+- **Ignoring const constructors where possible**
+- **Giant Build methods (500+ lines)**
+
+## Interview angle
+
+<Callout type="interview">
+  Name three Flutter anti-patterns you have seen and how you would detect them in code review.
+</Callout>
+
+## Practice checklist
+
+- [ ] Find one god widget and split it.
+- [ ] Remove a network call from build.
+- [ ] Profile a list jank suspect.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-PERF`
+- `FLUTTER-STATE`
+- `FLUTTER-ARCH-OVERVIEW`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

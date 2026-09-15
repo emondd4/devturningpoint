@@ -1,0 +1,90 @@
+---
+id: FRONTEND-REACT-RECONCILIATION
+title: "React Reconciliation Basics"
+titleBn: "React Reconciliation বেসিকস"
+description: "How React compares trees between renders and decides what to reuse or replace."
+descriptionBn: "Render-এর মধ্যে React কীভাবে ট্রি তুলনা করে reuse/replace সিদ্ধান্ত নেয়।"
+track: frontend
+category: react-internals
+difficulty: intermediate
+estimatedMinutes: 45
+prerequisites:
+  - FRONTEND-REACT-RENDER-VS-COMMIT
+unlocks:
+  - FRONTEND-REACT-KEYS-IDENTITY
+related:
+  - FRONTEND-REACT-MEMOIZATION
+careers:
+  - frontend-engineer
+  - fullstack-engineer
+tags:
+  - react
+  - rendering
+status: published
+translationStatus: partial
+applicableVersions:
+  react: "19.x — verify against react.dev"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - REACT-RENDER-COMMIT
+  - REACT-STATE-PRESERVE
+  - REACT-DOCS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+<Callout type="info" title="Translation status">
+  Body is English for V1; Bangla title/description provided.
+</Callout>
+
+## What is this?
+
+**Reconciliation** is React’s process of comparing the previous UI tree with the next one and deciding which host instances (DOM nodes) can be reused.
+
+You do not call “reconcile()” yourself—it is the engine behind efficient updates.
+
+## Why it exists
+
+Naively destroying and recreating the entire DOM on every state change would be slow and would lose focus, selection, and input state. Reconciliation preserves identity where possible.
+
+## Mental model
+
+<Callout type="mental-model">
+  Same position + same component type ⇒ React tends to reuse the underlying state/DOM. Different type ⇒ tear down and recreate. Keys adjust “which child is which” among siblings.
+</Callout>
+
+## Practical consequences
+
+```tsx
+function Profile({ user }: { user: { name: string } }) {
+  return (
+    <section>
+      <h1>{user.name}</h1>
+      <input placeholder="Notes about this user" />
+    </section>
+  );
+}
+```
+
+If the parent re-renders `Profile` with a different `user.name` but keeps the same component type in the same place, the `input` can keep its typed text—React reused the DOM node.
+
+If you switch from `Profile` to `AdminPanel` at that position, React resets that subtree.
+
+## When NOT to overthink it
+
+Do not invent custom “diff algorithms” in app code. Prefer correct state modeling and keys. Memoization is an opt-in performance tool after measurement.
+
+## Interview angles
+
+**Mid:** What does reconciliation try to preserve?  
+**Senior:** How do keys interact with reconciliation for dynamic lists?
+
+## Sources
+
+- React: Render and Commit (`REACT-RENDER-COMMIT`)
+- React: Preserving and Resetting State (`REACT-STATE-PRESERVE`)
+

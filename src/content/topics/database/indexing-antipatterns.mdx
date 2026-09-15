@@ -1,0 +1,91 @@
+---
+id: DATABASE-INDEXING-ANTIPATTERNS
+title: "Indexing Anti-Patterns"
+titleBn: "ইনডেক্সিং অ্যান্টি-প্যাটার্ন"
+description: "Low-selectivity indexes, function-wrapped columns, over-indexing, and other ways indexes hurt more than help."
+descriptionBn: "লো-সিলেক্টিভিটি ইনডেক্স, ফাংশন-র‌্যাপড কলাম, ওভার-ইনডেক্সিং—ইনডেক্স যেভাবে সাহায্যের চেয়ে ক্ষতি করে।"
+track: database
+difficulty: advanced
+estimatedMinutes: 36
+prerequisites:
+  - "DATABASE-POSTGRES-EXPLAIN"
+  - "DATABASE-POSTGRESQL-INDEXING"
+unlocks: []
+related:
+  - "DATABASE-SQL-WINDOW-FUNCTIONS"
+careers:
+  - "backend-engineer"
+  - "database-engineer"
+tags:
+  - "postgresql"
+  - "indexing"
+  - "antipatterns"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTGRES-INDEXES"
+  - "POSTGRES-EXPLAIN"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why more indexes are not more performance
+
+Every index speeds some reads and slows writes. Anti-patterns create write amplification, unused indexes, and planners that still seq-scan.
+
+## Mental model
+
+<Callout type="mental-model">
+  Index predicates the planner can match. Wrapping columns in functions, leading wildcards, or OR-tangled filters often defeats B-trees. Measure with EXPLAIN ANALYZE and `pg_stat_user_indexes`.
+</Callout>
+
+```sql
+-- Anti-pattern: function on column prevents plain B-tree use
+-- WHERE lower(email) = 'a@b.com'  without expression index
+
+-- Better: expression index if needed
+CREATE INDEX users_email_lower_idx ON users (lower(email));
+
+-- Anti-pattern: low-selectivity boolean alone on huge tables
+-- CREATE INDEX users_active_idx ON users (is_active);
+```
+
+Drop unused indexes; prefer composite indexes matching filter + sort order.
+
+## Common mistakes
+
+- **Indexing every foreign key blindly** — Sometimes useful, not always free.
+- **Duplicate overlapping indexes** — Redundant maintenance.
+- **Creating indexes CONCURRENTLY without monitoring** — Still consumes resources.
+
+## Interview angle
+
+<Callout type="interview">
+  Name three indexing anti-patterns and how you would detect them in production.
+</Callout>
+
+## Practice checklist
+
+- [ ] Find unused indexes via stats views.
+- [ ] Fix one function-wrapped filter with an expression index.
+- [ ] Remove a redundant index in a staging clone and compare write latency.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-INDEXES`
+- `POSTGRES-EXPLAIN`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

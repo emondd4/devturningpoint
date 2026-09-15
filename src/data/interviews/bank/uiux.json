@@ -1,0 +1,3258 @@
+[
+  {
+    "id": "UX-B-0001",
+    "level": "Beginner",
+    "category": "AI Design",
+    "topic": "AI-assisted design",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using AI-assisted design correctly?"
+  },
+  {
+    "id": "UX-B-0002",
+    "level": "Beginner",
+    "category": "AI Design",
+    "topic": "AI-assisted design",
+    "questionType": "Definition",
+    "question": "What is AI-assisted design, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0003",
+    "level": "Beginner",
+    "category": "Accessibility",
+    "topic": "WCAG",
+    "questionType": "Definition",
+    "question": "What is WCAG, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0004",
+    "level": "Beginner",
+    "category": "Accessibility",
+    "topic": "keyboard accessibility",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using keyboard accessibility correctly?"
+  },
+  {
+    "id": "UX-B-0005",
+    "level": "Beginner",
+    "category": "Accessibility",
+    "topic": "keyboard accessibility",
+    "questionType": "Definition",
+    "question": "What is keyboard accessibility, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0006",
+    "level": "Beginner",
+    "category": "Accessibility",
+    "topic": "target size",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using target size correctly?"
+  },
+  {
+    "id": "UX-B-0007",
+    "level": "Beginner",
+    "category": "Accessibility",
+    "topic": "target size",
+    "questionType": "Definition",
+    "question": "What is target size, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0008",
+    "level": "Beginner",
+    "category": "Analytics",
+    "topic": "funnel analysis",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using funnel analysis correctly?"
+  },
+  {
+    "id": "UX-B-0009",
+    "level": "Beginner",
+    "category": "Analytics",
+    "topic": "funnel analysis",
+    "questionType": "Definition",
+    "question": "What is funnel analysis, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0010",
+    "level": "Beginner",
+    "category": "Analytics",
+    "topic": "product metric",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using product metric correctly?"
+  },
+  {
+    "id": "UX-B-0011",
+    "level": "Beginner",
+    "category": "Analytics",
+    "topic": "product metric",
+    "questionType": "Definition",
+    "question": "What is product metric, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0012",
+    "level": "Beginner",
+    "category": "Collaboration",
+    "topic": "designer-PM collaboration",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using designer-PM collaboration correctly?"
+  },
+  {
+    "id": "UX-B-0013",
+    "level": "Beginner",
+    "category": "Collaboration",
+    "topic": "designer-PM collaboration",
+    "questionType": "Definition",
+    "question": "What is designer-PM collaboration, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0014",
+    "level": "Beginner",
+    "category": "Collaboration",
+    "topic": "designer-engineer handoff",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using designer-engineer handoff correctly?"
+  },
+  {
+    "id": "UX-B-0015",
+    "level": "Beginner",
+    "category": "Collaboration",
+    "topic": "designer-engineer handoff",
+    "questionType": "Definition",
+    "question": "What is designer-engineer handoff, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0016",
+    "level": "Beginner",
+    "category": "Content",
+    "topic": "UX writing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using UX writing correctly?"
+  },
+  {
+    "id": "UX-B-0017",
+    "level": "Beginner",
+    "category": "Content",
+    "topic": "UX writing",
+    "questionType": "Definition",
+    "question": "What is UX writing, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0018",
+    "level": "Beginner",
+    "category": "Critique",
+    "topic": "design critique",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using design critique correctly?"
+  },
+  {
+    "id": "UX-B-0019",
+    "level": "Beginner",
+    "category": "Critique",
+    "topic": "design critique",
+    "questionType": "Definition",
+    "question": "What is design critique, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0020",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain visual hierarchy."
+  },
+  {
+    "id": "UX-B-0021",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do typography, spacing, alignment, and color affect usability?"
+  },
+  {
+    "id": "UX-B-0022",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you handle design feedback?"
+  },
+  {
+    "id": "UX-B-0023",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you know whether a design was successful?"
+  },
+  {
+    "id": "UX-B-0024",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Walk me through one project in your portfolio."
+  },
+  {
+    "id": "UX-B-0025",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Walk me through your design process from problem to validation."
+  },
+  {
+    "id": "UX-B-0026",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are components and variants in Figma?"
+  },
+  {
+    "id": "UX-B-0027",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What are design systems?"
+  },
+  {
+    "id": "UX-B-0028",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What design decision in your portfolio are you most proud of, and why?"
+  },
+  {
+    "id": "UX-B-0029",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is Auto Layout, and why is it useful?"
+  },
+  {
+    "id": "UX-B-0030",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is a user flow?"
+  },
+  {
+    "id": "UX-B-0031",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is contrast, and why does accessibility matter in visual design?"
+  },
+  {
+    "id": "UX-B-0032",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is information architecture?"
+  },
+  {
+    "id": "UX-B-0033",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is responsive design from a designer's perspective?"
+  },
+  {
+    "id": "UX-B-0034",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between UI design and UX design?"
+  },
+  {
+    "id": "UX-B-0035",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between a user need, business goal, and feature request?"
+  },
+  {
+    "id": "UX-B-0036",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between a wireframe, mockup, and prototype?"
+  },
+  {
+    "id": "UX-B-0037",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is the difference between qualitative and quantitative research?"
+  },
+  {
+    "id": "UX-B-0038",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is usability testing?"
+  },
+  {
+    "id": "UX-B-0039",
+    "level": "Beginner",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "What is user-centered design?"
+  },
+  {
+    "id": "UX-B-0040",
+    "level": "Beginner",
+    "category": "Design Systems",
+    "topic": "component library",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using component library correctly?"
+  },
+  {
+    "id": "UX-B-0041",
+    "level": "Beginner",
+    "category": "Design Systems",
+    "topic": "component library",
+    "questionType": "Definition",
+    "question": "What is component library, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0042",
+    "level": "Beginner",
+    "category": "Design Systems",
+    "topic": "design token",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using design token correctly?"
+  },
+  {
+    "id": "UX-B-0043",
+    "level": "Beginner",
+    "category": "Design Systems",
+    "topic": "design token",
+    "questionType": "Definition",
+    "question": "What is design token, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0044",
+    "level": "Beginner",
+    "category": "Design Systems",
+    "topic": "governance",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using governance correctly?"
+  },
+  {
+    "id": "UX-B-0045",
+    "level": "Beginner",
+    "category": "Design Systems",
+    "topic": "governance",
+    "questionType": "Definition",
+    "question": "What is governance, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0046",
+    "level": "Beginner",
+    "category": "Ethics",
+    "topic": "dark pattern",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using dark pattern correctly?"
+  },
+  {
+    "id": "UX-B-0047",
+    "level": "Beginner",
+    "category": "Ethics",
+    "topic": "dark pattern",
+    "questionType": "Definition",
+    "question": "What is dark pattern, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0048",
+    "level": "Beginner",
+    "category": "Experiment",
+    "topic": "A/B test",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using A/B test correctly?"
+  },
+  {
+    "id": "UX-B-0049",
+    "level": "Beginner",
+    "category": "Experiment",
+    "topic": "A/B test",
+    "questionType": "Definition",
+    "question": "What is A/B test, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0050",
+    "level": "Beginner",
+    "category": "Figma",
+    "topic": "Auto Layout",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Auto Layout correctly?"
+  },
+  {
+    "id": "UX-B-0051",
+    "level": "Beginner",
+    "category": "Figma",
+    "topic": "Auto Layout",
+    "questionType": "Definition",
+    "question": "What is Auto Layout, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0052",
+    "level": "Beginner",
+    "category": "Figma",
+    "topic": "component",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using component correctly?"
+  },
+  {
+    "id": "UX-B-0053",
+    "level": "Beginner",
+    "category": "Figma",
+    "topic": "component",
+    "questionType": "Definition",
+    "question": "What is component, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0054",
+    "level": "Beginner",
+    "category": "Figma",
+    "topic": "prototype",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using prototype correctly?"
+  },
+  {
+    "id": "UX-B-0055",
+    "level": "Beginner",
+    "category": "Figma",
+    "topic": "prototype",
+    "questionType": "Definition",
+    "question": "What is prototype, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0056",
+    "level": "Beginner",
+    "category": "Figma",
+    "topic": "variables",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using variables correctly?"
+  },
+  {
+    "id": "UX-B-0057",
+    "level": "Beginner",
+    "category": "Figma",
+    "topic": "variables",
+    "questionType": "Definition",
+    "question": "What is variables, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0058",
+    "level": "Beginner",
+    "category": "Figma",
+    "topic": "variant",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using variant correctly?"
+  },
+  {
+    "id": "UX-B-0059",
+    "level": "Beginner",
+    "category": "Figma",
+    "topic": "variant",
+    "questionType": "Definition",
+    "question": "What is variant, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0060",
+    "level": "Beginner",
+    "category": "Flow",
+    "topic": "customer journey map",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using customer journey map correctly?"
+  },
+  {
+    "id": "UX-B-0061",
+    "level": "Beginner",
+    "category": "Flow",
+    "topic": "customer journey map",
+    "questionType": "Definition",
+    "question": "What is customer journey map, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0062",
+    "level": "Beginner",
+    "category": "Flow",
+    "topic": "user flow",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using user flow correctly?"
+  },
+  {
+    "id": "UX-B-0063",
+    "level": "Beginner",
+    "category": "Flow",
+    "topic": "user flow",
+    "questionType": "Definition",
+    "question": "What is user flow, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0064",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "UI design",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using UI design correctly?"
+  },
+  {
+    "id": "UX-B-0065",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "UI design",
+    "questionType": "Definition",
+    "question": "What is UI design, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0066",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "user-centered design",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using user-centered design correctly?"
+  },
+  {
+    "id": "UX-B-0067",
+    "level": "Beginner",
+    "category": "Fundamentals",
+    "topic": "user-centered design",
+    "questionType": "Definition",
+    "question": "What is user-centered design, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0068",
+    "level": "Beginner",
+    "category": "Handoff",
+    "topic": "developer handoff",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using developer handoff correctly?"
+  },
+  {
+    "id": "UX-B-0069",
+    "level": "Beginner",
+    "category": "Handoff",
+    "topic": "developer handoff",
+    "questionType": "Definition",
+    "question": "What is developer handoff, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0070",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the difference between a user need, a product requirement, and a design solution?"
+  },
+  {
+    "id": "UX-B-0071",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What is the purpose of a wireframe compared with a high-fidelity mockup?"
+  },
+  {
+    "id": "UX-B-0072",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What makes a design accessible beyond passing a color-contrast checker?"
+  },
+  {
+    "id": "UX-B-0073",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "What should a UX case study explain besides the final screens?"
+  },
+  {
+    "id": "UX-B-0074",
+    "level": "Beginner",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Conceptual",
+    "question": "Why is visual consistency useful, and when can consistency itself become harmful?"
+  },
+  {
+    "id": "UX-B-0075",
+    "level": "Beginner",
+    "category": "IA",
+    "topic": "card sorting",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using card sorting correctly?"
+  },
+  {
+    "id": "UX-B-0076",
+    "level": "Beginner",
+    "category": "IA",
+    "topic": "card sorting",
+    "questionType": "Definition",
+    "question": "What is card sorting, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0077",
+    "level": "Beginner",
+    "category": "IA",
+    "topic": "information architecture",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using information architecture correctly?"
+  },
+  {
+    "id": "UX-B-0078",
+    "level": "Beginner",
+    "category": "IA",
+    "topic": "information architecture",
+    "questionType": "Definition",
+    "question": "What is information architecture, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0079",
+    "level": "Beginner",
+    "category": "Interaction",
+    "topic": "error prevention",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using error prevention correctly?"
+  },
+  {
+    "id": "UX-B-0080",
+    "level": "Beginner",
+    "category": "Interaction",
+    "topic": "error prevention",
+    "questionType": "Definition",
+    "question": "What is error prevention, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0081",
+    "level": "Beginner",
+    "category": "Interaction",
+    "topic": "feedback and system status",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using feedback and system status correctly?"
+  },
+  {
+    "id": "UX-B-0082",
+    "level": "Beginner",
+    "category": "Interaction",
+    "topic": "feedback and system status",
+    "questionType": "Definition",
+    "question": "What is feedback and system status, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0083",
+    "level": "Beginner",
+    "category": "Interaction",
+    "topic": "interaction design",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using interaction design correctly?"
+  },
+  {
+    "id": "UX-B-0084",
+    "level": "Beginner",
+    "category": "Interaction",
+    "topic": "interaction design",
+    "questionType": "Definition",
+    "question": "What is interaction design, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0085",
+    "level": "Beginner",
+    "category": "Mobile UX",
+    "topic": "gesture",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using gesture correctly?"
+  },
+  {
+    "id": "UX-B-0086",
+    "level": "Beginner",
+    "category": "Mobile UX",
+    "topic": "gesture",
+    "questionType": "Definition",
+    "question": "What is gesture, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0087",
+    "level": "Beginner",
+    "category": "Mobile UX",
+    "topic": "touch target",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using touch target correctly?"
+  },
+  {
+    "id": "UX-B-0088",
+    "level": "Beginner",
+    "category": "Mobile UX",
+    "topic": "touch target",
+    "questionType": "Definition",
+    "question": "What is touch target, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0089",
+    "level": "Beginner",
+    "category": "Portfolio",
+    "topic": "case study",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using case study correctly?"
+  },
+  {
+    "id": "UX-B-0090",
+    "level": "Beginner",
+    "category": "Portfolio",
+    "topic": "case study",
+    "questionType": "Definition",
+    "question": "What is case study, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0091",
+    "level": "Beginner",
+    "category": "Portfolio",
+    "topic": "design rationale",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using design rationale correctly?"
+  },
+  {
+    "id": "UX-B-0092",
+    "level": "Beginner",
+    "category": "Portfolio",
+    "topic": "design rationale",
+    "questionType": "Definition",
+    "question": "What is design rationale, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0093",
+    "level": "Beginner",
+    "category": "Product",
+    "topic": "product thinking",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using product thinking correctly?"
+  },
+  {
+    "id": "UX-B-0094",
+    "level": "Beginner",
+    "category": "Product",
+    "topic": "product thinking",
+    "questionType": "Definition",
+    "question": "What is product thinking, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0095",
+    "level": "Beginner",
+    "category": "Product",
+    "topic": "user outcome",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using user outcome correctly?"
+  },
+  {
+    "id": "UX-B-0096",
+    "level": "Beginner",
+    "category": "Product",
+    "topic": "user outcome",
+    "questionType": "Definition",
+    "question": "What is user outcome, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0097",
+    "level": "Beginner",
+    "category": "Research",
+    "topic": "contextual inquiry",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using contextual inquiry correctly?"
+  },
+  {
+    "id": "UX-B-0098",
+    "level": "Beginner",
+    "category": "Research",
+    "topic": "contextual inquiry",
+    "questionType": "Definition",
+    "question": "What is contextual inquiry, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0099",
+    "level": "Beginner",
+    "category": "Research",
+    "topic": "qualitative research",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using qualitative research correctly?"
+  },
+  {
+    "id": "UX-B-0100",
+    "level": "Beginner",
+    "category": "Research",
+    "topic": "qualitative research",
+    "questionType": "Definition",
+    "question": "What is qualitative research, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0101",
+    "level": "Beginner",
+    "category": "Research",
+    "topic": "research bias",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using research bias correctly?"
+  },
+  {
+    "id": "UX-B-0102",
+    "level": "Beginner",
+    "category": "Research",
+    "topic": "research bias",
+    "questionType": "Definition",
+    "question": "What is research bias, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0103",
+    "level": "Beginner",
+    "category": "Research",
+    "topic": "research plan",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using research plan correctly?"
+  },
+  {
+    "id": "UX-B-0104",
+    "level": "Beginner",
+    "category": "Research",
+    "topic": "research plan",
+    "questionType": "Definition",
+    "question": "What is research plan, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0105",
+    "level": "Beginner",
+    "category": "Research",
+    "topic": "user interview",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using user interview correctly?"
+  },
+  {
+    "id": "UX-B-0106",
+    "level": "Beginner",
+    "category": "Research",
+    "topic": "user interview",
+    "questionType": "Definition",
+    "question": "What is user interview, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0107",
+    "level": "Beginner",
+    "category": "Responsive",
+    "topic": "responsive design",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using responsive design correctly?"
+  },
+  {
+    "id": "UX-B-0108",
+    "level": "Beginner",
+    "category": "Responsive",
+    "topic": "responsive design",
+    "questionType": "Definition",
+    "question": "What is responsive design, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0109",
+    "level": "Beginner",
+    "category": "Synthesis",
+    "topic": "Jobs To Be Done",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using Jobs To Be Done correctly?"
+  },
+  {
+    "id": "UX-B-0110",
+    "level": "Beginner",
+    "category": "Synthesis",
+    "topic": "Jobs To Be Done",
+    "questionType": "Definition",
+    "question": "What is Jobs To Be Done, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0111",
+    "level": "Beginner",
+    "category": "Synthesis",
+    "topic": "affinity mapping",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using affinity mapping correctly?"
+  },
+  {
+    "id": "UX-B-0112",
+    "level": "Beginner",
+    "category": "Synthesis",
+    "topic": "affinity mapping",
+    "questionType": "Definition",
+    "question": "What is affinity mapping, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0113",
+    "level": "Beginner",
+    "category": "Synthesis",
+    "topic": "persona",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using persona correctly?"
+  },
+  {
+    "id": "UX-B-0114",
+    "level": "Beginner",
+    "category": "Synthesis",
+    "topic": "persona",
+    "questionType": "Definition",
+    "question": "What is persona, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0115",
+    "level": "Beginner",
+    "category": "Usability",
+    "topic": "moderated test",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using moderated test correctly?"
+  },
+  {
+    "id": "UX-B-0116",
+    "level": "Beginner",
+    "category": "Usability",
+    "topic": "moderated test",
+    "questionType": "Definition",
+    "question": "What is moderated test, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0117",
+    "level": "Beginner",
+    "category": "Usability",
+    "topic": "task success",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using task success correctly?"
+  },
+  {
+    "id": "UX-B-0118",
+    "level": "Beginner",
+    "category": "Usability",
+    "topic": "task success",
+    "questionType": "Definition",
+    "question": "What is task success, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0119",
+    "level": "Beginner",
+    "category": "Usability",
+    "topic": "usability heuristic",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using usability heuristic correctly?"
+  },
+  {
+    "id": "UX-B-0120",
+    "level": "Beginner",
+    "category": "Usability",
+    "topic": "usability heuristic",
+    "questionType": "Definition",
+    "question": "What is usability heuristic, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0121",
+    "level": "Beginner",
+    "category": "Usability",
+    "topic": "usability testing",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using usability testing correctly?"
+  },
+  {
+    "id": "UX-B-0122",
+    "level": "Beginner",
+    "category": "Usability",
+    "topic": "usability testing",
+    "questionType": "Definition",
+    "question": "What is usability testing, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0123",
+    "level": "Beginner",
+    "category": "Visual",
+    "topic": "color contrast",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using color contrast correctly?"
+  },
+  {
+    "id": "UX-B-0124",
+    "level": "Beginner",
+    "category": "Visual",
+    "topic": "color contrast",
+    "questionType": "Definition",
+    "question": "What is color contrast, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0125",
+    "level": "Beginner",
+    "category": "Visual",
+    "topic": "grid system",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using grid system correctly?"
+  },
+  {
+    "id": "UX-B-0126",
+    "level": "Beginner",
+    "category": "Visual",
+    "topic": "grid system",
+    "questionType": "Definition",
+    "question": "What is grid system, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0127",
+    "level": "Beginner",
+    "category": "Visual",
+    "topic": "spacing system",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using spacing system correctly?"
+  },
+  {
+    "id": "UX-B-0128",
+    "level": "Beginner",
+    "category": "Visual",
+    "topic": "spacing system",
+    "questionType": "Definition",
+    "question": "What is spacing system, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0129",
+    "level": "Beginner",
+    "category": "Visual",
+    "topic": "typography hierarchy",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using typography hierarchy correctly?"
+  },
+  {
+    "id": "UX-B-0130",
+    "level": "Beginner",
+    "category": "Visual",
+    "topic": "typography hierarchy",
+    "questionType": "Definition",
+    "question": "What is typography hierarchy, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0131",
+    "level": "Beginner",
+    "category": "Visual",
+    "topic": "visual hierarchy",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using visual hierarchy correctly?"
+  },
+  {
+    "id": "UX-B-0132",
+    "level": "Beginner",
+    "category": "Visual",
+    "topic": "visual hierarchy",
+    "questionType": "Definition",
+    "question": "What is visual hierarchy, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0133",
+    "level": "Beginner",
+    "category": "Whiteboard",
+    "topic": "whiteboard challenge",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using whiteboard challenge correctly?"
+  },
+  {
+    "id": "UX-B-0134",
+    "level": "Beginner",
+    "category": "Whiteboard",
+    "topic": "whiteboard challenge",
+    "questionType": "Definition",
+    "question": "What is whiteboard challenge, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-B-0135",
+    "level": "Beginner",
+    "category": "Wireframing",
+    "topic": "low-fidelity wireframe",
+    "questionType": "Fundamentals",
+    "question": "What are the key concepts, components, or rules you must understand before using low-fidelity wireframe correctly?"
+  },
+  {
+    "id": "UX-B-0136",
+    "level": "Beginner",
+    "category": "Wireframing",
+    "topic": "low-fidelity wireframe",
+    "questionType": "Definition",
+    "question": "What is low-fidelity wireframe, and what problem does it solve in UI/UX and product design?"
+  },
+  {
+    "id": "UX-I-0001",
+    "level": "Intermediate",
+    "category": "AI Design",
+    "topic": "AI-assisted design",
+    "questionType": "Compare",
+    "question": "Compare AI-assisted design with fully automated design. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0002",
+    "level": "Intermediate",
+    "category": "AI Design",
+    "topic": "AI-assisted design",
+    "questionType": "Mechanics",
+    "question": "Walk through how AI-assisted design works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0003",
+    "level": "Intermediate",
+    "category": "Accessibility",
+    "topic": "WCAG",
+    "questionType": "Compare",
+    "question": "Compare WCAG with visual accessibility only. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0004",
+    "level": "Intermediate",
+    "category": "Accessibility",
+    "topic": "keyboard accessibility",
+    "questionType": "Compare",
+    "question": "Compare keyboard accessibility with pointer interaction. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0005",
+    "level": "Intermediate",
+    "category": "Accessibility",
+    "topic": "keyboard accessibility",
+    "questionType": "Mechanics",
+    "question": "Walk through how keyboard accessibility works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0006",
+    "level": "Intermediate",
+    "category": "Accessibility",
+    "topic": "target size",
+    "questionType": "Compare",
+    "question": "Compare target size with visual size. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0007",
+    "level": "Intermediate",
+    "category": "Accessibility",
+    "topic": "target size",
+    "questionType": "Mechanics",
+    "question": "Walk through how target size works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0008",
+    "level": "Intermediate",
+    "category": "Analytics",
+    "topic": "funnel analysis",
+    "questionType": "Compare",
+    "question": "Compare funnel analysis with usability testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0009",
+    "level": "Intermediate",
+    "category": "Analytics",
+    "topic": "funnel analysis",
+    "questionType": "Mechanics",
+    "question": "Walk through how funnel analysis works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0010",
+    "level": "Intermediate",
+    "category": "Analytics",
+    "topic": "product metric",
+    "questionType": "Compare",
+    "question": "Compare product metric with vanity metric. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0011",
+    "level": "Intermediate",
+    "category": "Analytics",
+    "topic": "product metric",
+    "questionType": "Mechanics",
+    "question": "Walk through how product metric works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0012",
+    "level": "Intermediate",
+    "category": "Collaboration",
+    "topic": "designer-PM collaboration",
+    "questionType": "Compare",
+    "question": "Compare designer-PM collaboration with design in isolation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0013",
+    "level": "Intermediate",
+    "category": "Collaboration",
+    "topic": "designer-PM collaboration",
+    "questionType": "Mechanics",
+    "question": "Walk through how designer-PM collaboration works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0014",
+    "level": "Intermediate",
+    "category": "Collaboration",
+    "topic": "designer-engineer handoff",
+    "questionType": "Compare",
+    "question": "Compare designer-engineer handoff with late-stage specification. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0015",
+    "level": "Intermediate",
+    "category": "Collaboration",
+    "topic": "designer-engineer handoff",
+    "questionType": "Mechanics",
+    "question": "Walk through how designer-engineer handoff works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0016",
+    "level": "Intermediate",
+    "category": "Content",
+    "topic": "UX writing",
+    "questionType": "Compare",
+    "question": "Compare UX writing with marketing copy. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0017",
+    "level": "Intermediate",
+    "category": "Content",
+    "topic": "UX writing",
+    "questionType": "Mechanics",
+    "question": "Walk through how UX writing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0018",
+    "level": "Intermediate",
+    "category": "Critique",
+    "topic": "design critique",
+    "questionType": "Compare",
+    "question": "Compare design critique with personal taste. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0019",
+    "level": "Intermediate",
+    "category": "Critique",
+    "topic": "design critique",
+    "questionType": "Mechanics",
+    "question": "Walk through how design critique works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0020",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Critique a familiar application's onboarding or checkout flow by identifying user goals, friction, accessibility issues, trade-offs, and validation ideas."
+  },
+  {
+    "id": "UX-I-0021",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "During a whiteboard challenge, how do you scope the problem before drawing screens?"
+  },
+  {
+    "id": "UX-I-0022",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Engineering says your preferred interaction is too expensive. How do you negotiate the trade-off?"
+  },
+  {
+    "id": "UX-I-0023",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain WCAG principles and how they influence product design decisions."
+  },
+  {
+    "id": "UX-I-0024",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain design tokens and how they connect design and engineering."
+  },
+  {
+    "id": "UX-I-0025",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Explain recognition versus recall and give UI examples."
+  },
+  {
+    "id": "UX-I-0026",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do Jobs-to-be-Done and traditional personas differ?"
+  },
+  {
+    "id": "UX-I-0027",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you choose among interviews, surveys, contextual inquiry, diary studies, and usability testing?"
+  },
+  {
+    "id": "UX-I-0028",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you decide what belongs in a design system versus a local product pattern?"
+  },
+  {
+    "id": "UX-I-0029",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you design for keyboard, screen-reader, low-vision, motor, and cognitive accessibility?"
+  },
+  {
+    "id": "UX-I-0030",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you distinguish correlation from evidence that a design caused a metric change?"
+  },
+  {
+    "id": "UX-I-0031",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you prevent error rather than merely displaying better error messages?"
+  },
+  {
+    "id": "UX-I-0032",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you structure a Figma component library so it remains usable as the product scales?"
+  },
+  {
+    "id": "UX-I-0033",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you turn a vague stakeholder request into a researchable design problem?"
+  },
+  {
+    "id": "UX-I-0034",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you conduct a useful design critique without turning it into taste-based debate?"
+  },
+  {
+    "id": "UX-I-0035",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you design an accessible form including labels, instructions, validation, focus, and error recovery?"
+  },
+  {
+    "id": "UX-I-0036",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you organize navigation for a complex product with several user types?"
+  },
+  {
+    "id": "UX-I-0037",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you test a redesign and choose meaningful success metrics?"
+  },
+  {
+    "id": "UX-I-0038",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "When are personas useful, and when can they become misleading artifacts?"
+  },
+  {
+    "id": "UX-I-0039",
+    "level": "Intermediate",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Your PM wants to ship a feature before user testing. How do you respond?"
+  },
+  {
+    "id": "UX-I-0040",
+    "level": "Intermediate",
+    "category": "Design Systems",
+    "topic": "component library",
+    "questionType": "Compare",
+    "question": "Compare component library with design system. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0041",
+    "level": "Intermediate",
+    "category": "Design Systems",
+    "topic": "component library",
+    "questionType": "Mechanics",
+    "question": "Walk through how component library works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0042",
+    "level": "Intermediate",
+    "category": "Design Systems",
+    "topic": "design token",
+    "questionType": "Compare",
+    "question": "Compare design token with raw CSS value. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0043",
+    "level": "Intermediate",
+    "category": "Design Systems",
+    "topic": "design token",
+    "questionType": "Mechanics",
+    "question": "Walk through how design token works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0044",
+    "level": "Intermediate",
+    "category": "Design Systems",
+    "topic": "governance",
+    "questionType": "Compare",
+    "question": "Compare governance with one-time handoff. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0045",
+    "level": "Intermediate",
+    "category": "Design Systems",
+    "topic": "governance",
+    "questionType": "Mechanics",
+    "question": "Walk through how governance works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0046",
+    "level": "Intermediate",
+    "category": "Ethics",
+    "topic": "dark pattern",
+    "questionType": "Compare",
+    "question": "Compare dark pattern with persuasive design. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0047",
+    "level": "Intermediate",
+    "category": "Ethics",
+    "topic": "dark pattern",
+    "questionType": "Mechanics",
+    "question": "Walk through how dark pattern works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0048",
+    "level": "Intermediate",
+    "category": "Experiment",
+    "topic": "A/B test",
+    "questionType": "Compare",
+    "question": "Compare A/B test with usability test. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0049",
+    "level": "Intermediate",
+    "category": "Experiment",
+    "topic": "A/B test",
+    "questionType": "Mechanics",
+    "question": "Walk through how A/B test works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0050",
+    "level": "Intermediate",
+    "category": "Figma",
+    "topic": "Auto Layout",
+    "questionType": "Compare",
+    "question": "Compare Auto Layout with manual positioning. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0051",
+    "level": "Intermediate",
+    "category": "Figma",
+    "topic": "Auto Layout",
+    "questionType": "Mechanics",
+    "question": "Walk through how Auto Layout works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0052",
+    "level": "Intermediate",
+    "category": "Figma",
+    "topic": "component",
+    "questionType": "Compare",
+    "question": "Compare component with instance. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0053",
+    "level": "Intermediate",
+    "category": "Figma",
+    "topic": "component",
+    "questionType": "Mechanics",
+    "question": "Walk through how component works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0054",
+    "level": "Intermediate",
+    "category": "Figma",
+    "topic": "prototype",
+    "questionType": "Compare",
+    "question": "Compare prototype with static mockup. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0055",
+    "level": "Intermediate",
+    "category": "Figma",
+    "topic": "prototype",
+    "questionType": "Mechanics",
+    "question": "Walk through how prototype works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0056",
+    "level": "Intermediate",
+    "category": "Figma",
+    "topic": "variables",
+    "questionType": "Compare",
+    "question": "Compare variables with local styles. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0057",
+    "level": "Intermediate",
+    "category": "Figma",
+    "topic": "variables",
+    "questionType": "Mechanics",
+    "question": "Walk through how variables works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0058",
+    "level": "Intermediate",
+    "category": "Figma",
+    "topic": "variant",
+    "questionType": "Compare",
+    "question": "Compare variant with separate component. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0059",
+    "level": "Intermediate",
+    "category": "Figma",
+    "topic": "variant",
+    "questionType": "Mechanics",
+    "question": "Walk through how variant works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0060",
+    "level": "Intermediate",
+    "category": "Flow",
+    "topic": "customer journey map",
+    "questionType": "Compare",
+    "question": "Compare customer journey map with task flow. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0061",
+    "level": "Intermediate",
+    "category": "Flow",
+    "topic": "customer journey map",
+    "questionType": "Mechanics",
+    "question": "Walk through how customer journey map works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0062",
+    "level": "Intermediate",
+    "category": "Flow",
+    "topic": "user flow",
+    "questionType": "Compare",
+    "question": "Compare user flow with user journey. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0063",
+    "level": "Intermediate",
+    "category": "Flow",
+    "topic": "user flow",
+    "questionType": "Mechanics",
+    "question": "Walk through how user flow works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0064",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "UI design",
+    "questionType": "Compare",
+    "question": "Compare UI design with UX design. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0065",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "UI design",
+    "questionType": "Mechanics",
+    "question": "Walk through how UI design works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0066",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "user-centered design",
+    "questionType": "Compare",
+    "question": "Compare user-centered design with feature-centered design. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0067",
+    "level": "Intermediate",
+    "category": "Fundamentals",
+    "topic": "user-centered design",
+    "questionType": "Mechanics",
+    "question": "Walk through how user-centered design works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0068",
+    "level": "Intermediate",
+    "category": "Handoff",
+    "topic": "developer handoff",
+    "questionType": "Compare",
+    "question": "Compare developer handoff with final screenshot. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0069",
+    "level": "Intermediate",
+    "category": "Handoff",
+    "topic": "developer handoff",
+    "questionType": "Mechanics",
+    "question": "Walk through how developer handoff works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0070",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "A stakeholder asks you to skip research because the deadline is short. How would you reduce research effort without pretending uncertainty disappeared?"
+  },
+  {
+    "id": "UX-I-0071",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How do you distinguish a usability problem from a discoverability problem, a content problem, or the wrong product proposition?"
+  },
+  {
+    "id": "UX-I-0072",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you choose between interviews, surveys, analytics, and usability testing for a product question?"
+  },
+  {
+    "id": "UX-I-0073",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you evolve a Figma component library into a governed design system used consistently by design and engineering?"
+  },
+  {
+    "id": "UX-I-0074",
+    "level": "Intermediate",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you test whether an onboarding redesign actually improved the user experience?"
+  },
+  {
+    "id": "UX-I-0075",
+    "level": "Intermediate",
+    "category": "IA",
+    "topic": "card sorting",
+    "questionType": "Compare",
+    "question": "Compare card sorting with tree testing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0076",
+    "level": "Intermediate",
+    "category": "IA",
+    "topic": "card sorting",
+    "questionType": "Mechanics",
+    "question": "Walk through how card sorting works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0077",
+    "level": "Intermediate",
+    "category": "IA",
+    "topic": "information architecture",
+    "questionType": "Compare",
+    "question": "Compare information architecture with visual layout. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0078",
+    "level": "Intermediate",
+    "category": "IA",
+    "topic": "information architecture",
+    "questionType": "Mechanics",
+    "question": "Walk through how information architecture works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0079",
+    "level": "Intermediate",
+    "category": "Interaction",
+    "topic": "error prevention",
+    "questionType": "Compare",
+    "question": "Compare error prevention with error messages. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0080",
+    "level": "Intermediate",
+    "category": "Interaction",
+    "topic": "error prevention",
+    "questionType": "Mechanics",
+    "question": "Walk through how error prevention works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0081",
+    "level": "Intermediate",
+    "category": "Interaction",
+    "topic": "feedback and system status",
+    "questionType": "Compare",
+    "question": "Compare feedback and system status with silent system. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0082",
+    "level": "Intermediate",
+    "category": "Interaction",
+    "topic": "feedback and system status",
+    "questionType": "Mechanics",
+    "question": "Walk through how feedback and system status works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0083",
+    "level": "Intermediate",
+    "category": "Interaction",
+    "topic": "interaction design",
+    "questionType": "Compare",
+    "question": "Compare interaction design with visual design. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0084",
+    "level": "Intermediate",
+    "category": "Interaction",
+    "topic": "interaction design",
+    "questionType": "Mechanics",
+    "question": "Walk through how interaction design works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0085",
+    "level": "Intermediate",
+    "category": "Mobile UX",
+    "topic": "gesture",
+    "questionType": "Compare",
+    "question": "Compare gesture with visible control. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0086",
+    "level": "Intermediate",
+    "category": "Mobile UX",
+    "topic": "gesture",
+    "questionType": "Mechanics",
+    "question": "Walk through how gesture works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0087",
+    "level": "Intermediate",
+    "category": "Mobile UX",
+    "topic": "touch target",
+    "questionType": "Compare",
+    "question": "Compare touch target with desktop click target. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0088",
+    "level": "Intermediate",
+    "category": "Mobile UX",
+    "topic": "touch target",
+    "questionType": "Mechanics",
+    "question": "Walk through how touch target works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0089",
+    "level": "Intermediate",
+    "category": "Portfolio",
+    "topic": "case study",
+    "questionType": "Compare",
+    "question": "Compare case study with gallery of screens. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0090",
+    "level": "Intermediate",
+    "category": "Portfolio",
+    "topic": "case study",
+    "questionType": "Mechanics",
+    "question": "Walk through how case study works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0091",
+    "level": "Intermediate",
+    "category": "Portfolio",
+    "topic": "design rationale",
+    "questionType": "Compare",
+    "question": "Compare design rationale with final artifact. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0092",
+    "level": "Intermediate",
+    "category": "Portfolio",
+    "topic": "design rationale",
+    "questionType": "Mechanics",
+    "question": "Walk through how design rationale works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0093",
+    "level": "Intermediate",
+    "category": "Product",
+    "topic": "product thinking",
+    "questionType": "Compare",
+    "question": "Compare product thinking with screen design. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0094",
+    "level": "Intermediate",
+    "category": "Product",
+    "topic": "product thinking",
+    "questionType": "Mechanics",
+    "question": "Walk through how product thinking works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0095",
+    "level": "Intermediate",
+    "category": "Product",
+    "topic": "user outcome",
+    "questionType": "Compare",
+    "question": "Compare user outcome with feature output. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0096",
+    "level": "Intermediate",
+    "category": "Product",
+    "topic": "user outcome",
+    "questionType": "Mechanics",
+    "question": "Walk through how user outcome works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0097",
+    "level": "Intermediate",
+    "category": "Research",
+    "topic": "contextual inquiry",
+    "questionType": "Compare",
+    "question": "Compare contextual inquiry with remote interview. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0098",
+    "level": "Intermediate",
+    "category": "Research",
+    "topic": "contextual inquiry",
+    "questionType": "Mechanics",
+    "question": "Walk through how contextual inquiry works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0099",
+    "level": "Intermediate",
+    "category": "Research",
+    "topic": "qualitative research",
+    "questionType": "Compare",
+    "question": "Compare qualitative research with quantitative research. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0100",
+    "level": "Intermediate",
+    "category": "Research",
+    "topic": "qualitative research",
+    "questionType": "Mechanics",
+    "question": "Walk through how qualitative research works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0101",
+    "level": "Intermediate",
+    "category": "Research",
+    "topic": "research bias",
+    "questionType": "Compare",
+    "question": "Compare research bias with objective observation. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0102",
+    "level": "Intermediate",
+    "category": "Research",
+    "topic": "research bias",
+    "questionType": "Mechanics",
+    "question": "Walk through how research bias works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0103",
+    "level": "Intermediate",
+    "category": "Research",
+    "topic": "research plan",
+    "questionType": "Compare",
+    "question": "Compare research plan with ad hoc conversations. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0104",
+    "level": "Intermediate",
+    "category": "Research",
+    "topic": "research plan",
+    "questionType": "Mechanics",
+    "question": "Walk through how research plan works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0105",
+    "level": "Intermediate",
+    "category": "Research",
+    "topic": "user interview",
+    "questionType": "Compare",
+    "question": "Compare user interview with survey. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0106",
+    "level": "Intermediate",
+    "category": "Research",
+    "topic": "user interview",
+    "questionType": "Mechanics",
+    "question": "Walk through how user interview works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0107",
+    "level": "Intermediate",
+    "category": "Responsive",
+    "topic": "responsive design",
+    "questionType": "Compare",
+    "question": "Compare responsive design with adaptive design. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0108",
+    "level": "Intermediate",
+    "category": "Responsive",
+    "topic": "responsive design",
+    "questionType": "Mechanics",
+    "question": "Walk through how responsive design works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0109",
+    "level": "Intermediate",
+    "category": "Synthesis",
+    "topic": "Jobs To Be Done",
+    "questionType": "Compare",
+    "question": "Compare Jobs To Be Done with persona. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0110",
+    "level": "Intermediate",
+    "category": "Synthesis",
+    "topic": "Jobs To Be Done",
+    "questionType": "Mechanics",
+    "question": "Walk through how Jobs To Be Done works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0111",
+    "level": "Intermediate",
+    "category": "Synthesis",
+    "topic": "affinity mapping",
+    "questionType": "Compare",
+    "question": "Compare affinity mapping with raw notes. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0112",
+    "level": "Intermediate",
+    "category": "Synthesis",
+    "topic": "affinity mapping",
+    "questionType": "Mechanics",
+    "question": "Walk through how affinity mapping works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0113",
+    "level": "Intermediate",
+    "category": "Synthesis",
+    "topic": "persona",
+    "questionType": "Compare",
+    "question": "Compare persona with user segment. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0114",
+    "level": "Intermediate",
+    "category": "Synthesis",
+    "topic": "persona",
+    "questionType": "Mechanics",
+    "question": "Walk through how persona works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0115",
+    "level": "Intermediate",
+    "category": "Usability",
+    "topic": "moderated test",
+    "questionType": "Compare",
+    "question": "Compare moderated test with unmoderated test. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0116",
+    "level": "Intermediate",
+    "category": "Usability",
+    "topic": "moderated test",
+    "questionType": "Mechanics",
+    "question": "Walk through how moderated test works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0117",
+    "level": "Intermediate",
+    "category": "Usability",
+    "topic": "task success",
+    "questionType": "Compare",
+    "question": "Compare task success with self-reported satisfaction. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0118",
+    "level": "Intermediate",
+    "category": "Usability",
+    "topic": "task success",
+    "questionType": "Mechanics",
+    "question": "Walk through how task success works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0119",
+    "level": "Intermediate",
+    "category": "Usability",
+    "topic": "usability heuristic",
+    "questionType": "Compare",
+    "question": "Compare usability heuristic with design preference. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0120",
+    "level": "Intermediate",
+    "category": "Usability",
+    "topic": "usability heuristic",
+    "questionType": "Mechanics",
+    "question": "Walk through how usability heuristic works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0121",
+    "level": "Intermediate",
+    "category": "Usability",
+    "topic": "usability testing",
+    "questionType": "Compare",
+    "question": "Compare usability testing with survey. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0122",
+    "level": "Intermediate",
+    "category": "Usability",
+    "topic": "usability testing",
+    "questionType": "Mechanics",
+    "question": "Walk through how usability testing works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0123",
+    "level": "Intermediate",
+    "category": "Visual",
+    "topic": "color contrast",
+    "questionType": "Compare",
+    "question": "Compare color contrast with brand color. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0124",
+    "level": "Intermediate",
+    "category": "Visual",
+    "topic": "color contrast",
+    "questionType": "Mechanics",
+    "question": "Walk through how color contrast works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0125",
+    "level": "Intermediate",
+    "category": "Visual",
+    "topic": "grid system",
+    "questionType": "Compare",
+    "question": "Compare grid system with freeform placement. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0126",
+    "level": "Intermediate",
+    "category": "Visual",
+    "topic": "grid system",
+    "questionType": "Mechanics",
+    "question": "Walk through how grid system works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0127",
+    "level": "Intermediate",
+    "category": "Visual",
+    "topic": "spacing system",
+    "questionType": "Compare",
+    "question": "Compare spacing system with arbitrary spacing. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0128",
+    "level": "Intermediate",
+    "category": "Visual",
+    "topic": "spacing system",
+    "questionType": "Mechanics",
+    "question": "Walk through how spacing system works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0129",
+    "level": "Intermediate",
+    "category": "Visual",
+    "topic": "typography hierarchy",
+    "questionType": "Compare",
+    "question": "Compare typography hierarchy with single font size. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0130",
+    "level": "Intermediate",
+    "category": "Visual",
+    "topic": "typography hierarchy",
+    "questionType": "Mechanics",
+    "question": "Walk through how typography hierarchy works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0131",
+    "level": "Intermediate",
+    "category": "Visual",
+    "topic": "visual hierarchy",
+    "questionType": "Compare",
+    "question": "Compare visual hierarchy with decoration. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0132",
+    "level": "Intermediate",
+    "category": "Visual",
+    "topic": "visual hierarchy",
+    "questionType": "Mechanics",
+    "question": "Walk through how visual hierarchy works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0133",
+    "level": "Intermediate",
+    "category": "Whiteboard",
+    "topic": "whiteboard challenge",
+    "questionType": "Compare",
+    "question": "Compare whiteboard challenge with take-home assignment. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0134",
+    "level": "Intermediate",
+    "category": "Whiteboard",
+    "topic": "whiteboard challenge",
+    "questionType": "Mechanics",
+    "question": "Walk through how whiteboard challenge works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-I-0135",
+    "level": "Intermediate",
+    "category": "Wireframing",
+    "topic": "low-fidelity wireframe",
+    "questionType": "Compare",
+    "question": "Compare low-fidelity wireframe with high-fidelity mockup. When would you choose one over the other, and what trade-offs matter?"
+  },
+  {
+    "id": "UX-I-0136",
+    "level": "Intermediate",
+    "category": "Wireframing",
+    "topic": "low-fidelity wireframe",
+    "questionType": "Mechanics",
+    "question": "Walk through how low-fidelity wireframe works in practice from start to finish. What happens internally at the important stages?"
+  },
+  {
+    "id": "UX-A-0001",
+    "level": "Advanced",
+    "category": "AI Design",
+    "topic": "AI-assisted design",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around AI-assisted design. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0002",
+    "level": "Advanced",
+    "category": "AI Design",
+    "topic": "AI-assisted design",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with AI-assisted design? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0003",
+    "level": "Advanced",
+    "category": "Accessibility",
+    "topic": "keyboard accessibility",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around keyboard accessibility. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0004",
+    "level": "Advanced",
+    "category": "Accessibility",
+    "topic": "keyboard accessibility",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with keyboard accessibility? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0005",
+    "level": "Advanced",
+    "category": "Accessibility",
+    "topic": "target size",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around target size. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0006",
+    "level": "Advanced",
+    "category": "Accessibility",
+    "topic": "target size",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with target size? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0007",
+    "level": "Advanced",
+    "category": "Analytics",
+    "topic": "funnel analysis",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around funnel analysis. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0008",
+    "level": "Advanced",
+    "category": "Analytics",
+    "topic": "funnel analysis",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with funnel analysis? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0009",
+    "level": "Advanced",
+    "category": "Analytics",
+    "topic": "product metric",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around product metric. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0010",
+    "level": "Advanced",
+    "category": "Analytics",
+    "topic": "product metric",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with product metric? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0011",
+    "level": "Advanced",
+    "category": "Collaboration",
+    "topic": "designer-PM collaboration",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around designer-PM collaboration. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0012",
+    "level": "Advanced",
+    "category": "Collaboration",
+    "topic": "designer-PM collaboration",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with designer-PM collaboration? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0013",
+    "level": "Advanced",
+    "category": "Collaboration",
+    "topic": "designer-engineer handoff",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around designer-engineer handoff. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0014",
+    "level": "Advanced",
+    "category": "Collaboration",
+    "topic": "designer-engineer handoff",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with designer-engineer handoff? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0015",
+    "level": "Advanced",
+    "category": "Content",
+    "topic": "UX writing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around UX writing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0016",
+    "level": "Advanced",
+    "category": "Content",
+    "topic": "UX writing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with UX writing? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0017",
+    "level": "Advanced",
+    "category": "Critique",
+    "topic": "design critique",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around design critique. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0018",
+    "level": "Advanced",
+    "category": "Critique",
+    "topic": "design critique",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with design critique? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0019",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "A stakeholder insists on a dark pattern because it improves conversion. How do you respond?"
+  },
+  {
+    "id": "UX-A-0020",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "As a design lead, how would you protect product coherence while allowing several teams to ship independently?"
+  },
+  {
+    "id": "UX-A-0021",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Critique a product where user needs, business incentives, and regulatory requirements are in tension."
+  },
+  {
+    "id": "UX-A-0022",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a collaboration model between product design, research, content design, PM, engineering, and analytics."
+  },
+  {
+    "id": "UX-A-0023",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a research strategy for a high-risk product decision where stakeholders disagree about the underlying user problem."
+  },
+  {
+    "id": "UX-A-0024",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design a strategy for migrating a fragmented product UI onto shared foundations without stopping feature delivery."
+  },
+  {
+    "id": "UX-A-0025",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design an experimentation framework for a product where A/B testing every change is neither possible nor ethical."
+  },
+  {
+    "id": "UX-A-0026",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Design an internationalized product that must handle RTL, long translations, multiple writing systems, and regional conventions."
+  },
+  {
+    "id": "UX-A-0027",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you balance accessibility requirements with dense, high-productivity professional interfaces?"
+  },
+  {
+    "id": "UX-A-0028",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you decide when to standardize a pattern and when to allow product-specific divergence?"
+  },
+  {
+    "id": "UX-A-0029",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How do you measure design-system success beyond the number of components created?"
+  },
+  {
+    "id": "UX-A-0030",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you assess UX maturity in an organization and decide what capability to improve first?"
+  },
+  {
+    "id": "UX-A-0031",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you build and govern a design system used across multiple products and autonomous teams?"
+  },
+  {
+    "id": "UX-A-0032",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you conduct research when users are hard to recruit, domain knowledge is specialized, and mistakes are costly?"
+  },
+  {
+    "id": "UX-A-0033",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you design an enterprise workflow for expert users where efficiency conflicts with learnability for newcomers?"
+  },
+  {
+    "id": "UX-A-0034",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you evaluate whether a metric improvement came at the cost of user trust or long-term product health?"
+  },
+  {
+    "id": "UX-A-0035",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "How would you make a design-system component backward-compatible while fixing an accessibility flaw?"
+  },
+  {
+    "id": "UX-A-0036",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "In a portfolio review, explain a project that failed or did not produce the expected outcome and what you learned."
+  },
+  {
+    "id": "UX-A-0037",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Lead a whiteboard solution for \"help first-time users understand a complex financial product\" without jumping directly to screens."
+  },
+  {
+    "id": "UX-A-0038",
+    "level": "Advanced",
+    "category": "Curated Seed",
+    "topic": "",
+    "questionType": "Curated",
+    "question": "Tell me about a time evidence contradicted your design intuition. What changed?"
+  },
+  {
+    "id": "UX-A-0039",
+    "level": "Advanced",
+    "category": "Design Systems",
+    "topic": "component library",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around component library. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0040",
+    "level": "Advanced",
+    "category": "Design Systems",
+    "topic": "component library",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with component library? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0041",
+    "level": "Advanced",
+    "category": "Design Systems",
+    "topic": "design token",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around design token. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0042",
+    "level": "Advanced",
+    "category": "Design Systems",
+    "topic": "design token",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with design token? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0043",
+    "level": "Advanced",
+    "category": "Design Systems",
+    "topic": "governance",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around governance. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0044",
+    "level": "Advanced",
+    "category": "Design Systems",
+    "topic": "governance",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with governance? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0045",
+    "level": "Advanced",
+    "category": "Ethics",
+    "topic": "dark pattern",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around dark pattern. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0046",
+    "level": "Advanced",
+    "category": "Ethics",
+    "topic": "dark pattern",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with dark pattern? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0047",
+    "level": "Advanced",
+    "category": "Experiment",
+    "topic": "A/B test",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around A/B test. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0048",
+    "level": "Advanced",
+    "category": "Experiment",
+    "topic": "A/B test",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with A/B test? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0049",
+    "level": "Advanced",
+    "category": "Figma",
+    "topic": "Auto Layout",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Auto Layout. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0050",
+    "level": "Advanced",
+    "category": "Figma",
+    "topic": "Auto Layout",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Auto Layout? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0051",
+    "level": "Advanced",
+    "category": "Figma",
+    "topic": "component",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around component. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0052",
+    "level": "Advanced",
+    "category": "Figma",
+    "topic": "component",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with component? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0053",
+    "level": "Advanced",
+    "category": "Figma",
+    "topic": "prototype",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around prototype. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0054",
+    "level": "Advanced",
+    "category": "Figma",
+    "topic": "prototype",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with prototype? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0055",
+    "level": "Advanced",
+    "category": "Figma",
+    "topic": "variables",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around variables. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0056",
+    "level": "Advanced",
+    "category": "Figma",
+    "topic": "variables",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with variables? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0057",
+    "level": "Advanced",
+    "category": "Figma",
+    "topic": "variant",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around variant. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0058",
+    "level": "Advanced",
+    "category": "Figma",
+    "topic": "variant",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with variant? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0059",
+    "level": "Advanced",
+    "category": "Flow",
+    "topic": "customer journey map",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around customer journey map. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0060",
+    "level": "Advanced",
+    "category": "Flow",
+    "topic": "customer journey map",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with customer journey map? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0061",
+    "level": "Advanced",
+    "category": "Flow",
+    "topic": "user flow",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around user flow. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0062",
+    "level": "Advanced",
+    "category": "Flow",
+    "topic": "user flow",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with user flow? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0063",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "UI design",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around UI design. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0064",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "UI design",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with UI design? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0065",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "user-centered design",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around user-centered design. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0066",
+    "level": "Advanced",
+    "category": "Fundamentals",
+    "topic": "user-centered design",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with user-centered design? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0067",
+    "level": "Advanced",
+    "category": "Handoff",
+    "topic": "developer handoff",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around developer handoff. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0068",
+    "level": "Advanced",
+    "category": "Handoff",
+    "topic": "developer handoff",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with developer handoff? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0069",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "A stakeholder insists on a dark pattern because it improves conversion. How would you challenge the request while accounting for business goals?"
+  },
+  {
+    "id": "UX-A-0070",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "Design a research strategy for a high-stakes workflow where representative users are difficult to recruit and mistakes can have serious consequences."
+  },
+  {
+    "id": "UX-A-0071",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "During a whiteboard challenge, requirements are intentionally ambiguous. Demonstrate how you would frame the problem before sketching any UI."
+  },
+  {
+    "id": "UX-A-0072",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you measure the success of a design-system investment across product quality, delivery speed, accessibility, and consistency?"
+  },
+  {
+    "id": "UX-A-0073",
+    "level": "Advanced",
+    "category": "High-signal scenario",
+    "topic": "",
+    "questionType": "Scenario",
+    "question": "How would you redesign a critical workflow when qualitative research and product analytics appear to contradict each other?"
+  },
+  {
+    "id": "UX-A-0074",
+    "level": "Advanced",
+    "category": "IA",
+    "topic": "card sorting",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around card sorting. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0075",
+    "level": "Advanced",
+    "category": "IA",
+    "topic": "card sorting",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with card sorting? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0076",
+    "level": "Advanced",
+    "category": "IA",
+    "topic": "information architecture",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around information architecture. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0077",
+    "level": "Advanced",
+    "category": "IA",
+    "topic": "information architecture",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with information architecture? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0078",
+    "level": "Advanced",
+    "category": "Interaction",
+    "topic": "error prevention",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around error prevention. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0079",
+    "level": "Advanced",
+    "category": "Interaction",
+    "topic": "error prevention",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with error prevention? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0080",
+    "level": "Advanced",
+    "category": "Interaction",
+    "topic": "feedback and system status",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around feedback and system status. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0081",
+    "level": "Advanced",
+    "category": "Interaction",
+    "topic": "feedback and system status",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with feedback and system status? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0082",
+    "level": "Advanced",
+    "category": "Interaction",
+    "topic": "interaction design",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around interaction design. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0083",
+    "level": "Advanced",
+    "category": "Interaction",
+    "topic": "interaction design",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with interaction design? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0084",
+    "level": "Advanced",
+    "category": "Mobile UX",
+    "topic": "gesture",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around gesture. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0085",
+    "level": "Advanced",
+    "category": "Mobile UX",
+    "topic": "gesture",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with gesture? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0086",
+    "level": "Advanced",
+    "category": "Mobile UX",
+    "topic": "touch target",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around touch target. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0087",
+    "level": "Advanced",
+    "category": "Mobile UX",
+    "topic": "touch target",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with touch target? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0088",
+    "level": "Advanced",
+    "category": "Portfolio",
+    "topic": "case study",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around case study. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0089",
+    "level": "Advanced",
+    "category": "Portfolio",
+    "topic": "case study",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with case study? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0090",
+    "level": "Advanced",
+    "category": "Portfolio",
+    "topic": "design rationale",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around design rationale. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0091",
+    "level": "Advanced",
+    "category": "Portfolio",
+    "topic": "design rationale",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with design rationale? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0092",
+    "level": "Advanced",
+    "category": "Product",
+    "topic": "product thinking",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around product thinking. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0093",
+    "level": "Advanced",
+    "category": "Product",
+    "topic": "product thinking",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with product thinking? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0094",
+    "level": "Advanced",
+    "category": "Product",
+    "topic": "user outcome",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around user outcome. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0095",
+    "level": "Advanced",
+    "category": "Product",
+    "topic": "user outcome",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with user outcome? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0096",
+    "level": "Advanced",
+    "category": "Research",
+    "topic": "contextual inquiry",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around contextual inquiry. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0097",
+    "level": "Advanced",
+    "category": "Research",
+    "topic": "contextual inquiry",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with contextual inquiry? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0098",
+    "level": "Advanced",
+    "category": "Research",
+    "topic": "qualitative research",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around qualitative research. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0099",
+    "level": "Advanced",
+    "category": "Research",
+    "topic": "qualitative research",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with qualitative research? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0100",
+    "level": "Advanced",
+    "category": "Research",
+    "topic": "research bias",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around research bias. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0101",
+    "level": "Advanced",
+    "category": "Research",
+    "topic": "research bias",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with research bias? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0102",
+    "level": "Advanced",
+    "category": "Research",
+    "topic": "research plan",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around research plan. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0103",
+    "level": "Advanced",
+    "category": "Research",
+    "topic": "research plan",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with research plan? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0104",
+    "level": "Advanced",
+    "category": "Research",
+    "topic": "user interview",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around user interview. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0105",
+    "level": "Advanced",
+    "category": "Research",
+    "topic": "user interview",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with user interview? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0106",
+    "level": "Advanced",
+    "category": "Responsive",
+    "topic": "responsive design",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around responsive design. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0107",
+    "level": "Advanced",
+    "category": "Responsive",
+    "topic": "responsive design",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with responsive design? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0108",
+    "level": "Advanced",
+    "category": "Synthesis",
+    "topic": "Jobs To Be Done",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around Jobs To Be Done. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0109",
+    "level": "Advanced",
+    "category": "Synthesis",
+    "topic": "Jobs To Be Done",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with Jobs To Be Done? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0110",
+    "level": "Advanced",
+    "category": "Synthesis",
+    "topic": "affinity mapping",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around affinity mapping. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0111",
+    "level": "Advanced",
+    "category": "Synthesis",
+    "topic": "affinity mapping",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with affinity mapping? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0112",
+    "level": "Advanced",
+    "category": "Synthesis",
+    "topic": "persona",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around persona. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0113",
+    "level": "Advanced",
+    "category": "Synthesis",
+    "topic": "persona",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with persona? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0114",
+    "level": "Advanced",
+    "category": "Usability",
+    "topic": "moderated test",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around moderated test. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0115",
+    "level": "Advanced",
+    "category": "Usability",
+    "topic": "moderated test",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with moderated test? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0116",
+    "level": "Advanced",
+    "category": "Usability",
+    "topic": "task success",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around task success. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0117",
+    "level": "Advanced",
+    "category": "Usability",
+    "topic": "task success",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with task success? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0118",
+    "level": "Advanced",
+    "category": "Usability",
+    "topic": "usability heuristic",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around usability heuristic. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0119",
+    "level": "Advanced",
+    "category": "Usability",
+    "topic": "usability heuristic",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with usability heuristic? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0120",
+    "level": "Advanced",
+    "category": "Usability",
+    "topic": "usability testing",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around usability testing. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0121",
+    "level": "Advanced",
+    "category": "Usability",
+    "topic": "usability testing",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with usability testing? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0122",
+    "level": "Advanced",
+    "category": "Visual",
+    "topic": "color contrast",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around color contrast. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0123",
+    "level": "Advanced",
+    "category": "Visual",
+    "topic": "color contrast",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with color contrast? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0124",
+    "level": "Advanced",
+    "category": "Visual",
+    "topic": "grid system",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around grid system. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0125",
+    "level": "Advanced",
+    "category": "Visual",
+    "topic": "grid system",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with grid system? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0126",
+    "level": "Advanced",
+    "category": "Visual",
+    "topic": "spacing system",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around spacing system. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0127",
+    "level": "Advanced",
+    "category": "Visual",
+    "topic": "spacing system",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with spacing system? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0128",
+    "level": "Advanced",
+    "category": "Visual",
+    "topic": "typography hierarchy",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around typography hierarchy. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0129",
+    "level": "Advanced",
+    "category": "Visual",
+    "topic": "typography hierarchy",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with typography hierarchy? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0130",
+    "level": "Advanced",
+    "category": "Visual",
+    "topic": "visual hierarchy",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around visual hierarchy. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0131",
+    "level": "Advanced",
+    "category": "Visual",
+    "topic": "visual hierarchy",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with visual hierarchy? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0132",
+    "level": "Advanced",
+    "category": "Whiteboard",
+    "topic": "whiteboard challenge",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around whiteboard challenge. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0133",
+    "level": "Advanced",
+    "category": "Whiteboard",
+    "topic": "whiteboard challenge",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with whiteboard challenge? How would you design around them?"
+  },
+  {
+    "id": "UX-A-0134",
+    "level": "Advanced",
+    "category": "Wireframing",
+    "topic": "low-fidelity wireframe",
+    "questionType": "Troubleshooting",
+    "question": "A production system is failing or behaving unexpectedly around low-fidelity wireframe. How would you investigate the problem systematically, what evidence would you collect, and how would you confirm the root cause?"
+  },
+  {
+    "id": "UX-A-0135",
+    "level": "Advanced",
+    "category": "Wireframing",
+    "topic": "low-fidelity wireframe",
+    "questionType": "Architecture",
+    "question": "At production scale, what are the main design trade-offs, failure modes, performance/security concerns, and operational risks associated with low-fidelity wireframe? How would you design around them?"
+  }
+]

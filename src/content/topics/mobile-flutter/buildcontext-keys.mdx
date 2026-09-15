@@ -1,0 +1,114 @@
+---
+id: FLUTTER-BUILDCONTEXT-KEYS
+title: "BuildContext and Keys"
+titleBn: "BuildContext ও Keys"
+description: "Use BuildContext safely across async gaps and apply keys so Flutter preserves the right Element state."
+descriptionBn: "অ্যাসিঙ্ক গ্যাপে BuildContext নিরাপদে ব্যবহার ও সঠিক Element স্টেট রাখতে keys।"
+track: mobile-flutter
+category: flutter
+difficulty: intermediate
+estimatedMinutes: 45
+prerequisites:
+  - "FLUTTER-WIDGET-TREE"
+unlocks:
+  - "FLUTTER-INHERITED-WIDGET"
+  - "FLUTTER-FORMS-VALIDATION"
+related:
+  - "FLUTTER-RENDERING-REBUILDS"
+  - "FLUTTER-NAVIGATION"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "buildcontext"
+  - "keys"
+  - "elements"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "FLUTTER-KEYS"
+  - "FLUTTER-WIDGETS"
+  - "FLUTTER-ARCH-OVERVIEW"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why context and keys decide subtle bugs
+
+Calling `Navigator` or `Theme.of` after an `await` on a disposed widget crashes. Wrong or missing keys reshuffle State when lists reorder—lost form text, wrong animations, spooky checkboxes.
+
+## Mental model
+
+<Callout type="mental-model">
+  BuildContext is a handle to a widget’s location in the tree. Keys tell the framework which Element/State to keep when the widget configuration changes identity in a list or swap.
+</Callout>
+
+## How
+
+### Async-safe context and list keys
+
+```dart
+class ProfileButton extends StatelessWidget {
+  const ProfileButton({super.key});
+
+  Future<void> _open(BuildContext context) async {
+    final nav = Navigator.of(context);
+    await Future<void>.delayed(const Duration(milliseconds: 10));
+    if (!context.mounted) return;
+    nav.pushNamed('/profile');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () => _open(context),
+      child: const Text('Profile'),
+    );
+  }
+}
+
+// Prefer ValueKey / ObjectKey for items with stable IDs
+ListView(
+  children: users
+      .map((u) => ListTile(key: ValueKey(u.id), title: Text(u.name)))
+      .toList(),
+);
+```
+
+## Common mistakes
+
+- **Using context after await without `mounted` check**
+- **Using index as key when the list can reorder**
+- **Creating new GlobalKey every build** — expensive and resets state
+
+## Interview angle
+
+<Callout type="interview">
+  Explain what happens to State when two sibling widgets swap positions with and without keys.
+</Callout>
+
+## Practice checklist
+
+- [ ] Add `context.mounted` guards after awaits.
+- [ ] Fix a ListView to use ValueKey(id).
+- [ ] Read Key API docs and GlobalKey guidance.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `FLUTTER-KEYS`
+- `FLUTTER-WIDGETS`
+- `FLUTTER-ARCH-OVERVIEW`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

@@ -1,0 +1,21 @@
+{
+  "id": "issue-tanstack-unstable-querykey",
+  "title": "TanStack Query refetches endlessly due to unstable queryKey",
+  "technology": "TanStack Query",
+  "platform": "Web",
+  "symptoms": [
+    "Network tab shows repeated identical GETs",
+    "isFetching toggles forever",
+    "Key includes inline object/array literals recreated each render"
+  ],
+  "cause": "queryKey identity changes every render when object/array literals are recreated without memoization/stable primitives.",
+  "solution": "Use stable primitive key parts (ids, strings). Avoid inline objects unless memoized; follow Query key factories.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "FRONTEND-TANSTACK-QUERY-MENTAL-MODEL"
+  ],
+  "sources": [
+    "TANSTACK-QUERY-OVERVIEW"
+  ],
+  "lastVerified": "2026-09-15"
+}

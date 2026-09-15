@@ -1,0 +1,24 @@
+{
+  "id": "issue-postgres-explain-row-misestimate",
+  "title": "EXPLAIN looks cheap but ANALYZE shows huge runtime from row misestimates",
+  "technology": "PostgreSQL",
+  "platform": "Database",
+  "symptoms": [
+    "Planner chooses nested loop",
+    "ANALYZE actual rows >> estimated rows",
+    "Query suddenly slow after bulk load"
+  ],
+  "cause": "Stale or insufficient statistics cause the planner to underestimate join/filter cardinality.",
+  "solution": "Run ANALYZE on affected tables; consider increasing default_statistics_target for skewed columns; rewrite queries or add appropriate indexes after measuring with EXPLAIN (ANALYZE, BUFFERS).",
+  "workaround": "Temporary join hints are not first-class in Postgres—prefer stats and query/index fixes.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "DATABASE-POSTGRES-EXPLAIN",
+    "DATABASE-POSTGRESQL-INDEXING"
+  ],
+  "sources": [
+    "POSTGRES-EXPLAIN",
+    "POSTGRES-DOCS"
+  ],
+  "lastVerified": "2026-09-15"
+}

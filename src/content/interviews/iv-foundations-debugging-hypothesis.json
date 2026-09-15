@@ -1,0 +1,25 @@
+{
+  "id": "iv-foundations-debugging-hypothesis",
+  "question": "Walk through how you debug an intermittent bug that only happens for some users.",
+  "careerIds": [
+    "software-engineer"
+  ],
+  "technology": [
+    "debugging"
+  ],
+  "difficulty": "junior",
+  "shortAnswer": "Reproduce or collect signals, form a hypothesis, change one variable, verify with logs/metrics/tests.",
+  "strongAnswer": "Gather environment differences (locale, OS version, feature flags, data shape). Add request/user correlation IDs. Form a falsifiable hypothesis (e.g., null field on legacy accounts). Instrument narrowly, avoid shotgun logging. Fix root cause and add a regression test when feasible.",
+  "followUps": [
+    "What if you cannot reproduce locally?",
+    "How do you avoid fixing only the symptom?"
+  ],
+  "commonWrongAnswer": "Restart the server and change three unrelated configs at once until it stops.",
+  "productionRelevance": "Intermittent auth and locale bugs are common; structured debugging separates seniors from guessers.",
+  "relatedTopics": [
+    "FOUNDATIONS-DEBUGGING",
+    "FOUNDATIONS-ERROR-HANDLING",
+    "FOUNDATIONS-AI-ASSISTED-DEV-RISKS"
+  ],
+  "lastVerified": "2026-09-15"
+}

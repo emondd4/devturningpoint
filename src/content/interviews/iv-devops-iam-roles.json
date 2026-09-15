@@ -1,0 +1,28 @@
+{
+  "id": "iv-devops-iam-roles",
+  "question": "Why should an EC2-hosted API use an instance profile role instead of long-lived IAM user access keys?",
+  "questionBn": "EC2-হোস্টেড API কেন দীর্ঘমেয়াদী IAM ইউজার অ্যাক্সেস কির পরিবর্তে ইনস্ট্যান্স প্রোফাইল রোল ব্যবহার করবে?",
+  "careerIds": [
+    "devops-engineer"
+  ],
+  "technology": [
+    "AWS",
+    "IAM",
+    "Security"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Roles provide temporary credentials rotated automatically and avoid embedding static keys that are hard to rotate and easy to leak.",
+  "strongAnswer": "Attach an instance profile with a least-privilege role. The AWS SDK retrieves temporary credentials from the metadata service. Static access keys in env files or AMIs leak via git, snapshots, and logs, and often outlive the person who created them. Prefer federation/Identity Center for humans.",
+  "advancedAnswer": "Mention confused deputy, permission boundaries, and scoping Resource ARNs tightly for S3/Secrets Manager.",
+  "followUps": [
+    "What goes in a trust policy vs a permissions policy?",
+    "How do you rotate after a suspected key leak?"
+  ],
+  "commonWrongAnswer": "Access keys are fine if the .env is gitignored.",
+  "productionRelevance": "Credential hygiene is a top cloud breach class for growing BD SaaS and outsourcing teams on AWS.",
+  "relatedTopics": [
+    "DEVOPS-AWS-IAM",
+    "DEVOPS-SECRETS-MANAGEMENT"
+  ],
+  "lastVerified": "2026-09-15"
+}

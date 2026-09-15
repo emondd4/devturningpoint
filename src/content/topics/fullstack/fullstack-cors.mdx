@@ -1,0 +1,74 @@
+---
+id: FULLSTACK-CORS
+title: "CORS in Full-Stack Apps"
+titleBn: "ফুলস্ট্যাক অ্যাপে CORS"
+description: "Browser same-origin policy, preflights, and credentialed cross-origin requests."
+descriptionBn: "Same-origin পলিসি, প্রিফ্লাইট ও credentialed ক্রস-অরিজিন রিকোয়েস্ট।"
+track: fullstack
+difficulty: intermediate
+estimatedMinutes: 32
+prerequisites:
+  - "FULLSTACK-HTTP-BOUNDARIES"
+unlocks:
+  - "FULLSTACK-CSRF"
+related:
+  - "FULLSTACK-CORS-CSRF"
+  - "FULLSTACK-COOKIES-SESSIONS-TOKENS"
+careers:
+  - "fullstack-engineer"
+tags:
+  - "fullstack"
+  - "cors"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "MDN-CORS"
+  - "RFC-9110-HTTP"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why CORS exists
+
+Browsers enforce same-origin policy. CORS is the server’s opt-in for reading cross-origin responses—not an authentication mechanism.
+
+## Mental model
+
+<Callout type="mental-model">
+  Simple requests vs preflighted requests. Access-Control-Allow-Origin must be explicit when credentials are used—no `*` with Access-Control-Allow-Credentials.
+</Callout>
+
+## Full-stack tip
+
+Prefer same-site deployments (web + API under related hosts) or a BFF to reduce credentialed cross-origin complexity.
+
+## Common mistakes
+
+- **Treating CORS errors as Nest bugs when the browser blocked the response**.
+- **Reflecting arbitrary Origin with credentials**.
+- **Using CORS as authorization**.
+
+## Interview angle
+
+<Callout type="interview">
+  Debug a credentialed fetch from localhost:3000 to api.localhost:4000 that fails CORS.
+</Callout>
+
+## Practice checklist
+
+- [ ] Explain when a preflight happens.
+- [ ] Configure allowlist origins for staging/prod.
+- [ ] Decide BFF vs credentialed CORS for your app.
+
+## Sources
+
+- `MDN-CORS`
+- `RFC-9110-HTTP`

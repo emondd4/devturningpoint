@@ -1,0 +1,73 @@
+---
+id: FULLSTACK-ENV-CONFIG
+title: "Environment Configuration Across Services"
+titleBn: "সার্ভিস জুড়ে এনভায়রনমেন্ট কনফিগ"
+description: "12-factor style config for Next, Nest, and shared secrets discipline."
+descriptionBn: "Next, Nest ও শেয়ার্ড সিক্রেট ডিসিপ্লিনের জন্য 12-factor স্টাইল কনফিগ।"
+track: fullstack
+difficulty: beginner
+estimatedMinutes: 28
+prerequisites:
+  - "FULLSTACK-ARCHITECTURE-OVERVIEW"
+unlocks:
+  - "FULLSTACK-DOCKER-COMPOSE"
+related:
+  - "FULLSTACK-DEPLOYMENT-PIPELINE"
+  - "FULLSTACK-OBSERVABILITY"
+careers:
+  - "fullstack-engineer"
+tags:
+  - "fullstack"
+  - "config"
+  - "env"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "NEXTJS-APP-ROUTER"
+  - "NESTJS-ARCHITECTURE"
+  - "DOCKER-COMPOSE"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why config is a full-stack concern
+
+Mismatched env vars cause “works on my machine” more than code differences—DB URLs, public vs server Next env, and JWT secrets.
+
+## Mental model
+
+<Callout type="mental-model">
+  Separate build-time public config (`NEXT_PUBLIC_*`) from server secrets. Validate env at process boot. Keep `.env.example` complete; never commit secrets.
+</Callout>
+
+## Common mistakes
+
+- **Leaking secrets via NEXT_PUBLIC_**.
+- **No validation—undefined config at runtime**.
+- **One `.env` copied blindly to production**.
+
+## Interview angle
+
+<Callout type="interview">
+  Which Nest and Next variables must differ between staging and prod?
+</Callout>
+
+## Practice checklist
+
+- [ ] Create `.env.example` for a Next+Nest app.
+- [ ] Add boot-time schema validation.
+- [ ] Document secret rotation ownership.
+
+## Sources
+
+- `NEXTJS-APP-ROUTER`
+- `NESTJS-ARCHITECTURE`
+- `DOCKER-COMPOSE`

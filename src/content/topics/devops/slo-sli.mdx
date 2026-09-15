@@ -1,0 +1,81 @@
+---
+id: DEVOPS-SLO-SLI
+title: "SLI, SLO, and SLA"
+titleBn: "SLI, SLO এবং SLA"
+description: "Define user-centric reliability targets with indicators, objectives, error budgets, and honest contractual SLAs."
+descriptionBn: "ইউজার-কেন্দ্রিক নির্ভরযোগ্যতা টার্গেট: ইন্ডিকেটর, অবজেক্টিভ, এরর বাজেট ও সৎ চুক্তিভিত্তিক SLA।"
+track: devops
+difficulty: advanced
+estimatedMinutes: 38
+prerequisites:
+  - "DEVOPS-OBSERVABILITY-PROMETHEUS-GRAFANA"
+unlocks:
+  []
+related:
+  - "DEVOPS-INCIDENT-RESPONSE"
+  - "DEVOPS-BLUE-GREEN-CANARY"
+careers:
+  - "devops-engineer"
+  - "backend-engineer"
+tags:
+  - "slo"
+  - "sre"
+  - "reliability"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "GOOGLE-SRE-SLO"
+  - "PROMETHEUS-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why SLOs beat “five nines vibes”
+
+Uptime without a user-facing definition creates pager noise. SLIs measure what users feel; SLOs set a target; error budgets decide when to slow feature work.
+
+## Mental model
+
+<Callout type="mental-model">
+  SLI = quantitative measure (e.g. successful HTTP requests / total). SLO = internal target over a window (e.g. 99.9% over 30 days). Error budget = allowed failure remaining before reliability work takes priority. SLA = customer-facing contract—usually looser than the internal SLO and tied to credits/penalties.
+</Callout>
+
+```promql
+# Example availability SLI ratio (conceptual)
+sum(rate(http_requests_total{code!~"5.."}[5m]))
+/
+sum(rate(http_requests_total[5m]))
+```
+
+## Common mistakes
+
+- **Alerting on every CPU blip** — Alert on SLO burn instead.
+- **Internal-only SLIs** — Disk free ≠ checkout success.
+- **Impossible 100% targets** — Guarantees permanent firefighting.
+
+## Interview angle
+
+<Callout type="interview">
+  Propose an SLI/SLO pair for a login API and how you would use the error budget.
+</Callout>
+
+## Practice checklist
+
+- [ ] Pick one user journey and define an SLI.
+- [ ] Set a realistic SLO window for that journey.
+- [ ] Sketch when error budget exhaustion pauses releases.
+
+## Sources
+
+- `GOOGLE-SRE-SLO`
+- `PROMETHEUS-DOCS`
+

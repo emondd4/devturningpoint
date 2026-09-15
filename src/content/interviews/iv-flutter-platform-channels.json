@@ -1,0 +1,29 @@
+{
+  "id": "iv-flutter-platform-channels",
+  "question": "When would you implement a MethodChannel yourself instead of using a pub.dev plugin?",
+  "careerIds": [
+    "flutter-developer",
+    "mobile-engineer"
+  ],
+  "technology": [
+    "Flutter",
+    "Android",
+    "iOS"
+  ],
+  "difficulty": "senior",
+  "shortAnswer": "When you need a proprietary/OEM API, the plugin is unmaintained, or you must control native threading and types tightly.",
+  "strongAnswer": "Prefer maintained plugins for commodity features. Write channels when SDKs are internal, plugins lag Flutter versions, or you need a thin typed surface (consider Pigeon). Own both Dart and Kotlin/Swift handlers, version channel method names, and test denial/error paths on both OS.",
+  "advancedAnswer": "Discuss federated plugins, task queues, and avoiding UI-thread blocking on native side.",
+  "followUps": [
+    "How do you version channel APIs safely?",
+    "What codec limitations have you hit?"
+  ],
+  "commonWrongAnswer": "Always write native code for everything; packages are untrustworthy by default.",
+  "productionRelevance": "Fintech and device-vendor apps in BD often wrap proprietary SDKs via channels.",
+  "relatedTopics": [
+    "FLUTTER-PLATFORM-CHANNELS",
+    "FLUTTER-PACKAGES-PLUGINS",
+    "FLUTTER-ANDROID-IOS-CAVEATS"
+  ],
+  "lastVerified": "2026-09-15"
+}

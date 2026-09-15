@@ -1,0 +1,94 @@
+---
+id: "FRONTEND-PERFORMANCE"
+title: "Frontend Performance Essentials"
+titleBn: "\u09ab\u09cd\u09b0\u09a8\u09cd\u099f\u098f\u09a8\u09cd\u09a1 \u09aa\u09be\u09b0\u09ab\u09b0\u09ae\u09cd\u09af\u09be\u09a8\u09cd\u09b8 \u09aa\u09cd\u09b0\u09af\u09bc\u09cb\u099c\u09a8\u09c0\u09af\u09bc\u09a4\u09be"
+description: "Core Web Vitals mindset: reduce JS, measure before optimizing, and fix the user-visible bottlenecks first."
+descriptionBn: "Core Web Vitals \u09ae\u09be\u09a8\u09b8\u09bf\u0995\u09a4\u09be: JS \u0995\u09ae\u09be\u09a8, \u0985\u09aa\u099f\u09bf\u09ae\u09be\u0987\u099c\u09c7\u09b0 \u0986\u0997\u09c7 \u09ae\u09be\u09aa\u09c1\u09a8, \u09ac\u09cd\u09af\u09ac\u09b9\u09be\u09b0\u0995\u09be\u09b0\u09c0-\u09a6\u09c7\u0996\u09be \u09ac\u09be\u09a7\u09be \u0986\u0997\u09c7 \u09a0\u09bf\u0995 \u0995\u09b0\u09c1\u09a8\u0964"
+track: "frontend"
+category: "performance"
+difficulty: "advanced"
+estimatedMinutes: 40
+prerequisites:
+  - "FRONTEND-REACT-MEMOIZATION"
+  - "FRONTEND-NEXTJS-RSC-CLIENT-BOUNDARIES"
+related:
+  - "FRONTEND-CSS-ARCHITECTURE"
+careers:
+  - "frontend-engineer"
+tags:
+  - "performance"
+  - "web-vitals"
+  - "lcp"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "WEB-VITALS"
+  - "NEXTJS-RENDERING"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Users feel slow pages as abandoned sessions. Performance work without measurement wastes time; Web Vitals give a shared language for LCP/INP/CLS.
+
+<Callout type="mental-model">
+  Ship less JS (RSC boundaries, code-split), optimize LCP candidates (images/fonts), keep interactions responsive, stabilize layout.
+</Callout>
+
+## Measure then change
+
+Use field data when available; lab tools for reproduction. Memoization is not a substitute for removing unnecessary work.
+
+```tsx
+// Example: defer non-critical client island
+import dynamic from 'next/dynamic';
+
+const Analytics = dynamic(() => import('./analytics'), {
+  ssr: false,
+  loading: () => null,
+});
+
+export function Shell({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      {children}
+      <Analytics />
+    </>
+  );
+}
+```
+
+## Common mistakes
+
+- **Micro-memoizing everything** — Adds complexity; profile first.
+- **Giant client bundles for static content** — Prefer Server Components.
+- **Ignoring images/fonts** — Often dominate LCP.
+
+## Interview angle
+
+<Callout type="interview">
+  Name one LCP improvement that is not React.memo.
+</Callout>
+
+## Practice checklist
+
+- [ ] Record LCP for a topic page.
+- [ ] Move one interactive widget behind a client boundary.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `WEB-VITALS`
+- `NEXTJS-RENDERING`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

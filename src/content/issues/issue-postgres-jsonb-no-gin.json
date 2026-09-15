@@ -1,0 +1,24 @@
+{
+  "id": "issue-postgres-jsonb-no-gin",
+  "title": "Slow jsonb containment queries without GIN index",
+  "technology": "PostgreSQL",
+  "platform": "Database",
+  "symptoms": [
+    "WHERE payload @> '{...}' seq scans",
+    "CPU high on JSON filters",
+    "Table has jsonb column but no useful index"
+  ],
+  "cause": "Containment operators benefit from GIN (or expression) indexes; without them Postgres may scan all rows.",
+  "solution": "CREATE INDEX ... USING GIN (payload jsonb_path_ops) or default jsonb_ops as appropriate; verify with EXPLAIN ANALYZE; extract hot keys to typed columns when filters are stable.",
+  "workaround": "Filter on relational columns first to reduce rows before jsonb predicates.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "DATABASE-POSTGRES-JSON",
+    "DATABASE-INDEXING-ANTIPATTERNS"
+  ],
+  "sources": [
+    "POSTGRES-JSON",
+    "POSTGRES-INDEXES"
+  ],
+  "lastVerified": "2026-09-15"
+}

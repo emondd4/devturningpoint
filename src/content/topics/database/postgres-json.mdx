@@ -1,0 +1,95 @@
+---
+id: DATABASE-POSTGRES-JSON
+title: "JSON in PostgreSQL"
+titleBn: "PostgreSQL-এ JSON"
+description: "jsonb storage, operators, GIN indexes, and when document fields belong beside relational columns."
+descriptionBn: "jsonb স্টোরেজ, অপারেটর, GIN ইনডেক্স, এবং ডকুমেন্ট ফিল্ড কখন রিলেশনাল কলামের পাশে রাখা যায়।"
+track: database
+difficulty: intermediate
+estimatedMinutes: 38
+prerequisites:
+  - "DATABASE-RELATIONAL-MODELING"
+  - "DATABASE-SQL-JOINS-AGGREGATION"
+unlocks: []
+related:
+  - "DATABASE-MONGODB-WHEN-TO-USE"
+  - "DATABASE-POSTGRES-VS-MONGODB"
+careers:
+  - "backend-engineer"
+  - "database-engineer"
+tags:
+  - "postgresql"
+  - "jsonb"
+  - "schema"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTGRES-JSON"
+  - "POSTGRES-INDEXES"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why jsonb exists without abandoning SQL
+
+Product metadata, feature flags, and sparsely populated attributes change faster than migrations. `jsonb` stores queryable documents inside a relational row—with tradeoffs.
+
+## Mental model
+
+<Callout type="mental-model">
+  Prefer `jsonb` over `json` for query/index support. Operators like `->`, `->>`, `@>` navigate and contain. GIN indexes accelerate containment; typed columns still win for hot filters.
+</Callout>
+
+```sql
+CREATE TABLE events (
+  id bigserial PRIMARY KEY,
+  name text NOT NULL,
+  payload jsonb NOT NULL
+);
+
+CREATE INDEX events_payload_gin ON events USING GIN (payload);
+
+SELECT id
+FROM events
+WHERE payload @> '{"type":"signup"}'::jsonb;
+```
+
+Validate important fields in app or CHECK constraints; do not treat jsonb as a schemaless free-for-all forever.
+
+## Common mistakes
+
+- **Putting every column in jsonb** — Lose constraints and clear plans.
+- **Indexing nothing then blaming Postgres** — Containment needs GIN or expression indexes.
+- **Huge documents per row** — TOAST and update amplification hurt.
+
+## Interview angle
+
+<Callout type="interview">
+  When would you store attributes as jsonb versus normalized tables?
+</Callout>
+
+## Practice checklist
+
+- [ ] Insert and query with `@>` containment.
+- [ ] Add a GIN index and EXPLAIN a filter.
+- [ ] Extract a hot key into a generated/stored column.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-JSON`
+- `POSTGRES-INDEXES`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.
+

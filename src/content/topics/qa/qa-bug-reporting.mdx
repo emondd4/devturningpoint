@@ -1,0 +1,89 @@
+---
+id: QA-BUG-REPORTING
+title: "Effective Bug Reporting"
+titleBn: "কার্যকর বাগ রিপোর্টিং"
+description: "Write reproducible, severity-aware bug reports that developers can act on quickly."
+descriptionBn: "পুনরুৎপাদনযোগ্য, সিভিয়ারিটি-সচেতন বাগ রিপোর্ট যা ডেভেলপাররা দ্রুত অ্যাক্ট করতে পারে।"
+track: qa
+difficulty: beginner
+estimatedMinutes: 32
+prerequisites:
+  - "QA-STLC"
+  - "QA-MANUAL-TEST-DESIGN"
+unlocks: []
+related:
+  - "PM-TOOLING-JIRA-GITHUB"
+  - "QA-EXPLORATORY-TESTING"
+  - "QA-FLAKY-TESTS"
+careers:
+  - "qa-engineer"
+tags:
+  - "qa"
+  - "bugs"
+  - "communication"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "PLAYWRIGHT-DOCS"
+  - "ISTQB-GLOSSARY"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why bug quality is a skill
+
+A vague ticket wastes engineering time. Strong reports shrink cycle time and reduce “cannot reproduce” ping-pong.
+
+## Mental model
+
+<Callout type="mental-model">
+  Every actionable report answers: what broke, where, for whom, how to reproduce, what should happen, how bad it is, and what evidence proves it.
+</Callout>
+
+## Template that engineers trust
+
+1. **Summary** — One line with user impact (“Checkout pay button no-ops on Safari iOS”).
+2. **Environment** — App version, OS/browser, account type, locale, feature flags.
+3. **Steps** — Numbered, starting from a clean known state.
+4. **Expected vs actual** — Specific, observable outcomes.
+5. **Evidence** — Screenshot, video, HAR, Playwright trace, correlation/request id.
+6. **Severity / priority suggestion** — Impact vs business urgency (they can diverge).
+7. **Notes** — Workarounds, related tickets, first-seen build.
+
+## Severity vs priority
+
+- **Severity** — How badly the product is wrong (data loss > cosmetic).
+- **Priority** — What we fix first (CEO demo tomorrow may elevate a medium severity).
+
+## Common mistakes
+
+- Mixing multiple unrelated bugs in one ticket.
+- Skipping setup (“log in as usual”).
+- Omitting expected results.
+- Filing without checking duplicates or recent deploys.
+
+## Interview angle
+
+<Callout type="interview">
+  Rewrite into an actionable ticket: “Checkout broken sometimes on mobile.”
+</Callout>
+
+## Practice checklist
+
+- [ ] Create a team bug form from the template above.
+- [ ] Attach a Playwright trace or HAR once.
+- [ ] Classify severity vs priority for five historical bugs.
+
+## Sources
+
+- `PLAYWRIGHT-DOCS`
+- `ISTQB-GLOSSARY`

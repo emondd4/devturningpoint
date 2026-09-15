@@ -1,0 +1,94 @@
+---
+id: "BACKEND-TRANSACTIONS-API-LAYER"
+title: "Transactions from the API Layer"
+titleBn: "API \u09b2\u09c7\u09af\u09bc\u09be\u09b0 \u09a5\u09c7\u0995\u09c7 \u099f\u09cd\u09b0\u09be\u09a8\u099c\u09c7\u0995\u09b6\u09a8"
+description: "Where to open/commit transactions in Nest services so multi-table writes stay atomic."
+descriptionBn: "Nest \u09b8\u09be\u09b0\u09cd\u09ad\u09bf\u09b8\u09c7 \u0995\u09cb\u09a5\u09be\u09af\u09bc \u099f\u09cd\u09b0\u09be\u09a8\u099c\u09c7\u0995\u09b6\u09a8 \u0996\u09c1\u09b2\u09ac\u09c7\u09a8/\u0995\u09ae\u09bf\u099f \u0995\u09b0\u09ac\u09c7\u09a8 \u09af\u09be\u09a4\u09c7 \u09ae\u09be\u09b2\u09cd\u099f\u09bf-\u099f\u09c7\u09ac\u09bf\u09b2 \u09b0\u09be\u0987\u099f \u0985\u09cd\u09af\u09be\u099f\u09ae\u09bf\u0995 \u09a5\u09be\u0995\u09c7\u0964"
+track: "backend"
+category: "data"
+difficulty: "advanced"
+estimatedMinutes: 40
+prerequisites:
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+  - "BACKEND-ORM-VS-QUERY-BUILDER"
+related:
+  - "DATABASE-POSTGRESQL-TRANSACTIONS"
+  - "BACKEND-QUEUES-BULL"
+careers:
+  - "backend-engineer"
+tags:
+  - "transactions"
+  - "postgres"
+  - "nestjs"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "POSTGRES-TX"
+  - "POSTGRES-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Multi-step writes (order + inventory + outbox) must succeed or fail together. Transactions prevent partial updates that corrupt business state.
+
+<Callout type="mental-model">
+  Open a transaction in the application/use-case service—not in every repository method. Keep transactions short; do not hold them across external HTTP calls.
+</Callout>
+
+## Service-level boundary
+
+Pseudo-code shows the structure: begin → multiple writes → commit/rollback.
+
+```ts
+export async function enrollUser(
+  db: {
+    tx: <T>(fn: (trx: unknown) => Promise<T>) => Promise<T>;
+  },
+  input: { userId: string; courseId: string },
+) {
+  return db.tx(async (trx) => {
+    await insertEnrollment(trx, input);
+    await incrementSeatCount(trx, input.courseId);
+    return { ok: true as const };
+  });
+}
+
+declare function insertEnrollment(trx: unknown, input: { userId: string; courseId: string }): Promise<void>;
+declare function incrementSeatCount(trx: unknown, courseId: string): Promise<void>;
+```
+
+## Common mistakes
+
+- **HTTP calls inside transactions** — Long locks; amplified failures.
+- **Transaction per tiny repo call** — No atomicity across steps.
+- **Ignoring isolation needs** — Race conditions on seats/inventory.
+
+## Interview angle
+
+<Callout type="interview">
+  Why should transactions not wrap third-party payment HTTP calls?
+</Callout>
+
+## Practice checklist
+
+- [ ] Identify a multi-write use case in your API.
+- [ ] Sketch begin/commit with failure paths.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `POSTGRES-TX`
+- `POSTGRES-DOCS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

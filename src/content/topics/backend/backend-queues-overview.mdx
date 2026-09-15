@@ -1,0 +1,41 @@
+---
+id: BACKEND-QUEUES
+title: "Background Jobs and Queues"
+titleBn: "Background Jobs ও Queues"
+description: "Why request threads should not send email/PDF work—and how queues help."
+descriptionBn: "কেন request path-এ ভারী কাজ রাখা যাবে না।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - BACKEND-REDIS-CACHING
+  - BACKEND-NESTJS-ARCHITECTURE
+unlocks: []
+related:
+  - BACKEND-DOCKER-DEPLOY
+careers:
+  - backend-engineer
+tags:
+  - queues
+  - redis
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - REDIS-DATA-TYPES
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+## Why queues exist
+
+HTTP requests need fast responses. Email, image processing, and settlement retries belong in workers with retry/backoff/dead-letter policies.
+
+## Mental model
+
+Producer enqueues a message → broker stores it → consumer processes → ack/fail. At-least-once delivery means handlers should be idempotent.
+

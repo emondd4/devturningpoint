@@ -1,0 +1,39 @@
+---
+id: FRONTEND-WEB-STORAGE
+title: "Web Storage and Persistence"
+titleBn: "Web Storage ও Persistence"
+description: "localStorage, sessionStorage, cookies, and IndexedDB—threat model included."
+descriptionBn: "localStorage/cookies/IndexedDB।"
+track: frontend
+difficulty: intermediate
+estimatedMinutes: 35
+prerequisites:
+  - FRONTEND-JAVASCRIPT-FUNDAMENTALS
+unlocks: []
+related:
+  - FULLSTACK-COOKIES-SESSIONS-TOKENS
+careers:
+  - frontend-engineer
+tags:
+  - storage
+  - security
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - MDN-WEBSTORAGE
+  - OWASP-TOP10
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+Anything JS-readable storage is XSS-stealable. Prefer HTTP-only cookies for session secrets. Use IndexedDB for larger offline datasets.
+
+## Interview
+
+Why is storing JWTs in localStorage risky?
+

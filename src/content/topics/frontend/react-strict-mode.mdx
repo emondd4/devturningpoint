@@ -1,0 +1,70 @@
+---
+id: FRONTEND-REACT-STRICT-MODE
+title: "React Strict Mode"
+titleBn: "React Strict Mode"
+description: "What Strict Mode double-invokes in development and how it surfaces impure renders and effect bugs."
+descriptionBn: "Development-এ Strict Mode কী double-invoke করে এবং কেন।"
+track: frontend
+category: react-internals
+difficulty: intermediate
+estimatedMinutes: 30
+prerequisites:
+  - FRONTEND-REACT-RENDER-PURITY
+unlocks: []
+related:
+  - FRONTEND-REACT-RENDER-VS-COMMIT
+careers:
+  - frontend-engineer
+  - fullstack-engineer
+tags:
+  - react
+  - rendering
+status: published
+translationStatus: partial
+applicableVersions:
+  react: "19.x — verify against react.dev"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - REACT-STRICT-MODE
+  - REACT-DOCS
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+<Callout type="info" title="Translation status">
+  Body is English for V1; Bangla title/description provided.
+</Callout>
+
+## What is this?
+
+**Strict Mode** is a development-only helper that surfaces unsafe lifecycle patterns and impure rendering by intentionally exercising extra invocations.
+
+## Why it exists
+
+Production may mount once, but impure logic still bites under concurrency, fast refresh, or future React features. Strict Mode makes those bugs loud earlier.
+
+## Mental model
+
+<Callout type="mental-model">
+  If your effect cannot survive mount → cleanup → mount, it is not resilient. Strict Mode helps you find that.
+</Callout>
+
+## Practical guidance
+
+1. Do not disable Strict Mode to “fix” double fetching—fix the effect/idempotency instead.
+2. Keep render pure so double-rendering is harmless.
+3. Ensure effects clean up subscriptions and abort controllers.
+
+## Interview angles
+
+**Mid:** Why do effects appear to run twice in development?  
+**Senior:** How do you design data fetching to be safe under Strict Mode and concurrent rendering?
+
+## Sources
+
+- React: Strict Mode (`REACT-STRICT-MODE`)
+

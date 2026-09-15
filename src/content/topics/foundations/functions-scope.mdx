@@ -1,0 +1,98 @@
+---
+id: FOUNDATIONS-FUNCTIONS-SCOPE
+title: "Functions, Scope, and Composition"
+titleBn: "ফাংশন, স্কোপ ও কম্পোজিশন"
+description: "Master parameters, return values, scope, and pure vs impure functions—the building blocks of readable programs."
+descriptionBn: "প্যারামিটার, রিটার্ন, স্কোপ ও বিশুদ্ধ/অবিশুদ্ধ ফাংশন আয়ত্ত করুন।"
+track: foundations
+category: programming
+difficulty: beginner
+estimatedMinutes: 35
+prerequisites:
+  - "FOUNDATIONS-PROGRAMMING-VARIABLES"
+unlocks:
+  - "FOUNDATIONS-ABSTRACTION-MODULARITY"
+  - "FOUNDATIONS-ERROR-HANDLING"
+related:
+  - "FOUNDATIONS-DEBUGGING"
+  - "FOUNDATIONS-DATA-STRUCTURES-INTRO"
+careers:
+  - "software-engineer"
+  - "frontend-engineer"
+  - "backend-engineer"
+  - "flutter-developer"
+tags:
+  - "functions"
+  - "scope"
+  - "programming"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "CHROME-DEVTOOLS-DEBUG"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why functions are the unit of clarity
+
+Programs grow by composing small behaviors. Unclear functions—too many parameters, hidden globals, mixed side effects—are where bugs hide.
+
+## Mental model
+
+<Callout type="mental-model">
+  A function is a named transformation: inputs in, result out, with a defined scope for local names. Prefer pure functions for logic; isolate side effects (I/O, time, randomness) at the edges.
+</Callout>
+
+```js
+// Pure: same input → same output, no external writes
+function totalMinor(prices) {
+  return prices.reduce((s, p) => s + p, 0);
+}
+
+// Impure: depends on / mutates the world
+async function saveTotal(prices, db) {
+  const total = totalMinor(prices);
+  await db.insert({ total });
+}
+```
+
+## Scope pitfalls
+
+- Shadowing variables accidentally
+- Closures capturing loop variables unexpectedly
+- Accidental globals (`x = 1` without declaration in sloppy modes)
+
+## Common mistakes
+
+- **Functions that both compute and render and fetch** — hard to test.
+- **Boolean flag soups** — `doThing(true, false, true)` — use options objects or split functions.
+- **Deep nesting** — extract named steps.
+
+## Interview angle
+
+<Callout type="interview">
+  Refactor a 80-line function that fetches, validates, and formats—where would you cut seams for testing?
+</Callout>
+
+## Practice checklist
+
+- [ ] Extract one pure helper from a side-effecting function.
+- [ ] Trace a closure bug in a sample snippet.
+- [ ] Limit a new function to one reason to change.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `CHROME-DEVTOOLS-DEBUG`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

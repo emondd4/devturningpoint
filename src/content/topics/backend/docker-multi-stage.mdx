@@ -1,0 +1,93 @@
+---
+id: "BACKEND-DOCKER-MULTI-STAGE"
+title: "Docker Multi-stage Builds for APIs"
+titleBn: "API-\u098f\u09b0 \u099c\u09a8\u09cd\u09af Docker Multi-stage Build"
+description: "Smaller, safer runtime images by compiling in a builder stage and copying only artifacts forward."
+descriptionBn: "\u09ac\u09bf\u09b2\u09cd\u09a1\u09be\u09b0 \u09b8\u09cd\u099f\u09c7\u099c\u09c7 \u0995\u09ae\u09cd\u09aa\u09be\u0987\u09b2 \u0995\u09b0\u09c7 \u09b6\u09c1\u09a7\u09c1 \u0986\u09b0\u09cd\u099f\u09bf\u09ab\u09cd\u09af\u09be\u0995\u09cd\u099f \u0995\u09aa\u09bf \u0995\u09b0\u09c7 \u099b\u09cb\u099f \u0993 \u09a8\u09bf\u09b0\u09be\u09aa\u09a6 \u09b0\u09be\u09a8\u099f\u09be\u0987\u09ae \u0987\u09ae\u09c7\u099c\u0964"
+track: "backend"
+category: "deploy"
+difficulty: "intermediate"
+estimatedMinutes: 30
+prerequisites:
+  - "BACKEND-DOCKER-DEPLOY"
+related:
+  - "BACKEND-HEALTH-CHECKS"
+careers:
+  - "backend-engineer"
+  - "devops-engineer"
+tags:
+  - "docker"
+  - "multi-stage"
+  - "node"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "DOCKER-MULTI-STAGE"
+  - "DOCKER-GET-STARTED"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Dev images with compilers and npm caches are huge and increase attack surface. Multi-stage builds separate build-time and run-time concerns.
+
+<Callout type="mental-model">
+  Stage 1 installs deps and builds. Stage 2 copies dist + production node_modules (or a compiled binary) onto a minimal base.
+</Callout>
+
+## Node API sketch
+
+Run as non-root when possible; pin base digests in real pipelines.
+
+```dockerfile
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build && npm prune --omit=dev
+
+FROM node:22-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/node_modules ./node_modules
+COPY package*.json ./
+USER node
+CMD ["node", "dist/main.js"]
+```
+
+## Common mistakes
+
+- **Shipping build toolchain to prod** — Larger image, more CVEs.
+- **Running as root** — Container breakout blast radius.
+- **Not caching package manifests first** — Slow rebuilds.
+
+## Interview angle
+
+<Callout type="interview">
+  What exactly should the final stage contain for a Nest API?
+</Callout>
+
+## Practice checklist
+
+- [ ] Convert a single-stage Dockerfile to multi-stage.
+- [ ] Check final image size before/after.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `DOCKER-MULTI-STAGE`
+- `DOCKER-GET-STARTED`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

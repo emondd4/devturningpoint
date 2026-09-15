@@ -1,0 +1,21 @@
+{
+  "id": "issue-healthcheck-db-liveness",
+  "title": "Pods restart loop because liveness probe hits the database",
+  "technology": "Kubernetes/Nest Terminus",
+  "platform": "API",
+  "symptoms": [
+    "Rolling restarts during brief DB blips",
+    "Cascading outage",
+    "Readiness and liveness share one /health endpoint"
+  ],
+  "cause": "Liveness failures trigger restarts; coupling liveness to dependency health amplifies outages.",
+  "solution": "Split liveness (process up) from readiness (DB ok). Only readiness should fail when dependencies are down.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "BACKEND-HEALTH-CHECKS"
+  ],
+  "sources": [
+    "NESTJS-TERMINUS"
+  ],
+  "lastVerified": "2026-09-15"
+}

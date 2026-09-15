@@ -1,0 +1,23 @@
+{
+  "id": "iv-react-keys-lists",
+  "question": "Why can using array index as a React key break controlled inputs in a sortable list?",
+  "careerIds": [
+    "frontend-engineer"
+  ],
+  "technology": [
+    "React"
+  ],
+  "difficulty": "mid",
+  "shortAnswer": "Index keys can reuse the wrong component state after reorder.",
+  "strongAnswer": "Keys identify siblings across renders. If items reorder but keys stay positional indexes, React may attach existing state/DOM to the wrong item, so input text appears to jump rows.",
+  "advancedAnswer": "Compare intentional remount-via-key for resetting state versus stable business IDs for list identity; mention reconciliation goals.",
+  "followUps": [
+    "When is index-as-key acceptable?"
+  ],
+  "commonWrongAnswer": "Keys are only for performance and never affect state.",
+  "relatedTopics": [
+    "FRONTEND-REACT-KEYS-IDENTITY",
+    "FRONTEND-REACT-RECONCILIATION"
+  ],
+  "lastVerified": "2026-09-15"
+}

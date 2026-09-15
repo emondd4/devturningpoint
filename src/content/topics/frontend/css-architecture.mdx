@@ -1,0 +1,99 @@
+---
+id: "FRONTEND-CSS-ARCHITECTURE"
+title: "CSS Architecture"
+titleBn: "CSS \u0986\u09b0\u09cd\u0995\u09bf\u099f\u09c7\u0995\u099a\u09be\u09b0"
+description: "Cascade layers, ownership boundaries, and strategies that keep styles predictable as teams grow."
+descriptionBn: "Cascade layer, \u09ae\u09be\u09b2\u09bf\u0995\u09be\u09a8\u09be \u09b8\u09c0\u09ae\u09be\u09a8\u09be, \u098f\u09ac\u0982 \u09a6\u09b2 \u09ac\u09a1\u09bc \u09b9\u09b2\u09c7 \u09b8\u09cd\u099f\u09be\u0987\u09b2 \u09aa\u09c2\u09b0\u09cd\u09ac\u09be\u09a8\u09c1\u09ae\u09be\u09a8\u09af\u09cb\u0997\u09cd\u09af \u09b0\u09be\u0996\u09be\u09b0 \u0995\u09cc\u09b6\u09b2\u0964"
+track: "frontend"
+category: "css"
+difficulty: "intermediate"
+estimatedMinutes: 40
+prerequisites:
+  - "FRONTEND-CSS-CASCADE-BOX-MODEL"
+  - "FRONTEND-CSS-FLEXBOX-GRID"
+related:
+  - "FRONTEND-PERFORMANCE"
+careers:
+  - "frontend-engineer"
+tags:
+  - "css"
+  - "architecture"
+  - "cascade"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "MDN-CSS-CASCADE"
+  - "MDN-CSS-CASCADE-LAYERS"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Unstructured CSS becomes a specificity war. Architecture is about ownership: which rules win, where tokens live, and how features stay isolated.
+
+<Callout type="mental-model">
+  Think in layers (reset → tokens → base → components → utilities). Lower layers set defaults; higher layers opt into overrides intentionally.
+</Callout>
+
+## Cascade layers sketch
+
+Use @layer to make priority explicit instead of escalating !important.
+
+```css
+@layer reset, tokens, base, components, utilities;
+
+@layer tokens {
+  :root {
+    --space-2: 0.5rem;
+    --color-fg: #111;
+  }
+}
+
+@layer components {
+  .card {
+    padding: var(--space-2);
+    color: var(--color-fg);
+  }
+}
+
+@layer utilities {
+  .mt-2 {
+    margin-top: var(--space-2);
+  }
+}
+```
+
+## Common mistakes
+
+- **!important as architecture** — Masks ordering bugs; prefer layers/specificity discipline.
+- **Global class soup** — No ownership → regressions across pages.
+- **Inlining one-off styles everywhere** — No shared tokens; inconsistent spacing/type.
+
+## Interview angle
+
+<Callout type="interview">
+  How would cascade layers help a design-system team avoid specificity escalation?
+</Callout>
+
+## Practice checklist
+
+- [ ] Introduce @layer into a small stylesheet.
+- [ ] Document which layer utilities belong to.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `MDN-CSS-CASCADE`
+- `MDN-CSS-CASCADE-LAYERS`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

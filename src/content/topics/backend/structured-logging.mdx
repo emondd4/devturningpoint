@@ -1,0 +1,33 @@
+---
+id: BACKEND-STRUCTURED-LOGGING
+title: "Structured Logging for Services"
+titleBn: "সার্ভিসের Structured Logging"
+description: "JSON logs, correlation IDs, and what not to log (secrets/PII)."
+descriptionBn: "JSON লগ ও correlation ID।"
+track: backend
+difficulty: intermediate
+estimatedMinutes: 30
+prerequisites:
+  - BACKEND-NESTJS-ARCHITECTURE
+unlocks: []
+related:
+  - DEVOPS-OBSERVABILITY-PROMETHEUS-GRAFANA
+careers:
+  - backend-engineer
+tags:
+  - logging
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - NESTJS-ARCHITECTURE
+contributors:
+  - name: Dev Turning Point
+---
+import Callout from '../../../components/content/Callout.astro';
+
+
+Log events as structured fields (`requestId`, `userId`, `route`, `latencyMs`). Never log passwords/tokens. Correlate across services with a request/trace id.
+

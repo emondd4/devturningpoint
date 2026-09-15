@@ -1,0 +1,80 @@
+---
+id: QA-APPIUM-AWARENESS
+title: "Mobile Automation Awareness (Appium)"
+titleBn: "মোবাইল অটোমেশন সচেতনতা (Appium)"
+description: "When Appium fits, how it relates to Playwright, and realistic expectations for mobile QA."
+descriptionBn: "Appium কখন মানানসই, Playwright-এর সাথে সম্পর্ক, এবং মোবাইল QA-এর বাস্তব প্রত্যাশা।"
+track: qa
+difficulty: beginner
+estimatedMinutes: 26
+prerequisites:
+  - "QA-TESTING-PYRAMID"
+unlocks:
+  []
+related:
+  - "QA-PLAYWRIGHT-E2E"
+  - "FLUTTER-TESTING"
+careers:
+  - "qa-engineer"
+  - "flutter-developer"
+tags:
+  - "qa"
+  - "appium"
+  - "mobile"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "APPIUM-DOCS"
+  - "FLUTTER-TESTING"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+
+## Why know Appium
+
+Many Bangladesh products ship Android/iOS clients. Appium is a common cross-platform automation layer over WebDriver protocols—even if your team uses Maestro, Detox, or Flutter Driver instead.
+
+## Mental model
+
+<Callout type="mental-model">
+  Appium drives real or virtual devices via a server that speaks WebDriver. Locators and waits differ from browser E2E; device farms and OS versions multiply cost. Prefer API/unit layers for most coverage; automate critical mobile journeys only.
+</Callout>
+
+## Awareness checklist
+
+- Native vs hybrid vs webview contexts.
+- Emulator vs real device trade-offs.
+- Gesture and permission challenges.
+- How Flutter/React Native tooling may replace or complement Appium.
+
+## Common mistakes
+
+- **Porting web E2E 1:1 to mobile** — Too slow and brittle.
+- **Ignoring device matrix** — One Pixel ≠ all Androids.
+- **Skipping manual exploratory on devices** — Sensors and OS dialogs matter.
+
+## Interview angle
+
+<Callout type="interview">
+  When would you choose Appium versus Playwright for a product with web + Android apps?
+</Callout>
+
+## Practice checklist
+
+- [ ] Read Appium intro docs and list required stack pieces.
+- [ ] Sketch a mobile testing pyramid for your app.
+- [ ] Note three journeys that deserve device automation.
+
+## Sources
+
+- `APPIUM-DOCS`
+- `FLUTTER-TESTING`

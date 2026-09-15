@@ -1,0 +1,87 @@
+---
+id: "FRONTEND-JS-DOM-APIS"
+title: "DOM APIs for Frontend Engineers"
+titleBn: "\u09ab\u09cd\u09b0\u09a8\u09cd\u099f\u098f\u09a8\u09cd\u09a1 \u0987\u099e\u09cd\u099c\u09bf\u09a8\u09bf\u09af\u09bc\u09be\u09b0\u09a6\u09c7\u09b0 \u099c\u09a8\u09cd\u09af DOM API"
+description: "How the Document Object Model connects HTML to JavaScript\u2014and when React should own updates instead."
+descriptionBn: "Document Object Model \u0995\u09c0\u09ad\u09be\u09ac\u09c7 HTML-\u0995\u09c7 JavaScript-\u098f\u09b0 \u09b8\u09be\u09a5\u09c7 \u09af\u09c1\u0995\u09cd\u09a4 \u0995\u09b0\u09c7\u2014\u098f\u09ac\u0982 \u0995\u0996\u09a8 React-\u0995\u09c7 \u0986\u09aa\u09a1\u09c7\u099f \u09ae\u09be\u09b2\u09bf\u0995\u09be\u09a8\u09be \u09a8\u09bf\u09a4\u09c7 \u09b9\u09af\u09bc\u0964"
+track: "frontend"
+category: "javascript"
+difficulty: "beginner"
+estimatedMinutes: 35
+prerequisites:
+  - "FRONTEND-HTML-SEMANTICS-A11Y"
+  - "FRONTEND-JAVASCRIPT-FUNDAMENTALS"
+unlocks:
+  - "FRONTEND-REACT-COMPONENTS-STATE"
+related:
+  - "FRONTEND-JS-FETCH"
+careers:
+  - "frontend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "dom"
+  - "javascript"
+  - "browser"
+status: "published"
+translationStatus: "partial"
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "MDN-DOM"
+  - "W3C-HTML"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this matters
+
+Browsers expose pages as a tree of nodes. Without the DOM, JavaScript has no standard way to read or change structure, text, and attributes.
+
+<Callout type="mental-model">
+  The DOM is a live tree representing the document. Query nodes, mutate carefully, listen to events—but prefer framework-owned updates once you adopt React.
+</Callout>
+
+## Core operations
+
+Learn querySelector, createElement, textContent vs innerHTML, and event listeners. Prefer textContent for untrusted strings; treat HTML injection APIs as XSS sinks.
+
+```ts
+const list = document.querySelector<HTMLUListElement>('#topics');
+if (!list) throw new Error('Missing #topics');
+
+const item = document.createElement('li');
+item.textContent = 'FRONTEND-JS-DOM-APIS';
+list.append(item);
+```
+
+## Common mistakes
+
+- **innerHTML with user input** — XSS risk—sanitize or use textContent/Trusted Types.
+- **Direct DOM edits inside React** — React may overwrite your changes on the next commit.
+- **Querying before mount** — Null refs if the script runs before the node exists.
+
+## Interview angle
+
+<Callout type="interview">
+  When would you use the DOM API directly in a React app, and what are the risks?
+</Callout>
+
+## Practice checklist
+
+- [ ] Build a tiny vanilla list with createElement + events.
+- [ ] Replace one innerHTML use with textContent.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `MDN-DOM`
+- `W3C-HTML`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

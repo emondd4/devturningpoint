@@ -1,0 +1,29 @@
+{
+  "id": "iv-pm-stakeholder-tradeoffs",
+  "question": "Sales promised a feature that engineering says risks the release date. How do you manage stakeholders and scope?",
+  "questionBn": "সেলস এমন ফিচার ওয়াদা করেছে যা ইঞ্জিনিয়ারিং বলে রিলিজ তারিখ ঝুঁকিতে ফেলবে। স্টেকহোল্ডার ও স্কোপ কীভাবে ম্যানেজ করবেন?",
+  "careerIds": [
+    "product-manager"
+  ],
+  "technology": [
+    "Product Management",
+    "Scope",
+    "Stakeholders"
+  ],
+  "difficulty": "senior",
+  "shortAnswer": "Make trade-offs explicit with options: cut scope, slip date, or add capacity—and document residual risk.",
+  "strongAnswer": "Restate the customer outcome. Present options with impacts on date, quality, and support load. Propose an MVP slice with clear out-of-scope items. Align decision owners; avoid silent heroics. Update the backlog and communicate to sales with a single source of truth.",
+  "advancedAnswer": "Use feature flags and staged rollout to decouple marketing date from full scope.",
+  "followUps": [
+    "How do you prevent repeat over-promising?",
+    "Which metric proves the MVP worked?"
+  ],
+  "commonWrongAnswer": "Tell engineers to work weekends without changing commitments.",
+  "productionRelevance": "Cross-functional promise gaps are a frequent delivery failure mode.",
+  "relatedTopics": [
+    "PM-STAKEHOLDERS",
+    "PM-SCOPE-MANAGEMENT",
+    "PM-RELEASE-PLANNING"
+  ],
+  "lastVerified": "2026-09-15"
+}

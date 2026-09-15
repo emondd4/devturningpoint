@@ -1,0 +1,68 @@
+---
+id: PM-DEPENDENCIES
+title: "Managing Dependencies"
+titleBn: "ডিপেনডেন্সি ম্যানেজমেন্ট"
+description: "Surface blockers across teams, vendors, and technical prerequisites."
+descriptionBn: "টিম, ভেন্ডর ও টেকনিক্যাল প্রিরিকুইজিট জুড়ে ব্লকার উন্মোচন।"
+track: project-management
+difficulty: intermediate
+estimatedMinutes: 28
+prerequisites:
+  - "PM-SCOPE-MANAGEMENT"
+unlocks:
+  - "PM-RELEASE-PLANNING"
+related:
+  - "PM-SPRINT-CEREMONIES"
+  - "PM-TOOLING-JIRA-GITHUB"
+careers:
+  - "product-manager"
+tags:
+  - "pm"
+  - "dependencies"
+status: published
+translationStatus: partial
+createdAt: "2026-09-15"
+updatedAt: "2026-09-15"
+lastVerified: "2026-09-15"
+sources:
+  - "SCRUM-GUIDE"
+contributors:
+  - name: "Dev Turning Point"
+---
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why map dependencies
+
+Critical path is often cross-team: APIs, designs, legal, app store review, payment partners.
+
+## Mental model
+
+<Callout type="mental-model">
+  Make dependencies visible early. Prefer small contracts and stubs over waiting for perfect integrations. Escalate blockers with options, not just status.
+</Callout>
+
+## Common mistakes
+
+- **Discovering vendor lead times late**.
+- **Hard-sequencing work that could be parallel**.
+- **No owner for external follow-ups**.
+
+## Interview angle
+
+<Callout type="interview">
+  Design and API are both late. How do you keep a sprint productive?
+</Callout>
+
+## Practice checklist
+
+- [ ] List dependencies for your next release.
+- [ ] Assign an owner per external blocker.
+- [ ] Propose one stub/mock strategy.
+
+## Sources
+
+- `SCRUM-GUIDE`
