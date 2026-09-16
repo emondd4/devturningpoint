@@ -1,0 +1,262 @@
+---
+id: "PROJECT-FOUNDATIONS-DEV-TOOLBOX-CLI"
+title: "Developer Toolbox CLI"
+titleBn: "ডেভেলপার টুলবক্স CLI"
+slug: "foundations-dev-toolbox-cli"
+track: "foundations"
+level: "beginner"
+difficulty: "beginner"
+summary: "Build a small command-line toolkit for everyday engineering tasks: path helpers, JSON pretty-print, hash/checksum, and Git status summaries."
+summaryBn: "দৈনন্দিন ইঞ্জিনিয়ারিং কাজের জন্য ছোট CLI টুলবক্স—path helper, JSON pretty-print, hash/checksum এবং Git status সারাংশ।"
+portfolioPitch: "A polished personal CLI that proves you can design commands, handle files safely, and ship reproducible developer tooling."
+estimatedHours: 18
+prerequisiteSkillIds:
+  - "FOUNDATIONS-VARIABLES"
+  - "FOUNDATIONS-FUNCTIONS"
+  - "FOUNDATIONS-FILESYSTEMS"
+  - "FOUNDATIONS-GIT"
+learningOutcomeSkillIds:
+  - "FOUNDATIONS-FILESYSTEMS"
+  - "FOUNDATIONS-GIT"
+  - "FOUNDATIONS-ERROR-HANDLING"
+  - "FOUNDATIONS-DEBUGGING"
+recommendedTools:
+  - "Python 3 or Node.js"
+  - "Git"
+  - "bash/zsh"
+portfolioEvidence:
+  - "GitHub repo with README"
+  - "Demo recording of each command"
+  - "Automated tests"
+  - "Decision note on CLI UX"
+relatedTopicIds:
+  - "FOUNDATIONS-CLI-BASICS"
+  - "FOUNDATIONS-FILESYSTEMS"
+  - "FOUNDATIONS-GIT-FUNDAMENTALS"
+  - "FOUNDATIONS-JSON-DATA"
+  - "FOUNDATIONS-ERROR-HANDLING"
+  - "FOUNDATIONS-DEBUGGING"
+  - "FOUNDATIONS-DOCUMENTATION"
+relatedInterviewQuestionIds:
+  - "FND-B-0034"
+  - "FND-B-0126"
+  - "FND-B-0127"
+  - "iv-foundations-debugging-hypothesis"
+  - "FND-I-0045"
+  - "FND-B-0001"
+  - "FND-I-0126"
+sources:
+  - "MDN-CLI-INTRO"
+  - "GIT-SCM-BOOK"
+  - "RFC-8259-JSON"
+  - "POSIX-FILESYSTEM"
+  - "WRITE-THE-DOCS-GUIDE"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+nextProjectId: "PROJECT-FOUNDATIONS-TCP-CHAT-FILE-TRANSFER"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "fnd-cli-m1"
+    title: "Scaffold CLI and help UX"
+    objective: "Create runnable CLI with root help and stub command."
+    whyItMatters: "Discoverability is the CLI product surface."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-CLI-BASICS"
+      - "FOUNDATIONS-DOCUMENTATION"
+    tasks:
+      - "Init repo"
+      - "Add parser"
+      - "Implement --help/version"
+      - "Write README"
+    expectedArtifacts:
+      - "scaffold"
+      - "help recording"
+    validationChecklist:
+      - "CLI starts"
+      - "Help lists commands"
+      - "README install works"
+    commonProblems:
+      - "Missing entrypoint"
+      - "Help/flag drift"
+    completionCriteria:
+      - "Help works"
+      - "Repo pushable"
+  - id: "fnd-cli-m2"
+    title: "JSON pretty-print and validate"
+    objective: "Ship json subcommands for format/validate."
+    whyItMatters: "JSON is the interchange format of modern APIs."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-JSON-DATA"
+      - "FOUNDATIONS-ERROR-HANDLING"
+    tasks:
+      - "Pretty-print"
+      - "Validate with errors"
+      - "Size limit"
+      - "Fixture tests"
+    expectedArtifacts:
+      - "json module"
+      - "fixtures"
+    validationChecklist:
+      - "Valid formats"
+      - "Invalid exits non-zero"
+      - "Tests cover empty file"
+    commonProblems:
+      - "Huge file in memory"
+      - "Logs mixed into stdout"
+    completionCriteria:
+      - "Commands documented"
+      - "Tests green"
+  - id: "fnd-cli-m3"
+    title: "Hashing and path helpers"
+    objective: "Add SHA-256 and path normalization."
+    whyItMatters: "Checksums and path hygiene show up in releases and security reviews."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-FILESYSTEMS"
+      - "FOUNDATIONS-SECURITY-FUNDAMENTALS"
+    tasks:
+      - "Streaming hash"
+      - "Path helpers"
+      - "Permission errors"
+      - "Security notes"
+    expectedArtifacts:
+      - "hash command"
+      - "security notes"
+    validationChecklist:
+      - "Hash matches shasum"
+      - "Missing file clear"
+      - "Symlink policy documented"
+    commonProblems:
+      - "Unsafe symlink follow"
+      - "Wrong hash encoding"
+    completionCriteria:
+      - "Hash verified"
+      - "Edges tested"
+  - id: "fnd-cli-m4"
+    title: "Git summary + polish"
+    objective: "Summarize repo status safely and package toolbox."
+    whyItMatters: "Safe Git integration shows process hygiene."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-GIT-FUNDAMENTALS"
+      - "FOUNDATIONS-DEBUGGING"
+    tasks:
+      - "Porcelain status"
+      - "Human+JSON output"
+      - "Temp-repo smoke test"
+      - "Tag v0.1.0"
+    expectedArtifacts:
+      - "git summary"
+      - "smoke test"
+    validationChecklist:
+      - "Outside repo errors clearly"
+      - "Renames handled"
+      - "Clean-machine install works"
+    commonProblems:
+      - "Shell injection"
+      - "Assuming git exists"
+    completionCriteria:
+      - "All demos done"
+      - "Artifacts collected"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Every engineer lives in the terminal. Shipping a small toolbox trains argument parsing, filesystem safety, exit codes, and readable docs.
+
+<Callout type="mental-model">
+  A CLI is a contract: args in, deterministic side effects out, non-zero exits on failure, and help text that prevents foot-guns.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: FOUNDATIONS-FILESYSTEMS, FOUNDATIONS-GIT, FOUNDATIONS-ERROR-HANDLING, FOUNDATIONS-DEBUGGING.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Thin command router with shared IO/utilities. Keep subcommands modular and unit-test parsers without touching disk.
+
+Recommended tools: Python 3 or Node.js, Git, bash/zsh.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Scaffold + help. 2) JSON pretty/validate. 3) SHA-256 hash. 4) Path helpers. 5) Git summary via argv subprocess. 6) Tests + packaging.
+
+## Validation checkpoints
+
+Help works; invalid input exits non-zero; hash matches known fixture; JSON output stable.
+
+## Common errors
+
+Swallowing exceptions; path traversal; shell injection; README without install examples.
+
+## Debugging guidance
+
+Reproduce with fixtures; print argv at debug level; run git subprocess manually first.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+Unit-test parsers; smoke-test CLI entrypoint on fixtures; keep network out of tests.
+
+## Security
+
+Document symlink policy; never log secrets; prefer explicit paths.
+
+## Performance
+
+Stream large files for hashing; reject oversized pretty-print inputs.
+
+## Accessibility
+
+Clear messages, stable exit codes, optional --json machine output.
+
+## Deployment / handoff
+
+Local install instructions; optional GitHub Release.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  How you designed subcommands, errors, and prevented path/shell injection.
+</Callout>
+
+## Stretch goals
+
+Plugins, config file, or doctor command for toolchain checks.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

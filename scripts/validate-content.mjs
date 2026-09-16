@@ -34,7 +34,7 @@ for (const file of walk(join(root, 'src/content/topics'), (n) => n.endsWith('.md
   else trackId(idMatch[1].trim(), file);
 }
 
-for (const folder of ['careers', 'companies', 'achievements', 'interviews', 'issues', 'projects', 'history']) {
+for (const folder of ['careers', 'companies', 'achievements', 'interviews', 'issues', 'history']) {
   for (const file of walk(join(root, 'src/content', folder), (n) => n.endsWith('.json'))) {
     try {
       const data = JSON.parse(readFileSync(file, 'utf8'));
@@ -44,6 +44,18 @@ for (const folder of ['careers', 'companies', 'achievements', 'interviews', 'iss
       issues.push(`Invalid JSON ${file}: ${error.message}`);
     }
   }
+}
+
+for (const file of walk(join(root, 'src/content/projects'), (n) => n.endsWith('.md') || n.endsWith('.mdx'))) {
+  const text = readFileSync(file, 'utf8');
+  const match = text.match(/^---([\s\S]*?)---/);
+  if (!match) {
+    issues.push(`Missing frontmatter: ${file}`);
+    continue;
+  }
+  const idMatch = match[1].match(/^id:\s*"?([^"\n]+)"?/m);
+  if (!idMatch) issues.push(`Missing id: ${file}`);
+  else trackId(idMatch[1].trim(), file);
 }
 
 if (issues.length) {

@@ -1,0 +1,260 @@
+---
+id: "PROJECT-DEVOPS-CONTAINERIZED-CICD-VM"
+title: "Containerized App + CI/CD to Linux VM"
+titleBn: "কন্টেইনারাইজড অ্যাপ + Linux VM-এ CI/CD"
+slug: "devops-containerized-cicd-linux-vm"
+track: "devops"
+level: "beginner"
+difficulty: "beginner"
+summary: "Containerize an app, build with GitHub Actions, and deploy to a Linux VM behind Nginx with systemd."
+summaryBn: "অ্যাপ কন্টেইনারাইজ, GitHub Actions দিয়ে বিল্ড, Nginx+systemdসহ Linux VM-এ ডিপ্লয়।"
+portfolioPitch: "Foundational DevOps delivery: Docker, CI, SSH deploy, reverse proxy, and basic hardening."
+estimatedHours: 28
+prerequisiteSkillIds:
+  - "DEVOPS-LINUX"
+  - "DEVOPS-DOCKER"
+  - "DEVOPS-CICD"
+  - "DEVOPS-BASH"
+learningOutcomeSkillIds:
+  - "DEVOPS-DOCKER"
+  - "DEVOPS-CICD"
+  - "DEVOPS-NGINX"
+  - "DEVOPS-SYSTEMD"
+  - "DEVOPS-LINUX"
+recommendedTools:
+  - "Docker"
+  - "GitHub Actions"
+  - "Linux VM"
+  - "Nginx"
+  - "systemd"
+portfolioEvidence:
+  - "Dockerfile"
+  - "Workflow YAML"
+  - "Nginx config"
+  - "Deploy runbook"
+relatedTopicIds:
+  - "DEVOPS-DOCKER-FUNDAMENTALS"
+  - "DEVOPS-GITHUB-ACTIONS-CI"
+  - "DEVOPS-LINUX-FUNDAMENTALS"
+  - "DEVOPS-NGINX-REVERSE-PROXY"
+  - "DEVOPS-SYSTEMD"
+  - "DEVOPS-BASH"
+  - "DEVOPS-SSH-HARDENING"
+relatedInterviewQuestionIds:
+  - "DO-B-0001"
+  - "DO-B-0010"
+  - "iv-docker-layers-cache"
+  - "iv-devops-systemd-crashloop"
+  - "iv-devops-compose-networks"
+  - "DO-I-0005"
+  - "DO-B-0020"
+sources:
+  - "DOCKER-GET-STARTED"
+  - "GHA-WORKFLOWS"
+  - "NGINX-DOCS"
+  - "SYSTEMD-DOCS"
+  - "LINUX-MAN-PAGES"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+nextProjectId: "PROJECT-DEVOPS-TERRAFORM-AWS"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "do-vm-m1"
+    title: "Containerize app"
+    objective: "Multi-stage Dockerfile + local run."
+    whyItMatters: "Image is the artifact."
+    prerequisiteTopicIds:
+      - "DEVOPS-DOCKER-FUNDAMENTALS"
+      - "DEVOPS-BASH"
+    tasks:
+      - "Dockerfile"
+      - "Ignore file"
+      - "Healthcheck"
+      - "Local run docs"
+    expectedArtifacts:
+      - "Dockerfile"
+      - "local demo"
+    validationChecklist:
+      - "Image builds"
+      - "App healthy"
+      - "Non-root where feasible"
+    commonProblems:
+      - "Fat base images"
+      - "Secrets in image"
+    completionCriteria:
+      - "Image ready"
+  - id: "do-vm-m2"
+    title: "CI build publish"
+    objective: "GitHub Actions build/push."
+    whyItMatters: "CI makes builds reproducible."
+    prerequisiteTopicIds:
+      - "DEVOPS-GITHUB-ACTIONS-CI"
+      - "DEVOPS-CONTAINER-IMAGE-SECURITY"
+    tasks:
+      - "Workflow"
+      - "Registry login"
+      - "Tags"
+      - "Cache"
+    expectedArtifacts:
+      - "workflow yaml"
+    validationChecklist:
+      - "CI green"
+      - "Tagged image"
+      - "Cache speeds rebuild"
+    commonProblems:
+      - "Long-lived PATs in logs"
+      - "Mutable latest-only"
+    completionCriteria:
+      - "CI publishes"
+  - id: "do-vm-m3"
+    title: "VM systemd deploy"
+    objective: "Pull/run under systemd."
+    whyItMatters: "Supervisors beat tmux deploys."
+    prerequisiteTopicIds:
+      - "DEVOPS-SYSTEMD"
+      - "DEVOPS-LINUX-FUNDAMENTALS"
+    tasks:
+      - "Unit file"
+      - "Deploy user"
+      - "Pull script"
+      - "Reboot test"
+    expectedArtifacts:
+      - "unit"
+      - "runbook"
+    validationChecklist:
+      - "Survives reboot"
+      - "Restart on fail"
+      - "Logs accessible"
+    commonProblems:
+      - "Manual docker run only"
+      - "No restart policy"
+    completionCriteria:
+      - "VM deploy works"
+  - id: "do-vm-m4"
+    title: "Nginx edge polish"
+    objective: "Reverse proxy + hardening notes."
+    whyItMatters: "Edge termination is production shape."
+    prerequisiteTopicIds:
+      - "DEVOPS-NGINX-REVERSE-PROXY"
+      - "DEVOPS-SSH-HARDENING"
+    tasks:
+      - "Nginx site"
+      - "TLS optional/docs"
+      - "SSH notes"
+      - "Rollback"
+    expectedArtifacts:
+      - "nginx conf"
+      - "hardening"
+    validationChecklist:
+      - "Proxy works"
+      - "nginx -t clean"
+      - "Rollback tested"
+    commonProblems:
+      - "Open 3000 publicly"
+      - "Weak SSH"
+    completionCriteria:
+      - "Runbook complete"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Shipping a container to a VM is the practical baseline before cloud IaC and Kubernetes.
+
+<Callout type="mental-model">
+  Build once in CI, run under a process supervisor, terminate TLS/proxy at the edge.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: DEVOPS-DOCKER, DEVOPS-CICD, DEVOPS-NGINX, DEVOPS-SYSTEMD, DEVOPS-LINUX.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+App image → GHCR/Docker Hub → VM pull → systemd unit → Nginx reverse proxy.
+
+Recommended tools: Docker, GitHub Actions, Linux VM, Nginx, systemd.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Dockerfile. 2) Compose local. 3) GH Actions build. 4) VM systemd deploy. 5) Nginx+TLS optional.
+
+## Validation checkpoints
+
+CI builds image; VM serves app via Nginx; restart survives reboot; rollback steps documented.
+
+## Common errors
+
+Running containers as root unnecessarily; secrets in workflow logs; no healthcheck.
+
+## Debugging guidance
+
+journalctl -u; nginx -t; docker logs; curl locally first.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+CI smoke curl after deploy; container healthcheck.
+
+## Security
+
+SSH keys; least ports; non-root container user; secret store for deploy key.
+
+## Performance
+
+Multi-stage builds; layer caching in CI.
+
+## Accessibility
+
+N/A infra—document status page if any.
+
+## Deployment / handoff
+
+This project IS deployment—publish runbook.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  How CI produces an immutable image and how systemd keeps it up.
+</Callout>
+
+## Stretch goals
+
+Blue/green on VM; Traefik; monitoring agent.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

@@ -1,6 +1,8 @@
 import { openDB, type DBSchema, type IDBPDatabase } from 'idb';
 import { CURRENT_STORAGE_VERSION } from '../utils/theme';
 
+export type ProjectStatus = 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED';
+
 export interface AssessmentResult {
   trackId: string;
   completedAt: string;
@@ -28,6 +30,20 @@ export interface LearningPathState {
   assessmentCompletedAt?: string;
 }
 
+export interface MilestoneCompletion {
+  milestoneId: string;
+  completedAt: string;
+}
+
+export interface ProjectProgress {
+  projectId: string;
+  status: ProjectStatus;
+  startedAt?: string;
+  lastVisitedAt: string;
+  completedAt?: string;
+  milestoneCompletion: MilestoneCompletion[];
+}
+
 export interface ProgressExport {
   schemaVersion: number;
   exportedAt: string;
@@ -39,6 +55,7 @@ export interface ProgressExport {
   topics: TopicProgress[];
   paths: LearningPathState[];
   bookmarks: string[];
+  projects?: ProjectProgress[];
 }
 
 interface DtpDb extends DBSchema {
@@ -58,6 +75,10 @@ interface DtpDb extends DBSchema {
     key: string;
     value: { topicId: string; createdAt: string };
   };
+  projects: {
+    key: string;
+    value: ProjectProgress;
+  };
   meta: {
     key: string;
     value: { key: string; value: string | number };
@@ -65,9 +86,14 @@ interface DtpDb extends DBSchema {
 }
 
 const DB_NAME = 'devturningpoint';
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 
 let dbPromise: Promise<IDBPDatabase<DtpDb>> | null = null;
+
+/** @internal test helper */
+export function __resetProgressDbForTests(): void {
+  dbPromise = null;
+}
 
 function getDb() {
   if (typeof indexedDB === 'undefined') {
@@ -75,12 +101,17 @@ function getDb() {
   }
   if (!dbPromise) {
     dbPromise = openDB<DtpDb>(DB_NAME, DB_VERSION, {
-      upgrade(db) {
-        db.createObjectStore('assessments', { keyPath: 'trackId' });
-        db.createObjectStore('topics', { keyPath: 'topicId' });
-        db.createObjectStore('paths', { keyPath: 'trackId' });
-        db.createObjectStore('bookmarks', { keyPath: 'topicId' });
-        db.createObjectStore('meta', { keyPath: 'key' });
+      upgrade(db, oldVersion) {
+        if (oldVersion < 1) {
+          db.createObjectStore('assessments', { keyPath: 'trackId' });
+          db.createObjectStore('topics', { keyPath: 'topicId' });
+          db.createObjectStore('paths', { keyPath: 'trackId' });
+          db.createObjectStore('bookmarks', { keyPath: 'topicId' });
+          db.createObjectStore('meta', { keyPath: 'key' });
+        }
+        if (oldVersion < 2 && !db.objectStoreNames.contains('projects')) {
+          db.createObjectStore('projects', { keyPath: 'projectId' });
+        }
       },
     });
   }
@@ -94,7 +125,10 @@ export async function ensureStorageMigrated(): Promise<void> {
     await db.put('meta', { key: 'storageVersion', value: CURRENT_STORAGE_VERSION });
     return;
   }
-  // Future migrations branch on Number(existing.value)
+  const version = Number(existing.value);
+  if (version < CURRENT_STORAGE_VERSION) {
+    await db.put('meta', { key: 'storageVersion', value: CURRENT_STORAGE_VERSION });
+  }
 }
 
 export async function saveAssessment(result: AssessmentResult): Promise<void> {
@@ -197,6 +231,115 @@ export async function getBookmarks(): Promise<string[]> {
   return all.map((b) => b.topicId);
 }
 
+export function deriveProjectStatus(
+  milestoneCompletion: MilestoneCompletion[],
+  totalMilestones: number,
+  explicit?: ProjectStatus,
+): ProjectStatus {
+  if (explicit === 'COMPLETED' || (totalMilestones > 0 && milestoneCompletion.length >= totalMilestones)) {
+    return 'COMPLETED';
+  }
+  if (milestoneCompletion.length > 0 || explicit === 'IN_PROGRESS') return 'IN_PROGRESS';
+  return 'NOT_STARTED';
+}
+
+export async function getProjectProgress(projectId: string): Promise<ProjectProgress | undefined> {
+  await ensureStorageMigrated();
+  const db = await getDb();
+  return db.get('projects', projectId);
+}
+
+export async function getAllProjectProgress(): Promise<ProjectProgress[]> {
+  await ensureStorageMigrated();
+  const db = await getDb();
+  return db.getAll('projects');
+}
+
+export async function touchProject(projectId: string): Promise<ProjectProgress> {
+  await ensureStorageMigrated();
+  const db = await getDb();
+  const now = new Date().toISOString();
+  const existing = await db.get('projects', projectId);
+  const next: ProjectProgress = {
+    projectId,
+    status: existing?.status && existing.status !== 'NOT_STARTED' ? existing.status : 'IN_PROGRESS',
+    startedAt: existing?.startedAt ?? now,
+    lastVisitedAt: now,
+    completedAt: existing?.completedAt,
+    milestoneCompletion: existing?.milestoneCompletion ?? [],
+  };
+  await db.put('projects', next);
+  return next;
+}
+
+export async function startProject(projectId: string): Promise<ProjectProgress> {
+  await ensureStorageMigrated();
+  const db = await getDb();
+  const now = new Date().toISOString();
+  const existing = await db.get('projects', projectId);
+  const next: ProjectProgress = {
+    projectId,
+    status: existing?.status === 'COMPLETED' ? 'COMPLETED' : 'IN_PROGRESS',
+    startedAt: existing?.startedAt ?? now,
+    lastVisitedAt: now,
+    completedAt: existing?.completedAt,
+    milestoneCompletion: existing?.milestoneCompletion ?? [],
+  };
+  await db.put('projects', next);
+  return next;
+}
+
+export async function toggleMilestoneComplete(
+  projectId: string,
+  milestoneId: string,
+  totalMilestones: number,
+): Promise<ProjectProgress> {
+  await ensureStorageMigrated();
+  const db = await getDb();
+  const now = new Date().toISOString();
+  const existing = await db.get('projects', projectId);
+  const current = existing?.milestoneCompletion ?? [];
+  const has = current.some((m) => m.milestoneId === milestoneId);
+  const milestoneCompletion = has
+    ? current.filter((m) => m.milestoneId !== milestoneId)
+    : [...current, { milestoneId, completedAt: now }];
+  const status = deriveProjectStatus(milestoneCompletion, totalMilestones);
+  const next: ProjectProgress = {
+    projectId,
+    status,
+    startedAt: existing?.startedAt ?? now,
+    lastVisitedAt: now,
+    completedAt: status === 'COMPLETED' ? existing?.completedAt ?? now : undefined,
+    milestoneCompletion,
+  };
+  await db.put('projects', next);
+  return next;
+}
+
+export async function markProjectComplete(projectId: string, milestoneIds: string[]): Promise<ProjectProgress> {
+  await ensureStorageMigrated();
+  const db = await getDb();
+  const now = new Date().toISOString();
+  const existing = await db.get('projects', projectId);
+  const completedIds = new Set(existing?.milestoneCompletion.map((m) => m.milestoneId) ?? []);
+  const milestoneCompletion = [
+    ...(existing?.milestoneCompletion ?? []),
+    ...milestoneIds
+      .filter((id) => !completedIds.has(id))
+      .map((milestoneId) => ({ milestoneId, completedAt: now })),
+  ];
+  const next: ProjectProgress = {
+    projectId,
+    status: 'COMPLETED',
+    startedAt: existing?.startedAt ?? now,
+    lastVisitedAt: now,
+    completedAt: now,
+    milestoneCompletion,
+  };
+  await db.put('projects', next);
+  return next;
+}
+
 export async function exportProgress(preferences?: ProgressExport['preferences']): Promise<ProgressExport> {
   await ensureStorageMigrated();
   const db = await getDb();
@@ -208,6 +351,7 @@ export async function exportProgress(preferences?: ProgressExport['preferences']
     topics: await db.getAll('topics'),
     paths: await db.getAll('paths'),
     bookmarks: (await db.getAll('bookmarks')).map((b) => b.topicId),
+    projects: await db.getAll('projects'),
   };
 }
 
@@ -221,6 +365,9 @@ export function validateProgressImport(data: unknown): { ok: true; data: Progres
   if (obj.bookmarks && !Array.isArray(obj.bookmarks)) {
     return { ok: false, error: 'bookmarks must be an array' };
   }
+  if (obj.projects && !Array.isArray(obj.projects)) {
+    return { ok: false, error: 'projects must be an array' };
+  }
   return { ok: true, data: data as ProgressExport };
 }
 
@@ -233,15 +380,17 @@ export async function importProgress(data: ProgressExport, mode: 'merge' | 'repl
     await db.clear('topics');
     await db.clear('paths');
     await db.clear('bookmarks');
+    await db.clear('projects');
   }
 
-  const tx = db.transaction(['assessments', 'topics', 'paths', 'bookmarks', 'meta'], 'readwrite');
+  const tx = db.transaction(['assessments', 'topics', 'paths', 'bookmarks', 'projects', 'meta'], 'readwrite');
   for (const item of data.assessments) await tx.objectStore('assessments').put(item);
   for (const item of data.topics) await tx.objectStore('topics').put(item);
   for (const item of data.paths) await tx.objectStore('paths').put(item);
   for (const topicId of data.bookmarks ?? []) {
     await tx.objectStore('bookmarks').put({ topicId, createdAt: new Date().toISOString() });
   }
-  await tx.objectStore('meta').put({ key: 'storageVersion', value: data.schemaVersion });
+  for (const item of data.projects ?? []) await tx.objectStore('projects').put(item);
+  await tx.objectStore('meta').put({ key: 'storageVersion', value: Math.max(data.schemaVersion, CURRENT_STORAGE_VERSION) });
   await tx.done;
 }

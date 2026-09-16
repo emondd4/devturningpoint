@@ -1,0 +1,1810 @@
+[
+  {
+    "id": "PROJECT-FOUNDATIONS-DEV-TOOLBOX-CLI",
+    "title": "Developer Toolbox CLI",
+    "slug": "developer-toolbox-cli",
+    "track": "foundations",
+    "level": "beginner",
+    "estimatedHours": 18,
+    "summary": "Build a small local CLI for notes, timers, and file helpers with tests and packaging.",
+    "portfolioPitch": "Prove you can ship a real CLI with parsing, file I/O, exit codes, and docs\u2014core engineer hygiene.",
+    "prerequisiteSkillIds": [
+      "FOUNDATIONS-FUNCTIONS",
+      "FOUNDATIONS-FILESYSTEMS",
+      "FOUNDATIONS-GIT"
+    ],
+    "learningOutcomeSkillIds": [
+      "FOUNDATIONS-FUNCTIONS",
+      "FOUNDATIONS-DEBUGGING",
+      "FOUNDATIONS-ERROR-HANDLING"
+    ],
+    "recommendedTools": [
+      "Python or Node",
+      "Git",
+      "pytest or vitest"
+    ],
+    "topicPrefs": [
+      "FOUNDATIONS-CLI-BASICS",
+      "FOUNDATIONS-FILESYSTEMS",
+      "FOUNDATIONS-GIT-FUNDAMENTALS",
+      "FOUNDATIONS-DEBUGGING",
+      "FOUNDATIONS-ERROR-HANDLING"
+    ],
+    "sources": [
+      "MDN-CLI-INTRO",
+      "LINUX-MAN-PAGES"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "Scaffold and args",
+        "Create CLI entrypoint with help/version and subcommands.",
+        "Clean interfaces are interview signals."
+      ],
+      [
+        "Core commands",
+        "Implement notes/timer/file helpers with local persistence.",
+        "Real tools persist state and handle bad input."
+      ],
+      [
+        "Errors and tests",
+        "Add structured errors, exit codes, and automated tests.",
+        "Production CLIs fail loudly and testably."
+      ],
+      [
+        "Package and README",
+        "Document install/run with a reproducible demo.",
+        "Clarity of use is portfolio value."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-FOUNDATIONS-TCP-CHAT-FILE-TRANSFER",
+    "title": "TCP Chat + File Transfer",
+    "slug": "tcp-chat-file-transfer",
+    "track": "foundations",
+    "level": "intermediate",
+    "estimatedHours": 28,
+    "summary": "Implement a TCP chat server/client with framed messages and reliable file transfer.",
+    "portfolioPitch": "Show networking fundamentals: sockets, framing, concurrency, and protocol design under failure.",
+    "prerequisiteSkillIds": [
+      "FOUNDATIONS-TCP-IP",
+      "FOUNDATIONS-PROCESSES",
+      "FOUNDATIONS-DEBUGGING"
+    ],
+    "learningOutcomeSkillIds": [
+      "FOUNDATIONS-TCP-IP",
+      "FOUNDATIONS-HTTP",
+      "FOUNDATIONS-ERROR-HANDLING"
+    ],
+    "recommendedTools": [
+      "Python or Go",
+      "Git"
+    ],
+    "topicPrefs": [
+      "FOUNDATIONS-NETWORKING-TCP-IP-HTTP",
+      "FOUNDATIONS-OS-PROCESSES-MEMORY",
+      "FOUNDATIONS-DEBUGGING",
+      "FOUNDATIONS-CONCURRENCY-VS-PARALLELISM"
+    ],
+    "sources": [
+      "RFC-9293-TCP",
+      "RFC-791-IPV4"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "Socket echo",
+        "Build TCP client/server echo with graceful disconnect.",
+        "Sockets underlie HTTP."
+      ],
+      [
+        "Chat protocol",
+        "Design length-prefixed framing for multi-client chat.",
+        "TCP is a byte stream without framing."
+      ],
+      [
+        "File transfer",
+        "Transfer files with checksums and chunking.",
+        "Reliability beats one-off success."
+      ],
+      [
+        "Failure drills",
+        "Simulate disconnects and document recovery.",
+        "Production thinking starts at failure."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-FOUNDATIONS-MINI-UNIX-SHELL",
+    "title": "Mini Unix Shell + Process Monitor",
+    "slug": "mini-unix-shell-process-monitor",
+    "track": "foundations",
+    "level": "advanced",
+    "estimatedHours": 40,
+    "summary": "Build a minimal shell with pipes/redirection plus a process monitor.",
+    "portfolioPitch": "Demonstrate OS literacy: processes, pipes, signals, and honest observability.",
+    "prerequisiteSkillIds": [
+      "FOUNDATIONS-PROCESSES",
+      "FOUNDATIONS-OS-PERMISSIONS",
+      "FOUNDATIONS-FILESYSTEMS"
+    ],
+    "learningOutcomeSkillIds": [
+      "FOUNDATIONS-PROCESSES",
+      "FOUNDATIONS-DEBUGGING",
+      "FOUNDATIONS-SECURITY-BASICS"
+    ],
+    "recommendedTools": [
+      "C, Rust, or Go",
+      "Linux/macOS",
+      "Git"
+    ],
+    "topicPrefs": [
+      "FOUNDATIONS-OS-PROCESSES-MEMORY",
+      "FOUNDATIONS-OS-PERMISSIONS",
+      "FOUNDATIONS-FILESYSTEMS",
+      "FOUNDATIONS-CLI-BASICS",
+      "FOUNDATIONS-LOGGING-OBSERVABILITY"
+    ],
+    "sources": [
+      "LINUX-MAN-PAGES",
+      "RFC-9293-TCP"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "REPL shell",
+        "Parse simple commands and spawn processes.",
+        "Shells teach process lifecycle."
+      ],
+      [
+        "Pipes and redirects",
+        "Support pipes and redirection.",
+        "Unix scales via composition."
+      ],
+      [
+        "Signals and jobs",
+        "Handle Ctrl-C and basic job control.",
+        "Correct signals separate levels."
+      ],
+      [
+        "Process monitor",
+        "Sample process stats with measurement caveats.",
+        "Observability without lying."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-FLUTTER-EXPENSE-TRACKER",
+    "title": "Personal Expense Tracker",
+    "slug": "personal-expense-tracker",
+    "track": "mobile-flutter",
+    "level": "beginner",
+    "estimatedHours": 24,
+    "summary": "Flutter expense tracker with categories and local persistence.",
+    "portfolioPitch": "Classic portfolio proof of widgets, forms, storage, and polish.",
+    "prerequisiteSkillIds": [
+      "MOBILE-DART-BASICS",
+      "MOBILE-FLUTTER-WIDGETS",
+      "MOBILE-FLUTTER-FORMS"
+    ],
+    "learningOutcomeSkillIds": [
+      "MOBILE-FLUTTER-STATE",
+      "MOBILE-FLUTTER-STORAGE",
+      "MOBILE-FLUTTER-TESTING"
+    ],
+    "recommendedTools": [
+      "Flutter SDK",
+      "SQLite or Hive"
+    ],
+    "topicPrefs": [
+      "MOBILE-FLUTTER-WIDGETS",
+      "MOBILE-FLUTTER-FORMS",
+      "MOBILE-FLUTTER-STATE",
+      "MOBILE-FLUTTER-LOCAL-STORAGE",
+      "MOBILE-FLUTTER-TESTING"
+    ],
+    "sources": [
+      "FLUTTER-DOCS",
+      "FLUTTER-WIDGETS",
+      "FLUTTER-SQLITE"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "UI shell",
+        "Build navigation and expense list screens.",
+        "Structure before features."
+      ],
+      [
+        "Forms and validation",
+        "Add/edit expenses with validation.",
+        "Forms reveal state skill."
+      ],
+      [
+        "Persistence",
+        "Survive restarts with local storage.",
+        "Offline value matters."
+      ],
+      [
+        "Tests and polish",
+        "Widget tests plus empty/error states.",
+        "Finish professionally."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-FLUTTER-OFFLINE-FIELD-TASKS",
+    "title": "Offline-First Field Task Manager",
+    "slug": "offline-first-field-task-manager",
+    "track": "mobile-flutter",
+    "level": "intermediate",
+    "estimatedHours": 36,
+    "summary": "Field task app with offline queue, sync, and conflict policy.",
+    "portfolioPitch": "Senior mobile judgment: offline-first sync under flaky networks.",
+    "prerequisiteSkillIds": [
+      "MOBILE-FLUTTER-STATE",
+      "MOBILE-FLUTTER-NETWORKING",
+      "MOBILE-FLUTTER-STORAGE"
+    ],
+    "learningOutcomeSkillIds": [
+      "MOBILE-FLUTTER-NETWORKING",
+      "MOBILE-FLUTTER-STORAGE",
+      "MOBILE-FLUTTER-TESTING"
+    ],
+    "recommendedTools": [
+      "Flutter",
+      "mock REST API",
+      "local DB"
+    ],
+    "topicPrefs": [
+      "MOBILE-FLUTTER-NETWORKING",
+      "MOBILE-FLUTTER-LOCAL-STORAGE",
+      "MOBILE-FLUTTER-STATE",
+      "MOBILE-FLUTTER-TESTING",
+      "MOBILE-FLUTTER-ISOLATES"
+    ],
+    "sources": [
+      "FLUTTER-NETWORKING",
+      "FLUTTER-SQLITE",
+      "FLUTTER-TESTING"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "Task domain",
+        "Local CRUD for tasks/assignments.",
+        "Domain before sync."
+      ],
+      [
+        "Offline queue",
+        "Queue mutations offline durably.",
+        "Offline-first is a product requirement."
+      ],
+      [
+        "Sync and conflicts",
+        "Sync with documented conflict policy.",
+        "Conflicts show seniority."
+      ],
+      [
+        "Resilience tests",
+        "Airplane mode and partial failure drills.",
+        "Evidence beats claims."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-FLUTTER-FIELD-IOT-OPS",
+    "title": "Field Service + IoT Operations App",
+    "slug": "field-service-iot-operations-app",
+    "track": "mobile-flutter",
+    "level": "advanced",
+    "estimatedHours": 48,
+    "summary": "Work orders plus device telemetry with clean integration boundaries.",
+    "portfolioPitch": "Portfolio-grade Flutter architecture, integrations, and ops UX.",
+    "prerequisiteSkillIds": [
+      "MOBILE-FLUTTER-NETWORKING",
+      "MOBILE-FLUTTER-TESTING",
+      "MOBILE-FLUTTER-DEPLOYMENT"
+    ],
+    "learningOutcomeSkillIds": [
+      "MOBILE-FLUTTER-DEPLOYMENT",
+      "MOBILE-FLUTTER-TESTING",
+      "MOBILE-FLUTTER-PLATFORM"
+    ],
+    "recommendedTools": [
+      "Flutter",
+      "charts",
+      "mock IoT API"
+    ],
+    "topicPrefs": [
+      "MOBILE-FLUTTER-ARCHITECTURE",
+      "MOBILE-FLUTTER-PLATFORM-CHANNELS",
+      "MOBILE-FLUTTER-NETWORKING",
+      "MOBILE-FLUTTER-PERFORMANCE",
+      "MOBILE-FLUTTER-DEPLOYMENT"
+    ],
+    "sources": [
+      "FLUTTER-PLATFORM-CHANNELS",
+      "FLUTTER-PERF",
+      "FLUTTER-DEPLOY"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "Work orders",
+        "Work-order lifecycle with role-aware UI.",
+        "Complex navigation/state."
+      ],
+      [
+        "Telemetry views",
+        "Device metrics with loading/error/empty states.",
+        "Ops UX needs trustworthy data."
+      ],
+      [
+        "Integration boundary",
+        "Isolate platform/IoT behind interfaces.",
+        "Testable architecture."
+      ],
+      [
+        "Release readiness",
+        "Perf, tests, store-like checklist.",
+        "Ship discipline."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-FRONTEND-ACCESSIBLE-PRODUCT-EXPLORER",
+    "title": "Accessible Product Explorer",
+    "slug": "accessible-product-explorer",
+    "track": "frontend",
+    "level": "beginner",
+    "estimatedHours": 22,
+    "summary": "Semantic product catalog with filters, keyboard UX, and WCAG-minded UI.",
+    "portfolioPitch": "Prove HTML/CSS/JS craft with accessibility as a first-class feature.",
+    "prerequisiteSkillIds": [
+      "FRONTEND-HTML",
+      "FRONTEND-CSS",
+      "FRONTEND-JAVASCRIPT"
+    ],
+    "learningOutcomeSkillIds": [
+      "FRONTEND-HTML-SEMANTICS",
+      "FRONTEND-CSS-RESPONSIVE",
+      "FRONTEND-JS-DOM"
+    ],
+    "recommendedTools": [
+      "Vite",
+      "TypeScript optional",
+      "axe DevTools"
+    ],
+    "topicPrefs": [
+      "FRONTEND-HTML-SEMANTICS-A11Y",
+      "FRONTEND-CSS-CASCADE-BOX-MODEL",
+      "FRONTEND-CSS-FLEX-GRID",
+      "FRONTEND-JS-DOM-EVENTS",
+      "FRONTEND-ACCESSIBILITY"
+    ],
+    "sources": [
+      "W3C-HTML",
+      "W3C-WCAG",
+      "MDN-CSS-CASCADE"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "Semantic layout",
+        "Build product list/detail with landmarks and headings.",
+        "Semantics are the a11y foundation."
+      ],
+      [
+        "Filter and search",
+        "Client-side filter with keyboard-friendly controls.",
+        "Interaction quality shows craft."
+      ],
+      [
+        "Responsive polish",
+        "Layouts across breakpoints without horizontal scroll traps.",
+        "Responsive is non-negotiable."
+      ],
+      [
+        "A11y verification",
+        "Fix axe findings; document remaining intentional gaps.",
+        "Evidence of a11y work."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-FRONTEND-SAAS-OPS-DASHBOARD",
+    "title": "SaaS Operations Dashboard",
+    "slug": "saas-operations-dashboard",
+    "track": "frontend",
+    "level": "intermediate",
+    "estimatedHours": 34,
+    "summary": "React dashboard with charts, tables, auth-gated routes, and resilient data fetching.",
+    "portfolioPitch": "Show production UI skills: state, data fetching, empty/error states, and composition.",
+    "prerequisiteSkillIds": [
+      "FRONTEND-REACT",
+      "FRONTEND-TYPESCRIPT",
+      "FRONTEND-JS-ASYNC"
+    ],
+    "learningOutcomeSkillIds": [
+      "FRONTEND-REACT",
+      "FRONTEND-TYPESCRIPT",
+      "FRONTEND-NEXTJS"
+    ],
+    "recommendedTools": [
+      "React",
+      "TypeScript",
+      "TanStack Query",
+      "Vite or Next.js"
+    ],
+    "topicPrefs": [
+      "FRONTEND-REACT-HOOKS",
+      "FRONTEND-REACT-STATE",
+      "FRONTEND-TYPESCRIPT-BASICS",
+      "FRONTEND-DATA-FETCHING",
+      "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+    ],
+    "sources": [
+      "REACT-DOCS",
+      "REACT-HOOKS",
+      "W3C-WCAG"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "App shell",
+        "Routing, layout, and auth-gated placeholder.",
+        "Structure for real SaaS UI."
+      ],
+      [
+        "Data views",
+        "Tables/charts with loading/error/empty states.",
+        "Resilience is the product."
+      ],
+      [
+        "Filters and URL state",
+        "Sync filters to URL for shareability.",
+        "URL as state is senior frontend."
+      ],
+      [
+        "Hardening",
+        "Memo boundaries, a11y of charts/tables, README.",
+        "Performance and polish."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-FRONTEND-COLLAB-ISSUE-BOARD",
+    "title": "Real-Time Collaborative Issue Board",
+    "slug": "realtime-collaborative-issue-board",
+    "track": "frontend",
+    "level": "advanced",
+    "estimatedHours": 45,
+    "summary": "Kanban issue board with optimistic updates and realtime sync (mock or websocket).",
+    "portfolioPitch": "Advanced frontend: concurrency UX, optimistic UI, and collaboration edge cases.",
+    "prerequisiteSkillIds": [
+      "FRONTEND-REACT",
+      "FRONTEND-JS-ASYNC",
+      "FRONTEND-TYPESCRIPT"
+    ],
+    "learningOutcomeSkillIds": [
+      "FRONTEND-REACT",
+      "FRONTEND-JS-ASYNC",
+      "FRONTEND-TYPESCRIPT"
+    ],
+    "recommendedTools": [
+      "React",
+      "WebSocket or mock realtime",
+      "TypeScript"
+    ],
+    "topicPrefs": [
+      "FRONTEND-REACT-STATE",
+      "FRONTEND-DATA-FETCHING",
+      "FRONTEND-WEBSOCKETS",
+      "FRONTEND-REACT-PERFORMANCE",
+      "FRONTEND-ACCESSIBILITY"
+    ],
+    "sources": [
+      "REACT-DOCS",
+      "REACT-QUEUEING",
+      "W3C-WCAG"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "Board model",
+        "Columns/cards with drag-and-drop or keyboard moves.",
+        "Core interaction first."
+      ],
+      [
+        "Optimistic updates",
+        "Local-first mutations with rollback on failure.",
+        "Optimistic UI is a trade-off."
+      ],
+      [
+        "Realtime sync",
+        "Multi-tab or multi-client consistency story.",
+        "Collaboration needs conflict rules."
+      ],
+      [
+        "Production polish",
+        "A11y for board, perf profiling notes, tests.",
+        "Ship-ready quality."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-BACKEND-INVENTORY-REST-API",
+    "title": "Inventory REST API",
+    "slug": "inventory-rest-api",
+    "track": "backend",
+    "level": "beginner",
+    "estimatedHours": 26,
+    "summary": "NestJS or Express inventory API with CRUD, validation, and Postgres persistence.",
+    "portfolioPitch": "Prove you can design a clean REST API with validation, persistence, and tests.",
+    "prerequisiteSkillIds": [
+      "BACKEND-NODE",
+      "BACKEND-REST",
+      "BACKEND-POSTGRES"
+    ],
+    "learningOutcomeSkillIds": [
+      "BACKEND-REST",
+      "BACKEND-VALIDATION",
+      "BACKEND-TESTING"
+    ],
+    "recommendedTools": [
+      "NestJS or Express",
+      "PostgreSQL",
+      "Docker Compose"
+    ],
+    "topicPrefs": [
+      "BACKEND-HTTP-REST-API-DESIGN",
+      "BACKEND-NESTJS-ARCHITECTURE",
+      "BACKEND-NESTJS-VALIDATION-PIPES",
+      "BACKEND-POSTGRESQL-WITH-BACKEND",
+      "BACKEND-TESTING"
+    ],
+    "sources": [
+      "NESTJS-VALIDATION",
+      "POSTGRES-DOCS",
+      "RFC-9110-HTTP"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "API skeleton",
+        "Bootstrap service with health and config.",
+        "Runnable baseline first."
+      ],
+      [
+        "Inventory CRUD",
+        "Resources with validation and Postgres.",
+        "CRUD done properly is the bar."
+      ],
+      [
+        "Errors and auth-lite",
+        "Consistent errors; basic API key or JWT stub.",
+        "Clients need predictable failures."
+      ],
+      [
+        "Tests and docs",
+        "Integration tests + OpenAPI notes.",
+        "Evidence of quality."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-BACKEND-MULTI-TENANT-PM-API",
+    "title": "Multi-Tenant Project Management API",
+    "slug": "multi-tenant-project-management-api",
+    "track": "backend",
+    "level": "intermediate",
+    "estimatedHours": 38,
+    "summary": "Multi-tenant PM API with tenancy isolation, roles, and transactional workflows.",
+    "portfolioPitch": "Show tenancy, authorization, and transactional consistency\u2014backend interview gold.",
+    "prerequisiteSkillIds": [
+      "BACKEND-NESTJS",
+      "BACKEND-AUTH",
+      "BACKEND-POSTGRES"
+    ],
+    "learningOutcomeSkillIds": [
+      "BACKEND-AUTH",
+      "BACKEND-NESTJS-DI",
+      "BACKEND-POSTGRES"
+    ],
+    "recommendedTools": [
+      "NestJS",
+      "PostgreSQL",
+      "Redis optional"
+    ],
+    "topicPrefs": [
+      "BACKEND-NESTJS-AUTH-JWT",
+      "BACKEND-NESTJS-GUARDS",
+      "BACKEND-NESTJS-DI-SCOPES",
+      "BACKEND-TRANSACTIONS-FROM-API",
+      "BACKEND-POSTGRESQL-WITH-BACKEND"
+    ],
+    "sources": [
+      "NESTJS-AUTH",
+      "NESTJS-GUARDS",
+      "POSTGRES-TX"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "Tenancy model",
+        "Tenant-scoped schema and middleware.",
+        "Isolation is the product."
+      ],
+      [
+        "RBAC",
+        "Roles/permissions on project resources.",
+        "AuthZ mistakes are catastrophic."
+      ],
+      [
+        "Transactional flows",
+        "Assign/complete tasks atomically.",
+        "Consistency under concurrency."
+      ],
+      [
+        "Hardening",
+        "Audit logs, rate limits, tests.",
+        "Production posture."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-BACKEND-ORDER-PAYMENT-PLATFORM",
+    "title": "Reliable Order + Payment Platform",
+    "slug": "reliable-order-payment-platform",
+    "track": "backend",
+    "level": "advanced",
+    "estimatedHours": 50,
+    "summary": "Order/payment platform with idempotency, outbox/queues, and failure recovery.",
+    "portfolioPitch": "Demonstrate reliability patterns: idempotency, retries, and payment-safe workflows.",
+    "prerequisiteSkillIds": [
+      "BACKEND-AUTH",
+      "BACKEND-REDIS",
+      "BACKEND-TESTING"
+    ],
+    "learningOutcomeSkillIds": [
+      "BACKEND-REDIS",
+      "BACKEND-QUEUES",
+      "BACKEND-TESTING"
+    ],
+    "recommendedTools": [
+      "NestJS",
+      "PostgreSQL",
+      "Redis",
+      "BullMQ"
+    ],
+    "topicPrefs": [
+      "BACKEND-API-IDEMPOTENCY",
+      "BACKEND-QUEUES-BULL",
+      "BACKEND-REDIS-CACHING",
+      "BACKEND-TRANSACTIONS-FROM-API",
+      "BACKEND-GRACEFUL-SHUTDOWN"
+    ],
+    "sources": [
+      "NESTJS-QUEUES",
+      "POSTGRES-TX",
+      "RFC-9110-HTTP"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "Orders domain",
+        "Order lifecycle with strong invariants.",
+        "Domain correctness first."
+      ],
+      [
+        "Idempotent payments",
+        "Idempotency keys and safe retries.",
+        "Payments punish duplicates."
+      ],
+      [
+        "Async reliability",
+        "Outbox/queue workers with poison handling.",
+        "Async is where systems fail."
+      ],
+      [
+        "Chaos drills",
+        "Failure injection + recovery runbook.",
+        "Prove reliability."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-FULLSTACK-JOB-APPLICATION-TRACKER",
+    "title": "Job Application Tracker",
+    "slug": "job-application-tracker",
+    "track": "fullstack",
+    "level": "beginner",
+    "estimatedHours": 30,
+    "summary": "Full-stack tracker for applications with auth, CRUD, and simple dashboard.",
+    "portfolioPitch": "End-to-end delivery: UI + API + DB with auth\u2014clear junior/mid portfolio signal.",
+    "prerequisiteSkillIds": [
+      "FRONTEND-REACT",
+      "BACKEND-REST",
+      "BACKEND-AUTH"
+    ],
+    "learningOutcomeSkillIds": [
+      "FULLSTACK-INTEGRATION",
+      "FULLSTACK-AUTH-FLOWS",
+      "BACKEND-POSTGRES"
+    ],
+    "recommendedTools": [
+      "Next.js or React+Nest",
+      "PostgreSQL"
+    ],
+    "topicPrefs": [
+      "FULLSTACK-AUTH-FLOWS",
+      "FULLSTACK-API-INTEGRATION",
+      "BACKEND-NESTJS-AUTH-JWT",
+      "FRONTEND-REACT-HOOKS",
+      "BACKEND-POSTGRESQL-WITH-BACKEND"
+    ],
+    "sources": [
+      "REACT-DOCS",
+      "NESTJS-AUTH",
+      "POSTGRES-DOCS"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "Auth slice",
+        "Sign-up/login and protected routes.",
+        "Auth is the first vertical slice."
+      ],
+      [
+        "Applications CRUD",
+        "Create/list/update applications end-to-end.",
+        "Fullstack means wired data."
+      ],
+      [
+        "Dashboard",
+        "Status filters and basic metrics.",
+        "UX closes the loop."
+      ],
+      [
+        "Deploy story",
+        "Docker or local compose + README.",
+        "Runnable for reviewers."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-FULLSTACK-HELPDESK-SAAS",
+    "title": "Helpdesk SaaS",
+    "slug": "helpdesk-saas",
+    "track": "fullstack",
+    "level": "intermediate",
+    "estimatedHours": 42,
+    "summary": "Ticket helpdesk with agent/customer roles, comments, and SLA-ish workflows.",
+    "portfolioPitch": "Multi-role SaaS integration with CSRF/CORS awareness and realistic workflows.",
+    "prerequisiteSkillIds": [
+      "FULLSTACK-INTEGRATION",
+      "FULLSTACK-AUTH-FLOWS",
+      "BACKEND-NESTJS"
+    ],
+    "learningOutcomeSkillIds": [
+      "FULLSTACK-CORS-CSRF",
+      "FULLSTACK-AUTH-FLOWS",
+      "FULLSTACK-E2E-TESTING"
+    ],
+    "recommendedTools": [
+      "Next.js",
+      "NestJS",
+      "PostgreSQL"
+    ],
+    "topicPrefs": [
+      "FULLSTACK-CORS-CSRF",
+      "FULLSTACK-AUTH-FLOWS",
+      "FULLSTACK-SSR-BOUNDARIES",
+      "BACKEND-NESTJS-GUARDS",
+      "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+    ],
+    "sources": [
+      "REACT-SERVER-COMPONENTS",
+      "NESTJS-GUARDS",
+      "RFC-9110-HTTP"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "Roles and tickets",
+        "Customer/agent models and ticket CRUD.",
+        "Role boundaries first."
+      ],
+      [
+        "Comments and SLA",
+        "Threaded comments and due indicators.",
+        "Workflow realism."
+      ],
+      [
+        "Security boundaries",
+        "CSRF/CORS and cookie/session choices.",
+        "Browser security matters."
+      ],
+      [
+        "E2E path",
+        "One Playwright/Cypress happy path.",
+        "Prove integration."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-FULLSTACK-MULTI-TENANT-SUB-SAAS",
+    "title": "Multi-Tenant Subscription SaaS",
+    "slug": "multi-tenant-subscription-saas",
+    "track": "fullstack",
+    "level": "advanced",
+    "estimatedHours": 55,
+    "summary": "Subscription SaaS with tenancy, billing stubs, admin, and production concerns.",
+    "portfolioPitch": "Senior fullstack: tenancy, billing edges, SSR boundaries, and operational readiness.",
+    "prerequisiteSkillIds": [
+      "FULLSTACK-AUTH-FLOWS",
+      "FULLSTACK-CORS-CSRF",
+      "DEVOPS-DOCKER"
+    ],
+    "learningOutcomeSkillIds": [
+      "FULLSTACK-INTEGRATION",
+      "FULLSTACK-SSR-BOUNDARIES",
+      "FULLSTACK-E2E-TESTING"
+    ],
+    "recommendedTools": [
+      "Next.js",
+      "NestJS",
+      "PostgreSQL",
+      "Stripe test mode optional"
+    ],
+    "topicPrefs": [
+      "FULLSTACK-MULTI-TENANCY",
+      "FULLSTACK-BILLING-BASICS",
+      "FULLSTACK-SSR-BOUNDARIES",
+      "BACKEND-API-IDEMPOTENCY",
+      "DEVOPS-DOCKER-FUNDAMENTALS"
+    ],
+    "sources": [
+      "REACT-SERVER-COMPONENTS",
+      "NESTJS-AUTH",
+      "DOCKER-GET-STARTED"
+    ],
+    "kind": "code",
+    "evidence": "code",
+    "milestoneSpecs": [
+      [
+        "Tenant onboarding",
+        "Create tenant + owner invite flow.",
+        "Tenancy UX and data model."
+      ],
+      [
+        "Subscription stub",
+        "Plan changes with idempotent webhook handler stub.",
+        "Billing needs careful edges."
+      ],
+      [
+        "Admin + SSR",
+        "Admin surfaces with clear SSR/client boundaries.",
+        "Architecture clarity."
+      ],
+      [
+        "Ops readiness",
+        "Compose, migrations, E2E, runbook.",
+        "Ship like a team."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-DEVOPS-CONTAINERIZED-CICD-VM",
+    "title": "Containerized App + CI/CD to Linux VM",
+    "slug": "containerized-app-cicd-linux-vm",
+    "track": "devops",
+    "level": "beginner",
+    "estimatedHours": 28,
+    "summary": "Containerize an app, add CI, and deploy to a Linux VM with rollback notes.",
+    "portfolioPitch": "Prove Docker + CI + Linux deploy basics employers actually use.",
+    "prerequisiteSkillIds": [
+      "DEVOPS-LINUX",
+      "DEVOPS-DOCKER",
+      "FOUNDATIONS-GIT"
+    ],
+    "learningOutcomeSkillIds": [
+      "DEVOPS-DOCKER",
+      "DEVOPS-CICD",
+      "DEVOPS-LINUX"
+    ],
+    "recommendedTools": [
+      "Docker",
+      "GitHub Actions",
+      "Linux VM"
+    ],
+    "topicPrefs": [
+      "DEVOPS-DOCKER-FUNDAMENTALS",
+      "DEVOPS-DOCKER-COMPOSE",
+      "DEVOPS-GITHUB-ACTIONS-CI",
+      "DEVOPS-LINUX-FUNDAMENTALS",
+      "DEVOPS-SYSTEMD"
+    ],
+    "sources": [
+      "DOCKER-GET-STARTED",
+      "DOCKER-COMPOSE",
+      "LINUX-MAN-PAGES"
+    ],
+    "kind": "code",
+    "evidence": "devops",
+    "milestoneSpecs": [
+      [
+        "Containerize",
+        "Dockerfile + compose for local run.",
+        "Containers first."
+      ],
+      [
+        "CI pipeline",
+        "Build/test on PR.",
+        "Automation is the point."
+      ],
+      [
+        "VM deploy",
+        "Deploy to Linux VM with systemd or compose.",
+        "Real servers remain common."
+      ],
+      [
+        "Rollback runbook",
+        "Document failure and rollback.",
+        "Ops maturity."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-DEVOPS-TERRAFORM-AWS-ENV",
+    "title": "Terraform AWS Environment",
+    "slug": "terraform-aws-environment",
+    "track": "devops",
+    "level": "intermediate",
+    "estimatedHours": 36,
+    "summary": "Terraform a small AWS environment with IAM least privilege and remote state.",
+    "portfolioPitch": "IaC + IAM judgment\u2014core mid-level DevOps signal.",
+    "prerequisiteSkillIds": [
+      "DEVOPS-AWS",
+      "DEVOPS-TERRAFORM",
+      "DEVOPS-CLOUD-FUNDAMENTALS"
+    ],
+    "learningOutcomeSkillIds": [
+      "DEVOPS-TERRAFORM",
+      "DEVOPS-AWS",
+      "DEVOPS-SECRETS"
+    ],
+    "recommendedTools": [
+      "Terraform",
+      "AWS free tier/sandbox",
+      "Git"
+    ],
+    "topicPrefs": [
+      "DEVOPS-TERRAFORM-BASICS",
+      "DEVOPS-AWS-CLOUD-FUNDAMENTALS",
+      "DEVOPS-AWS-IAM-MENTAL-MODEL",
+      "DEVOPS-SECRETS-MANAGEMENT",
+      "DEVOPS-COST-AWARENESS"
+    ],
+    "sources": [
+      "TERRAFORM-DOCS",
+      "AWS-IAM-USERGUIDE",
+      "AWS-CLOUD-CONCEPTS"
+    ],
+    "kind": "code",
+    "evidence": "devops",
+    "milestoneSpecs": [
+      [
+        "Remote state",
+        "Backend + locking for state.",
+        "State safety first."
+      ],
+      [
+        "Network and compute",
+        "VPC/subnet/instance or equivalent minimal stack.",
+        "Foundational AWS shape."
+      ],
+      [
+        "IAM least privilege",
+        "Roles/policies without wild-open admin.",
+        "IAM is the blast radius."
+      ],
+      [
+        "Destroy and cost",
+        "Document teardown and cost notes.",
+        "Responsible cloud use."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-DEVOPS-K8S-GITOPS-SRE",
+    "title": "Kubernetes Platform + GitOps + SRE",
+    "slug": "kubernetes-platform-gitops-sre",
+    "track": "devops",
+    "level": "advanced",
+    "estimatedHours": 50,
+    "summary": "k8s app platform with GitOps deploy, SLOs, and incident/runbook practice.",
+    "portfolioPitch": "Advanced platform engineering: Kubernetes, GitOps, and SRE habits.",
+    "prerequisiteSkillIds": [
+      "DEVOPS-KUBERNETES",
+      "DEVOPS-CICD",
+      "DEVOPS-OBSERVABILITY"
+    ],
+    "learningOutcomeSkillIds": [
+      "DEVOPS-KUBERNETES",
+      "DEVOPS-OBSERVABILITY",
+      "DEVOPS-SLO"
+    ],
+    "recommendedTools": [
+      "kind/k3d",
+      "Helm",
+      "Prometheus/Grafana",
+      "GitOps tool"
+    ],
+    "topicPrefs": [
+      "DEVOPS-KUBERNETES-FUNDAMENTALS",
+      "DEVOPS-KUBERNETES-NETWORKING",
+      "DEVOPS-HELM-BASICS",
+      "DEVOPS-GITOPS-AWARENESS",
+      "DEVOPS-SLO-SLI",
+      "DEVOPS-OBSERVABILITY-PROMETHEUS-GRAFANA"
+    ],
+    "sources": [
+      "K8S-DOCS",
+      "K8S-CONCEPTS",
+      "DOCKER-GET-STARTED"
+    ],
+    "kind": "code",
+    "evidence": "devops",
+    "milestoneSpecs": [
+      [
+        "Cluster app",
+        "Deploy app with probes and resources.",
+        "Baseline platform health."
+      ],
+      [
+        "GitOps",
+        "Git-driven deploy/promote path.",
+        "Desired state in git."
+      ],
+      [
+        "SLO and alerts",
+        "Define SLI/SLO and an alert.",
+        "SRE is measurement."
+      ],
+      [
+        "Incident drill",
+        "Game day + postmortem template.",
+        "Practice under pressure."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-DATABASE-INVENTORY-PURCHASING",
+    "title": "Inventory/Purchasing Relational Database",
+    "slug": "inventory-purchasing-relational-database",
+    "track": "database",
+    "level": "beginner",
+    "estimatedHours": 22,
+    "summary": "Design and implement an inventory/purchasing schema with constraints and seed queries.",
+    "portfolioPitch": "Prove relational modeling, keys, and integrity\u2014foundation of data engineering.",
+    "prerequisiteSkillIds": [
+      "DATABASE-RELATIONAL",
+      "DATABASE-SQL",
+      "FOUNDATIONS-SQL-INTRO"
+    ],
+    "learningOutcomeSkillIds": [
+      "DATABASE-RELATIONAL",
+      "DATABASE-SQL",
+      "DATABASE-JOINS"
+    ],
+    "recommendedTools": [
+      "PostgreSQL",
+      "dbdiagram or draw.io",
+      "psql"
+    ],
+    "topicPrefs": [
+      "DATABASE-RELATIONAL-MODELING",
+      "DATABASE-NORMALIZATION",
+      "DATABASE-SQL-JOINS-AGGREGATION",
+      "DATABASE-MIGRATIONS",
+      "DATABASE-MODELING-ANTIPATTERNS"
+    ],
+    "sources": [
+      "POSTGRES-DOCS",
+      "POSTGRES-QUERIES"
+    ],
+    "kind": "code",
+    "evidence": "database",
+    "milestoneSpecs": [
+      [
+        "ERD",
+        "Model entities/relationships with constraints.",
+        "Design before DDL."
+      ],
+      [
+        "Migrations",
+        "Create tables/indexes via migrations.",
+        "Reproducible schema."
+      ],
+      [
+        "Seed and queries",
+        "Seed data and join/aggregate queries.",
+        "Queries prove the model."
+      ],
+      [
+        "Integrity drills",
+        "Violate constraints intentionally; document.",
+        "Constraints are features."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-DATABASE-ECOM-PERF-LAB",
+    "title": "E-Commerce PostgreSQL Performance Lab",
+    "slug": "ecommerce-postgresql-performance-lab",
+    "track": "database",
+    "level": "intermediate",
+    "estimatedHours": 32,
+    "summary": "Optimize e-commerce queries with indexing, EXPLAIN, and measurement notes.",
+    "portfolioPitch": "Show EXPLAIN literacy and index trade-offs with before/after evidence.",
+    "prerequisiteSkillIds": [
+      "DATABASE-POSTGRES-INDEXING",
+      "DATABASE-EXPLAIN",
+      "DATABASE-SQL"
+    ],
+    "learningOutcomeSkillIds": [
+      "DATABASE-EXPLAIN",
+      "DATABASE-POSTGRES-INDEXING",
+      "DATABASE-CTES"
+    ],
+    "recommendedTools": [
+      "PostgreSQL",
+      "pgbench or custom scripts"
+    ],
+    "topicPrefs": [
+      "DATABASE-POSTGRES-EXPLAIN-ANALYZE",
+      "DATABASE-POSTGRESQL-INDEXING",
+      "DATABASE-INDEXING-ANTIPATTERNS",
+      "DATABASE-N-PLUS-ONE",
+      "DATABASE-SQL-WINDOW-FUNCTIONS"
+    ],
+    "sources": [
+      "POSTGRES-EXPLAIN",
+      "POSTGRES-INDEXES",
+      "POSTGRES-QUERIES"
+    ],
+    "kind": "code",
+    "evidence": "database",
+    "milestoneSpecs": [
+      [
+        "Baseline schema",
+        "Load realistic-ish order/catalog data.",
+        "Need volume to measure."
+      ],
+      [
+        "Hot queries",
+        "Identify slow paths with EXPLAIN.",
+        "Measurement before indexes."
+      ],
+      [
+        "Index changes",
+        "Add indexes; capture before/after.",
+        "Indexes have costs."
+      ],
+      [
+        "N+1 and windows",
+        "Fix N+1 patterns; use a window query.",
+        "Modern SQL craft."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-DATABASE-EVENT-AUDIT-PLATFORM",
+    "title": "High-Volume Event/Audit Platform",
+    "slug": "high-volume-event-audit-platform",
+    "track": "database",
+    "level": "advanced",
+    "estimatedHours": 44,
+    "summary": "Event/audit store with partitioning concepts, retention, and recovery drills.",
+    "portfolioPitch": "Advanced data platform thinking: volume, retention, and recoverability.",
+    "prerequisiteSkillIds": [
+      "DATABASE-TRANSACTIONS",
+      "DATABASE-BACKUP-REPLICATION",
+      "DATABASE-EXPLAIN"
+    ],
+    "learningOutcomeSkillIds": [
+      "DATABASE-BACKUP-REPLICATION",
+      "DATABASE-TRANSACTIONS",
+      "DATABASE-EXPLAIN"
+    ],
+    "recommendedTools": [
+      "PostgreSQL",
+      "optional Redis"
+    ],
+    "topicPrefs": [
+      "DATABASE-PARTITIONING-CONCEPTS",
+      "DATABASE-BACKUP-RESTORE",
+      "DATABASE-REPLICATION-BASICS",
+      "DATABASE-LOCKING-CONCURRENCY",
+      "DATABASE-ISOLATION-LEVELS"
+    ],
+    "sources": [
+      "POSTGRES-PARTITIONING",
+      "POSTGRES-BACKUP",
+      "POSTGRES-REPLICATION"
+    ],
+    "kind": "code",
+    "evidence": "database",
+    "milestoneSpecs": [
+      [
+        "Event model",
+        "Append-only events with audit queries.",
+        "Immutability mindset."
+      ],
+      [
+        "Partitioning plan",
+        "Partition strategy + pruning evidence.",
+        "Volume needs strategy."
+      ],
+      [
+        "Retention",
+        "TTL/archive job with safety checks.",
+        "Retention is a product decision."
+      ],
+      [
+        "Recovery drill",
+        "Backup/restore proof with notes.",
+        "DR is non-optional."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-QA-ECOM-QUALITY-PACK",
+    "title": "E-Commerce Quality Pack",
+    "slug": "ecommerce-quality-pack",
+    "track": "qa",
+    "level": "beginner",
+    "estimatedHours": 20,
+    "summary": "Manual quality pack: strategy, cases, bug reports, and risk notes for an e-commerce flow.",
+    "portfolioPitch": "Show structured QA thinking before automation\u2014still highly employable.",
+    "prerequisiteSkillIds": [
+      "QA-STLC",
+      "QA-TEST-DESIGN",
+      "QA-MANUAL-TESTING"
+    ],
+    "learningOutcomeSkillIds": [
+      "QA-TEST-DESIGN",
+      "QA-BUG-REPORTING",
+      "QA-STLC"
+    ],
+    "recommendedTools": [
+      "Spreadsheet or TestRail-like docs",
+      "Browser DevTools"
+    ],
+    "topicPrefs": [
+      "QA-STLC-OVERVIEW",
+      "QA-TEST-DESIGN-TECHNIQUES",
+      "QA-BUG-REPORTING",
+      "QA-RISK-BASED-TESTING",
+      "QA-API-TESTING-BASICS"
+    ],
+    "sources": [
+      "PLAYWRIGHT-DOCS",
+      "W3C-WCAG"
+    ],
+    "kind": "qa",
+    "evidence": "qa",
+    "milestoneSpecs": [
+      [
+        "Strategy",
+        "Write risk-based test strategy for checkout.",
+        "Strategy before cases."
+      ],
+      [
+        "Test design",
+        "Equivalence/boundary cases for cart/checkout.",
+        "Design techniques matter."
+      ],
+      [
+        "Execution and bugs",
+        "Execute and write high-quality bug reports.",
+        "Communication is the job."
+      ],
+      [
+        "Regression pack",
+        "Prioritized smoke/regression list.",
+        "Release readiness."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-QA-PLAYWRIGHT-E2E-FRAMEWORK",
+    "title": "Playwright E2E Automation Framework",
+    "slug": "playwright-e2e-automation-framework",
+    "track": "qa",
+    "level": "intermediate",
+    "estimatedHours": 30,
+    "summary": "Playwright framework with Page Object patterns, fixtures, and CI gate.",
+    "portfolioPitch": "Automation craft: stable selectors, fixtures, and CI-integrated E2E.",
+    "prerequisiteSkillIds": [
+      "QA-PLAYWRIGHT",
+      "QA-TEST-DESIGN",
+      "QA-CI-INTEGRATION"
+    ],
+    "learningOutcomeSkillIds": [
+      "QA-PLAYWRIGHT",
+      "QA-CI-INTEGRATION",
+      "QA-API-TESTING"
+    ],
+    "recommendedTools": [
+      "Playwright",
+      "TypeScript",
+      "GitHub Actions"
+    ],
+    "topicPrefs": [
+      "QA-PLAYWRIGHT-BASICS",
+      "QA-TEST-AUTOMATION-STRATEGY",
+      "QA-FLAKY-TESTS",
+      "QA-CI-QUALITY-GATES",
+      "QA-API-TESTING-BASICS"
+    ],
+    "sources": [
+      "PLAYWRIGHT-DOCS"
+    ],
+    "kind": "code",
+    "evidence": "qa",
+    "milestoneSpecs": [
+      [
+        "Framework skeleton",
+        "Project layout, fixtures, config.",
+        "Structure reduces flake."
+      ],
+      [
+        "Critical flows",
+        "Automate login + core purchase path.",
+        "Value on critical path."
+      ],
+      [
+        "API assists",
+        "API setup/teardown to stabilize UI tests.",
+        "Hybrid testing wins."
+      ],
+      [
+        "CI gate",
+        "PR workflow with artifacts on failure.",
+        "Automation without CI is incomplete."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-QA-UNIFIED-QE-PIPELINE",
+    "title": "Unified Quality Engineering Pipeline",
+    "slug": "unified-quality-engineering-pipeline",
+    "track": "qa",
+    "level": "advanced",
+    "estimatedHours": 40,
+    "summary": "Unified QE pipeline: unit/API/E2E/a11y/perf smoke with quality gates and reporting.",
+    "portfolioPitch": "Lead-level QA: pipeline design, flake control, and release evidence.",
+    "prerequisiteSkillIds": [
+      "QA-CI-INTEGRATION",
+      "QA-PERFORMANCE",
+      "QA-PLAYWRIGHT"
+    ],
+    "learningOutcomeSkillIds": [
+      "QA-CI-INTEGRATION",
+      "QA-PERFORMANCE",
+      "QA-PLAYWRIGHT"
+    ],
+    "recommendedTools": [
+      "Playwright",
+      "k6 or Lighthouse CI",
+      "GitHub Actions"
+    ],
+    "topicPrefs": [
+      "QA-CI-QUALITY-GATES",
+      "QA-PERFORMANCE-BASICS",
+      "QA-SECURITY-TESTING-BASICS",
+      "QA-ACCESSIBILITY-TESTING",
+      "QA-FLAKY-TESTS",
+      "QA-TEST-REPORTING"
+    ],
+    "sources": [
+      "PLAYWRIGHT-DOCS",
+      "W3C-WCAG"
+    ],
+    "kind": "code",
+    "evidence": "qa",
+    "milestoneSpecs": [
+      [
+        "Pipeline map",
+        "Define stages and entry criteria.",
+        "Architecture of quality."
+      ],
+      [
+        "Gates",
+        "Wire failing gates for critical checks.",
+        "Gates must be honest."
+      ],
+      [
+        "Perf/a11y smoke",
+        "Add lightweight perf and a11y checks.",
+        "Shift-left breadth."
+      ],
+      [
+        "Release report",
+        "Auto report template + flake triage policy.",
+        "Leadership artifact."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-UIUX-LOCAL-SERVICE-REDESIGN",
+    "title": "UX Audit + Local Service Redesign",
+    "slug": "ux-audit-local-service-redesign",
+    "track": "uiux",
+    "level": "beginner",
+    "estimatedHours": 24,
+    "summary": "Audit a local service experience and redesign the critical booking/contact flow.",
+    "portfolioPitch": "Show research-minded redesign with evidence\u2014not just pretty screens.",
+    "prerequisiteSkillIds": [
+      "UIUX-UX-RESEARCH",
+      "UIUX-WIREFRAMING",
+      "UIUX-VISUAL-FUNDAMENTALS"
+    ],
+    "learningOutcomeSkillIds": [
+      "UIUX-UX-RESEARCH",
+      "UIUX-WIREFRAMING",
+      "UIUX-A11Y"
+    ],
+    "recommendedTools": [
+      "Figma",
+      "Notion or doc tool"
+    ],
+    "topicPrefs": [
+      "UIUX-UX-RESEARCH-BASICS",
+      "UIUX-WIREFRAMING",
+      "UIUX-VISUAL-FUNDAMENTALS",
+      "UIUX-ACCESSIBILITY",
+      "UIUX-USABILITY-TESTING"
+    ],
+    "sources": [
+      "FIGMA-HELP",
+      "W3C-WCAG"
+    ],
+    "kind": "uiux",
+    "evidence": "uiux",
+    "milestoneSpecs": [
+      [
+        "Audit",
+        "Heuristic audit of current experience.",
+        "See problems clearly."
+      ],
+      [
+        "Research plan",
+        "Plan interviews; run real sessions yourself.",
+        "No fabricated quotes."
+      ],
+      [
+        "Flows and wireframes",
+        "Redesign critical path in mid-fi.",
+        "Structure before polish."
+      ],
+      [
+        "Case study",
+        "Document before/after and rationale.",
+        "Portfolio narrative."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-UIUX-ECOM-CHECKOUT-DS",
+    "title": "E-Commerce Checkout + Design System",
+    "slug": "ecommerce-checkout-design-system",
+    "track": "uiux",
+    "level": "intermediate",
+    "estimatedHours": 34,
+    "summary": "Checkout redesign with a small design system and usability validation.",
+    "portfolioPitch": "Components + checkout UX + system thinking mid designers need.",
+    "prerequisiteSkillIds": [
+      "UIUX-FIGMA",
+      "UIUX-DESIGN-SYSTEMS",
+      "UIUX-PROTOTYPING"
+    ],
+    "learningOutcomeSkillIds": [
+      "UIUX-DESIGN-SYSTEMS",
+      "UIUX-PROTOTYPING",
+      "UIUX-A11Y"
+    ],
+    "recommendedTools": [
+      "Figma",
+      "FigJam"
+    ],
+    "topicPrefs": [
+      "UIUX-DESIGN-SYSTEMS",
+      "UIUX-FIGMA-COMPONENTS",
+      "UIUX-PROTOTYPING",
+      "UIUX-COLOR-CONTRAST",
+      "UIUX-USABILITY-TESTING"
+    ],
+    "sources": [
+      "FIGMA-HELP",
+      "W3C-WCAG"
+    ],
+    "kind": "uiux",
+    "evidence": "uiux",
+    "milestoneSpecs": [
+      [
+        "System foundations",
+        "Tokens, type, color, spacing.",
+        "Systems need foundations."
+      ],
+      [
+        "Checkout flows",
+        "Happy path + payment error states.",
+        "Checkout is unforgiving."
+      ],
+      [
+        "Components",
+        "Buttons/inputs/alerts as reusable components.",
+        "Consistency at scale."
+      ],
+      [
+        "Usability pass",
+        "Test with real users you recruit; iterate once.",
+        "Evidence over opinion."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-UIUX-B2B-OPS-PLATFORM",
+    "title": "B2B Operations Platform",
+    "slug": "b2b-operations-platform",
+    "track": "uiux",
+    "level": "advanced",
+    "estimatedHours": 42,
+    "summary": "Dense B2B ops UI: IA, tables, permissions, and developer handoff.",
+    "portfolioPitch": "Advanced product design for complex workflows and handoff quality.",
+    "prerequisiteSkillIds": [
+      "UIUX-DESIGN-SYSTEMS",
+      "UIUX-UX-RESEARCH",
+      "UIUX-A11Y"
+    ],
+    "learningOutcomeSkillIds": [
+      "UIUX-DESIGN-SYSTEMS",
+      "UIUX-PROTOTYPING",
+      "UIUX-A11Y"
+    ],
+    "recommendedTools": [
+      "Figma",
+      "user interview scripts"
+    ],
+    "topicPrefs": [
+      "UIUX-INFORMATION-ARCHITECTURE",
+      "UIUX-DESIGN-SYSTEMS",
+      "UIUX-ENTERPRISE-PATTERNS",
+      "UIUX-ACCESSIBILITY",
+      "UIUX-DEV-HANDOFF"
+    ],
+    "sources": [
+      "FIGMA-HELP",
+      "W3C-WCAG"
+    ],
+    "kind": "uiux",
+    "evidence": "uiux",
+    "milestoneSpecs": [
+      [
+        "IA and roles",
+        "Map objects/roles/permissions to navigation.",
+        "B2B complexity lives in IA."
+      ],
+      [
+        "Dense UI patterns",
+        "Tables, filters, bulk actions, empty states.",
+        "Ops density done well."
+      ],
+      [
+        "Prototype",
+        "Interactive prototype of a core workflow.",
+        "Clickable proof."
+      ],
+      [
+        "Handoff",
+        "Specs, states, a11y notes for engineers.",
+        "Design that ships."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-PM-SIX-WEEK-MVP",
+    "title": "Plan a 6-Week Software MVP",
+    "slug": "plan-six-week-software-mvp",
+    "track": "project-management",
+    "level": "beginner",
+    "estimatedHours": 16,
+    "summary": "Plan a six-week MVP with charter, roadmap, backlog, and risk register.",
+    "portfolioPitch": "Show you can scope an MVP honestly and plan delivery without theater.",
+    "prerequisiteSkillIds": [
+      "PM-SDLC",
+      "PM-REQUIREMENTS",
+      "PM-AGILE"
+    ],
+    "learningOutcomeSkillIds": [
+      "PM-REQUIREMENTS",
+      "PM-ESTIMATION",
+      "PM-RISK"
+    ],
+    "recommendedTools": [
+      "Docs",
+      "Jira/Linear or spreadsheet"
+    ],
+    "topicPrefs": [
+      "PM-SDLC-OVERVIEW",
+      "PM-REQUIREMENTS-USER-STORIES",
+      "PM-AGILE-SCRUM-BASICS",
+      "PM-ESTIMATION",
+      "PM-RISK-MANAGEMENT"
+    ],
+    "sources": [
+      "RFC-9110-HTTP",
+      "W3C-WCAG"
+    ],
+    "kind": "pm",
+    "evidence": "pm",
+    "milestoneSpecs": [
+      [
+        "Charter",
+        "Goals, non-goals, success metrics.",
+        "Clarity beats speed myths."
+      ],
+      [
+        "Roadmap",
+        "Six-week milestones and dependencies.",
+        "Timeboxes create focus."
+      ],
+      [
+        "Backlog",
+        "Stories with acceptance criteria.",
+        "Ready work matters."
+      ],
+      [
+        "Risks",
+        "Risk register with owners.",
+        "Risks unmanaged become surprises."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-PM-CROSS-FUNCTIONAL-RELEASE",
+    "title": "Cross-Functional Web/Mobile Release",
+    "slug": "cross-functional-web-mobile-release",
+    "track": "project-management",
+    "level": "intermediate",
+    "estimatedHours": 22,
+    "summary": "Coordinate a web+mobile release with RACI, comms, and readiness checklist.",
+    "portfolioPitch": "Mid-level PM craft: cross-team coordination and release discipline.",
+    "prerequisiteSkillIds": [
+      "PM-SCRUM",
+      "PM-STAKEHOLDERS",
+      "PM-JIRA"
+    ],
+    "learningOutcomeSkillIds": [
+      "PM-STAKEHOLDERS",
+      "PM-JIRA",
+      "PM-RISK"
+    ],
+    "recommendedTools": [
+      "Jira/Linear",
+      "status report template"
+    ],
+    "topicPrefs": [
+      "PM-STAKEHOLDER-MANAGEMENT",
+      "PM-RELEASE-MANAGEMENT",
+      "PM-JIRA-WORKFLOWS",
+      "PM-COMMUNICATION",
+      "PM-RISK-MANAGEMENT"
+    ],
+    "sources": [
+      "RFC-9110-HTTP"
+    ],
+    "kind": "pm",
+    "evidence": "pm",
+    "milestoneSpecs": [
+      [
+        "RACI and plan",
+        "RACI across web/mobile/QA/design.",
+        "Ownership clarity."
+      ],
+      [
+        "Integrated backlog",
+        "Dependencies and sequencing.",
+        "Integration is the risk."
+      ],
+      [
+        "Comms cadence",
+        "Status template and decision log.",
+        "Visibility reduces thrash."
+      ],
+      [
+        "Release readiness",
+        "Checklist including rollback/comms.",
+        "Ship with eyes open."
+      ]
+    ]
+  },
+  {
+    "id": "PROJECT-PM-SAAS-MIGRATION-RECOVERY",
+    "title": "Troubled SaaS Migration Recovery Program",
+    "slug": "troubled-saas-migration-recovery",
+    "track": "project-management",
+    "level": "advanced",
+    "estimatedHours": 28,
+    "summary": "Recover a troubled migration: re-baseline, risks, change control, and exec updates.",
+    "portfolioPitch": "Senior PM signal: recovery leadership, trade-offs, and honest status.",
+    "prerequisiteSkillIds": [
+      "PM-RISK",
+      "PM-STAKEHOLDERS",
+      "PM-ESTIMATION"
+    ],
+    "learningOutcomeSkillIds": [
+      "PM-RISK",
+      "PM-STAKEHOLDERS",
+      "PM-AGILE"
+    ],
+    "recommendedTools": [
+      "RAID log",
+      "decision records",
+      "exec briefing deck"
+    ],
+    "topicPrefs": [
+      "PM-RISK-MANAGEMENT",
+      "PM-CHANGE-CONTROL",
+      "PM-STAKEHOLDER-MANAGEMENT",
+      "PM-PROGRAM-RECOVERY",
+      "PM-RETROSPECTIVES"
+    ],
+    "sources": [
+      "RFC-9110-HTTP"
+    ],
+    "kind": "pm",
+    "evidence": "pm",
+    "milestoneSpecs": [
+      [
+        "Situation assessment",
+        "Facts vs narrative; re-baseline scope.",
+        "Truth before heroics."
+      ],
+      [
+        "Recovery plan",
+        "Options with trade-offs and recommendation.",
+        "Leaders choose consciously."
+      ],
+      [
+        "Change control",
+        "Simulate a scope fight; document decision.",
+        "Label simulated approvals."
+      ],
+      [
+        "Exec pack",
+        "Status, risks, asks, and retrospective.",
+        "Executive-ready clarity."
+      ]
+    ]
+  }
+]

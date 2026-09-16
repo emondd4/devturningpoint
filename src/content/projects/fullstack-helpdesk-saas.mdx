@@ -1,0 +1,259 @@
+---
+id: "PROJECT-FULLSTACK-HELPDESK-SAAS"
+title: "Helpdesk SaaS"
+titleBn: "হেল্পডেস্ক SaaS"
+slug: "fullstack-helpdesk-saas"
+track: "fullstack"
+level: "intermediate"
+difficulty: "intermediate"
+summary: "Multi-role helpdesk with tickets, comments, assignments, email/notifications stub, and CSRF/CORS correctness."
+summaryBn: "টিকেট, কমেন্ট, অ্যাসাইনমেন্ট, নোটিফিকেশন stub এবং CSRF/CORS সঠিকতাসহ হেল্পডেস্ক।"
+portfolioPitch: "Intermediate SaaS slice: roles, ticket workflows, and browser security realities."
+estimatedHours: 40
+prerequisiteSkillIds:
+  - "FULLSTACK-CORS-CSRF"
+  - "FULLSTACK-AUTH-FLOWS"
+  - "FULLSTACK-INTEGRATION"
+  - "BACKEND-AUTH"
+learningOutcomeSkillIds:
+  - "FULLSTACK-CORS-CSRF"
+  - "FULLSTACK-AUTH-FLOWS"
+  - "FULLSTACK-E2E-TESTING"
+  - "FULLSTACK-SSR-BOUNDARIES"
+  - "BACKEND-QUEUES"
+recommendedTools:
+  - "Next.js"
+  - "NestJS"
+  - "Postgres"
+  - "Redis optional"
+  - "Playwright"
+portfolioEvidence:
+  - "Role matrix"
+  - "Ticket state diagram"
+  - "Security checklist"
+  - "E2E recording"
+relatedTopicIds:
+  - "FULLSTACK-CORS-CSRF"
+  - "FULLSTACK-EMAIL-NOTIFICATIONS"
+  - "FULLSTACK-REALTIME"
+  - "FULLSTACK-E2E-TESTING"
+  - "FULLSTACK-OBSERVABILITY"
+  - "FULLSTACK-FEATURE-FLAGS"
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+relatedInterviewQuestionIds:
+  - "iv-fullstack-cors-csrf"
+  - "FS-I-0100"
+  - "FS-A-0050"
+  - "iv-queues-idempotency"
+  - "FS-I-0020"
+  - "iv-jwt-vs-sessions"
+  - "FS-I-0112"
+sources:
+  - "MDN-CSRF"
+  - "MDN-CORS"
+  - "NEXTJS-AUTH"
+  - "NESTJS-AUTH"
+  - "PLAYWRIGHT-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PROJECT-FULLSTACK-JOB-APPLICATION-TRACKER"
+nextProjectId: "PROJECT-FULLSTACK-SUBSCRIPTION-SAAS"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "fs-help-m1"
+    title: "Roles and tenancy-lite"
+    objective: "Customer/agent roles wired."
+    whyItMatters: "Authorization shapes every screen."
+    prerequisiteTopicIds:
+      - "FULLSTACK-AUTH-ACROSS-STACK"
+      - "FULLSTACK-CORS-CSRF"
+    tasks:
+      - "Roles"
+      - "Guards"
+      - "Role matrix"
+      - "Seed users"
+    expectedArtifacts:
+      - "matrix"
+    validationChecklist:
+      - "Wrong role blocked"
+      - "Matrix documented"
+      - "Seeds work"
+    commonProblems:
+      - "UI-only authz"
+      - "Shared test users"
+    completionCriteria:
+      - "Roles ready"
+  - id: "fs-help-m2"
+    title: "Ticket lifecycle"
+    objective: "Create/triage/resolve tickets."
+    whyItMatters: "Lifecycle is the product."
+    prerequisiteTopicIds:
+      - "FULLSTACK-DATA-FLOW"
+      - "FULLSTACK-OBSERVABILITY"
+    tasks:
+      - "Ticket APIs"
+      - "UI boards"
+      - "Transitions"
+      - "Audit fields"
+    expectedArtifacts:
+      - "state diagram"
+    validationChecklist:
+      - "Illegal transitions blocked"
+      - "Lists filtered by role"
+      - "Audit present"
+    commonProblems:
+      - "Status stringly typed"
+      - "N+1 comments"
+    completionCriteria:
+      - "Lifecycle demoed"
+  - id: "fs-help-m3"
+    title: "Comments + notifications"
+    objective: "Threaded comments + async notify stub."
+    whyItMatters: "Communication loops define helpdesk value."
+    prerequisiteTopicIds:
+      - "FULLSTACK-EMAIL-NOTIFICATIONS"
+      - "FULLSTACK-REALTIME"
+    tasks:
+      - "Comments"
+      - "Notify stub/queue"
+      - "Email fake"
+      - "Preferences"
+    expectedArtifacts:
+      - "notify design"
+    validationChecklist:
+      - "Comment creates event"
+      - "Stub sends"
+      - "Failures retried/logged"
+    commonProblems:
+      - "Sync SMTP in request"
+      - "PII in logs"
+    completionCriteria:
+      - "Notify path proven"
+  - id: "fs-help-m4"
+    title: "Security E2E pack"
+    objective: "CSRF/CORS proof + Playwright."
+    whyItMatters: "Security+E2E is mid-level polish."
+    prerequisiteTopicIds:
+      - "FULLSTACK-E2E-TESTING"
+      - "FULLSTACK-CORS-CSRF"
+    tasks:
+      - "CSRF tests"
+      - "Playwright journeys"
+      - "Security checklist"
+      - "README"
+    expectedArtifacts:
+      - "e2e"
+      - "checklist"
+    validationChecklist:
+      - "Cross-user denied"
+      - "CSRF blocked when applicable"
+      - "E2E green"
+    commonProblems:
+      - "Flaky selectors"
+      - "Ignoring cookie flags"
+    completionCriteria:
+      - "Portfolio ready"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Helpdesk workflows mirror real SaaS: roles, SLA-ish states, notifications, and browser security.
+
+<Callout type="mental-model">
+  Agents and customers see different worlds. Mutations must be CSRF-safe. Notifications are async.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: FULLSTACK-CORS-CSRF, FULLSTACK-AUTH-FLOWS, FULLSTACK-E2E-TESTING, FULLSTACK-SSR-BOUNDARIES, BACKEND-QUEUES.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Tickets+comments+assignments. Agent/customer roles. Optional email queue stub. Realtime optional via SSE.
+
+Recommended tools: Next.js, NestJS, Postgres, Redis optional, Playwright.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Roles. 2) Ticket lifecycle. 3) Comments. 4) Notifications stub. 5) E2E critical paths.
+
+## Validation checkpoints
+
+Customer cannot access others' tickets; agent can assign; CSRF protected mutations; E2E green.
+
+## Common errors
+
+CORS * with credentials; missing CSRF on cookie auth; notification send in request thread only.
+
+## Debugging guidance
+
+Dual-role browser profiles; trace ticket id across services.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+Playwright customer vs agent journeys; API authz tests.
+
+## Security
+
+CSRF/CORS checklist; XSS in markdown comments; rate limit login.
+
+## Performance
+
+Index ticket filters; paginate comment threads.
+
+## Accessibility
+
+Ticket forms and status announcements.
+
+## Deployment / handoff
+
+Compose + seed roles; staging notes.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  CSRF strategy with your auth storage choice.
+</Callout>
+
+## Stretch goals
+
+SLA timers, macros, realtime presence.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

@@ -8,6 +8,8 @@ import { getDirectPrerequisites } from '../../../../utils/graph';
 import { getTrackCurriculum, learnPathForId, resolveTopicId } from '../../../../utils/topic-links';
 import SkillGraphView from '../../../../components/graph/SkillGraphView';
 import ContinueLearningCard from '../../../../components/progress/ContinueLearningCard';
+import TrackProjectsSection from '../../../../components/projects/TrackProjectsSection';
+import { toProjectCard, projectsForTrack } from '../../../../data/projects/catalog';
 
 export function getStaticPaths() {
   const locales = ['en', 'bn'] as const;
@@ -53,6 +55,12 @@ const nodeLinks: Record<string, string | undefined> = {};
 for (const node of trackNodes) {
   nodeLinks[node.id] = learnPathForId(locale, node.id);
 }
+
+const allProjects = await getCollection('projects');
+const trackProjects = projectsForTrack(
+  allProjects.map((p) => toProjectCard(p.data)),
+  track.id,
+);
 ---
 
 <BaseLayout
@@ -151,6 +159,8 @@ for (const node of trackNodes) {
         )
       }
     </section>
+
+    <TrackProjectsSection client:load locale={locale} trackId={track.id} projects={trackProjects} />
 
     <section class="mt-10">
       <h2 class="text-xl font-semibold text-[var(--color-ink)]">{isBn ? 'স্কিল গ্রাফ' : 'Skill graph'}</h2>

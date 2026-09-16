@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import {
   exportProgress,
   getAllPaths,
+  getAllProjectProgress,
   getAllTopicProgress,
   getBookmarks,
   importProgress,
   validateProgressImport,
   type LearningPathState,
+  type ProjectProgress,
   type TopicProgress,
 } from '../../stores/progress';
 import { localePath, type Locale } from '../../i18n/config';
@@ -21,12 +23,14 @@ export default function MyLearningDashboard({ locale }: Props) {
   const [paths, setPaths] = useState<LearningPathState[]>([]);
   const [topics, setTopics] = useState<TopicProgress[]>([]);
   const [bookmarks, setBookmarks] = useState<string[]>([]);
+  const [projects, setProjects] = useState<ProjectProgress[]>([]);
   const [message, setMessage] = useState<string | null>(null);
 
   const reload = async () => {
     setPaths(await getAllPaths());
     setTopics(await getAllTopicProgress());
     setBookmarks(await getBookmarks());
+    setProjects(await getAllProjectProgress());
   };
 
   useEffect(() => {
@@ -99,6 +103,28 @@ export default function MyLearningDashboard({ locale }: Props) {
                 </li>
               );
             })}
+          </ul>
+        )}
+      </section>
+
+      <section className="surface-card">
+        <h2 className="font-semibold text-[var(--color-ink)]">{isBn ? 'প্রজেক্ট প্রগ্রেস' : 'Project progress'}</h2>
+        {projects.length === 0 ? (
+          <p className="mt-2 text-sm text-[var(--color-ink-muted)]">
+            {isBn ? 'এখনো কোনো প্রজেক্ট শুরু হয়নি।' : 'No projects started yet.'}{' '}
+            <a href={localePath(locale, 'projects')}>{isBn ? 'প্রজেক্ট দেখুন' : 'Browse projects'}</a>
+          </p>
+        ) : (
+          <ul className="mt-3 space-y-2 text-sm text-[var(--color-ink-muted)]">
+            {projects.map((project) => (
+              <li key={project.projectId}>
+                <span className="font-medium text-[var(--color-ink)]">{project.projectId}</span>
+                {' · '}
+                {project.status}
+                {' · '}
+                {project.milestoneCompletion.length} {isBn ? 'মাইলস্টোন' : 'milestones'}
+              </li>
+            ))}
           </ul>
         )}
       </section>

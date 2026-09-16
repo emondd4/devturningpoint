@@ -1,0 +1,261 @@
+---
+id: "PROJECT-BACKEND-MULTI-TENANT-PM-API"
+title: "Multi-Tenant Project Management API"
+titleBn: "মাল্টি-টেন্যান্ট প্রজেক্ট ম্যানেজমেন্ট API"
+slug: "backend-multi-tenant-pm-api"
+track: "backend"
+level: "intermediate"
+difficulty: "intermediate"
+summary: "Multi-tenant Nest API with orgs/projects/tasks, JWT auth, RBAC, and tenant isolation tests."
+summaryBn: "অর্গ/প্রজেক্ট/টাস্ক, JWT, RBAC এবং টেন্যান্ট আইসোলেশন টেস্টসহ মাল্টি-টেন্যান্ট Nest API।"
+portfolioPitch: "Proves authorization architecture and tenant isolation—the failure mode that gets backends breached."
+estimatedHours: 38
+prerequisiteSkillIds:
+  - "BACKEND-AUTH"
+  - "BACKEND-JWT"
+  - "BACKEND-NESTJS"
+  - "BACKEND-SECURITY"
+learningOutcomeSkillIds:
+  - "BACKEND-AUTH"
+  - "BACKEND-JWT"
+  - "BACKEND-SECURITY"
+  - "BACKEND-NESTJS-DI"
+  - "BACKEND-TESTING"
+recommendedTools:
+  - "NestJS"
+  - "PostgreSQL"
+  - "JWT"
+  - "Passport/guards"
+  - "Jest"
+portfolioEvidence:
+  - "Threat model notes"
+  - "Tenant isolation test suite"
+  - "RBAC matrix"
+  - "Architecture diagram"
+relatedTopicIds:
+  - "BACKEND-NESTJS-AUTH-JWT"
+  - "BACKEND-NESTJS-GUARDS"
+  - "BACKEND-SECURITY-BASICS"
+  - "BACKEND-NESTJS-MODULES-DI"
+  - "BACKEND-TESTING"
+  - "BACKEND-POSTGRESQL-WITH-BACKEND"
+  - "BACKEND-HTTP-ERROR-HANDLING"
+relatedInterviewQuestionIds:
+  - "iv-jwt-vs-sessions"
+  - "iv-nestjs-di-scopes"
+  - "iv-security-jwt-storage"
+  - "iv-oauth-roles"
+  - "BE-I-0100"
+  - "BE-A-0050"
+  - "BE-I-0025"
+sources:
+  - "NESTJS-AUTH"
+  - "NESTJS-GUARDS"
+  - "RFC-7519-JWT"
+  - "OWASP-API-TOP10"
+  - "POSTGRES-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PROJECT-BACKEND-INVENTORY-REST-API"
+nextProjectId: "PROJECT-BACKEND-ORDER-PAYMENT-PLATFORM"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "be-tenant-m1"
+    title: "Auth foundation"
+    objective: "Register/login JWT."
+    whyItMatters: "AuthN is prerequisite to AuthZ."
+    prerequisiteTopicIds:
+      - "BACKEND-NESTJS-AUTH-JWT"
+      - "BACKEND-SECURITY-BASICS"
+    tasks:
+      - "Users"
+      - "Password hash"
+      - "JWT issue"
+      - "Auth e2e"
+    expectedArtifacts:
+      - "auth flows"
+    validationChecklist:
+      - "Login works"
+      - "Bad creds 401"
+      - "Passwords hashed"
+    commonProblems:
+      - "Plaintext passwords"
+      - "Long-lived tokens undocumented"
+    completionCriteria:
+      - "Auth solid"
+  - id: "be-tenant-m2"
+    title: "Tenant model"
+    objective: "Orgs/memberships with tenant context."
+    whyItMatters: "Tenant context must be explicit."
+    prerequisiteTopicIds:
+      - "BACKEND-NESTJS-MODULES-DI"
+      - "BACKEND-POSTGRESQL-WITH-BACKEND"
+    tasks:
+      - "Tenant tables"
+      - "Membership"
+      - "Request tenant context"
+      - "Create tenant flow"
+    expectedArtifacts:
+      - "ERD"
+      - "context note"
+    validationChecklist:
+      - "Context available in services"
+      - "Membership required"
+      - "Migrations clean"
+    commonProblems:
+      - "Client-supplied tenant trusted blindly"
+      - "Missing FK"
+    completionCriteria:
+      - "Tenant model ready"
+  - id: "be-tenant-m3"
+    title: "RBAC + resources"
+    objective: "Projects/tasks with role checks."
+    whyItMatters: "RBAC matrix makes authorization reviewable."
+    prerequisiteTopicIds:
+      - "BACKEND-NESTJS-GUARDS"
+      - "BACKEND-HTTP-ERROR-HANDLING"
+    tasks:
+      - "Roles"
+      - "Guards"
+      - "Projects/tasks"
+      - "RBAC matrix doc"
+    expectedArtifacts:
+      - "matrix"
+      - "APIs"
+    validationChecklist:
+      - "Viewer cannot mutate"
+      - "Admin can"
+      - "404 vs 403 policy documented"
+    commonProblems:
+      - "Role checks only in UI"
+      - "Inconsistent 403/404"
+    completionCriteria:
+      - "RBAC enforced"
+  - id: "be-tenant-m4"
+    title: "Isolation gauntlet"
+    objective: "Automated cross-tenant attack tests."
+    whyItMatters: "Tests are the isolation proof."
+    prerequisiteTopicIds:
+      - "BACKEND-TESTING"
+      - "BACKEND-SECURITY-BASICS"
+    tasks:
+      - "Cross-tenant e2e"
+      - "IDOR cases"
+      - "Security notes"
+      - "README threat model"
+    expectedArtifacts:
+      - "test suite"
+      - "threat notes"
+    validationChecklist:
+      - "Cross-tenant fails closed"
+      - "Suite green"
+      - "Threat model saved"
+    commonProblems:
+      - "Only happy tests"
+      - "Skipping auth on some routes"
+    completionCriteria:
+      - "Portfolio ready"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Multi-tenancy mistakes leak customer data. This project forces isolation into design and tests.
+
+<Callout type="mental-model">
+  Every query is tenant-scoped. AuthN ≠ AuthZ. Guards encode policy, not controllers sprinkled with ifs.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: BACKEND-AUTH, BACKEND-JWT, BACKEND-SECURITY, BACKEND-NESTJS-DI, BACKEND-TESTING.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Tenant → members/roles → projects → tasks. JWT carries sub+tenant. Row-level tenant_id with automated tests for cross-tenant access.
+
+Recommended tools: NestJS, PostgreSQL, JWT, Passport/guards, Jest.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Auth+users. 2) Tenant model. 3) RBAC. 4) Projects/tasks. 5) Isolation test battering ram.
+
+## Validation checkpoints
+
+Cross-tenant reads/writes 403/404; role matrix enforced; tokens expire; tests fail if tenant filter removed.
+
+## Common errors
+
+Global task lists; trusting client tenant_id; JWT in localStorage guidance for SPAs without context.
+
+## Debugging guidance
+
+Log tenant from ALS/request context; negative tests first.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+Mandatory cross-tenant e2e cases; guard unit tests.
+
+## Security
+
+OWASP API top risks awareness; rotate secrets; bcrypt passwords.
+
+## Performance
+
+Indexes on (tenant_id, id); avoid full scans.
+
+## Accessibility
+
+N/A API.
+
+## Deployment / handoff
+
+Compose + migration strategy; seed tenants.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  How tenant isolation is enforced in every query path.
+</Callout>
+
+## Stretch goals
+
+Invites, audit log, API keys per tenant.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

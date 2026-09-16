@@ -1,0 +1,258 @@
+---
+id: "PROJECT-FULLSTACK-JOB-APPLICATION-TRACKER"
+title: "Job Application Tracker"
+titleBn: "জব অ্যাপ্লিকেশন ট্র্যাকার"
+slug: "fullstack-job-application-tracker"
+track: "fullstack"
+level: "beginner"
+difficulty: "beginner"
+summary: "Full-stack app to track job applications with Next.js UI, Nest/API, auth, and Postgres."
+summaryBn: "Next.js UI, API, auth এবং Postgresসহ জব অ্যাপ্লিকেশন ট্র্যাকার।"
+portfolioPitch: "End-to-end beginner fullstack: auth, CRUD across the stack, and honest env/config discipline."
+estimatedHours: 30
+prerequisiteSkillIds:
+  - "FULLSTACK-INTEGRATION"
+  - "FULLSTACK-AUTH-FLOWS"
+  - "FRONTEND-REACT"
+  - "BACKEND-REST"
+learningOutcomeSkillIds:
+  - "FULLSTACK-INTEGRATION"
+  - "FULLSTACK-AUTH-FLOWS"
+  - "FULLSTACK-CORS-CSRF"
+  - "FULLSTACK-E2E-TESTING"
+  - "BACKEND-POSTGRES"
+recommendedTools:
+  - "Next.js"
+  - "NestJS or Route Handlers"
+  - "PostgreSQL"
+  - "Docker Compose"
+portfolioEvidence:
+  - "Architecture diagram"
+  - "Auth flow note"
+  - "Screenshots"
+  - "E2E or manual test script"
+relatedTopicIds:
+  - "FULLSTACK-ARCHITECTURE-OVERVIEW"
+  - "FULLSTACK-AUTH-ACROSS-STACK"
+  - "FULLSTACK-ENV-CONFIG"
+  - "FULLSTACK-DOCKER-COMPOSE"
+  - "FULLSTACK-DATA-FLOW"
+  - "FULLSTACK-COOKIES-SESSIONS-TOKENS"
+  - "FULLSTACK-E2E-TESTING"
+relatedInterviewQuestionIds:
+  - "FS-B-0001"
+  - "FS-B-0010"
+  - "iv-fullstack-cors-csrf"
+  - "iv-jwt-vs-sessions"
+  - "FS-I-0005"
+  - "iv-security-jwt-storage"
+  - "FS-B-0020"
+sources:
+  - "NEXTJS-APP-ROUTER"
+  - "NESTJS-AUTH"
+  - "MDN-COOKIES"
+  - "DOCKER-COMPOSE"
+  - "POSTGRES-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+nextProjectId: "PROJECT-FULLSTACK-HELPDESK-SAAS"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "fs-jobs-m1"
+    title: "Compose architecture"
+    objective: "Runnable FE/API/DB skeleton."
+    whyItMatters: "Integration starts with reproducible runtime."
+    prerequisiteTopicIds:
+      - "FULLSTACK-ARCHITECTURE-OVERVIEW"
+      - "FULLSTACK-DOCKER-COMPOSE"
+    tasks:
+      - "Compose files"
+      - "API hello"
+      - "Next hello"
+      - "Env example"
+    expectedArtifacts:
+      - "compose"
+      - "env example"
+    validationChecklist:
+      - "Stack boots"
+      - "Health checks"
+      - "No secrets committed"
+    commonProblems:
+      - "Hardcoded localhost only"
+      - "Missing .env.example"
+    completionCriteria:
+      - "Stack boots"
+  - id: "fs-jobs-m2"
+    title: "Auth across stack"
+    objective: "Register/login session or JWT."
+    whyItMatters: "Auth is the first fullstack hard problem."
+    prerequisiteTopicIds:
+      - "FULLSTACK-AUTH-ACROSS-STACK"
+      - "FULLSTACK-COOKIES-SESSIONS-TOKENS"
+    tasks:
+      - "Auth endpoints"
+      - "UI forms"
+      - "Protected routes"
+      - "Logout"
+    expectedArtifacts:
+      - "auth note"
+    validationChecklist:
+      - "Login works"
+      - "Protected 401"
+      - "Logout clears"
+    commonProblems:
+      - "CORS credentials mismatch"
+      - "XSS-prone token storage"
+    completionCriteria:
+      - "Auth demoed"
+  - id: "fs-jobs-m3"
+    title: "Applications CRUD"
+    objective: "Track jobs with statuses."
+    whyItMatters: "Domain CRUD proves wiring."
+    prerequisiteTopicIds:
+      - "FULLSTACK-DATA-FLOW"
+      - "FULLSTACK-ENV-CONFIG"
+    tasks:
+      - "Schema"
+      - "CRUD UI"
+      - "Status updates"
+      - "Validation"
+    expectedArtifacts:
+      - "ERD"
+      - "screens"
+    validationChecklist:
+      - "Persists restart"
+      - "Validation errors"
+      - "Filters work"
+    commonProblems:
+      - "Duplicated types drift"
+      - "No loading states"
+    completionCriteria:
+      - "CRUD complete"
+  - id: "fs-jobs-m4"
+    title: "Verification polish"
+    objective: "Tests + portfolio packaging."
+    whyItMatters: "Finish like a product."
+    prerequisiteTopicIds:
+      - "FULLSTACK-E2E-TESTING"
+    tasks:
+      - "Test script/E2E"
+      - "README"
+      - "Diagram"
+      - "Security notes"
+    expectedArtifacts:
+      - "tests"
+      - "diagram"
+    validationChecklist:
+      - "Smoke passes"
+      - "README clone-run works"
+      - "Diagram accurate"
+    commonProblems:
+      - "Undocumented ports"
+      - "Flaky seeds"
+    completionCriteria:
+      - "Portfolio ready"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+A tracker is small enough to finish yet forces real auth, data modeling, and FE/BE contracts.
+
+<Callout type="mental-model">
+  One product, two runtimes. Contracts and auth cookies/tokens dominate integration bugs.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: FULLSTACK-INTEGRATION, FULLSTACK-AUTH-FLOWS, FULLSTACK-CORS-CSRF, FULLSTACK-E2E-TESTING, BACKEND-POSTGRES.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Next UI + API (Nest or Next route handlers) + Postgres. Application entities with status pipeline.
+
+Recommended tools: Next.js, NestJS or Route Handlers, PostgreSQL, Docker Compose.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) Compose stack. 2) Auth. 3) Applications CRUD. 4) Filters/dashboard. 5) E2E smoke.
+
+## Validation checkpoints
+
+Register/login works; CRUD persists; unauthorized blocked; env example complete.
+
+## Common errors
+
+CORS guesswork; tokens in localStorage by default without tradeoff note; shared .env committed.
+
+## Debugging guidance
+
+Network tab + API logs; reproduce with curl; check cookie flags.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+API tests + one Playwright journey optional.
+
+## Security
+
+httpOnly cookies preferred for web; CSRF plan if cookie sessions.
+
+## Performance
+
+Paginate applications; index status/date.
+
+## Accessibility
+
+Forms labeled; status not color-only.
+
+## Deployment / handoff
+
+Compose README; optional cloud DB free tier.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  Auth storage choice across Next and API.
+</Callout>
+
+## Stretch goals
+
+Resume uploads, reminders, public share page.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.

@@ -1,7 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { locales, type Locale, isLocale } from '../../../i18n/config';
+import { locales, type Locale, isLocale, localePath } from '../../../i18n/config';
+import ProjectIndexFilters from '../../../components/projects/ProjectIndexFilters';
+import { toProjectCard, sortProjectsByLevel } from '../../../data/projects/catalog';
 
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale } }));
@@ -10,26 +12,32 @@ export function getStaticPaths() {
 const localeParam = Astro.params.locale ?? 'en';
 const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
 const isBn = locale === 'bn';
-const projects = await getCollection('projects');
+const projects = sortProjectsByLevel((await getCollection('projects')).map((p) => toProjectCard(p.data)));
 ---
 
-<BaseLayout locale={locale} title={isBn ? 'প্রজেক্ট' : 'Projects'} description="Portfolio-oriented practice projects by track.">
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-    <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold">{isBn ? 'প্রজেক্ট-ভিত্তিক শেখা' : 'Project-based learning'}</h1>
-    <div class="mt-8 grid gap-4 md:grid-cols-2">
+<BaseLayout
+  locale={locale}
+  title={isBn ? 'প্রজেক্ট' : 'Projects'}
+  description={isBn ? 'ট্র্যাকভিত্তিক প্রজেক্ট-ভিত্তিক শেখা।' : 'Project-based learning across career tracks.'}
+>
+  <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6" data-pagefind-body>
+    <nav class="mb-4 text-sm text-[var(--color-ink-subtle)]" aria-label="Breadcrumb">
+      <a href={localePath(locale)} class="no-underline">{isBn ? 'হোম' : 'Home'}</a>
+      <span aria-hidden="true"> / </span>
+      <span>{isBn ? 'প্রজেক্ট' : 'Projects'}</span>
+    </nav>
+    <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold">
+      {isBn ? 'প্রজেক্ট-ভিত্তিক শেখা' : 'Project-Based Learning'}
+    </h1>
+    <p class="mt-3 max-w-2xl text-[var(--color-ink-muted)]">
       {
-        projects.map((project) => (
-          <article class="surface-card">
-            <p class="badge">{project.data.difficulty}</p>
-            <h2 class="mt-2 text-lg font-semibold text-[var(--color-ink)]">
-              {isBn && project.data.titleBn ? project.data.titleBn : project.data.title}
-            </h2>
-            <p class="mt-2 text-sm text-[var(--color-ink-muted)]">{project.data.summary}</p>
-            <p class="mt-3 text-xs text-[var(--color-ink-subtle)]">{project.data.track}</p>
-            <p class="mt-2 text-sm text-[var(--color-ink-muted)]"><strong>{isBn ? 'পোর্টফোলিওতে প্রমাণ' : 'Portfolio proof'}:</strong> {project.data.portfolioProof}</p>
-          </article>
-        ))
+        isBn
+          ? '৩০টি ক্যাননিক্যাল প্রজেক্ট—প্রতি ট্র্যাকে বিগিনার, ইন্টারমিডিয়েট, অ্যাডভান্সড। প্রগ্রেস ব্রাউজারে স্থানীয়ভাবে সংরক্ষিত।'
+          : '30 canonical projects—Beginner, Intermediate, and Advanced on every track. Progress stays in your browser.'
       }
+    </p>
+    <div class="mt-8">
+      <ProjectIndexFilters client:load locale={locale} projects={projects} />
     </div>
   </div>
 </BaseLayout>

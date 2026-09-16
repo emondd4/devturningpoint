@@ -1,0 +1,255 @@
+---
+id: "PROJECT-DATABASE-INVENTORY-PURCHASING"
+title: "Inventory/Purchasing Relational Database"
+titleBn: "ইনভেন্টরি/পারচেসিং রিলেশনাল ডাটাবেস"
+slug: "database-inventory-purchasing"
+track: "database"
+level: "beginner"
+difficulty: "beginner"
+summary: "Design a normalized inventory/purchasing schema with constraints, seed data, and reporting queries."
+summaryBn: "কনস্ট্রেইন্ট, সিড ডাটা এবং রিপোর্টিং কোয়েরিসহ নরমালাইজড ইনভেন্টরি/পারচেসিং স্কিমা।"
+portfolioPitch: "Data modeling portfolio: ERD, constraints that enforce business rules, and useful SQL reports."
+estimatedHours: 22
+prerequisiteSkillIds:
+  - "DATABASE-RELATIONAL"
+  - "DATABASE-SQL"
+  - "DATABASE-JOINS"
+  - "DATABASE-TRANSACTIONS"
+learningOutcomeSkillIds:
+  - "DATABASE-RELATIONAL"
+  - "DATABASE-SQL"
+  - "DATABASE-JOINS"
+  - "DATABASE-TRANSACTIONS"
+  - "DATABASE-POSTGRES-TYPES"
+recommendedTools:
+  - "PostgreSQL"
+  - "dbdiagram/DBeaver"
+  - " ent migrations or SQL files"
+portfolioEvidence:
+  - "ERD"
+  - "Migration SQL"
+  - "Seed script"
+  - "Report query pack"
+relatedTopicIds:
+  - "DATABASE-RELATIONAL-MODELING"
+  - "DATABASE-NORMALIZATION"
+  - "DATABASE-SQL-JOINS-AGGREGATION"
+  - "DATABASE-POSTGRESQL-TRANSACTIONS"
+  - "DATABASE-MIGRATIONS"
+  - "DATABASE-MODELING-ANTIPATTERNS"
+  - "DATABASE-SQL-WINDOW-FUNCTIONS"
+relatedInterviewQuestionIds:
+  - "DB-B-0001"
+  - "DB-B-0010"
+  - "iv-orm-vs-sql"
+  - "iv-db-isolation-inventory"
+  - "DB-I-0005"
+  - "iv-sql-n-plus-one"
+  - "DB-B-0020"
+sources:
+  - "POSTGRES-DOCS"
+  - "POSTGRES-QUERIES"
+  - "POSTGRES-TX"
+  - "WRITE-THE-DOCS-GUIDE"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+nextProjectId: "PROJECT-DATABASE-ECOMMERCE-PERF-LAB"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "db-inv-m1"
+    title: "ERD and rules"
+    objective: "Model entities and business rules."
+    whyItMatters: "Modeling mistakes are expensive later."
+    prerequisiteTopicIds:
+      - "DATABASE-RELATIONAL-MODELING"
+      - "DATABASE-NORMALIZATION"
+    tasks:
+      - "ERD"
+      - "Rules list"
+      - "NF rationale"
+      - "Review notes"
+    expectedArtifacts:
+      - "ERD"
+      - "rules"
+    validationChecklist:
+      - "ERD complete"
+      - "Rules explicit"
+      - "Antipatterns avoided"
+    commonProblems:
+      - "God table"
+      - "Derived stock as base table only"
+    completionCriteria:
+      - "ERD approved by you"
+  - id: "db-inv-m2"
+    title: "DDL constraints"
+    objective: "Create schema with real constraints."
+    whyItMatters: "Constraints are the database API."
+    prerequisiteTopicIds:
+      - "DATABASE-MIGRATIONS"
+      - "DATABASE-POSTGRESQL-TRANSACTIONS"
+    tasks:
+      - "SQL migrations"
+      - "PKs/FKs/CHECKs"
+      - "Enums/domains"
+      - "Rollback notes"
+    expectedArtifacts:
+      - "migrations"
+    validationChecklist:
+      - "Bad FK fails"
+      - "CHECK works"
+      - "Migrate up/down"
+    commonProblems:
+      - "App-only validation"
+      - "Missing FK indexes"
+    completionCriteria:
+      - "Schema applied"
+  - id: "db-inv-m3"
+    title: "Receiving transaction"
+    objective: "Atomic PO receive updates stock."
+    whyItMatters: "Transactions protect multi-table writes."
+    prerequisiteTopicIds:
+      - "DATABASE-POSTGRESQL-TRANSACTIONS"
+      - "DATABASE-SQL-JOINS-AGGREGATION"
+    tasks:
+      - "Receive procedure/SQL"
+      - "Stock update"
+      - "Conflict cases"
+      - "Tests"
+    expectedArtifacts:
+      - "tx tests"
+    validationChecklist:
+      - "Partial receive rolls back"
+      - "Stock correct"
+      - "Tests green"
+    commonProblems:
+      - "Autocommit soup"
+      - "Lost updates ignored"
+    completionCriteria:
+      - "Tx proven"
+  - id: "db-inv-m4"
+    title: "Reporting pack"
+    objective: "Joins/aggregations for ops reports."
+    whyItMatters: "Reports prove model usefulness."
+    prerequisiteTopicIds:
+      - "DATABASE-SQL-JOINS-AGGREGATION"
+      - "DATABASE-SQL-WINDOW-FUNCTIONS"
+    tasks:
+      - "On-hand report"
+      - "PO aging"
+      - "Top suppliers"
+      - "README"
+    expectedArtifacts:
+      - "query pack"
+    validationChecklist:
+      - "Numbers match fixtures"
+      - "Queries documented"
+      - "Compose runs demos"
+    commonProblems:
+      - "N+1 from app ORM later"
+      - "SELECT *"
+    completionCriteria:
+      - "Portfolio ready"
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="Guidance, not a finished solution">
+  Implement each milestone yourself. Prefer locally runnable tools. Never commit secrets.
+</Callout>
+
+## Why this project matters
+
+Inventory/purchasing systems live or die by constraints and clear relational modeling.
+
+<Callout type="mental-model">
+  Entities and relationships first; constraints encode rules; queries prove the model useful.
+</Callout>
+
+## Skills this proves
+
+Learning outcomes map to: DATABASE-RELATIONAL, DATABASE-SQL, DATABASE-JOINS, DATABASE-TRANSACTIONS, DATABASE-POSTGRES-TYPES.
+
+## Prerequisites
+
+Complete related topics first. If starting early, expect to backfill fundamentals under load.
+
+## Architecture / approach
+
+Suppliers, products, warehouses, POs, receipts, stock levels. Enforce non-negative stock via constraints/triggers carefully documented.
+
+Recommended tools: PostgreSQL, dbdiagram/DBeaver,  ent migrations or SQL files.
+
+## Step-by-step guidance
+
+Work one milestone at a time. Restate the objective, implement the smallest vertical slice, run the validation checklist, then capture portfolio evidence before continuing.
+
+1) ERD. 2) DDL+constraints. 3) Seeds. 4) Receiving transaction. 5) Reports.
+
+## Validation checkpoints
+
+Invalid FKs rejected; receiving updates stock atomically; reports match hand calculations.
+
+## Common errors
+
+Spreadsheet tables; nullable FKs everywhere; calculating stock only in app.
+
+## Debugging guidance
+
+Explain constraints failures; transaction rollback tests.
+
+<Callout type="tip" title="Hypothesis-driven debugging">
+  One hypothesis → one falsifying check → update notes. Avoid blind retries.
+</Callout>
+
+## Tests / verification
+
+SQL tests for invariants; transaction scenarios.
+
+## Security
+
+Least-privilege DB roles for app vs admin; no prod data in seeds.
+
+## Performance
+
+Index FK/join columns used in reports.
+
+## Accessibility
+
+N/A.
+
+## Deployment / handoff
+
+Docker Postgres + migrate script.
+
+## Portfolio evidence checklist
+
+Capture every item in frontmatter `portfolioEvidence`. Artifacts beat claims.
+
+## Interview readiness
+
+Use linked interview question IDs as “be ready to explain” prompts.
+
+<Callout type="interview">
+  How constraints enforce inventory invariants.
+</Callout>
+
+## Stretch goals
+
+Audit tables, soft deletes, multi-warehouse transfers.
+
+## Retrospective
+
+- What was hardest?
+- What failed, and how did you recover?
+- How did you validate the result?
+- What major trade-off did you make?
+- What would you change with one more week?
+- How would you scale or harden this?
+- What did you deliberately not build?
+- What evidence proves it works?
+
+## Sources
+
+See frontmatter `sources` for official docs and specs. Prefer those over random tutorials.
