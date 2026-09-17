@@ -1,0 +1,36 @@
+{
+  "id": "AI-TOOL-OPENAI-EVALS",
+  "name": "OpenAI evaluation tooling",
+  "category": "evaluation-observability",
+  "description": "OpenAI-oriented evaluation patterns and tooling for measuring model/task quality.",
+  "bestFor": [
+    "Prompt/regression evals on OpenAI models"
+  ],
+  "notIdealFor": [
+    "Vendor-neutral open-model-only labs without adapters"
+  ],
+  "prerequisites": [
+    "AI-EVALUATION-BASICS"
+  ],
+  "officialUrl": "https://platform.openai.com/docs",
+  "docsUrl": "https://platform.openai.com/docs/guides/evals",
+  "languageEcosystem": [
+    "Python",
+    "HTTP"
+  ],
+  "localOrCloud": "cloud",
+  "openSourceStatus": "mixed",
+  "costModelSummary": "Eval runs consume API usage.",
+  "securityNotes": [
+    "Dataset privacy",
+    "Do not leak customer data into shared evals"
+  ],
+  "relatedTopicIds": [
+    "AI-EVALUATION-BASICS"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-B-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

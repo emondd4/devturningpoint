@@ -1,0 +1,211 @@
+---
+id: "PBL-AI-B-002"
+title: "AI Coding Workflow Lab with Cursor"
+titleBn: "Cursor দিয়ে AI Coding Workflow Lab"
+slug: "ai-coding-workflow-lab-cursor"
+track: "ai-framework"
+level: "beginner"
+projectRole: "core"
+marketRelevance: "Observed in Bangladesh job listings reviewed for software roles: AI-assisted coding familiarity appears as a plus, while verification and Git hygiene remain baseline expectations—not a substitute for engineering judgment."
+difficulty: "beginner"
+summary: "Practice a safe Cursor Agent workflow: inspect a repo, plan, implement one slice, verify with real commands, and review the diff."
+summaryBn: "নিরাপদ Cursor Agent workflow অনুশীলন: repo inspect, plan, এক slice implement, আসল command দিয়ে verify, diff review।"
+portfolioPitch: "Shows you can use coding agents productively without shipping hallucinated packages or unverified 'tests passed' claims."
+estimatedHours: 12
+prerequisiteSkillIds:
+  - "AI-LLM-FUNDAMENTALS"
+  - "AI-PROMPT-ENGINEERING"
+  - "AI-CODING-AGENTS"
+learningOutcomeSkillIds:
+  - "AI-CODING-AGENTS"
+  - "AI-PROMPT-ENGINEERING"
+  - "AI-SECURITY"
+recommendedTools:
+  - "Cursor"
+  - "Git"
+  - "Local test runner for the chosen sample repo"
+portfolioEvidence:
+  - "PROJECT_PLAN.md with milestone boundaries"
+  - "Diff review notes (what you accepted/rejected)"
+  - "Command transcripts for lint/test"
+  - "Short retrospective on agent failure modes"
+  - "Prompt versions used"
+relatedTopicIds:
+  - "AI-CODING-AGENTS-CURSOR"
+  - "AI-PROMPT-ENGINEERING"
+  - "AI-LLM-FUNDAMENTALS"
+relatedInterviewQuestionIds: []
+sources:
+  - "CURSOR-DOCS-RULES"
+  - "CURSOR-DOCS-SKILLS"
+  - "CURSOR-DOCS-MCP"
+  - "OWASP-LLM-TOP10-2025"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PBL-AI-B-001"
+nextProjectId: "PBL-AI-B-003"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-AI-B-002-M01"
+    title: "Inspect and plan"
+    objective: "Produce PROJECT_PLAN.md describing architecture, risks, and milestone boundaries for a small change."
+    whyItMatters: "Agents fail when the human has no plan or acceptance criteria."
+    prerequisiteTopicIds:
+      - "AI-CODING-AGENTS-CURSOR"
+      - "AI-PROMPT-ENGINEERING"
+    tasks:
+      - "Choose a small open sample repo or this platform checkout"
+      - "Run a read-only discovery prompt"
+      - "Write PROJECT_PLAN.md with non-goals"
+      - "Define success criteria for milestone 2"
+    expectedArtifacts:
+      - "PROJECT_PLAN.md"
+      - "Discovery notes with file paths"
+    validationChecklist:
+      - "Plan cites real paths"
+      - "Non-goals are explicit"
+      - "No code changes yet"
+    commonProblems:
+      - "Skipping inspection"
+      - "Planning the entire product at once"
+    completionCriteria:
+      - "Plan reviewable by a peer"
+      - "Next milestone is a single vertical slice"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-B-002-M02"
+    title: "Implement one slice with Cursor"
+    objective: "Use Agent to implement only the planned slice with Rules/AGENTS.md guidance."
+    whyItMatters: "Bounded prompts reduce overbroad refactors and hallucinated scope."
+    prerequisiteTopicIds:
+      - "AI-CODING-AGENTS-CURSOR"
+    tasks:
+      - "Add or update AGENTS.md / rules for this exercise"
+      - "Prompt for one milestone only"
+      - "Reject unrelated refactors in the diff"
+      - "Keep README/plan updated"
+    expectedArtifacts:
+      - "Focused git diff"
+      - "Notes on rejected agent suggestions"
+    validationChecklist:
+      - "Diff matches plan scope"
+      - "No unexplained new dependencies"
+      - "Secrets absent from diff"
+    commonProblems:
+      - "Accepting entire agent patch blindly"
+      - "Invented packages"
+    completionCriteria:
+      - "Slice builds locally"
+      - "Rejected suggestions documented"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-B-002-M03"
+    title: "Verify with evidence"
+    objective: "Run lint/typecheck/tests (as applicable) and record real outputs; complete a verification checklist."
+    whyItMatters: "OWASP-aligned practice: improper output handling includes trusting model claims."
+    prerequisiteTopicIds:
+      - "AI-CODING-AGENTS-CURSOR"
+    tasks:
+      - "Run verification commands yourself"
+      - "Paste outputs into VERIFICATION.md"
+      - "Manual acceptance walkthrough"
+      - "Security pass: authz/validation/secrets"
+    expectedArtifacts:
+      - "VERIFICATION.md with command output"
+      - "Checklist signed off by you"
+    validationChecklist:
+      - "Every claimed command has output"
+      - "Failures are fixed or explicitly deferred"
+      - "Acceptance criteria marked pass/fail"
+    commonProblems:
+      - "Agent says tests passed without running"
+      - "Ignoring failing checks"
+    completionCriteria:
+      - "Evidence file committed"
+      - "Honest status of remaining risks"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-B-002-M04"
+    title: "Retrospective and interview story"
+    objective: "Write a retrospective covering failures, trade-offs, and what you would automate next."
+    whyItMatters: "Interviewers ask how you catch agent mistakes—not whether you used a tool."
+    prerequisiteTopicIds:
+      - "AI-PROMPT-ENGINEERING"
+    tasks:
+      - "Answer retrospective prompts"
+      - "List three failure modes observed"
+      - "Link prompt recipes used"
+      - "Prepare a 2-minute verbal walkthrough"
+    expectedArtifacts:
+      - "RETRO.md"
+      - "Prompt version appendix"
+    validationChecklist:
+      - "Failure modes are concrete"
+      - "Evidence paths linked"
+      - "No fabricated outcomes"
+    commonProblems:
+      - "Generic AI praise without evidence"
+    completionCriteria:
+      - "Portfolio pack complete"
+      - "You can explain verification steps"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="info" title="No site API keys required">
+This lab uses Cursor on your machine. The Dev Turning Point website itself stays static and does not call model APIs.
+</Callout>
+
+## Why this project matters
+
+Coding agents change throughput, not accountability. This lab builds the habit: plan → bounded agent work → human verification.
+
+## Market / role relevance
+
+Observed in Bangladesh job listings reviewed for software roles: AI-assisted coding familiarity appears as a plus, while verification and Git hygiene remain baseline expectations—not a substitute for engineering judgment.
+
+## What job skills it proves
+
+Prompt structure, Cursor Rules/Skills/MCP awareness, diff review, and evidence-based verification.
+
+## Prerequisites
+
+Complete AI LLM fundamentals, prompt engineering, and the Cursor agents topic first—or Start Anyway knowing you will rework.
+
+## Architecture / approach
+
+Treat the agent as a junior pair programmer with tools. Your PROCESS_PLAN and verification files are the system of record.
+
+## Recommended tools
+
+Cursor, Git, and the language toolchain of the sample repository.
+
+## Setup
+
+1. Install Cursor and open a practice repository.
+2. Ensure you can run that repo's tests locally without AI.
+3. Create a working branch for the lab.
+
+## Step-by-step guidance
+
+Follow milestones M01–M04 in order. Use prompt recipes `PROMPT-REPO-DISCOVERY` and `PROMPT-IMPLEMENT-ONE-MILESTONE`.
+
+## Validation / testing / security
+
+Run real commands. Review for hallucinated dependencies, secret leakage, and overbroad refactors (OWASP supply chain / improper output handling / excessive agency themes).
+
+## Portfolio evidence
+
+Save every item listed in frontmatter `portfolioEvidence`.
+
+## Stretch goals
+
+Add a project Skill for “verify before claim tests passed.”
+
+## Retrospective
+
+Hardest agent mistake? What evidence caught it? What will you forbid in rules next time?
+
+## Sources
+
+See frontmatter sources (Cursor docs + OWASP GenAI).

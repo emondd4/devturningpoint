@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-mcp-overpermission",
+  "title": "MCP/tool over-permission",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "MCP server exposes shell/DB with broad rights."
+  ],
+  "cause": "MCP server exposes shell/DB with broad rights.",
+  "solution": "Least privilege; approve tools consciously.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

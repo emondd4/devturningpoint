@@ -1,0 +1,37 @@
+{
+  "id": "PROMPT-IMPLEMENT-ONE-MILESTONE",
+  "title": "Implement one project milestone",
+  "track": "ai-framework",
+  "taskType": "feature-implementation",
+  "difficulty": "intermediate",
+  "whenToUse": "You have a written milestone with acceptance criteria and want the smallest vertical slice.",
+  "whenNotToUse": "You need research or design consensus first, or the requirement is still ambiguous.",
+  "requiredInputs": [
+    "Milestone objective and acceptance criteria",
+    "Allowed file areas",
+    "Test/verification commands"
+  ],
+  "promptTemplate": "GOAL:\nImplement ONLY milestone {{milestoneId}}: {{milestoneObjective}}.\n\nCONTEXT:\nProject {{projectId}}. Existing patterns in {{pathHints}}.\n\nINPUT:\nRequirements:\n{{requirements}}\n\nCONSTRAINTS:\n- Do not implement later milestones\n- No dependency additions unless justified and verified\n- No unrelated refactors\n- Keep secrets out of the repo\n\nOUTPUT:\n1) Plan (brief)\n2) Code changes\n3) Tests/validation added\n4) Manual verification steps\n\nACCEPTANCE:\n{{acceptanceCriteria}}\n\nVERIFICATION:\nRun: {{verificationCommands}}\nPaste actual command output. Stop at milestone boundary.",
+  "badPrompt": "Build the whole app for me.",
+  "improvedPrompt": "GOAL:\nImplement ONLY milestone PBL-AI-B-002-M01: repository inspection notes + PROJECT_PLAN.md.\nCONSTRAINTS:\nNo application feature code yet; markdown plan only.\nACCEPTANCE:\nPlan lists architecture, risks, and next milestone boundary.\nVERIFICATION:\nShow git status; only PROJECT_PLAN.md added.",
+  "expectedOutput": "A bounded diff that satisfies one milestone plus real command evidence.",
+  "verificationChecklist": [
+    "Diff stays inside allowed paths",
+    "Commands actually run",
+    "Acceptance criteria checked item-by-item"
+  ],
+  "failureModes": [
+    "Scope creep into later milestones",
+    "Invented packages",
+    "Claimed green tests without output"
+  ],
+  "privacySecurityNotes": [
+    "Never commit API keys",
+    "Avoid copying proprietary code from other repos into prompts"
+  ],
+  "relatedTools": ["AI-TOOL-CURSOR"],
+  "relatedTopics": ["AI-CODING-AGENTS-CURSOR", "AI-PROMPT-ENGINEERING"],
+  "relatedProjects": ["PBL-AI-B-002"],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

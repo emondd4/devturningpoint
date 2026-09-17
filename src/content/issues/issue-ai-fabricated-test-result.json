@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-fabricated-test-result",
+  "title": "Fabricated test result claim",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Agent claims tests passed without running them."
+  ],
+  "cause": "Agent claims tests passed without running them.",
+  "solution": "Require command output evidence.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "PROMPT-SAFE-REFACTOR",
+  "title": "Refactor safely",
+  "track": "ai-framework",
+  "taskType": "refactor",
+  "difficulty": "intermediate",
+  "whenToUse": "Behavior must stay identical while structure improves.",
+  "whenNotToUse": "You are mid-feature and lack tests.",
+  "requiredInputs": [
+    "Target files",
+    "Invariant tests"
+  ],
+  "promptTemplate": "GOAL:\nRefactor {{target}} with zero behavior change.\n\nCONTEXT:\nTests that must stay green: {{tests}}.\n\nINPUT:\nSmell: {{smell}}.\n\nCONSTRAINTS:\n- No API changes\n- Keep commits semantic\n- Stop if tests fail\n\nOUTPUT:\nPlan + incremental steps\n\nACCEPTANCE:\nSame tests pass; diff is structural.\n\nVERIFICATION:\nRun listed tests yourself.",
+  "badPrompt": "Clean up the whole repo style.",
+  "improvedPrompt": "Extract validation helper in auth module only; keep public API; run unit tests.",
+  "expectedOutput": "Incremental refactor plan.",
+  "verificationChecklist": [
+    "Behavior preserved",
+    "Scope bounded"
+  ],
+  "failureModes": [
+    "Mixing features into refactor"
+  ],
+  "privacySecurityNotes": [
+    "Do not include production data dumps"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "relatedProjects": [
+    "PBL-AI-B-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

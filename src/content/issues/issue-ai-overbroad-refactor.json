@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-overbroad-refactor",
+  "title": "Overbroad refactor",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Agent rewrites unrelated modules in a small task."
+  ],
+  "cause": "Agent rewrites unrelated modules in a small task.",
+  "solution": "Bound scope; reject drive-by changes.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

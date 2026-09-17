@@ -1,0 +1,39 @@
+{
+  "id": "AI-TOOL-LANGSMITH",
+  "name": "LangSmith",
+  "category": "evaluation-observability",
+  "description": "Tracing, datasets, and evaluation tooling for LLM applications.",
+  "bestFor": [
+    "Trace debugging",
+    "Eval datasets for RAG/agents"
+  ],
+  "notIdealFor": [
+    "Offline-only classrooms without accounts"
+  ],
+  "prerequisites": [
+    "AI-EVALUATION-BASICS"
+  ],
+  "officialUrl": "https://www.langchain.com/langsmith",
+  "docsUrl": "https://docs.smith.langchain.com/",
+  "languageEcosystem": [
+    "Python",
+    "TypeScript"
+  ],
+  "localOrCloud": "cloud",
+  "openSourceStatus": "proprietary",
+  "costModelSummary": "Hosted product tiers; warn before paid usage.",
+  "securityNotes": [
+    "Prompt logs may contain PII",
+    "Control retention"
+  ],
+  "relatedTopicIds": [
+    "AI-EVALUATION-BASICS",
+    "AI-LLMOPS"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-I-001",
+    "PBL-AI-A-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

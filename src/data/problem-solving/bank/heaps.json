@@ -1,0 +1,91 @@
+[
+  {
+    "id": "PS-HP-001",
+    "title": "Last Stone Weight",
+    "category": "Heaps / Priority Queues",
+    "difficulty": "Easy",
+    "pattern": "Max Heap",
+    "problemStatement": "You are given an array of integers stones representing stone weights. Repeatedly pick the two heaviest stones and smash them together: if they're equal, both are destroyed; otherwise the lighter is destroyed and the heavier becomes (heavy - light). Return the weight of the last remaining stone, or 0 if none remain.",
+    "examples": [
+      { "input": "stones = [2,7,4,1,8,1]", "output": "1", "explanation": "8&7->1, then [2,4,1,1,1] ... eventually reduces to 1" }
+    ],
+    "constraints": ["1 <= stones.length <= 30"],
+    "approachSteps": [
+      "You always need the CURRENT two largest stones, repeatedly — that 'always get the max, quickly, after updates' need is exactly what a max-heap provides.",
+      "Python's heapq is a min-heap, so negate all weights on insert (and negate back on read) to simulate a max-heap.",
+      "Push all stone weights (negated) into the heap.",
+      "While more than one stone remains: pop the two largest (heaviest), compute the result of smashing them, and if a stone remains (they weren't exactly equal), push it back.",
+      "When at most one stone remains, that's the answer (or 0 if the heap is empty)."
+    ],
+    "bruteForce": { "approach": "Sort the array on every iteration to find the two largest, remove them, and re-insert the result.", "timeComplexity": "O(n^2 log n) — sorting repeated up to n times", "spaceComplexity": "O(n)" },
+    "optimalApproach": "Max-heap (simulated via negation with Python's min-heap heapq): repeatedly pop the two largest, push back the difference if nonzero.",
+    "solutionCode": "import heapq\n\ndef last_stone_weight(stones):\n    heap = [-s for s in stones]\n    heapq.heapify(heap)\n\n    while len(heap) > 1:\n        first = -heapq.heappop(heap)\n        second = -heapq.heappop(heap)\n        if first != second:\n            heapq.heappush(heap, -(first - second))\n\n    return -heap[0] if heap else 0",
+    "timeComplexity": "O(n log n) — up to n-1 smashes, each involving O(log n) heap operations.",
+    "spaceComplexity": "O(n) for the heap.",
+    "followUps": [
+      "How would you adapt this if you needed to smash the two LIGHTEST stones instead (Last Stone Weight II is actually a different, DP-based problem — don't confuse the two)?",
+      "Why does negating values work to simulate a max-heap with Python's min-heap-only heapq?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["heap", "priority-queue"]
+  },
+  {
+    "id": "PS-HP-002",
+    "title": "Kth Largest Element in an Array",
+    "category": "Heaps / Priority Queues",
+    "difficulty": "Medium",
+    "pattern": "Min Heap of Size k",
+    "problemStatement": "Given an integer array nums and an integer k, return the kth largest element in the array (the kth largest in sorted order, not the kth distinct element).",
+    "examples": [
+      { "input": "nums = [3,2,1,5,6,4], k = 2", "output": "5" }
+    ],
+    "constraints": ["1 <= k <= nums.length <= 10^5"],
+    "approachSteps": [
+      "Fully sorting the array to grab index -k is correct but does more work than necessary (O(n log n)) — you only actually need to know the top k elements, not the full order.",
+      "Maintain a MIN-heap of size k as you scan the array.",
+      "For each number, push it onto the heap; if the heap grows beyond size k, pop the smallest — this keeps exactly the k largest-seen elements in the heap at all times, with the smallest of THAT group sitting at the top.",
+      "After processing every number, the heap's smallest element (its top) is exactly the kth largest element overall."
+    ],
+    "bruteForce": { "approach": "Sort the array descending and index k-1 (or ascending and index len-k).", "timeComplexity": "O(n log n)", "spaceComplexity": "O(1) to O(n) depending on sort" },
+    "optimalApproach": "Min-heap capped at size k; the heap's minimum after processing all elements is the kth largest. (An even faster average-case O(n) approach exists via Quickselect.)",
+    "solutionCode": "import heapq\n\ndef find_kth_largest(nums, k):\n    heap = []\n    for num in nums:\n        heapq.heappush(heap, num)\n        if len(heap) > k:\n            heapq.heappop(heap)\n    return heap[0]",
+    "timeComplexity": "O(n log k) — n insertions/removals on a heap bounded to size k.",
+    "spaceComplexity": "O(k) for the heap.",
+    "followUps": [
+      "How would Quickselect (partition-based, like quicksort) solve this in average O(n) time — what's the trade-off versus the heap approach?",
+      "How would you handle this as a data STREAM, where numbers arrive one at a time and you need the kth largest after each?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["heap", "priority-queue", "array"]
+  },
+  {
+    "id": "PS-HP-003",
+    "title": "Find Median from Data Stream",
+    "category": "Heaps / Priority Queues",
+    "difficulty": "Hard",
+    "pattern": "Two Heaps",
+    "problemStatement": "Design a data structure that supports adding integers from a stream and finding the median of all elements added so far, efficiently after each addition.",
+    "examples": [
+      { "input": "addNum(1), addNum(2), findMedian() -> 1.5, addNum(3), findMedian() -> 2", "output": "see explanation" }
+    ],
+    "constraints": ["Up to 5*10^4 calls to addNum and findMedian"],
+    "approachSteps": [
+      "Sorting the whole stream on every findMedian call would be correct but wasteful (O(n log n) per call) — you want to maintain just enough structure to read the median in O(1).",
+      "Split all seen numbers into two halves: a max-heap holding the SMALLER half, and a min-heap holding the LARGER half — keep them balanced in size (differing by at most 1).",
+      "With that split, the median is always derivable from just the TOPS of the two heaps: if sizes are equal, average both tops; if unequal, the larger heap's top is the median.",
+      "On each addNum: push the new number into the max-heap (smaller half) first, then move its top into the min-heap (larger half) to maintain the ordering invariant (everything in the max-heap <= everything in the min-heap).",
+      "Then rebalance: if one heap has grown more than one element larger than the other, move its top element across to restore the size-balance invariant."
+    ],
+    "bruteForce": { "approach": "Insert into a sorted list (or re-sort an array) on every addNum call, then read the middle directly.", "timeComplexity": "O(n) per addNum with a sorted-insert list, or O(n log n) if re-sorting", "spaceComplexity": "O(n)" },
+    "optimalApproach": "Two balanced heaps (a max-heap for the lower half, a min-heap for the upper half); the median is read directly from their tops in O(1), with O(log n) maintenance per insertion.",
+    "solutionCode": "import heapq\n\nclass MedianFinder:\n    def __init__(self):\n        self.small = []  # max-heap (negated), holds the smaller half\n        self.large = []  # min-heap, holds the larger half\n\n    def add_num(self, num):\n        heapq.heappush(self.small, -num)\n        # move the largest of the smaller half into the larger half\n        heapq.heappush(self.large, -heapq.heappop(self.small))\n        # rebalance if the larger half grew too big\n        if len(self.large) > len(self.small):\n            heapq.heappush(self.small, -heapq.heappop(self.large))\n\n    def find_median(self):\n        if len(self.small) > len(self.large):\n            return -self.small[0]\n        return (-self.small[0] + self.large[0]) / 2",
+    "timeComplexity": "O(log n) per addNum (heap push/pop); O(1) per findMedian.",
+    "spaceComplexity": "O(n) total across both heaps to hold every number added.",
+    "followUps": [
+      "Walk through why pushing into small first, then moving its top to large, keeps the max(small) <= min(large) invariant even when the new number belongs in the larger half.",
+      "How would you handle this if the data stream could also DELETE numbers, not just add them?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["heap", "priority-queue", "design"]
+  }
+]

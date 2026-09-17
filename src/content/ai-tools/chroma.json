@@ -1,0 +1,37 @@
+{
+  "id": "AI-TOOL-CHROMA",
+  "name": "Chroma",
+  "category": "retrieval",
+  "description": "Developer-friendly embedding database popular for local RAG prototypes.",
+  "bestFor": [
+    "Local RAG notebooks",
+    "Fast prototyping"
+  ],
+  "notIdealFor": [
+    "Hard multi-tenant production without extra controls"
+  ],
+  "prerequisites": [
+    "AI-EMBEDDINGS"
+  ],
+  "officialUrl": "https://www.trychroma.com/",
+  "docsUrl": "https://docs.trychroma.com/",
+  "languageEcosystem": [
+    "Python",
+    "TypeScript"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "OSS; hosted tiers optional.",
+  "securityNotes": [
+    "Do not treat local demo stores as production isolation"
+  ],
+  "relatedTopicIds": [
+    "AI-VECTOR-DATABASES",
+    "AI-RAG-FUNDAMENTALS"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-I-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

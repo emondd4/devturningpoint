@@ -1,0 +1,36 @@
+{
+  "id": "AI-TOOL-HF-PEFT",
+  "name": "Hugging Face PEFT",
+  "category": "ml-open-models",
+  "description": "Parameter-efficient fine-tuning (LoRA/PEFT) utilities for adapting models.",
+  "bestFor": [
+    "LoRA adapters",
+    "Cost-aware fine-tuning experiments"
+  ],
+  "notIdealFor": [
+    "First-line RAG when retrieval suffices"
+  ],
+  "prerequisites": [
+    "AI-OPEN-MODELS"
+  ],
+  "officialUrl": "https://huggingface.co/docs/peft",
+  "docsUrl": "https://huggingface.co/docs/peft",
+  "languageEcosystem": [
+    "Python"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "Open-source; training compute billed separately.",
+  "securityNotes": [
+    "Govern training data rights",
+    "Evaluate for leakage"
+  ],
+  "relatedTopicIds": [
+    "AI-FINE-TUNING-BASICS"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-A-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

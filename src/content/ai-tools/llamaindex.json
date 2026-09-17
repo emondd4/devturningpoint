@@ -1,0 +1,38 @@
+{
+  "id": "AI-TOOL-LLAMAINDEX",
+  "name": "LlamaIndex",
+  "category": "application-frameworks",
+  "description": "Data framework focused on indexing, retrieval, and RAG pipelines.",
+  "bestFor": [
+    "Document ingestion + retrieval apps",
+    "Query engines over private data"
+  ],
+  "notIdealFor": [
+    "Pure frontend streaming without retrieval"
+  ],
+  "prerequisites": [
+    "AI-RAG-FUNDAMENTALS"
+  ],
+  "officialUrl": "https://www.llamaindex.ai/",
+  "docsUrl": "https://docs.llamaindex.ai/",
+  "languageEcosystem": [
+    "Python",
+    "TypeScript"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "Open-source core; cloud offerings optional.",
+  "securityNotes": [
+    "Tenant isolation in indexes",
+    "Sanitize ingested documents"
+  ],
+  "relatedTopicIds": [
+    "AI-RAG-FUNDAMENTALS",
+    "AI-VECTOR-DATABASES"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-I-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

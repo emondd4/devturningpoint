@@ -2,12 +2,14 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import {
   achievementSchema,
+  aiToolSchema,
   careerSchema,
   companySchema,
   historyEventSchema,
   interviewSchema,
   issueSchema,
   projectSchema,
+  promptRecipeSchema,
   topicFrontmatterSchema,
 } from './content/schemas';
 
@@ -51,6 +53,16 @@ const history = defineCollection({
   schema: historyEventSchema,
 });
 
+const aiTools = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/ai-tools' }),
+  schema: aiToolSchema,
+});
+
+const promptRecipes = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/prompt-recipes' }),
+  schema: promptRecipeSchema,
+});
+
 export const collections = {
   topics,
   careers,
@@ -60,4 +72,6 @@ export const collections = {
   issues,
   projects,
   history,
+  'ai-tools': aiTools,
+  'prompt-recipes': promptRecipes,
 };

@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-hallucinated-api",
+  "title": "Hallucinated API/method",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Agent invents methods not in official SDK docs."
+  ],
+  "cause": "Agent invents methods not in official SDK docs.",
+  "solution": "Verify against official docs before use.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

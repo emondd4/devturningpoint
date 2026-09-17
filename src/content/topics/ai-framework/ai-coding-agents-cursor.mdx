@@ -1,0 +1,72 @@
+---
+id: AI-CODING-AGENTS-CURSOR
+title: "Cursor Coding Agents: Rules, Skills, and MCP"
+titleBn: "Cursor Coding Agents: Rules, Skills এবং MCP"
+description: "Use Cursor Agent safely with AGENTS.md, project rules, Skills, and MCP—always verify diffs and tests yourself."
+descriptionBn: "AGENTS.md, project rules, Skills ও MCP দিয়ে Cursor Agent নিরাপদে ব্যবহার—diff ও test নিজে যাচাই করুন।"
+track: ai-framework
+category: coding-agents
+difficulty: intermediate
+estimatedMinutes: 50
+prerequisites:
+  - "AI-PROMPT-ENGINEERING"
+unlocks: []
+related:
+  - "AI-PROMPT-ENGINEERING"
+  - "AI-LLM-FUNDAMENTALS"
+careers:
+  - "software-engineer"
+  - "fullstack-engineer"
+  - "devops-engineer"
+tags:
+  - "cursor"
+  - "agents"
+  - "mcp"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "CURSOR-DOCS-RULES"
+  - "CURSOR-DOCS-SKILLS"
+  - "CURSOR-DOCS-MCP"
+  - "MCP-SPEC-2026-07-28"
+  - "OWASP-LLM-TOP10-2025"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="warning" title="Evidence required">
+Never mark work verified because the agent said tests passed. You must run commands and review the diff.
+</Callout>
+
+## What Cursor customizes (current docs)
+
+Research dated **2026-09-16** against official Cursor documentation:
+
+1. **AGENTS.md** — plain Markdown agent instructions at repo root (and nested directories).
+2. **Project Rules** — `.cursor/rules/*.mdc` with frontmatter (`description`, `globs`, `alwaysApply`).
+3. **Skills** — `SKILL.md` under `.cursor/skills/` or `.agents/skills/` for reusable workflows.
+4. **MCP** — connect external tools/data via `.cursor/mcp.json` (or user-level config). Prefer least privilege; approve tool use consciously.
+
+## Safe change workflow
+
+1. Inspect the repository and map architecture.
+2. Write a bounded requirement and non-goals.
+3. Ask the agent for a plan only.
+4. Implement **one** milestone/slice.
+5. Run formatter/lint/typecheck/tests yourself.
+6. Review the diff for unrelated refactors and invented packages.
+7. Check authz, validation, and secret handling.
+8. Commit with a semantic message after evidence exists.
+
+## MCP caution
+
+MCP expands agency (OWASP excessive agency / tool risks). Only enable servers you trust; avoid broad shell or production database tools in day-to-day coding.
+
+## Lab preview
+
+Complete project `PBL-AI-B-002` (AI Coding Workflow Lab with Cursor) after this topic.

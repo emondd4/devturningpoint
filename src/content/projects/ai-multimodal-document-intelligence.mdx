@@ -1,0 +1,224 @@
+---
+id: "PBL-AI-I-003"
+title: "Multimodal Document Intelligence Pipeline"
+titleBn: "Multimodal Document Intelligence Pipeline"
+slug: "ai-multimodal-document-intelligence"
+track: "ai-framework"
+level: "intermediate"
+projectRole: "core"
+marketRelevance: "Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations."
+difficulty: "intermediate"
+summary: "Build a pipeline that understands text+image documents, grounds answers in page regions, and evaluates modality-specific failure modes."
+summaryBn: "Text+image document বোঝে, page region দিয়ে ground করে, এবং modality-specific failure mode evaluate করে এমন pipeline।"
+portfolioPitch: "Shows multimodal grounding with region citations, eval splits, and cost control—not screenshot chat demos."
+estimatedHours: 32
+prerequisiteSkillIds:
+  - "AI-RAG"
+  - "AI-STRUCTURED-OUTPUTS"
+  - "AI-EVALUATION"
+learningOutcomeSkillIds:
+  - "AI-MULTIMODAL"
+  - "AI-EVALUATION"
+  - "AI-SECURITY"
+  - "AI-RAG"
+recommendedTools:
+  - "Vision-capable local or capped API model"
+  - "PDF/image sample pack"
+  - "Python or TypeScript pipeline"
+portfolioEvidence:
+  - "PIPELINE.md"
+  - "SAMPLE_DOCS/"
+  - "REGION_CITATIONS.md"
+  - "MODALITY_EVAL.md"
+  - "COST_LATENCY.md"
+  - "SECURITY_CHECKLIST.md"
+relatedTopicIds:
+  - "AI-RAG-FUNDAMENTALS"
+  - "AI-MULTIMODAL"
+  - "AI-EVALUATION-BASICS"
+  - "AI-SECURITY-OWASP"
+  - "AI-STRUCTURED-OUTPUTS"
+relatedInterviewQuestionIds: []
+sources:
+  - "OPENAI-API-DOCS"
+  - "ANTHROPIC-API-DOCS"
+  - "OLLAMA-DOCS"
+  - "OWASP-LLM-TOP10-2025"
+  - "LLAMAINDEX-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PBL-AI-I-002"
+nextProjectId: "PBL-AI-A-001"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-AI-I-003-M01"
+    title: "Doc pack + pipeline design"
+    objective: "Assemble multimodal samples and design page→region→text extraction stages."
+    whyItMatters: "You must separate OCR/layout errors from model errors."
+    prerequisiteTopicIds:
+      - "AI-RAG-FUNDAMENTALS"
+    tasks:
+      - "Collect synthetic/licensed docs with figures/tables"
+      - "Define page/region IDs"
+      - "Draw pipeline diagram"
+      - "List modality failure modes"
+    expectedArtifacts:
+      - "SAMPLE_DOCS/"
+      - "PIPELINE.md"
+    validationChecklist:
+      - "Region ID scheme defined"
+      - "Licenses OK"
+      - "Failure modes listed"
+    commonProblems:
+      - "Only clean text PDFs"
+      - "No region IDs"
+    completionCriteria:
+      - "Diagram reviewable"
+      - "Samples load"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-I-003-M02"
+    title: "Extract + index multimodal chunks"
+    objective: "Extract text/tables/image captions; index with provenance to regions."
+    whyItMatters: "Provenance enables grounded multimodal answers."
+    prerequisiteTopicIds:
+      - "AI-RAG-FUNDAMENTALS"
+      - "AI-STRUCTURED-OUTPUTS"
+    tasks:
+      - "Extract per-page text"
+      - "Caption or describe key figures"
+      - "Store region provenance"
+      - "Index for retrieval"
+    expectedArtifacts:
+      - "extract scripts"
+      - "index"
+    validationChecklist:
+      - "Every chunk has region ID"
+      - "Rebuild path exists"
+      - "Local path preferred"
+    commonProblems:
+      - "Losing page numbers"
+      - "One blob per PDF"
+    completionCriteria:
+      - "Query returns region-tagged hits"
+      - "Rebuild docs"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-I-003-M03"
+    title: "Grounded Q&A"
+    objective: "Answer questions with region citations; refuse when unsupported."
+    whyItMatters: "Vision models invent chart values without grounding."
+    prerequisiteTopicIds:
+      - "AI-SECURITY-OWASP"
+    tasks:
+      - "Require region citations"
+      - "Vision pass for figure questions"
+      - "Refuse unsupported asks"
+      - "Injection tests via malicious PDF text"
+    expectedArtifacts:
+      - "qa module"
+      - "REGION_CITATIONS.md"
+      - "SECURITY_CHECKLIST.md"
+    validationChecklist:
+      - "Citations map to regions"
+      - "Refuse path works"
+      - "Injection noted"
+    commonProblems:
+      - "Vague “see figure” citations"
+      - "Executing PDF instructions"
+    completionCriteria:
+      - "Spot-check pack"
+      - "Security checklist filled"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-I-003-M04"
+    title: "Modality eval + cost"
+    objective: "Split eval by text-only vs figure/table questions; publish cost/latency."
+    whyItMatters: "Average scores hide vision failure modes."
+    prerequisiteTopicIds:
+      - "AI-EVALUATION-BASICS"
+    tasks:
+      - "Build split eval set"
+      - "Score each modality"
+      - "Compare text-only vs multimodal model cost"
+      - "Write MODALITY_EVAL.md"
+    expectedArtifacts:
+      - "MODALITY_EVAL.md"
+      - "COST_LATENCY.md"
+    validationChecklist:
+      - "Split metrics present"
+      - "Cost compared"
+      - "Spend capped"
+    commonProblems:
+      - "Pooling all question types"
+      - "Ignoring image token cost"
+    completionCriteria:
+      - "Reproducible eval"
+      - "Portfolio complete"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Paid APIs are optional">
+Prefer local/free options (Ollama, open models, sample datasets) first. If you use a paid provider API, set spend limits, never commit keys, and warn teammates before enabling billable calls.
+</Callout>
+
+<Callout type="info" title="No site API keys required">
+The Dev Turning Point website stays static. Run models and tools on your machine or your own cloud account.
+</Callout>
+
+## Why this project matters
+
+Real documents are multimodal. Pipelines must preserve provenance and evaluate vision failures separately.
+
+## Market / role relevance
+
+Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations.
+
+## What job skills it proves
+
+Region provenance, multimodal retrieval/QA, split eval, injection-aware PDF handling.
+
+## Prerequisites
+
+RAG fundamentals and evaluation basics recommended. Multimodal skill develops here.
+
+## Architecture / approach
+
+PDF/images → page/region extract → index → retrieve → text/vision generate with citations → modality eval.
+
+## Recommended tools
+
+Local vision models via Ollama when possible; otherwise capped multimodal APIs.
+
+## Setup
+
+1. Start with a small synthetic doc pack.
+2. Prefer local vision models.
+3. Cap cloud image-token spend explicitly.
+
+## Step-by-step guidance
+
+Milestones M01–M04. Measure OCR/layout error before blaming the LLM.
+
+## Evaluation / security / cost / latency notes
+
+**Eval:** split by modality.
+**Security:** PDFs can carry prompt injection.
+**Cost/latency:** images are expensive—cache extractions captions.
+
+## Portfolio evidence
+
+Save every item listed in frontmatter `portfolioEvidence`. Include eval scores, cost/latency notes, and security checklist outcomes.
+
+## Stretch goals
+
+Add table structure extraction and compare CSV fidelity.
+
+## Retrospective
+
+Which errors were layout vs model? Was vision worth the cost on your set?
+
+## Sources
+
+See frontmatter sources (official docs + OWASP GenAI where security applies).

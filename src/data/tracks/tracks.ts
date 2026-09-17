@@ -51,6 +51,7 @@ export const tracks: Track[] = [
       'MOBILE-FLUTTER-STATE',
       'MOBILE-FLUTTER-NETWORKING',
       'MOBILE-FLUTTER-TESTING',
+      'MOBILE-FLUTTER-SECURITY',
       'MOBILE-FLUTTER-DEPLOYMENT',
     ],
     relatedCareerIds: ['mobile-engineer', 'flutter-developer'],
@@ -225,6 +226,28 @@ export const tracks: Track[] = [
     ],
     relatedCareerIds: ['project-manager', 'scrum-master', 'engineering-manager'],
     priority: 'P1',
+  },
+  {
+    id: 'ai-framework',
+    slug: 'ai-framework',
+    title: 'AI and Framework',
+    titleBn: 'AI এবং Framework',
+    summary:
+      'Learn AI from fundamentals to production: LLMs, prompting, coding agents, RAG, embeddings, tool calling, agents, MCP, open models, frameworks, evaluation, security, and safe AI-assisted engineering.',
+    summaryBn:
+      'মৌলিক থেকে প্রোডাকশন পর্যন্ত AI: LLM, prompting, coding agent, RAG, embedding, tool calling, agent, MCP, open model, framework, evaluation, security এবং নিরাপদ AI-assisted engineering।',
+    primaryStack: ['LLMs', 'Prompting', 'RAG', 'Agents', 'MCP', 'Evaluation'],
+    goalSkillIds: [
+      'AI-LLM-FUNDAMENTALS',
+      'AI-PROMPT-ENGINEERING',
+      'AI-CODING-AGENTS',
+      'AI-RAG',
+      'AI-TOOL-CALLING',
+      'AI-EVALUATION',
+      'AI-SECURITY',
+    ],
+    relatedCareerIds: ['software-engineer', 'fullstack-engineer', 'backend-engineer'],
+    priority: 'P0',
   },
 ];
 

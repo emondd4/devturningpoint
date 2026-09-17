@@ -1,0 +1,222 @@
+---
+id: "PBL-AI-A-002"
+title: "Open-Model Inference & Evaluation Platform"
+titleBn: "Open-Model Inference & Evaluation Platform"
+slug: "ai-open-model-inference-eval-platform"
+track: "ai-framework"
+level: "advanced"
+projectRole: "core"
+marketRelevance: "Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations."
+difficulty: "advanced"
+summary: "Run open/local models behind a small inference API with datasets, regression evals, latency SLOs, and cost dashboards."
+summaryBn: "Open/local model-এর ছোট inference API, dataset, regression eval, latency SLO এবং cost dashboard সহ।"
+portfolioPitch: "Shows MLOps-for-LLMs: serve, evaluate, compare models, and gate releases with metrics."
+estimatedHours: 42
+prerequisiteSkillIds:
+  - "AI-EVALUATION"
+  - "AI-LLM-FUNDAMENTALS"
+  - "AI-OPEN-MODELS"
+learningOutcomeSkillIds:
+  - "AI-OPEN-MODELS"
+  - "AI-EVALUATION"
+  - "AI-SECURITY"
+recommendedTools:
+  - "Ollama or vLLM-class local serving"
+  - "Eval harness"
+  - "Metrics store (SQLite/Prometheus-lite)"
+portfolioEvidence:
+  - "SERVING.md"
+  - "MODEL_CARD.md"
+  - "DATASETS/"
+  - "REGRESSION_REPORT.md"
+  - "SLO.md"
+  - "COST_LATENCY.md"
+  - "RELEASE_GATE.md"
+relatedTopicIds:
+  - "AI-EVALUATION-BASICS"
+  - "AI-OPEN-MODELS"
+  - "AI-LLM-FUNDAMENTALS"
+  - "AI-SECURITY-OWASP"
+  - "AI-STRUCTURED-OUTPUTS"
+relatedInterviewQuestionIds: []
+sources:
+  - "OLLAMA-DOCS"
+  - "OPENAI-API-DOCS"
+  - "OWASP-LLM-TOP10-2025"
+  - "ANTHROPIC-API-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PBL-AI-A-001"
+nextProjectId: "PBL-AI-A-003"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-AI-A-002-M01"
+    title: "Local serving + model card"
+    objective: "Serve ≥1 open model locally; document hardware, limits, and license."
+    whyItMatters: "Ops reality starts with serving constraints, not chat UIs."
+    prerequisiteTopicIds:
+      - "AI-LLM-FUNDAMENTALS"
+    tasks:
+      - "Install Ollama or equivalent"
+      - "Expose a minimal HTTP API"
+      - "Write MODEL_CARD.md"
+      - "Note hardware/VRAM limits"
+    expectedArtifacts:
+      - "SERVING.md"
+      - "MODEL_CARD.md"
+    validationChecklist:
+      - "Local inference works offline"
+      - "License noted"
+      - "Limits documented"
+    commonProblems:
+      - "Assuming cloud always available"
+      - "Ignoring licenses"
+    completionCriteria:
+      - "curl demo succeeds"
+      - "Card peer-reviewed"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-A-002-M02"
+    title: "Datasets + harness"
+    objective: "Version eval datasets and a harness that records outputs, scores, latency."
+    whyItMatters: "Regression needs frozen inputs and comparable metrics."
+    prerequisiteTopicIds:
+      - "AI-EVALUATION-BASICS"
+    tasks:
+      - "Version ≥2 datasets"
+      - "Implement harness CLI"
+      - "Store run metadata"
+      - "Support two models/configs"
+    expectedArtifacts:
+      - "DATASETS/"
+      - "harness"
+    validationChecklist:
+      - "Datasets versioned"
+      - "Latency recorded"
+      - "Outputs archived"
+    commonProblems:
+      - "Mutating gold labels mid-run"
+      - "No seed/config logging"
+    completionCriteria:
+      - "Two configs comparable"
+      - "Artifacts reloadable"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-A-002-M03"
+    title: "Regression + SLO"
+    objective: "Define quality/latency SLOs and a release gate script."
+    whyItMatters: "Shipping model changes without gates is gambling."
+    prerequisiteTopicIds:
+      - "AI-EVALUATION-BASICS"
+    tasks:
+      - "Write SLO.md"
+      - "Compare baseline vs candidate"
+      - "Fail gate on regressions"
+      - "Document RELEASE_GATE.md"
+    expectedArtifacts:
+      - "SLO.md"
+      - "RELEASE_GATE.md"
+      - "REGRESSION_REPORT.md"
+    validationChecklist:
+      - "Gate fails on planted regression"
+      - "SLOs numeric"
+      - "Report committed"
+    commonProblems:
+      - "Moving thresholds casually"
+      - "Only accuracy, no latency"
+    completionCriteria:
+      - "Planted fail demo"
+      - "Gate documented"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-A-002-M04"
+    title: "Cost dashboard + security"
+    objective: "Expose cost/latency summaries; harden endpoint auth and prompt-injection notes."
+    whyItMatters: "Inference platforms are attackable services with real bills."
+    prerequisiteTopicIds:
+      - "AI-SECURITY-OWASP"
+    tasks:
+      - "Auth for inference API"
+      - "Rate limits"
+      - "Cost/latency summary page or report"
+      - "Security checklist"
+    expectedArtifacts:
+      - "COST_LATENCY.md"
+      - "SECURITY_CHECKLIST.md"
+    validationChecklist:
+      - "Unauth denied"
+      - "Rate limit works"
+      - "Cost noted even if local electricity"
+    commonProblems:
+      - "Open localhost on LAN"
+      - "No abuse cases"
+    completionCriteria:
+      - "Checklist complete"
+      - "Portfolio pack ready"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Paid APIs are optional">
+Prefer local/free options (Ollama, open models, sample datasets) first. If you use a paid provider API, set spend limits, never commit keys, and warn teammates before enabling billable calls.
+</Callout>
+
+<Callout type="info" title="No site API keys required">
+The Dev Turning Point website stays static. Run models and tools on your machine or your own cloud account.
+</Callout>
+
+## Why this project matters
+
+Open models need the same discipline as cloud APIs: serving, eval gates, SLOs, and security.
+
+## Market / role relevance
+
+Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations.
+
+## What job skills it proves
+
+Local serving, dataset versioning, regression gates, latency SLOs, endpoint hardening.
+
+## Prerequisites
+
+Evaluation basics and LLM fundamentals; willingness to run local models.
+
+## Architecture / approach
+
+Client → inference API → model runtime → eval harness → metrics/report store → release gate.
+
+## Recommended tools
+
+Ollama (or similar), harness scripts, SQLite for run history.
+
+## Setup
+
+1. Confirm machine can run a small open model.
+2. Prefer fully local for this project.
+3. If comparing to a paid API, cap spend first.
+
+## Step-by-step guidance
+
+Milestones M01–M04. Plant a regression once to prove the gate.
+
+## Evaluation / security / cost / latency notes
+
+**Eval:** regression vs baseline.
+**Security:** authz, rate limits, hostile prompts.
+**Cost/latency:** p50/p95 and energy/cloud cost notes.
+
+## Portfolio evidence
+
+Save every item listed in frontmatter `portfolioEvidence`. Include eval scores, cost/latency notes, and security checklist outcomes.
+
+## Stretch goals
+
+Add canary traffic split between two model versions.
+
+## Retrospective
+
+What SLO was hardest to meet locally? When would you still choose a hosted API?
+
+## Sources
+
+See frontmatter sources (official docs + OWASP GenAI where security applies).

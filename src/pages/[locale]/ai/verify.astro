@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale, localePath } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+---
+
+<BaseLayout
+  locale={locale}
+  title={isBn ? 'AI-generated code যাচাই' : 'How to verify AI-generated code'}
+  description="Evidence-based checklist for reviewing AI-assisted changes."
+>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 prose-reading" data-pagefind-body>
+    <h1>{isBn ? 'AI-generated code কীভাবে যাচাই করবেন' : 'How to verify AI-generated code'}</h1>
+    <p>
+      {
+        isBn
+          ? 'Agent বললেই “tests passed” ধরে নেবেন না। নিচের evidence থাকতে হবে।'
+          : 'Never mark VERIFIED merely because an agent said “tests passed.” Evidence must exist.'
+      }
+    </p>
+
+    <h2>{isBn ? 'AI-এর আগে' : 'Before AI'}</h2>
+    <ul>
+      <li>Requirements and success criteria</li>
+      <li>Current architecture map</li>
+      <li>Allowed scope and non-goals</li>
+      <li>Secret / privacy rules</li>
+    </ul>
+
+    <h2>{isBn ? 'কাজ চলাকালীন' : 'During'}</h2>
+    <ul>
+      <li>Bounded task</li>
+      <li>Inspect changes continuously</li>
+      <li>Stop wrong direction early</li>
+      <li>No silent dependency upgrades</li>
+      <li>No unrelated refactors</li>
+    </ul>
+
+    <h2>{isBn ? 'পরে (evidence checklist)' : 'After (evidence checklist)'}</h2>
+    <ol>
+      <li>Review diff</li>
+      <li>Verify every dependency / package / API against official docs</li>
+      <li>Formatter</li>
+      <li>Lint</li>
+      <li>Typecheck / compiler</li>
+      <li>Existing tests</li>
+      <li>New regression tests</li>
+      <li>Manual acceptance scenario</li>
+      <li>Authentication review</li>
+      <li>Authorization review</li>
+      <li>Validation / output encoding</li>
+      <li>Injection / security</li>
+      <li>Migration / rollback</li>
+      <li>Concurrency / transaction review</li>
+      <li>Performance</li>
+      <li>Accessibility</li>
+      <li>Logs / metrics / errors</li>
+      <li>Docs / config</li>
+      <li>Compare against original acceptance criteria</li>
+      <li>Human / peer review</li>
+    </ol>
+
+    <p>
+      <a href={localePath(locale, 'ai')}>{isBn ? 'AI and Framework-এ ফিরে যান' : 'Back to AI and Framework'}</a>
+    </p>
+  </div>
+</BaseLayout>

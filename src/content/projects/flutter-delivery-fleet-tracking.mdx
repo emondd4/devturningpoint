@@ -1,0 +1,213 @@
+---
+id: "PBL-FL-A-002"
+title: "Delivery / Fleet Tracking App"
+slug: "flutter-delivery-fleet-tracking"
+track: "mobile-flutter"
+level: "advanced"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for senior mobile/product roles: logistics and tracking apps appear as domain examples requiring maps and realtime updates."
+difficulty: "advanced"
+summary: "Ops app with live location views, roles, and integration boundaries."
+portfolioPitch: "Complex mobile ops: maps/telemetry mental model and architecture."
+estimatedHours: 46
+prerequisiteSkillIds:
+  - "MOBILE-FLUTTER-NETWORKING"
+  - "MOBILE-FLUTTER-TESTING"
+  - "MOBILE-FLUTTER-DEPLOYMENT"
+learningOutcomeSkillIds:
+  - "MOBILE-FLUTTER-DEPLOYMENT"
+  - "MOBILE-FLUTTER-TESTING"
+  - "MOBILE-FLUTTER-PLATFORM"
+recommendedTools:
+  - "Flutter"
+  - "maps/mock API"
+portfolioEvidence:
+  - "GitHub repo with README"
+  - "Architecture diagram"
+  - "Screenshots/demo"
+  - "Tests + CI evidence"
+  - "ADR/decision notes"
+  - "Reproducible run instructions"
+relatedTopicIds:
+  - "FLUTTER-INHERITED-WIDGET"
+  - "FLUTTER-STATE-MANAGEMENT"
+  - "FLUTTER-ANTI-PATTERNS"
+  - "FLUTTER-LOCAL-DATABASE"
+  - "FLUTTER-JSON-SERIALIZATION"
+relatedInterviewQuestionIds:
+  - "FL-A-0001"
+  - "FL-A-0002"
+  - "FL-A-0003"
+  - "FL-A-0004"
+  - "FL-A-0005"
+  - "FL-A-0006"
+  - "FL-A-0007"
+  - "FL-A-0008"
+sources:
+  - "FLUTTER-PERF"
+  - "FLUTTER-DEPLOY"
+  - "FLUTTER-PLATFORM-CHANNELS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-FL-A-002-M01"
+    title: "Roles + jobs"
+    objective: "Assignment lifecycle."
+    whyItMatters: "Domain clarity."
+    prerequisiteTopicIds:
+      - "FLUTTER-INHERITED-WIDGET"
+      - "FLUTTER-STATE-MANAGEMENT"
+    tasks:
+      - "Capture scope for 'Roles + jobs' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Assignment lifecycle."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Roles + jobs"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Assignment lifecycle. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FL-A-002-M02"
+    title: "Live map views"
+    objective: "Loading/error/empty."
+    whyItMatters: "Trustworthy ops UX."
+    prerequisiteTopicIds:
+      - "FLUTTER-INHERITED-WIDGET"
+      - "FLUTTER-STATE-MANAGEMENT"
+    tasks:
+      - "Capture scope for 'Live map views' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Loading/error/empty."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Live map views"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Loading/error/empty. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FL-A-002-M03"
+    title: "Integration boundary"
+    objective: "Isolate providers."
+    whyItMatters: "Testable architecture."
+    prerequisiteTopicIds:
+      - "FLUTTER-ANTI-PATTERNS"
+      - "FLUTTER-LOCAL-DATABASE"
+    tasks:
+      - "Capture scope for 'Integration boundary' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Isolate providers."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Integration boundary"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Isolate providers. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FL-A-002-M04"
+    title: "Release readiness"
+    objective: "Perf + checklist."
+    whyItMatters: "Ship discipline."
+    prerequisiteTopicIds:
+      - "FLUTTER-ANTI-PATTERNS"
+      - "FLUTTER-LOCAL-DATABASE"
+    tasks:
+      - "Capture scope for 'Release readiness' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Perf + checklist."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Release readiness"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Perf + checklist. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Complex mobile ops: maps/telemetry mental model and architecture.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: Flutter, maps/mock API.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to advanced
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

@@ -1,0 +1,221 @@
+---
+id: "PBL-AI-B-003"
+title: "Structured Document Extractor"
+titleBn: "Structured Document Extractor"
+slug: "ai-structured-document-extractor"
+track: "ai-framework"
+level: "beginner"
+projectRole: "core"
+marketRelevance: "Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations."
+difficulty: "beginner"
+summary: "Extract typed fields from messy text/PDF samples into validated JSON with confidence flags and human review hooks."
+summaryBn: "Messy text/PDF থেকে typed field বের করে validated JSON, confidence flag এবং human review hook সহ।"
+portfolioPitch: "Proves you can turn LLM extraction into reliable structured data with validation and review."
+estimatedHours: 16
+prerequisiteSkillIds:
+  - "AI-LLM-FUNDAMENTALS"
+  - "AI-PROMPT-ENGINEERING"
+  - "AI-STRUCTURED-OUTPUTS"
+learningOutcomeSkillIds:
+  - "AI-STRUCTURED-OUTPUTS"
+  - "AI-EVALUATION"
+  - "AI-SECURITY"
+recommendedTools:
+  - "Python or Node"
+  - "Ollama or capped API"
+  - "JSON Schema / Zod / Pydantic"
+portfolioEvidence:
+  - "SCHEMA.md + schema file"
+  - "SAMPLE_CORPUS/"
+  - "EXTRACTOR_README.md"
+  - "VALIDATION_REPORT.md"
+  - "COST_LATENCY.md"
+  - "Human review UI notes or CLI flags"
+relatedTopicIds:
+  - "AI-STRUCTURED-OUTPUTS"
+  - "AI-PROMPT-ENGINEERING"
+  - "AI-EVALUATION-BASICS"
+  - "AI-SECURITY-OWASP"
+relatedInterviewQuestionIds: []
+sources:
+  - "OPENAI-STRUCTURED-OUTPUTS"
+  - "OLLAMA-DOCS"
+  - "OWASP-LLM-TOP10-2025"
+  - "ANTHROPIC-API-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PBL-AI-B-002"
+nextProjectId: "PBL-AI-I-001"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-AI-B-003-M01"
+    title: "Schema and corpus"
+    objective: "Define a strict schema and assemble ≥15 synthetic or licensed samples."
+    whyItMatters: "Extraction without a schema invites silent field invention."
+    prerequisiteTopicIds:
+      - "AI-STRUCTURED-OUTPUTS"
+    tasks:
+      - "Define required/optional fields"
+      - "Write JSON Schema or Zod"
+      - "Collect samples with ground truth"
+      - "Document PII policy"
+    expectedArtifacts:
+      - "schema file"
+      - "SAMPLE_CORPUS/"
+      - "PII_POLICY.md"
+    validationChecklist:
+      - "Schema rejects extras"
+      - "Samples have gold JSON"
+      - "No real customer PII"
+    commonProblems:
+      - "Overly loose schemas"
+      - "Scraping personal docs"
+    completionCriteria:
+      - "Schema validates gold JSON"
+      - "Policy committed"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-B-003-M02"
+    title: "Extractor pipeline"
+    objective: "Build prompt + parse + validate loop with fail-closed behavior."
+    whyItMatters: "Improper output handling is an OWASP LLM risk."
+    prerequisiteTopicIds:
+      - "AI-STRUCTURED-OUTPUTS"
+      - "AI-SECURITY-OWASP"
+    tasks:
+      - "Implement extract(text)->object"
+      - "Validate against schema"
+      - "Flag low-confidence fields"
+      - "Log raw model text separately"
+    expectedArtifacts:
+      - "extractor module"
+      - "confidence rules"
+    validationChecklist:
+      - "Invalid JSON never reaches DB shape"
+      - "Raw vs validated separated"
+      - "Confidence defined"
+    commonProblems:
+      - "Silent coerce of bad types"
+      - "Trusting model field names"
+    completionCriteria:
+      - "Unit tests for invalid outputs"
+      - "CLI demo works"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-B-003-M03"
+    title: "Eval harness"
+    objective: "Score field-level precision/recall on the corpus; track cost/latency."
+    whyItMatters: "Field metrics beat “looks good”."
+    prerequisiteTopicIds:
+      - "AI-EVALUATION-BASICS"
+    tasks:
+      - "Compare predicted vs gold fields"
+      - "Report per-field misses"
+      - "Record tokens/time"
+      - "Tune one prompt revision"
+    expectedArtifacts:
+      - "VALIDATION_REPORT.md"
+      - "COST_LATENCY.md"
+    validationChecklist:
+      - "Metrics computed programmatically"
+      - "Misses listed"
+      - "Cost noted"
+    commonProblems:
+      - "Manual eyeballing only"
+      - "Ignoring rare fields"
+    completionCriteria:
+      - "Reproducible script"
+      - "Before/after scores"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-B-003-M04"
+    title: "Human review path"
+    objective: "Add a review queue for uncertain extractions and document ops runbook."
+    whyItMatters: "Production extraction needs humans in the loop for uncertain rows."
+    prerequisiteTopicIds:
+      - "AI-SECURITY-OWASP"
+    tasks:
+      - "Define confidence thresholds"
+      - "CLI or simple UI for accept/edit"
+      - "Write REVIEW_RUNBOOK.md"
+      - "Security checklist (injection via docs)"
+    expectedArtifacts:
+      - "REVIEW_RUNBOOK.md"
+      - "review tool"
+    validationChecklist:
+      - "Uncertain rows never auto-accepted"
+      - "Edits audited"
+      - "Injection note present"
+    commonProblems:
+      - "Auto-writing to production store"
+      - "No audit trail"
+    completionCriteria:
+      - "Demo of review flow"
+      - "Portfolio pack complete"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Paid APIs are optional">
+Prefer local/free options (Ollama, open models, sample datasets) first. If you use a paid provider API, set spend limits, never commit keys, and warn teammates before enabling billable calls.
+</Callout>
+
+<Callout type="info" title="No site API keys required">
+The Dev Turning Point website stays static. Run models and tools on your machine or your own cloud account.
+</Callout>
+
+## Why this project matters
+
+Document extraction is where LLMs meet schemas. Reliability comes from validation, metrics, and human review.
+
+## Market / role relevance
+
+Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations.
+
+## What job skills it proves
+
+Structured outputs, fail-closed parsing, field-level eval, and review workflows.
+
+## Prerequisites
+
+Structured outputs and prompt engineering topics recommended.
+
+## Architecture / approach
+
+Document text → LLM extract → schema validate → confidence gate → human review → accepted record.
+
+## Recommended tools
+
+Local Ollama preferred; Zod/Pydantic for validation.
+
+## Setup
+
+1. Prefer synthetic invoices/resumes.
+2. Install local model runtime.
+3. Cap any cloud spend before first call.
+
+## Step-by-step guidance
+
+Milestones M01–M04. Keep the schema small (8–15 fields).
+
+## Evaluation / security / cost / latency notes
+
+**Eval:** field P/R.
+**Security:** treat document text as untrusted (prompt injection).
+**Cost/latency:** batch carefully; cache embeddings only if you add them later.
+
+## Portfolio evidence
+
+Save every item listed in frontmatter `portfolioEvidence`. Include eval scores, cost/latency notes, and security checklist outcomes.
+
+## Stretch goals
+
+Add OCR for scanned PDFs and measure OCR-induced error separately.
+
+## Retrospective
+
+Which fields hallucinated most? Did confidence correlate with true errors?
+
+## Sources
+
+See frontmatter sources (official docs + OWASP GenAI where security applies).

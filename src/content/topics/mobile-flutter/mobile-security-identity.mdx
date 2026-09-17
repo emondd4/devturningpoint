@@ -1,0 +1,138 @@
+---
+id: FLUTTER-MOBILE-SECURITY-IDENTITY
+title: "Mobile App Security & Identity"
+titleBn: "মোবাইল অ্যাপ সিকিউরিটি ও আইডেন্টিটি"
+description: "OAuth2/JWT token flows, enterprise SSO with Keycloak, biometric re-auth, and the OWASP Mobile Top 10 risks that show up in production apps handling sensitive data."
+descriptionBn: "OAuth2/JWT টোকেন ফ্লো, Keycloak দিয়ে এন্টারপ্রাইজ SSO, বায়োমেট্রিক পুনঃপ্রমাণীকরণ, এবং সংবেদনশীল ডেটা হ্যান্ডেল করা অ্যাপে OWASP Mobile Top 10 ঝুঁকি।"
+track: mobile-flutter
+category: flutter
+difficulty: advanced
+estimatedMinutes: 55
+prerequisites:
+  - "FLUTTER-NETWORKING-REST"
+  - "FLUTTER-LOCAL-DB"
+unlocks:
+  - "FLUTTER-CI-CD"
+related:
+  - "FLUTTER-ANDROID-IOS-CAVEATS"
+  - "FLUTTER-ARCHITECTURE-PATTERNS"
+  - "FLUTTER-LOCAL-STORAGE"
+careers:
+  - "flutter-developer"
+  - "software-engineer"
+tags:
+  - "flutter"
+  - "security"
+  - "oauth2"
+  - "keycloak"
+  - "biometric"
+  - "owasp"
+status: published
+translationStatus: partial
+createdAt: "2026-09-18"
+updatedAt: "2026-09-18"
+lastVerified: "2026-09-18"
+sources:
+  - "OWASP-MOBILE-TOP10"
+  - "KEYCLOAK-DOCS"
+  - "FLUTTER-LOCAL-AUTH"
+  - "OWASP-TLS-CHEATSHEET"
+  - "src-job-pksf-senior-mobile"
+  - "src-job-pksf-mobile"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+  Body text is English for V1. Bangla title and description are available; full Bangla body may arrive later (`translationStatus: partial`).
+</Callout>
+
+## Why this shows up in interviews and in job postings
+
+Any app that touches financial records, partner-organization data, or field-staff accounts has to answer three questions before a single feature ships: who is this user, what can they prove about themselves offline, and what happens if the device is lost. `android-ios-caveats` covers platform-level TLS and permission rules; this topic covers the identity and authorization layer sitting on top of that.
+
+<Callout type="info" title="Observed in the Bangladesh job listings reviewed">
+  Enterprise and NGO-sector mobile postings reviewed for this track (development-org and fintech-adjacent roles) consistently ask for OAuth2/JWT-based auth, Keycloak or similar SSO integration, biometric re-auth for sensitive actions, and explicit OWASP Mobile Top 10 awareness — alongside offline-first data handling. Treat this as a recurring pattern to prepare for, not a single employer's checklist.
+</Callout>
+
+## Mental model
+
+<Callout type="mental-model">
+  Authentication proves identity once, at login. Authorization decides what an already-identified user can do, per request. On mobile, add a third axis: **possession** — does this physical device still hold a valid, non-expired credential, and is the person holding it still the same person who logged in five minutes ago?
+</Callout>
+
+## OAuth2 / JWT / Keycloak SSO
+
+- **Authorization Code + PKCE** is the flow for native/mobile apps — never Implicit Grant, and never embed a client secret in the app binary (it is trivially extractable).
+- A JWT access token is short-lived (minutes); a refresh token is longer-lived and must live in secure storage (Keychain/Keystore), never `SharedPreferences`/`NSUserDefaults` in plaintext.
+- **Keycloak** (or any OIDC provider) centralizes login across multiple internal apps: the mobile app redirects to Keycloak's hosted login page (via `flutter_appauth` or similar), gets back an auth code, exchanges it for tokens, and Keycloak — not the app — owns password policy, MFA, and session revocation.
+- Rotate refresh tokens on use (refresh token rotation) so a stolen, already-used refresh token is a detectable replay, not a standing backdoor.
+
+```dart
+final AppAuth appAuth = AppAuth();
+
+final result = await appAuth.authorizeAndExchangeCode(
+  AuthorizationTokenRequest(
+    clientId,
+    redirectUrl,
+    issuer: 'https://sso.example.org/realms/pksf', // Keycloak realm
+    scopes: ['openid', 'profile', 'offline_access'],
+  ),
+);
+
+await secureStorage.write(key: 'refresh_token', value: result.refreshToken);
+```
+
+## Biometric re-auth
+
+Biometrics (via `local_auth`) should gate **actions**, not replace login. Typical pattern: the user logs in once with SSO; the device then stores an encrypted local unlock key behind Face ID/fingerprint so re-opening the app — or approving a payment/sensitive record edit — needs a biometric check instead of a full re-login.
+
+- Always provide a PIN/password fallback; `local_auth` reports whether biometrics are enrolled and available, and devices without them (or with none enrolled) must degrade gracefully.
+- Biometric success only unlocks a key already on-device — it is not itself a network credential. Pair it with secure storage, not with re-sending a password.
+
+## OWASP Mobile Top 10 — the ones that bite
+
+<Callout type="mental-model">
+  The two categories responsible for most real incidents in Flutter apps: **M2 Inadequate Supply Chain Security / Insecure Data Storage** and **M5 Insecure Communication**. Everything else compounds from there.
+</Callout>
+
+- **Insecure data storage**: tokens, PII, or cached financial records in plain SQLite/Hive/SharedPreferences with no encryption. Use `flutter_secure_storage` for secrets; encrypt sensitive local DB fields at rest for anything beyond tokens.
+- **Insecure communication**: no certificate pinning, or TLS validation disabled "temporarily" for a self-signed dev cert and never re-enabled. See `android-ios-caveats` for the pinning implementation.
+- **Insufficient cryptography**: home-rolled encryption instead of platform crypto APIs; hardcoded keys checked into source.
+- **Improper platform usage**: exported Android components, overly broad permissions, ignoring iOS Keychain accessibility levels.
+- **Reverse engineering**: no obfuscation on a release build handling financial workflows — `flutter build apk --obfuscate --split-debug-info=...` is a floor, not a guarantee.
+
+## Common mistakes
+
+- **Storing refresh tokens in `SharedPreferences`** instead of Keystore/Keychain-backed secure storage.
+- **Trusting the client for authorization** — hiding a button in the UI is not access control; the backend must reject the request too.
+- **Treating biometric success as a server credential** rather than a local unlock gate.
+- **No token refresh strategy** — hard-crashing the app or silently dropping requests when the access token expires mid-session.
+
+## Interview angle
+
+<Callout type="interview">
+  Walk through what happens, end to end, when a user's access token expires while they're mid-edit on a form with unsaved offline changes. Where does the refresh happen, and what does the UI do if the refresh token has also expired?
+</Callout>
+
+## Practice checklist
+
+- [ ] Implement Authorization Code + PKCE against a real or sandbox OIDC/Keycloak realm.
+- [ ] Store tokens in `flutter_secure_storage`, not plaintext prefs.
+- [ ] Add a biometric gate (`local_auth`) in front of one sensitive screen, with a PIN fallback.
+- [ ] Write down which of the OWASP Mobile Top 10 risks apply to your current/last project, and how each is mitigated.
+
+## Sources
+
+Cited registry ids (see `src/data/source-registry/sources.json`):
+
+- `OWASP-MOBILE-TOP10`
+- `KEYCLOAK-DOCS`
+- `FLUTTER-LOCAL-AUTH`
+- `OWASP-TLS-CHEATSHEET`
+- `src-job-pksf-senior-mobile`
+- `src-job-pksf-mobile`
+
+Always prefer primary docs over secondary summaries when verifying APIs or security guidance.

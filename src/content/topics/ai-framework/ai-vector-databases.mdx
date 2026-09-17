@@ -1,0 +1,38 @@
+---
+id: AI-VECTOR-DATABASES
+title: "Vector databases and pgvector"
+titleBn: "Vector databases এবং pgvector"
+description: "When to keep vectors in Postgres versus a dedicated ANN store."
+descriptionBn: "Postgres-এ vector রাখা বনাম dedicated ANN store।"
+track: ai-framework
+category: retrieval
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "AI-EMBEDDINGS"
+unlocks: []
+related:
+  - "AI-RAG-FUNDAMENTALS"
+careers:
+  - "software-engineer"
+tags:
+  - "pgvector"
+  - "vector-db"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "PGVECTOR-DOCS"
+  - "QDRANT-DOCS"
+  - "PINECONE-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+## Decision sketch
+
+Start with **pgvector** if you already operate PostgreSQL and need joins + tenancy filters. Move to dedicated engines when ANN scale/ops demands it—see decision guides.

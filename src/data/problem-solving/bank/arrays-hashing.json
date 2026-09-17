@@ -1,0 +1,222 @@
+[
+  {
+    "id": "PS-AH-001",
+    "title": "Two Sum",
+    "category": "Arrays & Hashing",
+    "difficulty": "Easy",
+    "pattern": "Hash Map",
+    "problemStatement": "Given an array of integers nums and an integer target, return the indices of the two numbers that add up to target. You may assume exactly one solution exists, and you may not use the same element twice.",
+    "examples": [
+      { "input": "nums = [2,7,11,15], target = 9", "output": "[0,1]", "explanation": "nums[0] + nums[1] == 9" },
+      { "input": "nums = [3,2,4], target = 6", "output": "[1,2]" }
+    ],
+    "constraints": ["2 <= nums.length <= 10^4", "-10^9 <= nums[i], target <= 10^9", "Exactly one valid answer exists"],
+    "approachSteps": [
+      "Notice the brute force checks every pair, which is O(n^2) — ask whether you can avoid re-scanning.",
+      "For each number, the value you need to complete the pair is target - nums[i] — that's a lookup, not a search, if you have the right structure.",
+      "Use a hash map to store each number's index as you scan once, left to right.",
+      "Before inserting the current number, check whether its complement (target - nums[i]) is already in the map — if so, you've found the pair.",
+      "Insert the current number and its index into the map, then continue."
+    ],
+    "bruteForce": { "approach": "Nested loop comparing every pair of indices.", "timeComplexity": "O(n^2)", "spaceComplexity": "O(1)" },
+    "optimalApproach": "Single pass with a hash map from value -> index. For each element, check if its complement was already seen; if so, return the pair immediately. This trades the second loop for O(1) average lookups.",
+    "solutionCode": "def two_sum(nums, target):\n    seen = {}  # value -> index\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in seen:\n            return [seen[complement], i]\n        seen[num] = i\n    return []",
+    "timeComplexity": "O(n) — one pass, O(1) average-case hash map operations.",
+    "spaceComplexity": "O(n) — the hash map can hold up to n entries.",
+    "followUps": [
+      "What if the array is sorted — can you do it with O(1) extra space using two pointers instead?",
+      "What if you need all pairs that sum to target, not just one?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["hash-map", "array"]
+  },
+  {
+    "id": "PS-AH-002",
+    "title": "Group Anagrams",
+    "category": "Arrays & Hashing",
+    "difficulty": "Medium",
+    "pattern": "Hash Map + Sorting/Counting",
+    "problemStatement": "Given an array of strings strs, group the anagrams together. An anagram is a word formed by rearranging the letters of another, using all the original letters exactly once.",
+    "examples": [
+      { "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]", "output": "[[\"eat\",\"tea\",\"ate\"],[\"tan\",\"nat\"],[\"bat\"]]" }
+    ],
+    "constraints": ["1 <= strs.length <= 10^4", "0 <= strs[i].length <= 100", "strs[i] consists of lowercase English letters"],
+    "approachSteps": [
+      "Two strings are anagrams exactly when they have the same multiset of characters — so you need a way to turn each string into a 'signature' that's identical for anagrams and different otherwise.",
+      "A simple signature: sort the string's characters. Anagrams sort to the exact same string.",
+      "Use a hash map from signature -> list of original strings.",
+      "For each string, compute its sorted signature and append it to the matching bucket, creating a new bucket if needed.",
+      "Return the map's values as the grouped lists."
+    ],
+    "bruteForce": { "approach": "Compare every string against every group's representative to check anagram equality.", "timeComplexity": "O(n^2 * k) where k is string length", "spaceComplexity": "O(n * k)" },
+    "optimalApproach": "Map each string to a canonical key (sorted characters, or a 26-length character-count tuple to avoid the sort cost) and group by that key in a hash map.",
+    "solutionCode": "def group_anagrams(strs):\n    groups = {}\n    for s in strs:\n        key = ''.join(sorted(s))\n        groups.setdefault(key, []).append(s)\n    return list(groups.values())",
+    "timeComplexity": "O(n * k log k) with the sort-based key (n strings, average length k); O(n * k) if you use a 26-count tuple key instead.",
+    "spaceComplexity": "O(n * k) to store all strings grouped in the map.",
+    "followUps": [
+      "How would the count-tuple key change the time complexity, and when is it worth the extra code?",
+      "What if the alphabet isn't fixed/small (Unicode) — does the count-array trick still make sense?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["hash-map", "string", "sorting"]
+  },
+  {
+    "id": "PS-AH-003",
+    "title": "Longest Consecutive Sequence",
+    "category": "Arrays & Hashing",
+    "difficulty": "Hard",
+    "pattern": "Hash Set",
+    "problemStatement": "Given an unsorted array of integers nums, return the length of the longest sequence of consecutive integers (in any order in the array). Your algorithm must run in O(n) time.",
+    "examples": [
+      { "input": "nums = [100,4,200,1,3,2]", "output": "4", "explanation": "The consecutive sequence is [1,2,3,4]." }
+    ],
+    "constraints": ["0 <= nums.length <= 10^5", "-10^9 <= nums[i] <= 10^9"],
+    "approachSteps": [
+      "Sorting first gives an easy O(n log n) solution — the challenge is doing it in O(n), so sorting is off the table for the optimal solution.",
+      "Put every number into a hash set for O(1) membership checks.",
+      "A number n can only be the START of a sequence if n - 1 is NOT in the set — that's the key trick that avoids redundant work.",
+      "For each number that is a valid sequence start, count forward (n+1, n+2, ...) while those numbers exist in the set, tracking the streak length.",
+      "Track the maximum streak length seen across all starts.",
+      "Because every number is only ever extended from its true start, each number is visited a constant number of times overall — that's what makes it O(n), not O(n^2)."
+    ],
+    "bruteForce": { "approach": "Sort the array, then scan for consecutive runs.", "timeComplexity": "O(n log n)", "spaceComplexity": "O(1) or O(n) depending on sort" },
+    "optimalApproach": "Hash set of all numbers; only start counting a streak from numbers with no predecessor in the set, then extend forward. Each element is touched O(1) amortized times total.",
+    "solutionCode": "def longest_consecutive(nums):\n    num_set = set(nums)\n    longest = 0\n    for n in num_set:\n        if n - 1 not in num_set:  # n is a sequence start\n            length = 1\n            while n + length in num_set:\n                length += 1\n            longest = max(longest, length)\n    return longest",
+    "timeComplexity": "O(n) — each number is examined a constant number of times across all iterations, despite the nested while loop.",
+    "spaceComplexity": "O(n) for the hash set.",
+    "followUps": [
+      "Why doesn't the inner while loop make this O(n^2)? Walk through why the total work across all iterations is still O(n).",
+      "How would you return the actual sequence, not just its length?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY", "FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["hash-set", "array"]
+  },
+  {
+    "id": "PS-AH-004",
+    "title": "Move Zeroes",
+    "category": "Arrays & Hashing",
+    "difficulty": "Easy",
+    "pattern": "Two Pointers (In-Place)",
+    "problemStatement": "Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements. You must do this in-place without making a copy of the array.",
+    "examples": [
+      { "input": "nums = [0,1,0,3,12]", "output": "[1,3,12,0,0]" }
+    ],
+    "constraints": ["1 <= nums.length <= 10^4"],
+    "approachSteps": [
+      "You need to preserve the relative order of non-zero elements while pushing zeros to the end — that ordering constraint rules out a simple 'count zeros, overwrite' approach unless you're careful.",
+      "Track an insert_pos pointer starting at 0, representing where the next non-zero element belongs.",
+      "Scan the array left to right; whenever you find a non-zero element, swap it into position insert_pos and advance insert_pos.",
+      "Because you only ever swap a non-zero element forward (never backward past another non-zero one), relative order among non-zero elements is preserved automatically.",
+      "Everything from insert_pos onward at the end is naturally zeros, without a separate zero-filling pass."
+    ],
+    "bruteForce": { "approach": "Copy all non-zero elements into a new array in order, then pad the remainder with zeros, then copy back.", "timeComplexity": "O(n)", "spaceComplexity": "O(n) for the copy" },
+    "optimalApproach": "Single-pass two-pointer swap: an insert_pos pointer tracks where the next non-zero belongs, swapping it into place as you scan.",
+    "solutionCode": "def move_zeroes(nums):\n    insert_pos = 0\n    for i in range(len(nums)):\n        if nums[i] != 0:\n            nums[insert_pos], nums[i] = nums[i], nums[insert_pos]\n            insert_pos += 1",
+    "timeComplexity": "O(n) — one pass through the array.",
+    "spaceComplexity": "O(1) — in-place swaps only.",
+    "followUps": [
+      "How would you minimize the total number of swaps (skip the swap when i == insert_pos)?",
+      "How would you generalize this to 'move all elements matching a predicate to the end', not just zeros?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["two-pointers", "array"],
+    "reportedAt": ["Therap (BD)"],
+    "sources": ["src-bd-interview-questions-repo", "src-bdtechjobs-interview-blog"]
+  },
+  {
+    "id": "PS-AH-005",
+    "title": "Valid Anagram",
+    "category": "Arrays & Hashing",
+    "difficulty": "Easy",
+    "pattern": "Hash Map / Character Counting",
+    "problemStatement": "Given two strings s and t, return true if t is an anagram of s, and false otherwise.",
+    "examples": [
+      { "input": "s = \"anagram\", t = \"nagaram\"", "output": "true" },
+      { "input": "s = \"rat\", t = \"car\"", "output": "false" }
+    ],
+    "constraints": ["1 <= s.length, t.length <= 5*10^4"],
+    "approachSteps": [
+      "Different lengths can never be anagrams — check that first as a cheap early exit.",
+      "An anagram means the same multiset of characters, so count occurrences of each character in one string and decrement using the other.",
+      "Build a frequency count of s, then walk t decrementing counts for each character seen.",
+      "If every count returns to zero (or equivalently, the two frequency counts are equal), it's a valid anagram."
+    ],
+    "bruteForce": { "approach": "Sort both strings and compare the sorted results for equality.", "timeComplexity": "O(n log n)", "spaceComplexity": "O(n) for the sorted copies" },
+    "optimalApproach": "Build a character frequency count of one string and check the other string against it; equal counts mean a valid anagram.",
+    "solutionCode": "from collections import Counter\n\ndef is_anagram(s, t):\n    if len(s) != len(t):\n        return False\n    return Counter(s) == Counter(t)",
+    "timeComplexity": "O(n) — counting is linear in string length.",
+    "spaceComplexity": "O(1) if the alphabet is fixed/small (e.g. 26 lowercase letters); O(n) in general for arbitrary Unicode input.",
+    "followUps": [
+      "How would you handle Unicode input where a fixed 26-size array no longer suffices?",
+      "How would you check if t is an anagram of ANY substring of a larger string s (a different, sliding-window problem)?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["hash-map", "string"],
+    "reportedAt": ["Enosis Solutions"],
+    "sources": ["src-bd-interview-questions-repo"]
+  },
+  {
+    "id": "PS-AH-006",
+    "title": "Sort Colors",
+    "category": "Arrays & Hashing",
+    "difficulty": "Medium",
+    "pattern": "Three-Way Partition (Dutch National Flag)",
+    "problemStatement": "Given an array nums with n objects colored red, white, or blue (represented as integers 0, 1, and 2), sort them in-place so that objects of the same color are adjacent, in the order 0, 1, 2 — without using a library sort function.",
+    "examples": [
+      { "input": "nums = [2,0,2,1,1,0]", "output": "[0,0,1,1,2,2]" }
+    ],
+    "constraints": ["1 <= nums.length <= 300", "nums[i] is 0, 1, or 2"],
+    "approachSteps": [
+      "With only 3 distinct values, a general-purpose comparison sort is overkill — you can partition the array into three regions in a single pass instead.",
+      "Track three pointers: low (boundary for the next 0), mid (current element being examined), and high (boundary for the next 2).",
+      "If nums[mid] is 0, swap it to the low boundary and advance both low and mid (the swapped-in element at mid is now known-good, already processed).",
+      "If nums[mid] is 1, it's already in the middle region — just advance mid.",
+      "If nums[mid] is 2, swap it to the high boundary and shrink high — but do NOT advance mid yet, since the newly swapped-in element at mid hasn't been examined."
+    ],
+    "bruteForce": { "approach": "Count the number of 0s, 1s, and 2s in a first pass, then overwrite the array with that many 0s, then 1s, then 2s in a second pass.", "timeComplexity": "O(n) but two full passes", "spaceComplexity": "O(1)" },
+    "optimalApproach": "Dutch National Flag three-way partitioning with low/mid/high pointers, sorting in a single pass without counting first.",
+    "solutionCode": "def sort_colors(nums):\n    low, mid, high = 0, 0, len(nums) - 1\n    while mid <= high:\n        if nums[mid] == 0:\n            nums[low], nums[mid] = nums[mid], nums[low]\n            low += 1\n            mid += 1\n        elif nums[mid] == 1:\n            mid += 1\n        else:\n            nums[mid], nums[high] = nums[high], nums[mid]\n            high -= 1",
+    "timeComplexity": "O(n) — single pass, each element touched a constant number of times.",
+    "spaceComplexity": "O(1) — in-place swaps only.",
+    "followUps": [
+      "Why does the mid pointer NOT advance after swapping with high, but DOES advance after swapping with low — walk through why that asymmetry is correct.",
+      "How would this generalize to k distinct values instead of exactly 3?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["two-pointers", "array", "sorting"],
+    "reportedAt": ["Therap (BD)"],
+    "sources": ["src-bd-interview-questions-repo"]
+  },
+  {
+    "id": "PS-AH-007",
+    "title": "Rotate Array",
+    "category": "Arrays & Hashing",
+    "difficulty": "Medium",
+    "pattern": "In-Place Reversal",
+    "problemStatement": "Given an integer array nums, rotate the array to the right by k steps, where k is non-negative, in-place.",
+    "examples": [
+      { "input": "nums = [1,2,3,4,5,6,7], k = 3", "output": "[5,6,7,1,2,3,4]" }
+    ],
+    "constraints": ["1 <= nums.length <= 10^5", "0 <= k <= 10^5"],
+    "approachSteps": [
+      "k can be larger than the array length, so the first step is always k %= len(nums) to avoid redundant full rotations.",
+      "Shifting elements one at a time, k times, is correct but wasteful (O(n*k)) — look for a way to place every element in one pass instead.",
+      "A neat trick: reversing the WHOLE array, then reversing each of the two resulting segments separately, produces the rotated result.",
+      "Reverse the entire array first. Then reverse the first k elements (which are now the correct rotated tail, but internally backwards). Then reverse the remaining n-k elements the same way.",
+      "Each of the three reversals is O(n) combined, giving an O(n) total in-place solution."
+    ],
+    "bruteForce": { "approach": "Allocate a new array of the same size, place nums[i] at position (i + k) % n, then copy back into nums.", "timeComplexity": "O(n)", "spaceComplexity": "O(n) for the new array" },
+    "optimalApproach": "Reverse the whole array, then reverse the first k elements and the remaining n-k elements separately — an O(1)-extra-space in-place rotation via the 'reverse three times' trick.",
+    "solutionCode": "def rotate(nums, k):\n    n = len(nums)\n    k %= n\n\n    def reverse(l, r):\n        while l < r:\n            nums[l], nums[r] = nums[r], nums[l]\n            l += 1\n            r -= 1\n\n    reverse(0, n - 1)\n    reverse(0, k - 1)\n    reverse(k, n - 1)",
+    "timeComplexity": "O(n) — three reversals, each linear, combined still O(n).",
+    "spaceComplexity": "O(1) — in-place swaps only, unlike the O(n)-space brute force.",
+    "followUps": [
+      "Why does reversing the whole array first, then reversing the two pieces, produce the correct rotation — walk through the intuition.",
+      "How would 'rotate left by k' differ from this 'rotate right by k' solution?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["array", "two-pointers"],
+    "reportedAt": ["Enosis Solutions"],
+    "sources": ["src-bd-interview-questions-repo"]
+  }
+]

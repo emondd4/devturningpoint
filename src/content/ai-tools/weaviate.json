@@ -1,0 +1,38 @@
+{
+  "id": "AI-TOOL-WEAVIATE",
+  "name": "Weaviate",
+  "category": "retrieval",
+  "description": "Open-source vector database with hybrid search and modular vectorizers.",
+  "bestFor": [
+    "Hybrid search stacks",
+    "Self-host or cloud Weaviate"
+  ],
+  "notIdealFor": [
+    "Tiny demos where Postgres+pgvector is enough"
+  ],
+  "prerequisites": [
+    "AI-VECTOR-DATABASES"
+  ],
+  "officialUrl": "https://weaviate.io/",
+  "docsUrl": "https://weaviate.io/developers/weaviate",
+  "languageEcosystem": [
+    "Python",
+    "TypeScript",
+    "Go"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "OSS + optional cloud.",
+  "securityNotes": [
+    "Auth modules",
+    "Multi-tenant class design"
+  ],
+  "relatedTopicIds": [
+    "AI-VECTOR-DATABASES"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-I-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

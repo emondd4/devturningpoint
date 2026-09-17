@@ -1,0 +1,41 @@
+{
+  "id": "PROMPT-DEBUG-BUG",
+  "title": "Debug a bug",
+  "track": "ai-framework",
+  "taskType": "debugging",
+  "difficulty": "intermediate",
+  "whenToUse": "You have reproducible symptoms and need a hypothesis loop.",
+  "whenNotToUse": "You only have a vague “it feels slow.”",
+  "requiredInputs": [
+    "Symptoms",
+    "Reproduction steps",
+    "Logs"
+  ],
+  "promptTemplate": "GOAL:\nDebug {{bug}} with hypotheses, not random rewrites.\n\nCONTEXT:\nObserved: {{symptoms}}. Environment: {{env}}.\n\nINPUT:\nRepro steps: {{repro}}. Logs: {{logs}}.\n\nCONSTRAINTS:\n- Propose <=3 hypotheses\n- Ask for one experiment at a time\n- No massive rewrites first\n\nOUTPUT:\nHypotheses, experiment, expected evidence\n\nACCEPTANCE:\nRoot cause linked to evidence.\n\nVERIFICATION:\nWhich log/test proves it.",
+  "badPrompt": "Fix whatever is wrong.",
+  "improvedPrompt": "Hypothesize why 500 on /checkout when cart empty; propose one experiment; no rewrite.",
+  "expectedOutput": "Ordered hypotheses with evidence plan.",
+  "verificationChecklist": [
+    "Hypotheses falsifiable",
+    "No drive-by refactors"
+  ],
+  "failureModes": [
+    "Fabricated stack traces",
+    "Fixing symptoms only"
+  ],
+  "privacySecurityNotes": [
+    "Redact tokens from logs"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-CODING-AGENTS-CURSOR",
+    "AI-SECURITY-OWASP"
+  ],
+  "relatedProjects": [
+    "PBL-AI-B-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

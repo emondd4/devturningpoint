@@ -1,0 +1,213 @@
+---
+id: "PBL-FND-B-002"
+title: "GitHub API + HTTP Diagnostic CLI"
+slug: "github-api-http-diagnostic-cli"
+track: "foundations"
+level: "beginner"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for junior backend/support-leaning roles: HTTP debugging and API literacy appear frequently as practical expectations."
+difficulty: "beginner"
+summary: "CLI that probes HTTP endpoints and GitHub API metadata with actionable diagnostics."
+portfolioPitch: "Proves HTTP literacy and API tooling—practical for debugging integrations."
+estimatedHours: 20
+prerequisiteSkillIds:
+  - "FOUNDATIONS-HTTP"
+  - "FOUNDATIONS-GIT"
+  - "FOUNDATIONS-FUNCTIONS"
+learningOutcomeSkillIds:
+  - "FOUNDATIONS-HTTP"
+  - "FOUNDATIONS-API-CONCEPTS"
+  - "FOUNDATIONS-DEBUGGING"
+recommendedTools:
+  - "Python or Node"
+  - "Git"
+portfolioEvidence:
+  - "GitHub repo with README"
+  - "Architecture diagram"
+  - "Screenshots/demo"
+  - "Tests + CI evidence"
+  - "ADR/decision notes"
+  - "Reproducible run instructions"
+relatedTopicIds:
+  - "FOUNDATIONS-CLI-BASICS"
+  - "FOUNDATIONS-COMPLEXITY-PRACTICE"
+  - "FOUNDATIONS-JSON-DATA"
+  - "FOUNDATIONS-ENCODING-UTF8"
+  - "FOUNDATIONS-ALGORITHMS-COMPLEXITY"
+relatedInterviewQuestionIds:
+  - "FND-B-0001"
+  - "FND-B-0002"
+  - "FND-B-0003"
+  - "FND-B-0004"
+  - "FND-B-0005"
+  - "FND-B-0006"
+  - "FND-B-0007"
+  - "FND-B-0008"
+sources:
+  - "MDN-CLI-INTRO"
+  - "RFC-9110-HTTP"
+  - "GIT-SCM-BOOK"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-FND-B-002-M01"
+    title: "Scaffold CLI"
+    objective: "Entrypoint with help/version."
+    whyItMatters: "Clean CLI UX."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-CLI-BASICS"
+      - "FOUNDATIONS-COMPLEXITY-PRACTICE"
+    tasks:
+      - "Capture scope for 'Scaffold CLI' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Entrypoint with help/version."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Scaffold CLI"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Entrypoint with help/version. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FND-B-002-M02"
+    title: "HTTP probe"
+    objective: "Status/latency/headers."
+    whyItMatters: "Debug without guesswork."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-CLI-BASICS"
+      - "FOUNDATIONS-COMPLEXITY-PRACTICE"
+    tasks:
+      - "Capture scope for 'HTTP probe' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Status/latency/headers."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: HTTP probe"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Status/latency/headers. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FND-B-002-M03"
+    title: "GitHub API"
+    objective: "Read metadata via token env."
+    whyItMatters: "Real API constraints."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-JSON-DATA"
+      - "FOUNDATIONS-ENCODING-UTF8"
+    tasks:
+      - "Capture scope for 'GitHub API' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Read metadata via token env."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: GitHub API"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Read metadata via token env. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FND-B-002-M04"
+    title: "Tests + README"
+    objective: "Fixtures and docs."
+    whyItMatters: "Portfolio clarity."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-JSON-DATA"
+      - "FOUNDATIONS-ENCODING-UTF8"
+    tasks:
+      - "Capture scope for 'Tests + README' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Fixtures and docs."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Tests + README"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Fixtures and docs. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Proves HTTP literacy and API tooling—practical for debugging integrations.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: Python or Node, Git.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to beginner
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

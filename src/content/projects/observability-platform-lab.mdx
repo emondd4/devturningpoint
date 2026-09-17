@@ -1,0 +1,212 @@
+---
+id: "PBL-DO-I-002"
+title: "Observability Platform"
+slug: "observability-platform-lab"
+track: "devops"
+level: "intermediate"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for mid DevOps/SRE roles: monitoring, logging, and alerting keywords appear alongside cloud/k8s expectations."
+difficulty: "intermediate"
+summary: "Metrics/logs/traces lab with an alert and dashboard."
+portfolioPitch: "You cannot operate what you cannot see."
+estimatedHours: 34
+prerequisiteSkillIds:
+  - "DEVOPS-OBSERVABILITY"
+  - "DEVOPS-LINUX"
+  - "DEVOPS-DOCKER"
+learningOutcomeSkillIds:
+  - "DEVOPS-OBSERVABILITY"
+  - "DEVOPS-SLO"
+  - "DEVOPS-CICD"
+recommendedTools:
+  - "Prometheus/Grafana or equivalents"
+portfolioEvidence:
+  - "IaC repo"
+  - "CI/CD green run evidence"
+  - "Monitoring screenshots"
+  - "Runbook"
+  - "Architecture diagram"
+  - "Incident/DR notes"
+relatedTopicIds:
+  - "DEVOPS-DNS-TLS-DEEP-DIVE"
+  - "DEVOPS-BASH"
+  - "DEVOPS-SECRETS-MANAGEMENT"
+  - "DEVOPS-DOCKER-NETWORKING"
+  - "DEVOPS-SLO-SLI"
+relatedInterviewQuestionIds:
+  - "DO-A-0001"
+  - "DO-A-0002"
+  - "DO-A-0003"
+  - "DO-A-0004"
+  - "DO-A-0005"
+  - "DO-A-0006"
+  - "DO-A-0007"
+  - "DO-A-0008"
+sources:
+  - "DOCKER-GET-STARTED"
+  - "K8S-DOCS"
+  - "LINUX-MAN-PAGES"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-DO-I-002-M01"
+    title: "Golden signals"
+    objective: "Pick SLIs."
+    whyItMatters: "Measurement."
+    prerequisiteTopicIds:
+      - "DEVOPS-DNS-TLS-DEEP-DIVE"
+      - "DEVOPS-BASH"
+    tasks:
+      - "Capture scope for 'Golden signals' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Pick SLIs."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Golden signals"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Pick SLIs. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DO-I-002-M02"
+    title: "Dashboards"
+    objective: "Build views."
+    whyItMatters: "Operability."
+    prerequisiteTopicIds:
+      - "DEVOPS-DNS-TLS-DEEP-DIVE"
+      - "DEVOPS-BASH"
+    tasks:
+      - "Capture scope for 'Dashboards' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Build views."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Dashboards"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Build views. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DO-I-002-M03"
+    title: "Alert"
+    objective: "One actionable alert."
+    whyItMatters: "Noise control."
+    prerequisiteTopicIds:
+      - "DEVOPS-SECRETS-MANAGEMENT"
+      - "DEVOPS-DOCKER-NETWORKING"
+    tasks:
+      - "Capture scope for 'Alert' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: One actionable alert."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Alert"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "One actionable alert. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DO-I-002-M04"
+    title: "Runbook"
+    objective: "Tie alert to action."
+    whyItMatters: "SRE habit."
+    prerequisiteTopicIds:
+      - "DEVOPS-SECRETS-MANAGEMENT"
+      - "DEVOPS-DOCKER-NETWORKING"
+    tasks:
+      - "Capture scope for 'Runbook' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Tie alert to action."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Runbook"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Tie alert to action. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+You cannot operate what you cannot see.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: Prometheus/Grafana or equivalents.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to intermediate
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

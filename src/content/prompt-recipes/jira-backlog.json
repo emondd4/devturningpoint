@@ -1,0 +1,34 @@
+{
+  "id": "PROMPT-JIRA-BACKLOG",
+  "title": "Jira backlog drafting",
+  "track": "project-management",
+  "taskType": "pm",
+  "difficulty": "beginner",
+  "whenToUse": "Draft stories from agreed requirements.",
+  "whenNotToUse": "Inventing velocity or commitments.",
+  "requiredInputs": [
+    "Requirements",
+    "Definition of done"
+  ],
+  "promptTemplate": "GOAL:\nDraft backlog for {{epic}}.\n\nCONTEXT:\nDoD: {{dod}}.\n\nINPUT:\nRequirements: {{reqs}}\n\nCONSTRAINTS:\n- INVEST-ish stories\n- No fake estimates as facts\n- Acceptance criteria testable\n\nOUTPUT:\nStories + AC + dependencies\n\nACCEPTANCE:\nDev can start story 1.\n\nVERIFICATION:\nAC checkable.",
+  "badPrompt": "Fill Jira with 40 points.",
+  "improvedPrompt": "Draft 5 stories for invoice export; AC only; mark estimate as TBD.",
+  "expectedOutput": "Backlog draft.",
+  "verificationChecklist": [
+    "AC present",
+    "Estimates not faked as facts"
+  ],
+  "failureModes": [
+    "Fake commitments"
+  ],
+  "privacySecurityNotes": [],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-PM"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "PROMPT-A11Y-REVIEW",
+  "title": "Accessibility review",
+  "track": "frontend",
+  "taskType": "accessibility",
+  "difficulty": "intermediate",
+  "whenToUse": "Need WCAG-oriented review of a UI change.",
+  "whenNotToUse": "Pure backend SQL change.",
+  "requiredInputs": [
+    "Component code or URL",
+    "Target level"
+  ],
+  "promptTemplate": "GOAL:\na11y review of {{surface}} targeting {{level}}.\n\nCONTEXT:\nFramework: {{framework}}.\n\nINPUT:\n{{codeOrUrl}}\n\nCONSTRAINTS:\n- Name, roles, keyboard, contrast notes\n- Prefer native semantics\n\nOUTPUT:\nIssues + fixes\n\nACCEPTANCE:\nBlocking a11y issues listed.\n\nVERIFICATION:\nSuggest axe/keyboard checks.",
+  "badPrompt": "Is a11y fine?",
+  "improvedPrompt": "Review icon button names, dialog focus trap, and contrast on muted text.",
+  "expectedOutput": "a11y findings.",
+  "verificationChecklist": [
+    "Keyboard path covered",
+    "Names checked"
+  ],
+  "failureModes": [
+    "ARIA overuse"
+  ],
+  "privacySecurityNotes": [],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-FRONTEND",
+    "AI-ASSISTED-UIUX"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

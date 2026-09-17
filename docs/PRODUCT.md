@@ -23,9 +23,11 @@ The product combines ideas from technical documentation, career roadmaps, intera
 ## Out of scope (V1)
 
 - Runtime databases / CMS / auth servers
-- LLM APIs, AI research bots, automated content pipelines
-- Scrapers or scheduled research jobs
+- **Runtime** LLM APIs, AI research bots, automated content pipelines, crawlers, or scheduled research jobs for the website itself
+- Scrapers or scheduled research jobs that publish content
 - User accounts / cloud sync (export/import JSON only)
+
+Development-time internet research by contributors is allowed. Published educational content remains **static Git content**. The website must not require AI API keys for ordinary browsing.
 
 ## Primary audiences
 
@@ -53,14 +55,15 @@ The product combines ideas from technical documentation, career roadmaps, intera
 4. **Career directory** — Roles relevant to Bangladesh, normalized titles
 5. **Company directory** — Featured BD tech employers + sourced achievements
 6. **Job-market summary** — Static aggregated sample with methodology/limitations
-7. **Learning tracks** — Foundations, Mobile (Flutter), Frontend, Backend, Full-Stack, DevOps/Cloud, Database, QA, UI/UX, Project Management
+7. **Learning tracks** — Foundations, Mobile (Flutter), Frontend, Backend, Full-Stack, DevOps/Cloud, Database, QA, UI/UX, Project Management, **AI and Framework**
 8. **Skill graph** — Structured prerequisites / unlocks (data-driven)
 9. **Assessment** — Deterministic mapping to skill IDs → personalized roadmap
 10. **Topic pages** — Deep MDX articles with TOC, sources, progress
-11. **Interviews & projects** — Quality over quantity
-12. **Search** — Pagefind static search
-13. **My Learning** — Local dashboard, continue learning, export/import
-14. **Policies & contribute** — Privacy, methodology, AI disclosure, contribution guides
+11. **Interviews & projects** — Quality over quantity; Core + Market Alternative projects per level
+12. **AI tooling literacy** — Tool catalog, prompt recipes, Cursor labs, verification playbook (static)
+13. **Search** — Pagefind static search
+14. **My Learning** — Local dashboard, continue learning, export/import
+15. **Policies & contribute** — Privacy, methodology, AI disclosure, contribution guides
 
 ## Learning tracks (V1)
 
@@ -76,6 +79,27 @@ The product combines ideas from technical documentation, career roadmaps, intera
 | QA | Manual → API → Playwright → performance / CI | P1 |
 | UI/UX | Visual + UX fundamentals; Figma as tool | P1 |
 | Project Management | Software delivery, Agile/Scrum, tooling | P1 |
+| **AI and Framework** | LLMs, prompting, coding agents, RAG, tools/MCP, evaluation, security | P0 |
+
+## Project-Based Learning
+
+Each specialized track (except AI) targets:
+
+- **Beginner / Intermediate / Advanced** levels
+- At each level: **one Core project** + **one Market Alternative project**
+- Learners are **not** required to complete every project
+
+AI and Framework targets **3 projects per level** (9 total) covering prompt labs, Cursor workflows, RAG, agents/MCP, and production copilots.
+
+Progress uses stable project/milestone IDs in IndexedDB (no login).
+
+## AI product principles
+
+1. Teach **problem → tool**, never popularity rankings.
+2. Prefer official docs/specs; show `lastVerified`.
+3. Verify AI-generated code with evidence—never trust “tests passed” claims alone.
+4. Role workflows must not fabricate research findings, stakeholder approvals, or project outcomes.
+5. Optional learner-side API/local models for AI *projects* only; site browsing stays static.
 
 ## Personalization model
 

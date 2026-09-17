@@ -1,0 +1,41 @@
+{
+  "id": "AI-TOOL-MCP",
+  "name": "Model Context Protocol (MCP)",
+  "category": "protocol",
+  "description": "Open protocol connecting LLM apps to tools and data sources with negotiated capabilities.",
+  "bestFor": [
+    "Standardizing tool integrations",
+    "IDE/agent tool ecosystems"
+  ],
+  "notIdealFor": [
+    "Replacing application authz"
+  ],
+  "prerequisites": [
+    "AI-TOOL-CALLING",
+    "AI-AGENTS-OVERVIEW"
+  ],
+  "officialUrl": "https://modelcontextprotocol.io/",
+  "docsUrl": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "languageEcosystem": [
+    "TypeScript",
+    "Python",
+    "multi"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "protocol",
+  "costModelSummary": "Protocol free; servers/tools may have costs.",
+  "securityNotes": [
+    "Least privilege tools",
+    "Treat tool outputs as untrusted",
+    "Spec version: 2026-07-28"
+  ],
+  "relatedTopicIds": [
+    "AI-MCP-INTRO",
+    "AI-SECURITY-OWASP"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-A-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

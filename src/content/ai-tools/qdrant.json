@@ -1,0 +1,38 @@
+{
+  "id": "AI-TOOL-QDRANT",
+  "name": "Qdrant",
+  "category": "retrieval",
+  "description": "Vector similarity engine with filtering and payload storage.",
+  "bestFor": [
+    "Filtered ANN",
+    "Rust-backed self-host search"
+  ],
+  "notIdealFor": [
+    "When relational joins dominate every query"
+  ],
+  "prerequisites": [
+    "AI-VECTOR-DATABASES"
+  ],
+  "officialUrl": "https://qdrant.tech/",
+  "docsUrl": "https://qdrant.tech/documentation/",
+  "languageEcosystem": [
+    "Python",
+    "TypeScript",
+    "Rust"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "OSS + cloud options.",
+  "securityNotes": [
+    "API keys",
+    "Collection isolation"
+  ],
+  "relatedTopicIds": [
+    "AI-VECTOR-DATABASES"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-I-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

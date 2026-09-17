@@ -1,0 +1,37 @@
+{
+  "id": "AI-TOOL-PINECONE",
+  "name": "Pinecone",
+  "category": "retrieval",
+  "description": "Managed vector database service for similarity search at scale.",
+  "bestFor": [
+    "Managed vector ops",
+    "Teams avoiding self-host ANN"
+  ],
+  "notIdealFor": [
+    "Strict all-data-in-Postgres constraints"
+  ],
+  "prerequisites": [
+    "AI-VECTOR-DATABASES"
+  ],
+  "officialUrl": "https://www.pinecone.io/",
+  "docsUrl": "https://docs.pinecone.io/",
+  "languageEcosystem": [
+    "Python",
+    "TypeScript"
+  ],
+  "localOrCloud": "cloud",
+  "openSourceStatus": "proprietary",
+  "costModelSummary": "Hosted billing; warn before paid usage.",
+  "securityNotes": [
+    "Namespace isolation",
+    "API key rotation"
+  ],
+  "relatedTopicIds": [
+    "AI-VECTOR-DATABASES"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-I-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

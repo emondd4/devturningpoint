@@ -1,0 +1,34 @@
+{
+  "id": "PROMPT-QA-TEST-PLAN",
+  "title": "QA test plan",
+  "track": "qa",
+  "taskType": "qa",
+  "difficulty": "intermediate",
+  "whenToUse": "Need risk-based coverage for a release.",
+  "whenNotToUse": "You want infinite exhaustive testing with no priority.",
+  "requiredInputs": [
+    "Feature scope",
+    "Risks"
+  ],
+  "promptTemplate": "GOAL:\nDraft risk-based test plan for {{feature}}.\n\nCONTEXT:\nPlatforms: {{platforms}}.\n\nINPUT:\nRisks: {{risks}}\n\nCONSTRAINTS:\n- Prioritize by risk\n- Include negative cases\n- No fake pass claims\n\nOUTPUT:\nCases + environments\n\nACCEPTANCE:\nHighest risks covered first.\n\nVERIFICATION:\nTraceability to risks.",
+  "badPrompt": "Test everything.",
+  "improvedPrompt": "Plan checkout tests by payment failure, concurrency, and a11y; map to risks.",
+  "expectedOutput": "Prioritized test plan.",
+  "verificationChecklist": [
+    "Risks mapped",
+    "Negative cases"
+  ],
+  "failureModes": [
+    "Checkbox theater"
+  ],
+  "privacySecurityNotes": [],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-QA"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

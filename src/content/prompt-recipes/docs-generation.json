@@ -1,0 +1,34 @@
+{
+  "id": "PROMPT-DOCS-GENERATION",
+  "title": "Documentation generation",
+  "track": "ai-framework",
+  "taskType": "documentation",
+  "difficulty": "beginner",
+  "whenToUse": "Document what the code actually does.",
+  "whenNotToUse": "Inventing features that are not implemented.",
+  "requiredInputs": [
+    "Code paths",
+    "Audience"
+  ],
+  "promptTemplate": "GOAL:\nDocument {{component}} for {{audience}}.\n\nCONTEXT:\nOnly describe existing behavior.\n\nINPUT:\nPaths: {{paths}}\n\nCONSTRAINTS:\n- No aspirational features\n- Mark unknowns\n\nOUTPUT:\nREADME section + examples\n\nACCEPTANCE:\nAnother eng can run it.\n\nVERIFICATION:\nCommands tested by human.",
+  "badPrompt": "Write amazing docs for the future vision.",
+  "improvedPrompt": "Document current auth middleware only; include run/test commands; mark unknowns.",
+  "expectedOutput": "Accurate docs draft.",
+  "verificationChecklist": [
+    "Matches code",
+    "Commands listed"
+  ],
+  "failureModes": [
+    "Doc/code drift"
+  ],
+  "privacySecurityNotes": [],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-PROMPT-ENGINEERING"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

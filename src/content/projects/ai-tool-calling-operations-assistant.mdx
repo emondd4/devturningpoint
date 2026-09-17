@@ -1,0 +1,225 @@
+---
+id: "PBL-AI-I-002"
+title: "Tool-Calling Operations Assistant"
+titleBn: "Tool-Calling Operations Assistant"
+slug: "ai-tool-calling-operations-assistant"
+track: "ai-framework"
+level: "intermediate"
+projectRole: "core"
+marketRelevance: "Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations."
+difficulty: "intermediate"
+summary: "Ship an ops assistant with allowlisted tools, schemas, dry-run mode, and audit logs—never unbounded shell access."
+summaryBn: "Allowlisted tool, schema, dry-run এবং audit log সহ ops assistant—অবাধ shell access নয়।"
+portfolioPitch: "Demonstrates safe tool calling: schemas, permissions, dry-run, and auditable side effects."
+estimatedHours: 30
+prerequisiteSkillIds:
+  - "AI-TOOL-CALLING"
+  - "AI-PROMPT-ENGINEERING"
+  - "AI-SECURITY"
+learningOutcomeSkillIds:
+  - "AI-TOOL-CALLING"
+  - "AI-AGENTS"
+  - "AI-SECURITY"
+  - "AI-EVALUATION"
+recommendedTools:
+  - "OpenAI/Anthropic tool APIs or Ollama tool support"
+  - "TypeScript or Python"
+  - "Local mock ops APIs"
+portfolioEvidence:
+  - "TOOL_CATALOG.md"
+  - "ALLOWLIST.md"
+  - "AUDIT_LOG_SAMPLES.md"
+  - "DRY_RUN_DEMO.md"
+  - "EVAL_SCENARIOS.md"
+  - "COST_LATENCY.md"
+  - "THREAT_MODEL.md"
+relatedTopicIds:
+  - "AI-TOOL-CALLING"
+  - "AI-AGENTS-OVERVIEW"
+  - "AI-SECURITY-OWASP"
+  - "AI-STRUCTURED-OUTPUTS"
+relatedInterviewQuestionIds: []
+sources:
+  - "ANTHROPIC-TOOL-USE"
+  - "OPENAI-API-DOCS"
+  - "OWASP-LLM-TOP10-2025"
+  - "MCP-SPEC-2026-07-28"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PBL-AI-I-001"
+nextProjectId: "PBL-AI-I-003"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-AI-I-002-M01"
+    title: "Tool catalog + threat model"
+    objective: "Define ≤6 tools with JSON schemas and a written threat model."
+    whyItMatters: "Excessive agency is an OWASP LLM risk."
+    prerequisiteTopicIds:
+      - "AI-TOOL-CALLING"
+      - "AI-SECURITY-OWASP"
+    tasks:
+      - "List tools and non-goals"
+      - "Write JSON schemas"
+      - "Threat model side effects"
+      - "Decide dry-run defaults"
+    expectedArtifacts:
+      - "TOOL_CATALOG.md"
+      - "THREAT_MODEL.md"
+      - "schemas/"
+    validationChecklist:
+      - "Every tool has schema"
+      - "Destructive tools require confirm"
+      - "Non-goals explicit"
+    commonProblems:
+      - "Run any shell tool"
+      - "Missing authz notes"
+    completionCriteria:
+      - "Peer review of allowlist"
+      - "Schemas validate"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-I-002-M02"
+    title: "Executor with dry-run"
+    objective: "Implement tool executor that supports dry-run and rejects unknown tools."
+    whyItMatters: "Fail closed beats clever recovery."
+    prerequisiteTopicIds:
+      - "AI-TOOL-CALLING"
+      - "AI-STRUCTURED-OUTPUTS"
+    tasks:
+      - "Parse tool calls"
+      - "Validate args"
+      - "Dry-run path"
+      - "Reject unknown names"
+    expectedArtifacts:
+      - "executor module"
+      - "DRY_RUN_DEMO.md"
+    validationChecklist:
+      - "Unknown tools error"
+      - "Dry-run never mutates"
+      - "Args schema-checked"
+    commonProblems:
+      - "Stringly-typed args"
+      - "Swallowing errors"
+    completionCriteria:
+      - "Unit tests for reject/dry-run"
+      - "Demo transcript"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-I-002-M03"
+    title: "Assistant loop + audit log"
+    objective: "Wire model tool loop; persist auditable logs of prompts, tools, and results."
+    whyItMatters: "You cannot debug or secure what you do not log."
+    prerequisiteTopicIds:
+      - "AI-AGENTS-OVERVIEW"
+      - "AI-SECURITY-OWASP"
+    tasks:
+      - "Implement bounded loop (max steps)"
+      - "Redact secrets in logs"
+      - "User confirmation for writes"
+      - "Sample AUDIT_LOG"
+    expectedArtifacts:
+      - "assistant loop"
+      - "AUDIT_LOG_SAMPLES.md"
+    validationChecklist:
+      - "Max steps enforced"
+      - "Secrets redacted"
+      - "Confirmations required"
+    commonProblems:
+      - "Infinite tool loops"
+      - "Logging tokens/secrets"
+    completionCriteria:
+      - "Manual abuse tests"
+      - "Log review checklist"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-I-002-M04"
+    title: "Scenario eval + cost"
+    objective: "Evaluate ≥10 ops scenarios; measure success, unsafe attempts blocked, cost/latency."
+    whyItMatters: "Safety claims need adversarial scenarios, not demos."
+    prerequisiteTopicIds:
+      - "AI-EVALUATION-BASICS"
+    tasks:
+      - "Write EVAL_SCENARIOS.md"
+      - "Score task success"
+      - "Count blocked unsafe calls"
+      - "COST_LATENCY.md"
+    expectedArtifacts:
+      - "EVAL_SCENARIOS.md"
+      - "COST_LATENCY.md"
+    validationChecklist:
+      - "Unsafe prompts attempted in eval"
+      - "Metrics recorded"
+      - "Spend capped"
+    commonProblems:
+      - "Only cooperative prompts"
+      - "No latency notes"
+    completionCriteria:
+      - "Eval pass documented"
+      - "Portfolio complete"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Paid APIs are optional">
+Prefer local/free options (Ollama, open models, sample datasets) first. If you use a paid provider API, set spend limits, never commit keys, and warn teammates before enabling billable calls.
+</Callout>
+
+<Callout type="info" title="No site API keys required">
+The Dev Turning Point website stays static. Run models and tools on your machine or your own cloud account.
+</Callout>
+
+## Why this project matters
+
+Tool calling turns text into side effects. Permission design and auditability are the product.
+
+## Market / role relevance
+
+Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations.
+
+## What job skills it proves
+
+Schema-first tools, dry-run, allowlists, audit logs, and agent step bounds.
+
+## Prerequisites
+
+Tool calling and AI security topics recommended.
+
+## Architecture / approach
+
+User request → model proposes tool calls → schema validate → dry-run/confirm → execute → observe → answer.
+
+## Recommended tools
+
+Provider tool APIs or local models with tool support; mock status/incident APIs.
+
+## Setup
+
+1. Build mock ops backends (status, restart flag, deploy note).
+2. Default dry-run=true.
+3. Cap API spend.
+
+## Step-by-step guidance
+
+Milestones M01–M04. Prefer fewer, sharper tools over a kitchen sink.
+
+## Evaluation / security / cost / latency notes
+
+**Eval:** scenario success + blocked unsafe calls.
+**Security:** least privilege, confirmations, redaction.
+**Cost/latency:** tool loops multiply tokens—budget max steps.
+
+## Portfolio evidence
+
+Save every item listed in frontmatter `portfolioEvidence`. Include eval scores, cost/latency notes, and security checklist outcomes.
+
+## Stretch goals
+
+Expose one tool via MCP and compare UX to direct function calling.
+
+## Retrospective
+
+Which prompt almost caused a destructive call? What rule would you add?
+
+## Sources
+
+See frontmatter sources (official docs + OWASP GenAI where security applies).

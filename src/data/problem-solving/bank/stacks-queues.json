@@ -1,0 +1,161 @@
+[
+  {
+    "id": "PS-SQ-001",
+    "title": "Valid Parentheses",
+    "category": "Stacks & Queues",
+    "difficulty": "Easy",
+    "pattern": "Stack",
+    "problemStatement": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid: every opening bracket must be closed by the same type of bracket, in the correct order.",
+    "examples": [
+      { "input": "s = \"()[]{}\"", "output": "true" },
+      { "input": "s = \"(]\"", "output": "false" }
+    ],
+    "constraints": ["1 <= s.length <= 10^4"],
+    "approachSteps": [
+      "Brackets must close in the reverse order they opened — that 'last opened, first closed' rule is exactly what a stack gives you for free.",
+      "Push every opening bracket onto a stack as you scan left to right.",
+      "When you see a closing bracket, it must match the bracket on top of the stack — if the stack is empty or it doesn't match, the string is invalid immediately.",
+      "Pop the matching opening bracket off the stack when it matches.",
+      "After scanning the whole string, it's valid only if the stack is empty (no unmatched opens remain)."
+    ],
+    "bruteForce": { "approach": "Repeatedly find and remove adjacent matching pairs like '()' until no more can be removed, then check if the string is empty.", "timeComplexity": "O(n^2)", "spaceComplexity": "O(n)" },
+    "optimalApproach": "Single pass with a stack: push opens, pop-and-check on closes, valid iff the stack empties out exactly at the end.",
+    "solutionCode": "def is_valid(s):\n    pairs = {')': '(', ']': '[', '}': '{'}\n    stack = []\n    for ch in s:\n        if ch in pairs:\n            if not stack or stack.pop() != pairs[ch]:\n                return False\n        else:\n            stack.append(ch)\n    return not stack",
+    "timeComplexity": "O(n) — one pass, each character pushed/popped at most once.",
+    "spaceComplexity": "O(n) worst case (all opening brackets).",
+    "followUps": [
+      "How would you extend this to also validate matching HTML/XML tags?",
+      "What's the minimum number of insertions to make an invalid string valid?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["stack", "string"]
+  },
+  {
+    "id": "PS-SQ-002",
+    "title": "Daily Temperatures",
+    "category": "Stacks & Queues",
+    "difficulty": "Medium",
+    "pattern": "Monotonic Stack",
+    "problemStatement": "Given an array of integers temperatures representing daily temperatures, return an array answer where answer[i] is the number of days you'd have to wait after day i to get a warmer temperature. If there is no future day for which this is possible, put 0.",
+    "examples": [
+      { "input": "temperatures = [73,74,75,71,69,72,76,73]", "output": "[1,1,4,2,1,1,0,0]" }
+    ],
+    "constraints": ["1 <= temperatures.length <= 10^5", "30 <= temperatures[i] <= 100"],
+    "approachSteps": [
+      "For each day, you're looking for the next day with a strictly higher temperature — brute force rescans forward from every day, which repeats work.",
+      "Keep a stack of indices whose 'next warmer day' hasn't been found yet, kept in decreasing order of temperature from bottom to top.",
+      "For each new day, while the stack's top index has a lower temperature than today, today IS that index's answer — pop it and record the day difference.",
+      "Push the current day's index onto the stack (it's now waiting for its own warmer day).",
+      "Indices left on the stack at the end never find a warmer day, so they keep their default 0."
+    ],
+    "bruteForce": { "approach": "For each day, scan forward until a warmer day is found.", "timeComplexity": "O(n^2)", "spaceComplexity": "O(1) extra (besides output)" },
+    "optimalApproach": "Monotonic decreasing stack of unresolved indices; each index is pushed once and popped at most once, resolved exactly when its warmer day appears.",
+    "solutionCode": "def daily_temperatures(temperatures):\n    answer = [0] * len(temperatures)\n    stack = []  # indices with temperatures waiting for a warmer day\n    for i, temp in enumerate(temperatures):\n        while stack and temperatures[stack[-1]] < temp:\n            prev_index = stack.pop()\n            answer[prev_index] = i - prev_index\n        stack.append(i)\n    return answer",
+    "timeComplexity": "O(n) — every index is pushed once and popped at most once across the whole run.",
+    "spaceComplexity": "O(n) worst case for the stack (strictly decreasing temperatures).",
+    "followUps": [
+      "How would 'next greater element' problems in general (e.g. circular arrays) change this pattern?",
+      "Why is the stack kept in decreasing temperature order — what would break if it weren't?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["stack", "monotonic-stack", "array"]
+  },
+  {
+    "id": "PS-SQ-003",
+    "title": "Largest Rectangle in Histogram",
+    "category": "Stacks & Queues",
+    "difficulty": "Hard",
+    "pattern": "Monotonic Stack",
+    "problemStatement": "Given an array of integers heights representing the histogram's bar heights where each bar's width is 1, return the area of the largest rectangle that can be formed within the histogram.",
+    "examples": [
+      { "input": "heights = [2,1,5,6,2,3]", "output": "10", "explanation": "The largest rectangle has height 5 and width 2 (bars at index 2-3), or equivalently height 2 spanning index 2-5 — the max is 10." }
+    ],
+    "constraints": ["1 <= heights.length <= 10^5", "0 <= heights[i] <= 10^4"],
+    "approachSteps": [
+      "For every bar, imagine it as the SHORTEST bar in some rectangle — that rectangle's width is bounded by the nearest shorter bar on the left and right.",
+      "Brute force checks, for every bar, how far it can extend in both directions — that's O(n^2) or O(n^3).",
+      "Use a monotonic increasing stack of indices: while scanning left to right, whenever the current bar is shorter than the bar at the top of the stack, that top bar's rectangle is now fully determined (its right boundary is the current index).",
+      "When you pop a bar as the 'shortest' one, its rectangle's width is current_index - new_stack_top_index - 1 (or current_index if the stack is now empty), and its height is its own height.",
+      "Push a sentinel/height-0 bar at the end conceptually (or just flush the stack after the loop) so every remaining bar gets resolved.",
+      "Track the maximum area found across all resolved bars."
+    ],
+    "bruteForce": { "approach": "For each bar, expand left and right while the height is >= the bar's height, tracking the resulting area.", "timeComplexity": "O(n^2)", "spaceComplexity": "O(1)" },
+    "optimalApproach": "Monotonic increasing stack of bar indices; each bar's maximal rectangle (as the limiting height) is resolved exactly when a shorter bar is encountered, giving each index O(1) amortized work.",
+    "solutionCode": "def largest_rectangle_area(heights):\n    stack = []  # indices, heights[stack] is increasing\n    max_area = 0\n    for i, h in enumerate(heights + [0]):  # sentinel flushes the stack at the end\n        while stack and heights[stack[-1]] >= h:\n            height = heights[stack.pop()]\n            width = i if not stack else i - stack[-1] - 1\n            max_area = max(max_area, height * width)\n        stack.append(i)\n    return max_area",
+    "timeComplexity": "O(n) — each index is pushed once and popped at most once.",
+    "spaceComplexity": "O(n) for the stack.",
+    "followUps": [
+      "How does this extend to 'Maximal Rectangle' in a 2D binary matrix (row by row using this as a subroutine)?",
+      "Why does appending a sentinel 0 at the end simplify the code instead of writing a separate flush loop?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["stack", "monotonic-stack", "array"]
+  },
+  {
+    "id": "PS-SQ-004",
+    "title": "Decode String",
+    "category": "Stacks & Queues",
+    "difficulty": "Medium",
+    "pattern": "Stack",
+    "problemStatement": "Given an encoded string in the form k[encoded_string] (meaning encoded_string is repeated k times, and this can nest), return its fully decoded string.",
+    "examples": [
+      { "input": "s = \"3[a2[c]]\"", "output": "\"accaccacc\"", "explanation": "2[c] decodes to \"cc\"; a + \"cc\" = \"acc\"; repeated 3 times = \"accaccacc\"." },
+      { "input": "s = \"3[a]2[bc]\"", "output": "\"aaabcbc\"" }
+    ],
+    "constraints": ["1 <= s.length <= 30"],
+    "approachSteps": [
+      "Nesting (brackets inside brackets) is the key difficulty — whatever structure you use needs to naturally handle 'pause the outer context, fully resolve the inner one, then resume' — that's exactly what a stack gives you.",
+      "Track the current decoded string being built and the current multiplier number as you scan.",
+      "On a digit, accumulate it into the current number (numbers can be multi-digit, e.g. '12[...]').",
+      "On '[', push the current (string-so-far, number) pair onto the stack as a checkpoint, then reset both to start building the nested content fresh.",
+      "On ']', pop the checkpoint, and the just-finished nested string gets repeated by that popped number and appended to the popped string-so-far — restoring the outer context with the resolved inner content folded in.",
+      "Any plain character just appends directly to the current string being built."
+    ],
+    "bruteForce": { "approach": "Recursive descent parsing that finds each matching bracket pair by re-scanning for the matching ']' before recursing.", "timeComplexity": "O(n^2) in the worst case, from repeated bracket-matching scans", "spaceComplexity": "O(n) recursion depth" },
+    "optimalApproach": "Single-pass stack of (string, number) checkpoints: push a checkpoint on '[', pop and fold the resolved nested string into it on ']'.",
+    "solutionCode": "def decode_string(s):\n    stack = []\n    curr_str = ''\n    curr_num = 0\n\n    for ch in s:\n        if ch.isdigit():\n            curr_num = curr_num * 10 + int(ch)\n        elif ch == '[':\n            stack.append((curr_str, curr_num))\n            curr_str = ''\n            curr_num = 0\n        elif ch == ']':\n            prev_str, num = stack.pop()\n            curr_str = prev_str + curr_str * num\n        else:\n            curr_str += ch\n\n    return curr_str",
+    "timeComplexity": "O(n) relative to the length of the final decoded output — nested multipliers mean the output can be exponentially larger than the input, and building it is inherently proportional to its own size.",
+    "spaceComplexity": "O(n) for the stack of checkpoints plus the output being built.",
+    "followUps": [
+      "What would need to change to support a malformed or ambiguous input, and how would you validate brackets are balanced first?",
+      "How would you solve this recursively instead, consuming characters from an index/iterator rather than using an explicit stack?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["stack", "string"],
+    "reportedAt": ["Chaldal", "Therap (BD)"],
+    "sources": ["src-bd-interview-questions-repo"]
+  },
+  {
+    "id": "PS-SQ-005",
+    "title": "Basic Calculator II",
+    "category": "Stacks & Queues",
+    "difficulty": "Hard",
+    "pattern": "Stack (Operator Precedence)",
+    "problemStatement": "Given a string s representing an arithmetic expression containing non-negative integers and the operators '+', '-', '*', '/' (no parentheses), evaluate it and return the result. Integer division should truncate toward zero.",
+    "examples": [
+      { "input": "s = \"3+2*2\"", "output": "7" },
+      { "input": "s = \" 14-3/2 \"", "output": "13", "explanation": "3/2 truncates to 1, so 14 - 1 = 13." }
+    ],
+    "constraints": ["1 <= s.length <= 3*10^5"],
+    "approachSteps": [
+      "Evaluating strictly left to right would be wrong — '*' and '/' must bind tighter than '+' and '-' (operator precedence), so you need a strategy that respects that without a full expression-tree parser.",
+      "Key trick: process left to right, but only APPLY an operator once you know the next number that completes it — and handle precedence by how you push onto a stack.",
+      "Track the 'last seen operator' (starting as '+') and the number currently being built (digits accumulate across multi-digit numbers).",
+      "Whenever you hit a new operator (or the end of the string), resolve the PREVIOUS operator against the number just finished: '+' pushes the number, '-' pushes its negation, '*' pops the stack top and multiplies it by the number then pushes the result back, and '/' pops and divides (truncating toward zero) then pushes the result back.",
+      "Because '*' and '/' immediately fold into the existing top-of-stack value rather than being pushed separately, by the end the stack only contains terms that are added — summing the stack gives the final answer."
+    ],
+    "bruteForce": { "approach": "There isn't a fundamentally different brute force — operator precedence must be respected one way or another; a naive left-to-right evaluation ignoring precedence produces wrong answers, not just worse complexity.", "timeComplexity": "O(n)", "spaceComplexity": "O(n)" },
+    "optimalApproach": "Single-pass stack that immediately folds '*' and '/' into the previous value (since they bind tighter), leaving only '+'/'-' terms on the stack to be summed at the end.",
+    "solutionCode": "def calculate(s):\n    stack = []\n    num = 0\n    sign = '+'\n    s = s + '+'  # sentinel operator flushes the final number\n\n    for ch in s:\n        if ch.isdigit():\n            num = num * 10 + int(ch)\n        elif ch in '+-*/':\n            if sign == '+':\n                stack.append(num)\n            elif sign == '-':\n                stack.append(-num)\n            elif sign == '*':\n                stack.append(stack.pop() * num)\n            elif sign == '/':\n                prev = stack.pop()\n                stack.append(int(prev / num))  # truncate toward zero\n            sign = ch\n            num = 0\n\n    return sum(stack)",
+    "timeComplexity": "O(n) — a single pass through the expression string.",
+    "spaceComplexity": "O(n) worst case for the stack (an expression that's entirely '+'/'-' terms).",
+    "followUps": [
+      "How would you extend this to also support parentheses (Basic Calculator III, combining this with a recursive or explicit-stack approach for nested groups)?",
+      "Why does appending a sentinel '+' to the end of the string simplify the code instead of writing separate flush logic after the loop?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["stack", "string", "math"],
+    "reportedAt": ["Therap (BD)"],
+    "sources": ["src-bd-interview-questions-repo"]
+  }
+]

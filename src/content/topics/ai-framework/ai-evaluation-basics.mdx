@@ -1,0 +1,74 @@
+---
+id: AI-EVALUATION-BASICS
+title: "AI Evaluation Basics"
+titleBn: "AI Evaluation Basics"
+description: "Gold sets, rubrics, regression evals, traces, and why demos are not metrics."
+descriptionBn: "Gold set, rubric, regression eval, trace—এবং কেন demo মেট্রিক নয়।"
+track: ai-framework
+category: evaluation
+difficulty: intermediate
+estimatedMinutes: 45
+prerequisites:
+  - "AI-LLM-FUNDAMENTALS"
+  - "AI-PROMPT-ENGINEERING"
+unlocks: []
+related:
+  - "AI-RAG-FUNDAMENTALS"
+  - "AI-SECURITY-OWASP"
+  - "AI-STRUCTURED-OUTPUTS"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "evaluation"
+  - "metrics"
+  - "regression"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "OPENAI-API-DOCS"
+  - "LANGCHAIN-DOCS"
+  - "OLLAMA-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+Bangla title/description may be partial; technical terms stay in English.
+</Callout>
+
+<Callout type="mental-model">
+If you cannot replay inputs and compare scores, you do not have evaluation—you have storytelling.
+</Callout>
+
+## Why this matters
+
+Model and prompt swaps look fine in chat and fail in production. Evaluation freezes inputs and scores outputs so changes are falsifiable.
+
+## Building blocks
+
+1. **Task definition** — Clear success criteria.
+2. **Gold / fixture set** — Versioned examples with labels or rubrics.
+3. **Metrics** — Exact match, rubric scores, retrieval hit@k, groundedness.
+4. **Traces** — Prompt, tools, retrieved docs, latency, cost.
+5. **Gates** — Block releases on regressions.
+
+## Practical checks
+
+- Start with 20–50 hard cases, not 10,000 easy ones.
+- Split by failure mode (RAG miss vs generation invent).
+- Track cost and latency beside quality.
+
+## Interview angle
+
+Describe how you would catch a silent prompt regression in CI.
+
+## Next
+
+Prompt Lab project `PBL-AI-B-001` and open-model eval platform `PBL-AI-A-002`.

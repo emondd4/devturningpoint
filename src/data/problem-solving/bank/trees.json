@@ -1,0 +1,124 @@
+[
+  {
+    "id": "PS-TR-001",
+    "title": "Maximum Depth of Binary Tree",
+    "category": "Trees",
+    "difficulty": "Easy",
+    "pattern": "DFS / Recursion",
+    "problemStatement": "Given the root of a binary tree, return its maximum depth (the number of nodes along the longest path from the root down to the farthest leaf node).",
+    "examples": [
+      { "input": "root = [3,9,20,null,null,15,7]", "output": "3" }
+    ],
+    "constraints": ["The number of nodes is in [0, 10^4]"],
+    "approachSteps": [
+      "The depth of a tree is naturally defined in terms of the depth of its subtrees — a strong signal to think recursively.",
+      "Base case: an empty tree (null node) has depth 0.",
+      "Recursive case: a node's depth is 1 (for itself) plus the larger of its left and right subtree depths.",
+      "Recurse on both children, then combine with max() and add 1."
+    ],
+    "bruteForce": { "approach": "Iterative BFS level-by-level, counting levels — also O(n), just a different valid strategy (not really a 'worse' brute force here, both are optimal).", "timeComplexity": "O(n)", "spaceComplexity": "O(n) worst case for the queue" },
+    "optimalApproach": "Recursive DFS: depth(node) = 1 + max(depth(node.left), depth(node.right)), with depth(null) = 0.",
+    "solutionCode": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef max_depth(root):\n    if not root:\n        return 0\n    return 1 + max(max_depth(root.left), max_depth(root.right))",
+    "timeComplexity": "O(n) — visits every node exactly once.",
+    "spaceComplexity": "O(h) for the recursion call stack, where h is the tree's height — O(log n) for a balanced tree, O(n) worst case for a skewed one.",
+    "followUps": [
+      "How would you compute this iteratively with an explicit stack (avoiding recursion) or with BFS level counting?",
+      "How would you find the MINIMUM depth to a leaf, and why is that not simply the same recursion with min()?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["tree", "dfs", "recursion"]
+  },
+  {
+    "id": "PS-TR-002",
+    "title": "Validate Binary Search Tree",
+    "category": "Trees",
+    "difficulty": "Medium",
+    "pattern": "DFS with Range Bounds",
+    "problemStatement": "Given the root of a binary tree, determine if it is a valid binary search tree (BST): every node's value must be strictly greater than all values in its left subtree and strictly less than all values in its right subtree, recursively for every node.",
+    "examples": [
+      { "input": "root = [2,1,3]", "output": "true" },
+      { "input": "root = [5,1,4,null,null,3,6]", "output": "false", "explanation": "The root's right child 4 has a left child 3, which is less than the root's value 5 — violates BST property even though 3 < 4 locally." }
+    ],
+    "constraints": ["The number of nodes is in [1, 10^4]"],
+    "approachSteps": [
+      "A common bug: checking only node.left.val < node.val < node.right.val locally — this misses violations deeper in the subtree (see the example). You need each node checked against a valid RANGE, not just its immediate parent.",
+      "Pass down a (low, high) bound as you recurse: the current node's value must strictly fall within that range.",
+      "When recursing left, the upper bound tightens to the current node's value (everything in the left subtree must be less than it); the lower bound is unchanged.",
+      "When recursing right, the lower bound tightens to the current node's value; the upper bound is unchanged.",
+      "An empty subtree is trivially valid (base case). If any node violates its range, the whole tree is invalid."
+    ],
+    "bruteForce": { "approach": "In-order traversal into a list, then check the list is strictly increasing — also O(n), a valid alternative optimal approach.", "timeComplexity": "O(n)", "spaceComplexity": "O(n) for the list" },
+    "optimalApproach": "DFS carrying a valid (low, high) range for each node, tightened appropriately when recursing into left/right subtrees.",
+    "solutionCode": "def is_valid_bst(root, low=float('-inf'), high=float('inf')):\n    if not root:\n        return True\n    if not (low < root.val < high):\n        return False\n    return (is_valid_bst(root.left, low, root.val) and\n            is_valid_bst(root.right, root.val, high))",
+    "timeComplexity": "O(n) — visits every node once.",
+    "spaceComplexity": "O(h) recursion stack, h = tree height.",
+    "followUps": [
+      "Why does the in-order-traversal approach also work — what property of BSTs does it rely on?",
+      "How would you handle duplicate values if the definition were '<=' instead of strict '<'?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["tree", "bst", "dfs", "recursion"]
+  },
+  {
+    "id": "PS-TR-003",
+    "title": "Serialize and Deserialize Binary Tree",
+    "category": "Trees",
+    "difficulty": "Hard",
+    "pattern": "DFS Preorder Encoding",
+    "problemStatement": "Design an algorithm to serialize a binary tree to a single string, and deserialize that string back to the original tree structure (not necessarily the same object references, but structurally identical).",
+    "examples": [
+      { "input": "root = [1,2,3,null,null,4,5]", "output": "A string like \"1,2,#,#,3,4,#,#,5,#,#\" that can be deserialized back to the same tree." }
+    ],
+    "constraints": ["The number of nodes is in [0, 10^4]"],
+    "approachSteps": [
+      "A tree needs enough information encoded that you can reconstruct its exact shape — an in-order traversal alone isn't enough (many trees share the same in-order sequence), so you need to record structure explicitly, including where children are missing.",
+      "Use preorder traversal (root, then left, then right) and explicitly write a sentinel (e.g. '#') for null children — this makes the encoding structurally unambiguous.",
+      "Serialize: recursively visit root, append its value, then recurse left, then recurse right; append '#' whenever you'd recurse into a null.",
+      "Deserialize: since it's preorder, the FIRST token is always the root. Consume tokens from the front of the list: build the root from the first token, then recursively build the left subtree (consuming more tokens), then the right subtree.",
+      "Because preorder + explicit null markers fully determines the recursive structure, a single left-to-right pass through the tokens correctly rebuilds the tree with no ambiguity."
+    ],
+    "bruteForce": { "approach": "Level-order (BFS) serialization with null markers is also valid and commonly used — not really a 'worse' approach, just a different valid encoding (arguably more intuitive, slightly more bookkeeping).", "timeComplexity": "O(n)", "spaceComplexity": "O(n)" },
+    "optimalApproach": "Preorder DFS serialization with explicit null sentinels; deserialization consumes the token stream in the same preorder sequence to rebuild the tree recursively.",
+    "solutionCode": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef serialize(root):\n    vals = []\n    def dfs(node):\n        if not node:\n            vals.append('#')\n            return\n        vals.append(str(node.val))\n        dfs(node.left)\n        dfs(node.right)\n    dfs(root)\n    return ','.join(vals)\n\ndef deserialize(data):\n    vals = iter(data.split(','))\n    def build():\n        val = next(vals)\n        if val == '#':\n            return None\n        node = TreeNode(int(val))\n        node.left = build()\n        node.right = build()\n        return node\n    return build()",
+    "timeComplexity": "O(n) for both serialize and deserialize — each node/null slot is visited once.",
+    "spaceComplexity": "O(n) for the serialized string/token list, plus O(h) recursion stack.",
+    "followUps": [
+      "How would you serialize using level-order (BFS) instead, and what changes in the deserialization logic?",
+      "How would this approach need to change for an N-ary tree instead of a binary tree?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["tree", "dfs", "design", "recursion"]
+  },
+  {
+    "id": "PS-TR-004",
+    "title": "Same Tree",
+    "category": "Trees",
+    "difficulty": "Easy",
+    "pattern": "DFS / Recursion",
+    "problemStatement": "Given the roots of two binary trees p and q, return true if they are structurally identical and the nodes have the same values (not just isomorphic — exact same shape and values).",
+    "examples": [
+      { "input": "p = [1,2,3], q = [1,2,3]", "output": "true" },
+      { "input": "p = [1,2], q = [1,null,2]", "output": "false", "explanation": "Same values present, but different shape (left child vs right child)." }
+    ],
+    "constraints": ["The number of nodes in both trees is in [0, 100]"],
+    "approachSteps": [
+      "Two trees are the same only if their roots match AND both their left subtrees match AND both their right subtrees match — a direct recursive definition.",
+      "Base case: if both nodes are null, they trivially match (empty matches empty).",
+      "Base case: if exactly one is null (the other isn't), they can't match — different shape.",
+      "Recursive case: check the current values are equal, then recurse into left-vs-left and right-vs-right, requiring both to be true."
+    ],
+    "bruteForce": { "approach": "Serialize both trees (e.g. preorder traversal with explicit null markers) into strings, then compare the strings for equality.", "timeComplexity": "O(n)", "spaceComplexity": "O(n) for the serialized strings" },
+    "optimalApproach": "Direct recursive comparison of both trees simultaneously, checking value equality and recursing into corresponding left/right subtrees.",
+    "solutionCode": "def is_same_tree(p, q):\n    if not p and not q:\n        return True\n    if not p or not q:\n        return False\n    return (p.val == q.val and\n            is_same_tree(p.left, q.left) and\n            is_same_tree(p.right, q.right))",
+    "timeComplexity": "O(min(n, m)) — recursion can exit early on the first mismatch; O(n) worst case when the trees are actually identical (or identical in size).",
+    "spaceComplexity": "O(h) recursion stack, where h is the smaller tree's height — no extra string buffer needed, unlike the serialization approach.",
+    "followUps": [
+      "How would 'Subtree of Another Tree' (is q a subtree ANYWHERE inside p, not necessarily starting at the root) build on this same helper function?",
+      "How would you adapt this to check if two trees are mirror images of each other (Symmetric Tree) instead of identical?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["tree", "dfs", "recursion"],
+    "reportedAt": ["Therap (BD)"],
+    "sources": ["src-bd-interview-questions-repo"]
+  }
+]

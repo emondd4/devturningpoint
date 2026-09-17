@@ -1,0 +1,35 @@
+{
+  "id": "AI-TOOL-MLFLOW",
+  "name": "MLflow",
+  "category": "evaluation-observability",
+  "description": "Open experiment tracking and model lifecycle tooling adaptable to LLMOps.",
+  "bestFor": [
+    "Experiment tracking",
+    "Model registry habits"
+  ],
+  "notIdealFor": [
+    "Pure chat UI without offline experiments"
+  ],
+  "prerequisites": [
+    "AI-EVALUATION-BASICS"
+  ],
+  "officialUrl": "https://mlflow.org/",
+  "docsUrl": "https://mlflow.org/docs/latest/index.html",
+  "languageEcosystem": [
+    "Python"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "OSS; hosting optional.",
+  "securityNotes": [
+    "Artifact stores hold sensitive data"
+  ],
+  "relatedTopicIds": [
+    "AI-LLMOPS"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-A-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

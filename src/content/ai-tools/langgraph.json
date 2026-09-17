@@ -1,0 +1,39 @@
+{
+  "id": "AI-TOOL-LANGGRAPH",
+  "name": "LangGraph",
+  "category": "application-frameworks",
+  "description": "Graph/stateful orchestration for multi-step agents with durable workflows.",
+  "bestFor": [
+    "Stateful agents",
+    "Human-in-the-loop checkpoints"
+  ],
+  "notIdealFor": [
+    "One-shot classification APIs"
+  ],
+  "prerequisites": [
+    "AI-TOOL-CALLING",
+    "AI-AGENTS-OVERVIEW"
+  ],
+  "officialUrl": "https://www.langchain.com/langgraph",
+  "docsUrl": "https://langchain-ai.github.io/langgraph/",
+  "languageEcosystem": [
+    "Python",
+    "TypeScript"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "Open-source; infra/hosting separate.",
+  "securityNotes": [
+    "Bound tool permissions",
+    "Persist state carefully across tenants"
+  ],
+  "relatedTopicIds": [
+    "AI-AGENTS-OVERVIEW",
+    "AI-MCP-INTRO"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-A-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

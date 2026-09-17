@@ -1,0 +1,37 @@
+{
+  "id": "AI-TOOL-CLAUDE-CODE",
+  "name": "Claude Code",
+  "category": "coding-agents",
+  "description": "Anthropic coding agent for terminal/repo workflows with strong reasoning models.",
+  "bestFor": [
+    "CLI-centric agent loops",
+    "Anthropic-stack teams"
+  ],
+  "notIdealFor": [
+    "Blind autonomous production changes"
+  ],
+  "prerequisites": [
+    "AI-LLM-FUNDAMENTALS"
+  ],
+  "officialUrl": "https://www.anthropic.com/",
+  "docsUrl": "https://docs.anthropic.com/",
+  "languageEcosystem": [
+    "multi-language"
+  ],
+  "localOrCloud": "cloud",
+  "openSourceStatus": "proprietary",
+  "costModelSummary": "Anthropic API / product usage; confirm current plans.",
+  "securityNotes": [
+    "Least-privilege tool access",
+    "Human review of diffs"
+  ],
+  "relatedTopicIds": [
+    "AI-CODING-AGENTS-CURSOR",
+    "AI-TOOL-CALLING"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-B-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

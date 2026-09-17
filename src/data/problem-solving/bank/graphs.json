@@ -1,0 +1,93 @@
+[
+  {
+    "id": "PS-GR-001",
+    "title": "Flood Fill",
+    "category": "Graphs",
+    "difficulty": "Easy",
+    "pattern": "DFS/BFS Grid Traversal",
+    "problemStatement": "You are given an image (2D grid of integers representing colors), a starting pixel (sr, sc), and a newColor. Perform a flood fill: starting from the pixel, change its color and the color of every pixel connected to it (4-directionally) that has the SAME original color, to newColor.",
+    "examples": [
+      { "input": "image = [[1,1,1],[1,1,0],[1,0,1]], sr=1, sc=1, newColor=2", "output": "[[2,2,2],[2,2,0],[2,0,1]]" }
+    ],
+    "constraints": ["1 <= image.length, image[0].length <= 50"],
+    "approachSteps": [
+      "This is exactly graph connectivity, where each grid cell is a node connected to its up/down/left/right neighbors of the same color.",
+      "Remember the starting pixel's original color before you change anything (otherwise your 'same color' check breaks after the first change).",
+      "If the new color equals the original color, do nothing — otherwise, naive recursion could infinite-loop revisiting already-filled cells.",
+      "DFS (or BFS) from the start: if the current cell matches the original color, set it to newColor, then recurse into its 4 neighbors that are within bounds.",
+      "Each cell is only ever processed once because once its color is changed to newColor, it no longer matches the 'original color' check."
+    ],
+    "bruteForce": { "approach": "There isn't a meaningfully different brute force here — DFS/BFS is already the natural and optimal approach for connectivity problems.", "timeComplexity": "O(rows * cols)", "spaceComplexity": "O(rows * cols)" },
+    "optimalApproach": "DFS (or BFS) from the start pixel, recoloring same-colored connected pixels and recursing into in-bounds neighbors; the color check itself prevents revisiting.",
+    "solutionCode": "def flood_fill(image, sr, sc, new_color):\n    original = image[sr][sc]\n    if original == new_color:\n        return image\n\n    rows, cols = len(image), len(image[0])\n\n    def dfs(r, c):\n        if r < 0 or r >= rows or c < 0 or c >= cols or image[r][c] != original:\n            return\n        image[r][c] = new_color\n        dfs(r + 1, c)\n        dfs(r - 1, c)\n        dfs(r, c + 1)\n        dfs(r, c - 1)\n\n    dfs(sr, sc)\n    return image",
+    "timeComplexity": "O(rows * cols) — each cell is visited and recolored at most once.",
+    "spaceComplexity": "O(rows * cols) worst case for the recursion stack (e.g. a grid that's a single connected snake).",
+    "followUps": [
+      "Why is checking original == new_color upfront necessary for correctness, not just an optimization?",
+      "How would you rewrite this iteratively with an explicit stack or queue to avoid recursion depth limits on large grids?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["graph", "dfs", "bfs", "matrix"]
+  },
+  {
+    "id": "PS-GR-002",
+    "title": "Number of Islands",
+    "category": "Graphs",
+    "difficulty": "Medium",
+    "pattern": "DFS/BFS Grid Traversal",
+    "problemStatement": "Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and formed by connecting adjacent lands horizontally or vertically.",
+    "examples": [
+      { "input": "grid = [[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"1\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"1\",\"1\"]]", "output": "3" }
+    ],
+    "constraints": ["1 <= m, n <= 300"],
+    "approachSteps": [
+      "An 'island' is a connected component of land cells — this is graph connectivity again, but now you need to COUNT distinct components, not just fill one.",
+      "Scan every cell in the grid in order.",
+      "Whenever you find an unvisited land cell ('1'), that's the start of a NEW island — increment the island count.",
+      "Immediately DFS (or BFS) from that cell, marking every connected land cell as visited (e.g. by flipping it to '0' or using a separate visited set) so it's never counted again.",
+      "Continue the outer scan; because visited land is marked, each island is only ever discovered and counted once, no matter its shape or size."
+    ],
+    "bruteForce": { "approach": "There isn't a fundamentally different brute force — scanning + connected-component marking is already optimal; the only variation is DFS vs BFS vs Union-Find.", "timeComplexity": "O(rows * cols)", "spaceComplexity": "O(rows * cols)" },
+    "optimalApproach": "Scan every cell; on an unvisited land cell, increment the island count and flood-fill (DFS/BFS) to mark the whole connected component as visited so it's not recounted.",
+    "solutionCode": "def num_islands(grid):\n    if not grid:\n        return 0\n    rows, cols = len(grid), len(grid[0])\n    islands = 0\n\n    def dfs(r, c):\n        if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] != '1':\n            return\n        grid[r][c] = '0'  # mark visited\n        dfs(r + 1, c)\n        dfs(r - 1, c)\n        dfs(r, c + 1)\n        dfs(r, c - 1)\n\n    for r in range(rows):\n        for c in range(cols):\n            if grid[r][c] == '1':\n                islands += 1\n                dfs(r, c)\n\n    return islands",
+    "timeComplexity": "O(rows * cols) — every cell is visited a constant number of times total (once by the outer scan, plus once when flood-filled).",
+    "spaceComplexity": "O(rows * cols) worst case for the DFS recursion stack (a grid that's entirely one island).",
+    "followUps": [
+      "How would you solve this with Union-Find (Disjoint Set Union) instead of DFS, and when might that be preferable?",
+      "How would 'Number of Islands II' (islands added one at a time, count after each addition) change your approach?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["graph", "dfs", "bfs", "matrix"]
+  },
+  {
+    "id": "PS-GR-003",
+    "title": "Course Schedule",
+    "category": "Graphs",
+    "difficulty": "Hard",
+    "pattern": "Topological Sort (Kahn's Algorithm / DFS)",
+    "problemStatement": "There are numCourses courses labeled 0 to numCourses-1. You are given prerequisites where prerequisites[i] = [a, b] means you must take course b before course a. Return true if you can finish all courses (i.e., there is no cycle in the prerequisite graph), false otherwise.",
+    "examples": [
+      { "input": "numCourses = 2, prerequisites = [[1,0]]", "output": "true", "explanation": "Take course 0, then course 1." },
+      { "input": "numCourses = 2, prerequisites = [[1,0],[0,1]]", "output": "false", "explanation": "Course 0 needs course 1 and vice versa — a cycle, impossible." }
+    ],
+    "constraints": ["1 <= numCourses <= 2000"],
+    "approachSteps": [
+      "'Can all courses be finished' is exactly asking: is this directed graph of prerequisites acyclic? A valid course order is a topological sort, which only exists for a DAG (no cycles).",
+      "Build an adjacency list and compute each course's in-degree (number of prerequisites it still needs).",
+      "Start a queue with every course that has in-degree 0 (no prerequisites — can be taken immediately).",
+      "Repeatedly pop a course from the queue, 'take' it, and decrement the in-degree of every course that depends on it — if any of those drops to 0, push it onto the queue.",
+      "Count how many courses were successfully taken this way. If it equals numCourses, every course was reachable in valid order (no cycle); if fewer, some courses are stuck in a cycle and were never freed up."
+    ],
+    "bruteForce": { "approach": "DFS from each node tracking the current recursion path (a 'visiting' set); if you ever revisit a node that's still in the current path, that's a cycle.", "timeComplexity": "O(V + E)", "spaceComplexity": "O(V + E)" },
+    "optimalApproach": "Kahn's algorithm: BFS topological sort using in-degrees. If the number of courses processed equals numCourses, the graph is acyclic and completion is possible.",
+    "solutionCode": "from collections import deque, defaultdict\n\ndef can_finish(num_courses, prerequisites):\n    graph = defaultdict(list)\n    in_degree = [0] * num_courses\n\n    for course, prereq in prerequisites:\n        graph[prereq].append(course)\n        in_degree[course] += 1\n\n    queue = deque([c for c in range(num_courses) if in_degree[c] == 0])\n    taken = 0\n\n    while queue:\n        course = queue.popleft()\n        taken += 1\n        for next_course in graph[course]:\n            in_degree[next_course] -= 1\n            if in_degree[next_course] == 0:\n                queue.append(next_course)\n\n    return taken == num_courses",
+    "timeComplexity": "O(V + E) — V courses and E prerequisite edges, each processed a constant number of times.",
+    "spaceComplexity": "O(V + E) for the adjacency list, in-degree array, and queue.",
+    "followUps": [
+      "How would you modify this to return a valid course ORDER, not just true/false (Course Schedule II)?",
+      "Walk through the DFS 'visiting/visited' cycle-detection alternative — why does a two-color (or three-color) marking scheme matter there?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["graph", "topological-sort", "bfs", "cycle-detection"]
+  }
+]

@@ -3,7 +3,7 @@
     {
       "id": "TRACK-FOUNDATIONS",
       "title": "Foundations Track",
-      "titleBn": "মৌলিক ট্র্যাক",
+      "titleBn": "\u09ae\u09cc\u09b2\u09bf\u0995 \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Track hub node for graph membership edges."
@@ -11,7 +11,7 @@
     {
       "id": "TRACK-MOBILE",
       "title": "Mobile Track",
-      "titleBn": "মোবাইল ট্র্যাক",
+      "titleBn": "\u09ae\u09cb\u09ac\u09be\u0987\u09b2 \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995",
       "track": "mobile-flutter",
       "difficulty": "beginner",
       "description": "Track hub node for graph membership edges."
@@ -19,7 +19,7 @@
     {
       "id": "TRACK-FRONTEND",
       "title": "Frontend Track",
-      "titleBn": "ফ্রন্টএন্ড ট্র্যাক",
+      "titleBn": "\u09ab\u09cd\u09b0\u09a8\u09cd\u099f\u098f\u09a8\u09cd\u09a1 \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995",
       "track": "frontend",
       "difficulty": "beginner",
       "description": "Track hub node for graph membership edges."
@@ -27,7 +27,7 @@
     {
       "id": "TRACK-BACKEND",
       "title": "Backend Track",
-      "titleBn": "ব্যাকএন্ড ট্র্যাক",
+      "titleBn": "\u09ac\u09cd\u09af\u09be\u0995\u098f\u09a8\u09cd\u09a1 \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995",
       "track": "backend",
       "difficulty": "beginner",
       "description": "Track hub node for graph membership edges."
@@ -35,7 +35,7 @@
     {
       "id": "TRACK-FULLSTACK",
       "title": "Full-Stack Track",
-      "titleBn": "ফুল-স্ট্যাক ট্র্যাক",
+      "titleBn": "\u09ab\u09c1\u09b2-\u09b8\u09cd\u099f\u09cd\u09af\u09be\u0995 \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995",
       "track": "fullstack",
       "difficulty": "beginner",
       "description": "Track hub node for graph membership edges."
@@ -43,7 +43,7 @@
     {
       "id": "TRACK-DEVOPS",
       "title": "DevOps Track",
-      "titleBn": "DevOps ট্র্যাক",
+      "titleBn": "DevOps \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995",
       "track": "devops",
       "difficulty": "beginner",
       "description": "Track hub node for graph membership edges."
@@ -51,7 +51,7 @@
     {
       "id": "TRACK-DATABASE",
       "title": "Database Track",
-      "titleBn": "ডেটাবেস ট্র্যাক",
+      "titleBn": "\u09a1\u09c7\u099f\u09be\u09ac\u09c7\u09b8 \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995",
       "track": "database",
       "difficulty": "beginner",
       "description": "Track hub node for graph membership edges."
@@ -59,7 +59,7 @@
     {
       "id": "TRACK-QA",
       "title": "QA Track",
-      "titleBn": "QA ট্র্যাক",
+      "titleBn": "QA \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995",
       "track": "qa",
       "difficulty": "beginner",
       "description": "Track hub node for graph membership edges."
@@ -67,7 +67,7 @@
     {
       "id": "TRACK-UIUX",
       "title": "UI/UX Track",
-      "titleBn": "UI/UX ট্র্যাক",
+      "titleBn": "UI/UX \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995",
       "track": "uiux",
       "difficulty": "beginner",
       "description": "Track hub node for graph membership edges."
@@ -75,7 +75,7 @@
     {
       "id": "TRACK-PM",
       "title": "Project Management Track",
-      "titleBn": "প্রজেক্ট ম্যানেজমেন্ট ট্র্যাক",
+      "titleBn": "\u09aa\u09cd\u09b0\u099c\u09c7\u0995\u09cd\u099f \u09ae\u09cd\u09af\u09be\u09a8\u09c7\u099c\u09ae\u09c7\u09a8\u09cd\u099f \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995",
       "track": "project-management",
       "difficulty": "beginner",
       "description": "Track hub node for graph membership edges."
@@ -155,7 +155,7 @@
     {
       "id": "FOUNDATIONS-BINARY",
       "title": "Binary & Number Systems",
-      "titleBn": "বাইনারি ও সংখ্যা পদ্ধতি",
+      "titleBn": "\u09ac\u09be\u0987\u09a8\u09be\u09b0\u09bf \u0993 \u09b8\u0982\u0996\u09cd\u09af\u09be \u09aa\u09a6\u09cd\u09a7\u09a4\u09bf",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "How computers represent numbers in binary and related bases."
@@ -163,7 +163,7 @@
     {
       "id": "FOUNDATIONS-BITS-BYTES",
       "title": "Bits, Bytes & Encoding",
-      "titleBn": "বিট, বাইট ও এনকোডিং",
+      "titleBn": "\u09ac\u09bf\u099f, \u09ac\u09be\u0987\u099f \u0993 \u098f\u09a8\u0995\u09cb\u09a1\u09bf\u0982",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Units of digital information and text encodings such as UTF-8."
@@ -171,7 +171,7 @@
     {
       "id": "FOUNDATIONS-CPU",
       "title": "CPU & Instruction Basics",
-      "titleBn": "CPU ও নির্দেশনা",
+      "titleBn": "CPU \u0993 \u09a8\u09bf\u09b0\u09cd\u09a6\u09c7\u09b6\u09a8\u09be",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "How a CPU fetches and executes instructions."
@@ -179,7 +179,7 @@
     {
       "id": "FOUNDATIONS-MEMORY",
       "title": "Memory Hierarchy",
-      "titleBn": "মেমোরি হাইয়ারার্কি",
+      "titleBn": "\u09ae\u09c7\u09ae\u09cb\u09b0\u09bf \u09b9\u09be\u0987\u09af\u09bc\u09be\u09b0\u09be\u09b0\u09cd\u0995\u09bf",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Registers, cache, RAM, and how programs use memory."
@@ -187,7 +187,7 @@
     {
       "id": "FOUNDATIONS-STORAGE",
       "title": "Persistent Storage",
-      "titleBn": "পারসিস্টেন্ট স্টোরেজ",
+      "titleBn": "\u09aa\u09be\u09b0\u09b8\u09bf\u09b8\u09cd\u099f\u09c7\u09a8\u09cd\u099f \u09b8\u09cd\u099f\u09cb\u09b0\u09c7\u099c",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Disks, SSDs, and durability trade-offs."
@@ -195,7 +195,7 @@
     {
       "id": "FOUNDATIONS-PROCESSES",
       "title": "Processes & Threads",
-      "titleBn": "প্রসেস ও থ্রেড",
+      "titleBn": "\u09aa\u09cd\u09b0\u09b8\u09c7\u09b8 \u0993 \u09a5\u09cd\u09b0\u09c7\u09a1",
       "track": "foundations",
       "difficulty": "intermediate",
       "description": "OS process model, concurrency basics, and scheduling."
@@ -203,7 +203,7 @@
     {
       "id": "FOUNDATIONS-FILESYSTEMS",
       "title": "Filesystems",
-      "titleBn": "ফাইলসিস্টেম",
+      "titleBn": "\u09ab\u09be\u0987\u09b2\u09b8\u09bf\u09b8\u09cd\u099f\u09c7\u09ae",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Paths, permissions model overview, and file organization."
@@ -211,7 +211,7 @@
     {
       "id": "FOUNDATIONS-OS-PERMISSIONS",
       "title": "OS Permissions",
-      "titleBn": "OS পারমিশন",
+      "titleBn": "OS \u09aa\u09be\u09b0\u09ae\u09bf\u09b6\u09a8",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Users, groups, and access control on files and processes."
@@ -219,7 +219,7 @@
     {
       "id": "FOUNDATIONS-VARIABLES",
       "title": "Variables & Binding",
-      "titleBn": "ভেরিয়েবল ও বাইন্ডিং",
+      "titleBn": "\u09ad\u09c7\u09b0\u09bf\u09af\u09bc\u09c7\u09ac\u09b2 \u0993 \u09ac\u09be\u0987\u09a8\u09cd\u09a1\u09bf\u0982",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Names, values, scope, and mutability."
@@ -227,7 +227,7 @@
     {
       "id": "FOUNDATIONS-DATA-TYPES",
       "title": "Data Types",
-      "titleBn": "ডেটা টাইপ",
+      "titleBn": "\u09a1\u09c7\u099f\u09be \u099f\u09be\u0987\u09aa",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Primitive and composite types across languages."
@@ -235,7 +235,7 @@
     {
       "id": "FOUNDATIONS-CONTROL-FLOW",
       "title": "Control Flow",
-      "titleBn": "কন্ট্রোল ফ্লো",
+      "titleBn": "\u0995\u09a8\u09cd\u099f\u09cd\u09b0\u09cb\u09b2 \u09ab\u09cd\u09b2\u09cb",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Conditionals, loops, and branching."
@@ -243,7 +243,7 @@
     {
       "id": "FOUNDATIONS-FUNCTIONS",
       "title": "Functions",
-      "titleBn": "ফাংশন",
+      "titleBn": "\u09ab\u09be\u0982\u09b6\u09a8",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Parameters, return values, and decomposition."
@@ -251,7 +251,7 @@
     {
       "id": "FOUNDATIONS-DATA-STRUCTURES",
       "title": "Data Structures",
-      "titleBn": "ডেটা স্ট্রাকচার",
+      "titleBn": "\u09a1\u09c7\u099f\u09be \u09b8\u09cd\u099f\u09cd\u09b0\u09be\u0995\u099a\u09be\u09b0",
       "track": "foundations",
       "difficulty": "intermediate",
       "description": "Arrays, lists, maps, stacks, queues, and trees."
@@ -259,7 +259,7 @@
     {
       "id": "FOUNDATIONS-ALGORITHMS",
       "title": "Algorithms",
-      "titleBn": "অ্যালগরিদম",
+      "titleBn": "\u0985\u09cd\u09af\u09be\u09b2\u0997\u09b0\u09bf\u09a6\u09ae",
       "track": "foundations",
       "difficulty": "intermediate",
       "description": "Searching, sorting, and common algorithmic patterns."
@@ -267,7 +267,7 @@
     {
       "id": "FOUNDATIONS-COMPLEXITY",
       "title": "Time & Space Complexity",
-      "titleBn": "সময় ও স্থান জটিলতা",
+      "titleBn": "\u09b8\u09ae\u09af\u09bc \u0993 \u09b8\u09cd\u09a5\u09be\u09a8 \u099c\u099f\u09bf\u09b2\u09a4\u09be",
       "track": "foundations",
       "difficulty": "intermediate",
       "description": "Big-O intuition for algorithm cost."
@@ -275,7 +275,7 @@
     {
       "id": "FOUNDATIONS-DEBUGGING",
       "title": "Debugging",
-      "titleBn": "ডিবাগিং",
+      "titleBn": "\u09a1\u09bf\u09ac\u09be\u0997\u09bf\u0982",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Reproduce, isolate, and fix defects systematically."
@@ -283,7 +283,7 @@
     {
       "id": "FOUNDATIONS-ERROR-HANDLING",
       "title": "Error Handling",
-      "titleBn": "এরর হ্যান্ডলিং",
+      "titleBn": "\u098f\u09b0\u09b0 \u09b9\u09cd\u09af\u09be\u09a8\u09cd\u09a1\u09b2\u09bf\u0982",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Exceptions, error values, and failure modes."
@@ -291,7 +291,7 @@
     {
       "id": "FOUNDATIONS-GIT",
       "title": "Git Version Control",
-      "titleBn": "Git ভার্সন কন্ট্রোল",
+      "titleBn": "Git \u09ad\u09be\u09b0\u09cd\u09b8\u09a8 \u0995\u09a8\u09cd\u099f\u09cd\u09b0\u09cb\u09b2",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Commits, branches, merges, and collaboration basics."
@@ -299,7 +299,7 @@
     {
       "id": "FOUNDATIONS-TCP-IP",
       "title": "TCP/IP Networking",
-      "titleBn": "TCP/IP নেটওয়ার্কিং",
+      "titleBn": "TCP/IP \u09a8\u09c7\u099f\u0993\u09af\u09bc\u09be\u09b0\u09cd\u0995\u09bf\u0982",
       "track": "foundations",
       "difficulty": "intermediate",
       "description": "Packets, ports, IP addressing, and transport basics."
@@ -323,7 +323,7 @@
     {
       "id": "FOUNDATIONS-HTTPS-TLS",
       "title": "HTTPS & TLS",
-      "titleBn": "HTTPS ও TLS",
+      "titleBn": "HTTPS \u0993 TLS",
       "track": "foundations",
       "difficulty": "intermediate",
       "description": "Encryption in transit and certificate trust."
@@ -331,7 +331,7 @@
     {
       "id": "FOUNDATIONS-API-CONCEPTS",
       "title": "API Concepts",
-      "titleBn": "API ধারণা",
+      "titleBn": "API \u09a7\u09be\u09b0\u09a3\u09be",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Interfaces between systems: contracts and consumers."
@@ -339,7 +339,7 @@
     {
       "id": "FOUNDATIONS-SECURITY-BASICS",
       "title": "Security Fundamentals",
-      "titleBn": "সিকিউরিটি মৌলিক",
+      "titleBn": "\u09b8\u09bf\u0995\u09bf\u0989\u09b0\u09bf\u099f\u09bf \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Authn vs authz, secrets, and common web risks."
@@ -347,7 +347,7 @@
     {
       "id": "FOUNDATIONS-SQL-INTRO",
       "title": "SQL Introduction",
-      "titleBn": "SQL পরিচিতি",
+      "titleBn": "SQL \u09aa\u09b0\u09bf\u099a\u09bf\u09a4\u09bf",
       "track": "foundations",
       "difficulty": "beginner",
       "description": "Relational tables and basic SELECT/INSERT/UPDATE."
@@ -355,105 +355,105 @@
     {
       "id": "FRONTEND-HTML",
       "title": "HTML Fundamentals",
-      "titleBn": "HTML মৌলিক",
+      "titleBn": "HTML \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "frontend",
       "difficulty": "beginner"
     },
     {
       "id": "FRONTEND-HTML-SEMANTICS",
       "title": "Semantic HTML",
-      "titleBn": "সিম্যান্টিক HTML",
+      "titleBn": "\u09b8\u09bf\u09ae\u09cd\u09af\u09be\u09a8\u09cd\u099f\u09bf\u0995 HTML",
       "track": "frontend",
       "difficulty": "beginner"
     },
     {
       "id": "FRONTEND-HTML-FORMS",
       "title": "HTML Forms",
-      "titleBn": "HTML ফর্ম",
+      "titleBn": "HTML \u09ab\u09b0\u09cd\u09ae",
       "track": "frontend",
       "difficulty": "beginner"
     },
     {
       "id": "FRONTEND-CSS",
       "title": "CSS Fundamentals",
-      "titleBn": "CSS মৌলিক",
+      "titleBn": "CSS \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "frontend",
       "difficulty": "beginner"
     },
     {
       "id": "FRONTEND-CSS-BOX-MODEL",
       "title": "CSS Box Model",
-      "titleBn": "CSS বক্স মডেল",
+      "titleBn": "CSS \u09ac\u0995\u09cd\u09b8 \u09ae\u09a1\u09c7\u09b2",
       "track": "frontend",
       "difficulty": "beginner"
     },
     {
       "id": "FRONTEND-CSS-LAYOUT",
       "title": "Flexbox & Grid",
-      "titleBn": "Flexbox ও Grid",
+      "titleBn": "Flexbox \u0993 Grid",
       "track": "frontend",
       "difficulty": "intermediate"
     },
     {
       "id": "FRONTEND-CSS-RESPONSIVE",
       "title": "Responsive CSS",
-      "titleBn": "রেসপন্সিভ CSS",
+      "titleBn": "\u09b0\u09c7\u09b8\u09aa\u09a8\u09cd\u09b8\u09bf\u09ad CSS",
       "track": "frontend",
       "difficulty": "intermediate"
     },
     {
       "id": "FRONTEND-JAVASCRIPT",
       "title": "JavaScript Fundamentals",
-      "titleBn": "JavaScript মৌলিক",
+      "titleBn": "JavaScript \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "frontend",
       "difficulty": "beginner"
     },
     {
       "id": "FRONTEND-JS-OBJECTS",
       "title": "JS Objects & Prototypes",
-      "titleBn": "JS অবজেক্ট ও প্রোটোটাইপ",
+      "titleBn": "JS \u0985\u09ac\u099c\u09c7\u0995\u09cd\u099f \u0993 \u09aa\u09cd\u09b0\u09cb\u099f\u09cb\u099f\u09be\u0987\u09aa",
       "track": "frontend",
       "difficulty": "intermediate"
     },
     {
       "id": "FRONTEND-JS-DOM",
       "title": "DOM Manipulation",
-      "titleBn": "DOM ম্যানিপুলেশন",
+      "titleBn": "DOM \u09ae\u09cd\u09af\u09be\u09a8\u09bf\u09aa\u09c1\u09b2\u09c7\u09b6\u09a8",
       "track": "frontend",
       "difficulty": "intermediate"
     },
     {
       "id": "FRONTEND-JS-ASYNC",
       "title": "Async JavaScript",
-      "titleBn": "অ্যাসিঙ্ক JavaScript",
+      "titleBn": "\u0985\u09cd\u09af\u09be\u09b8\u09bf\u0999\u09cd\u0995 JavaScript",
       "track": "frontend",
       "difficulty": "intermediate"
     },
     {
       "id": "FRONTEND-JS-MODULES",
       "title": "JavaScript Modules",
-      "titleBn": "JavaScript মডিউল",
+      "titleBn": "JavaScript \u09ae\u09a1\u09bf\u0989\u09b2",
       "track": "frontend",
       "difficulty": "intermediate"
     },
     {
       "id": "FRONTEND-TYPESCRIPT",
       "title": "TypeScript Fundamentals",
-      "titleBn": "TypeScript মৌলিক",
+      "titleBn": "TypeScript \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "frontend",
       "difficulty": "intermediate"
     },
     {
       "id": "FRONTEND-TS-ADVANCED",
       "title": "Advanced TypeScript",
-      "titleBn": "অ্যাডভান্সড TypeScript",
+      "titleBn": "\u0985\u09cd\u09af\u09be\u09a1\u09ad\u09be\u09a8\u09cd\u09b8\u09a1 TypeScript",
       "track": "frontend",
       "difficulty": "advanced"
     },
     {
       "id": "FRONTEND-REACT",
       "title": "React Fundamentals",
-      "titleBn": "React মৌলিক",
+      "titleBn": "React \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "frontend",
       "difficulty": "intermediate"
     },
@@ -467,49 +467,49 @@
     {
       "id": "FRONTEND-REACT-STATE",
       "title": "React State Architecture",
-      "titleBn": "React স্টেট আর্কিটেকচার",
+      "titleBn": "React \u09b8\u09cd\u099f\u09c7\u099f \u0986\u09b0\u09cd\u0995\u09bf\u099f\u09c7\u0995\u099a\u09be\u09b0",
       "track": "frontend",
       "difficulty": "advanced"
     },
     {
       "id": "FRONTEND-REACT-TESTING",
       "title": "React Testing",
-      "titleBn": "React টেস্টিং",
+      "titleBn": "React \u099f\u09c7\u09b8\u09cd\u099f\u09bf\u0982",
       "track": "frontend",
       "difficulty": "advanced"
     },
     {
       "id": "FRONTEND-NEXTJS",
       "title": "Next.js Fundamentals",
-      "titleBn": "Next.js মৌলিক",
+      "titleBn": "Next.js \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "frontend",
       "difficulty": "advanced"
     },
     {
       "id": "FRONTEND-NEXTJS-ROUTING",
       "title": "Next.js Routing & Data",
-      "titleBn": "Next.js রাউটিং ও ডেটা",
+      "titleBn": "Next.js \u09b0\u09be\u0989\u099f\u09bf\u0982 \u0993 \u09a1\u09c7\u099f\u09be",
       "track": "frontend",
       "difficulty": "advanced"
     },
     {
       "id": "FRONTEND-A11Y",
       "title": "Frontend Accessibility",
-      "titleBn": "ফ্রন্টএন্ড অ্যাক্সেসিবিলিটি",
+      "titleBn": "\u09ab\u09cd\u09b0\u09a8\u09cd\u099f\u098f\u09a8\u09cd\u09a1 \u0985\u09cd\u09af\u09be\u0995\u09cd\u09b8\u09c7\u09b8\u09bf\u09ac\u09bf\u09b2\u09bf\u099f\u09bf",
       "track": "frontend",
       "difficulty": "intermediate"
     },
     {
       "id": "FRONTEND-PERFORMANCE",
       "title": "Frontend Performance",
-      "titleBn": "ফ্রন্টএন্ড পারফরম্যান্স",
+      "titleBn": "\u09ab\u09cd\u09b0\u09a8\u09cd\u099f\u098f\u09a8\u09cd\u09a1 \u09aa\u09be\u09b0\u09ab\u09b0\u09ae\u09cd\u09af\u09be\u09a8\u09cd\u09b8",
       "track": "frontend",
       "difficulty": "advanced"
     },
     {
       "id": "MOBILE-DART-BASICS",
       "title": "Dart Basics",
-      "titleBn": "Dart মৌলিক",
+      "titleBn": "Dart \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "mobile-flutter",
       "difficulty": "beginner"
     },
@@ -523,7 +523,7 @@
     {
       "id": "MOBILE-DART-ASYNC",
       "title": "Dart Async (Future/Stream)",
-      "titleBn": "Dart অ্যাসিঙ্ক",
+      "titleBn": "Dart \u0985\u09cd\u09af\u09be\u09b8\u09bf\u0999\u09cd\u0995",
       "track": "mobile-flutter",
       "difficulty": "intermediate"
     },
@@ -537,154 +537,161 @@
     {
       "id": "MOBILE-FLUTTER-LAYOUT",
       "title": "Flutter Layout & Constraints",
-      "titleBn": "Flutter লেআউট",
+      "titleBn": "Flutter \u09b2\u09c7\u0986\u0989\u099f",
       "track": "mobile-flutter",
       "difficulty": "intermediate"
     },
     {
       "id": "MOBILE-FLUTTER-NAVIGATION",
       "title": "Flutter Navigation",
-      "titleBn": "Flutter নেভিগেশন",
+      "titleBn": "Flutter \u09a8\u09c7\u09ad\u09bf\u0997\u09c7\u09b6\u09a8",
       "track": "mobile-flutter",
       "difficulty": "intermediate"
     },
     {
       "id": "MOBILE-FLUTTER-STATE",
       "title": "Flutter State Management",
-      "titleBn": "Flutter স্টেট ম্যানেজমেন্ট",
+      "titleBn": "Flutter \u09b8\u09cd\u099f\u09c7\u099f \u09ae\u09cd\u09af\u09be\u09a8\u09c7\u099c\u09ae\u09c7\u09a8\u09cd\u099f",
       "track": "mobile-flutter",
       "difficulty": "intermediate"
     },
     {
       "id": "MOBILE-FLUTTER-FORMS",
       "title": "Flutter Forms",
-      "titleBn": "Flutter ফর্ম",
+      "titleBn": "Flutter \u09ab\u09b0\u09cd\u09ae",
       "track": "mobile-flutter",
       "difficulty": "intermediate"
     },
     {
       "id": "MOBILE-FLUTTER-NETWORKING",
       "title": "Flutter Networking",
-      "titleBn": "Flutter নেটওয়ার্কিং",
+      "titleBn": "Flutter \u09a8\u09c7\u099f\u0993\u09af\u09bc\u09be\u09b0\u09cd\u0995\u09bf\u0982",
       "track": "mobile-flutter",
       "difficulty": "intermediate"
     },
     {
       "id": "MOBILE-FLUTTER-STORAGE",
       "title": "Flutter Local Storage",
-      "titleBn": "Flutter লোকাল স্টোরেজ",
+      "titleBn": "Flutter \u09b2\u09cb\u0995\u09be\u09b2 \u09b8\u09cd\u099f\u09cb\u09b0\u09c7\u099c",
       "track": "mobile-flutter",
       "difficulty": "intermediate"
     },
     {
       "id": "MOBILE-FLUTTER-TESTING",
       "title": "Flutter Testing",
-      "titleBn": "Flutter টেস্টিং",
+      "titleBn": "Flutter \u099f\u09c7\u09b8\u09cd\u099f\u09bf\u0982",
       "track": "mobile-flutter",
       "difficulty": "advanced"
     },
     {
       "id": "MOBILE-FLUTTER-PERFORMANCE",
       "title": "Flutter Performance",
-      "titleBn": "Flutter পারফরম্যান্স",
+      "titleBn": "Flutter \u09aa\u09be\u09b0\u09ab\u09b0\u09ae\u09cd\u09af\u09be\u09a8\u09cd\u09b8",
       "track": "mobile-flutter",
       "difficulty": "advanced"
     },
     {
       "id": "MOBILE-FLUTTER-PLATFORM",
       "title": "Platform Channels",
-      "titleBn": "প্ল্যাটফর্ম চ্যানেল",
+      "titleBn": "\u09aa\u09cd\u09b2\u09cd\u09af\u09be\u099f\u09ab\u09b0\u09cd\u09ae \u099a\u09cd\u09af\u09be\u09a8\u09c7\u09b2",
       "track": "mobile-flutter",
       "difficulty": "advanced"
     },
     {
       "id": "MOBILE-FLUTTER-DEPLOYMENT",
       "title": "Flutter Deployment",
-      "titleBn": "Flutter ডিপ্লয়মেন্ট",
+      "titleBn": "Flutter \u09a1\u09bf\u09aa\u09cd\u09b2\u09af\u09bc\u09ae\u09c7\u09a8\u09cd\u099f",
+      "track": "mobile-flutter",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "MOBILE-FLUTTER-SECURITY",
+      "title": "Mobile Security & Identity",
+      "titleBn": "\u09ae\u09cb\u09ac\u09be\u0987\u09b2 \u09b8\u09bf\u0995\u09bf\u0989\u09b0\u09bf\u099f\u09bf \u0993 \u0986\u0987\u09a1\u09c7\u09a8\u09cd\u099f\u09bf\u099f\u09bf",
       "track": "mobile-flutter",
       "difficulty": "advanced"
     },
     {
       "id": "BACKEND-NODE",
       "title": "Node.js Runtime",
-      "titleBn": "Node.js রানটাইম",
+      "titleBn": "Node.js \u09b0\u09be\u09a8\u099f\u09be\u0987\u09ae",
       "track": "backend",
       "difficulty": "intermediate"
     },
     {
       "id": "BACKEND-HTTP-SERVER",
       "title": "HTTP Servers",
-      "titleBn": "HTTP সার্ভার",
+      "titleBn": "HTTP \u09b8\u09be\u09b0\u09cd\u09ad\u09be\u09b0",
       "track": "backend",
       "difficulty": "intermediate"
     },
     {
       "id": "BACKEND-REST",
       "title": "REST API Design",
-      "titleBn": "REST API ডিজাইন",
+      "titleBn": "REST API \u09a1\u09bf\u099c\u09be\u0987\u09a8",
       "track": "backend",
       "difficulty": "intermediate"
     },
     {
       "id": "BACKEND-NESTJS",
       "title": "NestJS Fundamentals",
-      "titleBn": "NestJS মৌলিক",
+      "titleBn": "NestJS \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "backend",
       "difficulty": "intermediate"
     },
     {
       "id": "BACKEND-NESTJS-DI",
       "title": "NestJS Modules & DI",
-      "titleBn": "NestJS Modules ও DI",
+      "titleBn": "NestJS Modules \u0993 DI",
       "track": "backend",
       "difficulty": "advanced"
     },
     {
       "id": "BACKEND-VALIDATION",
       "title": "Input Validation",
-      "titleBn": "ইনপুট ভ্যালিডেশন",
+      "titleBn": "\u0987\u09a8\u09aa\u09c1\u099f \u09ad\u09cd\u09af\u09be\u09b2\u09bf\u09a1\u09c7\u09b6\u09a8",
       "track": "backend",
       "difficulty": "intermediate"
     },
     {
       "id": "BACKEND-AUTH",
       "title": "Authentication & Authorization",
-      "titleBn": "অথেন্টিকেশন ও অথরাইজেশন",
+      "titleBn": "\u0985\u09a5\u09c7\u09a8\u09cd\u099f\u09bf\u0995\u09c7\u09b6\u09a8 \u0993 \u0985\u09a5\u09b0\u09be\u0987\u099c\u09c7\u09b6\u09a8",
       "track": "backend",
       "difficulty": "advanced"
     },
     {
       "id": "BACKEND-JWT",
       "title": "JWT & Session Tokens",
-      "titleBn": "JWT ও সেশন টোকেন",
+      "titleBn": "JWT \u0993 \u09b8\u09c7\u09b6\u09a8 \u099f\u09cb\u0995\u09c7\u09a8",
       "track": "backend",
       "difficulty": "advanced"
     },
     {
       "id": "BACKEND-POSTGRES",
       "title": "PostgreSQL for Backend",
-      "titleBn": "ব্যাকএন্ডে PostgreSQL",
+      "titleBn": "\u09ac\u09cd\u09af\u09be\u0995\u098f\u09a8\u09cd\u09a1\u09c7 PostgreSQL",
       "track": "backend",
       "difficulty": "intermediate"
     },
     {
       "id": "BACKEND-ORM",
       "title": "ORM & Query Builders",
-      "titleBn": "ORM ও Query Builder",
+      "titleBn": "ORM \u0993 Query Builder",
       "track": "backend",
       "difficulty": "intermediate"
     },
     {
       "id": "BACKEND-REDIS",
       "title": "Redis Caching",
-      "titleBn": "Redis ক্যাশিং",
+      "titleBn": "Redis \u0995\u09cd\u09af\u09be\u09b6\u09bf\u0982",
       "track": "backend",
       "difficulty": "advanced"
     },
     {
       "id": "BACKEND-QUEUES",
       "title": "Background Jobs & Queues",
-      "titleBn": "ব্যাকগ্রাউন্ড জব ও কিউ",
+      "titleBn": "\u09ac\u09cd\u09af\u09be\u0995\u0997\u09cd\u09b0\u09be\u0989\u09a8\u09cd\u09a1 \u099c\u09ac \u0993 \u0995\u09bf\u0989",
       "track": "backend",
       "difficulty": "advanced"
     },
@@ -698,98 +705,98 @@
     {
       "id": "BACKEND-LOGGING",
       "title": "Logging & Error Handling",
-      "titleBn": "লগিং ও এরর হ্যান্ডলিং",
+      "titleBn": "\u09b2\u0997\u09bf\u0982 \u0993 \u098f\u09b0\u09b0 \u09b9\u09cd\u09af\u09be\u09a8\u09cd\u09a1\u09b2\u09bf\u0982",
       "track": "backend",
       "difficulty": "intermediate"
     },
     {
       "id": "BACKEND-TESTING",
       "title": "Backend Testing",
-      "titleBn": "ব্যাকএন্ড টেস্টিং",
+      "titleBn": "\u09ac\u09cd\u09af\u09be\u0995\u098f\u09a8\u09cd\u09a1 \u099f\u09c7\u09b8\u09cd\u099f\u09bf\u0982",
       "track": "backend",
       "difficulty": "advanced"
     },
     {
       "id": "BACKEND-SECURITY",
       "title": "API Security",
-      "titleBn": "API সিকিউরিটি",
+      "titleBn": "API \u09b8\u09bf\u0995\u09bf\u0989\u09b0\u09bf\u099f\u09bf",
       "track": "backend",
       "difficulty": "advanced"
     },
     {
       "id": "FULLSTACK-INTEGRATION",
-      "title": "Frontend–Backend Integration",
-      "titleBn": "ফ্রন্টএন্ড–ব্যাকএন্ড ইন্টিগ্রেশন",
+      "title": "Frontend\u2013Backend Integration",
+      "titleBn": "\u09ab\u09cd\u09b0\u09a8\u09cd\u099f\u098f\u09a8\u09cd\u09a1\u2013\u09ac\u09cd\u09af\u09be\u0995\u098f\u09a8\u09cd\u09a1 \u0987\u09a8\u09cd\u099f\u09bf\u0997\u09cd\u09b0\u09c7\u09b6\u09a8",
       "track": "fullstack",
       "difficulty": "advanced"
     },
     {
       "id": "FULLSTACK-AUTH-FLOWS",
       "title": "End-to-End Auth Flows",
-      "titleBn": "এন্ড-টু-এন্ড Auth ফ্লো",
+      "titleBn": "\u098f\u09a8\u09cd\u09a1-\u099f\u09c1-\u098f\u09a8\u09cd\u09a1 Auth \u09ab\u09cd\u09b2\u09cb",
       "track": "fullstack",
       "difficulty": "advanced"
     },
     {
       "id": "FULLSTACK-CORS-CSRF",
       "title": "CORS & CSRF",
-      "titleBn": "CORS ও CSRF",
+      "titleBn": "CORS \u0993 CSRF",
       "track": "fullstack",
       "difficulty": "advanced"
     },
     {
       "id": "FULLSTACK-SSR-BOUNDARIES",
       "title": "SSR & Client Boundaries",
-      "titleBn": "SSR ও ক্লায়েন্ট সীমানা",
+      "titleBn": "SSR \u0993 \u0995\u09cd\u09b2\u09be\u09af\u09bc\u09c7\u09a8\u09cd\u099f \u09b8\u09c0\u09ae\u09be\u09a8\u09be",
       "track": "fullstack",
       "difficulty": "advanced"
     },
     {
       "id": "FULLSTACK-E2E-TESTING",
       "title": "Full-Stack E2E Testing",
-      "titleBn": "ফুল-স্ট্যাক E2E টেস্টিং",
+      "titleBn": "\u09ab\u09c1\u09b2-\u09b8\u09cd\u099f\u09cd\u09af\u09be\u0995 E2E \u099f\u09c7\u09b8\u09cd\u099f\u09bf\u0982",
       "track": "fullstack",
       "difficulty": "advanced"
     },
     {
       "id": "DEVOPS-LINUX",
       "title": "Linux Fundamentals",
-      "titleBn": "Linux মৌলিক",
+      "titleBn": "Linux \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "devops",
       "difficulty": "beginner"
     },
     {
       "id": "DEVOPS-BASH",
       "title": "Bash Scripting",
-      "titleBn": "Bash স্ক্রিপ্টিং",
+      "titleBn": "Bash \u09b8\u09cd\u0995\u09cd\u09b0\u09bf\u09aa\u09cd\u099f\u09bf\u0982",
       "track": "devops",
       "difficulty": "beginner"
     },
     {
       "id": "DEVOPS-NETWORKING",
       "title": "Server Networking",
-      "titleBn": "সার্ভার নেটওয়ার্কিং",
+      "titleBn": "\u09b8\u09be\u09b0\u09cd\u09ad\u09be\u09b0 \u09a8\u09c7\u099f\u0993\u09af\u09bc\u09be\u09b0\u09cd\u0995\u09bf\u0982",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-SYSTEMD",
       "title": "Processes & systemd",
-      "titleBn": "প্রসেস ও systemd",
+      "titleBn": "\u09aa\u09cd\u09b0\u09b8\u09c7\u09b8 \u0993 systemd",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-NGINX",
       "title": "Nginx & Reverse Proxies",
-      "titleBn": "Nginx ও রিভার্স প্রক্সি",
+      "titleBn": "Nginx \u0993 \u09b0\u09bf\u09ad\u09be\u09b0\u09cd\u09b8 \u09aa\u09cd\u09b0\u0995\u09cd\u09b8\u09bf",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-DOCKER",
       "title": "Docker Containers",
-      "titleBn": "Docker কন্টেইনার",
+      "titleBn": "Docker \u0995\u09a8\u09cd\u099f\u09c7\u0987\u09a8\u09be\u09b0",
       "track": "devops",
       "difficulty": "intermediate"
     },
@@ -803,21 +810,21 @@
     {
       "id": "DEVOPS-CICD",
       "title": "CI/CD Pipelines",
-      "titleBn": "CI/CD পাইপলাইন",
+      "titleBn": "CI/CD \u09aa\u09be\u0987\u09aa\u09b2\u09be\u0987\u09a8",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-CLOUD-FUNDAMENTALS",
       "title": "Cloud Fundamentals",
-      "titleBn": "ক্লাউড মৌলিক",
+      "titleBn": "\u0995\u09cd\u09b2\u09be\u0989\u09a1 \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-AWS",
       "title": "AWS Core Services",
-      "titleBn": "AWS মূল সার্ভিস",
+      "titleBn": "AWS \u09ae\u09c2\u09b2 \u09b8\u09be\u09b0\u09cd\u09ad\u09bf\u09b8",
       "track": "devops",
       "difficulty": "advanced"
     },
@@ -831,238 +838,238 @@
     {
       "id": "DEVOPS-KUBERNETES",
       "title": "Kubernetes Basics",
-      "titleBn": "Kubernetes মৌলিক",
+      "titleBn": "Kubernetes \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "devops",
       "difficulty": "advanced"
     },
     {
       "id": "DEVOPS-OBSERVABILITY",
       "title": "Logging, Metrics & Tracing",
-      "titleBn": "লগ, মেট্রিক্স ও ট্রেসিং",
+      "titleBn": "\u09b2\u0997, \u09ae\u09c7\u099f\u09cd\u09b0\u09bf\u0995\u09cd\u09b8 \u0993 \u099f\u09cd\u09b0\u09c7\u09b8\u09bf\u0982",
       "track": "devops",
       "difficulty": "advanced"
     },
     {
       "id": "DATABASE-RELATIONAL",
       "title": "Relational Modeling",
-      "titleBn": "রিলেশনাল মডেলিং",
+      "titleBn": "\u09b0\u09bf\u09b2\u09c7\u09b6\u09a8\u09be\u09b2 \u09ae\u09a1\u09c7\u09b2\u09bf\u0982",
       "track": "database",
       "difficulty": "beginner"
     },
     {
       "id": "DATABASE-SQL",
       "title": "SQL Fundamentals",
-      "titleBn": "SQL মৌলিক",
+      "titleBn": "SQL \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "database",
       "difficulty": "beginner"
     },
     {
       "id": "DATABASE-JOINS",
       "title": "SQL Joins & Aggregation",
-      "titleBn": "SQL Join ও Aggregation",
+      "titleBn": "SQL Join \u0993 Aggregation",
       "track": "database",
       "difficulty": "intermediate"
     },
     {
       "id": "DATABASE-CTES",
       "title": "CTEs & Window Functions",
-      "titleBn": "CTE ও Window Function",
+      "titleBn": "CTE \u0993 Window Function",
       "track": "database",
       "difficulty": "advanced"
     },
     {
       "id": "DATABASE-POSTGRES-TYPES",
       "title": "PostgreSQL Types & Constraints",
-      "titleBn": "PostgreSQL টাইপ ও কনস্ট্রেইন্ট",
+      "titleBn": "PostgreSQL \u099f\u09be\u0987\u09aa \u0993 \u0995\u09a8\u09b8\u09cd\u099f\u09cd\u09b0\u09c7\u0987\u09a8\u09cd\u099f",
       "track": "database",
       "difficulty": "intermediate"
     },
     {
       "id": "DATABASE-POSTGRES-INDEXING",
       "title": "PostgreSQL Indexing",
-      "titleBn": "PostgreSQL ইনডেক্সিং",
+      "titleBn": "PostgreSQL \u0987\u09a8\u09a1\u09c7\u0995\u09cd\u09b8\u09bf\u0982",
       "track": "database",
       "difficulty": "advanced"
     },
     {
       "id": "DATABASE-TRANSACTIONS",
       "title": "Transactions & Isolation",
-      "titleBn": "ট্রানজ্যাকশন ও আইসোলেশন",
+      "titleBn": "\u099f\u09cd\u09b0\u09be\u09a8\u099c\u09cd\u09af\u09be\u0995\u09b6\u09a8 \u0993 \u0986\u0987\u09b8\u09cb\u09b2\u09c7\u09b6\u09a8",
       "track": "database",
       "difficulty": "advanced"
     },
     {
       "id": "DATABASE-EXPLAIN",
       "title": "EXPLAIN & Query Plans",
-      "titleBn": "EXPLAIN ও Query Plan",
+      "titleBn": "EXPLAIN \u0993 Query Plan",
       "track": "database",
       "difficulty": "advanced"
     },
     {
       "id": "DATABASE-REDIS",
       "title": "Redis Data Structures",
-      "titleBn": "Redis ডেটা স্ট্রাকচার",
+      "titleBn": "Redis \u09a1\u09c7\u099f\u09be \u09b8\u09cd\u099f\u09cd\u09b0\u09be\u0995\u099a\u09be\u09b0",
       "track": "database",
       "difficulty": "intermediate"
     },
     {
       "id": "DATABASE-MONGODB",
       "title": "Document Modeling (MongoDB)",
-      "titleBn": "ডকুমেন্ট মডেলিং (MongoDB)",
+      "titleBn": "\u09a1\u0995\u09c1\u09ae\u09c7\u09a8\u09cd\u099f \u09ae\u09a1\u09c7\u09b2\u09bf\u0982 (MongoDB)",
       "track": "database",
       "difficulty": "intermediate"
     },
     {
       "id": "DATABASE-BACKUP-REPLICATION",
       "title": "Backup & Replication Concepts",
-      "titleBn": "ব্যাকআপ ও রেপ্লিকেশন",
+      "titleBn": "\u09ac\u09cd\u09af\u09be\u0995\u0986\u09aa \u0993 \u09b0\u09c7\u09aa\u09cd\u09b2\u09bf\u0995\u09c7\u09b6\u09a8",
       "track": "database",
       "difficulty": "advanced"
     },
     {
       "id": "QA-STLC",
       "title": "Software Testing Life Cycle",
-      "titleBn": "সফটওয়্যার টেস্টিং লাইফসাইকেল",
+      "titleBn": "\u09b8\u09ab\u099f\u0993\u09af\u09bc\u09cd\u09af\u09be\u09b0 \u099f\u09c7\u09b8\u09cd\u099f\u09bf\u0982 \u09b2\u09be\u0987\u09ab\u09b8\u09be\u0987\u0995\u09c7\u09b2",
       "track": "qa",
       "difficulty": "beginner"
     },
     {
       "id": "QA-TEST-DESIGN",
       "title": "Test Design Techniques",
-      "titleBn": "টেস্ট ডিজাইন টেকনিক",
+      "titleBn": "\u099f\u09c7\u09b8\u09cd\u099f \u09a1\u09bf\u099c\u09be\u0987\u09a8 \u099f\u09c7\u0995\u09a8\u09bf\u0995",
       "track": "qa",
       "difficulty": "beginner"
     },
     {
       "id": "QA-MANUAL-TESTING",
       "title": "Manual Testing Practice",
-      "titleBn": "ম্যানুয়াল টেস্টিং",
+      "titleBn": "\u09ae\u09cd\u09af\u09be\u09a8\u09c1\u09af\u09bc\u09be\u09b2 \u099f\u09c7\u09b8\u09cd\u099f\u09bf\u0982",
       "track": "qa",
       "difficulty": "beginner"
     },
     {
       "id": "QA-BUG-REPORTING",
       "title": "Bug Reporting",
-      "titleBn": "বাগ রিপোর্টিং",
+      "titleBn": "\u09ac\u09be\u0997 \u09b0\u09bf\u09aa\u09cb\u09b0\u09cd\u099f\u09bf\u0982",
       "track": "qa",
       "difficulty": "beginner"
     },
     {
       "id": "QA-API-TESTING",
       "title": "API Testing",
-      "titleBn": "API টেস্টিং",
+      "titleBn": "API \u099f\u09c7\u09b8\u09cd\u099f\u09bf\u0982",
       "track": "qa",
       "difficulty": "intermediate"
     },
     {
       "id": "QA-PLAYWRIGHT",
       "title": "Playwright Automation",
-      "titleBn": "Playwright অটোমেশন",
+      "titleBn": "Playwright \u0985\u099f\u09cb\u09ae\u09c7\u09b6\u09a8",
       "track": "qa",
       "difficulty": "intermediate"
     },
     {
       "id": "QA-PERFORMANCE",
       "title": "Performance Testing Basics",
-      "titleBn": "পারফরম্যান্স টেস্টিং",
+      "titleBn": "\u09aa\u09be\u09b0\u09ab\u09b0\u09ae\u09cd\u09af\u09be\u09a8\u09cd\u09b8 \u099f\u09c7\u09b8\u09cd\u099f\u09bf\u0982",
       "track": "qa",
       "difficulty": "advanced"
     },
     {
       "id": "QA-CI-INTEGRATION",
       "title": "Testing in CI",
-      "titleBn": "CI-তে টেস্টিং",
+      "titleBn": "CI-\u09a4\u09c7 \u099f\u09c7\u09b8\u09cd\u099f\u09bf\u0982",
       "track": "qa",
       "difficulty": "advanced"
     },
     {
       "id": "UIUX-VISUAL-FUNDAMENTALS",
       "title": "Visual Fundamentals",
-      "titleBn": "ভিজ্যুয়াল মৌলিক",
+      "titleBn": "\u09ad\u09bf\u099c\u09cd\u09af\u09c1\u09af\u09bc\u09be\u09b2 \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "uiux",
       "difficulty": "beginner"
     },
     {
       "id": "UIUX-TYPOGRAPHY",
       "title": "Typography",
-      "titleBn": "টাইপোগ্রাফি",
+      "titleBn": "\u099f\u09be\u0987\u09aa\u09cb\u0997\u09cd\u09b0\u09be\u09ab\u09bf",
       "track": "uiux",
       "difficulty": "beginner"
     },
     {
       "id": "UIUX-COLOR",
       "title": "Color & Contrast",
-      "titleBn": "রঙ ও কনট্রাস্ট",
+      "titleBn": "\u09b0\u0999 \u0993 \u0995\u09a8\u099f\u09cd\u09b0\u09be\u09b8\u09cd\u099f",
       "track": "uiux",
       "difficulty": "beginner"
     },
     {
       "id": "UIUX-UX-RESEARCH",
       "title": "UX Research Basics",
-      "titleBn": "UX রিসার্চ মৌলিক",
+      "titleBn": "UX \u09b0\u09bf\u09b8\u09be\u09b0\u09cd\u099a \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "uiux",
       "difficulty": "beginner"
     },
     {
       "id": "UIUX-WIREFRAMING",
       "title": "Wireframing & Flows",
-      "titleBn": "ওয়ারফ্রেম ও ফ্লো",
+      "titleBn": "\u0993\u09af\u09bc\u09be\u09b0\u09ab\u09cd\u09b0\u09c7\u09ae \u0993 \u09ab\u09cd\u09b2\u09cb",
       "track": "uiux",
       "difficulty": "beginner"
     },
     {
       "id": "UIUX-FIGMA",
       "title": "Figma Fundamentals",
-      "titleBn": "Figma মৌলিক",
+      "titleBn": "Figma \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "uiux",
       "difficulty": "intermediate"
     },
     {
       "id": "UIUX-PROTOTYPING",
       "title": "Prototyping",
-      "titleBn": "প্রোটোটাইপিং",
+      "titleBn": "\u09aa\u09cd\u09b0\u09cb\u099f\u09cb\u099f\u09be\u0987\u09aa\u09bf\u0982",
       "track": "uiux",
       "difficulty": "intermediate"
     },
     {
       "id": "UIUX-DESIGN-SYSTEMS",
       "title": "Design Systems",
-      "titleBn": "ডিজাইন সিস্টেম",
+      "titleBn": "\u09a1\u09bf\u099c\u09be\u0987\u09a8 \u09b8\u09bf\u09b8\u09cd\u099f\u09c7\u09ae",
       "track": "uiux",
       "difficulty": "advanced"
     },
     {
       "id": "UIUX-A11Y",
       "title": "Inclusive Design",
-      "titleBn": "ইনক্লুসিভ ডিজাইন",
+      "titleBn": "\u0987\u09a8\u0995\u09cd\u09b2\u09c1\u09b8\u09bf\u09ad \u09a1\u09bf\u099c\u09be\u0987\u09a8",
       "track": "uiux",
       "difficulty": "intermediate"
     },
     {
       "id": "PM-SDLC",
       "title": "Software Delivery Lifecycle",
-      "titleBn": "সফটওয়্যার ডেলিভারি লাইফসাইকেল",
+      "titleBn": "\u09b8\u09ab\u099f\u0993\u09af\u09bc\u09cd\u09af\u09be\u09b0 \u09a1\u09c7\u09b2\u09bf\u09ad\u09be\u09b0\u09bf \u09b2\u09be\u0987\u09ab\u09b8\u09be\u0987\u0995\u09c7\u09b2",
       "track": "pm",
       "difficulty": "beginner"
     },
     {
       "id": "PM-REQUIREMENTS",
       "title": "Requirements & Scope",
-      "titleBn": "রিকোয়ারমেন্ট ও স্কোপ",
+      "titleBn": "\u09b0\u09bf\u0995\u09cb\u09af\u09bc\u09be\u09b0\u09ae\u09c7\u09a8\u09cd\u099f \u0993 \u09b8\u09cd\u0995\u09cb\u09aa",
       "track": "pm",
       "difficulty": "beginner"
     },
     {
       "id": "PM-AGILE",
       "title": "Agile Principles",
-      "titleBn": "Agile নীতি",
+      "titleBn": "Agile \u09a8\u09c0\u09a4\u09bf",
       "track": "pm",
       "difficulty": "beginner"
     },
     {
       "id": "PM-SCRUM",
       "title": "Scrum Framework",
-      "titleBn": "Scrum ফ্রেমওয়ার্ক",
+      "titleBn": "Scrum \u09ab\u09cd\u09b0\u09c7\u09ae\u0993\u09af\u09bc\u09be\u09b0\u09cd\u0995",
       "track": "pm",
       "difficulty": "intermediate"
     },
@@ -1076,49 +1083,49 @@
     {
       "id": "PM-ESTIMATION",
       "title": "Estimation & Planning",
-      "titleBn": "এস্টিমেশন ও প্ল্যানিং",
+      "titleBn": "\u098f\u09b8\u09cd\u099f\u09bf\u09ae\u09c7\u09b6\u09a8 \u0993 \u09aa\u09cd\u09b2\u09cd\u09af\u09be\u09a8\u09bf\u0982",
       "track": "pm",
       "difficulty": "intermediate"
     },
     {
       "id": "PM-JIRA",
       "title": "Jira & Delivery Tooling",
-      "titleBn": "Jira ও ডেলিভারি টুলিং",
+      "titleBn": "Jira \u0993 \u09a1\u09c7\u09b2\u09bf\u09ad\u09be\u09b0\u09bf \u099f\u09c1\u09b2\u09bf\u0982",
       "track": "pm",
       "difficulty": "intermediate"
     },
     {
       "id": "PM-RISK",
       "title": "Risk Management",
-      "titleBn": "ঝুঁকি ব্যবস্থাপনা",
+      "titleBn": "\u099d\u09c1\u0981\u0995\u09bf \u09ac\u09cd\u09af\u09ac\u09b8\u09cd\u09a5\u09be\u09aa\u09a8\u09be",
       "track": "pm",
       "difficulty": "intermediate"
     },
     {
       "id": "PM-STAKEHOLDERS",
       "title": "Stakeholder Communication",
-      "titleBn": "Stakeholder যোগাযোগ",
+      "titleBn": "Stakeholder \u09af\u09cb\u0997\u09be\u09af\u09cb\u0997",
       "track": "pm",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-SECRETS",
       "title": "Secrets Management",
-      "titleBn": "সিক্রেটস ম্যানেজমেন্ট",
+      "titleBn": "\u09b8\u09bf\u0995\u09cd\u09b0\u09c7\u099f\u09b8 \u09ae\u09cd\u09af\u09be\u09a8\u09c7\u099c\u09ae\u09c7\u09a8\u09cd\u099f",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-IAM",
       "title": "Cloud IAM Basics",
-      "titleBn": "ক্লাউড IAM মৌলিক",
+      "titleBn": "\u0995\u09cd\u09b2\u09be\u0989\u09a1 IAM \u09ae\u09cc\u09b2\u09bf\u0995",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-HELM",
       "title": "Helm Charts",
-      "titleBn": "Helm চার্ট",
+      "titleBn": "Helm \u099a\u09be\u09b0\u09cd\u099f",
       "track": "devops",
       "difficulty": "advanced"
     },
@@ -1132,7 +1139,7 @@
     {
       "id": "DEVOPS-LOGGING",
       "title": "Logging Stacks",
-      "titleBn": "লগিং স্ট্যাক",
+      "titleBn": "\u09b2\u0997\u09bf\u0982 \u09b8\u09cd\u099f\u09cd\u09af\u09be\u0995",
       "track": "devops",
       "difficulty": "intermediate"
     },
@@ -1146,63 +1153,63 @@
     {
       "id": "DEVOPS-INCIDENT",
       "title": "Incident Response",
-      "titleBn": "ইনসিডেন্ট রেসপন্স",
+      "titleBn": "\u0987\u09a8\u09b8\u09bf\u09a1\u09c7\u09a8\u09cd\u099f \u09b0\u09c7\u09b8\u09aa\u09a8\u09cd\u09b8",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-BACKUPS",
       "title": "Backups & DR",
-      "titleBn": "ব্যাকআপ ও DR",
+      "titleBn": "\u09ac\u09cd\u09af\u09be\u0995\u0986\u09aa \u0993 DR",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-ANSIBLE",
       "title": "Ansible Intro",
-      "titleBn": "Ansible পরিচিতি",
+      "titleBn": "Ansible \u09aa\u09b0\u09bf\u099a\u09bf\u09a4\u09bf",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-OPENTOFU",
       "title": "OpenTofu Awareness",
-      "titleBn": "OpenTofu সচেতনতা",
+      "titleBn": "OpenTofu \u09b8\u099a\u09c7\u09a4\u09a8\u09a4\u09be",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-IMAGE-SECURITY",
       "title": "Container Image Security",
-      "titleBn": "ইমেজ সিকিউরিটি",
+      "titleBn": "\u0987\u09ae\u09c7\u099c \u09b8\u09bf\u0995\u09bf\u0989\u09b0\u09bf\u099f\u09bf",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-DNS-TLS",
       "title": "DNS & TLS Deep Dive",
-      "titleBn": "DNS ও TLS",
+      "titleBn": "DNS \u0993 TLS",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DEVOPS-CLOUD-COMPARISON",
       "title": "Cloud Comparison",
-      "titleBn": "ক্লাউড তুলনা",
+      "titleBn": "\u0995\u09cd\u09b2\u09be\u0989\u09a1 \u09a4\u09c1\u09b2\u09a8\u09be",
       "track": "devops",
       "difficulty": "intermediate"
     },
     {
       "id": "DATABASE-ISOLATION",
       "title": "Isolation Levels",
-      "titleBn": "আইসোলেশন লেভেল",
+      "titleBn": "\u0986\u0987\u09b8\u09cb\u09b2\u09c7\u09b6\u09a8 \u09b2\u09c7\u09ad\u09c7\u09b2",
       "track": "database",
       "difficulty": "advanced"
     },
     {
       "id": "DATABASE-LOCKING",
       "title": "Locking & Concurrency",
-      "titleBn": "লকিং ও কনকারেন্সি",
+      "titleBn": "\u09b2\u0995\u09bf\u0982 \u0993 \u0995\u09a8\u0995\u09be\u09b0\u09c7\u09a8\u09cd\u09b8\u09bf",
       "track": "database",
       "difficulty": "advanced"
     },
@@ -1216,30 +1223,213 @@
     {
       "id": "DATABASE-PARTITIONING",
       "title": "Partitioning Concepts",
-      "titleBn": "পার্টিশনিং",
+      "titleBn": "\u09aa\u09be\u09b0\u09cd\u099f\u09bf\u09b6\u09a8\u09bf\u0982",
       "track": "database",
       "difficulty": "advanced"
     },
     {
       "id": "DATABASE-INDEX-ANTIPATTERNS",
       "title": "Indexing Anti-Patterns",
-      "titleBn": "ইনডেক্স অ্যান্টি-প্যাটার্ন",
+      "titleBn": "\u0987\u09a8\u09a1\u09c7\u0995\u09cd\u09b8 \u0985\u09cd\u09af\u09be\u09a8\u09cd\u099f\u09bf-\u09aa\u09cd\u09af\u09be\u099f\u09be\u09b0\u09cd\u09a8",
       "track": "database",
       "difficulty": "advanced"
     },
     {
       "id": "DATABASE-REDIS-TTL",
       "title": "Redis TTL Sessions Locks",
-      "titleBn": "Redis TTL সেশন লক",
+      "titleBn": "Redis TTL \u09b8\u09c7\u09b6\u09a8 \u09b2\u0995",
       "track": "database",
       "difficulty": "intermediate"
     },
     {
       "id": "DATABASE-PG-VS-MONGO",
       "title": "Postgres vs MongoDB",
-      "titleBn": "Postgres বনাম MongoDB",
+      "titleBn": "Postgres \u09ac\u09a8\u09be\u09ae MongoDB",
       "track": "database",
       "difficulty": "intermediate"
+    },
+    {
+      "id": "TRACK-AI",
+      "title": "AI and Framework Track",
+      "titleBn": "AI \u098f\u09ac\u0982 Framework \u099f\u09cd\u09b0\u09cd\u09af\u09be\u0995",
+      "track": "ai-framework",
+      "difficulty": "beginner",
+      "description": "Track hub for AI and Framework."
+    },
+    {
+      "id": "AI-FUNDAMENTALS",
+      "title": "AI vs ML vs Generative AI",
+      "titleBn": "AI vs ML vs Generative AI",
+      "track": "ai-framework",
+      "difficulty": "beginner",
+      "description": "Clarify AI/ML/deep learning/generative AI vocabulary."
+    },
+    {
+      "id": "AI-LLM-FUNDAMENTALS",
+      "title": "LLM Fundamentals",
+      "titleBn": "LLM Fundamentals",
+      "track": "ai-framework",
+      "difficulty": "beginner",
+      "description": "Tokens, context windows, sampling, and model limitations."
+    },
+    {
+      "id": "AI-PROMPT-ENGINEERING",
+      "title": "Prompt Engineering",
+      "titleBn": "Prompt Engineering",
+      "track": "ai-framework",
+      "difficulty": "beginner",
+      "description": "Goal/context/constraints/output patterns that are verifiable."
+    },
+    {
+      "id": "AI-CODING-AGENTS",
+      "title": "Coding Agents and AI IDEs",
+      "titleBn": "Coding Agents \u098f\u09ac\u0982 AI IDE",
+      "track": "ai-framework",
+      "difficulty": "intermediate",
+      "description": "Agent workflows, rules, skills, and human verification."
+    },
+    {
+      "id": "AI-TOOL-CALLING",
+      "title": "Tool and Function Calling",
+      "titleBn": "Tool \u098f\u09ac\u0982 Function Calling",
+      "track": "ai-framework",
+      "difficulty": "intermediate",
+      "description": "Bounded tools, schemas, and permission surfaces."
+    },
+    {
+      "id": "AI-RAG",
+      "title": "RAG Fundamentals",
+      "titleBn": "RAG Fundamentals",
+      "track": "ai-framework",
+      "difficulty": "intermediate",
+      "description": "Embeddings, retrieval, grounding, and citations."
+    },
+    {
+      "id": "AI-EVALUATION",
+      "title": "AI Evaluation",
+      "titleBn": "AI Evaluation",
+      "track": "ai-framework",
+      "difficulty": "advanced",
+      "description": "Datasets, rubrics, regression evals, and traces."
+    },
+    {
+      "id": "AI-SECURITY",
+      "title": "AI Security",
+      "titleBn": "AI Security",
+      "track": "ai-framework",
+      "difficulty": "advanced",
+      "description": "Prompt injection, output handling, agency, and supply chain risks."
+    },
+    {
+      "id": "AI-AGENTS",
+      "title": "AI Agents Overview",
+      "titleBn": "AI Agents Overview",
+      "track": "ai-framework",
+      "difficulty": "intermediate",
+      "description": "Agent loops, memory, planning, and human oversight."
+    },
+    {
+      "id": "AI-MCP",
+      "title": "Model Context Protocol",
+      "titleBn": "Model Context Protocol",
+      "track": "ai-framework",
+      "difficulty": "intermediate",
+      "description": "MCP servers, tools, resources, and least-privilege wiring."
+    },
+    {
+      "id": "AI-CONTEXT-ENGINEERING",
+      "title": "Context Engineering",
+      "titleBn": "Context Engineering",
+      "track": "ai-framework",
+      "difficulty": "intermediate",
+      "description": "What to put in context, summarization, and budget management."
+    },
+    {
+      "id": "AI-STRUCTURED-OUTPUTS",
+      "title": "Structured Outputs",
+      "titleBn": "Structured Outputs",
+      "track": "ai-framework",
+      "difficulty": "beginner",
+      "description": "Schemas, JSON mode, and reliable machine-readable generation."
+    },
+    {
+      "id": "AI-OPEN-MODELS",
+      "title": "Open Models and Local Inference",
+      "titleBn": "Open Models \u098f\u09ac\u0982 Local Inference",
+      "track": "ai-framework",
+      "difficulty": "advanced",
+      "description": "Local/open-weight inference, eval, and ops trade-offs."
+    },
+    {
+      "id": "AI-MULTIMODAL",
+      "title": "Multimodal Document Intelligence",
+      "titleBn": "Multimodal Document Intelligence",
+      "track": "ai-framework",
+      "difficulty": "advanced",
+      "description": "Vision+text pipelines for documents with grounding."
+    },
+    {
+      "id": "AI-EMBEDDINGS",
+      "title": "Embeddings",
+      "level": "intermediate",
+      "track": "ai-framework",
+      "kind": "skill"
+    },
+    {
+      "id": "AI-VECTOR-DATABASES",
+      "title": "Vector databases",
+      "level": "intermediate",
+      "track": "ai-framework",
+      "kind": "skill"
+    },
+    {
+      "id": "AI-FRAMEWORKS-LANDSCAPE",
+      "title": "AI frameworks landscape",
+      "level": "intermediate",
+      "track": "ai-framework",
+      "kind": "skill"
+    },
+    {
+      "id": "AI-LLMOPS",
+      "title": "LLMOps / observability",
+      "level": "advanced",
+      "track": "ai-framework",
+      "kind": "skill"
+    },
+    {
+      "id": "AI-MODEL-SERVING",
+      "title": "Model serving",
+      "level": "advanced",
+      "track": "ai-framework",
+      "kind": "skill"
+    },
+    {
+      "id": "AI-FINE-TUNING",
+      "title": "Fine-tuning / PEFT",
+      "level": "advanced",
+      "track": "ai-framework",
+      "kind": "skill"
+    },
+    {
+      "id": "AI-COST-LATENCY",
+      "title": "Cost and latency",
+      "level": "intermediate",
+      "track": "ai-framework",
+      "kind": "skill"
+    },
+    {
+      "id": "AI-PRODUCT-UX",
+      "title": "AI product UX",
+      "level": "intermediate",
+      "track": "ai-framework",
+      "kind": "skill"
+    },
+    {
+      "id": "AI-RESEARCH-GOVERNANCE",
+      "title": "AI research governance",
+      "level": "beginner",
+      "track": "ai-framework",
+      "kind": "skill"
     }
   ],
   "edges": [
@@ -1576,6 +1766,16 @@
     {
       "from": "MOBILE-FLUTTER-NETWORKING",
       "to": "MOBILE-FLUTTER-STORAGE",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-STORAGE",
+      "to": "MOBILE-FLUTTER-SECURITY",
+      "type": "requires"
+    },
+    {
+      "from": "MOBILE-FLUTTER-SECURITY",
+      "to": "MOBILE-FLUTTER-DEPLOYMENT",
       "type": "requires"
     },
     {
@@ -3097,6 +3297,261 @@
       "from": "DATABASE-BACKUP-REPLICATION",
       "to": "DEVOPS-BACKUPS",
       "type": "recommended"
+    },
+    {
+      "from": "AI-FUNDAMENTALS",
+      "to": "AI-LLM-FUNDAMENTALS",
+      "type": "requires"
+    },
+    {
+      "from": "AI-LLM-FUNDAMENTALS",
+      "to": "AI-PROMPT-ENGINEERING",
+      "type": "requires"
+    },
+    {
+      "from": "AI-PROMPT-ENGINEERING",
+      "to": "AI-CODING-AGENTS",
+      "type": "requires"
+    },
+    {
+      "from": "AI-PROMPT-ENGINEERING",
+      "to": "AI-TOOL-CALLING",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "AI-LLM-FUNDAMENTALS",
+      "to": "AI-RAG",
+      "type": "requires"
+    },
+    {
+      "from": "AI-RAG",
+      "to": "AI-EVALUATION",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "AI-TOOL-CALLING",
+      "to": "AI-SECURITY",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "AI-CODING-AGENTS",
+      "to": "AI-SECURITY",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "AI-FUNDAMENTALS",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-LLM-FUNDAMENTALS",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-PROMPT-ENGINEERING",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-CODING-AGENTS",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-TOOL-CALLING",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-RAG",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-EVALUATION",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-SECURITY",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-LLM-FUNDAMENTALS",
+      "to": "AI-STRUCTURED-OUTPUTS",
+      "type": "requires"
+    },
+    {
+      "from": "AI-PROMPT-ENGINEERING",
+      "to": "AI-CONTEXT-ENGINEERING",
+      "type": "requires"
+    },
+    {
+      "from": "AI-STRUCTURED-OUTPUTS",
+      "to": "AI-TOOL-CALLING",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "AI-TOOL-CALLING",
+      "to": "AI-AGENTS",
+      "type": "requires"
+    },
+    {
+      "from": "AI-AGENTS",
+      "to": "AI-MCP",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "AI-CODING-AGENTS",
+      "to": "AI-MCP",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "AI-RAG",
+      "to": "AI-MULTIMODAL",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "AI-EVALUATION",
+      "to": "AI-OPEN-MODELS",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "AI-LLM-FUNDAMENTALS",
+      "to": "AI-OPEN-MODELS",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "AI-CONTEXT-ENGINEERING",
+      "to": "AI-RAG",
+      "type": "recommendedBefore"
+    },
+    {
+      "from": "AI-AGENTS",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-MCP",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-CONTEXT-ENGINEERING",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-STRUCTURED-OUTPUTS",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-OPEN-MODELS",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-MULTIMODAL",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-LLM-FUNDAMENTALS",
+      "to": "AI-EMBEDDINGS",
+      "type": "requires"
+    },
+    {
+      "from": "AI-EMBEDDINGS",
+      "to": "AI-VECTOR-DATABASES",
+      "type": "requires"
+    },
+    {
+      "from": "AI-VECTOR-DATABASES",
+      "to": "AI-RAG",
+      "type": "requires"
+    },
+    {
+      "from": "AI-LLM-FUNDAMENTALS",
+      "to": "AI-FRAMEWORKS-LANDSCAPE",
+      "type": "requires"
+    },
+    {
+      "from": "AI-EVALUATION",
+      "to": "AI-LLMOPS",
+      "type": "requires"
+    },
+    {
+      "from": "AI-OPEN-MODELS",
+      "to": "AI-MODEL-SERVING",
+      "type": "requires"
+    },
+    {
+      "from": "AI-OPEN-MODELS",
+      "to": "AI-FINE-TUNING",
+      "type": "requires"
+    },
+    {
+      "from": "AI-LLM-FUNDAMENTALS",
+      "to": "AI-COST-LATENCY",
+      "type": "requires"
+    },
+    {
+      "from": "AI-PROMPT-ENGINEERING",
+      "to": "AI-PRODUCT-UX",
+      "type": "requires"
+    },
+    {
+      "from": "AI-RESEARCH-GOVERNANCE",
+      "to": "AI-FUNDAMENTALS",
+      "type": "requires"
+    },
+    {
+      "from": "AI-EMBEDDINGS",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-VECTOR-DATABASES",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-FRAMEWORKS-LANDSCAPE",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-LLMOPS",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-MODEL-SERVING",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-FINE-TUNING",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-COST-LATENCY",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-PRODUCT-UX",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
+    },
+    {
+      "from": "AI-RESEARCH-GOVERNANCE",
+      "to": "TRACK-AI",
+      "type": "belongsToTrack"
     }
   ]
 }

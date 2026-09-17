@@ -1,0 +1,18 @@
+{
+  "id": "issue-ai-prompt-injection-rag",
+  "title": "Retrieved document overrides system instructions (prompt injection)",
+  "technology": "RAG / LLM apps",
+  "platform": "Server",
+  "symptoms": [
+    "Assistant ignores policy and follows instructions embedded in a PDF/web page",
+    "Unexpected tool calls after ingesting user content",
+    "Leaked system prompt fragments in answers"
+  ],
+  "cause": "Untrusted retrieved or user content is concatenated into the model context without isolation, enabling prompt injection (OWASP LLM01).",
+  "solution": "Treat retrieved text as data not instructions; use delimiters/roles; constrain tools; require citations; add security evals for injection cases.",
+  "workaround": "Strip instruction-like phrases from retrieved chunks and disable tools for untrusted corpora.",
+  "status": "VERIFIED",
+  "relatedTopics": ["AI-LLM-FUNDAMENTALS", "AI-PROMPT-ENGINEERING"],
+  "sources": ["OWASP-LLM-TOP10-2025", "MCP-SPEC-2026-07-28"],
+  "lastVerified": "2026-09-16"
+}

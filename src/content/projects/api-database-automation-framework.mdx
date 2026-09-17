@@ -1,0 +1,212 @@
+---
+id: "PBL-QA-I-002"
+title: "API + Database Automation Framework"
+slug: "api-database-automation-framework"
+track: "qa"
+level: "intermediate"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for SDET/QA automation roles: API testing and database validation appear together in mid-level openings."
+difficulty: "intermediate"
+summary: "API tests plus DB assertions in CI."
+portfolioPitch: "Automation that validates contracts and data."
+estimatedHours: 30
+prerequisiteSkillIds:
+  - "QA-API-TESTING"
+  - "QA-PLAYWRIGHT"
+  - "QA-CI-INTEGRATION"
+learningOutcomeSkillIds:
+  - "QA-API-TESTING"
+  - "QA-CI-INTEGRATION"
+  - "QA-PLAYWRIGHT"
+recommendedTools:
+  - "Playwright/REST client"
+  - "CI"
+portfolioEvidence:
+  - "Test strategy"
+  - "Test cases"
+  - "Automation + CI"
+  - "Bug reports"
+  - "Perf/a11y findings"
+  - "Release quality report"
+relatedTopicIds:
+  - "QA-FLAKY-TESTS"
+  - "QA-APPIUM-AWARENESS"
+  - "QA-EXPLORATORY-TESTING"
+  - "QA-RISK-BASED-TESTING"
+  - "QA-MANUAL-TEST-DESIGN"
+relatedInterviewQuestionIds:
+  - "QA-A-0001"
+  - "QA-A-0002"
+  - "QA-A-0003"
+  - "QA-A-0004"
+  - "QA-A-0005"
+  - "QA-A-0006"
+  - "QA-A-0007"
+  - "QA-A-0008"
+sources:
+  - "PLAYWRIGHT-DOCS"
+  - "POSTGRES-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-QA-I-002-M01"
+    title: "Framework"
+    objective: "Fixtures/config."
+    whyItMatters: "Stability."
+    prerequisiteTopicIds:
+      - "QA-FLAKY-TESTS"
+      - "QA-APPIUM-AWARENESS"
+    tasks:
+      - "Capture scope for 'Framework' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Fixtures/config."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Framework"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Fixtures/config. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-QA-I-002-M02"
+    title: "API suite"
+    objective: "Contract checks."
+    whyItMatters: "Value."
+    prerequisiteTopicIds:
+      - "QA-FLAKY-TESTS"
+      - "QA-APPIUM-AWARENESS"
+    tasks:
+      - "Capture scope for 'API suite' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Contract checks."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: API suite"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Contract checks. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-QA-I-002-M03"
+    title: "DB asserts"
+    objective: "State verification."
+    whyItMatters: "Depth."
+    prerequisiteTopicIds:
+      - "QA-EXPLORATORY-TESTING"
+      - "QA-RISK-BASED-TESTING"
+    tasks:
+      - "Capture scope for 'DB asserts' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: State verification."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: DB asserts"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "State verification. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-QA-I-002-M04"
+    title: "CI gate"
+    objective: "Artifacts on fail."
+    whyItMatters: "Honesty."
+    prerequisiteTopicIds:
+      - "QA-EXPLORATORY-TESTING"
+      - "QA-RISK-BASED-TESTING"
+    tasks:
+      - "Capture scope for 'CI gate' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Artifacts on fail."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: CI gate"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Artifacts on fail. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Automation that validates contracts and data.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: Playwright/REST client, CI.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to intermediate
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

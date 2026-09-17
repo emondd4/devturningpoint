@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-insecure-auth",
+  "title": "Insecure authentication suggestion",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Agent stores tokens insecurely or skips authn."
+  ],
+  "cause": "Agent stores tokens insecurely or skips authn.",
+  "solution": "Follow secure session/token patterns; security review.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

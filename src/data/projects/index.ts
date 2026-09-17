@@ -318,6 +318,96 @@ export const projectCatalog: ProjectCatalogEntry[] = [
     "estimatedHours": 36,
     "previousProjectId": "PROJECT-PM-CROSS-FUNCTIONAL-RELEASE",
     "nextProjectId": null
+  },
+  {
+    "id": "PBL-AI-B-001",
+    "slug": "ai-prompt-lab-evaluation-notebook",
+    "track": "ai-framework",
+    "level": "beginner",
+    "title": "Prompt Lab + Evaluation Notebook",
+    "estimatedHours": 14,
+    "previousProjectId": null,
+    "nextProjectId": "PBL-AI-B-002"
+  },
+  {
+    "id": "PBL-AI-B-002",
+    "slug": "ai-coding-workflow-lab-cursor",
+    "track": "ai-framework",
+    "level": "beginner",
+    "title": "AI Coding Workflow Lab with Cursor",
+    "estimatedHours": 12,
+    "previousProjectId": "PBL-AI-B-001",
+    "nextProjectId": "PBL-AI-B-003"
+  },
+  {
+    "id": "PBL-AI-B-003",
+    "slug": "ai-structured-document-extractor",
+    "track": "ai-framework",
+    "level": "beginner",
+    "title": "Structured Document Extractor",
+    "estimatedHours": 16,
+    "previousProjectId": "PBL-AI-B-002",
+    "nextProjectId": "PBL-AI-I-001"
+  },
+  {
+    "id": "PBL-AI-I-001",
+    "slug": "ai-citation-rag-knowledge-assistant",
+    "track": "ai-framework",
+    "level": "intermediate",
+    "title": "Citation-Based RAG Knowledge Assistant",
+    "estimatedHours": 28,
+    "previousProjectId": "PBL-AI-B-003",
+    "nextProjectId": "PBL-AI-I-002"
+  },
+  {
+    "id": "PBL-AI-I-002",
+    "slug": "ai-tool-calling-operations-assistant",
+    "track": "ai-framework",
+    "level": "intermediate",
+    "title": "Tool-Calling Operations Assistant",
+    "estimatedHours": 30,
+    "previousProjectId": "PBL-AI-I-001",
+    "nextProjectId": "PBL-AI-I-003"
+  },
+  {
+    "id": "PBL-AI-I-003",
+    "slug": "ai-multimodal-document-intelligence",
+    "track": "ai-framework",
+    "level": "intermediate",
+    "title": "Multimodal Document Intelligence Pipeline",
+    "estimatedHours": 32,
+    "previousProjectId": "PBL-AI-I-002",
+    "nextProjectId": "PBL-AI-A-001"
+  },
+  {
+    "id": "PBL-AI-A-001",
+    "slug": "ai-stateful-agent-langgraph-mcp",
+    "track": "ai-framework",
+    "level": "advanced",
+    "title": "Stateful Agent with LangGraph + MCP",
+    "estimatedHours": 40,
+    "previousProjectId": "PBL-AI-I-003",
+    "nextProjectId": "PBL-AI-A-002"
+  },
+  {
+    "id": "PBL-AI-A-002",
+    "slug": "ai-open-model-inference-eval-platform",
+    "track": "ai-framework",
+    "level": "advanced",
+    "title": "Open-Model Inference & Evaluation Platform",
+    "estimatedHours": 42,
+    "previousProjectId": "PBL-AI-A-001",
+    "nextProjectId": "PBL-AI-A-003"
+  },
+  {
+    "id": "PBL-AI-A-003",
+    "slug": "ai-multi-tenant-copilot-saas",
+    "track": "ai-framework",
+    "level": "advanced",
+    "title": "Multi-Tenant AI Copilot SaaS",
+    "estimatedHours": 48,
+    "previousProjectId": "PBL-AI-A-002",
+    "nextProjectId": null
   }
 ];
 

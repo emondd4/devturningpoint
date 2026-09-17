@@ -9,6 +9,7 @@ import database from './bank/database.json' with { type: 'json' };
 import qa from './bank/qa.json' with { type: 'json' };
 import uiux from './bank/uiux.json' with { type: 'json' };
 import projectManagement from './bank/project-management.json' with { type: 'json' };
+import aiFramework from './bank/ai-framework.json' with { type: 'json' };
 import type { BankQuestion, InterviewCatalog, InterviewTrackCatalog } from './types';
 import { tracks } from '../tracks/tracks';
 
@@ -27,6 +28,7 @@ const banks: Record<string, BankQuestion[]> = {
   qa: qa as BankQuestion[],
   uiux: uiux as BankQuestion[],
   'project-management': projectManagement as BankQuestion[],
+  'ai-framework': aiFramework as BankQuestion[],
 };
 
 export const interviewTrackSlugs = Object.keys(banks);

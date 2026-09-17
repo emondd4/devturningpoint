@@ -1,0 +1,36 @@
+{
+  "id": "AI-TOOL-HF-TRANSFORMERS",
+  "name": "Hugging Face Transformers",
+  "category": "ml-open-models",
+  "description": "Library and Hub ecosystem for loading and running transformer models.",
+  "bestFor": [
+    "Open-model experimentation",
+    "Standard NLP/multimodal pipelines"
+  ],
+  "notIdealFor": [
+    "Managed SaaS chat without ops ownership"
+  ],
+  "prerequisites": [
+    "AI-OPEN-MODELS"
+  ],
+  "officialUrl": "https://huggingface.co/",
+  "docsUrl": "https://huggingface.co/docs/transformers",
+  "languageEcosystem": [
+    "Python"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "Library free; Hub/Inference endpoints may bill.",
+  "securityNotes": [
+    "Review model licenses",
+    "Scan downloaded weights/sources"
+  ],
+  "relatedTopicIds": [
+    "AI-OPEN-MODELS"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-A-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "PROMPT-PLAYWRIGHT-GEN",
+  "title": "Playwright generation",
+  "track": "qa",
+  "taskType": "qa-automation",
+  "difficulty": "intermediate",
+  "whenToUse": "Automate a stable user journey.",
+  "whenNotToUse": "Highly flaky visual animations as first target.",
+  "requiredInputs": [
+    "User journey",
+    "Selectors strategy"
+  ],
+  "promptTemplate": "GOAL:\nGenerate Playwright test for {{journey}}.\n\nCONTEXT:\nApp URL pattern: {{url}}.\n\nINPUT:\nSteps: {{steps}}\n\nCONSTRAINTS:\n- Prefer role/text selectors\n- Assert outcomes not implementation\n- Avoid sleeps\n\nOUTPUT:\nTest code + run command\n\nACCEPTANCE:\nFails if journey breaks.\n\nVERIFICATION:\nRun locally.",
+  "badPrompt": "Write Playwright magic.",
+  "improvedPrompt": "E2E login→add-to-cart→checkout success; use getByRole; no networkidle sleeps.",
+  "expectedOutput": "Playwright test draft.",
+  "verificationChecklist": [
+    "Stable selectors",
+    "Outcome asserts"
+  ],
+  "failureModes": [
+    "Brittle CSS selectors"
+  ],
+  "privacySecurityNotes": [
+    "No prod credentials"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-QA"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

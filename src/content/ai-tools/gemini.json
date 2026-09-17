@@ -1,0 +1,39 @@
+{
+  "id": "AI-TOOL-GEMINI",
+  "name": "Google Gemini API",
+  "category": "model-providers",
+  "description": "Google Gemini developer APIs for multimodal and generative applications.",
+  "bestFor": [
+    "Multimodal prototypes",
+    "Google Cloud adjacent stacks"
+  ],
+  "notIdealFor": [
+    "Vendor-neutral local-only requirements"
+  ],
+  "prerequisites": [
+    "AI-LLM-FUNDAMENTALS",
+    "AI-MULTIMODAL"
+  ],
+  "officialUrl": "https://ai.google.dev/",
+  "docsUrl": "https://ai.google.dev/gemini-api/docs",
+  "languageEcosystem": [
+    "Python",
+    "TypeScript",
+    "HTTP"
+  ],
+  "localOrCloud": "cloud",
+  "openSourceStatus": "proprietary",
+  "costModelSummary": "Google AI / Cloud billing depending on product surface.",
+  "securityNotes": [
+    "Review data residency options",
+    "Validate multimodal inputs"
+  ],
+  "relatedTopicIds": [
+    "AI-MULTIMODAL"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-I-003"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

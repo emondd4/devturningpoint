@@ -1,0 +1,39 @@
+{
+  "id": "PROMPT-SECURITY-REVIEW",
+  "title": "Security review",
+  "track": "ai-framework",
+  "taskType": "security",
+  "difficulty": "advanced",
+  "whenToUse": "Authn/z, injection, secrets, and AI-specific risks need review.",
+  "whenNotToUse": "Cosmetic UI polish only.",
+  "requiredInputs": [
+    "Diff",
+    "Trust boundaries"
+  ],
+  "promptTemplate": "GOAL:\nSecurity review of {{surface}} using OWASP GenAI + classic web risks.\n\nCONTEXT:\nTrust boundaries: {{boundaries}}.\n\nINPUT:\n{{diff}}\n\nCONSTRAINTS:\n- Check authn/z, injection, secrets, prompt injection, tool over-permission\n\nOUTPUT:\nFindings with severity\n\nACCEPTANCE:\nBlocking issues listed with fix direction.\n\nVERIFICATION:\nCite OWASP themes where relevant.",
+  "badPrompt": "Is this secure?",
+  "improvedPrompt": "Review for prompt injection, tool agency, XSS from model HTML, and missing authz on /admin.",
+  "expectedOutput": "Severity-ranked security findings.",
+  "verificationChecklist": [
+    "OWASP themes mapped",
+    "Evidence cited"
+  ],
+  "failureModes": [
+    "False confidence",
+    "Ignoring tool permissions"
+  ],
+  "privacySecurityNotes": [
+    "Never paste live credentials"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-SECURITY-OWASP"
+  ],
+  "relatedProjects": [
+    "PBL-AI-A-003"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

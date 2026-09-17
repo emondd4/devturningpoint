@@ -1,0 +1,37 @@
+{
+  "id": "PROMPT-BACKEND-API-DESIGN",
+  "title": "Backend API design",
+  "track": "backend",
+  "taskType": "backend",
+  "difficulty": "intermediate",
+  "whenToUse": "Design endpoints before coding.",
+  "whenNotToUse": "You already have a frozen contract.",
+  "requiredInputs": [
+    "Resources",
+    "Auth model"
+  ],
+  "promptTemplate": "GOAL:\nDesign REST/JSON API for {{resource}}.\n\nCONTEXT:\nAuth: {{auth}}. Idempotency needs: {{idem}}.\n\nINPUT:\nUse cases: {{usecases}}\n\nCONSTRAINTS:\n- Explicit status codes\n- Validation\n- No security theater\n\nOUTPUT:\nEndpoints, schemas, error model\n\nACCEPTANCE:\nClient can integrate from the contract.\n\nVERIFICATION:\nList threat notes (authz).",
+  "badPrompt": "Make an API.",
+  "improvedPrompt": "Design /orders with idempotency-key, 409 conflicts, and role checks; no GraphQL unless justified.",
+  "expectedOutput": "API contract draft.",
+  "verificationChecklist": [
+    "Authz specified",
+    "Errors specified"
+  ],
+  "failureModes": [
+    "Missing authz"
+  ],
+  "privacySecurityNotes": [
+    "No real customer payloads"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR",
+    "AI-TOOL-FASTAPI"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-BACKEND"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

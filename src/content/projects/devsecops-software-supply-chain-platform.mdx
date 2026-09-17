@@ -1,0 +1,213 @@
+---
+id: "PBL-DO-A-002"
+title: "DevSecOps Software-Supply-Chain Platform"
+slug: "devsecops-software-supply-chain-platform"
+track: "devops"
+level: "advanced"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for senior DevOps/security-adjacent roles: supply-chain, scanning, and secure pipeline language appears in larger orgs."
+difficulty: "advanced"
+summary: "Pipeline with SCA/signing/provenance notes and policy gates."
+portfolioPitch: "Advanced delivery: supply chain security as a platform concern."
+estimatedHours: 48
+prerequisiteSkillIds:
+  - "DEVOPS-CICD"
+  - "DEVOPS-KUBERNETES"
+learningOutcomeSkillIds:
+  - "DEVOPS-CICD"
+  - "DEVOPS-OBSERVABILITY"
+  - "DEVOPS-KUBERNETES"
+recommendedTools:
+  - "CI"
+  - "container scan"
+  - "policy-as-code"
+portfolioEvidence:
+  - "IaC repo"
+  - "CI/CD green run evidence"
+  - "Monitoring screenshots"
+  - "Runbook"
+  - "Architecture diagram"
+  - "Incident/DR notes"
+relatedTopicIds:
+  - "DEVOPS-DNS-TLS-DEEP-DIVE"
+  - "DEVOPS-BASH"
+  - "DEVOPS-SECRETS-MANAGEMENT"
+  - "DEVOPS-DOCKER-NETWORKING"
+  - "DEVOPS-SLO-SLI"
+relatedInterviewQuestionIds:
+  - "DO-A-0001"
+  - "DO-A-0002"
+  - "DO-A-0003"
+  - "DO-A-0004"
+  - "DO-A-0005"
+  - "DO-A-0006"
+  - "DO-A-0007"
+  - "DO-A-0008"
+sources:
+  - "DOCKER-SCOUT"
+  - "DOCKER-GET-STARTED"
+  - "K8S-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-DO-A-002-M01"
+    title: "Baseline pipeline"
+    objective: "Build/test."
+    whyItMatters: "Foundation."
+    prerequisiteTopicIds:
+      - "DEVOPS-DNS-TLS-DEEP-DIVE"
+      - "DEVOPS-BASH"
+    tasks:
+      - "Capture scope for 'Baseline pipeline' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Build/test."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Baseline pipeline"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Build/test. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DO-A-002-M02"
+    title: "SCA gate"
+    objective: "Fail on critical."
+    whyItMatters: "Honest gates."
+    prerequisiteTopicIds:
+      - "DEVOPS-DNS-TLS-DEEP-DIVE"
+      - "DEVOPS-BASH"
+    tasks:
+      - "Capture scope for 'SCA gate' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Fail on critical."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: SCA gate"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Fail on critical. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DO-A-002-M03"
+    title: "Provenance notes"
+    objective: "Image signing story."
+    whyItMatters: "Trust."
+    prerequisiteTopicIds:
+      - "DEVOPS-SECRETS-MANAGEMENT"
+      - "DEVOPS-DOCKER-NETWORKING"
+    tasks:
+      - "Capture scope for 'Provenance notes' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Image signing story."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Provenance notes"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Image signing story. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DO-A-002-M04"
+    title: "Policy + retro"
+    objective: "Document exceptions."
+    whyItMatters: "Governance."
+    prerequisiteTopicIds:
+      - "DEVOPS-SECRETS-MANAGEMENT"
+      - "DEVOPS-DOCKER-NETWORKING"
+    tasks:
+      - "Capture scope for 'Policy + retro' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Document exceptions."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Policy + retro"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Document exceptions. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Advanced delivery: supply chain security as a platform concern.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: CI, container scan, policy-as-code.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to advanced
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

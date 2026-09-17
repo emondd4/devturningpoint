@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-missing-authz",
+  "title": "Missing authorization",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Endpoints protected only by obscurity."
+  ],
+  "cause": "Endpoints protected only by obscurity.",
+  "solution": "Explicit authz checks per resource.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

@@ -1,0 +1,117 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getTrack } from '../../../data/tracks/tracks';
+import { locales, type Locale, isLocale, localePath } from '../../../i18n/config';
+import { toProjectCard, projectsForTrack } from '../../../data/projects/catalog';
+import TrackProjectsSection from '../../../components/projects/TrackProjectsSection';
+import MaterialIcon from '../../../components/ui/MaterialIcon.astro';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const track = getTrack('ai-framework')!;
+const allProjects = await getCollection('projects');
+const trackProjects = projectsForTrack(
+  allProjects.map((p) => toProjectCard(p.data)),
+  track.id,
+);
+const topics = (await getCollection('topics')).filter((t) => t.data.track === 'ai-framework');
+const tools = await getCollection('ai-tools');
+const recipes = await getCollection('prompt-recipes');
+
+const paths = [
+  {
+    href: localePath(locale, 'tracks/ai-framework'),
+    title: 'LEARN AI',
+    body: isBn ? 'মৌলিক থেকে প্রোডাকশন পর্যন্ত AI ধারণা।' : 'AI fundamentals through production concepts.',
+    icon: 'school',
+  },
+  {
+    href: localePath(locale, 'learn/ai-cursor-safe-lab'),
+    title: 'USE AI AT WORK',
+    body: isBn ? 'Cursor lab, prompting, debugging এবং verification।' : 'Cursor lab, prompting, debugging, and verification.',
+    icon: 'terminal',
+  },
+  {
+    href: `${localePath(locale, 'ai')}#projects`,
+    title: 'BUILD WITH AI',
+    body: isBn ? 'API, RAG, agents, MCP, open models প্রজেক্ট।' : 'APIs, RAG, agents, MCP, and open-model projects.',
+    icon: 'construction',
+  },
+  {
+    href: localePath(locale, 'ai/verify'),
+    title: 'VERIFY AI',
+    body: isBn ? 'Evaluation, code review, security, hallucination।' : 'Evaluation, code review, security, hallucinations.',
+    icon: 'verified',
+  },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={isBn ? track.titleBn : track.title}
+  description={isBn ? track.summaryBn : track.summary}
+>
+  <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6" data-pagefind-body>
+    <nav class="mb-4 text-sm text-[var(--color-text-muted)]" aria-label="Breadcrumb">
+      <a href={localePath(locale)} class="no-underline">{isBn ? 'হোম' : 'Home'}</a>
+      <span> / </span>
+      <a href={localePath(locale, 'tracks')} class="no-underline">{isBn ? 'ট্র্যাক' : 'Tracks'}</a>
+      <span> / </span>
+      <span>{isBn ? track.titleBn : track.title}</span>
+    </nav>
+
+    <div class="rounded-[var(--radius-xl)] border border-[color-mix(in_srgb,var(--color-accent-ai)_35%,var(--color-border))] bg-[color-mix(in_srgb,var(--color-accent-ai)_8%,var(--color-surface))] p-6 sm:p-8">
+      <span class="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] bg-[color-mix(in_srgb,var(--color-accent-ai)_18%,transparent)] text-[var(--color-accent-ai)]">
+        <MaterialIcon name="auto_awesome" size={24} />
+      </span>
+      <h1 class="mt-4 font-[family-name:var(--font-display)] text-[length:var(--font-size-h1)] font-semibold text-[var(--color-text)]">
+        {isBn ? track.titleBn : track.title}
+      </h1>
+      <p class="mt-3 max-w-3xl text-[var(--color-text-secondary)]">{isBn ? track.summaryBn : track.summary}</p>
+      <p class="mt-2 text-sm text-[var(--color-text-muted)]">
+        {
+          isBn
+            ? 'সাইট ব্রাউজ করতে কোনো AI API key লাগে না। প্রজেক্টে আপনার নিজের Cursor/local model ব্যবহার করতে পারেন।'
+            : 'Browsing this site needs no AI API keys. AI projects may use your own Cursor/local models.'
+        }
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      {
+        paths.map((item) => (
+          <a class="surface-card block no-underline" href={item.href}>
+            <span class="inline-flex text-[var(--color-accent-ai)]">
+              <MaterialIcon name={item.icon} size={22} />
+            </span>
+            <h2 class="mt-3 text-lg font-semibold text-[var(--color-text)]">{item.title}</h2>
+            <p class="mt-2 text-sm text-[var(--color-text-secondary)]">{item.body}</p>
+          </a>
+        ))
+      }
+    </div>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold text-[var(--color-text)]">{isBn ? 'দ্রুত লিংক' : 'Quick links'}</h2>
+      <ul class="mt-3 flex flex-wrap gap-3 text-sm">
+        <li><a href={localePath(locale, 'tracks/ai-framework')}>{isBn ? 'টপিক' : 'Topics'} ({topics.length})</a></li>
+        <li><a href={localePath(locale, 'ai/tools')}>{isBn ? 'টুল' : 'Tools'} ({tools.length})</a></li>
+        <li><a href={localePath(locale, 'ai/prompt-recipes')}>{isBn ? 'Prompt recipes' : 'Prompt recipes'} ({recipes.length})</a></li>
+        <li><a href={localePath(locale, 'ai/decisions')}>{isBn ? 'Decision guides' : 'Decision guides'}</a></li>
+        <li><a href={localePath(locale, 'projects')}>{isBn ? 'প্রজেক্ট' : 'Projects'}</a></li>
+        <li><a href={localePath(locale, 'interviews/ai-framework')}>{isBn ? 'ইন্টারভিউ' : 'Interview'}</a></li>
+        <li><a href={localePath(locale, 'my-learning')}>{isBn ? 'My Learning' : 'My Learning'}</a></li>
+      </ul>
+    </section>
+
+    <div id="projects">
+      <TrackProjectsSection client:load locale={locale} trackId={track.id} projects={trackProjects} />
+    </div>
+  </div>
+</BaseLayout>

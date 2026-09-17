@@ -1,0 +1,76 @@
+---
+id: AI-RAG-FUNDAMENTALS
+title: "Embeddings and RAG Basics"
+titleBn: "Embeddings এবং RAG Basics"
+description: "Chunking, embeddings, retrieval, grounding, and citations—before you pick a RAG framework."
+descriptionBn: "Chunking, embedding, retrieval, grounding এবং citation—RAG framework বেছে নেওয়ার আগে।"
+track: ai-framework
+category: rag
+difficulty: intermediate
+estimatedMinutes: 50
+prerequisites:
+  - "AI-LLM-FUNDAMENTALS"
+unlocks:
+  - "AI-EVALUATION-BASICS"
+related:
+  - "AI-CONTEXT-ENGINEERING"
+  - "AI-SECURITY-OWASP"
+  - "AI-EVALUATION-BASICS"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "rag"
+  - "embeddings"
+  - "retrieval"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "LLAMAINDEX-DOCS"
+  - "LANGCHAIN-DOCS"
+  - "PGVECTOR-DOCS"
+  - "OPENAI-API-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+Bangla title/description may be partial; technical terms stay in English.
+</Callout>
+
+<Callout type="mental-model">
+RAG is search + constrained generation. Most “hallucinations” in RAG apps are retrieval or citation failures, not mysterious model personality.
+</Callout>
+
+## Why this matters
+
+Chatbots without retrieval invent company facts. RAG exists to ground answers in documents you control—and to fail when evidence is missing.
+
+## Pipeline
+
+1. **Ingest** — Collect licensed docs; strip junk; keep source IDs.
+2. **Chunk** — Size/overlap trade context vs precision; tables/code often need special handling.
+3. **Embed** — Vectors approximate meaning; model choice affects recall and cost.
+4. **Retrieve** — Top-k + filters (tenant, locale, freshness).
+5. **Generate** — Prompt requires citations; refuse when unsupported.
+6. **Evaluate** — hit@k and groundedness beat vibe checks.
+
+## Practical checks
+
+- Log retrieved chunk IDs on every answer.
+- Prefer local embeddings when learning; cap paid embedding spend.
+- Treat retrieved text as untrusted (prompt injection).
+
+## Interview angle
+
+Explain why better chunking can beat a larger generator model for enterprise Q&A.
+
+## Next
+
+Context engineering, then the citation RAG project `PBL-AI-I-001`.

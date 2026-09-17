@@ -1,0 +1,36 @@
+{
+  "id": "AI-TOOL-FAISS",
+  "name": "FAISS",
+  "category": "retrieval",
+  "description": "Facebook AI Similarity Search library for efficient vector indexes.",
+  "bestFor": [
+    "Custom ANN research",
+    "Offline index experiments"
+  ],
+  "notIdealFor": [
+    "Turnkey multi-user SaaS without a service layer"
+  ],
+  "prerequisites": [
+    "AI-EMBEDDINGS"
+  ],
+  "officialUrl": "https://github.com/facebookresearch/faiss",
+  "docsUrl": "https://github.com/facebookresearch/faiss/wiki",
+  "languageEcosystem": [
+    "Python",
+    "C++"
+  ],
+  "localOrCloud": "local",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "Open-source; your hardware.",
+  "securityNotes": [
+    "Index files may contain sensitive embeddings"
+  ],
+  "relatedTopicIds": [
+    "AI-VECTOR-DATABASES"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-A-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

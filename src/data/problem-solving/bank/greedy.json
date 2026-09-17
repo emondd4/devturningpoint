@@ -1,0 +1,95 @@
+[
+  {
+    "id": "PS-GD-001",
+    "title": "Best Time to Buy and Sell Stock",
+    "category": "Greedy",
+    "difficulty": "Easy",
+    "pattern": "Greedy / Single Pass",
+    "problemStatement": "You are given an array prices where prices[i] is the price of a stock on day i. You want to maximize profit by choosing a single day to buy and a different later day to sell. Return the maximum profit, or 0 if no profit is possible.",
+    "examples": [
+      { "input": "prices = [7,1,5,3,6,4]", "output": "5", "explanation": "Buy on day 2 (price 1), sell on day 5 (price 6), profit = 5" }
+    ],
+    "constraints": ["1 <= prices.length <= 10^5"],
+    "approachSteps": [
+      "The brute force checks every buy-sell pair, which is O(n^2) — but you never need to reconsider a buy day once a lower price has appeared, so a single pass should suffice.",
+      "Scan left to right, tracking the minimum price seen so far.",
+      "At each day, the best possible profit if you SOLD today is price_today - min_price_so_far — compute that and compare it to the best profit found so far.",
+      "Update the running minimum price whenever today's price is lower than what's been seen.",
+      "This greedy choice works because selling can only ever be profitable relative to the LOWEST price that occurred before it — no later, higher minimum could ever help."
+    ],
+    "bruteForce": { "approach": "Check every pair of buy day i and sell day j > i, tracking the max profit.", "timeComplexity": "O(n^2)", "spaceComplexity": "O(1)" },
+    "optimalApproach": "Single pass tracking the minimum price seen so far and the best profit achievable by selling at the current price.",
+    "solutionCode": "def max_profit(prices):\n    min_price = float('inf')\n    best_profit = 0\n    for price in prices:\n        min_price = min(min_price, price)\n        best_profit = max(best_profit, price - min_price)\n    return best_profit",
+    "timeComplexity": "O(n) — one pass through the prices.",
+    "spaceComplexity": "O(1) — two running variables.",
+    "followUps": [
+      "How does 'Best Time to Buy and Sell Stock II' (unlimited transactions allowed) change the approach?",
+      "How would you also return WHICH two days to buy/sell on, not just the profit amount?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["greedy", "array"]
+  },
+  {
+    "id": "PS-GD-002",
+    "title": "Jump Game",
+    "category": "Greedy",
+    "difficulty": "Medium",
+    "pattern": "Greedy Reachability",
+    "problemStatement": "You are given an integer array nums. You start at the first index, and each element nums[i] represents the maximum jump length from that position. Return true if you can reach the last index, false otherwise.",
+    "examples": [
+      { "input": "nums = [2,3,1,1,4]", "output": "true" },
+      { "input": "nums = [3,2,1,0,4]", "output": "false", "explanation": "Index 3 has value 0, so you're stuck there before reaching index 4." }
+    ],
+    "constraints": ["1 <= nums.length <= 10^4"],
+    "approachSteps": [
+      "You don't need to explore every possible jump sequence (which would be exponential) — you only need to track the FARTHEST reachable index as you scan.",
+      "Track max_reach, initialized to 0 (you start able to reach at least index 0).",
+      "Scan each index i from left to right. If i is already beyond max_reach, you could never have gotten here — return false immediately.",
+      "Otherwise, update max_reach = max(max_reach, i + nums[i]) — from this reachable position, see how far you could jump.",
+      "If at any point max_reach covers the last index, you can stop early and return true; if the loop finishes without ever getting stuck, you succeeded."
+    ],
+    "bruteForce": { "approach": "Recursive/backtracking exploration of every possible jump sequence from each reachable position.", "timeComplexity": "O(2^n) worst case", "spaceComplexity": "O(n) recursion depth" },
+    "optimalApproach": "Single greedy pass tracking the farthest index reachable so far; fail fast if the current index is ever beyond that frontier.",
+    "solutionCode": "def can_jump(nums):\n    max_reach = 0\n    for i, jump in enumerate(nums):\n        if i > max_reach:\n            return False\n        max_reach = max(max_reach, i + jump)\n    return True",
+    "timeComplexity": "O(n) — one pass through the array.",
+    "spaceComplexity": "O(1).",
+    "followUps": [
+      "How does 'Jump Game II' (find the MINIMUM number of jumps, not just whether it's possible) change the approach?",
+      "Why is it safe to greedily track only the farthest reach, rather than considering every intermediate reachable index separately?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["greedy", "array"]
+  },
+  {
+    "id": "PS-GD-003",
+    "title": "Candy",
+    "category": "Greedy",
+    "difficulty": "Hard",
+    "pattern": "Greedy Two-Pass",
+    "problemStatement": "There are n children standing in a line, each with a rating value given in array ratings. You must give each child at least 1 candy. Children with a higher rating than an immediate neighbor must get more candies than that neighbor. Return the minimum total candies required.",
+    "examples": [
+      { "input": "ratings = [1,0,2]", "output": "5", "explanation": "Candies: [2,1,2]" },
+      { "input": "ratings = [1,2,2]", "output": "4", "explanation": "Candies: [1,2,1] — the third child doesn't need more than the second since ratings are equal, not strictly greater." }
+    ],
+    "constraints": ["1 <= n <= 2*10^4"],
+    "approachSteps": [
+      "The constraint is LOCAL and bidirectional (compare to both left and right neighbor), which makes a single left-to-right greedy pass insufficient on its own — you need to satisfy both directions.",
+      "Start every child with 1 candy (the minimum baseline).",
+      "Pass 1 (left to right): if a child's rating is higher than the child immediately to their LEFT, give them one more candy than that left neighbor. This satisfies the 'higher rating than left neighbor' constraint everywhere.",
+      "Pass 2 (right to left): if a child's rating is higher than the child immediately to their RIGHT, they need MORE candy than that right neighbor too — take the max of their current candy count and (right neighbor's candy + 1). This satisfies the 'higher than right neighbor' constraint without breaking what pass 1 already fixed.",
+      "Sum all the final candy counts for the answer.",
+      "The reason two passes (rather than one) are needed: a single pass can only correctly enforce the constraint relative to one direction at a time; the second pass corrects the other direction while preserving the first pass's guarantees (because it only ever increases counts, never decreases them)."
+    ],
+    "bruteForce": { "approach": "Iteratively re-scan and bump candy counts until no constraint is violated (a relaxation-style approach).", "timeComplexity": "O(n^2) worst case", "spaceComplexity": "O(n)" },
+    "optimalApproach": "Two greedy passes over the candy array — left-to-right enforcing the left-neighbor constraint, right-to-left enforcing the right-neighbor constraint by taking the max with the existing value.",
+    "solutionCode": "def candy(ratings):\n    n = len(ratings)\n    candies = [1] * n\n\n    for i in range(1, n):\n        if ratings[i] > ratings[i - 1]:\n            candies[i] = candies[i - 1] + 1\n\n    for i in range(n - 2, -1, -1):\n        if ratings[i] > ratings[i + 1]:\n            candies[i] = max(candies[i], candies[i + 1] + 1)\n\n    return sum(candies)",
+    "timeComplexity": "O(n) — two linear passes over the ratings array.",
+    "spaceComplexity": "O(n) for the candies array.",
+    "followUps": [
+      "Why must the second pass take max(current, right+1) instead of just overwriting with right+1?",
+      "Could this be solved with O(1) extra space instead of an O(n) candies array? Sketch how."
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["greedy", "array"]
+  }
+]

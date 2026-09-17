@@ -1,0 +1,44 @@
+{
+  "id": "PROMPT-ARCHITECTURE-RESEARCH",
+  "title": "Architecture research with decision criteria",
+  "taskType": "architecture-research",
+  "difficulty": "intermediate",
+  "whenToUse": "You need options and trade-offs for a design decision before coding.",
+  "whenNotToUse": "You already chose an architecture and only need implementation.",
+  "requiredInputs": [
+    "Problem statement",
+    "Constraints (team, scale, cost)",
+    "Non-goals"
+  ],
+  "promptTemplate": "GOAL:\nCompare architecture options for {{problem}} and recommend one.\n\nCONTEXT:\nConstraints: {{constraints}}\nNon-goals: {{nonGoals}}\n\nINPUT:\nKnown requirements:\n{{requirements}}\n\nCONSTRAINTS:\n- Prefer official docs over blog lore\n- Mark speculation explicitly\n- Include cost/latency/security axes\n\nOUTPUT:\n1) Options (2–4)\n2) Decision matrix\n3) Recommendation + rollback plan\n4) Spike plan (≤1 day)\n\nACCEPTANCE:\nA tech lead can approve/reject with the matrix alone.\n\nVERIFICATION:\nList questions still unanswered and how to spike them.",
+  "badPrompt": "What architecture should I use for AI?",
+  "improvedPrompt": "GOAL:\nCompare RAG vs fine-tuning for internal policy Q&A with citations required.\nCONSTRAINTS:\nDocs change weekly; team is 2 engineers; prefer local/dev cost control.\nOUTPUT:\nOptions matrix + recommendation + 1-day spike.\nACCEPTANCE:\nCites freshness and citation needs.\nVERIFICATION:\nSpike measures groundedness on 20 questions.",
+  "expectedOutput": "Options matrix with a recommendation and spike plan.",
+  "verificationChecklist": [
+    "Non-goals respected",
+    "Cost/security included",
+    "Speculation labeled"
+  ],
+  "failureModes": [
+    "Framework fashion advice",
+    "Ignoring constraints",
+    "No rollback"
+  ],
+  "privacySecurityNotes": [
+    "Do not include proprietary architecture diagrams with secrets"
+  ],
+  "relatedTools": [
+    "AI-TOOL-LANGCHAIN",
+    "AI-TOOL-LLAMAINDEX"
+  ],
+  "relatedTopics": [
+    "AI-RAG-VS-FINETUNING",
+    "AI-CONTEXT-ENGINEERING"
+  ],
+  "relatedProjects": [
+    "PBL-AI-I-001"
+  ],
+  "track": "ai-framework",
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

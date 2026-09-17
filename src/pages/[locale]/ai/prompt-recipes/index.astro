@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale, localePath } from '../../../../i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const recipes = await getCollection('prompt-recipes');
+---
+
+<BaseLayout locale={locale} title={isBn ? 'Prompt recipes' : 'Prompt recipes'} description="Verifiable prompt templates with failure modes.">
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6" data-pagefind-body>
+    <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold">{isBn ? 'Prompt recipes' : 'Prompt recipes'}</h1>
+    <p class="mt-3 text-[var(--color-ink-muted)]">
+      {isBn ? 'প্রতিটি recipe-এ verification checklist আছে।' : 'Every recipe includes a verification checklist.'}
+    </p>
+    <ul class="mt-8 space-y-6">
+      {
+        recipes.map((recipe) => (
+          <li class="surface-card">
+            <h2 class="text-lg font-semibold text-[var(--color-ink)]">{recipe.data.title}</h2>
+            <p class="mt-1 text-xs text-[var(--color-ink-subtle)]">
+              {recipe.data.id} · {recipe.data.taskType} · {recipe.data.difficulty}
+            </p>
+            <p class="mt-2 text-sm text-[var(--color-ink-muted)]">
+              <strong>{isBn ? 'কখন' : 'When'}:</strong> {recipe.data.whenToUse}
+            </p>
+            <p class="mt-1 text-sm text-[var(--color-ink-muted)]">
+              <strong>{isBn ? 'কখন নয়' : 'When not'}:</strong> {recipe.data.whenNotToUse}
+            </p>
+            <details class="mt-3">
+              <summary class="cursor-pointer text-sm font-medium">{isBn ? 'টেমপ্লেট দেখুন' : 'Show template'}</summary>
+              <pre class="mt-2 overflow-x-auto whitespace-pre-wrap text-xs text-[var(--color-ink-muted)]">{recipe.data.promptTemplate}</pre>
+            </details>
+            <p class="mt-2 text-xs text-[var(--color-ink-subtle)]">verified {recipe.data.lastVerified}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-8 text-sm"><a href={localePath(locale, 'ai')}>{isBn ? 'AI hub' : 'AI hub'}</a></p>
+  </div>
+</BaseLayout>

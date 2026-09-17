@@ -8,6 +8,7 @@ import { foundationsAssessment } from '../../../../../data/assessments/foundatio
 import { frontendAssessment } from '../../../../../data/assessments/frontend';
 import { backendAssessment } from '../../../../../data/assessments/backend';
 import { flutterAssessment } from '../../../../../data/assessments/flutter';
+import { aiFrameworkAssessment } from '../../../../../data/assessments/ai-framework';
 import type { AssessmentBank } from '../../../../../data/assessments/types';
 
 const banks: Record<string, AssessmentBank> = {
@@ -16,6 +17,7 @@ const banks: Record<string, AssessmentBank> = {
   frontend: frontendAssessment,
   backend: backendAssessment,
   'mobile-flutter': flutterAssessment,
+  'ai-framework': aiFrameworkAssessment,
 };
 
 export function getStaticPaths() {

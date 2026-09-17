@@ -1,0 +1,39 @@
+{
+  "id": "AI-TOOL-ANTHROPIC",
+  "name": "Anthropic API",
+  "category": "model-providers",
+  "description": "Claude models with tool use, long context, and safety-oriented guidance.",
+  "bestFor": [
+    "Tool-using assistants",
+    "Long-document reasoning"
+  ],
+  "notIdealFor": [
+    "Local-only inference"
+  ],
+  "prerequisites": [
+    "AI-LLM-FUNDAMENTALS"
+  ],
+  "officialUrl": "https://www.anthropic.com/",
+  "docsUrl": "https://docs.anthropic.com/",
+  "languageEcosystem": [
+    "Python",
+    "TypeScript",
+    "HTTP"
+  ],
+  "localOrCloud": "cloud",
+  "openSourceStatus": "proprietary",
+  "costModelSummary": "Usage-based; confirm pricing before production.",
+  "securityNotes": [
+    "Treat tool results as untrusted input",
+    "Key management via server env"
+  ],
+  "relatedTopicIds": [
+    "AI-TOOL-CALLING",
+    "AI-SECURITY-OWASP"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-I-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

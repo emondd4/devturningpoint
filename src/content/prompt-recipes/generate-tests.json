@@ -1,0 +1,39 @@
+{
+  "id": "PROMPT-GENERATE-TESTS",
+  "title": "Generate tests",
+  "track": "ai-framework",
+  "taskType": "testing",
+  "difficulty": "intermediate",
+  "whenToUse": "You need regression tests for a known behavior.",
+  "whenNotToUse": "You want tests that merely assert mocks without behavior.",
+  "requiredInputs": [
+    "Function/module under test",
+    "Failure cases"
+  ],
+  "promptTemplate": "GOAL:\nWrite tests for {{unit}} covering happy + failure paths.\n\nCONTEXT:\nFramework: {{testFramework}}.\n\nINPUT:\nBehaviors: {{behaviors}}.\n\nCONSTRAINTS:\n- Prefer real behavior over overmocked units\n- Name tests by behavior\n\nOUTPUT:\nTest code + how to run\n\nACCEPTANCE:\nFails if bug reintroduced.\n\nVERIFICATION:\nRun tests; show output.",
+  "badPrompt": "Add some tests.",
+  "improvedPrompt": "Add Vitest cases for empty cart 400 and success 200; no snapshot-only asserts.",
+  "expectedOutput": "Focused regression tests.",
+  "verificationChecklist": [
+    "Failure path covered",
+    "Command provided"
+  ],
+  "failureModes": [
+    "Tests pass for wrong reason",
+    "Overmocking"
+  ],
+  "privacySecurityNotes": [
+    "No production PII in fixtures"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-QA"
+  ],
+  "relatedProjects": [
+    "PBL-AI-B-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-destructive-sql",
+  "title": "Destructive SQL",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "DROP/TRUNCATE without expand-contract."
+  ],
+  "cause": "DROP/TRUNCATE without expand-contract.",
+  "solution": "Require review + backups; reject silent data loss.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

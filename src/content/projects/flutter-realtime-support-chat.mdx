@@ -1,0 +1,212 @@
+---
+id: "PBL-FL-I-002"
+title: "Real-Time Support Chat"
+slug: "flutter-realtime-support-chat"
+track: "mobile-flutter"
+level: "intermediate"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for mobile engineers: chat/notification features appear in customer-support and ops app requirements."
+difficulty: "intermediate"
+summary: "Support chat client with presence, retries, and offline queue."
+portfolioPitch: "Realtime UX under flaky networks—strong mid-level signal."
+estimatedHours: 34
+prerequisiteSkillIds:
+  - "MOBILE-FLUTTER-NETWORKING"
+  - "MOBILE-FLUTTER-STATE"
+  - "MOBILE-FLUTTER-STORAGE"
+learningOutcomeSkillIds:
+  - "MOBILE-FLUTTER-NETWORKING"
+  - "MOBILE-FLUTTER-STORAGE"
+  - "MOBILE-FLUTTER-TESTING"
+recommendedTools:
+  - "Flutter"
+  - "WebSocket/mock"
+portfolioEvidence:
+  - "GitHub repo with README"
+  - "Architecture diagram"
+  - "Screenshots/demo"
+  - "Tests + CI evidence"
+  - "ADR/decision notes"
+  - "Reproducible run instructions"
+relatedTopicIds:
+  - "FLUTTER-INHERITED-WIDGET"
+  - "FLUTTER-STATE-MANAGEMENT"
+  - "FLUTTER-ANTI-PATTERNS"
+  - "FLUTTER-LOCAL-DATABASE"
+  - "FLUTTER-JSON-SERIALIZATION"
+relatedInterviewQuestionIds:
+  - "FL-A-0001"
+  - "FL-A-0002"
+  - "FL-A-0003"
+  - "FL-A-0004"
+  - "FL-A-0005"
+  - "FL-A-0006"
+  - "FL-A-0007"
+  - "FL-A-0008"
+sources:
+  - "FLUTTER-NETWORKING"
+  - "FLUTTER-TESTING"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-FL-I-002-M01"
+    title: "Chat UI"
+    objective: "Threads + messages."
+    whyItMatters: "Core UX."
+    prerequisiteTopicIds:
+      - "FLUTTER-INHERITED-WIDGET"
+      - "FLUTTER-STATE-MANAGEMENT"
+    tasks:
+      - "Capture scope for 'Chat UI' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Threads + messages."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Chat UI"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Threads + messages. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FL-I-002-M02"
+    title: "Realtime link"
+    objective: "Connect/reconnect."
+    whyItMatters: "Network reality."
+    prerequisiteTopicIds:
+      - "FLUTTER-INHERITED-WIDGET"
+      - "FLUTTER-STATE-MANAGEMENT"
+    tasks:
+      - "Capture scope for 'Realtime link' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Connect/reconnect."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Realtime link"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Connect/reconnect. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FL-I-002-M03"
+    title: "Offline queue"
+    objective: "Durable outbound."
+    whyItMatters: "Resilience."
+    prerequisiteTopicIds:
+      - "FLUTTER-ANTI-PATTERNS"
+      - "FLUTTER-LOCAL-DATABASE"
+    tasks:
+      - "Capture scope for 'Offline queue' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Durable outbound."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Offline queue"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Durable outbound. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FL-I-002-M04"
+    title: "Hardening"
+    objective: "Empty/error + tests."
+    whyItMatters: "Evidence."
+    prerequisiteTopicIds:
+      - "FLUTTER-ANTI-PATTERNS"
+      - "FLUTTER-LOCAL-DATABASE"
+    tasks:
+      - "Capture scope for 'Hardening' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Empty/error + tests."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Hardening"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Empty/error + tests. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Realtime UX under flaky networks—strong mid-level signal.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: Flutter, WebSocket/mock.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to intermediate
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

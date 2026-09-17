@@ -1,0 +1,220 @@
+[
+  {
+    "id": "PS-LL-001",
+    "title": "Reverse Linked List",
+    "category": "Linked Lists",
+    "difficulty": "Easy",
+    "pattern": "Iterative Pointer Reversal",
+    "problemStatement": "Given the head of a singly linked list, reverse the list and return the new head.",
+    "examples": [
+      { "input": "1 -> 2 -> 3 -> 4 -> 5 -> null", "output": "5 -> 4 -> 3 -> 2 -> 1 -> null" }
+    ],
+    "constraints": ["The number of nodes is in [0, 5000]"],
+    "approachSteps": [
+      "Reversing means every node's next pointer should point to the node BEFORE it instead of after — you need to flip each link without losing the rest of the list.",
+      "Walk the list with three references: prev (starts as null), curr (starts at head), and a temporary next_node to save what's ahead before you overwrite the pointer.",
+      "At each step: save curr.next, then point curr.next back to prev.",
+      "Advance prev to curr and curr to the saved next_node, and repeat until curr is null.",
+      "prev now points to the new head — return it."
+    ],
+    "bruteForce": { "approach": "Copy node values into an array, then rebuild the list (or a new list) in reverse order.", "timeComplexity": "O(n)", "spaceComplexity": "O(n) for the array/new nodes" },
+    "optimalApproach": "Iterative in-place pointer reversal with three tracking references (prev/curr/next), reversing links as you walk the list once.",
+    "solutionCode": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef reverse_list(head):\n    prev = None\n    curr = head\n    while curr:\n        next_node = curr.next\n        curr.next = prev\n        prev = curr\n        curr = next_node\n    return prev",
+    "timeComplexity": "O(n) — visits every node exactly once.",
+    "spaceComplexity": "O(1) — reverses pointers in place, no extra structure. (A recursive version would be O(n) space for the call stack.)",
+    "followUps": [
+      "How would you write this recursively, and what's the space-complexity trade-off versus the iterative version?",
+      "How would you reverse only a sublist between positions m and n?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["linked-list", "pointers"]
+  },
+  {
+    "id": "PS-LL-002",
+    "title": "Linked List Cycle Detection",
+    "category": "Linked Lists",
+    "difficulty": "Medium",
+    "pattern": "Fast & Slow Pointers (Floyd's)",
+    "problemStatement": "Given the head of a linked list, determine if the linked list has a cycle in it. Do it using O(1) extra memory.",
+    "examples": [
+      { "input": "3 -> 2 -> 0 -> -4 -> (back to 2)", "output": "true" }
+    ],
+    "constraints": ["The number of nodes is in [0, 10^4]"],
+    "approachSteps": [
+      "Storing visited nodes in a hash set works but costs O(n) space — the O(1)-space trick is to use two pointers moving at different speeds.",
+      "Start two pointers, slow (moves 1 step at a time) and fast (moves 2 steps at a time), both at the head.",
+      "If there's no cycle, fast (or fast.next) will hit null and you can stop and return false.",
+      "If there IS a cycle, fast will eventually 'lap' slow inside the loop and they'll point to the exact same node — that's your true/cycle signal.",
+      "This works because in a cycle, the gap between fast and slow shrinks by exactly 1 each step, so it must hit 0 (they meet) within one lap of the cycle."
+    ],
+    "bruteForce": { "approach": "Store every visited node in a hash set; if you revisit a node already in the set, there's a cycle.", "timeComplexity": "O(n)", "spaceComplexity": "O(n)" },
+    "optimalApproach": "Floyd's cycle detection (tortoise and hare): slow/fast pointers meet if and only if a cycle exists, using only two extra references.",
+    "solutionCode": "def has_cycle(head):\n    slow = fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        if slow is fast:\n            return True\n    return False",
+    "timeComplexity": "O(n) — if a cycle exists, the pointers meet within one lap of the cycle length; otherwise fast reaches the end in n/2 steps.",
+    "spaceComplexity": "O(1) — only two pointer references, regardless of list size.",
+    "followUps": [
+      "How would you find the exact node where the cycle begins (not just detect that one exists)?",
+      "How would you find the length of the cycle once detected?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["linked-list", "two-pointers", "fast-slow-pointers"]
+  },
+  {
+    "id": "PS-LL-003",
+    "title": "Merge k Sorted Lists",
+    "category": "Linked Lists",
+    "difficulty": "Hard",
+    "pattern": "Heap / Divide and Conquer",
+    "problemStatement": "You are given an array of k linked-lists, each sorted in ascending order. Merge all the linked-lists into one sorted linked list and return it.",
+    "examples": [
+      { "input": "lists = [[1,4,5],[1,3,4],[2,6]]", "output": "[1,1,2,3,4,4,5,6]" }
+    ],
+    "constraints": ["k == lists.length", "0 <= k <= 10^4", "0 <= lists[i].length <= 500"],
+    "approachSteps": [
+      "Merging two sorted lists at a time (pairwise) is a known easy building block — the question is how to combine k of them efficiently.",
+      "Option A — min-heap: push the head node of every list into a min-heap keyed by value; repeatedly pop the smallest, append it to the result, and push that node's next (if any) back into the heap.",
+      "Option B — divide and conquer: pairwise-merge the k lists in a tournament-bracket style (merge list 1&2, 3&4, ... then merge those results together, etc.) until one list remains.",
+      "Both avoid the naive approach of merging lists one-by-one into a growing result, which does redundant comparisons against an ever-longer merged list.",
+      "The heap approach is usually simpler to implement correctly; divide-and-conquer avoids the log(k) heap overhead per element but needs careful pairwise merging."
+    ],
+    "bruteForce": { "approach": "Merge the lists one at a time into a growing result list (merge list 1 into result, then list 2 into result, etc.).", "timeComplexity": "O(k * n) where n is total nodes — each merge rescans the growing result", "spaceComplexity": "O(1) extra besides output" },
+    "optimalApproach": "Min-heap of size k holding each list's current head; repeatedly extract the minimum and advance that list's pointer. Equivalent complexity via divide-and-conquer pairwise merging.",
+    "solutionCode": "import heapq\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef merge_k_lists(lists):\n    heap = []\n    for i, node in enumerate(lists):\n        if node:\n            heapq.heappush(heap, (node.val, i, node))\n\n    dummy = ListNode()\n    tail = dummy\n    while heap:\n        val, i, node = heapq.heappop(heap)\n        tail.next = node\n        tail = tail.next\n        if node.next:\n            heapq.heappush(heap, (node.next.val, i, node.next))\n\n    return dummy.next",
+    "timeComplexity": "O(N log k) where N is the total number of nodes across all lists and k is the number of lists — each of the N nodes is pushed/popped from a heap of size at most k.",
+    "spaceComplexity": "O(k) for the heap (plus O(N) for the output list itself, which is unavoidable).",
+    "followUps": [
+      "Walk through why divide-and-conquer pairwise merging also achieves O(N log k) — where does the log k come from there?",
+      "Why is the tie-breaker index i included in the heap tuples? What Python error would you get without it if two node values are equal?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["linked-list", "heap", "divide-and-conquer"]
+  },
+  {
+    "id": "PS-LL-004",
+    "title": "Remove Duplicates from Sorted List",
+    "category": "Linked Lists",
+    "difficulty": "Easy",
+    "pattern": "Single Pass Pointer",
+    "problemStatement": "Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.",
+    "examples": [
+      { "input": "1 -> 1 -> 2 -> 3 -> 3", "output": "1 -> 2 -> 3" }
+    ],
+    "constraints": ["The number of nodes is in [0, 300]"],
+    "approachSteps": [
+      "Because the list is already sorted, duplicates are always immediately adjacent — you never need to look further than the next node.",
+      "Walk the list with a single pointer curr, starting at head.",
+      "If curr.val equals curr.next.val, skip over the duplicate by relinking curr.next to curr.next.next — and do NOT advance curr yet, since there could be more than two copies of the same value.",
+      "If they differ, advance curr normally.",
+      "Continue until curr or curr.next is null."
+    ],
+    "bruteForce": { "approach": "Collect all values into a set/list while walking, then rebuild a new list containing only first occurrences.", "timeComplexity": "O(n)", "spaceComplexity": "O(n) for the set/new list" },
+    "optimalApproach": "Single-pass in-place pointer walk that relinks around a duplicate node whenever the current and next values match.",
+    "solutionCode": "def delete_duplicates(head):\n    curr = head\n    while curr and curr.next:\n        if curr.val == curr.next.val:\n            curr.next = curr.next.next\n        else:\n            curr = curr.next\n    return head",
+    "timeComplexity": "O(n) — one pass through the list.",
+    "spaceComplexity": "O(1) — relinks existing nodes in place, no new list built.",
+    "followUps": [
+      "How would you solve 'Remove Duplicates from Sorted List II', which deletes ALL nodes with a duplicated value (not just the extra copies)?",
+      "Would this same relinking idea work on an unsorted list? Why or why not?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["linked-list", "pointers"],
+    "reportedAt": ["bKash"],
+    "sources": ["src-bd-interview-questions-repo"]
+  },
+  {
+    "id": "PS-LL-005",
+    "title": "Merge Two Sorted Lists",
+    "category": "Linked Lists",
+    "difficulty": "Easy",
+    "pattern": "Two Pointers / Dummy Head",
+    "problemStatement": "You are given the heads of two sorted linked lists list1 and list2. Merge them into one sorted list by splicing together their nodes, and return the head of the merged list.",
+    "examples": [
+      { "input": "list1 = 1->2->4, list2 = 1->3->4", "output": "1->1->2->3->4->4" }
+    ],
+    "constraints": ["The number of nodes in both lists is in [0, 50]"],
+    "approachSteps": [
+      "Both lists are already individually sorted — you only need to interleave them in the right order, never re-sort from scratch.",
+      "Use a dummy head node so you don't need special-case logic for 'what is the first node of the result.'",
+      "Walk both lists with two pointers; at each step, splice whichever current node has the smaller value onto the result, and advance that list's pointer.",
+      "When one list is exhausted, splice the entire remaining tail of the other list onto the result directly — it's already sorted, so no further comparison is needed.",
+      "Return dummy.next as the true head (skipping the dummy placeholder)."
+    ],
+    "bruteForce": { "approach": "Collect all values from both lists into an array, sort the array, then build a brand-new linked list from it.", "timeComplexity": "O((n+m) log(n+m))", "spaceComplexity": "O(n+m)" },
+    "optimalApproach": "Two-pointer merge with a dummy head, splicing existing nodes (not creating new ones) in sorted order, then attaching whichever list has leftover nodes.",
+    "solutionCode": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef merge_two_lists(list1, list2):\n    dummy = ListNode()\n    tail = dummy\n    while list1 and list2:\n        if list1.val <= list2.val:\n            tail.next = list1\n            list1 = list1.next\n        else:\n            tail.next = list2\n            list2 = list2.next\n        tail = tail.next\n    tail.next = list1 if list1 else list2\n    return dummy.next",
+    "timeComplexity": "O(n + m) — each node from both lists is visited once.",
+    "spaceComplexity": "O(1) — reuses existing nodes, no new node allocation (aside from the throwaway dummy).",
+    "followUps": [
+      "How does this building block extend to 'Merge k Sorted Lists' with a heap or divide-and-conquer?",
+      "How would you solve this recursively instead of iteratively, and what's the space trade-off?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["linked-list", "two-pointers"],
+    "reportedAt": ["Therap (BD)"],
+    "sources": ["src-bd-interview-questions-repo"]
+  },
+  {
+    "id": "PS-LL-006",
+    "title": "Remove Nth Node From End of List",
+    "category": "Linked Lists",
+    "difficulty": "Medium",
+    "pattern": "Fast & Slow Pointers (Gap Technique)",
+    "problemStatement": "Given the head of a linked list, remove the nth node from the end of the list and return its head. Try to do it in one pass.",
+    "examples": [
+      { "input": "head = 1->2->3->4->5, n = 2", "output": "1->2->3->5" }
+    ],
+    "constraints": ["The number of nodes is in [1, 30]"],
+    "approachSteps": [
+      "The naive way needs the list's total length first (one pass to count, one pass to remove) — the one-pass trick is to create a fixed GAP between two pointers instead.",
+      "Use a dummy node before head, so removing the actual head node doesn't need special-case handling.",
+      "Advance a fast pointer n steps ahead of a slow pointer first, creating a gap of exactly n nodes between them.",
+      "Then move both fast and slow forward together, one step at a time, until fast reaches the last node (fast.next is null).",
+      "At that point, slow is sitting exactly one node before the target — because the gap of n was preserved, slow.next is the nth-from-end node — relink slow.next = slow.next.next to remove it."
+    ],
+    "bruteForce": { "approach": "First pass: walk the list to count its total length L. Second pass: walk again to node (L - n - 1) and unlink the next node.", "timeComplexity": "O(L), but two separate passes", "spaceComplexity": "O(1)" },
+    "optimalApproach": "Two pointers separated by a fixed gap of n nodes, advanced together in a single combined pass — no length pre-count needed.",
+    "solutionCode": "def remove_nth_from_end(head, n):\n    dummy = ListNode(0, head)\n    fast = slow = dummy\n\n    for _ in range(n):\n        fast = fast.next\n\n    while fast.next:\n        fast = fast.next\n        slow = slow.next\n\n    slow.next = slow.next.next\n    return dummy.next",
+    "timeComplexity": "O(L) — a single pass through the list (the two-pass brute force is also O(L), just with a larger constant factor from walking twice).",
+    "spaceComplexity": "O(1) — only two pointers besides the dummy node.",
+    "followUps": [
+      "Why is a dummy node needed here specifically — what breaks if you start fast/slow at head instead?",
+      "How would you find the MIDDLE of a linked list using this same fast/slow gap idea (with a gap that grows, not stays fixed)?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["linked-list", "two-pointers", "fast-slow-pointers"],
+    "reportedAt": ["Therap (BD)"],
+    "sources": ["src-bd-interview-questions-repo"]
+  },
+  {
+    "id": "PS-LL-007",
+    "title": "Copy List with Random Pointer",
+    "category": "Linked Lists",
+    "difficulty": "Medium",
+    "pattern": "Hash Map + Two Passes",
+    "problemStatement": "A linked list is given where each node contains an additional random pointer, which could point to any node in the list, or null. Construct a deep copy of the list — the copy must not share any node references with the original.",
+    "examples": [
+      { "input": "head with 4 nodes, random pointers e.g. node1.random -> node3, node2.random -> node1", "output": "A fully independent deep-copied list with equivalent next AND random pointer structure." }
+    ],
+    "constraints": ["The number of nodes is in [0, 1000]"],
+    "approachSteps": [
+      "The hard part isn't copying next pointers (that's the easy part) — it's copying random pointers, which can point FORWARD to nodes you haven't created a copy of yet.",
+      "Solve the ordering problem with a hash map from original node -> its copied counterpart, built up front so any random pointer can be resolved regardless of order.",
+      "First pass: walk the original list, creating a copy of EVERY node (with just its value for now) and recording original -> copy in the map.",
+      "Second pass: walk the original list again; for each original node, use the map to set its copy's next and random pointers by looking up old_to_new[curr.next] and old_to_new[curr.random].",
+      "Because the map already contains every node from pass one, every lookup in pass two — including ones pointing 'forward' — succeeds immediately."
+    ],
+    "bruteForce": { "approach": "For each node's random pointer, re-scan the original list from the start to find that node's position, then locate the corresponding copied node the same way.", "timeComplexity": "O(n^2)", "spaceComplexity": "O(n) for the new list" },
+    "optimalApproach": "Two passes with a hash map from original node to copied node: the first pass creates all copies and the mapping, the second pass wires up next/random pointers using O(1) map lookups.",
+    "solutionCode": "class Node:\n    def __init__(self, val, next=None, random=None):\n        self.val = val\n        self.next = next\n        self.random = random\n\ndef copy_random_list(head):\n    if not head:\n        return None\n\n    old_to_new = {}\n    curr = head\n    while curr:\n        old_to_new[curr] = Node(curr.val)\n        curr = curr.next\n\n    curr = head\n    while curr:\n        old_to_new[curr].next = old_to_new.get(curr.next)\n        old_to_new[curr].random = old_to_new.get(curr.random)\n        curr = curr.next\n\n    return old_to_new[head]",
+    "timeComplexity": "O(n) — two linear passes over the list.",
+    "spaceComplexity": "O(n) for the hash map (holding every original-to-copy pairing).",
+    "followUps": [
+      "How would you achieve O(1) EXTRA space (beyond the output) using the node-interleaving/weaving trick — splicing each copy directly after its original before separating them?",
+      "Why does old_to_new.get(...) (returning None for a missing key) work correctly here instead of needing an explicit null-check before the lookup?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO", "FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["linked-list", "hash-map"],
+    "reportedAt": ["Samsung R&D Bangladesh"],
+    "sources": ["src-bd-interview-questions-repo"]
+  }
+]

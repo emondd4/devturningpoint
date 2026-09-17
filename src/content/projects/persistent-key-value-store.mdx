@@ -1,0 +1,212 @@
+---
+id: "PBL-FND-A-002"
+title: "Persistent Key-Value Store"
+slug: "persistent-key-value-store"
+track: "foundations"
+level: "advanced"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for stronger systems roles: durability and performance reasoning appear in advanced interviews more than CRUD."
+difficulty: "advanced"
+summary: "On-disk KV store with durability notes and benchmarks."
+portfolioPitch: "Systems depth: storage layout, crash stories, and measurement."
+estimatedHours: 40
+prerequisiteSkillIds:
+  - "FOUNDATIONS-FILESYSTEMS"
+  - "FOUNDATIONS-PROCESSES"
+  - "FOUNDATIONS-DEBUGGING"
+learningOutcomeSkillIds:
+  - "FOUNDATIONS-FILESYSTEMS"
+  - "FOUNDATIONS-DEBUGGING"
+  - "FOUNDATIONS-COMPLEXITY"
+recommendedTools:
+  - "Rust/Go/C++"
+  - "benchmarks"
+portfolioEvidence:
+  - "GitHub repo with README"
+  - "Architecture diagram"
+  - "Screenshots/demo"
+  - "Tests + CI evidence"
+  - "ADR/decision notes"
+  - "Reproducible run instructions"
+relatedTopicIds:
+  - "FOUNDATIONS-CLI-BASICS"
+  - "FOUNDATIONS-COMPLEXITY-PRACTICE"
+  - "FOUNDATIONS-JSON-DATA"
+  - "FOUNDATIONS-ENCODING-UTF8"
+  - "FOUNDATIONS-ALGORITHMS-COMPLEXITY"
+relatedInterviewQuestionIds:
+  - "FND-A-0001"
+  - "FND-A-0002"
+  - "FND-A-0003"
+  - "FND-A-0004"
+  - "FND-A-0005"
+  - "FND-A-0006"
+  - "FND-A-0007"
+  - "FND-A-0008"
+sources:
+  - "LINUX-MAN-PAGES"
+  - "RFC-9110-HTTP"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-FND-A-002-M01"
+    title: "Storage format"
+    objective: "On-disk layout."
+    whyItMatters: "Durability starts here."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-CLI-BASICS"
+      - "FOUNDATIONS-COMPLEXITY-PRACTICE"
+    tasks:
+      - "Capture scope for 'Storage format' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: On-disk layout."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Storage format"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "On-disk layout. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FND-A-002-M02"
+    title: "CRUD API"
+    objective: "Get/put/delete."
+    whyItMatters: "Usable interface."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-CLI-BASICS"
+      - "FOUNDATIONS-COMPLEXITY-PRACTICE"
+    tasks:
+      - "Capture scope for 'CRUD API' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Get/put/delete."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: CRUD API"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Get/put/delete. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FND-A-002-M03"
+    title: "Crash notes"
+    objective: "fsync/recovery story."
+    whyItMatters: "Production depth."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-JSON-DATA"
+      - "FOUNDATIONS-ENCODING-UTF8"
+    tasks:
+      - "Capture scope for 'Crash notes' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: fsync/recovery story."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Crash notes"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "fsync/recovery story. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FND-A-002-M04"
+    title: "Benchmarks"
+    objective: "Measure before claims."
+    whyItMatters: "Evidence."
+    prerequisiteTopicIds:
+      - "FOUNDATIONS-JSON-DATA"
+      - "FOUNDATIONS-ENCODING-UTF8"
+    tasks:
+      - "Capture scope for 'Benchmarks' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Measure before claims."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Benchmarks"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Measure before claims. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Systems depth: storage layout, crash stories, and measurement.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: Rust/Go/C++, benchmarks.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to advanced
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

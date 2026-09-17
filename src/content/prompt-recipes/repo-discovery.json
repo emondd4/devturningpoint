@@ -1,0 +1,36 @@
+{
+  "id": "PROMPT-REPO-DISCOVERY",
+  "title": "Understand an unfamiliar repository",
+  "track": "ai-framework",
+  "taskType": "codebase-discovery",
+  "difficulty": "beginner",
+  "whenToUse": "You joined a codebase and need an accurate map before changing anything.",
+  "whenNotToUse": "You already know the architecture and only need a one-line fix.",
+  "requiredInputs": [
+    "Repository root access",
+    "Target question (e.g. where auth lives)"
+  ],
+  "promptTemplate": "GOAL:\nMap how this repository is structured and where {{concern}} is implemented.\n\nCONTEXT:\nStack hints (if known): {{stackHints}}\nDo not modify files.\n\nINPUT:\nInspect package manifests, README, src/ layout, and routing/entrypoints.\n\nCONSTRAINTS:\n- Read-only\n- Prefer official configs over guesses\n- Call out uncertainty explicitly\n\nOUTPUT:\n1) Architecture summary\n2) Key directories/files for {{concern}}\n3) Data/auth boundaries\n4) Risks before editing\n\nACCEPTANCE:\nAnother engineer can locate the right files in under 5 minutes using your map.\n\nVERIFICATION:\nList the exact files you opened and quotes/paths that justify each claim.",
+  "badPrompt": "Explain this whole repo.",
+  "improvedPrompt": "GOAL:\nMap how authentication and session cookies are implemented.\nCONTEXT:\nAstro + React islands static site; no backend auth expected—confirm.\nINPUT:\nRead package.json, src/pages, src/stores, middleware if any.\nCONSTRAINTS:\nRead-only; no invented endpoints.\nOUTPUT:\nArchitecture notes + file map + risks.\nACCEPTANCE:\nClear yes/no on whether login exists.\nVERIFICATION:\nCite paths proving the conclusion.",
+  "expectedOutput": "A concise architecture map with file paths and explicit unknowns.",
+  "verificationChecklist": [
+    "Every major claim cites a path",
+    "No file modifications proposed yet",
+    "Unknowns are labeled unknown"
+  ],
+  "failureModes": [
+    "Hallucinated folders",
+    "Assuming a backend that is not present",
+    "Overconfident security claims"
+  ],
+  "privacySecurityNotes": [
+    "Do not dump .env contents into the prompt",
+    "Redact customer data in logs before sharing"
+  ],
+  "relatedTools": ["AI-TOOL-CURSOR"],
+  "relatedTopics": ["AI-CODING-AGENTS-CURSOR", "AI-PROMPT-ENGINEERING"],
+  "relatedProjects": ["PBL-AI-B-002"],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

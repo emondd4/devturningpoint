@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-improper-output-handling",
+  "title": "Improper model output handling",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Raw model HTML/SQL executed unsafely."
+  ],
+  "cause": "Raw model HTML/SQL executed unsafely.",
+  "solution": "Validate/encode; never eval untrusted output.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}
