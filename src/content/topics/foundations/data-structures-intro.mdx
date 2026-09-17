@@ -91,14 +91,18 @@ const nav = {
 
 ## Selection cheat sheet
 
-| Need | Reach for |
-| --- | --- |
-| Ordered collection, scan often | Array |
-| Frequent lookup by id | Hash map |
-| Hierarchy / nested docs | Tree |
-| FIFO jobs | Queue |
-| Undo stack | Stack |
-| Unique membership tests | Set |
+| Need | Reach for | Typical access/search | Typical insert |
+| --- | --- | --- | --- |
+| Ordered collection, scan often | Array | O(1) by index, O(n) search | O(n) at front, amortised O(1) at end |
+| Frequent lookup by id | Hash map | O(1) average, O(n) worst case | O(1) average |
+| Hierarchy / nested docs | Tree (balanced) | O(log n) | O(log n) |
+| FIFO jobs | Queue | O(1) at head/tail | O(1) |
+| Undo stack | Stack | O(1) at top | O(1) |
+| Unique membership tests | Set | O(1) average (hash-backed) | O(1) average |
+
+<Callout type="info" title="Worst case vs average case">
+  Hash map/set O(1) is an *average-case* figure that assumes a decent hash function and low collision rate—a pathological input (or a weak hash) can degrade it to O(n). See `FOUNDATIONS-ALGORITHMS-COMPLEXITY` for how to reason about average vs worst case.
+</Callout>
 
 
 ## Common mistakes

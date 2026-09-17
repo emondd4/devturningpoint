@@ -1,0 +1,214 @@
+---
+id: "PBL-BE-I-002"
+title: "Real-Time Notification & Messaging Service"
+slug: "realtime-notification-messaging-service"
+track: "backend"
+level: "intermediate"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for mid backend roles: notifications, websockets, and messaging appear in product API requirements."
+difficulty: "intermediate"
+summary: "Messaging service with websockets/queues and delivery semantics."
+portfolioPitch: "Realtime backends need idempotency and failure stories."
+estimatedHours: 36
+prerequisiteSkillIds:
+  - "BACKEND-NESTJS"
+  - "BACKEND-REDIS"
+  - "BACKEND-AUTH"
+learningOutcomeSkillIds:
+  - "BACKEND-REDIS"
+  - "BACKEND-TESTING"
+  - "BACKEND-NESTJS"
+recommendedTools:
+  - "NestJS"
+  - "Redis"
+  - "WebSocket"
+portfolioEvidence:
+  - "GitHub repo with README"
+  - "Architecture diagram"
+  - "Screenshots/demo"
+  - "Tests + CI evidence"
+  - "ADR/decision notes"
+  - "Reproducible run instructions"
+relatedTopicIds:
+  - "BACKEND-PRISMA-TYPEORM"
+  - "BACKEND-QUEUES"
+  - "BACKEND-NESTJS-AUTH-JWT"
+  - "BACKEND-RATE-LIMITING"
+  - "BACKEND-REDIS-CACHING"
+relatedInterviewQuestionIds:
+  - "BE-A-0001"
+  - "BE-A-0002"
+  - "BE-A-0003"
+  - "BE-A-0004"
+  - "BE-A-0005"
+  - "BE-A-0006"
+  - "BE-A-0007"
+  - "BE-A-0008"
+sources:
+  - "NESTJS-WEBSCOCKETS"
+  - "NESTJS-QUEUES"
+  - "POSTGRES-TX"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-BE-I-002-M01"
+    title: "Message model"
+    objective: "Persist messages."
+    whyItMatters: "Domain first."
+    prerequisiteTopicIds:
+      - "BACKEND-PRISMA-TYPEORM"
+      - "BACKEND-QUEUES"
+    tasks:
+      - "Capture scope for 'Message model' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Persist messages."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Message model"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Persist messages. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-BE-I-002-M02"
+    title: "Realtime channel"
+    objective: "Push updates."
+    whyItMatters: "UX dependency."
+    prerequisiteTopicIds:
+      - "BACKEND-PRISMA-TYPEORM"
+      - "BACKEND-QUEUES"
+    tasks:
+      - "Capture scope for 'Realtime channel' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Push updates."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Realtime channel"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Push updates. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-BE-I-002-M03"
+    title: "Delivery semantics"
+    objective: "At-least-once notes."
+    whyItMatters: "Correctness."
+    prerequisiteTopicIds:
+      - "BACKEND-NESTJS-AUTH-JWT"
+      - "BACKEND-RATE-LIMITING"
+    tasks:
+      - "Capture scope for 'Delivery semantics' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: At-least-once notes."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Delivery semantics"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "At-least-once notes. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-BE-I-002-M04"
+    title: "Hardening"
+    objective: "Auth + tests."
+    whyItMatters: "Production."
+    prerequisiteTopicIds:
+      - "BACKEND-NESTJS-AUTH-JWT"
+      - "BACKEND-RATE-LIMITING"
+    tasks:
+      - "Capture scope for 'Hardening' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Auth + tests."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Hardening"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Auth + tests. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Realtime backends need idempotency and failure stories.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: NestJS, Redis, WebSocket.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to intermediate
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

@@ -1,0 +1,73 @@
+---
+id: AI-MCP-INTRO
+title: "Model Context Protocol (MCP) Intro"
+titleBn: "Model Context Protocol (MCP) Intro"
+description: "MCP servers, tools, resources, and least-privilege wiring for IDE and agent ecosystems."
+descriptionBn: "MCP server, tool, resource এবং least-privilege wiring—IDE ও agent ইকোসিস্টেমের জন্য।"
+track: ai-framework
+category: mcp
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "AI-TOOL-CALLING"
+unlocks: []
+related:
+  - "AI-AGENTS-OVERVIEW"
+  - "AI-CODING-AGENTS-CURSOR"
+  - "AI-SECURITY-OWASP"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "mcp"
+  - "tools"
+  - "protocol"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "MCP-SPEC-2026-07-28"
+  - "CURSOR-DOCS-MCP"
+  - "OWASP-LLM-TOP10-2025"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+Bangla title/description may be partial; technical terms stay in English.
+</Callout>
+
+<Callout type="mental-model">
+MCP standardizes how hosts discover and call external tools/resources. It multiplies capability—so scopes must shrink.
+</Callout>
+
+## Why this matters
+
+MCP lets editors and agents talk to databases, browsers, and internal APIs through a shared protocol. Misconfigured servers become privileged backdoors.
+
+## Mental model
+
+- **Host** — Cursor or your agent runtime.
+- **Server** — Process exposing tools/resources/prompts.
+- **Client session** — Negotiated capabilities.
+- **Least privilege** — Mount only needed tools; never whole disks by default.
+
+## Practical checks
+
+- Read the official MCP spec version you target.
+- Review each server’s tool list before enabling.
+- Prefer read-only servers while learning.
+- Log tool invocations when building product agents.
+
+## Interview angle
+
+How does MCP differ from ad-hoc function calling APIs—and what new risks does standardization introduce?
+
+## Next
+
+Cursor MCP docs practice, then LangGraph + MCP project `PBL-AI-A-001`.

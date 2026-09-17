@@ -1,0 +1,36 @@
+{
+  "id": "AI-TOOL-VERCEL-AI-SDK",
+  "name": "Vercel AI SDK",
+  "category": "application-frameworks",
+  "description": "TypeScript SDK for streaming UI, providers, and tooling around LLM apps on the web.",
+  "bestFor": [
+    "Next.js/React streaming chat UIs",
+    "Multi-provider TypeScript apps"
+  ],
+  "notIdealFor": [
+    "Heavy Python data-science pipelines"
+  ],
+  "prerequisites": [
+    "AI-LLM-FUNDAMENTALS"
+  ],
+  "officialUrl": "https://sdk.vercel.ai/",
+  "docsUrl": "https://sdk.vercel.ai/docs",
+  "languageEcosystem": [
+    "TypeScript"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "SDK free; model/provider costs separate.",
+  "securityNotes": [
+    "Keep keys server-side",
+    "Validate tool calls"
+  ],
+  "relatedTopicIds": [
+    "AI-FRAMEWORKS-LANDSCAPE"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-B-003"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

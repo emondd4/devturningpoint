@@ -1,0 +1,159 @@
+[
+  {
+    "id": "PS-TP-001",
+    "title": "Valid Palindrome",
+    "category": "Two Pointers & Sliding Window",
+    "difficulty": "Easy",
+    "pattern": "Two Pointers",
+    "problemStatement": "Given a string s, return true if it is a palindrome after converting all uppercase letters to lowercase and removing all non-alphanumeric characters.",
+    "examples": [
+      { "input": "s = \"A man, a plan, a canal: Panama\"", "output": "true" },
+      { "input": "s = \"race a car\"", "output": "false" }
+    ],
+    "constraints": ["1 <= s.length <= 2*10^5", "s consists of printable ASCII characters"],
+    "approachSteps": [
+      "A palindrome reads the same forward and backward — you want to compare characters from both ends moving inward.",
+      "Use two pointers, one starting at the left end and one at the right end.",
+      "Skip any character that isn't alphanumeric by advancing the relevant pointer, without comparing it.",
+      "When both pointers point at alphanumeric characters, compare them case-insensitively; if they differ, it's not a palindrome.",
+      "Move both pointers inward and repeat until they meet or cross."
+    ],
+    "bruteForce": { "approach": "Build a cleaned, lowercased copy of the string, then compare it to its reverse.", "timeComplexity": "O(n)", "spaceComplexity": "O(n) for the copy" },
+    "optimalApproach": "Two pointers moving inward from both ends, skipping non-alphanumeric characters in place, avoids building a second string.",
+    "solutionCode": "def is_palindrome(s):\n    left, right = 0, len(s) - 1\n    while left < right:\n        while left < right and not s[left].isalnum():\n            left += 1\n        while left < right and not s[right].isalnum():\n            right -= 1\n        if s[left].lower() != s[right].lower():\n            return False\n        left += 1\n        right -= 1\n    return True",
+    "timeComplexity": "O(n) — each character is visited at most once by either pointer.",
+    "spaceComplexity": "O(1) extra space — no copy of the string is built.",
+    "followUps": [
+      "How would you solve 'Valid Palindrome II' where you may delete at most one character?",
+      "Does this approach work as-is for Unicode letters, or does .isalnum()/.lower() need care there?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["two-pointers", "string"]
+  },
+  {
+    "id": "PS-TP-002",
+    "title": "Longest Substring Without Repeating Characters",
+    "category": "Two Pointers & Sliding Window",
+    "difficulty": "Medium",
+    "pattern": "Sliding Window",
+    "problemStatement": "Given a string s, find the length of the longest substring without repeating characters.",
+    "examples": [
+      { "input": "s = \"abcabcbb\"", "output": "3", "explanation": "The answer is \"abc\", length 3." },
+      { "input": "s = \"bbbbb\"", "output": "1" }
+    ],
+    "constraints": ["0 <= s.length <= 5*10^4"],
+    "approachSteps": [
+      "The brute force checks every substring for uniqueness, which re-examines overlapping characters repeatedly — look for a way to reuse work as the window slides.",
+      "Maintain a window [left, right] that always contains only unique characters, and grow right one step at a time.",
+      "Track the last-seen index of each character in a hash map so you can jump left directly instead of shrinking one step at a time.",
+      "When you see a character already in the window (its last-seen index >= left), move left to just past that previous occurrence.",
+      "After each step, update the best (longest) window length seen so far."
+    ],
+    "bruteForce": { "approach": "Check every substring for repeated characters.", "timeComplexity": "O(n^3) or O(n^2) with a running set", "spaceComplexity": "O(min(n, alphabet size))" },
+    "optimalApproach": "Sliding window with a hash map of last-seen index per character; left jumps directly to avoid rescanning, so each character is processed a constant number of times.",
+    "solutionCode": "def length_of_longest_substring(s):\n    last_seen = {}\n    left = 0\n    longest = 0\n    for right, ch in enumerate(s):\n        if ch in last_seen and last_seen[ch] >= left:\n            left = last_seen[ch] + 1\n        last_seen[ch] = right\n        longest = max(longest, right - left + 1)\n    return longest",
+    "timeComplexity": "O(n) — right advances once per character; left only ever moves forward, never resets, across the whole scan.",
+    "spaceComplexity": "O(min(n, alphabet size)) for the last-seen map.",
+    "followUps": [
+      "How would you adapt this to find the longest substring with at most k distinct characters?",
+      "What breaks if you shrink left one step at a time instead of jumping — does the complexity change?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY", "FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["sliding-window", "hash-map", "string"]
+  },
+  {
+    "id": "PS-TP-003",
+    "title": "Minimum Window Substring",
+    "category": "Two Pointers & Sliding Window",
+    "difficulty": "Hard",
+    "pattern": "Sliding Window",
+    "problemStatement": "Given two strings s and t, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. Return an empty string if no such window exists.",
+    "examples": [
+      { "input": "s = \"ADOBECODEBANC\", t = \"ABC\"", "output": "\"BANC\"" }
+    ],
+    "constraints": ["1 <= s.length, t.length <= 10^5"],
+    "approachSteps": [
+      "You need a window over s that contains at least the required count of every character in t — track 'what's still needed' rather than re-checking full counts each time.",
+      "Build a frequency map of t, and track how many distinct required characters are currently 'satisfied' in the current window.",
+      "Expand the window by moving right forward, decrementing the needed count for that character, and marking it satisfied once its count reaches zero.",
+      "Once all required characters are satisfied, try to shrink from left as much as possible while it stays valid — every valid window is a candidate for the answer.",
+      "Each time you shrink past a required character, that character becomes unsatisfied again, and you resume expanding right.",
+      "Track the smallest valid window's start and length throughout."
+    ],
+    "bruteForce": { "approach": "Check every substring of s against t's character requirements.", "timeComplexity": "O(n^2 * |t|) or worse", "spaceComplexity": "O(|t|)" },
+    "optimalApproach": "Sliding window with two pointers and a 'need vs have' counter: expand right to satisfy requirements, then greedily contract left while still valid, recording the smallest valid window.",
+    "solutionCode": "from collections import Counter\n\ndef min_window(s, t):\n    if not s or not t:\n        return \"\"\n    need = Counter(t)\n    missing = len(t)  # total characters still needed (with multiplicity)\n    left = 0\n    best_left, best_len = 0, float('inf')\n\n    for right, ch in enumerate(s):\n        if need[ch] > 0:\n            missing -= 1\n        need[ch] -= 1\n\n        while missing == 0:\n            if right - left + 1 < best_len:\n                best_left, best_len = left, right - left + 1\n            left_ch = s[left]\n            need[left_ch] += 1\n            if need[left_ch] > 0:\n                missing += 1\n            left += 1\n\n    return \"\" if best_len == float('inf') else s[best_left:best_left + best_len]",
+    "timeComplexity": "O(n + m) where n = len(s), m = len(t) — left and right each traverse s at most once.",
+    "spaceComplexity": "O(m) for the character-count map (bounded by the alphabet of t).",
+    "followUps": [
+      "Why is tracking a single 'missing' counter better than comparing full frequency maps on every step?",
+      "How would you return all minimal windows instead of just one?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY", "FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["sliding-window", "hash-map", "string"]
+  },
+  {
+    "id": "PS-TP-004",
+    "title": "Find All Anagrams in a String",
+    "category": "Two Pointers & Sliding Window",
+    "difficulty": "Medium",
+    "pattern": "Fixed-Size Sliding Window",
+    "problemStatement": "Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.",
+    "examples": [
+      { "input": "s = \"cbaebabacd\", p = \"abc\"", "output": "[0,6]", "explanation": "Substrings starting at index 0 (\"cba\") and index 6 (\"bac\") are anagrams of \"abc\"." }
+    ],
+    "constraints": ["1 <= s.length, p.length <= 3*10^4"],
+    "approachSteps": [
+      "Unlike the general 'longest substring' sliding window, this window has a FIXED size (len(p)) — that simplifies things, since you always shrink by exactly one whenever you grow by one.",
+      "Track a frequency count of what the window currently needs (need) versus what characters have reached their required count in the current window (a 'formed' counter).",
+      "As you extend the window's right edge, increment that character's count, and increment formed if it just reached exactly the needed count for that character.",
+      "Once the window exceeds length len(p), shrink from the left the same way in reverse — decrementing formed first if removing that character drops it below the needed count, then decrementing its window count.",
+      "Whenever the window is exactly length len(p) AND formed equals the total number of distinct required characters, the window's start index is a valid anagram match."
+    ],
+    "bruteForce": { "approach": "For every window of length len(p) in s, build a fresh character count (or sort the substring) and compare it against p's character count.", "timeComplexity": "O(n * k) or O(n * k log k) with sorting, where k = len(p)", "spaceComplexity": "O(k)" },
+    "optimalApproach": "Fixed-size sliding window tracking a 'formed vs required' counter so each window transition is O(1), instead of recomputing/comparing a full frequency map at every position.",
+    "solutionCode": "from collections import Counter\n\ndef find_anagrams(s, p):\n    if len(p) > len(s):\n        return []\n\n    need = Counter(p)\n    window = Counter()\n    required = len(need)\n    formed = 0\n    result = []\n    left = 0\n\n    for right, ch in enumerate(s):\n        window[ch] += 1\n        if ch in need and window[ch] == need[ch]:\n            formed += 1\n\n        if right - left + 1 > len(p):\n            left_ch = s[left]\n            if left_ch in need and window[left_ch] == need[left_ch]:\n                formed -= 1\n            window[left_ch] -= 1\n            left += 1\n\n        if right - left + 1 == len(p) and formed == required:\n            result.append(left)\n\n    return result",
+    "timeComplexity": "O(n) — each character enters and leaves the window at most once; the formed counter update is O(1) per step.",
+    "spaceComplexity": "O(k) for the need/window frequency maps, bounded by the alphabet of p.",
+    "followUps": [
+      "How does this problem's fixed-size window differ from Minimum Window Substring's variable-size window — why does that make this one simpler?",
+      "How would you adapt this to find the FIRST anagram match only, and stop early once found?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY", "FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["sliding-window", "hash-map", "string"],
+    "reportedAt": ["Therap (BD)"],
+    "sources": ["src-bd-interview-questions-repo"]
+  },
+  {
+    "id": "PS-TP-005",
+    "title": "Valid Triangle Number",
+    "category": "Two Pointers & Sliding Window",
+    "difficulty": "Medium",
+    "pattern": "Sort + Two Pointers",
+    "problemStatement": "Given an integer array nums, return the number of triplets chosen from the array that can make the sides of a triangle (i.e. satisfy the triangle inequality: the sum of any two sides must exceed the third).",
+    "examples": [
+      { "input": "nums = [2,2,3,4]", "output": "3", "explanation": "Valid triplets: (2,2,3), (2,3,4), (2,3,4) — using different 2's." }
+    ],
+    "constraints": ["1 <= nums.length <= 1000"],
+    "approachSteps": [
+      "The brute force checks all O(n^3) triplets — but if you sort first, you only need ONE inequality check per triplet (a + b > c, where c is the largest), since the others (a + c > b, b + c > a) are automatically true when a <= b <= c.",
+      "Sort the array ascending, then fix the LARGEST side of the triangle at index k, scanning k from the end of the array down to index 2.",
+      "For a fixed k, use two pointers i (from the start) and j (from k-1) scanning inward: if nums[i] + nums[j] > nums[k], the triangle inequality holds for this pair with the largest side.",
+      "Here's the key shortcut: if nums[i] + nums[j] > nums[k] holds, then it ALSO holds for every index between i and j-1 paired with j (since the array is sorted, those values are all >= nums[i]) — so you can count all of them at once (j - i) rather than checking one by one, then shrink j.",
+      "If nums[i] + nums[j] <= nums[k], no pairing with this i can work with this j either (i is the smallest possible contributor), so advance i instead."
+    ],
+    "bruteForce": { "approach": "Check every triplet of indices (i, j, k) and test the triangle inequality directly.", "timeComplexity": "O(n^3)", "spaceComplexity": "O(1)" },
+    "optimalApproach": "Sort the array, then for each fixed largest side, use two pointers scanning inward — counting multiple valid pairs at once instead of checking each individually.",
+    "solutionCode": "def triangle_number(nums):\n    nums.sort()\n    n = len(nums)\n    count = 0\n\n    for k in range(n - 1, 1, -1):\n        i, j = 0, k - 1\n        while i < j:\n            if nums[i] + nums[j] > nums[k]:\n                count += j - i  # every index from i..j-1 paired with j also works\n                j -= 1\n            else:\n                i += 1\n\n    return count",
+    "timeComplexity": "O(n^2) — sorting is O(n log n), and for each of the n choices of k, the two-pointer scan is O(n), giving O(n^2) total.",
+    "spaceComplexity": "O(1) extra (excluding the space used by the sort itself).",
+    "followUps": [
+      "Walk through why 'count += j - i' is valid — why does the sortedness guarantee ALL of those intermediate pairs also satisfy the inequality?",
+      "How would you adapt this two-pointer counting pattern to count triplets satisfying a different inequality, like nums[i] + nums[j] < target (3Sum Smaller)?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["two-pointers", "array", "sorting"],
+    "reportedAt": ["Therap (BD)"],
+    "sources": ["src-bd-interview-questions-repo"]
+  }
+]

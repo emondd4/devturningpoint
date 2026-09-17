@@ -1,0 +1,228 @@
+---
+id: "PBL-AI-A-001"
+title: "Stateful Agent with LangGraph + MCP"
+titleBn: "Stateful Agent with LangGraph + MCP"
+slug: "ai-stateful-agent-langgraph-mcp"
+track: "ai-framework"
+level: "advanced"
+projectRole: "core"
+marketRelevance: "Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations."
+difficulty: "advanced"
+summary: "Implement a stateful agent graph with checkpoints, human approval gates, and least-privilege MCP tool servers."
+summaryBn: "Checkpoint, human approval gate এবং least-privilege MCP tool server সহ stateful agent graph।"
+portfolioPitch: "Portfolio-grade agent systems work: state, interrupts, MCP boundaries, and eval—not a single chat loop."
+estimatedHours: 40
+prerequisiteSkillIds:
+  - "AI-AGENTS"
+  - "AI-TOOL-CALLING"
+  - "AI-MCP"
+  - "AI-SECURITY"
+learningOutcomeSkillIds:
+  - "AI-AGENTS"
+  - "AI-MCP"
+  - "AI-SECURITY"
+  - "AI-EVALUATION"
+recommendedTools:
+  - "LangGraph"
+  - "MCP servers"
+  - "Local or capped LLM"
+  - "Persistence (SQLite/Postgres)"
+portfolioEvidence:
+  - "GRAPH.md"
+  - "STATE_SCHEMA.md"
+  - "MCP_SERVERS.md"
+  - "APPROVAL_FLOW.md"
+  - "CHECKPOINT_DEMO.md"
+  - "EVAL_SCENARIOS.md"
+  - "COST_LATENCY.md"
+  - "THREAT_MODEL.md"
+relatedTopicIds:
+  - "AI-AGENTS-OVERVIEW"
+  - "AI-MCP-INTRO"
+  - "AI-TOOL-CALLING"
+  - "AI-SECURITY-OWASP"
+  - "AI-EVALUATION-BASICS"
+relatedInterviewQuestionIds: []
+sources:
+  - "LANGGRAPH-DOCS"
+  - "MCP-SPEC-2026-07-28"
+  - "CURSOR-DOCS-MCP"
+  - "OWASP-LLM-TOP10-2025"
+  - "LANGCHAIN-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PBL-AI-I-003"
+nextProjectId: "PBL-AI-A-002"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-AI-A-001-M01"
+    title: "State schema + graph design"
+    objective: "Design typed agent state, nodes, edges, and interrupt points."
+    whyItMatters: "Stateful agents fail when state is an untyped blob."
+    prerequisiteTopicIds:
+      - "AI-AGENTS-OVERVIEW"
+    tasks:
+      - "Define state fields"
+      - "Draw graph of nodes/edges"
+      - "Mark human interrupt points"
+      - "List non-goals"
+    expectedArtifacts:
+      - "GRAPH.md"
+      - "STATE_SCHEMA.md"
+    validationChecklist:
+      - "State typed"
+      - "Interrupts labeled"
+      - "Non-goals clear"
+    commonProblems:
+      - "God-node designs"
+      - "No persistence plan"
+    completionCriteria:
+      - "Design review passed"
+      - "Schema compiles/validates"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-A-001-M02"
+    title: "MCP tools least privilege"
+    objective: "Expose only needed tools via MCP with scopes and auth notes."
+    whyItMatters: "MCP expands capability surface; privilege must shrink accordingly."
+    prerequisiteTopicIds:
+      - "AI-MCP-INTRO"
+      - "AI-SECURITY-OWASP"
+    tasks:
+      - "Stand up 1–2 MCP servers"
+      - "Document tool scopes"
+      - "Deny by default"
+      - "Write THREAT_MODEL.md"
+    expectedArtifacts:
+      - "MCP_SERVERS.md"
+      - "THREAT_MODEL.md"
+    validationChecklist:
+      - "Scopes documented"
+      - "Secrets not in prompts"
+      - "Deny default"
+    commonProblems:
+      - "Mounting entire filesystem"
+      - "Shared admin tokens"
+    completionCriteria:
+      - "Tools callable in isolation"
+      - "Threat model peer-reviewed"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-A-001-M03"
+    title: "Checkpoints + approval gates"
+    objective: "Persist checkpoints; require human approval before side effects."
+    whyItMatters: "Resume and governance separate toys from systems."
+    prerequisiteTopicIds:
+      - "AI-AGENTS-OVERVIEW"
+      - "AI-MCP-INTRO"
+    tasks:
+      - "Enable checkpoint persistence"
+      - "Implement approval interrupt"
+      - "Demo crash/resume"
+      - "Log decisions"
+    expectedArtifacts:
+      - "CHECKPOINT_DEMO.md"
+      - "APPROVAL_FLOW.md"
+    validationChecklist:
+      - "Resume works"
+      - "Side effects gated"
+      - "Decisions logged"
+    commonProblems:
+      - "Auto-approving writes"
+      - "Ephemeral-only state"
+    completionCriteria:
+      - "Recorded resume demo"
+      - "Approval UX documented"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-A-001-M04"
+    title: "Eval scenarios + cost"
+    objective: "Evaluate multi-step tasks, approval correctness, and cost/latency under caps."
+    whyItMatters: "Agent graphs need scenario tests, not single prompts."
+    prerequisiteTopicIds:
+      - "AI-EVALUATION-BASICS"
+    tasks:
+      - "Write ≥8 multi-step scenarios"
+      - "Score task + safety"
+      - "Measure tokens/steps"
+      - "Publish COST_LATENCY.md"
+    expectedArtifacts:
+      - "EVAL_SCENARIOS.md"
+      - "COST_LATENCY.md"
+    validationChecklist:
+      - "Safety scenarios included"
+      - "Step budgets enforced"
+      - "Spend capped"
+    commonProblems:
+      - "Only success demos"
+      - "Unbounded loops"
+    completionCriteria:
+      - "Eval reproducible"
+      - "Portfolio complete"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Paid APIs are optional">
+Prefer local/free options (Ollama, open models, sample datasets) first. If you use a paid provider API, set spend limits, never commit keys, and warn teammates before enabling billable calls.
+</Callout>
+
+<Callout type="info" title="No site API keys required">
+The Dev Turning Point website stays static. Run models and tools on your machine or your own cloud account.
+</Callout>
+
+## Why this project matters
+
+Production agents need durable state, interrupts, and narrow tool surfaces—LangGraph + MCP make those concerns explicit.
+
+## Market / role relevance
+
+Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations.
+
+## What job skills it proves
+
+Graph design, MCP least privilege, checkpoints, human approval, scenario eval.
+
+## Prerequisites
+
+Agents overview, MCP intro, tool calling, and AI security topics.
+
+## Architecture / approach
+
+LangGraph state machine ↔ model nodes ↔ MCP tool nodes ↔ checkpoint store ↔ human interrupt channel.
+
+## Recommended tools
+
+LangGraph, MCP servers, SQLite/Postgres checkpoints, local/capped LLM.
+
+## Setup
+
+1. Follow LangGraph docs for a minimal graph.
+2. Run MCP servers with least privilege.
+3. Cap model spend before long loops.
+
+## Step-by-step guidance
+
+Milestones M01–M04. Prove resume and approval before adding features.
+
+## Evaluation / security / cost / latency notes
+
+**Eval:** multi-step success + approval correctness.
+**Security:** MCP scopes, injection via tool output.
+**Cost/latency:** step budget and token ceilings.
+
+## Portfolio evidence
+
+Save every item listed in frontmatter `portfolioEvidence`. Include eval scores, cost/latency notes, and security checklist outcomes.
+
+## Stretch goals
+
+Add a time-travel debug view over checkpoints.
+
+## Retrospective
+
+Where did the graph thrash? Which MCP permission would you remove tomorrow?
+
+## Sources
+
+See frontmatter sources (official docs + OWASP GenAI where security applies).

@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-stale-embeddings",
+  "title": "Stale embeddings",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Index not refreshed after docs change."
+  ],
+  "cause": "Index not refreshed after docs change.",
+  "solution": "Reindex pipeline; freshness metrics.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

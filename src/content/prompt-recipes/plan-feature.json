@@ -1,0 +1,41 @@
+{
+  "id": "PROMPT-PLAN-FEATURE",
+  "title": "Plan a feature",
+  "track": "ai-framework",
+  "taskType": "planning",
+  "difficulty": "beginner",
+  "whenToUse": "You need a bounded implementation plan before coding.",
+  "whenNotToUse": "The change is a one-line typo fix.",
+  "requiredInputs": [
+    "Requirement",
+    "Repo map"
+  ],
+  "promptTemplate": "GOAL:\nProduce a milestone plan for {{feature}} without writing code yet.\n\nCONTEXT:\nStack: {{stack}}. Non-goals: {{nongoals}}.\n\nINPUT:\nRelevant files/paths: {{paths}}.\n\nCONSTRAINTS:\n- No file edits\n- Call out risks\n- Prefer smallest slice first\n\nOUTPUT:\nMilestones, files touched, tests, risks\n\nACCEPTANCE:\nA junior can implement milestone 1 without guessing scope.\n\nVERIFICATION:\nList assumptions and files that justify each milestone.",
+  "badPrompt": "Add the feature somehow.",
+  "improvedPrompt": "GOAL: Plan checkout coupon feature only.\nCONTEXT: Next.js + Nest; no payment provider change.\nCONSTRAINTS: Read-only; 3 milestones max.\nOUTPUT: milestones + tests.\nVERIFICATION: cite files.",
+  "expectedOutput": "A short milestone plan with risks and tests.",
+  "verificationChecklist": [
+    "No code changes",
+    "Milestones are ordered",
+    "Non-goals explicit"
+  ],
+  "failureModes": [
+    "Scope creep into redesign",
+    "Invented APIs"
+  ],
+  "privacySecurityNotes": [
+    "Do not paste customer PII"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-PROMPT-ENGINEERING",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "relatedProjects": [
+    "PBL-AI-B-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

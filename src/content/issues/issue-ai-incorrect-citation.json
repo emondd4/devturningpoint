@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-incorrect-citation",
+  "title": "Incorrect citation mapping",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Answer cites wrong chunk IDs."
+  ],
+  "cause": "Answer cites wrong chunk IDs.",
+  "solution": "Enforce citation=retrieved span checks.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

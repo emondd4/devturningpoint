@@ -40,8 +40,8 @@ function parseScalar(fm: string, key: string): string | undefined {
 describe('project-based learning content', () => {
   const files = loadProjectFrontmatter();
 
-  it('has exactly 30 projects', () => {
-    expect(files).toHaveLength(30);
+  it('has at least 30 projects including Core PBL library', () => {
+    expect(files.length).toBeGreaterThanOrEqual(30);
   });
 
   it('has unique project IDs and milestone IDs', () => {
@@ -63,7 +63,7 @@ describe('project-based learning content', () => {
     }
   });
 
-  it('covers each track with beginner/intermediate/advanced', () => {
+  it('covers each legacy track with beginner/intermediate/advanced cores', () => {
     const seen = new Set<string>();
     for (const file of files) {
       const track = parseScalar(file.fm, 'track')!;
@@ -72,11 +72,15 @@ describe('project-based learning content', () => {
       expect(tracks.some((t) => t.id === track)).toBe(true);
       expect(PROJECT_LEVEL_ORDER).toContain(level as (typeof PROJECT_LEVEL_ORDER)[number]);
     }
-    for (const track of tracks) {
+    for (const track of tracks.filter((t) => t.id !== 'ai-framework')) {
       for (const level of PROJECT_LEVEL_ORDER) {
         expect(seen.has(`${track.id}:${level}`)).toBe(true);
       }
     }
+  });
+
+  it('includes AI and Framework track registry entry', () => {
+    expect(tracks.some((t) => t.id === 'ai-framework' && t.slug === 'ai-framework')).toBe(true);
   });
 
   it('has valid previous/next relationships without cycles', () => {
@@ -153,7 +157,7 @@ describe('project-based learning content', () => {
       lastVerified: parseScalar(sample.fm, 'lastVerified'),
       milestones,
     });
-    expect(parsed.id.startsWith('PROJECT-')).toBe(true);
+    expect(parsed.id.startsWith('PROJECT-') || parsed.id.startsWith('PBL-')).toBe(true);
     const card = toProjectCard(parsed);
     expect(card.slug).toBe(parsed.slug);
     expect(sortProjectsByLevel([card])).toHaveLength(1);
@@ -229,11 +233,39 @@ describe('project-based learning content', () => {
     expect(promptVariantForTrack('project-management')).toBe('pm');
   });
 
+  it('has at least 69 projects with Core and Market Alternative grouping', () => {
+    expect(files.length).toBeGreaterThanOrEqual(69);
+    const roles = new Map<string, Set<string>>();
+    for (const file of files) {
+      const track = parseScalar(file.fm, 'track')!;
+      const level = parseScalar(file.fm, 'level')!;
+      const role = parseScalar(file.fm, 'projectRole') ?? 'core';
+      const key = `${track}:${level}`;
+      if (!roles.has(key)) roles.set(key, new Set());
+      roles.get(key)!.add(role);
+    }
+    for (const track of tracks.filter((t) => t.id !== 'ai-framework')) {
+      for (const level of PROJECT_LEVEL_ORDER) {
+        const set = roles.get(`${track.id}:${level}`) ?? new Set();
+        expect(set.has('core')).toBe(true);
+        expect(set.has('market-alternative')).toBe(true);
+      }
+    }
+    for (const level of PROJECT_LEVEL_ORDER) {
+      const aiCount = files.filter(
+        (f) => parseScalar(f.fm, 'track') === 'ai-framework' && parseScalar(f.fm, 'level') === level,
+      ).length;
+      expect(aiCount).toBeGreaterThanOrEqual(3);
+    }
+  });
+
   it('resolves EN/BN project routes', () => {
     expect(localePath('en', 'projects')).toContain('/en/projects/');
     expect(localePath('bn', 'projects')).toContain('/bn/projects/');
     expect(localePath('en', 'projects/developer-toolbox-cli')).toContain(
       '/en/projects/developer-toolbox-cli/',
     );
+    expect(localePath('en', 'ai')).toContain('/en/ai/');
+    expect(localePath('bn', 'ai/verify')).toContain('/bn/ai/verify/');
   });
 });

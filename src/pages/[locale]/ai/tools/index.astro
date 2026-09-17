@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { locales, type Locale, isLocale, localePath } from '../../../../i18n/config';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const localeParam = Astro.params.locale ?? 'en';
+const locale: Locale = isLocale(localeParam) ? localeParam : 'en';
+const isBn = locale === 'bn';
+const tools = await getCollection('ai-tools');
+---
+
+<BaseLayout locale={locale} title={isBn ? 'AI টুল ক্যাটালগ' : 'AI tool catalog'} description="Problem → tool catalog for AI engineering.">
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6" data-pagefind-body>
+    <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold">{isBn ? 'AI টুল ক্যাটালগ' : 'AI tool catalog'}</h1>
+    <p class="mt-3 text-[var(--color-ink-muted)]">
+      {isBn ? 'জনপ্রিয়তা র‍্যাঙ্কিং নয়—সমস্যা → টুল।' : 'Not a popularity ranking—problem → tool.'}
+    </p>
+    <ul class="mt-8 space-y-4">
+      {
+        tools.map((tool) => (
+          <li class="surface-card">
+            <h2 class="text-lg font-semibold text-[var(--color-ink)]">{tool.data.name}</h2>
+            <p class="mt-1 text-xs text-[var(--color-ink-subtle)]">{tool.data.category} · {tool.data.id}</p>
+            <p class="mt-2 text-sm text-[var(--color-ink-muted)]">{tool.data.description}</p>
+            <p class="mt-2 text-sm"><strong>{isBn ? 'সবচেয়ে ভালো' : 'Best for'}:</strong> {tool.data.bestFor.join('; ')}</p>
+            <p class="mt-1 text-sm"><strong>{isBn ? 'আদর্শ নয়' : 'Not ideal for'}:</strong> {tool.data.notIdealFor.join('; ')}</p>
+            <p class="mt-2 text-sm">
+              <a href={tool.data.docsUrl} rel="noopener noreferrer" target="_blank">{isBn ? 'ডক্স' : 'Docs'}</a>
+              {' · '}
+              <span class="text-[var(--color-ink-subtle)]">verified {tool.data.lastVerified}</span>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-8 text-sm"><a href={localePath(locale, 'ai')}>{isBn ? 'AI hub' : 'AI hub'}</a></p>
+  </div>
+</BaseLayout>

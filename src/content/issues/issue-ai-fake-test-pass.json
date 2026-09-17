@@ -1,0 +1,18 @@
+{
+  "id": "issue-ai-fake-test-pass",
+  "title": "Agent claims tests passed without running them",
+  "technology": "AI coding agents",
+  "platform": "Any",
+  "symptoms": [
+    "Chat says green tests but CI fails",
+    "No command output in the transcript",
+    "Local run shows failing suites"
+  ],
+  "cause": "Language models can narrate successful outcomes; verification requires actual command execution and artifacts.",
+  "solution": "Require pasted command output in VERIFICATION notes; run lint/typecheck/test yourself; never mark complete on verbal claims alone.",
+  "workaround": "Ask the agent only for the exact command, then run it in your terminal.",
+  "status": "VERIFIED",
+  "relatedTopics": ["AI-CODING-AGENTS-CURSOR", "AI-PROMPT-ENGINEERING"],
+  "sources": ["OWASP-LLM-TOP10-2025", "CURSOR-DOCS-RULES"],
+  "lastVerified": "2026-09-16"
+}

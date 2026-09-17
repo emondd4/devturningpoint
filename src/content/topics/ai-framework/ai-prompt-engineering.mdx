@@ -1,0 +1,71 @@
+---
+id: AI-PROMPT-ENGINEERING
+title: "Prompt Engineering That You Can Verify"
+titleBn: "যাচাইযোগ্য Prompt Engineering"
+description: "Use GOAL / CONTEXT / INPUT / CONSTRAINTS / OUTPUT / ACCEPTANCE / VERIFICATION so prompts produce checkable work."
+descriptionBn: "GOAL / CONTEXT / INPUT / CONSTRAINTS / OUTPUT / ACCEPTANCE / VERIFICATION দিয়ে যাচাইযোগ্য কাজ তৈরি করুন।"
+track: ai-framework
+category: prompting
+difficulty: beginner
+estimatedMinutes: 40
+prerequisites:
+  - "AI-LLM-FUNDAMENTALS"
+unlocks:
+  - "AI-CODING-AGENTS-CURSOR"
+related:
+  - "AI-LLM-FUNDAMENTALS"
+  - "AI-CODING-AGENTS-CURSOR"
+careers:
+  - "software-engineer"
+  - "qa-engineer"
+  - "project-manager"
+tags:
+  - "prompting"
+  - "verification"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "OPENAI-API-DOCS"
+  - "CURSOR-DOCS-RULES"
+  - "OWASP-LLM-TOP10-2025"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="mental-model">
+A good prompt defines the job and how a human will prove the job is done. Clever wording without acceptance criteria is theater.
+</Callout>
+
+## Pattern
+
+Use this structure for coding and analysis tasks:
+
+```text
+GOAL:
+CONTEXT:
+INPUT:
+CONSTRAINTS:
+OUTPUT:
+ACCEPTANCE:
+VERIFICATION:
+```
+
+## Bad vs improved
+
+**Bad:** “Fix my auth.”
+
+**Improved:** Goal = stop unauthenticated write to `/orders`. Context = NestJS + JWT cookies. Constraints = no dependency upgrades. Output = patch + test. Acceptance = 401 without cookie, 201 with valid session. Verification = run listed test command and paste output.
+
+## Safety notes
+
+- Do not paste secrets, production dumps, or personal data into prompts.
+- Prompt injection (OWASP LLM01) can come from untrusted retrieved text—treat tool/RAG content as hostile input.
+
+## Next
+
+Practice with the Prompt Recipe library, then the Cursor coding-agent topic.

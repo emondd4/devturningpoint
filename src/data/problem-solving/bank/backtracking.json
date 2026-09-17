@@ -1,0 +1,91 @@
+[
+  {
+    "id": "PS-BT-001",
+    "title": "Subsets",
+    "category": "Backtracking",
+    "difficulty": "Easy",
+    "pattern": "Backtracking",
+    "problemStatement": "Given an integer array nums of unique elements, return all possible subsets (the power set). The solution set must not contain duplicate subsets.",
+    "examples": [
+      { "input": "nums = [1,2,3]", "output": "[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]", "explanation": "Order of subsets/output may vary." }
+    ],
+    "constraints": ["1 <= nums.length <= 10"],
+    "approachSteps": [
+      "Every element has exactly two states: included in a given subset, or not — that binary choice per element is the core of the backtracking exploration.",
+      "Build subsets incrementally: at each step, you're deciding whether to include the next number in the array.",
+      "Use backtracking: at each index, first record the current partial subset as a valid answer (every partial state is itself a full, valid subset), then try including nums[index], recurse into the rest, then 'un-include' it (backtrack) and move to the next index without it.",
+      "Because you record the subset BEFORE deciding on the current element, you naturally capture subsets of every size, including the empty set at the very start."
+    ],
+    "bruteForce": { "approach": "Iteratively double the result list: for each new number, add it to a copy of every existing subset (bit-manipulation / iterative doubling is also a valid non-backtracking approach here).", "timeComplexity": "O(n * 2^n)", "spaceComplexity": "O(n * 2^n) for the output" },
+    "optimalApproach": "Backtracking: recursively decide include/exclude for each element, recording every partial subset along the way. (Time is inherently O(n * 2^n) since that's the size of the output itself.)",
+    "solutionCode": "def subsets(nums):\n    result = []\n    path = []\n\n    def backtrack(index):\n        result.append(path.copy())  # record the current subset\n        for i in range(index, len(nums)):\n            path.append(nums[i])\n            backtrack(i + 1)\n            path.pop()  # undo the choice (backtrack)\n\n    backtrack(0)\n    return result",
+    "timeComplexity": "O(n * 2^n) — there are 2^n subsets total, and copying each into the result costs O(n).",
+    "spaceComplexity": "O(n * 2^n) for the output (unavoidable — that's the answer's size); O(n) additional for the recursion stack/path.",
+    "followUps": [
+      "How would you handle duplicate numbers in the input while avoiding duplicate subsets in the output (Subsets II)?",
+      "How would you generate subsets iteratively using bitmasks from 0 to 2^n - 1 instead of recursive backtracking?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["backtracking", "recursion", "array"]
+  },
+  {
+    "id": "PS-BT-002",
+    "title": "Permutations",
+    "category": "Backtracking",
+    "difficulty": "Medium",
+    "pattern": "Backtracking",
+    "problemStatement": "Given an array nums of distinct integers, return all possible permutations. You can return the answer in any order.",
+    "examples": [
+      { "input": "nums = [1,2,3]", "output": "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]" }
+    ],
+    "constraints": ["1 <= nums.length <= 6"],
+    "approachSteps": [
+      "Unlike subsets (include/exclude), a permutation needs EVERY element placed exactly once, in some order — the choice at each step is 'which unused element goes next.'",
+      "Track which numbers have already been used in the current partial permutation (a 'used' set or boolean array, or remove-and-restore from a working list).",
+      "Backtrack: at each position in the permutation being built, try every not-yet-used number, place it, recurse to fill the remaining positions, then remove it (backtrack) and try the next candidate.",
+      "When the partial permutation reaches the full length of nums, it's a complete, valid permutation — record a copy of it."
+    ],
+    "bruteForce": { "approach": "There isn't a meaningfully simpler brute force — backtracking IS the standard approach; the only real 'brute force' variant is generating with library permutation functions rather than by hand.", "timeComplexity": "O(n * n!)", "spaceComplexity": "O(n * n!) for the output" },
+    "optimalApproach": "Backtracking that tracks used elements, builds one permutation position at a time, and records complete permutations once the working path reaches full length.",
+    "solutionCode": "def permute(nums):\n    result = []\n    path = []\n    used = [False] * len(nums)\n\n    def backtrack():\n        if len(path) == len(nums):\n            result.append(path.copy())\n            return\n        for i in range(len(nums)):\n            if used[i]:\n                continue\n            used[i] = True\n            path.append(nums[i])\n            backtrack()\n            path.pop()\n            used[i] = False\n\n    backtrack()\n    return result",
+    "timeComplexity": "O(n * n!) — there are n! permutations, each taking O(n) to copy into the result.",
+    "spaceComplexity": "O(n * n!) for the output; O(n) additional for the used array and recursion depth.",
+    "followUps": [
+      "How would you handle duplicate numbers in the input while avoiding duplicate permutations in the output (Permutations II)?",
+      "How would you generate the k-th permutation directly, without generating all of them?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["backtracking", "recursion", "array"]
+  },
+  {
+    "id": "PS-BT-003",
+    "title": "N-Queens",
+    "category": "Backtracking",
+    "difficulty": "Hard",
+    "pattern": "Backtracking with Constraint Pruning",
+    "problemStatement": "The n-queens puzzle is placing n queens on an n x n chessboard such that no two queens attack each other (no shared row, column, or diagonal). Return all distinct solutions, each represented as a list of strings showing the board.",
+    "examples": [
+      { "input": "n = 4", "output": "2 distinct solutions", "explanation": "e.g. [\".Q..\",\"...Q\",\"Q...\",\"..Q.\"] and [\"..Q.\",\"Q...\",\"...Q\",\".Q..\"]" }
+    ],
+    "constraints": ["1 <= n <= 9"],
+    "approachSteps": [
+      "Since no two queens can share a row, you can simplify the problem: place exactly one queen per row, and decide which COLUMN it goes in for each row in turn.",
+      "That reframes an n^2-cell placement problem into an n-step decision problem (one column choice per row), which is what makes backtracking tractable.",
+      "Track which columns, and which 'diagonals' (there are two families: row - col constant, and row + col constant) are already occupied, so you can check a candidate placement in O(1).",
+      "For each row, try every column: if that column and both diagonals through this cell are free, place the queen, mark them occupied, and recurse to the next row.",
+      "If recursing from that placement leads to a dead end, backtrack: remove the queen, unmark the column/diagonals, and try the next column in this row.",
+      "When all n rows have a queen placed validly, record the current board configuration as one solution."
+    ],
+    "bruteForce": { "approach": "Try every possible placement of n queens on n^2 cells without the row-per-queen simplification, checking all pairs for attacks.", "timeComplexity": "O(n^(2n)) or worse — combinatorially far larger", "spaceComplexity": "O(n^2)" },
+    "optimalApproach": "Backtracking with one queen per row, using O(1) column/diagonal occupancy checks (via sets) to prune invalid branches as early as possible.",
+    "solutionCode": "def solve_n_queens(n):\n    results = []\n    cols = set()\n    diag1 = set()  # row - col\n    diag2 = set()  # row + col\n    board = [['.'] * n for _ in range(n)]\n\n    def backtrack(row):\n        if row == n:\n            results.append([''.join(r) for r in board])\n            return\n        for col in range(n):\n            if col in cols or (row - col) in diag1 or (row + col) in diag2:\n                continue\n            cols.add(col)\n            diag1.add(row - col)\n            diag2.add(row + col)\n            board[row][col] = 'Q'\n\n            backtrack(row + 1)\n\n            cols.remove(col)\n            diag1.remove(row - col)\n            diag2.remove(row + col)\n            board[row][col] = '.'\n\n    backtrack(0)\n    return results",
+    "timeComplexity": "O(n!) in the worst case (roughly — the branching factor shrinks by row due to pruning, bounded by n! total placements); each valid solution recorded costs O(n^2) to serialize.",
+    "spaceComplexity": "O(n^2) for the board, plus O(n) for the constraint sets and recursion depth.",
+    "followUps": [
+      "Why are diagonals tracked as row - col and row + col specifically — what property of a diagonal does each capture?",
+      "How would you solve just 'count the number of solutions' (N-Queens II) more cheaply, without building/storing every board string?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["backtracking", "recursion", "matrix"]
+  }
+]

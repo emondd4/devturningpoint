@@ -1,0 +1,41 @@
+---
+id: AI-ASSISTED-BACKEND
+title: "Using AI safely in Backend"
+titleBn: "Backend-এ নিরাপদে AI ব্যবহার"
+description: "API design, auth review, SQL, concurrency, tests, observability."
+descriptionBn: "API design, auth, SQL, concurrency, test, observability।"
+track: backend
+category: cross-track
+difficulty: intermediate
+estimatedMinutes: 35
+prerequisites:
+  - "AI-CODING-AGENTS-CURSOR"
+unlocks: []
+related:
+  - "AI-SECURITY-OWASP"
+careers:
+  - "software-engineer"
+tags:
+  - "backend"
+  - "ai"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "OWASP-LLM-TOP10-2025"
+  - "OPENAI-API-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+## Workflows
+
+- Design contracts before codegen.
+- Force authn/z review on every endpoint suggestion.
+- Treat SQL as hostile until parameterized.
+- Demand concurrency/idempotency notes for payments/jobs.
+- Require metrics/logging for new paths.

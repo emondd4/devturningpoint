@@ -1,0 +1,37 @@
+{
+  "id": "PROMPT-DEVOPS-IAC",
+  "title": "DevOps/IaC change",
+  "track": "devops",
+  "taskType": "devops",
+  "difficulty": "advanced",
+  "whenToUse": "Infrastructure change needs blast-radius thinking.",
+  "whenNotToUse": "Cosmetic README edit.",
+  "requiredInputs": [
+    "IaC diff",
+    "Environment"
+  ],
+  "promptTemplate": "GOAL:\nReview/propose IaC change for {{goal}}.\n\nCONTEXT:\nEnv: {{env}}. Tool: {{tool}}.\n\nINPUT:\n{{diff}}\n\nCONSTRAINTS:\n- No destructive defaults\n- Require plan output\n- Secrets via secret store\n\nOUTPUT:\nChange plan + rollback\n\nACCEPTANCE:\nRollback stated.\n\nVERIFICATION:\nPlan/apply commands.",
+  "badPrompt": "Update infra.",
+  "improvedPrompt": "Add S3 bucket with block public access; show terraform plan expectations; no delete of prod state.",
+  "expectedOutput": "IaC plan with rollback.",
+  "verificationChecklist": [
+    "Blast radius clear",
+    "Secrets not plaintext"
+  ],
+  "failureModes": [
+    "Destructive apply",
+    "Fake commands"
+  ],
+  "privacySecurityNotes": [
+    "No cloud keys in prompt"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-DEVOPS"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

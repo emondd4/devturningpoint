@@ -109,3 +109,7 @@ Track progress with checkboxes. Repository + this plan are source of truth.
 ## Status
 
 **V1 core product path is implemented and buildable.** Remaining blockers are primarily **owner GitHub Pages settings** and continued editorial depth/polish—not missing architecture.
+
+## Active expansion (2026-09-16)
+
+See **`docs/IMPLEMENTATION-PLAN-AI-PBL.md`** for AI and Framework + Core/Market PBL expansion (branch `cursor/ai-framework-pbl-expansion`). Seed phase: schemas, AI track, 3 topics, tool catalog, prompt recipes, verify playbook, 1 AI project, UI grouping—then systematic content fill to ≥69 projects.

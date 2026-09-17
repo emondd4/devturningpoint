@@ -1,0 +1,212 @@
+---
+id: "PBL-DB-I-002"
+title: "Backup / PITR / Replication Operations Lab"
+slug: "backup-pitr-replication-operations-lab"
+track: "database"
+level: "intermediate"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for database/devops roles: backup, replication, and recovery expectations appear in production DB ownership."
+difficulty: "intermediate"
+summary: "Backup, PITR drill, and replica lag notes on Postgres."
+portfolioPitch: "Ops competence: restore evidence beats theory."
+estimatedHours: 32
+prerequisiteSkillIds:
+  - "DATABASE-BACKUP-REPLICATION"
+  - "DATABASE-TRANSACTIONS"
+  - "DATABASE-SQL"
+learningOutcomeSkillIds:
+  - "DATABASE-BACKUP-REPLICATION"
+  - "DATABASE-TRANSACTIONS"
+  - "DATABASE-EXPLAIN"
+recommendedTools:
+  - "PostgreSQL"
+portfolioEvidence:
+  - "ERD"
+  - "Migrations"
+  - "Queries"
+  - "EXPLAIN before/after"
+  - "Benchmarks"
+  - "Backup/restore evidence"
+relatedTopicIds:
+  - "DATABASE-RELATIONAL-MODELING"
+  - "DATABASE-MIGRATIONS"
+  - "DATABASE-SQL-WINDOW-FUNCTIONS"
+  - "DATABASE-MONGODB-MODELING"
+  - "DATABASE-SQL-JOINS-AGGREGATION"
+relatedInterviewQuestionIds:
+  - "DB-A-0001"
+  - "DB-A-0002"
+  - "DB-A-0003"
+  - "DB-A-0004"
+  - "DB-A-0005"
+  - "DB-A-0006"
+  - "DB-A-0007"
+  - "DB-A-0008"
+sources:
+  - "POSTGRES-BACKUP"
+  - "POSTGRES-REPLICATION"
+  - "POSTGRES-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-DB-I-002-M01"
+    title: "Backup"
+    objective: "Base backup."
+    whyItMatters: "Recoverability."
+    prerequisiteTopicIds:
+      - "DATABASE-RELATIONAL-MODELING"
+      - "DATABASE-MIGRATIONS"
+    tasks:
+      - "Capture scope for 'Backup' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Base backup."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Backup"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Base backup. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DB-I-002-M02"
+    title: "PITR drill"
+    objective: "Restore to time."
+    whyItMatters: "Evidence."
+    prerequisiteTopicIds:
+      - "DATABASE-RELATIONAL-MODELING"
+      - "DATABASE-MIGRATIONS"
+    tasks:
+      - "Capture scope for 'PITR drill' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Restore to time."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: PITR drill"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Restore to time. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DB-I-002-M03"
+    title: "Replica"
+    objective: "Lag observations."
+    whyItMatters: "HA thinking."
+    prerequisiteTopicIds:
+      - "DATABASE-SQL-WINDOW-FUNCTIONS"
+      - "DATABASE-MONGODB-MODELING"
+    tasks:
+      - "Capture scope for 'Replica' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Lag observations."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Replica"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Lag observations. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DB-I-002-M04"
+    title: "Runbook"
+    objective: "Document steps."
+    whyItMatters: "Ops."
+    prerequisiteTopicIds:
+      - "DATABASE-SQL-WINDOW-FUNCTIONS"
+      - "DATABASE-MONGODB-MODELING"
+    tasks:
+      - "Capture scope for 'Runbook' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Document steps."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Runbook"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Document steps. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Ops competence: restore evidence beats theory.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: PostgreSQL.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to intermediate
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

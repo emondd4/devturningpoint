@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-deprecated-api",
+  "title": "Deprecated API suggested",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Model recommends APIs marked deprecated."
+  ],
+  "cause": "Model recommends APIs marked deprecated.",
+  "solution": "Check current docs/changelog; prefer supported APIs.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

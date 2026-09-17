@@ -1,0 +1,36 @@
+{
+  "id": "PROMPT-PM-REQUIREMENTS",
+  "title": "Project requirement decomposition",
+  "track": "project-management",
+  "taskType": "pm",
+  "difficulty": "beginner",
+  "whenToUse": "Turn a fuzzy brief into testable requirements.",
+  "whenNotToUse": "You need fake stakeholder approvals.",
+  "requiredInputs": [
+    "Brief",
+    "Constraints"
+  ],
+  "promptTemplate": "GOAL:\nDecompose {{brief}} into requirements and risks.\n\nCONTEXT:\nConstraints: {{constraints}}.\n\nINPUT:\nStakeholders (roles only): {{roles}}\n\nCONSTRAINTS:\n- No invented approvals/dates as facts\n- Mark assumptions\n\nOUTPUT:\nMust/Should/Could + risks + open questions\n\nACCEPTANCE:\nOpen questions are explicit.\n\nVERIFICATION:\nEach must-have is testable.",
+  "badPrompt": "Write the PRD as if approved.",
+  "improvedPrompt": "Decompose POS offline-mode brief; label assumptions; list risks; no fake sign-offs.",
+  "expectedOutput": "Requirement breakdown.",
+  "verificationChecklist": [
+    "Assumptions labeled",
+    "Testable musts"
+  ],
+  "failureModes": [
+    "Fabricated approvals"
+  ],
+  "privacySecurityNotes": [],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-PM"
+  ],
+  "relatedProjects": [
+    "PBL-AI-A-003"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

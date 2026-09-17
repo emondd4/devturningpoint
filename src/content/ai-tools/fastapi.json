@@ -1,0 +1,37 @@
+{
+  "id": "AI-TOOL-FASTAPI",
+  "name": "FastAPI",
+  "category": "backend",
+  "description": "Python web framework commonly used to expose AI services with typed schemas.",
+  "bestFor": [
+    "AI backend APIs",
+    "OpenAPI-first services"
+  ],
+  "notIdealFor": [
+    "Static marketing sites"
+  ],
+  "prerequisites": [
+    "AI-LLM-FUNDAMENTALS"
+  ],
+  "officialUrl": "https://fastapi.tiangolo.com/",
+  "docsUrl": "https://fastapi.tiangolo.com/",
+  "languageEcosystem": [
+    "Python"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "Open-source; hosting separate.",
+  "securityNotes": [
+    "Authn/z on every route",
+    "Never return raw model output into HTML without encoding"
+  ],
+  "relatedTopicIds": [
+    "AI-ASSISTED-BACKEND"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-I-002",
+    "PBL-AI-A-003"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

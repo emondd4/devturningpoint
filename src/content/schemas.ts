@@ -192,6 +192,15 @@ export const issueSchema = z.object({
 
 export const projectLevelSchema = z.enum(['beginner', 'intermediate', 'advanced']);
 
+export const projectRoleSchema = z.enum(['core', 'market-alternative']);
+
+export const projectIdSchema = z
+  .string()
+  .regex(
+    /^(PROJECT-[A-Z0-9]+(-[A-Z0-9]+)+|PBL-[A-Z]+-[BIA]-\d{3})$/,
+    'Project id must be PROJECT-… or PBL-{TRACK}-{B|I|A}-{nnn}',
+  );
+
 export const projectMilestoneSchema = z.object({
   id: z.string().min(1),
   title: z.string().min(1),
@@ -203,15 +212,19 @@ export const projectMilestoneSchema = z.object({
   validationChecklist: z.array(z.string()).default([]),
   commonProblems: z.array(z.string()).default([]),
   completionCriteria: z.array(z.string()).default([]),
+  relatedInterviewQuestionIds: z.array(z.string()).default([]),
 });
 
 export const projectSchema = z.object({
-  id: z.string().regex(/^PROJECT-[A-Z0-9]+(-[A-Z0-9]+)+$/),
+  id: projectIdSchema,
   title: z.string(),
   titleBn: z.string().optional(),
   slug: z.string().min(1),
   track: z.string().min(1),
   level: projectLevelSchema,
+  /** Core vs market-alternative portfolio option within a level */
+  projectRole: projectRoleSchema.default('core'),
+  marketRelevance: z.string().optional(),
   /** @deprecated use level — kept for gradual migration */
   difficulty: difficultySchema.optional(),
   summary: z.string(),
@@ -242,6 +255,50 @@ export const projectSchema = z.object({
   relatedTopics: z.array(z.string()).default([]),
 });
 
+export const aiToolSchema = z.object({
+  id: z.string().regex(/^AI-TOOL-[A-Z0-9]+(-[A-Z0-9]+)*$/),
+  name: z.string().min(1),
+  category: z.string().min(1),
+  description: z.string().min(1),
+  bestFor: z.array(z.string()).default([]),
+  notIdealFor: z.array(z.string()).default([]),
+  prerequisites: z.array(z.string()).default([]),
+  officialUrl: z.string().url(),
+  docsUrl: z.string().url(),
+  languageEcosystem: z.array(z.string()).default([]),
+  localOrCloud: z.enum(['local', 'cloud', 'both']),
+  openSourceStatus: z.enum(['open-source', 'proprietary', 'mixed', 'protocol']),
+  costModelSummary: z.string(),
+  securityNotes: z.array(z.string()).default([]),
+  relatedTopicIds: z.array(z.string()).default([]),
+  relatedProjectIds: z.array(z.string()).default([]),
+  lastVerified: dateStringSchema,
+  status: contentStatusSchema.default('published'),
+});
+
+export const promptRecipeSchema = z.object({
+  id: z.string().regex(/^PROMPT-[A-Z0-9]+(-[A-Z0-9]+)+$/),
+  title: z.string().min(1),
+  track: z.string().min(1),
+  taskType: z.string().min(1),
+  difficulty: difficultySchema,
+  whenToUse: z.string().min(1),
+  whenNotToUse: z.string().min(1),
+  requiredInputs: z.array(z.string()).default([]),
+  promptTemplate: z.string().min(1),
+  badPrompt: z.string().min(1),
+  improvedPrompt: z.string().min(1),
+  expectedOutput: z.string().min(1),
+  verificationChecklist: z.array(z.string()).default([]),
+  failureModes: z.array(z.string()).default([]),
+  privacySecurityNotes: z.array(z.string()).default([]),
+  relatedTools: z.array(z.string()).default([]),
+  relatedTopics: z.array(z.string()).default([]),
+  relatedProjects: z.array(z.string()).default([]),
+  lastVerified: dateStringSchema,
+  status: contentStatusSchema.default('published'),
+});
+
 export const historyEventSchema = z.object({
   id: z.string(),
   year: z.string(),
@@ -266,5 +323,7 @@ export type Interview = z.infer<typeof interviewSchema>;
 export type Issue = z.infer<typeof issueSchema>;
 export type Project = z.infer<typeof projectSchema>;
 export type ProjectMilestone = z.infer<typeof projectMilestoneSchema>;
+export type AiTool = z.infer<typeof aiToolSchema>;
+export type PromptRecipe = z.infer<typeof promptRecipeSchema>;
 export type HistoryEvent = z.infer<typeof historyEventSchema>;
 export type Source = z.infer<typeof sourceSchema>;

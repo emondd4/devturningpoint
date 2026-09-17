@@ -1,0 +1,36 @@
+{
+  "id": "AI-TOOL-PYTORCH",
+  "name": "PyTorch",
+  "category": "ml-open-models",
+  "description": "Deep learning framework for research and production training/inference stacks.",
+  "bestFor": [
+    "Training/custom models",
+    "Research-to-prod ML pipelines"
+  ],
+  "notIdealFor": [
+    "Simple hosted chat wrappers"
+  ],
+  "prerequisites": [
+    "AI-FUNDAMENTALS-OVERVIEW"
+  ],
+  "officialUrl": "https://pytorch.org/",
+  "docsUrl": "https://pytorch.org/docs/",
+  "languageEcosystem": [
+    "Python"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "Open-source; GPU infra costs apply.",
+  "securityNotes": [
+    "Validate model artifacts",
+    "Pin CUDA/driver stacks"
+  ],
+  "relatedTopicIds": [
+    "AI-OPEN-MODELS"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-A-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

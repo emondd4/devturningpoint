@@ -1,0 +1,214 @@
+---
+id: "PBL-FE-I-002"
+title: "Production E-Commerce Storefront"
+slug: "production-ecommerce-storefront"
+track: "frontend"
+level: "intermediate"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for React/frontend roles: storefront and catalog UIs appear frequently in product companies."
+difficulty: "intermediate"
+summary: "Storefront with cart, filtering, resilient fetching, and URL state."
+portfolioPitch: "Production UI: data fetching, empty/error, and shareable URLs."
+estimatedHours: 34
+prerequisiteSkillIds:
+  - "FRONTEND-REACT"
+  - "FRONTEND-TYPESCRIPT"
+  - "FRONTEND-JS-ASYNC"
+learningOutcomeSkillIds:
+  - "FRONTEND-REACT"
+  - "FRONTEND-TYPESCRIPT"
+  - "FRONTEND-JS-ASYNC"
+recommendedTools:
+  - "React"
+  - "TypeScript"
+  - "TanStack Query"
+portfolioEvidence:
+  - "GitHub repo with README"
+  - "Architecture diagram"
+  - "Screenshots/demo"
+  - "Tests + CI evidence"
+  - "ADR/decision notes"
+  - "Reproducible run instructions"
+relatedTopicIds:
+  - "FRONTEND-CSS-CASCADE-BOX-MODEL"
+  - "FRONTEND-REACT-MEMOIZATION"
+  - "FRONTEND-REACT-RENDER-PURITY"
+  - "FRONTEND-HTML-SEMANTICS-A11Y"
+  - "FRONTEND-NEXTJS-APP-ROUTER-BASICS"
+relatedInterviewQuestionIds:
+  - "FE-A-0001"
+  - "FE-A-0002"
+  - "FE-A-0003"
+  - "FE-A-0004"
+  - "FE-A-0005"
+  - "FE-A-0006"
+  - "FE-A-0007"
+  - "FE-A-0008"
+sources:
+  - "REACT-DOCS"
+  - "REACT-HOOKS"
+  - "W3C-WCAG"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-FE-I-002-M01"
+    title: "App shell"
+    objective: "Routing/layout."
+    whyItMatters: "Structure."
+    prerequisiteTopicIds:
+      - "FRONTEND-CSS-CASCADE-BOX-MODEL"
+      - "FRONTEND-REACT-MEMOIZATION"
+    tasks:
+      - "Capture scope for 'App shell' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Routing/layout."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: App shell"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Routing/layout. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FE-I-002-M02"
+    title: "Catalog + cart"
+    objective: "Core commerce path."
+    whyItMatters: "Product value."
+    prerequisiteTopicIds:
+      - "FRONTEND-CSS-CASCADE-BOX-MODEL"
+      - "FRONTEND-REACT-MEMOIZATION"
+    tasks:
+      - "Capture scope for 'Catalog + cart' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Core commerce path."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Catalog + cart"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Core commerce path. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FE-I-002-M03"
+    title: "URL state"
+    objective: "Shareable filters."
+    whyItMatters: "Senior frontend."
+    prerequisiteTopicIds:
+      - "FRONTEND-REACT-RENDER-PURITY"
+      - "FRONTEND-HTML-SEMANTICS-A11Y"
+    tasks:
+      - "Capture scope for 'URL state' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Shareable filters."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: URL state"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Shareable filters. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FE-I-002-M04"
+    title: "Hardening"
+    objective: "A11y + tests."
+    whyItMatters: "Polish."
+    prerequisiteTopicIds:
+      - "FRONTEND-REACT-RENDER-PURITY"
+      - "FRONTEND-HTML-SEMANTICS-A11Y"
+    tasks:
+      - "Capture scope for 'Hardening' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: A11y + tests."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Hardening"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "A11y + tests. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Production UI: data fetching, empty/error, and shareable URLs.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: React, TypeScript, TanStack Query.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to intermediate
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

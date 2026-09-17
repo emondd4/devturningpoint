@@ -71,14 +71,37 @@ All internal links must respect `import.meta.env.BASE_URL`.
 | `achievements` | Company milestones (~5 years) |
 | `interviews` | Interview Q&A bank |
 | `issues` | Troubleshooting entries |
-| `projects` | Portfolio-style learning projects |
+| `projects` | Portfolio-style learning projects (Core / Market Alternative / AI) |
 | `history` | Computing evolution events |
+| `ai-tools` | Typed AI tool/resource catalog (problem → tool) |
+| `prompt-recipes` | Verifiable prompt templates with failure modes |
 
 ### Stable IDs
 
-- Format: `DOMAIN-AREA-TOPIC` (e.g. `FRONTEND-REACT-HOOKS`)
+- Format: `DOMAIN-AREA-TOPIC` (e.g. `FRONTEND-REACT-HOOKS`, `AI-LLM-FUNDAMENTALS`)
+- Projects: legacy `PROJECT-…` or `PBL-{TRACK}-{B|I|A}-{nnn}` (e.g. `PBL-AI-B-001`)
+- Milestones: `{projectId}-M{nn}` or short unique ids; prefer `PBL-…-M01` for new work
 - URLs and titles may change; IDs must not.
 - EN/BN pages share the same ID; translation status is metadata.
+
+### Project roles
+
+| Role | Meaning |
+|------|---------|
+| `core` | Canonical depth project for the level |
+| `market-alternative` | Parallel portfolio option with different market/role angle |
+
+AI track projects use `core` within `ai-framework` (three per level).
+
+### AI content architecture
+
+- Topics under `src/content/topics/ai-framework/`
+- Skill graph nodes with `track: ai-framework`
+- Static decision guides, verification playbook, and failure issues (no runtime AI)
+- Prompt recipes and AI tools as typed collections
+- Assessment bank maps to AI skill IDs like other tracks
+
+Development-time research is allowed; **do not** ship crawlers, LLM research agents, scheduled publishers, or site-wide vector search for content.
 
 ### Topic frontmatter (future-friendly)
 

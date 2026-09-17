@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-fabricated-source",
+  "title": "Fabricated source/citation",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Model invents URLs or paper titles."
+  ],
+  "cause": "Model invents URLs or paper titles.",
+  "solution": "Open every citation; discard unverifiable claims.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

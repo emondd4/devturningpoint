@@ -11,6 +11,8 @@ export interface ProjectCardModel {
   track: string;
   trackTitle: string;
   level: ProjectLevel;
+  projectRole: 'core' | 'market-alternative';
+  marketRelevance?: string;
   summary: string;
   portfolioPitch: string;
   estimatedHours: number;
@@ -35,6 +37,8 @@ export function toProjectCard(data: Project): ProjectCardModel {
     track: data.track,
     trackTitle: track?.title ?? data.track,
     level: data.level,
+    projectRole: data.projectRole ?? 'core',
+    marketRelevance: data.marketRelevance,
     summary: data.summary,
     portfolioPitch: data.portfolioPitch,
     estimatedHours: data.estimatedHours,

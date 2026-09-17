@@ -1,0 +1,22 @@
+---
+interface Props {
+  name: string;
+  size?: number | string;
+  filled?: boolean;
+  class?: string;
+  ariaLabel?: string;
+}
+
+const { name, size = 20, filled = false, class: className = '', ariaLabel } = Astro.props;
+const style = `font-size: ${typeof size === 'number' ? `${size}px` : size};`;
+---
+
+<span
+  class:list={['material-symbols-rounded', filled && 'is-filled', className]}
+  style={style}
+  aria-hidden={ariaLabel ? undefined : 'true'}
+  aria-label={ariaLabel}
+  role={ariaLabel ? 'img' : undefined}
+>
+  {name}
+</span>

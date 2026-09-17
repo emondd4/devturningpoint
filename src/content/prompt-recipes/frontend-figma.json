@@ -1,0 +1,36 @@
+{
+  "id": "PROMPT-FRONTEND-FIGMA",
+  "title": "Frontend from screenshot/Figma",
+  "track": "frontend",
+  "taskType": "frontend",
+  "difficulty": "intermediate",
+  "whenToUse": "Implement UI matching design within design-system constraints.",
+  "whenNotToUse": "No design reference and you invent branding.",
+  "requiredInputs": [
+    "Screenshot/Figma link",
+    "Design tokens"
+  ],
+  "promptTemplate": "GOAL:\nImplement UI for {{screen}} matching design.\n\nCONTEXT:\nTokens/components: {{system}}.\n\nINPUT:\nReference: {{reference}}\n\nCONSTRAINTS:\n- Reuse existing components\n- a11y labels\n- No new CSS framework\n\nOUTPUT:\nComponent structure + a11y notes\n\nACCEPTANCE:\nVisual + keyboard checks listed.\n\nVERIFICATION:\nManual checklist.",
+  "badPrompt": "Make it pretty like the screenshot.",
+  "improvedPrompt": "Build pricing section using existing Button/Stack; match spacing tokens; include focus states.",
+  "expectedOutput": "Component plan with a11y.",
+  "verificationChecklist": [
+    "Tokens reused",
+    "a11y included"
+  ],
+  "failureModes": [
+    "Invented design system"
+  ],
+  "privacySecurityNotes": [
+    "Do not upload confidential client screenshots to public models if policy forbids"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-FRONTEND"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

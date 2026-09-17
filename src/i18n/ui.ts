@@ -1,8 +1,8 @@
 import type { Locale } from './config';
 
 const en = {
-  siteName: 'Dev Turning Point',
-  tagline: 'Computer engineering careers and learning for Bangladesh',
+  siteName: 'TechStackBD',
+  tagline: 'Bangladesh-focused technology learning and career roadmaps',
   skipToContent: 'Skip to content',
   nav: {
     learn: 'Learn',
@@ -10,7 +10,7 @@ const en = {
     roadmaps: 'Roadmaps',
     companies: 'Companies',
     history: 'History',
-    interviews: 'Interviews',
+    interviews: 'Interview',
     projects: 'Projects',
     search: 'Search',
     myLearning: 'My Learning',
@@ -79,14 +79,14 @@ const en = {
   related: 'Related topics',
   sources: 'Sources',
   notFound: {
-    title: 'Page not found',
-    body: 'That URL does not match any content. Try search, careers, or learning tracks.',
+    title: 'Looks like this path isn\'t on the roadmap.',
+    body: 'That URL does not match any content. Try home, search, or learning tracks.',
   },
 } as const;
 
 const bn = {
-  siteName: 'Dev Turning Point',
-  tagline: 'বাংলাদেশের জন্য কম্পিউটার ইঞ্জিনিয়ারিং ক্যারিয়ার ও শেখার প্ল্যাটফর্ম',
+  siteName: 'TechStackBD',
+  tagline: 'বাংলাদেশ-কেন্দ্রিক প্রযুক্তি শেখা ও ক্যারিয়ার রোডম্যাপ',
   skipToContent: 'সরাসরি কন্টেন্টে যান',
   nav: {
     learn: 'শেখা',
@@ -163,8 +163,8 @@ const bn = {
   related: 'সম্পর্কিত টপিক',
   sources: 'সূত্র',
   notFound: {
-    title: 'পেজ পাওয়া যায়নি',
-    body: 'এই URL-এর সাথে কোনো কন্টেন্ট মিলছে না। সার্চ, ক্যারিয়ার বা লার্নিং ট্র্যাক চেষ্টা করুন।',
+    title: 'মনে হচ্ছে এই পথ রোডম্যাপে নেই।',
+    body: 'এই URL-এর সাথে কোনো কন্টেন্ট মিলছে না। হোম, সার্চ বা লার্নিং ট্র্যাক চেষ্টা করুন।',
   },
 } as const;
 

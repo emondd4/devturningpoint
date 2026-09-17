@@ -20,8 +20,10 @@ const VALID_TRACKS = new Set([
   'qa',
   'uiux',
   'project-management',
+  'ai-framework',
 ]);
 const VALID_LEVELS = new Set(['beginner', 'intermediate', 'advanced']);
+const VALID_ROLES = new Set(['core', 'market-alternative']);
 
 function walk(dir, filter) {
   if (!existsSync(dir)) return [];
@@ -80,8 +82,8 @@ const projectById = new Map();
 const milestoneIds = new Map();
 const trackLevels = new Map();
 
-if (projectFiles.length !== 30) {
-  issues.push(`Expected 30 projects, found ${projectFiles.length}`);
+if (projectFiles.length < 30) {
+  issues.push(`Expected at least 30 projects, found ${projectFiles.length}`);
 }
 
 for (const file of projectFiles) {
@@ -97,6 +99,7 @@ for (const file of projectFiles) {
   const slug = parseScalar(fm, 'slug');
   const track = parseScalar(fm, 'track');
   const level = parseScalar(fm, 'level');
+  const projectRole = parseScalar(fm, 'projectRole') || 'core';
   const summary = parseScalar(fm, 'summary');
   const portfolioPitch = parseScalar(fm, 'portfolioPitch');
   const estimatedHours = parseScalar(fm, 'estimatedHours');
@@ -108,7 +111,7 @@ for (const file of projectFiles) {
     if (!v) issues.push(`Missing critical metadata ${k} in ${file}`);
   }
 
-  if (id && !/^PROJECT-[A-Z0-9]+(-[A-Z0-9]+)+$/.test(id)) {
+  if (id && !/^(PROJECT-[A-Z0-9]+(-[A-Z0-9]+)+|PBL-[A-Z]+-[BIA]-\d{3})$/.test(id)) {
     issues.push(`Invalid project id format ${id} in ${file}`);
   }
   if (id && projectById.has(id)) {
@@ -119,8 +122,10 @@ for (const file of projectFiles) {
 
   if (track && !VALID_TRACKS.has(track)) issues.push(`Invalid track ${track} in ${file}`);
   if (level && !VALID_LEVELS.has(level)) issues.push(`Invalid level ${level} in ${file}`);
+  if (projectRole && !VALID_ROLES.has(projectRole)) issues.push(`Invalid projectRole ${projectRole} in ${file}`);
   if (track && level) {
-    const key = `${track}:${level}`;
+    const key =
+      track === 'ai-framework' ? `${track}:${level}:${id}` : `${track}:${level}:${projectRole}`;
     if (trackLevels.has(key)) issues.push(`Duplicate ${key} project (${trackLevels.get(key)} and ${file})`);
     else trackLevels.set(key, file);
   }
@@ -166,9 +171,19 @@ for (const file of projectFiles) {
 }
 
 for (const track of VALID_TRACKS) {
+  if (track === 'ai-framework') {
+    for (const level of VALID_LEVELS) {
+      const count = [...trackLevels.keys()].filter((k) => k.startsWith(`ai-framework:${level}:`)).length;
+      if (count < 3) issues.push(`Expected >=3 ${level} projects for ai-framework, found ${count}`);
+    }
+    continue;
+  }
   for (const level of VALID_LEVELS) {
-    if (!trackLevels.has(`${track}:${level}`)) {
-      issues.push(`Missing ${level} project for track ${track}`);
+    if (!trackLevels.has(`${track}:${level}:core`)) {
+      issues.push(`Missing ${level} core project for track ${track}`);
+    }
+    if (!trackLevels.has(`${track}:${level}:market-alternative`)) {
+      issues.push(`Missing ${level} market-alternative project for track ${track}`);
     }
   }
 }

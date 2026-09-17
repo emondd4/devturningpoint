@@ -1,0 +1,40 @@
+{
+  "id": "AI-TOOL-OPENAI",
+  "name": "OpenAI API",
+  "category": "model-providers",
+  "description": "Hosted models, embeddings, structured outputs, and tool calling via OpenAI platform APIs.",
+  "bestFor": [
+    "Chat/completions with schemas",
+    "Embeddings for RAG prototypes"
+  ],
+  "notIdealFor": [
+    "Fully air-gapped deployments without alternatives"
+  ],
+  "prerequisites": [
+    "AI-LLM-FUNDAMENTALS"
+  ],
+  "officialUrl": "https://platform.openai.com/",
+  "docsUrl": "https://platform.openai.com/docs",
+  "languageEcosystem": [
+    "Python",
+    "TypeScript",
+    "HTTP"
+  ],
+  "localOrCloud": "cloud",
+  "openSourceStatus": "proprietary",
+  "costModelSummary": "Per-token / usage billing; warn before paid calls.",
+  "securityNotes": [
+    "Never expose API keys in frontend",
+    "Log redaction for prompts"
+  ],
+  "relatedTopicIds": [
+    "AI-LLM-FUNDAMENTALS",
+    "AI-STRUCTURED-OUTPUTS"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-B-001",
+    "PBL-AI-B-003"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

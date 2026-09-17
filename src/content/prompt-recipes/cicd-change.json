@@ -1,0 +1,34 @@
+{
+  "id": "PROMPT-CICD-CHANGE",
+  "title": "CI/CD change",
+  "track": "devops",
+  "taskType": "ci-cd",
+  "difficulty": "intermediate",
+  "whenToUse": "Pipeline must stay safe and reproducible.",
+  "whenNotToUse": "Local-only scripts with no CI.",
+  "requiredInputs": [
+    "Workflow file",
+    "Required checks"
+  ],
+  "promptTemplate": "GOAL:\nAdjust CI for {{goal}}.\n\nCONTEXT:\nPlatform: {{ci}}.\n\nINPUT:\n{{workflow}}\n\nCONSTRAINTS:\n- Pin actions\n- No secrets in logs\n- Fail on lint/test\n\nOUTPUT:\nPatched workflow + rationale\n\nACCEPTANCE:\nRequired checks still gate merge.\n\nVERIFICATION:\nList jobs/steps.",
+  "badPrompt": "Fix CI somehow.",
+  "improvedPrompt": "Add typecheck job; pin action SHAs; do not print secrets; keep cache keys stable.",
+  "expectedOutput": "CI patch proposal.",
+  "verificationChecklist": [
+    "Pins present",
+    "Secrets safe"
+  ],
+  "failureModes": [
+    "Unpinned actions"
+  ],
+  "privacySecurityNotes": [],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-DEVOPS"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-unsafe-shell",
+  "title": "Unsafe shell command",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "rm -rf, curl|bash, or prod mutations."
+  ],
+  "cause": "rm -rf, curl|bash, or prod mutations.",
+  "solution": "Deny high-risk tools; human approval gates.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

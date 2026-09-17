@@ -8,7 +8,8 @@ level: "intermediate"
 difficulty: "intermediate"
 summary: "Flutter field-work app with local DB, sync outbox, conflict notes, and resilient networking."
 summaryBn: "লোকাল DB, সিঙ্ক আউটবক্স, কনফ্লিক্ট নোট এবং রেজিলিয়েন্ট নেটওয়ার্কিংসহ ফিল্ড অ্যাপ।"
-portfolioPitch: "Offline-first mobile engineering: local source of truth, outbox sync, explicit conflicts."
+marketRelevance: "Observed in the Bangladesh job listings reviewed for mobile roles: enterprise/NGO field apps handling financial and partner-organization records consistently ask for offline-first sync alongside OAuth2/Keycloak SSO and biometric-gated sensitive actions."
+portfolioPitch: "Offline-first mobile engineering: local source of truth, outbox sync, explicit conflicts, and enterprise SSO for sensitive records."
 estimatedHours: 36
 prerequisiteSkillIds:
   - "MOBILE-FLUTTER-STORAGE"
@@ -21,6 +22,7 @@ learningOutcomeSkillIds:
   - "MOBILE-FLUTTER-STATE"
   - "MOBILE-FLUTTER-PERFORMANCE"
   - "MOBILE-FLUTTER-TESTING"
+  - "MOBILE-FLUTTER-SECURITY"
 recommendedTools:
   - "Flutter"
   - "drift/sqflite"
@@ -39,6 +41,7 @@ relatedTopicIds:
   - "FLUTTER-TESTING"
   - "FLUTTER-PERFORMANCE-DEVTOOLS"
   - "FLUTTER-LOCAL-STORAGE"
+  - "FLUTTER-MOBILE-SECURITY-IDENTITY"
 relatedInterviewQuestionIds:
   - "iv-flutter-isolates-ui-jank"
   - "FL-I-0100"
@@ -47,15 +50,22 @@ relatedInterviewQuestionIds:
   - "FL-I-0020"
   - "FL-B-0150"
   - "iv-flutter-keys-list-reorder"
+  - "FL-I-0250"
+  - "FL-I-0253"
+  - "FL-A-0250"
 sources:
   - "FLUTTER-SQLITE"
   - "FLUTTER-NETWORKING"
   - "FLUTTER-PERF"
   - "DART-ASYNC"
   - "FLUTTER-TESTING"
+  - "KEYCLOAK-DOCS"
+  - "FLUTTER-LOCAL-AUTH"
+  - "src-job-pksf-senior-mobile"
+  - "src-job-pksf-mobile"
 createdAt: "2026-09-16"
-updatedAt: "2026-09-16"
-lastVerified: "2026-09-16"
+updatedAt: "2026-09-18"
+lastVerified: "2026-09-18"
 previousProjectId: "PROJECT-FLUTTER-EXPENSE-TRACKER"
 nextProjectId: "PROJECT-FLUTTER-FIELD-SERVICE-IOT"
 status: "published"
@@ -157,6 +167,32 @@ milestones:
       - "No virtualization"
     completionCriteria:
       - "Portfolio ready"
+  - id: "fl-offline-m5"
+    title: "Enterprise SSO & sensitive-action security"
+    objective: "Gate the app and sensitive record edits behind OAuth2/Keycloak SSO plus biometric re-auth."
+    whyItMatters: "Field apps touching financial/partner-org records are expected to prove identity, not just sync offline."
+    prerequisiteTopicIds:
+      - "FLUTTER-MOBILE-SECURITY-IDENTITY"
+      - "FLUTTER-NETWORKING-REST"
+    tasks:
+      - "Authorization Code + PKCE login against a Keycloak/OIDC realm"
+      - "Store tokens in flutter_secure_storage"
+      - "Single-flight token refresh interceptor"
+      - "Biometric gate (local_auth) in front of one sensitive edit screen, with PIN fallback"
+    expectedArtifacts:
+      - "auth sequence diagram"
+      - "secure-storage token flow notes"
+    validationChecklist:
+      - "Login round-trips through the realm, not a hardcoded token"
+      - "Refresh token never appears in logs or plaintext prefs"
+      - "Biometric prompt has a working fallback path"
+      - "Expired-token mid-edit scenario handled without data loss"
+    commonProblems:
+      - "Client secret embedded in the app"
+      - "Parallel refresh calls racing each other"
+      - "Biometric success treated as a network credential"
+    completionCriteria:
+      - "Auth + biometric gate demo recorded"
 ---
 
 import Callout from '../../components/content/Callout.astro';
@@ -175,7 +211,11 @@ Field apps fail offline. Employers care about flaky-network design.
 
 ## Skills this proves
 
-Learning outcomes map to: MOBILE-FLUTTER-STORAGE, MOBILE-FLUTTER-NETWORKING, MOBILE-FLUTTER-STATE, MOBILE-FLUTTER-PERFORMANCE, MOBILE-FLUTTER-TESTING.
+Learning outcomes map to: MOBILE-FLUTTER-STORAGE, MOBILE-FLUTTER-NETWORKING, MOBILE-FLUTTER-STATE, MOBILE-FLUTTER-PERFORMANCE, MOBILE-FLUTTER-TESTING, MOBILE-FLUTTER-SECURITY.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
 
 ## Prerequisites
 
@@ -215,7 +255,7 @@ DAO tests; fake API outbox drain; offline banner widget test.
 
 ## Security
 
-Tokens in secure storage; no PII in logs.
+Tokens in secure storage; no PII in logs. Login goes through OAuth2/Keycloak SSO (Authorization Code + PKCE, no client secret in the app); the sensitive record-edit screen is gated behind a biometric re-auth (`local_auth`) with a PIN fallback, on top of — not instead of — the SSO session. See `FLUTTER-MOBILE-SECURITY-IDENTITY`.
 
 ## Performance
 

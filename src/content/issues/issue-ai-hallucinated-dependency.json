@@ -1,0 +1,18 @@
+{
+  "id": "issue-ai-hallucinated-dependency",
+  "title": "Agent invents a npm/PyPI package that does not exist",
+  "technology": "AI coding agents",
+  "platform": "Any",
+  "symptoms": [
+    "Install fails with package not found",
+    "Import errors for modules never published",
+    "README claims a library that search cannot find"
+  ],
+  "cause": "Models may hallucinate plausible package names; trusting the suggestion without verifying the registry creates broken builds and supply-chain risk.",
+  "solution": "Verify every new dependency against the official registry and docs before install; prefer packages already in the repo; reject agent patches that add unverified deps.",
+  "workaround": "Pin to known packages and ask the agent to implement without new dependencies.",
+  "status": "VERIFIED",
+  "relatedTopics": ["AI-CODING-AGENTS-CURSOR", "AI-PROMPT-ENGINEERING"],
+  "sources": ["OWASP-LLM-TOP10-2025", "CURSOR-DOCS-RULES"],
+  "lastVerified": "2026-09-16"
+}

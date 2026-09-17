@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-ungrounded-answer",
+  "title": "Ungrounded answer",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Fluent answer without retrieval support."
+  ],
+  "cause": "Fluent answer without retrieval support.",
+  "solution": "Refuse when retrieval empty; eval groundedness.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "PROMPT-UX-CRITIQUE",
+  "title": "UX critique",
+  "track": "uiux",
+  "taskType": "ux",
+  "difficulty": "intermediate",
+  "whenToUse": "Critique a flow with heuristics—not invented user quotes.",
+  "whenNotToUse": "You need fabricated personas as “research.”",
+  "requiredInputs": [
+    "Flow description/screens",
+    "Task goal"
+  ],
+  "promptTemplate": "GOAL:\nHeuristic critique of {{flow}} for task {{task}}.\n\nCONTEXT:\nUsers: {{audience}} (assumptions labeled).\n\nINPUT:\n{{screens}}\n\nCONSTRAINTS:\n- No invented interview quotes\n- Separate observation vs recommendation\n\nOUTPUT:\nIssues + severity + redesign ideas\n\nACCEPTANCE:\nAssumptions labeled.\n\nVERIFICATION:\nEach issue points to UI evidence.",
+  "badPrompt": "Users hate this.",
+  "improvedPrompt": "Critique onboarding for clarity and error recovery; label assumptions; no fake quotes.",
+  "expectedOutput": "Heuristic critique.",
+  "verificationChecklist": [
+    "Assumptions labeled",
+    "No fake research"
+  ],
+  "failureModes": [
+    "Fabricated user research"
+  ],
+  "privacySecurityNotes": [],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-UIUX"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

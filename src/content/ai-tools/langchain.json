@@ -1,0 +1,40 @@
+{
+  "id": "AI-TOOL-LANGCHAIN",
+  "name": "LangChain",
+  "category": "application-frameworks",
+  "description": "Composable building blocks for LLM apps (chains, retrievers, tools) across Python/JS.",
+  "bestFor": [
+    "Rapid RAG prototypes",
+    "Integrating many connectors"
+  ],
+  "notIdealFor": [
+    "Understanding AI fundamentals before APIs",
+    "Ultra-minimal single-call apps"
+  ],
+  "prerequisites": [
+    "AI-LLM-FUNDAMENTALS",
+    "AI-PROMPT-ENGINEERING"
+  ],
+  "officialUrl": "https://www.langchain.com/",
+  "docsUrl": "https://python.langchain.com/docs/",
+  "languageEcosystem": [
+    "Python",
+    "TypeScript"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "Open-source core; hosted LangSmith optional.",
+  "securityNotes": [
+    "Abstraction can hide data flows—trace them",
+    "Pin versions"
+  ],
+  "relatedTopicIds": [
+    "AI-FRAMEWORKS-LANDSCAPE",
+    "AI-RAG-FUNDAMENTALS"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-I-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

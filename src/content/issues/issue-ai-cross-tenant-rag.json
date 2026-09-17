@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-cross-tenant-rag",
+  "title": "Cross-tenant RAG leak",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Embeddings/search cross customer boundaries."
+  ],
+  "cause": "Embeddings/search cross customer boundaries.",
+  "solution": "Filter by tenant before retrieval; test isolation.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

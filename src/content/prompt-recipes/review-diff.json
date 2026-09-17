@@ -1,0 +1,39 @@
+{
+  "id": "PROMPT-REVIEW-DIFF",
+  "title": "Review branch/diff",
+  "track": "ai-framework",
+  "taskType": "code-review",
+  "difficulty": "intermediate",
+  "whenToUse": "Before merge, need risk-focused review.",
+  "whenNotToUse": "Diff is empty.",
+  "requiredInputs": [
+    "Diff or PR URL",
+    "Acceptance criteria"
+  ],
+  "promptTemplate": "GOAL:\nReview this diff for correctness, security, and scope.\n\nCONTEXT:\nAcceptance: {{acceptance}}.\n\nINPUT:\n{{diff}}\n\nCONSTRAINTS:\n- Cite file:line\n- Separate blocking vs nit\n- Flag invented APIs/deps\n\nOUTPUT:\nFindings table + residual risks\n\nACCEPTANCE:\nBlocking issues actionable.\n\nVERIFICATION:\nEach finding cites evidence.",
+  "badPrompt": "LGTM",
+  "improvedPrompt": "Review for authz gaps and new dependencies; blocking vs nit; cite paths.",
+  "expectedOutput": "Structured review notes.",
+  "verificationChecklist": [
+    "Findings cited",
+    "Secrets checked"
+  ],
+  "failureModes": [
+    "Rubber-stamp approval"
+  ],
+  "privacySecurityNotes": [
+    "Do not paste secrets from .env"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "relatedProjects": [
+    "PBL-AI-B-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

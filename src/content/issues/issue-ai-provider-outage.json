@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-provider-outage",
+  "title": "Model/provider outage",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Upstream 5xx/timeouts cascade."
+  ],
+  "cause": "Upstream 5xx/timeouts cascade.",
+  "solution": "Timeouts, fallbacks, graceful degradation.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

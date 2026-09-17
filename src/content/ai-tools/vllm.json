@@ -1,0 +1,37 @@
+{
+  "id": "AI-TOOL-VLLM",
+  "name": "vLLM",
+  "category": "ml-open-models",
+  "description": "High-throughput open-model serving engine for production-ish inference.",
+  "bestFor": [
+    "Self-hosted model APIs",
+    "Batch/throughput-oriented serving"
+  ],
+  "notIdealFor": [
+    "Laptop-only learning without GPUs"
+  ],
+  "prerequisites": [
+    "AI-OPEN-MODELS",
+    "AI-MODEL-SERVING"
+  ],
+  "officialUrl": "https://github.com/vllm-project/vllm",
+  "docsUrl": "https://docs.vllm.ai/",
+  "languageEcosystem": [
+    "Python"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "Open-source; GPU cluster costs dominate.",
+  "securityNotes": [
+    "Auth front the serving API",
+    "Resource quotas against unbounded consumption"
+  ],
+  "relatedTopicIds": [
+    "AI-MODEL-SERVING"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-A-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

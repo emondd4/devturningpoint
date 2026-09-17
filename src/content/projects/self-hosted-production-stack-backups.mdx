@@ -1,0 +1,213 @@
+---
+id: "PBL-DO-B-002"
+title: "Self-Hosted Production Stack + Backups"
+slug: "self-hosted-production-stack-backups"
+track: "devops"
+level: "beginner"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for DevOps/sysadmin-leaning roles: self-hosted stacks and backup responsibility appear in SME environments."
+difficulty: "beginner"
+summary: "Compose-based stack with backup/restore drill."
+portfolioPitch: "Self-hosting with backups beats toy deploys."
+estimatedHours: 28
+prerequisiteSkillIds:
+  - "DEVOPS-LINUX"
+  - "DEVOPS-DOCKER"
+  - "FOUNDATIONS-GIT"
+learningOutcomeSkillIds:
+  - "DEVOPS-DOCKER"
+  - "DEVOPS-LINUX"
+  - "DEVOPS-CICD"
+recommendedTools:
+  - "Docker Compose"
+  - "Linux VM"
+portfolioEvidence:
+  - "IaC repo"
+  - "CI/CD green run evidence"
+  - "Monitoring screenshots"
+  - "Runbook"
+  - "Architecture diagram"
+  - "Incident/DR notes"
+relatedTopicIds:
+  - "DEVOPS-DNS-TLS-DEEP-DIVE"
+  - "DEVOPS-BASH"
+  - "DEVOPS-SECRETS-MANAGEMENT"
+  - "DEVOPS-DOCKER-NETWORKING"
+  - "DEVOPS-SLO-SLI"
+relatedInterviewQuestionIds:
+  - "DO-B-0001"
+  - "DO-B-0002"
+  - "DO-B-0003"
+  - "DO-B-0004"
+  - "DO-B-0005"
+  - "DO-B-0006"
+  - "DO-B-0007"
+  - "DO-B-0008"
+sources:
+  - "DOCKER-COMPOSE"
+  - "DOCKER-GET-STARTED"
+  - "LINUX-MAN-PAGES"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-DO-B-002-M01"
+    title: "Compose stack"
+    objective: "App+db services."
+    whyItMatters: "Runnable baseline."
+    prerequisiteTopicIds:
+      - "DEVOPS-DNS-TLS-DEEP-DIVE"
+      - "DEVOPS-BASH"
+    tasks:
+      - "Capture scope for 'Compose stack' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: App+db services."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Compose stack"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "App+db services. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DO-B-002-M02"
+    title: "Hardening"
+    objective: "Restart policies."
+    whyItMatters: "Basics of prod."
+    prerequisiteTopicIds:
+      - "DEVOPS-DNS-TLS-DEEP-DIVE"
+      - "DEVOPS-BASH"
+    tasks:
+      - "Capture scope for 'Hardening' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Restart policies."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Hardening"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Restart policies. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DO-B-002-M03"
+    title: "Backups"
+    objective: "Dump + restore drill."
+    whyItMatters: "DR lite."
+    prerequisiteTopicIds:
+      - "DEVOPS-SECRETS-MANAGEMENT"
+      - "DEVOPS-DOCKER-NETWORKING"
+    tasks:
+      - "Capture scope for 'Backups' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Dump + restore drill."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Backups"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Dump + restore drill. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DO-B-002-M04"
+    title: "Runbook"
+    objective: "Document failure."
+    whyItMatters: "Ops maturity."
+    prerequisiteTopicIds:
+      - "DEVOPS-SECRETS-MANAGEMENT"
+      - "DEVOPS-DOCKER-NETWORKING"
+    tasks:
+      - "Capture scope for 'Runbook' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Document failure."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Runbook"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Document failure. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Self-hosting with backups beats toy deploys.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: Docker Compose, Linux VM.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to beginner
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

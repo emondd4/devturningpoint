@@ -1,0 +1,91 @@
+[
+  {
+    "id": "PS-BM-001",
+    "title": "Single Number",
+    "category": "Bit Manipulation & Math",
+    "difficulty": "Easy",
+    "pattern": "XOR",
+    "problemStatement": "Given a non-empty array of integers nums where every element appears exactly twice except for one which appears exactly once, find that single element. You must implement a solution with O(1) extra space.",
+    "examples": [
+      { "input": "nums = [4,1,2,1,2]", "output": "4" }
+    ],
+    "constraints": ["1 <= nums.length <= 3*10^4"],
+    "approachSteps": [
+      "Counting occurrences in a hash map would work but costs O(n) space — the O(1)-space requirement is a strong hint to look for a bitwise trick instead.",
+      "Recall XOR's key properties: x ^ x = 0 (a number cancels itself out) and x ^ 0 = x, and XOR is commutative/associative (order doesn't matter).",
+      "If you XOR every number in the array together, every number that appears exactly twice cancels itself out to 0, leaving only the number that appears once.",
+      "So the whole algorithm is: XOR-reduce the entire array into a single accumulator, starting from 0."
+    ],
+    "bruteForce": { "approach": "Hash map counting occurrences of each number, then scan for the one with count 1.", "timeComplexity": "O(n)", "spaceComplexity": "O(n)" },
+    "optimalApproach": "XOR every element together; pairs cancel to 0, leaving exactly the single non-paired number.",
+    "solutionCode": "def single_number(nums):\n    result = 0\n    for num in nums:\n        result ^= num\n    return result",
+    "timeComplexity": "O(n) — one pass through the array.",
+    "spaceComplexity": "O(1) — a single accumulator variable.",
+    "followUps": [
+      "How would you solve this if every OTHER number appeared exactly THREE times instead of twice (Single Number II)?",
+      "How would you find two numbers that each appear once (everything else appears twice) — Single Number III?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["bit-manipulation", "xor"]
+  },
+  {
+    "id": "PS-BM-002",
+    "title": "Counting Bits",
+    "category": "Bit Manipulation & Math",
+    "difficulty": "Medium",
+    "pattern": "DP + Bit Manipulation",
+    "problemStatement": "Given an integer n, return an array ans of length n+1 where ans[i] is the number of 1's in the binary representation of i, for every i from 0 to n.",
+    "examples": [
+      { "input": "n = 5", "output": "[0,1,1,2,1,2]", "explanation": "0=0b000(0), 1=0b001(1), 2=0b010(1), 3=0b011(2), 4=0b100(1), 5=0b101(2)" }
+    ],
+    "constraints": ["0 <= n <= 10^5"],
+    "approachSteps": [
+      "Computing each number's bit count independently (e.g. Brian Kernighan's bit trick per number) works but redoes related work — look for a relationship between a number's bit count and a SMALLER, already-computed number's bit count.",
+      "Key relationship: for any i, i with its lowest set bit removed is i & (i - 1) — and that operation removes EXACTLY one 1-bit.",
+      "So bits(i) = bits(i & (i - 1)) + 1 — the bit count of i is one more than the bit count of a strictly smaller number you've already computed.",
+      "Build the answer array bottom-up from 0 to n using that recurrence, since i & (i-1) is always strictly less than i (for i > 0)."
+    ],
+    "bruteForce": { "approach": "For each number from 0 to n, count its bits individually (e.g. right-shift and check the low bit, or Brian Kernighan's n &= n-1 loop).", "timeComplexity": "O(n log n) — counting bits of each number individually costs O(log value) per number", "spaceComplexity": "O(n) for output" },
+    "optimalApproach": "DP using the relationship bits(i) = bits(i & (i-1)) + 1, reusing previously computed results instead of recounting bits from scratch for each number.",
+    "solutionCode": "def count_bits(n):\n    ans = [0] * (n + 1)\n    for i in range(1, n + 1):\n        ans[i] = ans[i & (i - 1)] + 1\n    return ans",
+    "timeComplexity": "O(n) — each of the n+1 entries computed in O(1) using a previously computed result.",
+    "spaceComplexity": "O(n) for the output array (no extra space beyond that).",
+    "followUps": [
+      "What's an alternative O(n) recurrence using ans[i] = ans[i >> 1] + (i & 1) — why does that also work?",
+      "Why does the naive per-number bit-counting approach cost O(log value) per number instead of O(1)?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY", "FOUNDATIONS-COMPLEXITY-PRACTICE"],
+    "tags": ["bit-manipulation", "dynamic-programming"]
+  },
+  {
+    "id": "PS-BM-003",
+    "title": "Sum of Two Integers (Without + or -)",
+    "category": "Bit Manipulation & Math",
+    "difficulty": "Hard",
+    "pattern": "Bit Manipulation (Carry Simulation)",
+    "problemStatement": "Given two integers a and b, return the sum of the two integers without using the + or - operators.",
+    "examples": [
+      { "input": "a = 1, b = 2", "output": "3" },
+      { "input": "a = 2, b = 3", "output": "5" }
+    ],
+    "constraints": ["-1000 <= a, b <= 1000"],
+    "approachSteps": [
+      "Think about how addition works at the hardware/bit level: for each bit position, you add two bits plus any incoming carry, producing a result bit and an outgoing carry — that's exactly what a hardware adder does, and it's replicable with pure bitwise ops.",
+      "XOR (a ^ b) gives the sum of each bit position WITHOUT considering carry — it's correct wherever there's no carry to propagate.",
+      "AND (a & b) identifies exactly the bit positions where a carry is generated; shifting that left by 1 ((a & b) << 1) gives where that carry needs to be added in.",
+      "So the true sum is (a ^ b) combined with the carry (a & b) << 1 — but combining them also might produce a new carry, so repeat the same XOR/AND process between the running sum and the carry until the carry becomes 0.",
+      "In Python specifically, integers have unbounded size (no fixed-width wraparound like in Java/C++), so extra bit-masking is needed to simulate 32-bit two's-complement overflow correctly for negative numbers."
+    ],
+    "bruteForce": { "approach": "There is no simpler 'brute force' — this is inherently a bit-manipulation problem since +/- are disallowed by the constraints, not just an optimization target.", "timeComplexity": "N/A — the constraint forces a bitwise approach", "spaceComplexity": "N/A" },
+    "optimalApproach": "Simulate binary addition: XOR gives the carry-less sum, AND-then-shift gives the carry, and you repeat combining sum and carry (using the same XOR/AND trick) until there's no carry left.",
+    "solutionCode": "def get_sum(a, b):\n    mask = 0xFFFFFFFF  # simulate 32-bit width\n    while b & mask:\n        carry = (a & b) << 1\n        a = (a ^ b) & mask\n        b = carry & mask\n    return a if a <= 0x7FFFFFFF else ~(a ^ mask)  # convert back from 32-bit unsigned to signed",
+    "timeComplexity": "O(1) — at most 32 iterations (bounded by the fixed bit width), independent of the input values' magnitude.",
+    "spaceComplexity": "O(1) — only a few integer variables.",
+    "followUps": [
+      "Walk through why the final line converts a back to a signed value — what would go wrong without it for negative results?",
+      "How would you implement subtraction using this same building block (hint: a - b = a + (-b), and negation can also be done bitwise)?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY"],
+    "tags": ["bit-manipulation", "math"]
+  }
+]

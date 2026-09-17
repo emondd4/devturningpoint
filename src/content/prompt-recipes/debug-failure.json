@@ -1,0 +1,44 @@
+{
+  "id": "PROMPT-DEBUG-FAILURE",
+  "title": "Debug a failing test or runtime error",
+  "taskType": "debug",
+  "difficulty": "intermediate",
+  "whenToUse": "You have a concrete failure (stack trace, failing test) and need a bounded diagnosis and fix plan.",
+  "whenNotToUse": "You only have a vague “it feels broken” with no repro steps.",
+  "requiredInputs": [
+    "Failing command + full output",
+    "Relevant file paths",
+    "Recent diff if any"
+  ],
+  "promptTemplate": "GOAL:\nDiagnose why {{failingCommand}} fails and propose the smallest fix.\n\nCONTEXT:\nStack: {{stack}}\nRepro steps: {{repro}}\n\nINPUT:\nPaste the full error/test output below.\n{{errorOutput}}\n\nCONSTRAINTS:\n- Do not refactor unrelated code\n- Do not invent files that do not exist\n- Prefer the minimal patch\n\nOUTPUT:\n1) Root cause hypothesis with evidence\n2) Exact files/lines to inspect\n3) Minimal patch outline\n4) Verification commands\n\nACCEPTANCE:\nAnother engineer can reproduce the failure and confirm the fix with listed commands.\n\nVERIFICATION:\nList commands to re-run and what success looks like.",
+  "badPrompt": "Fix my bug.",
+  "improvedPrompt": "GOAL:\nDiagnose why `pnpm test src/foo.test.ts` fails and propose the smallest fix.\nCONTEXT:\nVitest + TypeScript; auth module recently changed.\nINPUT:\n(paste full Vitest output)\nCONSTRAINTS:\nNo unrelated refactors; cite real paths.\nOUTPUT:\nHypothesis + files + minimal patch + verify commands.\nACCEPTANCE:\nTest passes locally with pasted output.\nVERIFICATION:\nRe-run the exact test command.",
+  "expectedOutput": "Evidence-based root cause, minimal fix plan, and verification commands.",
+  "verificationChecklist": [
+    "Hypothesis cites error lines",
+    "No invented files",
+    "Verification command listed"
+  ],
+  "failureModes": [
+    "Guessing without reading the stack",
+    "Huge unrelated rewrite",
+    "Claiming tests passed without running"
+  ],
+  "privacySecurityNotes": [
+    "Redact secrets from logs",
+    "Do not paste production dumps with PII"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-PROMPT-ENGINEERING",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "relatedProjects": [
+    "PBL-AI-B-002"
+  ],
+  "track": "ai-framework",
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

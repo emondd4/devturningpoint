@@ -1,0 +1,40 @@
+---
+id: AI-ASSISTED-DEVOPS
+title: "Using AI safely in DevOps"
+titleBn: "DevOps-এ নিরাপদে AI ব্যবহার"
+description: "IaC, Helm/YAML, CI, incidents, dangerous command verification."
+descriptionBn: "IaC, Helm/YAML, CI, incident, dangerous command verification।"
+track: devops
+category: cross-track
+difficulty: advanced
+estimatedMinutes: 40
+prerequisites:
+  - "AI-CODING-AGENTS-CURSOR"
+unlocks: []
+related:
+  - "AI-SECURITY-OWASP"
+careers:
+  - "software-engineer"
+tags:
+  - "devops"
+  - "ai"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "OWASP-LLM-TOP10-2025"
+  - "CURSOR-DOCS-MCP"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+## Hard rules
+
+- Never run unverified destructive commands.
+- Pin actions/images; require plan before apply.
+- Incident analysis must separate facts vs hypotheses.
+- MCP servers that can mutate infra need least privilege.

@@ -1,0 +1,298 @@
+[
+  {
+    "id": "direct-sdk-vs-framework",
+    "title": "Direct provider SDK vs AI framework",
+    "problem": "You need to call a model from an app and wonder whether to adopt LangChain/LlamaIndex/etc. first.",
+    "criteria": [
+      "Orchestration complexity",
+      "Team familiarity",
+      "Debuggability",
+      "Lock-in"
+    ],
+    "tradeOffs": "Frameworks accelerate connectors; direct SDKs keep control and clearer data flow.",
+    "complexity": "Low for direct SDK; medium+ for frameworks.",
+    "lockIn": "Framework abstractions and vendor-specific helpers can increase switching cost.",
+    "security": "Either path needs output validation and secret hygiene; frameworks can hide tool surfaces.",
+    "cost": "Framework OSS is free; complexity cost dominates early.",
+    "exampleScenarios": [
+      "Single structured extraction call → direct SDK",
+      "Many retrievers/tools evolving weekly → framework may help"
+    ],
+    "references": [
+      "OPENAI-API-DOCS",
+      "LANGCHAIN-DOCS",
+      "VERCEL-AI-SDK-DOCS"
+    ],
+    "lastVerified": "2026-09-16"
+  },
+  {
+    "id": "langchain-vs-langgraph",
+    "title": "LangChain vs LangGraph",
+    "problem": "Choosing between chains/composables and stateful graph orchestration.",
+    "criteria": [
+      "Need for durable state",
+      "Human-in-the-loop",
+      "Branching workflows"
+    ],
+    "tradeOffs": "LangChain helps compose; LangGraph models stateful agent graphs.",
+    "complexity": "LangGraph higher upfront.",
+    "lockIn": "Graph state shapes become core architecture.",
+    "security": "Stateful agents amplify excessive agency risks.",
+    "cost": "Infra for persistence/checkpoints.",
+    "exampleScenarios": [
+      "FAQ RAG → LangChain/retriever path",
+      "Ops agent with approvals → LangGraph"
+    ],
+    "references": [
+      "LANGCHAIN-DOCS",
+      "LANGGRAPH-DOCS"
+    ],
+    "lastVerified": "2026-09-16"
+  },
+  {
+    "id": "langchain-vs-llamaindex",
+    "title": "LangChain vs LlamaIndex",
+    "problem": "Picking a data/RAG-centric vs general orchestration framework.",
+    "criteria": [
+      "Indexing needs",
+      "Query engine features",
+      "Team stack"
+    ],
+    "tradeOffs": "LlamaIndex strong on data indexes; LangChain broad integrations.",
+    "complexity": "Similar mid-level.",
+    "lockIn": "Index formats and abstractions.",
+    "security": "Ingestion pipelines are trust boundaries.",
+    "cost": "Similar OSS; hosting varies.",
+    "exampleScenarios": [
+      "Document knowledge base → LlamaIndex",
+      "Mixed tools+RAG → either, criteria-based"
+    ],
+    "references": [
+      "LANGCHAIN-DOCS",
+      "LLAMAINDEX-DOCS"
+    ],
+    "lastVerified": "2026-09-16"
+  },
+  {
+    "id": "vercel-ai-sdk-vs-direct",
+    "title": "Vercel AI SDK vs direct SDK",
+    "problem": "TypeScript app needs streaming chat UI.",
+    "criteria": [
+      "UI streaming helpers",
+      "Provider switching",
+      "Bundle/runtime constraints"
+    ],
+    "tradeOffs": "AI SDK speeds UI patterns; direct SDK maximizes control.",
+    "complexity": "AI SDK lower for Next.js chat.",
+    "lockIn": "Helper APIs; providers still swappable.",
+    "security": "Keep keys on server routes.",
+    "cost": "SDK free; tokens billed by provider.",
+    "exampleScenarios": [
+      "Next.js assistant UI → AI SDK",
+      "Minimal worker script → direct"
+    ],
+    "references": [
+      "VERCEL-AI-SDK-DOCS",
+      "OPENAI-API-DOCS"
+    ],
+    "lastVerified": "2026-09-16"
+  },
+  {
+    "id": "pgvector-vs-dedicated",
+    "title": "pgvector vs dedicated vector database",
+    "problem": "Where to store embeddings for RAG.",
+    "criteria": [
+      "Scale",
+      "Ops skill",
+      "Transactional joins",
+      "Tenancy"
+    ],
+    "tradeOffs": "pgvector co-locates with SQL; dedicated engines optimize ANN ops.",
+    "complexity": "pgvector lower if Postgres already owned.",
+    "lockIn": "Managed vector vendors vs Postgres extension.",
+    "security": "Row-level security vs namespace isolation models.",
+    "cost": "Often cheaper to start on Postgres; scale may shift economics.",
+    "exampleScenarios": [
+      "SaaS with Postgres → pgvector first",
+      "Billion vectors → evaluate dedicated"
+    ],
+    "references": [
+      "PGVECTOR-DOCS",
+      "PINECONE-DOCS",
+      "QDRANT-DOCS"
+    ],
+    "lastVerified": "2026-09-16"
+  },
+  {
+    "id": "hosted-vs-local",
+    "title": "Hosted vs local/open model",
+    "problem": "Privacy, cost, and quality trade-offs for inference.",
+    "criteria": [
+      "Data sensitivity",
+      "Latency",
+      "Ops capacity",
+      "Quality bar"
+    ],
+    "tradeOffs": "Hosted quality/ops ease vs local control/privacy.",
+    "complexity": "Local/serving higher ops.",
+    "lockIn": "Provider APIs vs self-host stack.",
+    "security": "Data leaves boundary on hosted; local still needs output controls.",
+    "cost": "Tokens vs GPUs.",
+    "exampleScenarios": [
+      "Homework labs → Ollama",
+      "Peak SaaS traffic → hosted or vLLM"
+    ],
+    "references": [
+      "OLLAMA-DOCS",
+      "VLLM-DOCS",
+      "OPENAI-API-DOCS"
+    ],
+    "lastVerified": "2026-09-16"
+  },
+  {
+    "id": "rag-vs-finetune",
+    "title": "RAG vs fine-tuning",
+    "problem": "Knowledge freshness vs behavioral specialization.",
+    "criteria": [
+      "Doc churn",
+      "Style/format needs",
+      "Eval budget"
+    ],
+    "tradeOffs": "RAG grounds facts; fine-tune shapes behavior—not a substitute for retrieval of changing docs.",
+    "complexity": "Fine-tune higher data/ops cost.",
+    "lockIn": "Adapter/base model choices.",
+    "security": "Training data rights; retrieval poisoning for RAG.",
+    "cost": "Fine-tune compute; RAG embedding+store.",
+    "exampleScenarios": [
+      "Policy PDFs that change weekly → RAG",
+      "Consistent extraction style → maybe light tune + schemas"
+    ],
+    "references": [
+      "OWASP-LLM-TOP10-2025",
+      "HF-PEFT-DOCS",
+      "LLAMAINDEX-DOCS"
+    ],
+    "lastVerified": "2026-09-16"
+  },
+  {
+    "id": "workflow-vs-agent",
+    "title": "Deterministic workflow vs agent",
+    "problem": "When to let a model choose tools dynamically.",
+    "criteria": [
+      "Branch predictability",
+      "Audit needs",
+      "Failure cost"
+    ],
+    "tradeOffs": "Deterministic workflows are testable; agents handle open-ended tasks with higher variance.",
+    "complexity": "Agents harder to eval.",
+    "lockIn": "Tool schemas and memory stores.",
+    "security": "Excessive agency risk rises with agents.",
+    "cost": "Agents can loop tokens.",
+    "exampleScenarios": [
+      "Invoice status machine → workflow",
+      "Ops triage with many tools → constrained agent"
+    ],
+    "references": [
+      "LANGGRAPH-DOCS",
+      "OWASP-LLM-TOP10-2025"
+    ],
+    "lastVerified": "2026-09-16"
+  },
+  {
+    "id": "langgraph-vs-app-workflow",
+    "title": "LangGraph vs ordinary application workflow",
+    "problem": "Whether graph agent framework beats explicit app code.",
+    "criteria": [
+      "State durability",
+      "Team ownership",
+      "Debugging"
+    ],
+    "tradeOffs": "App workflows are transparent; LangGraph helps complex agent graphs.",
+    "complexity": "Prefer simplest that meets needs.",
+    "lockIn": "Framework state APIs.",
+    "security": "Same tool permission rules either way.",
+    "cost": "Engineering time vs infra.",
+    "exampleScenarios": [
+      "CRUD + one model call → app workflow",
+      "Multi-actor agent with HITL → LangGraph"
+    ],
+    "references": [
+      "LANGGRAPH-DOCS"
+    ],
+    "lastVerified": "2026-09-16"
+  },
+  {
+    "id": "ollama-vs-vllm",
+    "title": "Ollama vs vLLM",
+    "problem": "Local DX versus production-ish serving.",
+    "criteria": [
+      "Throughput",
+      "Ops maturity",
+      "Hardware"
+    ],
+    "tradeOffs": "Ollama great for local DX; vLLM targets high-throughput serving.",
+    "complexity": "vLLM higher.",
+    "lockIn": "Serving APIs differ.",
+    "security": "Both need API auth when exposed.",
+    "cost": "GPU sizing dominates.",
+    "exampleScenarios": [
+      "Laptop learning → Ollama",
+      "Team GPU box API → vLLM"
+    ],
+    "references": [
+      "OLLAMA-DOCS",
+      "VLLM-DOCS"
+    ],
+    "lastVerified": "2026-09-16"
+  },
+  {
+    "id": "mcp-vs-custom",
+    "title": "MCP vs custom integrations",
+    "problem": "Standardize tool access vs bespoke adapters.",
+    "criteria": [
+      "Ecosystem reuse",
+      "Security review surface",
+      "Protocol fit"
+    ],
+    "tradeOffs": "MCP standardizes; custom may be thinner for one integration.",
+    "complexity": "MCP adds protocol concepts.",
+    "lockIn": "Protocol versions (verify current MCP spec).",
+    "security": "Tool permission model critical either way.",
+    "cost": "Engineering vs shared servers.",
+    "exampleScenarios": [
+      "Many IDE tools → MCP",
+      "One internal HTTP tool → custom may suffice"
+    ],
+    "references": [
+      "MCP-SPEC-2026-07-28",
+      "CURSOR-DOCS-MCP"
+    ],
+    "lastVerified": "2026-09-16"
+  },
+  {
+    "id": "cursor-vs-other-agents",
+    "title": "Cursor vs other coding agents by use case",
+    "problem": "Choosing an AI coding environment for repo work.",
+    "criteria": [
+      "Repo context",
+      "Rules/skills",
+      "MCP",
+      "Team workflow"
+    ],
+    "tradeOffs": "Cursor emphasizes Agent + rules/skills/MCP; others optimize IDE completion or CLI loops.",
+    "complexity": "All require human verification.",
+    "lockIn": "Editor/subscription ecosystems.",
+    "security": "Permissions and MCP least privilege.",
+    "cost": "Subscriptions + model usage.",
+    "exampleScenarios": [
+      "Unfamiliar repo change with rules → Cursor",
+      "Inline completion in JetBrains → Copilot-like tools"
+    ],
+    "references": [
+      "CURSOR-DOCS-RULES",
+      "CURSOR-DOCS-SKILLS",
+      "CURSOR-DOCS-MCP"
+    ],
+    "lastVerified": "2026-09-16"
+  }
+]

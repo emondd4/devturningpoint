@@ -1,0 +1,76 @@
+---
+id: AI-SECURITY-OWASP
+title: "AI Security (OWASP GenAI)"
+titleBn: "AI Security (OWASP GenAI)"
+description: "Prompt injection, improper output handling, excessive agency, and supply-chain risks for LLM apps."
+descriptionBn: "Prompt injection, improper output handling, excessive agency এবং LLM app-এর supply-chain ঝুঁকি।"
+track: ai-framework
+category: security
+difficulty: advanced
+estimatedMinutes: 55
+prerequisites:
+  - "AI-LLM-FUNDAMENTALS"
+unlocks: []
+related:
+  - "AI-TOOL-CALLING"
+  - "AI-RAG-FUNDAMENTALS"
+  - "AI-CODING-AGENTS-CURSOR"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "security"
+  - "owasp"
+  - "prompt-injection"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "OWASP-LLM-TOP10-2025"
+  - "MCP-SPEC-2026-07-28"
+  - "CURSOR-DOCS-MCP"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+Bangla title/description may be partial; technical terms stay in English.
+</Callout>
+
+<Callout type="mental-model">
+Untrusted text (users, docs, tool output, web) can instruct the model. Separate “data” from “instructions,” validate outputs, and bound agency.
+</Callout>
+
+## Why this matters
+
+LLM apps fail differently than classic CRUD: attackers poison context, models emit unsafe code, and tools execute too much.
+
+## Themes to know (OWASP GenAI LLM Top 10)
+
+- **Prompt injection** — Hostile content overrides system intent.
+- **Improper output handling** — Trusting model text as code, SQL, or HTML.
+- **Excessive agency** — Tools too powerful; missing confirmation.
+- **Sensitive information disclosure** — Secrets in prompts, logs, or training leakage risks.
+- **Supply chain** — Hallucinated packages, unvetted MCP servers, model provenance.
+
+Always read the current OWASP GenAI list—labels evolve.
+
+## Practical checks
+
+- Treat retrieved docs and tool outputs as hostile.
+- Fail closed on structured outputs.
+- Allowlist tools; dry-run destructive actions.
+- Never paste production secrets into prompts.
+
+## Interview angle
+
+Walk through mitigating indirect prompt injection in a RAG assistant.
+
+## Next
+
+Apply checklists in every AI PBL project; practice on `PBL-AI-I-002` and `PBL-AI-A-003`.

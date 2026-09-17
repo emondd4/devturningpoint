@@ -1,0 +1,213 @@
+---
+id: "PBL-DB-A-002"
+title: "PostgreSQL HA / DR Platform"
+slug: "postgresql-ha-dr-platform"
+track: "database"
+level: "advanced"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for senior DB/SRE roles: HA/DR and failover experience is cited for higher-responsibility positions."
+difficulty: "advanced"
+summary: "HA/DR design with failover drill and RPO/RTO notes."
+portfolioPitch: "Advanced data platform: failover proof and honest limits."
+estimatedHours: 44
+prerequisiteSkillIds:
+  - "DATABASE-BACKUP-REPLICATION"
+  - "DATABASE-EXPLAIN"
+  - "DATABASE-TRANSACTIONS"
+learningOutcomeSkillIds:
+  - "DATABASE-BACKUP-REPLICATION"
+  - "DATABASE-EXPLAIN"
+  - "DATABASE-TRANSACTIONS"
+recommendedTools:
+  - "PostgreSQL"
+  - "orchestration notes"
+portfolioEvidence:
+  - "ERD"
+  - "Migrations"
+  - "Queries"
+  - "EXPLAIN before/after"
+  - "Benchmarks"
+  - "Backup/restore evidence"
+relatedTopicIds:
+  - "DATABASE-RELATIONAL-MODELING"
+  - "DATABASE-MIGRATIONS"
+  - "DATABASE-SQL-WINDOW-FUNCTIONS"
+  - "DATABASE-MONGODB-MODELING"
+  - "DATABASE-SQL-JOINS-AGGREGATION"
+relatedInterviewQuestionIds:
+  - "DB-A-0001"
+  - "DB-A-0002"
+  - "DB-A-0003"
+  - "DB-A-0004"
+  - "DB-A-0005"
+  - "DB-A-0006"
+  - "DB-A-0007"
+  - "DB-A-0008"
+sources:
+  - "POSTGRES-REPLICATION"
+  - "POSTGRES-BACKUP"
+  - "POSTGRES-PARTITIONING"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-DB-A-002-M01"
+    title: "Topology"
+    objective: "Primary/standby plan."
+    whyItMatters: "Architecture."
+    prerequisiteTopicIds:
+      - "DATABASE-RELATIONAL-MODELING"
+      - "DATABASE-MIGRATIONS"
+    tasks:
+      - "Capture scope for 'Topology' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Primary/standby plan."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Topology"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Primary/standby plan. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DB-A-002-M02"
+    title: "Failover drill"
+    objective: "Document outcome."
+    whyItMatters: "Proof."
+    prerequisiteTopicIds:
+      - "DATABASE-RELATIONAL-MODELING"
+      - "DATABASE-MIGRATIONS"
+    tasks:
+      - "Capture scope for 'Failover drill' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Document outcome."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Failover drill"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Document outcome. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DB-A-002-M03"
+    title: "RPO/RTO"
+    objective: "Measure claims."
+    whyItMatters: "Honesty."
+    prerequisiteTopicIds:
+      - "DATABASE-SQL-WINDOW-FUNCTIONS"
+      - "DATABASE-MONGODB-MODELING"
+    tasks:
+      - "Capture scope for 'RPO/RTO' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Measure claims."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: RPO/RTO"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Measure claims. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-DB-A-002-M04"
+    title: "Postmortem"
+    objective: "What broke."
+    whyItMatters: "Learning."
+    prerequisiteTopicIds:
+      - "DATABASE-SQL-WINDOW-FUNCTIONS"
+      - "DATABASE-MONGODB-MODELING"
+    tasks:
+      - "Capture scope for 'Postmortem' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: What broke."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Postmortem"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "What broke. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Advanced data platform: failover proof and honest limits.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: PostgreSQL, orchestration notes.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to advanced
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

@@ -1,0 +1,214 @@
+---
+id: "PBL-FS-B-002"
+title: "E-Commerce Store + Admin"
+slug: "ecommerce-store-admin-fullstack"
+track: "fullstack"
+level: "beginner"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for fullstack roles: shop + admin panel combinations are common portfolio and job themes."
+difficulty: "beginner"
+summary: "Storefront + admin with auth and shared API."
+portfolioPitch: "End-to-end commerce slice across UI and API."
+estimatedHours: 32
+prerequisiteSkillIds:
+  - "FRONTEND-REACT"
+  - "BACKEND-REST"
+  - "BACKEND-AUTH"
+learningOutcomeSkillIds:
+  - "FULLSTACK-INTEGRATION"
+  - "FULLSTACK-AUTH-FLOWS"
+  - "BACKEND-POSTGRES"
+recommendedTools:
+  - "Next/React"
+  - "Nest/Express"
+  - "Postgres"
+portfolioEvidence:
+  - "GitHub repo with README"
+  - "Architecture diagram"
+  - "Screenshots/demo"
+  - "Tests + CI evidence"
+  - "ADR/decision notes"
+  - "Reproducible run instructions"
+relatedTopicIds:
+  - "FULLSTACK-REALTIME"
+  - "FULLSTACK-OBSERVABILITY"
+  - "FULLSTACK-SSR-VS-SPA"
+  - "FULLSTACK-CSRF"
+  - "FULLSTACK-GRAPHQL-AWARENESS"
+relatedInterviewQuestionIds:
+  - "FS-B-0001"
+  - "FS-B-0002"
+  - "FS-B-0003"
+  - "FS-B-0004"
+  - "FS-B-0005"
+  - "FS-B-0006"
+  - "FS-B-0007"
+  - "FS-B-0008"
+sources:
+  - "REACT-DOCS"
+  - "NESTJS-AUTH"
+  - "POSTGRES-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-FS-B-002-M01"
+    title: "Auth slice"
+    objective: "Login + roles."
+    whyItMatters: "Boundary first."
+    prerequisiteTopicIds:
+      - "FULLSTACK-REALTIME"
+      - "FULLSTACK-OBSERVABILITY"
+    tasks:
+      - "Capture scope for 'Auth slice' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Login + roles."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Auth slice"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Login + roles. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FS-B-002-M02"
+    title: "Store + admin CRUD"
+    objective: "Shared API."
+    whyItMatters: "Fullstack wiring."
+    prerequisiteTopicIds:
+      - "FULLSTACK-REALTIME"
+      - "FULLSTACK-OBSERVABILITY"
+    tasks:
+      - "Capture scope for 'Store + admin CRUD' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Shared API."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Store + admin CRUD"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Shared API. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FS-B-002-M03"
+    title: "Orders path"
+    objective: "Happy path E2E."
+    whyItMatters: "Integration."
+    prerequisiteTopicIds:
+      - "FULLSTACK-SSR-VS-SPA"
+      - "FULLSTACK-CSRF"
+    tasks:
+      - "Capture scope for 'Orders path' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Happy path E2E."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Orders path"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Happy path E2E. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FS-B-002-M04"
+    title: "Compose/README"
+    objective: "Runnable demo."
+    whyItMatters: "Reviewability."
+    prerequisiteTopicIds:
+      - "FULLSTACK-SSR-VS-SPA"
+      - "FULLSTACK-CSRF"
+    tasks:
+      - "Capture scope for 'Compose/README' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Runnable demo."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Compose/README"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Runnable demo. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+End-to-end commerce slice across UI and API.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: Next/React, Nest/Express, Postgres.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to beginner
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

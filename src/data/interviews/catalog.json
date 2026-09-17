@@ -1,6 +1,6 @@
 {
   "title": "Comprehensive Canonical Interview Question Bank",
-  "generatedAt": "2026-09-15",
+  "generatedAt": "2026-09-16",
   "methodology": {
     "goal": "Broad canonical coverage across ten technology-career tracks, deduplicated by concept rather than copying every wording variation found online.",
     "levels": [
@@ -15,7 +15,7 @@
       "The bank is intentionally extensible; it is not a claim that the entire internet has been exhaustively enumerated."
     ]
   },
-  "totalQuestions": 5271,
+  "totalQuestions": 5345,
   "tracks": [
     {
       "slug": "foundations",
@@ -55,11 +55,11 @@
       "slug": "mobile-flutter",
       "label": "Mobile Flutter",
       "prefix": "FL",
-      "count": 747,
+      "count": 787,
       "byLevel": {
-        "Beginner": 249,
-        "Intermediate": 249,
-        "Advanced": 249
+        "Beginner": 259,
+        "Intermediate": 267,
+        "Advanced": 261
       },
       "categories": [
         "Accessibility",
@@ -430,6 +430,53 @@
         "Technical Debt",
         "Tools",
         "Vendor"
+      ]
+    },
+    {
+      "slug": "ai-framework",
+      "label": "AI and Framework",
+      "prefix": "AI",
+      "count": 34,
+      "byLevel": {
+        "Beginner": 10,
+        "Intermediate": 12,
+        "Advanced": 12
+      },
+      "categories": [
+        "Agent Failure",
+        "Agent Vs Workflow",
+        "Ai System Design",
+        "Ai Vs Ml Vs Generative Ai",
+        "Api Keys",
+        "Chunking",
+        "Coding Agent Evidence",
+        "Context Window",
+        "Cost Controls",
+        "Cross-Tenant Leak",
+        "Cursor Rules",
+        "Embeddings",
+        "Eval Datasets",
+        "Fine-Tune Vs Rag",
+        "Framework Trade-Off",
+        "Hallucination",
+        "Hybrid Search",
+        "Incident",
+        "Mcp",
+        "Mcp Permissions",
+        "Multi-Tenant Rag",
+        "Observability",
+        "Output Handling",
+        "Pgvector Choice",
+        "Prompt Injection",
+        "Prompt Structure",
+        "Rag Motivation",
+        "Rag Quality",
+        "Structured Outputs",
+        "Supply Chain",
+        "Temperature",
+        "Tokens",
+        "Tool Calling",
+        "Vllm Vs Ollama"
       ]
     }
   ]

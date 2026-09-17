@@ -2,8 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getDictionary } from '../i18n/ui';
 import type { Locale } from '../i18n/config';
-import { localePath } from '../i18n/config';
+import { localePath, withBase } from '../i18n/config';
+import { tracks } from '../data/tracks/tracks';
+import { trackIcon } from '../data/navigation';
+import { siteConfig } from '../config/site';
 import ComputingBlueprint from '../components/history/ComputingBlueprint.astro';
+import HeroCarousel from '../components/home/HeroCarousel';
+import MaterialIcon from '../components/ui/MaterialIcon.astro';
 import AdSlot from '../components/ads/AdSlot.astro';
 
 interface Props {
@@ -12,66 +17,318 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getDictionary(locale);
-
 const isBn = locale === 'bn';
-const heroTitle = isBn
-  ? 'কম্পিউটার ইঞ্জিনিয়ারিং বুঝুন। সঠিক স্কিল শিখুন। ক্যারিয়ার গড়ুন।'
-  : 'Understand computing. Learn the right skills. Build a career.';
-const heroBody = isBn
-  ? 'Dev Turning Point বাংলাদেশের শিক্ষার্থী, জুনিয়র ইঞ্জিনিয়ার ও ক্যারিয়ার সুইচারদের জন্য একটি দ্বিভাষিক, সোর্স-ভিত্তিক লার্নিং প্ল্যাটফর্ম—prerequisite-first রোডম্যাপ, assessment ও স্থানীয় প্রগ্রেস সহ।'
-  : 'A bilingual, source-backed learning platform for students, junior engineers, and career switchers in Bangladesh—with prerequisite-first roadmaps, skills assessments, and local browser progress.';
+const brand = siteConfig.brand;
+
+const slides = [
+  {
+    id: 'ecosystem',
+    imageSrc: withBase(brand.heroes[0]),
+    heading: isBn
+      ? 'আপনার সম্পূর্ণ টেক লার্নিং ইকোসিস্টেম'
+      : 'Your Complete Tech Learning Ecosystem',
+    supporting: isBn
+      ? 'স্কিল শিখুন, প্রজেক্ট বানান, ইন্টারভিউ প্রস্তুতি নিন এবং ইন্ডাস্ট্রি কী চায় তা বুঝুন।'
+      : 'Learn skills, build projects, prepare for interviews, and understand what the industry expects.',
+    primaryCta: { href: localePath(locale, 'tracks'), label: isBn ? 'শেখা শুরু করুন' : 'Start Learning' },
+    secondaryCta: { href: localePath(locale, 'careers'), label: isBn ? 'ক্যারিয়ার দেখুন' : 'Explore Careers' },
+  },
+  {
+    id: 'evolution',
+    imageSrc: withBase(brand.heroes[1]),
+    heading: isBn ? 'প্রযুক্তি কীভাবে বিবর্তিত হয়েছে বুঝুন' : 'Understand How Technology Evolved',
+    supporting: isBn
+      ? 'কম্পিউটিং fundamentals থেকে আধুনিক cloud, mobile ও AI পর্যন্ত যাত্রা দেখুন।'
+      : 'Explore the journey from computing fundamentals to modern cloud, mobile and AI.',
+    primaryCta: {
+      href: localePath(locale, 'history'),
+      label: isBn ? 'কম্পিউটিং ইতিহাস' : 'Explore Computing History',
+    },
+  },
+  {
+    id: 'roadmap',
+    imageSrc: withBase(brand.heroes[2]),
+    heading: isBn
+      ? 'আপনার স্কিলের সাথে মিলিয়ে রোডম্যাপ অনুসরণ করুন'
+      : 'Follow a Roadmap That Matches Your Skills',
+    supporting: isBn
+      ? 'Assessment দিন, missing prerequisite খুঁজুন এবং যেখানে থেমেছিলেন সেখান থেকে চালিয়ে যান।'
+      : 'Take an assessment, discover missing prerequisites, and continue from where you left off.',
+    primaryCta: {
+      href: localePath(locale, 'tracks'),
+      label: isBn ? 'আমার লার্নিং পাথ' : 'Find My Learning Path',
+    },
+  },
+  {
+    id: 'projects',
+    imageSrc: withBase(brand.heroes[3]),
+    heading: isBn
+      ? 'প্রজেক্ট বানান। আসল ইন্টারভিউর জন্য প্রস্তুত হন।'
+      : 'Build Projects. Prepare for Real Interviews.',
+    supporting: isBn
+      ? 'জ্ঞানকে পোর্টফোলিও evidence-এ রূপ দিন এবং যা শিখেছেন তার সাথে যুক্ত প্রশ্ন অনুশীলন করুন।'
+      : 'Turn knowledge into portfolio evidence and practice questions connected to what you actually learned.',
+    primaryCta: { href: localePath(locale, 'projects'), label: isBn ? 'প্রজেক্ট দেখুন' : 'Explore Projects' },
+    secondaryCta: {
+      href: localePath(locale, 'interviews'),
+      label: isBn ? 'ইন্টারভিউ অনুশীলন' : 'Practice Interviews',
+    },
+  },
+  {
+    id: 'ai',
+    imageSrc: withBase(brand.heroes[4]),
+    heading: isBn ? 'AI শিখুন। AI দিয়ে বানান। AI যাচাই করুন।' : 'Learn AI. Build with AI. Verify AI.',
+    supporting: isBn
+      ? 'Prompting, coding agents, RAG, frameworks, evaluation, security এবং responsible AI-assisted engineering বুঝুন।'
+      : 'Understand prompting, coding agents, RAG, frameworks, evaluation, security and responsible AI-assisted engineering.',
+    primaryCta: {
+      href: localePath(locale, 'ai'),
+      label: isBn ? 'AI ও Framework' : 'Explore AI & Framework',
+    },
+  },
+];
+
+const features = [
+  {
+    eyebrow: isBn ? 'ক্যারিয়ার' : 'Careers',
+    title: isBn ? 'Career Path Explorer' : 'Career Path Explorer',
+    body: isBn
+      ? 'রোল, দায়িত্ব ও স্কিল ম্যাপ দেখে বুঝুন কোন পথে এগোবেন—বাংলাদেশ কনটেক্সটসহ।'
+      : 'Explore roles, responsibilities, and skill maps—with Bangladesh career context.',
+    href: localePath(locale, 'careers'),
+    cta: isBn ? 'ক্যারিয়ার এক্সপ্লোর করুন' : 'Explore careers',
+    image: withBase(brand.features.careers),
+    reverse: false,
+  },
+  {
+    eyebrow: isBn ? 'স্কিল গ্রাফ' : 'Skill graph',
+    title: isBn ? 'Skill Tree ও Prerequisites' : 'Skill Tree & Prerequisites',
+    body: isBn
+      ? 'উন্নত টপিকের আগে কী লাগে—স্পষ্ট prerequisite সম্পর্ক ও ব্যক্তিগত রোডম্যাপ।'
+      : 'See what you need before advanced topics—explicit prerequisites and personalized roadmaps.',
+    href: localePath(locale, 'tracks'),
+    cta: isBn ? 'ট্র্যাক দেখুন' : 'Browse tracks',
+    image: withBase(brand.features.skillTree),
+    reverse: true,
+  },
+  {
+    eyebrow: isBn ? 'প্রজেক্ট' : 'Projects',
+    title: isBn ? 'Project-Based Learning' : 'Project-Based Learning',
+    body: isBn
+      ? 'Milestone-ভিত্তিক প্রজেক্ট দিয়ে পোর্টফোলিও evidence তৈরি করুন—Core ও Market Alternative অপশনসহ।'
+      : 'Build portfolio evidence with milestone-based projects—including Core and Market Alternative options.',
+    href: localePath(locale, 'projects'),
+    cta: isBn ? 'প্রজেক্ট শুরু করুন' : 'Start a project',
+    image: withBase(brand.features.projects),
+    reverse: false,
+  },
+  {
+    eyebrow: isBn ? 'ইন্টারভিউ' : 'Interview',
+    title: isBn ? 'Interview Preparation' : 'Interview Preparation',
+    body: isBn
+      ? 'যা শিখেছেন তার সাথে যুক্ত ক্যাননিক্যাল প্রশ্ন—মনে রাখার টেকনিক নয়, reasoning।'
+      : 'Canonical questions tied to what you learned—reasoning over trivia.',
+    href: localePath(locale, 'interviews'),
+    cta: isBn ? 'প্রশ্ন অনুশীলন' : 'Practice questions',
+    image: withBase(brand.features.interviews),
+    reverse: true,
+  },
+  {
+    eyebrow: 'AI',
+    title: isBn ? 'AI-Assisted Workflows' : 'AI-Assisted Workflows',
+    body: isBn
+      ? 'Cursor, prompting, verification ও role-specific AI workflow—যাদু নয়, ইঞ্জিনিয়ারিং শৃঙ্খলা।'
+      : 'Cursor, prompting, verification, and role-specific AI workflows—engineering discipline, not magic.',
+    href: localePath(locale, 'ai'),
+    cta: isBn ? 'AI হাব খুলুন' : 'Open AI hub',
+    image: withBase(brand.features.aiWorkflows),
+    reverse: false,
+  },
+  {
+    eyebrow: isBn ? 'বাংলাদেশ' : 'Bangladesh',
+    title: isBn ? 'Bangladesh Tech Industry Focus' : 'Bangladesh Tech Industry Focus',
+    body: isBn
+      ? 'Observed job-listing notes ও কোম্পানি কনটেক্সট—অতিরিক্ত দাবি ছাড়াই স্থানীয় বাজার বোঝা।'
+      : 'Observed job-listing notes and company context—local market awareness without overclaiming.',
+    href: localePath(locale, 'job-market'),
+    cta: isBn ? 'মার্কেট নোট' : 'View market notes',
+    image: withBase(brand.features.bangladesh),
+    reverse: true,
+  },
+];
 ---
 
-<BaseLayout
-  locale={locale}
-  title={t.siteName}
-  description={t.tagline}
->
-  <section class="relative overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-surface-1)]">
-    <div
-      class="pointer-events-none absolute inset-0 opacity-70"
-      style="background:
-        radial-gradient(ellipse 80% 50% at 10% -10%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 55%),
-        radial-gradient(ellipse 60% 40% at 90% 10%, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 50%),
-        linear-gradient(180deg, var(--color-surface-1), var(--color-surface-0));"
-      aria-hidden="true"
-    ></div>
-    <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:py-20">
-      <div>
-        <p class="mb-3 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[var(--color-ink)] sm:text-4xl">
-          {t.siteName}
-        </p>
-        <h1 class="max-w-2xl text-2xl font-semibold leading-snug text-[var(--color-ink-muted)] sm:text-3xl">
-          {heroTitle}
-        </h1>
-        <p class="mt-4 max-w-xl text-base text-[var(--color-ink-muted)] sm:text-lg">{heroBody}</p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a class="btn btn-primary" href={localePath(locale, 'careers')}>{t.actions.exploreCareers}</a>
-          <a class="btn btn-secondary" href={localePath(locale, 'tracks')}>{t.actions.findPath}</a>
-          <a class="btn btn-ghost" href={localePath(locale, 'blueprint')}>{t.actions.exploreComputing}</a>
+<BaseLayout locale={locale} title={t.siteName} description={t.tagline}>
+  <HeroCarousel
+    client:load
+    slides={slides}
+    previousLabel={isBn ? 'আগের স্লাইড' : 'Previous slide'}
+    nextLabel={isBn ? 'পরের স্লাইড' : 'Next slide'}
+    pauseLabel={isBn ? 'বিরতি' : 'Pause'}
+    playLabel={isBn ? 'চালু' : 'Play'}
+  />
+
+  <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+    <p class="section-eyebrow">{isBn ? 'মূল্যবোধ' : 'Why TechStackBD'}</p>
+    <h2 class="mt-2 max-w-3xl font-[family-name:var(--font-display)] text-[length:var(--font-size-h2)] font-semibold text-[var(--color-text)]">
+      {
+        isBn
+          ? 'কী শিখবেন, কেন গুরুত্বপূর্ণ, কী বানাবেন—এক জায়গায়।'
+          : 'What to learn, why it matters, and what to build—in one place.'
+      }
+    </h2>
+    <p class="mt-3 max-w-2xl text-[var(--color-text-secondary)]">
+      {
+        isBn
+          ? 'Prerequisite-first রোডম্যাপ, assessment, প্রজেক্ট ও ইন্টারভিউ—স্থানীয় ব্রাউজার প্রগ্রেসসহ। সাইট ব্রাউজ করতে কোনো AI API key লাগে না।'
+          : 'Prerequisite-first roadmaps, assessments, projects, and interviews—with private browser progress. Browsing needs no AI API keys.'
+      }
+    </p>
+  </section>
+
+  <section class="feature-band">
+    <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="section-eyebrow">{isBn ? 'ট্র্যাক' : 'Tracks'}</p>
+          <h2 class="mt-2 font-[family-name:var(--font-display)] text-[length:var(--font-size-h2)] font-semibold text-[var(--color-text)]">
+            {isBn ? 'লার্নিং ট্র্যাক এক্সপ্লোর করুন' : 'Explore learning tracks'}
+          </h2>
         </div>
-        <p class="mt-6 text-sm text-[var(--color-ink-subtle)]">{t.progress.localOnly}</p>
+        <a class="btn btn-secondary" href={localePath(locale, 'tracks')}>
+          {isBn ? 'সব ট্র্যাক' : 'View all tracks'}
+          <MaterialIcon name="arrow_forward" size={18} />
+        </a>
       </div>
-      <div class="surface-card self-center">
-        <h2 class="font-[family-name:var(--font-display)] text-lg font-semibold text-[var(--color-ink)]">
-          {isBn ? 'আপনি যা করতে পারবেন' : 'What you can do here'}
-        </h2>
-        <ol class="mt-4 space-y-3 text-sm text-[var(--color-ink-muted)]">
-          <li>1. {isBn ? 'কম্পিউটিং-এর ব্লুপ্রিন্ট ও ইতিহাস দেখুন' : 'Explore the computing blueprint and history'}</li>
-          <li>2. {isBn ? 'বাংলাদেশ-প্রাসঙ্গিক ক্যারিয়ার বুঝুন' : 'Browse Bangladesh-relevant technology careers'}</li>
-          <li>3. {isBn ? 'ট্র্যাক বেছে assessment দিন' : 'Pick a track and take a skills assessment'}</li>
-          <li>4. {isBn ? 'ব্যক্তিগত prerequisite-first রোডম্যাপ পান' : 'Get a personalized prerequisite-first roadmap'}</li>
-          <li>5. {isBn ? 'টপিক শিখে প্রগ্রেস সংরক্ষণ করুন' : 'Study topics and keep progress in this browser'}</li>
-        </ol>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          tracks.map((track) => (
+            <a
+              href={localePath(locale, `tracks/${track.slug}`)}
+              class="surface-card group block no-underline"
+            >
+              <div class="flex items-start gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-[var(--radius-md)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)] text-[var(--color-primary)]">
+                  <MaterialIcon name={trackIcon(track.id)} size={22} />
+                </span>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-start justify-between gap-2">
+                    <h3 class="font-semibold text-[var(--color-text)] group-hover:text-[var(--color-primary)]">
+                      {isBn ? track.titleBn : track.title}
+                    </h3>
+                    <span class="badge">{track.priority}</span>
+                  </div>
+                  <p class="mt-2 line-clamp-3 text-sm text-[var(--color-text-secondary)]">
+                    {isBn ? track.summaryBn : track.summary}
+                  </p>
+                  <p class="mt-3 text-xs text-[var(--color-text-muted)]">{track.primaryStack.slice(0, 4).join(' · ')}</p>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    features.map((feature) => (
+      <section class={feature.reverse ? 'bg-[var(--color-bg)]' : 'bg-[var(--color-surface)]'}>
+        <div
+          class:list={[
+            'mx-auto grid max-w-7xl items-center gap-8 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:gap-14',
+            feature.reverse && 'lg:[&>*:first-child]:order-2',
+          ]}
+        >
+          <div>
+            <p class="section-eyebrow">{feature.eyebrow}</p>
+            <h2 class="mt-2 font-[family-name:var(--font-display)] text-[length:var(--font-size-h2)] font-semibold text-[var(--color-text)]">
+              {feature.title}
+            </h2>
+            <p class="mt-3 max-w-xl text-[var(--color-text-secondary)]">{feature.body}</p>
+            <a class="btn btn-primary mt-6" href={feature.href}>
+              {feature.cta}
+              <MaterialIcon name="arrow_forward" size={18} />
+            </a>
+          </div>
+          <div class="overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] shadow-[var(--shadow-md)]">
+            <img
+              src={feature.image}
+              alt=""
+              width={1200}
+              height={900}
+              class="aspect-[4/3] h-auto w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6">
+    <p class="section-eyebrow">{isBn ? 'পদ্ধতি' : 'How it works'}</p>
+    <h2 class="mt-2 font-[family-name:var(--font-display)] text-[length:var(--font-size-h2)] font-semibold text-[var(--color-text)]">
+      {isBn ? 'TechStackBD কীভাবে কাজ করে' : 'How TechStackBD works'}
+    </h2>
+    <ol class="mt-8 grid gap-4 md:grid-cols-4">
+      {
+        [
+          {
+            n: '01',
+            title: isBn ? 'ট্র্যাক বেছে নিন' : 'Choose a track',
+            body: isBn ? 'Foundations থেকে AI পর্যন্ত।' : 'From Foundations to AI & Framework.',
+          },
+          {
+            n: '02',
+            title: isBn ? 'Assessment দিন' : 'Take an assessment',
+            body: isBn ? 'যা জানেন ও যা মিসিং তা দেখুন।' : 'See what you know and what is missing.',
+          },
+          {
+            n: '03',
+            title: isBn ? 'রোডম্যাপ অনুসরণ' : 'Follow the roadmap',
+            body: isBn ? 'Prerequisite-first টপিক অর্ডার।' : 'Prerequisite-first topic order.',
+          },
+          {
+            n: '04',
+            title: isBn ? 'প্রজেক্ট ও ইন্টারভিউ' : 'Projects & interviews',
+            body: isBn ? 'Evidence বানান, প্রশ্ন অনুশীলন করুন।' : 'Build evidence and practice questions.',
+          },
+        ].map((step) => (
+          <li class="surface-card">
+            <p class="text-sm font-bold text-[var(--color-primary)]">{step.n}</p>
+            <h3 class="mt-2 font-semibold text-[var(--color-text)]">{step.title}</h3>
+            <p class="mt-2 text-sm text-[var(--color-text-secondary)]">{step.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="feature-band">
+    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+      <div class="surface-card flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+        <div>
+          <p class="section-eyebrow">{isBn ? 'প্রগ্রেস' : 'Progress'}</p>
+          <h2 class="mt-2 font-[family-name:var(--font-display)] text-xl font-semibold text-[var(--color-text)]">
+            {t.progress.continueTitle}
+          </h2>
+          <p class="mt-2 text-sm text-[var(--color-text-secondary)]">{t.progress.localOnly}</p>
+        </div>
+        <a class="btn btn-primary" href={localePath(locale, 'my-learning')}>
+          {t.nav.myLearning}
+          <MaterialIcon name="arrow_forward" size={18} />
+        </a>
       </div>
     </div>
   </section>
 
   <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6">
-    <h2 class="font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--color-ink)]">
+    <h2 class="font-[family-name:var(--font-display)] text-[length:var(--font-size-h2)] font-semibold text-[var(--color-text)]">
       {isBn ? 'কম্পিউটার ইঞ্জিনিয়ারিং ব্লুপ্রিন্ট' : 'Computer engineering blueprint'}
     </h2>
-    <p class="mt-2 max-w-2xl text-[var(--color-ink-muted)]">
+    <p class="mt-2 max-w-2xl text-[var(--color-text-secondary)]">
       {
         isBn
           ? 'হার্ডওয়্যার থেকে ক্লাউড, সিকিউরিটি ও প্রোডাক্ট পর্যন্ত—কীভাবে ক্ষেত্রগুলো যুক্ত।'
@@ -83,38 +340,29 @@ const heroBody = isBn
     </div>
   </section>
 
-  <section class="border-y border-[var(--color-border)] bg-[var(--color-surface-1)]">
-    <div class="mx-auto grid max-w-7xl gap-6 px-4 py-14 sm:px-6 md:grid-cols-3">
-      {
-        [
+  <section class="border-y border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-primary)_6%,var(--color-surface))]">
+    <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-14 sm:px-6 md:flex-row md:items-center">
+      <div>
+        <h2 class="font-[family-name:var(--font-display)] text-[length:var(--font-size-h2)] font-semibold text-[var(--color-text)]">
+          {isBn ? 'ওপেন সোর্সে অবদান রাখুন' : 'Contribute to the open-source platform'}
+        </h2>
+        <p class="mt-2 max-w-xl text-[var(--color-text-secondary)]">
           {
-            title: isBn ? 'Prerequisite-first শেখা' : 'Prerequisite-first learning',
-            body: isBn
-              ? 'Kubernetes আগে Linux/networking; React আগে HTML/CSS/JS—স্পষ্ট করে দেখানো হয়।'
-              : 'Kubernetes after Linux and networking; React after HTML, CSS, and JavaScript—made explicit.',
-            href: localePath(locale, 'tracks'),
-          },
-          {
-            title: isBn ? 'বাংলাদেশ ক্যারিয়ার কনটেক্সট' : 'Bangladesh career context',
-            body: isBn
-              ? 'রোল, টুল ও মার্কেট নোট—স্যাম্পল ও সূত্রসহ; অতিরিক্ত দাবি নয়।'
-              : 'Roles, tools, and market notes with sample methodology—not overclaimed statistics.',
-            href: localePath(locale, 'careers'),
-          },
-          {
-            title: isBn ? 'স্থানীয় ব্যক্তিগত অগ্রগতি' : 'Private local progress',
-            body: isBn
-              ? 'অ্যাকাউন্ট ছাড়াই assessment, রোডম্যাপ ও completion—export/import সহ।'
-              : 'Assessments, roadmaps, and completion without accounts—plus export/import.',
-            href: localePath(locale, 'my-learning'),
-          },
-        ].map((item) => (
-          <a href={item.href} class="surface-card block no-underline transition hover:border-[var(--color-accent)]">
-            <h3 class="font-semibold text-[var(--color-ink)]">{item.title}</h3>
-            <p class="mt-2 text-sm text-[var(--color-ink-muted)]">{item.body}</p>
-          </a>
-        ))
-      }
+            isBn
+              ? 'টপিক উন্নতি, অনুবাদ, বাগ রিপোর্ট—GitHub-এ সাহায্য করুন।'
+              : 'Improve topics, translations, and reports—help on GitHub.'
+          }
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a class="btn btn-primary" href={siteConfig.repoUrl} rel="noopener noreferrer" target="_blank">
+          GitHub
+          <MaterialIcon name="open_in_new" size={18} />
+        </a>
+        <a class="btn btn-secondary" href={localePath(locale, 'contribute')}>
+          {t.nav.contribute}
+        </a>
+      </div>
     </div>
   </section>
 

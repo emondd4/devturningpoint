@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-prompt-injection-direct",
+  "title": "Direct prompt injection",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "User text overrides system instructions."
+  ],
+  "cause": "User text overrides system instructions.",
+  "solution": "Separate untrusted input; harden instructions; monitor.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

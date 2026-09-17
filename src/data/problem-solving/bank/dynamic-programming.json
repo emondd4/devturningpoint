@@ -1,0 +1,160 @@
+[
+  {
+    "id": "PS-DP-001",
+    "title": "Climbing Stairs",
+    "category": "Dynamic Programming",
+    "difficulty": "Easy",
+    "pattern": "1D DP",
+    "problemStatement": "You are climbing a staircase with n steps. Each time you can climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+    "examples": [
+      { "input": "n = 2", "output": "2", "explanation": "1+1 or 2" },
+      { "input": "n = 3", "output": "3", "explanation": "1+1+1, 1+2, or 2+1" }
+    ],
+    "constraints": ["1 <= n <= 45"],
+    "approachSteps": [
+      "To reach step n, your last move was either a 1-step from step n-1, or a 2-step from step n-2 — so the number of ways to reach n is the SUM of ways to reach those two prior steps.",
+      "That recurrence, ways(n) = ways(n-1) + ways(n-2), is exactly the Fibonacci recurrence — recognizing that pattern is the key insight.",
+      "Naive recursion recomputes the same subproblems exponentially many times — use memoization, or better, build the answer bottom-up iteratively.",
+      "Track just the last two values as you iterate up from the base cases (ways(1)=1, ways(2)=2) to n, since you never need older values."
+    ],
+    "bruteForce": { "approach": "Naive recursion without memoization: ways(n) = ways(n-1) + ways(n-2).", "timeComplexity": "O(2^n) — exponential re-computation of overlapping subproblems", "spaceComplexity": "O(n) recursion stack" },
+    "optimalApproach": "Bottom-up DP tracking only the last two computed values (Fibonacci-style), avoiding both the exponential blowup and the need to store the whole DP array.",
+    "solutionCode": "def climb_stairs(n):\n    if n <= 2:\n        return n\n    prev2, prev1 = 1, 2  # ways(1), ways(2)\n    for _ in range(3, n + 1):\n        prev2, prev1 = prev1, prev1 + prev2\n    return prev1",
+    "timeComplexity": "O(n) — one pass from 3 up to n.",
+    "spaceComplexity": "O(1) — only two running values are kept, instead of a full DP array.",
+    "followUps": [
+      "How would this change if you could climb 1, 2, or 3 steps at a time?",
+      "Why does memoized top-down recursion have the same time complexity as the bottom-up version, but different space complexity?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY", "FOUNDATIONS-COMPLEXITY-PRACTICE"],
+    "tags": ["dynamic-programming", "memoization"]
+  },
+  {
+    "id": "PS-DP-002",
+    "title": "Coin Change",
+    "category": "Dynamic Programming",
+    "difficulty": "Medium",
+    "pattern": "1D DP (Unbounded Knapsack)",
+    "problemStatement": "You are given an integer array coins representing coin denominations and an integer amount. Return the fewest number of coins needed to make up amount. If that amount cannot be made up, return -1. Assume an unlimited supply of each coin.",
+    "examples": [
+      { "input": "coins = [1,2,5], amount = 11", "output": "3", "explanation": "11 = 5 + 5 + 1" },
+      { "input": "coins = [2], amount = 3", "output": "-1" }
+    ],
+    "constraints": ["1 <= coins.length <= 12", "0 <= amount <= 10^4"],
+    "approachSteps": [
+      "Greedily always picking the largest coin doesn't work in general (e.g. coins=[1,3,4], amount=6: greedy picks 4+1+1=3 coins, but 3+3=2 coins is better) — so this needs real DP, not a greedy shortcut.",
+      "Define dp[a] = minimum coins needed to make amount a. The base case dp[0] = 0 (zero coins needed for amount 0).",
+      "For each amount a from 1 up to the target, try using each coin denomination as the 'last coin used': dp[a] = min(dp[a], dp[a - coin] + 1) for every coin <= a.",
+      "This works because if the optimal solution for a uses some coin c last, the rest of the solution is optimal for a - c — a classic optimal-substructure argument.",
+      "Initialize all dp values to infinity (unreachable) except dp[0]; if dp[amount] is still infinity at the end, it's unreachable — return -1."
+    ],
+    "bruteForce": { "approach": "Try every combination of coins recursively without memoization.", "timeComplexity": "O(amount^len(coins)) — exponential", "spaceComplexity": "O(amount) recursion depth" },
+    "optimalApproach": "Bottom-up 1D DP over amounts 0..target, where dp[a] considers using each coin denomination as the last coin added.",
+    "solutionCode": "def coin_change(coins, amount):\n    dp = [float('inf')] * (amount + 1)\n    dp[0] = 0\n    for a in range(1, amount + 1):\n        for coin in coins:\n            if coin <= a:\n                dp[a] = min(dp[a], dp[a - coin] + 1)\n    return dp[amount] if dp[amount] != float('inf') else -1",
+    "timeComplexity": "O(amount * len(coins)) — for every amount, try every coin.",
+    "spaceComplexity": "O(amount) for the DP array.",
+    "followUps": [
+      "How would you modify this to count the NUMBER of ways to make the amount, instead of the minimum coins (a different, related DP)?",
+      "Why does the greedy 'always pick the largest coin' strategy fail on some coin sets but work on others (like US currency)?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY", "FOUNDATIONS-COMPLEXITY-PRACTICE"],
+    "tags": ["dynamic-programming"]
+  },
+  {
+    "id": "PS-DP-003",
+    "title": "Edit Distance",
+    "category": "Dynamic Programming",
+    "difficulty": "Hard",
+    "pattern": "2D DP",
+    "problemStatement": "Given two strings word1 and word2, return the minimum number of operations (insert a character, delete a character, or replace a character) required to convert word1 into word2.",
+    "examples": [
+      { "input": "word1 = \"horse\", word2 = \"ros\"", "output": "3", "explanation": "horse -> rorse (replace h with r) -> rose (remove r) -> ros (remove e)" }
+    ],
+    "constraints": ["0 <= word1.length, word2.length <= 500"],
+    "approachSteps": [
+      "Think about the LAST characters of both strings: either they match (no operation needed there, recurse on the rest), or you must insert, delete, or replace to reconcile them — each choice reduces to a smaller subproblem.",
+      "Define dp[i][j] = minimum edits to convert the first i characters of word1 into the first j characters of word2.",
+      "Base cases: converting an empty word1 prefix to a j-length word2 prefix takes j insertions (dp[0][j] = j); converting an i-length word1 prefix to empty takes i deletions (dp[i][0] = i).",
+      "If the current characters match (word1[i-1] == word2[j-1]), no new operation is needed: dp[i][j] = dp[i-1][j-1].",
+      "Otherwise, take the best of three options plus one operation: delete from word1 (dp[i-1][j]), insert into word1 (dp[i][j-1]), or replace (dp[i-1][j-1]) — dp[i][j] = 1 + min(those three).",
+      "Fill the table row by row (or use a rolling 1D array), and the answer is dp[len(word1)][len(word2)]."
+    ],
+    "bruteForce": { "approach": "Recursive exploration of all three operations at every character position, without memoization.", "timeComplexity": "O(3^(m+n))", "spaceComplexity": "O(m+n) recursion depth" },
+    "optimalApproach": "Bottom-up 2D DP table where dp[i][j] represents the edit distance between the first i and first j characters of the two strings, built from the match/insert/delete/replace recurrence.",
+    "solutionCode": "def min_distance(word1, word2):\n    m, n = len(word1), len(word2)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n\n    for i in range(m + 1):\n        dp[i][0] = i\n    for j in range(n + 1):\n        dp[0][j] = j\n\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if word1[i - 1] == word2[j - 1]:\n                dp[i][j] = dp[i - 1][j - 1]\n            else:\n                dp[i][j] = 1 + min(\n                    dp[i - 1][j],      # delete from word1\n                    dp[i][j - 1],      # insert into word1\n                    dp[i - 1][j - 1],  # replace\n                )\n\n    return dp[m][n]",
+    "timeComplexity": "O(m * n) — one entry computed per cell of the (m+1) x (n+1) table.",
+    "spaceComplexity": "O(m * n) for the full table; can be reduced to O(min(m, n)) with a rolling 1D array since each row only depends on the previous row.",
+    "followUps": [
+      "How would you reduce the space to O(min(m, n)) using a rolling array, and why does that work here?",
+      "How would you reconstruct the actual sequence of edit operations, not just the count?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY", "FOUNDATIONS-COMPLEXITY-PRACTICE"],
+    "tags": ["dynamic-programming", "string"]
+  },
+  {
+    "id": "PS-DP-004",
+    "title": "Burst Balloons",
+    "category": "Dynamic Programming",
+    "difficulty": "Hard",
+    "pattern": "Interval DP",
+    "problemStatement": "You are given n balloons, indexed 0 to n-1, each with a number on it given by array nums. Bursting balloon i earns nums[left] * nums[i] * nums[right] coins, where left and right are the indices adjacent to i AT THE TIME it's burst (after some balloons have already been removed). Return the maximum coins achievable by bursting all balloons.",
+    "examples": [
+      { "input": "nums = [3,1,5,8]", "output": "167", "explanation": "Bursting in order 1, 5, 3, 8 (by value) gives 3*1*5 + 3*5*8 + 1*3*8 + 1*8*1 = 15+120+24+8 = 167." }
+    ],
+    "constraints": ["1 <= nums.length <= 300"],
+    "approachSteps": [
+      "The tricky part: which balloon you burst FIRST changes who's adjacent to everything else afterward, so a greedy 'burst the smallest/largest first' doesn't work, and trying every ORDER is O(n!).",
+      "The reframing trick that unlocks DP: instead of thinking about which balloon to burst FIRST in a range, think about which balloon is burst LAST in that range.",
+      "If balloon k is the LAST one burst within an open interval (left, right), then at the moment it's burst, everything else in that interval is already gone — so its neighbors at that moment are exactly the boundary balloons left and right, no matter what order the others were removed in. That removes the order-dependency.",
+      "Pad the array with a 1 at both ends (as virtual boundary balloons), then define dp[left][right] = max coins obtainable from bursting everything strictly between left and right (exclusive), leaving left and right themselves intact as boundaries.",
+      "For each interval, try every k as the 'last burst' balloon: dp[left][right] = max over k of dp[left][k] + nums[left]*nums[k]*nums[right] + dp[k][right] — the two sub-intervals are now independent, since k is gone last and boundaries are fixed.",
+      "Build up dp by increasing interval length, and the answer is dp[0][n+1] (across the fully padded array)."
+    ],
+    "bruteForce": { "approach": "Try every possible order of bursting all n balloons (backtracking/permutations), computing the total coins for each order.", "timeComplexity": "O(n!)", "spaceComplexity": "O(n) recursion depth" },
+    "optimalApproach": "Interval DP where dp[left][right] considers each balloon k as the LAST one burst in that open interval — this removes the ordering dependency by fixing what k's neighbors are at burst time.",
+    "solutionCode": "def max_coins(nums):\n    balloons = [1] + nums + [1]\n    n = len(balloons)\n    dp = [[0] * n for _ in range(n)]\n\n    for length in range(2, n):\n        for left in range(0, n - length):\n            right = left + length\n            for k in range(left + 1, right):\n                dp[left][right] = max(\n                    dp[left][right],\n                    dp[left][k] + balloons[left] * balloons[k] * balloons[right] + dp[k][right],\n                )\n\n    return dp[0][n - 1]",
+    "timeComplexity": "O(n^3) — O(n^2) intervals, each trying O(n) choices of k.",
+    "spaceComplexity": "O(n^2) for the DP table.",
+    "followUps": [
+      "Walk through why fixing the LAST balloon burst (rather than the first) is what makes the subproblems independent — this is the single hardest insight in the problem.",
+      "How does this 'last operation, not first' reframing trick also show up in other interval DP problems, like Matrix Chain Multiplication?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY", "FOUNDATIONS-COMPLEXITY-PRACTICE"],
+    "tags": ["dynamic-programming", "interval-dp"],
+    "reportedAt": ["Samsung R&D Bangladesh"],
+    "sources": ["src-bd-interview-questions-repo"]
+  },
+  {
+    "id": "PS-DP-005",
+    "title": "Wildcard Matching",
+    "category": "Dynamic Programming",
+    "difficulty": "Hard",
+    "pattern": "2D DP (String Matching)",
+    "problemStatement": "Given an input string s and a pattern p, implement wildcard pattern matching supporting '?' (matches any single character) and '*' (matches any sequence of characters, including the empty sequence). The match must cover the entire input string.",
+    "examples": [
+      { "input": "s = \"adceb\", p = \"*a*b\"", "output": "true", "explanation": "The first '*' matches the empty string, 'a' matches 'a', the second '*' matches \"dce\", and 'b' matches 'b'." }
+    ],
+    "constraints": ["0 <= s.length, p.length <= 2000"],
+    "approachSteps": [
+      "'*' is the hard part because it can match ANY number of characters (including zero) — that ambiguity is exactly what makes a greedy left-to-right match unreliable, and is why this needs DP over both string positions simultaneously.",
+      "Define dp[i][j] = true if the first i characters of s match the first j characters of p.",
+      "Base case: dp[0][0] = true (empty matches empty). dp[0][j] is true only if p's first j characters are ALL '*' (since '*' can match zero characters, a prefix of pure '*'s can match an empty string).",
+      "If p[j-1] is '?' or equals s[i-1] exactly, that character position matches, so the result depends only on the rest: dp[i][j] = dp[i-1][j-1].",
+      "If p[j-1] is '*', it has two ways to be used: match it against ZERO characters of s (dp[i][j-1]) or extend it to also consume one more character of s while still being 'active' (dp[i-1][j]) — dp[i][j] is true if EITHER works.",
+      "Fill the table row by row; the final answer is dp[len(s)][len(p)]."
+    ],
+    "bruteForce": { "approach": "Recursive backtracking that tries, for each '*', every possible number of characters it could consume.", "timeComplexity": "O(2^(m+n)) worst case", "spaceComplexity": "O(m+n) recursion depth" },
+    "optimalApproach": "Bottom-up 2D DP table where dp[i][j] represents whether the first i characters of s match the first j characters of p, with '*' contributing two transitions (match zero more, or match one more character).",
+    "solutionCode": "def is_match(s, p):\n    m, n = len(s), len(p)\n    dp = [[False] * (n + 1) for _ in range(m + 1)]\n    dp[0][0] = True\n\n    for j in range(1, n + 1):\n        if p[j - 1] == '*':\n            dp[0][j] = dp[0][j - 1]\n\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if p[j - 1] == '*':\n                dp[i][j] = dp[i - 1][j] or dp[i][j - 1]\n            elif p[j - 1] == '?' or p[j - 1] == s[i - 1]:\n                dp[i][j] = dp[i - 1][j - 1]\n\n    return dp[m][n]",
+    "timeComplexity": "O(m * n) — one entry computed per cell of the (m+1) x (n+1) table.",
+    "spaceComplexity": "O(m * n) for the full table; can be reduced to O(n) with a rolling 1D array since each row only depends on the previous row.",
+    "followUps": [
+      "How does this differ from 'Regular Expression Matching' (where '*' means zero-or-more of the PRECEDING character, not 'any sequence') — how would the transitions change?",
+      "How would you reduce the space to O(n) using a rolling array, and does the dp[0][j] base-case row need special handling in that version?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-ALGORITHMS-COMPLEXITY", "FOUNDATIONS-COMPLEXITY-PRACTICE"],
+    "tags": ["dynamic-programming", "string"],
+    "reportedAt": ["Chaldal"],
+    "sources": ["src-bd-interview-questions-repo"]
+  }
+]

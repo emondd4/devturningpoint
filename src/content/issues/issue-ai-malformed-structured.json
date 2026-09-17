@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-malformed-structured",
+  "title": "Malformed structured output",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "JSON/schema violations break parsers."
+  ],
+  "cause": "JSON/schema violations break parsers.",
+  "solution": "Use schema-constrained decoding + validation.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

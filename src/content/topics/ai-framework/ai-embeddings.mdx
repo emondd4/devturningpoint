@@ -1,0 +1,43 @@
+---
+id: AI-EMBEDDINGS
+title: "Embeddings and semantic similarity"
+titleBn: "Embeddings এবং semantic similarity"
+description: "Vector representations for search, clustering, and RAG retrieval."
+descriptionBn: "Search, clustering এবং RAG retrieval-এর জন্য vector representation।"
+track: ai-framework
+category: retrieval
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "AI-LLM-FUNDAMENTALS"
+unlocks: []
+related:
+  - "AI-VECTOR-DATABASES"
+  - "AI-RAG-FUNDAMENTALS"
+careers:
+  - "software-engineer"
+tags:
+  - "embeddings"
+  - "rag"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "OPENAI-API-DOCS"
+  - "PGVECTOR-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+## Mental model
+
+Embeddings map text (or other modalities) into vectors so similar meanings are nearby. Similarity search is not the same as factual correctness.
+
+## Practice
+
+- Normalize chunking strategy before blaming the vector DB.
+- Evaluate retrieval separately from generation (hit rate / recall@k).

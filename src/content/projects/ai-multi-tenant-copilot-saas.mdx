@@ -1,0 +1,229 @@
+---
+id: "PBL-AI-A-003"
+title: "Multi-Tenant AI Copilot SaaS"
+titleBn: "Multi-Tenant AI Copilot SaaS"
+slug: "ai-multi-tenant-copilot-saas"
+track: "ai-framework"
+level: "advanced"
+projectRole: "core"
+marketRelevance: "Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations."
+difficulty: "advanced"
+summary: "Design and implement a multi-tenant AI copilot with tenant isolation, per-tenant retrieval, budgets, audit logs, and eval gates."
+summaryBn: "Tenant isolation, per-tenant retrieval, budget, audit log এবং eval gate সহ multi-tenant AI copilot।"
+portfolioPitch: "SaaS-ready AI: tenancy, isolation, budgets, audits, and quality gates—beyond a single-user demo."
+estimatedHours: 48
+prerequisiteSkillIds:
+  - "AI-RAG"
+  - "AI-SECURITY"
+  - "AI-TOOL-CALLING"
+  - "AI-EVALUATION"
+learningOutcomeSkillIds:
+  - "AI-SECURITY"
+  - "AI-RAG"
+  - "AI-EVALUATION"
+  - "AI-AGENTS"
+recommendedTools:
+  - "Web app + API (your stack)"
+  - "Postgres + pgvector"
+  - "Local/capped LLM"
+  - "Auth (session/JWT)"
+portfolioEvidence:
+  - "TENANCY.md"
+  - "ISOLATION_TESTS.md"
+  - "BUDGETS.md"
+  - "AUDIT_LOG.md"
+  - "PER_TENANT_RAG.md"
+  - "EVAL_GATES.md"
+  - "COST_LATENCY.md"
+  - "THREAT_MODEL.md"
+relatedTopicIds:
+  - "AI-SECURITY-OWASP"
+  - "AI-RAG-FUNDAMENTALS"
+  - "AI-TOOL-CALLING"
+  - "AI-EVALUATION-BASICS"
+  - "AI-AGENTS-OVERVIEW"
+relatedInterviewQuestionIds: []
+sources:
+  - "OWASP-LLM-TOP10-2025"
+  - "PGVECTOR-DOCS"
+  - "OPENAI-API-DOCS"
+  - "ANTHROPIC-API-DOCS"
+  - "LANGCHAIN-DOCS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+previousProjectId: "PBL-AI-A-002"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-AI-A-003-M01"
+    title: "Tenancy + threat model"
+    objective: "Define tenant model, authz rules, and threat model for cross-tenant leakage."
+    whyItMatters: "AI SaaS failures are often isolation failures."
+    prerequisiteTopicIds:
+      - "AI-SECURITY-OWASP"
+    tasks:
+      - "Tenant/user schema"
+      - "Authn/authz plan"
+      - "Data classification"
+      - "THREAT_MODEL.md"
+    expectedArtifacts:
+      - "TENANCY.md"
+      - "THREAT_MODEL.md"
+    validationChecklist:
+      - "Isolation rules explicit"
+      - "Admin vs member roles"
+      - "Secrets policy"
+    commonProblems:
+      - "Shared global vector index"
+      - "Prompt stores without tenant IDs"
+    completionCriteria:
+      - "Threat model reviewed"
+      - "Schema migrations ready"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-A-003-M02"
+    title: "Per-tenant RAG + isolation tests"
+    objective: "Index per tenant; write automated tests proving no cross-tenant retrieval."
+    whyItMatters: "Retrieval bugs leak confidential data across customers."
+    prerequisiteTopicIds:
+      - "AI-RAG-FUNDAMENTALS"
+      - "AI-SECURITY-OWASP"
+    tasks:
+      - "Tenant-scoped indexes/filters"
+      - "Ingest fixtures for two tenants"
+      - "Write isolation tests"
+      - "Document PER_TENANT_RAG.md"
+    expectedArtifacts:
+      - "PER_TENANT_RAG.md"
+      - "ISOLATION_TESTS.md"
+      - "tests"
+    validationChecklist:
+      - "Tests fail if filter removed"
+      - "Tenant ID on every chunk"
+      - "No shared cache keys"
+    commonProblems:
+      - "Caching answers globally"
+      - "Admin bypass undocumented"
+    completionCriteria:
+      - "Red tests pass"
+      - "Docs match code"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-A-003-M03"
+    title: "Budgets + audit + tools"
+    objective: "Enforce per-tenant token budgets; audit prompts/tools; allowlist tools."
+    whyItMatters: "Without budgets and audits, one tenant burns cash or causes harm."
+    prerequisiteTopicIds:
+      - "AI-TOOL-CALLING"
+      - "AI-AGENTS-OVERVIEW"
+    tasks:
+      - "Meter tokens/cost"
+      - "Hard budget stop"
+      - "Audit log fields"
+      - "Allowlisted tools only"
+    expectedArtifacts:
+      - "BUDGETS.md"
+      - "AUDIT_LOG.md"
+    validationChecklist:
+      - "Over-budget denied"
+      - "Audits queryable by tenant"
+      - "Tools scoped"
+    commonProblems:
+      - "Soft limits only"
+      - "Logging raw secrets"
+    completionCriteria:
+      - "Budget demo"
+      - "Audit sample committed (redacted)"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-A-003-M04"
+    title: "Eval gates + launch checklist"
+    objective: "Add quality/security eval gates and a launch checklist with cost/latency baselines."
+    whyItMatters: "Multi-tenant AI needs release discipline like any production system."
+    prerequisiteTopicIds:
+      - "AI-EVALUATION-BASICS"
+    tasks:
+      - "Tenant-aware eval fixtures"
+      - "Security eval cases"
+      - "COST_LATENCY baselines"
+      - "Launch checklist"
+    expectedArtifacts:
+      - "EVAL_GATES.md"
+      - "COST_LATENCY.md"
+      - "LAUNCH_CHECKLIST.md"
+    validationChecklist:
+      - "Gates block known bad prompts"
+      - "Baselines recorded"
+      - "Checklist complete"
+    commonProblems:
+      - "Single-tenant eval only"
+      - "No rollback plan"
+    completionCriteria:
+      - "Gate demo"
+      - "Portfolio pack complete"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Paid APIs are optional">
+Prefer local/free options (Ollama, open models, sample datasets) first. If you use a paid provider API, set spend limits, never commit keys, and warn teammates before enabling billable calls.
+</Callout>
+
+<Callout type="info" title="No site API keys required">
+The Dev Turning Point website stays static. Run models and tools on your machine or your own cloud account.
+</Callout>
+
+## Why this project matters
+
+Copilot SaaS value collapses without isolation, budgets, and audits. This project forces those production concerns.
+
+## Market / role relevance
+
+Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations.
+
+## What job skills it proves
+
+Multi-tenant RAG, isolation testing, budgets, auditability, tool allowlists, release gates.
+
+## Prerequisites
+
+RAG, security, tool calling, and evaluation topics; prior intermediate AI projects recommended.
+
+## Architecture / approach
+
+Auth → tenant context → per-tenant retrieval/tools → metered LLM → audit log → eval gates.
+
+## Recommended tools
+
+Your web stack + Postgres/pgvector + local/capped models.
+
+## Setup
+
+1. Start with two fake tenants and synthetic docs.
+2. Prefer local models to control cost.
+3. Set explicit cloud spend caps if used.
+
+## Step-by-step guidance
+
+Milestones M01–M04. Isolation tests before UI polish.
+
+## Evaluation / security / cost / latency notes
+
+**Eval:** quality + security cases per tenant.
+**Security:** cross-tenant retrieval tests are mandatory.
+**Cost/latency:** per-tenant budgets and p95 latency.
+
+## Portfolio evidence
+
+Save every item listed in frontmatter `portfolioEvidence`. Include eval scores, cost/latency notes, and security checklist outcomes.
+
+## Stretch goals
+
+Add SSO and region-aware data residency notes.
+
+## Retrospective
+
+What almost leaked across tenants? Which budget policy felt fair?
+
+## Sources
+
+See frontmatter sources (official docs + OWASP GenAI where security applies).

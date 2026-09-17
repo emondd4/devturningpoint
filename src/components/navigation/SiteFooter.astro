@@ -2,6 +2,9 @@
 import type { Locale } from '../../i18n/config';
 import { getDictionary } from '../../i18n/ui';
 import { localePath } from '../../i18n/config';
+import { getFooterColumns, labelFor } from '../../data/navigation';
+import { siteConfig } from '../../config/site';
+import BrandLogo from '../brand/BrandLogo.astro';
 
 interface Props {
   locale: Locale;
@@ -10,45 +13,73 @@ interface Props {
 const { locale } = Astro.props;
 const t = getDictionary(locale);
 const year = new Date().getFullYear();
-
-const policyLinks = [
-  { href: localePath(locale, 'methodology'), label: t.footer.methodology },
-  { href: localePath(locale, 'privacy'), label: t.footer.privacy },
-  { href: localePath(locale, 'terms'), label: t.footer.terms },
-  { href: localePath(locale, 'cookies'), label: t.footer.cookies },
-  { href: localePath(locale, 'ai-disclosure'), label: t.footer.aiDisclosure },
-  { href: localePath(locale, 'contact'), label: t.footer.contact },
-  { href: localePath(locale, 'contribute'), label: t.nav.contribute },
-  { href: localePath(locale, 'about'), label: t.nav.about },
-];
+const isBn = locale === 'bn';
+const columns = getFooterColumns(locale);
+const description = isBn ? siteConfig.shortDescriptionBn : siteConfig.shortDescription;
 ---
 
-<footer class="no-print mt-16 border-t border-[var(--color-border)] bg-[var(--color-surface-1)]">
-  <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[1.2fr_1fr]">
-    <div>
-      <p class="font-[family-name:var(--font-display)] text-xl font-semibold text-[var(--color-ink)]">{t.siteName}</p>
-      <p class="mt-2 max-w-md text-sm text-[var(--color-ink-muted)]">{t.tagline}</p>
-      <p class="mt-4 text-sm text-[var(--color-ink-subtle)]">{t.progress.localOnly}</p>
-      <a
-        class="mt-4 inline-flex text-sm font-medium no-underline"
-        href="https://github.com/emondd4/devturningpoint"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        {t.footer.openSource}
-      </a>
+<footer class="no-print mt-16 border-t border-[var(--color-border)] bg-[var(--color-surface)]">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+    <div class="grid gap-10 lg:grid-cols-[1.15fr_2fr]">
+      <div>
+        <a href={localePath(locale)} class="inline-block no-underline" aria-label={t.siteName}>
+          <BrandLogo variant="wordmark" height={40} />
+        </a>
+        <p class="mt-4 max-w-md text-sm text-[var(--color-text-secondary)]">{description}</p>
+        <p class="mt-3 text-sm text-[var(--color-text-muted)]">{t.progress.localOnly}</p>
+        <a
+          class="btn btn-secondary btn-sm mt-5"
+          href={siteConfig.repoUrl}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {t.footer.openSource}
+        </a>
+      </div>
+
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        {
+          columns.map((column) => (
+            <div>
+              <p class="text-sm font-semibold text-[var(--color-text)]">
+                {isBn ? column.titleBn : column.titleEn}
+              </p>
+              <ul class="mt-3 space-y-2 text-sm">
+                {column.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="text-[var(--color-text-secondary)] no-underline hover:text-[var(--color-primary)]"
+                      {...(link.href.startsWith('http')
+                        ? { rel: 'noopener noreferrer', target: '_blank' }
+                        : {})}
+                    >
+                      {labelFor(link, locale)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
     </div>
-    <div class="grid grid-cols-2 gap-3 text-sm">
-      {
-        policyLinks.map((link) => (
-          <a href={link.href} class="text-[var(--color-ink-muted)] no-underline hover:text-[var(--color-accent)]">
-            {link.label}
-          </a>
-        ))
-      }
+
+    <div class="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--color-border)] pt-5 text-xs text-[var(--color-text-muted)]">
+      <p>
+        © {year} {t.siteName}. Code MIT · Educational content CC BY 4.0.
+      </p>
+      <p>
+        {
+          isBn
+            ? 'বাংলাদেশের শিক্ষার্থীদের জন্য নির্মিত—সর্বত্র উপযোগী।'
+            : 'Built for learners in Bangladesh, useful everywhere.'
+        }
+      </p>
+      <div class="flex gap-3">
+        <a href={localePath('en')} class="no-underline hover:text-[var(--color-primary)]">English</a>
+        <a href={localePath('bn')} class="no-underline hover:text-[var(--color-primary)]">বাংলা</a>
+      </div>
     </div>
-  </div>
-  <div class="border-t border-[var(--color-border)] px-4 py-4 text-center text-xs text-[var(--color-ink-subtle)] sm:px-6">
-    © {year} {t.siteName}. Code MIT · Educational content CC BY 4.0.
   </div>
 </footer>

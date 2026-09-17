@@ -1,0 +1,75 @@
+---
+id: AI-CONTEXT-ENGINEERING
+title: "Context Engineering"
+titleBn: "Context Engineering"
+description: "What belongs in the window, how to summarize, and how to budget tokens for reliable systems."
+descriptionBn: "Context window-এ কী রাখবেন, কীভাবে summarize করবেন, এবং নির্ভরযোগ্য সিস্টেমের জন্য token budget।"
+track: ai-framework
+category: prompting
+difficulty: intermediate
+estimatedMinutes: 40
+prerequisites:
+  - "AI-PROMPT-ENGINEERING"
+  - "AI-LLM-FUNDAMENTALS"
+unlocks:
+  - "AI-RAG-FUNDAMENTALS"
+related:
+  - "AI-RAG-FUNDAMENTALS"
+  - "AI-STRUCTURED-OUTPUTS"
+  - "AI-EVALUATION-BASICS"
+careers:
+  - "software-engineer"
+  - "backend-engineer"
+  - "fullstack-engineer"
+tags:
+  - "context"
+  - "tokens"
+  - "prompting"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "OPENAI-API-DOCS"
+  - "ANTHROPIC-API-DOCS"
+  - "LANGCHAIN-DOCS"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+Bangla title/description may be partial; technical terms stay in English.
+</Callout>
+
+<Callout type="mental-model">
+Context is a scarce working memory. Stuffing more text often reduces precision; curation beats volume.
+</Callout>
+
+## Why this matters
+
+Teams dump entire repos or ticket histories into prompts, then wonder why answers drift. Context engineering decides what the model is allowed to see.
+
+## Levers
+
+- **Selection** — Retrieve or attach only relevant slices.
+- **Ordering** — Instructions, then evidence, then task; keep constraints near the end if models drift.
+- **Compression** — Summaries with explicit loss notes.
+- **Quotas** — Soft/hard token budgets per section (system, tools, RAG, history).
+- **Freshness** — Prefer live retrieval over stale pasted docs.
+
+## Practical checks
+
+- Measure tokens before sending.
+- Prefer citations to pasting entire PDFs.
+- Keep a “must include” vs “nice to include” list.
+
+## Interview angle
+
+How would you keep a long-running agent from overflowing its context window?
+
+## Next
+
+RAG fundamentals and citation project `PBL-AI-I-001`.

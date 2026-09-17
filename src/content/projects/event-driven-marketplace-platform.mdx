@@ -1,0 +1,214 @@
+---
+id: "PBL-BE-A-002"
+title: "Event-Driven Marketplace Platform"
+slug: "event-driven-marketplace-platform"
+track: "backend"
+level: "advanced"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for senior backend roles: marketplace/order workflows and event-driven language appear in larger product teams."
+difficulty: "advanced"
+summary: "Marketplace workflows with events, outbox, and compensation notes."
+portfolioPitch: "Advanced backend: events, consistency, and failure recovery."
+estimatedHours: 50
+prerequisiteSkillIds:
+  - "BACKEND-REDIS"
+  - "BACKEND-TESTING"
+  - "BACKEND-AUTH"
+learningOutcomeSkillIds:
+  - "BACKEND-REDIS"
+  - "BACKEND-TESTING"
+  - "BACKEND-NESTJS"
+recommendedTools:
+  - "NestJS"
+  - "PostgreSQL"
+  - "queue"
+portfolioEvidence:
+  - "GitHub repo with README"
+  - "Architecture diagram"
+  - "Screenshots/demo"
+  - "Tests + CI evidence"
+  - "ADR/decision notes"
+  - "Reproducible run instructions"
+relatedTopicIds:
+  - "BACKEND-PRISMA-TYPEORM"
+  - "BACKEND-QUEUES"
+  - "BACKEND-NESTJS-AUTH-JWT"
+  - "BACKEND-RATE-LIMITING"
+  - "BACKEND-REDIS-CACHING"
+relatedInterviewQuestionIds:
+  - "BE-A-0001"
+  - "BE-A-0002"
+  - "BE-A-0003"
+  - "BE-A-0004"
+  - "BE-A-0005"
+  - "BE-A-0006"
+  - "BE-A-0007"
+  - "BE-A-0008"
+sources:
+  - "NESTJS-QUEUES"
+  - "POSTGRES-TX"
+  - "RFC-9110-HTTP"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-BE-A-002-M01"
+    title: "Domain events"
+    objective: "Order/listing events."
+    whyItMatters: "Event mindset."
+    prerequisiteTopicIds:
+      - "BACKEND-PRISMA-TYPEORM"
+      - "BACKEND-QUEUES"
+    tasks:
+      - "Capture scope for 'Domain events' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Order/listing events."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Domain events"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Order/listing events. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-BE-A-002-M02"
+    title: "Outbox"
+    objective: "Reliable publish."
+    whyItMatters: "Consistency."
+    prerequisiteTopicIds:
+      - "BACKEND-PRISMA-TYPEORM"
+      - "BACKEND-QUEUES"
+    tasks:
+      - "Capture scope for 'Outbox' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Reliable publish."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Outbox"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Reliable publish. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-BE-A-002-M03"
+    title: "Consumers"
+    objective: "Idempotent handlers."
+    whyItMatters: "Failure reality."
+    prerequisiteTopicIds:
+      - "BACKEND-NESTJS-AUTH-JWT"
+      - "BACKEND-RATE-LIMITING"
+    tasks:
+      - "Capture scope for 'Consumers' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Idempotent handlers."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Consumers"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Idempotent handlers. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-BE-A-002-M04"
+    title: "Chaos notes"
+    objective: "Recovery runbook."
+    whyItMatters: "Senior signal."
+    prerequisiteTopicIds:
+      - "BACKEND-NESTJS-AUTH-JWT"
+      - "BACKEND-RATE-LIMITING"
+    tasks:
+      - "Capture scope for 'Chaos notes' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Recovery runbook."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Chaos notes"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Recovery runbook. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Advanced backend: events, consistency, and failure recovery.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: NestJS, PostgreSQL, queue.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to advanced
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

@@ -1,0 +1,38 @@
+{
+  "id": "AI-TOOL-OLLAMA",
+  "name": "Ollama",
+  "category": "ml-open-models",
+  "description": "Local model runner for downloading and serving open models on developer machines.",
+  "bestFor": [
+    "Low/no-cost local experiments",
+    "Privacy-sensitive prototypes"
+  ],
+  "notIdealFor": [
+    "High-QPS multi-tenant production without a serving stack"
+  ],
+  "prerequisites": [
+    "AI-OPEN-MODELS"
+  ],
+  "officialUrl": "https://ollama.com/",
+  "docsUrl": "https://github.com/ollama/ollama",
+  "languageEcosystem": [
+    "CLI",
+    "HTTP"
+  ],
+  "localOrCloud": "local",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "Free software; hardware costs on you.",
+  "securityNotes": [
+    "Models stay local but still need output validation",
+    "Do not grant shell tools lightly"
+  ],
+  "relatedTopicIds": [
+    "AI-OPEN-MODELS"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-A-002",
+    "PBL-AI-B-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

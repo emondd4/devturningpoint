@@ -1,0 +1,159 @@
+{
+  "title": "Problem Solving — Coding Interview Practice",
+  "generatedAt": "2026-09-18",
+  "methodology": {
+    "goal": "Classic algorithmic/data-structure interview problems with step-by-step approach, a worked solution, and time/space complexity for every entry — extensible starting library, not an exhaustive archive.",
+    "notes": [
+      "Every problem includes an explicit time and space complexity, per the editorial rule that complexity analysis is never optional for this section.",
+      "Solutions are written in Python as a track-agnostic, widely-readable baseline; the step-by-step approach is language-agnostic.",
+      "Categories map to classic interview patterns, not to a specific career track — this section is shared across all tracks.",
+      "A subset of problems carry a reportedAt field naming Bangladeshi companies where that exact problem (or a close variant) has been publicly reported, sourced from crowd-sourced interview-experience collections — see each problem's sources field."
+    ]
+  },
+  "totalProblems": 54,
+  "categories": [
+    {
+      "slug": "arrays-hashing",
+      "label": "Arrays & Hashing",
+      "prefix": "AH",
+      "count": 7,
+      "byDifficulty": {
+        "Easy": 3,
+        "Medium": 3,
+        "Hard": 1
+      }
+    },
+    {
+      "slug": "backtracking",
+      "label": "Backtracking",
+      "prefix": "BT",
+      "count": 3,
+      "byDifficulty": {
+        "Easy": 1,
+        "Medium": 1,
+        "Hard": 1
+      }
+    },
+    {
+      "slug": "binary-search-sorting",
+      "label": "Binary Search & Sorting",
+      "prefix": "BS",
+      "count": 3,
+      "byDifficulty": {
+        "Easy": 1,
+        "Medium": 1,
+        "Hard": 1
+      }
+    },
+    {
+      "slug": "bit-manipulation-math",
+      "label": "Bit Manipulation & Math",
+      "prefix": "BM",
+      "count": 3,
+      "byDifficulty": {
+        "Easy": 1,
+        "Medium": 1,
+        "Hard": 1
+      }
+    },
+    {
+      "slug": "dynamic-programming",
+      "label": "Dynamic Programming",
+      "prefix": "DP",
+      "count": 5,
+      "byDifficulty": {
+        "Easy": 1,
+        "Medium": 1,
+        "Hard": 3
+      }
+    },
+    {
+      "slug": "graphs",
+      "label": "Graphs",
+      "prefix": "GR",
+      "count": 3,
+      "byDifficulty": {
+        "Easy": 1,
+        "Medium": 1,
+        "Hard": 1
+      }
+    },
+    {
+      "slug": "greedy",
+      "label": "Greedy",
+      "prefix": "GD",
+      "count": 3,
+      "byDifficulty": {
+        "Easy": 1,
+        "Medium": 1,
+        "Hard": 1
+      }
+    },
+    {
+      "slug": "heaps",
+      "label": "Heaps / Priority Queues",
+      "prefix": "HP",
+      "count": 3,
+      "byDifficulty": {
+        "Easy": 1,
+        "Medium": 1,
+        "Hard": 1
+      }
+    },
+    {
+      "slug": "linked-lists",
+      "label": "Linked Lists",
+      "prefix": "LL",
+      "count": 7,
+      "byDifficulty": {
+        "Easy": 3,
+        "Medium": 3,
+        "Hard": 1
+      }
+    },
+    {
+      "slug": "matrix-grid",
+      "label": "Matrix & Grid",
+      "prefix": "MG",
+      "count": 3,
+      "byDifficulty": {
+        "Easy": 1,
+        "Medium": 2,
+        "Hard": 0
+      }
+    },
+    {
+      "slug": "stacks-queues",
+      "label": "Stacks & Queues",
+      "prefix": "SQ",
+      "count": 5,
+      "byDifficulty": {
+        "Easy": 1,
+        "Medium": 2,
+        "Hard": 2
+      }
+    },
+    {
+      "slug": "trees",
+      "label": "Trees",
+      "prefix": "TR",
+      "count": 4,
+      "byDifficulty": {
+        "Easy": 2,
+        "Medium": 1,
+        "Hard": 1
+      }
+    },
+    {
+      "slug": "two-pointers-sliding-window",
+      "label": "Two Pointers & Sliding Window",
+      "prefix": "TP",
+      "count": 5,
+      "byDifficulty": {
+        "Easy": 1,
+        "Medium": 3,
+        "Hard": 1
+      }
+    }
+  ]
+}

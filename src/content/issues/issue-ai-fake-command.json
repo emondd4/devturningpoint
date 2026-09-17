@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-fake-command",
+  "title": "Fake CLI command",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Suggested shell command does not exist."
+  ],
+  "cause": "Suggested shell command does not exist.",
+  "solution": "Run --help / man; never trust unseen commands in prod.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

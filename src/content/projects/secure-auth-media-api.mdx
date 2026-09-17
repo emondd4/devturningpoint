@@ -1,0 +1,213 @@
+---
+id: "PBL-BE-B-002"
+title: "Secure Auth + Media API"
+slug: "secure-auth-media-api"
+track: "backend"
+level: "beginner"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for backend roles: auth and file/media upload endpoints appear regularly in API job descriptions."
+difficulty: "beginner"
+summary: "Auth API with media upload constraints and validation."
+portfolioPitch: "Security-minded REST with file handling and tests."
+estimatedHours: 26
+prerequisiteSkillIds:
+  - "BACKEND-REST"
+  - "BACKEND-AUTH"
+  - "BACKEND-VALIDATION"
+learningOutcomeSkillIds:
+  - "BACKEND-AUTH"
+  - "BACKEND-VALIDATION"
+  - "BACKEND-TESTING"
+recommendedTools:
+  - "NestJS/Express"
+  - "PostgreSQL"
+portfolioEvidence:
+  - "GitHub repo with README"
+  - "Architecture diagram"
+  - "Screenshots/demo"
+  - "Tests + CI evidence"
+  - "ADR/decision notes"
+  - "Reproducible run instructions"
+relatedTopicIds:
+  - "BACKEND-PRISMA-TYPEORM"
+  - "BACKEND-QUEUES"
+  - "BACKEND-NESTJS-AUTH-JWT"
+  - "BACKEND-RATE-LIMITING"
+  - "BACKEND-REDIS-CACHING"
+relatedInterviewQuestionIds:
+  - "BE-B-0001"
+  - "BE-B-0002"
+  - "BE-B-0003"
+  - "BE-B-0004"
+  - "BE-B-0005"
+  - "BE-B-0006"
+  - "BE-B-0007"
+  - "BE-B-0008"
+sources:
+  - "NESTJS-AUTH"
+  - "NESTJS-VALIDATION"
+  - "RFC-9110-HTTP"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-BE-B-002-M01"
+    title: "Auth skeleton"
+    objective: "Register/login."
+    whyItMatters: "Security baseline."
+    prerequisiteTopicIds:
+      - "BACKEND-PRISMA-TYPEORM"
+      - "BACKEND-QUEUES"
+    tasks:
+      - "Capture scope for 'Auth skeleton' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Register/login."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Auth skeleton"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Register/login. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-BE-B-002-M02"
+    title: "Protected routes"
+    objective: "Guards/middleware."
+    whyItMatters: "AuthZ basics."
+    prerequisiteTopicIds:
+      - "BACKEND-PRISMA-TYPEORM"
+      - "BACKEND-QUEUES"
+    tasks:
+      - "Capture scope for 'Protected routes' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Guards/middleware."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Protected routes"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Guards/middleware. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-BE-B-002-M03"
+    title: "Media upload"
+    objective: "Size/type limits."
+    whyItMatters: "Abuse resistance."
+    prerequisiteTopicIds:
+      - "BACKEND-NESTJS-AUTH-JWT"
+      - "BACKEND-RATE-LIMITING"
+    tasks:
+      - "Capture scope for 'Media upload' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Size/type limits."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Media upload"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Size/type limits. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-BE-B-002-M04"
+    title: "Tests"
+    objective: "Integration tests."
+    whyItMatters: "Evidence."
+    prerequisiteTopicIds:
+      - "BACKEND-NESTJS-AUTH-JWT"
+      - "BACKEND-RATE-LIMITING"
+    tasks:
+      - "Capture scope for 'Tests' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Integration tests."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Tests"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Integration tests. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Security-minded REST with file handling and tests.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: NestJS/Express, PostgreSQL.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to beginner
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

@@ -1,0 +1,36 @@
+{
+  "id": "PROMPT-UX-RESEARCH-PLAN",
+  "title": "UX research-plan drafting",
+  "track": "uiux",
+  "taskType": "ux-research",
+  "difficulty": "intermediate",
+  "whenToUse": "Structure a real research plan the human will execute.",
+  "whenNotToUse": "Asking the model to invent study results.",
+  "requiredInputs": [
+    "Research question",
+    "Constraints"
+  ],
+  "promptTemplate": "GOAL:\nDraft research plan for {{question}}.\n\nCONTEXT:\nConstraints: {{constraints}}.\n\nINPUT:\nDecisions to inform: {{decisions}}\n\nCONSTRAINTS:\n- Do not invent findings\n- Methods must match question\n\nOUTPUT:\nParticipants, script outline, analysis plan\n\nACCEPTANCE:\nHuman can run sessions from the plan.\n\nVERIFICATION:\nSuccess criteria for research quality—not product outcome claims.",
+  "badPrompt": "Tell me what users want.",
+  "improvedPrompt": "Plan 5 usability tests for save-invoice; do not invent results; include script and notes grid.",
+  "expectedOutput": "Executable research plan.",
+  "verificationChecklist": [
+    "No fabricated findings",
+    "Method fits question"
+  ],
+  "failureModes": [
+    "Fake insights"
+  ],
+  "privacySecurityNotes": [
+    "Privacy for participants"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-UIUX"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

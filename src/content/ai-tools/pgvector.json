@@ -1,0 +1,40 @@
+{
+  "id": "AI-TOOL-PGVECTOR",
+  "name": "pgvector",
+  "category": "retrieval",
+  "description": "PostgreSQL extension for vector similarity search alongside relational data.",
+  "bestFor": [
+    "RAG with existing Postgres",
+    "Strong transactional co-location"
+  ],
+  "notIdealFor": [
+    "Billion-scale ANN without careful ops"
+  ],
+  "prerequisites": [
+    "AI-EMBEDDINGS",
+    "AI-RAG-FUNDAMENTALS"
+  ],
+  "officialUrl": "https://github.com/pgvector/pgvector",
+  "docsUrl": "https://github.com/pgvector/pgvector",
+  "languageEcosystem": [
+    "SQL",
+    "PostgreSQL"
+  ],
+  "localOrCloud": "both",
+  "openSourceStatus": "open-source",
+  "costModelSummary": "Extension free; Postgres hosting costs apply.",
+  "securityNotes": [
+    "Row-level security for tenants",
+    "Index/embedding freshness"
+  ],
+  "relatedTopicIds": [
+    "AI-VECTOR-DATABASES",
+    "AI-RAG-FUNDAMENTALS"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-I-001",
+    "PBL-AI-A-003"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

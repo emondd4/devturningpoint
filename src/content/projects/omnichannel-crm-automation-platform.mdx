@@ -1,0 +1,215 @@
+---
+id: "PBL-FS-A-002"
+title: "Omnichannel CRM & Automation Platform"
+slug: "omnichannel-crm-automation-platform"
+track: "fullstack"
+level: "advanced"
+projectRole: "market-alternative"
+marketRelevance: "Observed in the Bangladesh job listings reviewed for senior fullstack/product engineers: CRM and automation platforms appear in SaaS-oriented roles."
+difficulty: "advanced"
+summary: "CRM with multi-channel touchpoints and automation rules."
+portfolioPitch: "Senior fullstack: tenancy-ish boundaries, automation, and ops readiness."
+estimatedHours: 55
+prerequisiteSkillIds:
+  - "FULLSTACK-AUTH-FLOWS"
+  - "FULLSTACK-CORS-CSRF"
+  - "DEVOPS-DOCKER"
+learningOutcomeSkillIds:
+  - "FULLSTACK-INTEGRATION"
+  - "FULLSTACK-SSR-BOUNDARIES"
+  - "FULLSTACK-E2E-TESTING"
+recommendedTools:
+  - "Next.js"
+  - "NestJS"
+  - "Postgres"
+  - "Docker"
+portfolioEvidence:
+  - "GitHub repo with README"
+  - "Architecture diagram"
+  - "Screenshots/demo"
+  - "Tests + CI evidence"
+  - "ADR/decision notes"
+  - "Reproducible run instructions"
+relatedTopicIds:
+  - "FULLSTACK-REALTIME"
+  - "FULLSTACK-OBSERVABILITY"
+  - "FULLSTACK-SSR-VS-SPA"
+  - "FULLSTACK-CSRF"
+  - "FULLSTACK-GRAPHQL-AWARENESS"
+relatedInterviewQuestionIds:
+  - "FS-A-0001"
+  - "FS-A-0002"
+  - "FS-A-0003"
+  - "FS-A-0004"
+  - "FS-A-0005"
+  - "FS-A-0006"
+  - "FS-A-0007"
+  - "FS-A-0008"
+sources:
+  - "REACT-SERVER-COMPONENTS"
+  - "NESTJS-AUTH"
+  - "DOCKER-GET-STARTED"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-FS-A-002-M01"
+    title: "Contact model"
+    objective: "Channels + timeline."
+    whyItMatters: "CRM core."
+    prerequisiteTopicIds:
+      - "FULLSTACK-REALTIME"
+      - "FULLSTACK-OBSERVABILITY"
+    tasks:
+      - "Capture scope for 'Contact model' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Channels + timeline."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Contact model"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Channels + timeline. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FS-A-002-M02"
+    title: "Automation rules"
+    objective: "Triggered actions."
+    whyItMatters: "Product power."
+    prerequisiteTopicIds:
+      - "FULLSTACK-REALTIME"
+      - "FULLSTACK-OBSERVABILITY"
+    tasks:
+      - "Capture scope for 'Automation rules' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Triggered actions."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Automation rules"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Triggered actions. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FS-A-002-M03"
+    title: "SSR boundaries"
+    objective: "Clear split."
+    whyItMatters: "Architecture."
+    prerequisiteTopicIds:
+      - "FULLSTACK-SSR-VS-SPA"
+      - "FULLSTACK-CSRF"
+    tasks:
+      - "Capture scope for 'SSR boundaries' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Clear split."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: SSR boundaries"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Clear split. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-FS-A-002-M04"
+    title: "Ops pack"
+    objective: "Compose + E2E."
+    whyItMatters: "Ship."
+    prerequisiteTopicIds:
+      - "FULLSTACK-SSR-VS-SPA"
+      - "FULLSTACK-CSRF"
+    tasks:
+      - "Capture scope for 'Ops pack' in PROJECT_PLAN.md"
+      - "Implement the smallest complete slice: Compose + E2E."
+      - "Document trade-offs and open questions"
+      - "Run this milestone validation checklist"
+    expectedArtifacts:
+      - "Deliverable proving: Ops pack"
+      - "Updated README or notes"
+      - "Portfolio evidence artifact"
+    validationChecklist:
+      - "Acceptance criteria met"
+      - "At least one failure path exercised"
+      - "Artifacts exist and are reviewable"
+    commonProblems:
+      - "Skipping validation"
+      - "Over-engineering early"
+      - "No saved evidence"
+    completionCriteria:
+      - "Compose + E2E. is demonstrable"
+      - "Checklist complete"
+      - "Evidence saved"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Integrity">
+Guide implementation; do not paste a finished solution.
+</Callout>
+
+## Why this project matters
+
+Senior fullstack: tenancy-ish boundaries, automation, and ops readiness.
+
+## Market / role relevance
+
+See frontmatter `marketRelevance`.
+
+## Architecture / approach
+
+Sketch first. Prefer locally runnable stacks. Record trade-offs in PROJECT_PLAN.md.
+
+Tools: Next.js, NestJS, Postgres, Docker.
+
+## Milestones
+
+Follow ordered milestones (WHAT / WHY / verify / evidence).
+
+## Step-by-step
+
+1. Write PROJECT_PLAN.md
+2. Ship milestone 1 as a thin vertical slice
+3. Add validation appropriate to advanced
+4. Advance only after checklist pass
+5. Finish portfolio pack + retrospective
+
+## Validation / security / performance / a11y
+
+Exercise failure paths. Secure defaults. Measure before optimizing. Cover keyboard/semantics when UI exists.
+
+## Deployment / stretch / retro / sources
+
+Document run/deploy. Stretch only after core AC. Answer hardest/failed/debug/trade-off/change/evidence. See frontmatter sources.
+

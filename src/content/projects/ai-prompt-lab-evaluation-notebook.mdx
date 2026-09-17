@@ -1,0 +1,220 @@
+---
+id: "PBL-AI-B-001"
+title: "Prompt Lab + Evaluation Notebook"
+titleBn: "Prompt Lab + Evaluation Notebook"
+slug: "ai-prompt-lab-evaluation-notebook"
+track: "ai-framework"
+level: "beginner"
+projectRole: "core"
+marketRelevance: "Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations."
+difficulty: "beginner"
+summary: "Design prompt variants, score them against a small gold set, and document cost/latency trade-offs without shipping an unverified chatbot."
+summaryBn: "Prompt variant ডিজাইন, ছোট gold set দিয়ে স্কোর, এবং unverified chatbot না পাঠিয়ে cost/latency ট্রেডঅফ ডকুমেন্ট করুন।"
+portfolioPitch: "Shows you can evaluate prompts with rubrics and evidence—not vibes."
+estimatedHours: 14
+prerequisiteSkillIds:
+  - "AI-LLM-FUNDAMENTALS"
+  - "AI-PROMPT-ENGINEERING"
+learningOutcomeSkillIds:
+  - "AI-PROMPT-ENGINEERING"
+  - "AI-EVALUATION"
+  - "AI-STRUCTURED-OUTPUTS"
+recommendedTools:
+  - "Python or TypeScript notebook"
+  - "Ollama or free-tier API with spend cap"
+  - "Git"
+portfolioEvidence:
+  - "PROMPT_VARIANTS.md"
+  - "GOLD_SET.jsonl (≥20 cases)"
+  - "EVAL_REPORT.md with rubric scores"
+  - "COST_LATENCY.md"
+  - "Security notes (no secrets in prompts)"
+relatedTopicIds:
+  - "AI-PROMPT-ENGINEERING"
+  - "AI-EVALUATION-BASICS"
+  - "AI-STRUCTURED-OUTPUTS"
+  - "AI-LLM-FUNDAMENTALS"
+relatedInterviewQuestionIds: []
+sources:
+  - "OPENAI-API-DOCS"
+  - "OLLAMA-DOCS"
+  - "OWASP-LLM-TOP10-2025"
+  - "OPENAI-STRUCTURED-OUTPUTS"
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+nextProjectId: "PBL-AI-B-002"
+status: "published"
+translationStatus: "partial"
+milestones:
+  - id: "PBL-AI-B-001-M01"
+    title: "Define task and rubric"
+    objective: "Write a single grounded task (summarize, extract, or classify) with a scoring rubric."
+    whyItMatters: "Without a rubric, “better prompt” is unfalsifiable."
+    prerequisiteTopicIds:
+      - "AI-PROMPT-ENGINEERING"
+      - "AI-EVALUATION-BASICS"
+    tasks:
+      - "Pick one task and non-goals"
+      - "Write 5–7 rubric criteria"
+      - "List failure modes"
+      - "Choose local/free model path first"
+    expectedArtifacts:
+      - "TASK_SPEC.md"
+      - "RUBRIC.md"
+    validationChecklist:
+      - "Rubric is binary/scoreable"
+      - "Non-goals explicit"
+      - "No paid API required to start"
+    commonProblems:
+      - "Vague quality criteria"
+      - "Scope creep into full product"
+    completionCriteria:
+      - "Peer can score a sample with the rubric"
+      - "Local/free path documented"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-B-001-M02"
+    title: "Build gold set"
+    objective: "Create ≥20 labeled examples covering edge cases."
+    whyItMatters: "Eval without gold data is demo theater."
+    prerequisiteTopicIds:
+      - "AI-EVALUATION-BASICS"
+    tasks:
+      - "Collect or invent realistic inputs"
+      - "Label expected outputs"
+      - "Tag hard cases"
+      - "Store as JSONL"
+    expectedArtifacts:
+      - "GOLD_SET.jsonl"
+      - "EDGE_CASES.md"
+    validationChecklist:
+      - "≥20 rows"
+      - "Labels reviewable"
+      - "PII absent or synthetic"
+    commonProblems:
+      - "All easy cases"
+      - "Copying copyrighted corpora wholesale"
+    completionCriteria:
+      - "JSONL loads cleanly"
+      - "Edge tags present"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-B-001-M03"
+    title: "Prompt variants + structured outputs"
+    objective: "Implement ≥3 prompt variants; prefer schema-constrained outputs where applicable."
+    whyItMatters: "Structured outputs reduce brittle parsing and silent failures."
+    prerequisiteTopicIds:
+      - "AI-STRUCTURED-OUTPUTS"
+      - "AI-PROMPT-ENGINEERING"
+    tasks:
+      - "Write baseline/improved/strict prompts"
+      - "Add JSON schema or typed parser"
+      - "Log raw + parsed outputs"
+      - "Record tokens/time per run"
+    expectedArtifacts:
+      - "PROMPT_VARIANTS.md"
+      - "schema file"
+      - "run logs"
+    validationChecklist:
+      - "Three variants committed"
+      - "Parser fails closed"
+      - "Token/time logged"
+    commonProblems:
+      - "Invisible prompt edits"
+      - "Ignoring parse errors"
+    completionCriteria:
+      - "Notebook/script reproduces scores"
+      - "Schema rejects bad output"
+    relatedInterviewQuestionIds: []
+  - id: "PBL-AI-B-001-M04"
+    title: "Score, cost, latency, retro"
+    objective: "Score all variants; publish EVAL_REPORT + COST_LATENCY; pick a winner with caveats."
+    whyItMatters: "Shipping without numbers hides regressions and surprise bills."
+    prerequisiteTopicIds:
+      - "AI-EVALUATION-BASICS"
+    tasks:
+      - "Run eval harness"
+      - "Compute rubric averages"
+      - "Note cost/latency"
+      - "Security pass on prompt contents"
+    expectedArtifacts:
+      - "EVAL_REPORT.md"
+      - "COST_LATENCY.md"
+      - "RETRO.md"
+    validationChecklist:
+      - "Winner justified with numbers"
+      - "Failures listed"
+      - "Spend warning if paid API used"
+    commonProblems:
+      - "Cherry-picking examples"
+      - "Hiding failed cases"
+    completionCriteria:
+      - "Report reproducible from GOLD_SET"
+      - "Honest caveats"
+    relatedInterviewQuestionIds: []
+---
+
+import Callout from '../../components/content/Callout.astro';
+
+<Callout type="warning" title="Paid APIs are optional">
+Prefer local/free options (Ollama, open models, sample datasets) first. If you use a paid provider API, set spend limits, never commit keys, and warn teammates before enabling billable calls.
+</Callout>
+
+<Callout type="info" title="No site API keys required">
+The Dev Turning Point website stays static. Run models and tools on your machine or your own cloud account.
+</Callout>
+
+## Why this project matters
+
+Prompt quality is an engineering property. This lab builds gold sets, rubrics, and cost/latency notes before product polish.
+
+## Market / role relevance
+
+Observed in Bangladesh job listings reviewed for software roles: AI feature delivery and AI-assisted engineering appear as plus skills, while verification, security judgment, and measurable quality remain baseline expectations.
+
+## What job skills it proves
+
+Verifiable prompting, structured outputs, lightweight evaluation, and honest cost reporting.
+
+## Prerequisites
+
+AI LLM fundamentals and prompt engineering topics—or Start Anyway knowing you will rebuild the rubric.
+
+## Architecture / approach
+
+Offline notebook/CLI: inputs → prompt variant → model → parser → rubric scorer → report artifacts.
+
+## Recommended tools
+
+Notebook + Ollama (preferred) or a capped free/paid API. Never commit API keys.
+
+## Setup
+
+1. Create a private working repo.
+2. Prefer Ollama locally.
+3. If using a paid API, set a hard spend limit and document it in COST_LATENCY.md first.
+
+## Step-by-step guidance
+
+Complete milestones M01–M04. Keep the gold set tiny but real; depth beats volume.
+
+## Evaluation / security / cost / latency notes
+
+**Eval:** rubric scores on held-out cases.
+**Security:** no secrets/PII in prompts; treat model output as untrusted.
+**Cost/latency:** log tokens and wall time; prefer local when quality is close.
+
+## Portfolio evidence
+
+Save every item listed in frontmatter `portfolioEvidence`. Include eval scores, cost/latency notes, and security checklist outcomes.
+
+## Stretch goals
+
+Add a regression gate that fails CI if average score drops >10%.
+
+## Retrospective
+
+Which failure mode did the rubric miss? Would you pay for a stronger model after seeing the numbers?
+
+## Sources
+
+See frontmatter sources (official docs + OWASP GenAI where security applies).

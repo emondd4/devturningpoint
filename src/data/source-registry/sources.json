@@ -253,7 +253,7 @@
   },
   {
     "id": "NESTJS-ARCHITECTURE",
-    "title": "NestJS Documentation \u2014 Controllers & Modules",
+    "title": "NestJS Documentation — Controllers & Modules",
     "url": "https://docs.nestjs.com/modules",
     "publisher": "NestJS",
     "sourceType": "official-docs",
@@ -343,7 +343,7 @@
   },
   {
     "id": "GHA-WORKFLOWS",
-    "title": "GitHub Actions \u2014 Workflow syntax",
+    "title": "GitHub Actions — Workflow syntax",
     "url": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
     "publisher": "GitHub",
     "sourceType": "official-docs",
@@ -370,7 +370,7 @@
   },
   {
     "id": "AWS-CLOUD-CONCEPTS",
-    "title": "AWS Cloud Practitioner Essentials \u2014 Cloud concepts",
+    "title": "AWS Cloud Practitioner Essentials — Cloud concepts",
     "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html",
     "publisher": "Amazon Web Services",
     "sourceType": "official-docs",
@@ -747,7 +747,7 @@
   },
   {
     "id": "src-basis-exporters-tbs",
-    "title": "BASIS honours top IT exporters of fiscal year 2024\u201325",
+    "title": "BASIS honours top IT exporters of fiscal year 2024–25",
     "url": "https://www.tbsnews.net/economy/corporates/basis-honours-top-it-exporters-fiscal-year-2024-25-1346541",
     "publisher": "The Business Standard",
     "sourceType": "news",
@@ -1093,7 +1093,7 @@
   },
   {
     "id": "MATERIAL-TYPE-SCALE",
-    "title": "Material Design 3 \u2014 Typography",
+    "title": "Material Design 3 — Typography",
     "url": "https://m3.material.io/styles/typography/overview",
     "publisher": "Google",
     "sourceType": "official-docs",
@@ -1102,7 +1102,7 @@
   },
   {
     "id": "MATERIAL-COLOR",
-    "title": "Material Design 3 \u2014 Color",
+    "title": "Material Design 3 — Color",
     "url": "https://m3.material.io/styles/color/overview",
     "publisher": "Google",
     "sourceType": "official-docs",
@@ -1111,7 +1111,7 @@
   },
   {
     "id": "NN-G-IA",
-    "title": "Information Architecture \u2014 NN/g",
+    "title": "Information Architecture — NN/g",
     "url": "https://www.nngroup.com/articles/ia-vs-navigation/",
     "publisher": "Nielsen Norman Group",
     "sourceType": "community",
@@ -1120,7 +1120,7 @@
   },
   {
     "id": "NN-G-RESEARCH",
-    "title": "UX Research Methods \u2014 NN/g",
+    "title": "UX Research Methods — NN/g",
     "url": "https://www.nngroup.com/articles/which-ux-research-methods/",
     "publisher": "Nielsen Norman Group",
     "sourceType": "community",
@@ -1138,7 +1138,7 @@
   },
   {
     "id": "PMI-PMP",
-    "title": "Project Management Professional (PMP) \u2014 PMI",
+    "title": "Project Management Professional (PMP) — PMI",
     "url": "https://www.pmi.org/certifications/project-management-pmp",
     "publisher": "PMI",
     "sourceType": "official-docs",
@@ -1165,7 +1165,7 @@
   },
   {
     "id": "GHA-WORKFLOWS-CI",
-    "title": "GitHub Actions \u2014 Workflow syntax",
+    "title": "GitHub Actions — Workflow syntax",
     "url": "https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions",
     "publisher": "GitHub",
     "sourceType": "official-docs",
@@ -1237,7 +1237,7 @@
   },
   {
     "id": "POSIX-FILESYSTEM",
-    "title": "POSIX.1-2017 Base Definitions \u2014 Pathname resolution",
+    "title": "POSIX.1-2017 Base Definitions — Pathname resolution",
     "url": "https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html",
     "publisher": "The Open Group",
     "sourceType": "specification",
@@ -1246,7 +1246,7 @@
   },
   {
     "id": "NIST-SP800-63B",
-    "title": "NIST SP 800-63B Digital Identity Guidelines \u2014 Authentication",
+    "title": "NIST SP 800-63B Digital Identity Guidelines — Authentication",
     "url": "https://pages.nist.gov/800-63-3/sp800-63b.html",
     "publisher": "NIST",
     "sourceType": "specification",
@@ -1399,7 +1399,7 @@
   },
   {
     "id": "CHROME-DEVTOOLS-DEBUG",
-    "title": "Chrome DevTools \u2014 Debug JavaScript",
+    "title": "Chrome DevTools — Debug JavaScript",
     "url": "https://developer.chrome.com/docs/devtools/javascript/",
     "publisher": "Google Chrome",
     "sourceType": "official-docs",
@@ -1408,7 +1408,7 @@
   },
   {
     "id": "WRITE-THE-DOCS-GUIDE",
-    "title": "Docs for Developers / Write the Docs \u2014 Documentation Guide",
+    "title": "Docs for Developers / Write the Docs — Documentation Guide",
     "url": "https://www.writethedocs.org/guide/",
     "publisher": "Write the Docs",
     "sourceType": "community",
@@ -1507,7 +1507,7 @@
   },
   {
     "id": "GOOGLE-SRE-SLO",
-    "title": "Service Level Objectives \u2014 Google SRE Book",
+    "title": "Service Level Objectives — Google SRE Book",
     "url": "https://sre.google/sre-book/service-level-objectives/",
     "publisher": "Google",
     "sourceType": "engineering-blog",
@@ -1624,7 +1624,7 @@
   },
   {
     "id": "ELASTIC-LOGS",
-    "title": "Elastic Observability \u2014 Logs",
+    "title": "Elastic Observability — Logs",
     "url": "https://www.elastic.co/guide/en/observability/current/logs-app-overview.html",
     "publisher": "Elastic",
     "sourceType": "official-docs",
@@ -1660,7 +1660,7 @@
   },
   {
     "id": "MDN-ARIA",
-    "title": "ARIA \u2014 Accessibility",
+    "title": "ARIA — Accessibility",
     "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA",
     "publisher": "MDN",
     "sourceType": "official-docs",
@@ -2038,7 +2038,7 @@
   },
   {
     "id": "PRISMA-DOCS",
-    "title": "Prisma Docs \u2014 ORM",
+    "title": "Prisma Docs — ORM",
     "url": "https://www.prisma.io/docs/orm",
     "publisher": "Prisma",
     "sourceType": "official-docs",
@@ -2110,7 +2110,7 @@
   },
   {
     "id": "MDN-HTTP-PAGINATION",
-    "title": "MDN HTTP \u2014 Range / caching related patterns context",
+    "title": "MDN HTTP — Range / caching related patterns context",
     "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP",
     "publisher": "MDN",
     "sourceType": "official-docs",
@@ -2317,7 +2317,7 @@
   },
   {
     "id": "AWS-WELL-ARCHITECTED-COST",
-    "title": "AWS Well-Architected Framework \u2014 Cost Optimization Pillar",
+    "title": "AWS Well-Architected Framework — Cost Optimization Pillar",
     "url": "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html",
     "publisher": "Amazon Web Services",
     "sourceType": "official-docs",
@@ -2326,7 +2326,7 @@
   },
   {
     "id": "GOOGLE-SRE-EMERGENCY",
-    "title": "Emergency Response \u2014 Google SRE Book",
+    "title": "Emergency Response — Google SRE Book",
     "url": "https://sre.google/sre-book/emergency-response/",
     "publisher": "Google",
     "sourceType": "engineering-blog",
@@ -2362,7 +2362,7 @@
   },
   {
     "id": "NN-G-USABILITY-TESTING",
-    "title": "Usability Testing 101 \u2014 Nielsen Norman Group",
+    "title": "Usability Testing 101 — Nielsen Norman Group",
     "url": "https://www.nngroup.com/articles/usability-testing-101/",
     "publisher": "Nielsen Norman Group",
     "sourceType": "community",
@@ -2371,7 +2371,7 @@
   },
   {
     "id": "NN-G-MICROCOPY",
-    "title": "Microcopy \u2014 Nielsen Norman Group",
+    "title": "Microcopy — Nielsen Norman Group",
     "url": "https://www.nngroup.com/articles/microcopy-ux/",
     "publisher": "Nielsen Norman Group",
     "sourceType": "community",
@@ -2380,7 +2380,7 @@
   },
   {
     "id": "W3C-CONTRAST",
-    "title": "WCAG 2.2 \u2014 Contrast (Minimum)",
+    "title": "WCAG 2.2 — Contrast (Minimum)",
     "url": "https://www.w3.org/TR/WCAG22/#contrast-minimum",
     "publisher": "W3C",
     "sourceType": "specification",
@@ -2389,7 +2389,7 @@
   },
   {
     "id": "MATERIAL-MOBILE",
-    "title": "Material Design \u2014 Layout & navigation patterns",
+    "title": "Material Design — Layout & navigation patterns",
     "url": "https://m3.material.io/foundations/layout/understanding-layout/overview",
     "publisher": "Google",
     "sourceType": "official-docs",
@@ -2398,7 +2398,7 @@
   },
   {
     "id": "GOOGLE-OKRS",
-    "title": "Google re:Work \u2014 OKRs / Goal setting",
+    "title": "Google re:Work — OKRs / Goal setting",
     "url": "https://rework.withgoogle.com/intl/en/guides/set-goals-with-okrs/",
     "publisher": "Google",
     "sourceType": "community",
@@ -2503,5 +2503,367 @@
     "sourceType": "official-docs",
     "accessedDate": "2026-09-15",
     "authorityTier": "S1"
+  },
+  {
+    "id": "CURSOR-DOCS-RULES",
+    "title": "Cursor Docs — Rules",
+    "url": "https://cursor.com/docs/rules",
+    "publisher": "Cursor",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "CURSOR-DOCS-SKILLS",
+    "title": "Cursor Docs — Skills",
+    "url": "https://cursor.com/docs/skills",
+    "publisher": "Cursor",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "CURSOR-DOCS-MCP",
+    "title": "Cursor Docs — Model Context Protocol",
+    "url": "https://cursor.com/docs/mcp",
+    "publisher": "Cursor",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MCP-SPEC-2026-07-28",
+    "title": "Model Context Protocol Specification (2026-07-28)",
+    "url": "https://modelcontextprotocol.io/specification/2026-07-28",
+    "publisher": "Model Context Protocol",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OWASP-LLM-TOP10-2025",
+    "title": "OWASP Top 10 for LLM Applications 2025",
+    "url": "https://genai.owasp.org/llm-top-10/",
+    "publisher": "OWASP GenAI Security Project",
+    "sourceType": "specification",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OPENAI-API-DOCS",
+    "title": "OpenAI API Documentation",
+    "url": "https://platform.openai.com/docs",
+    "publisher": "OpenAI",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "ANTHROPIC-API-DOCS",
+    "title": "Anthropic API Documentation",
+    "url": "https://docs.anthropic.com/",
+    "publisher": "Anthropic",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "LANGCHAIN-DOCS",
+    "title": "LangChain Documentation",
+    "url": "https://python.langchain.com/docs/",
+    "publisher": "LangChain",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "LANGGRAPH-DOCS",
+    "title": "LangGraph Documentation",
+    "url": "https://langchain-ai.github.io/langgraph/",
+    "publisher": "LangChain",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "LLAMAINDEX-DOCS",
+    "title": "LlamaIndex Documentation",
+    "url": "https://docs.llamaindex.ai/",
+    "publisher": "LlamaIndex",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OLLAMA-DOCS",
+    "title": "Ollama Documentation",
+    "url": "https://github.com/ollama/ollama",
+    "publisher": "Ollama",
+    "sourceType": "github",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "PGVECTOR-DOCS",
+    "title": "pgvector Documentation",
+    "url": "https://github.com/pgvector/pgvector",
+    "publisher": "pgvector",
+    "sourceType": "github",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OPENAI-STRUCTURED-OUTPUTS",
+    "title": "OpenAI Structured Outputs",
+    "url": "https://platform.openai.com/docs/guides/structured-outputs",
+    "publisher": "OpenAI",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "ANTHROPIC-TOOL-USE",
+    "title": "Anthropic Tool Use",
+    "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+    "publisher": "Anthropic",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "VERCEL-AI-SDK-DOCS",
+    "title": "Vercel AI SDK Docs",
+    "url": "https://sdk.vercel.ai/docs",
+    "publisher": "Vercel",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GEMINI-API-DOCS",
+    "title": "Google Gemini API Docs",
+    "url": "https://ai.google.dev/gemini-api/docs",
+    "publisher": "Google",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "PYTORCH-DOCS",
+    "title": "PyTorch Documentation",
+    "url": "https://pytorch.org/docs/",
+    "publisher": "PyTorch",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "HF-TRANSFORMERS-DOCS",
+    "title": "Hugging Face Transformers Docs",
+    "url": "https://huggingface.co/docs/transformers",
+    "publisher": "Hugging Face",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "HF-PEFT-DOCS",
+    "title": "Hugging Face PEFT Docs",
+    "url": "https://huggingface.co/docs/peft",
+    "publisher": "Hugging Face",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "VLLM-DOCS",
+    "title": "vLLM Documentation",
+    "url": "https://docs.vllm.ai/",
+    "publisher": "vLLM",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "PINECONE-DOCS",
+    "title": "Pinecone Documentation",
+    "url": "https://docs.pinecone.io/",
+    "publisher": "Pinecone",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "WEAVIATE-DOCS",
+    "title": "Weaviate Documentation",
+    "url": "https://weaviate.io/developers/weaviate",
+    "publisher": "Weaviate",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "QDRANT-DOCS",
+    "title": "Qdrant Documentation",
+    "url": "https://qdrant.tech/documentation/",
+    "publisher": "Qdrant",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "CHROMA-DOCS",
+    "title": "Chroma Documentation",
+    "url": "https://docs.trychroma.com/",
+    "publisher": "Chroma",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FAISS-WIKI",
+    "title": "FAISS Wiki",
+    "url": "https://github.com/facebookresearch/faiss/wiki",
+    "publisher": "Facebook Research",
+    "sourceType": "github",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "LANGSMITH-DOCS",
+    "title": "LangSmith Documentation",
+    "url": "https://docs.smith.langchain.com/",
+    "publisher": "LangChain",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "MLFLOW-DOCS",
+    "title": "MLflow Documentation",
+    "url": "https://mlflow.org/docs/latest/index.html",
+    "publisher": "MLflow",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FASTAPI-DOCS",
+    "title": "FastAPI Documentation",
+    "url": "https://fastapi.tiangolo.com/",
+    "publisher": "FastAPI",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "GITHUB-COPILOT-DOCS",
+    "title": "GitHub Copilot Documentation",
+    "url": "https://docs.github.com/en/copilot",
+    "publisher": "GitHub",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "CURSOR-DOCS-AGENT",
+    "title": "Cursor Docs — Agent",
+    "url": "https://cursor.com/docs/agent/overview",
+    "publisher": "Cursor",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-16",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "OWASP-MOBILE-TOP10",
+    "title": "OWASP Mobile Top 10",
+    "url": "https://owasp.org/www-project-mobile-top-10/",
+    "publisher": "OWASP",
+    "sourceType": "community",
+    "accessedDate": "2026-09-18",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "KEYCLOAK-DOCS",
+    "title": "Keycloak Documentation",
+    "url": "https://www.keycloak.org/documentation",
+    "publisher": "Keycloak",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-18",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FLUTTER-LOCAL-AUTH",
+    "title": "local_auth — biometric and device authentication",
+    "url": "https://pub.dev/packages/local_auth",
+    "publisher": "Flutter / pub.dev",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-18",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "SENTRY-FLUTTER-DOCS",
+    "title": "Sentry for Flutter",
+    "url": "https://docs.sentry.io/platforms/flutter/",
+    "publisher": "Sentry",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-18",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "FASTLANE-DOCS",
+    "title": "fastlane docs",
+    "url": "https://docs.fastlane.tools/",
+    "publisher": "fastlane",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-18",
+    "authorityTier": "S1"
+  },
+  {
+    "id": "HIVE-DOCS",
+    "title": "Hive — lightweight NoSQL database docs",
+    "url": "https://docs.hivedb.dev/",
+    "publisher": "Hive",
+    "sourceType": "official-docs",
+    "accessedDate": "2026-09-18",
+    "authorityTier": "S2"
+  },
+  {
+    "id": "src-job-pksf-senior-mobile",
+    "title": "Terms of Reference: Senior Mobile Application Developer - Palli Karma-Sahayak Foundation (PKSF)",
+    "url": "https://recruitment.pksf.org.bd/storage/app/public/46/tor-82-2026-09-06.pdf",
+    "publisher": "PKSF",
+    "sourceType": "job-posting",
+    "publishedDate": "2026-09-06",
+    "accessedDate": "2026-09-18",
+    "authorityTier": "S3"
+  },
+  {
+    "id": "src-bd-interview-questions-repo",
+    "title": "interview-questions-bangladesh: crowd-sourced interview questions from Bangladeshi tech companies",
+    "url": "https://github.com/TamimEhsan/interview-questions-bangladesh",
+    "publisher": "Tamim Ehsan (community-maintained, GitHub)",
+    "sourceType": "github",
+    "accessedDate": "2026-09-18",
+    "authorityTier": "S3"
+  },
+  {
+    "id": "src-bdtechjobs-interview-blog",
+    "title": "Software Engineer Interview Questions Asked by Bangladeshi Companies (2026)",
+    "url": "https://www.bdtechjobs.com/blog/software-engineer-interview-questions-bangladesh",
+    "publisher": "BD Tech Jobs",
+    "sourceType": "community",
+    "accessedDate": "2026-09-18",
+    "authorityTier": "S3"
+  },
+  {
+    "id": "src-job-pksf-mobile",
+    "title": "Terms of Reference: Mobile Application Developer - Palli Karma-Sahayak Foundation (PKSF)",
+    "url": "https://recruitment.pksf.org.bd/storage/app/public/46/tor-83-2026-09-06.pdf",
+    "publisher": "PKSF",
+    "sourceType": "job-posting",
+    "publishedDate": "2026-09-06",
+    "accessedDate": "2026-09-18",
+    "authorityTier": "S3"
   }
 ]

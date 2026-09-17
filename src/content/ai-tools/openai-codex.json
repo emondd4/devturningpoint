@@ -1,0 +1,39 @@
+{
+  "id": "AI-TOOL-OPENAI-CODEX",
+  "name": "OpenAI Codex / coding agents",
+  "category": "coding-agents",
+  "description": "OpenAI coding-agent surfaces that assist with repository tasks via model APIs and agent workflows.",
+  "bestFor": [
+    "API-driven coding assistance",
+    "Teams already on OpenAI platform"
+  ],
+  "notIdealFor": [
+    "Offline-only environments",
+    "Unreviewed production commits"
+  ],
+  "prerequisites": [
+    "AI-LLM-FUNDAMENTALS",
+    "AI-PROMPT-ENGINEERING"
+  ],
+  "officialUrl": "https://platform.openai.com/",
+  "docsUrl": "https://platform.openai.com/docs",
+  "languageEcosystem": [
+    "multi-language"
+  ],
+  "localOrCloud": "cloud",
+  "openSourceStatus": "proprietary",
+  "costModelSummary": "Usage-based API / product tiers; verify current pricing on OpenAI.",
+  "securityNotes": [
+    "Do not paste secrets",
+    "Verify packages and APIs before install"
+  ],
+  "relatedTopicIds": [
+    "AI-CODING-AGENTS-CURSOR",
+    "AI-PROMPT-ENGINEERING"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-B-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

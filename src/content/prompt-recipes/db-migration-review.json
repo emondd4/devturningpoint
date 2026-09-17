@@ -1,0 +1,36 @@
+{
+  "id": "PROMPT-DB-MIGRATION-REVIEW",
+  "title": "DB migration review",
+  "track": "database",
+  "taskType": "database",
+  "difficulty": "advanced",
+  "whenToUse": "Before applying a migration in shared environments.",
+  "whenNotToUse": "Toy local schema with no data.",
+  "requiredInputs": [
+    "Migration SQL",
+    "Rollback plan"
+  ],
+  "promptTemplate": "GOAL:\nReview migration {{name}} for safety and rollback.\n\nCONTEXT:\nDB: {{engine}}. Table sizes if known: {{sizes}}.\n\nINPUT:\n{{sql}}\n\nCONSTRAINTS:\n- Flag locks, destructive drops, missing rollback\n\nOUTPUT:\nRisks + safer sequence\n\nACCEPTANCE:\nRollback path exists or explicitly impossible with reason.\n\nVERIFICATION:\nEXPLAIN/lock notes where relevant.",
+  "badPrompt": "Ship the migration.",
+  "improvedPrompt": "Review ALTER for ACCESS EXCLUSIVE locks; propose expand/contract; require rollback notes.",
+  "expectedOutput": "Migration risk review.",
+  "verificationChecklist": [
+    "Lock risks noted",
+    "Rollback addressed"
+  ],
+  "failureModes": [
+    "Destructive SQL unnoticed"
+  ],
+  "privacySecurityNotes": [
+    "No prod dumps in prompt"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-DATABASE"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

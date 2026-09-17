@@ -10,6 +10,8 @@ import SkillGraphView from '../../../../components/graph/SkillGraphView';
 import ContinueLearningCard from '../../../../components/progress/ContinueLearningCard';
 import TrackProjectsSection from '../../../../components/projects/TrackProjectsSection';
 import { toProjectCard, projectsForTrack } from '../../../../data/projects/catalog';
+import { trackIcon } from '../../../../data/navigation';
+import MaterialIcon from '../../../../components/ui/MaterialIcon.astro';
 
 export function getStaticPaths() {
   const locales = ['en', 'bn'] as const;
@@ -78,18 +80,30 @@ const trackProjects = projectsForTrack(
     </nav>
 
     <div class="flex flex-wrap items-start justify-between gap-4">
-      <div>
-        <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold text-[var(--color-ink)]">
-          {isBn ? track.titleBn : track.title}
-        </h1>
-        <p class="mt-3 max-w-2xl text-[var(--color-ink-muted)]">{isBn ? track.summaryBn : track.summary}</p>
-        <p class="mt-2 text-sm text-[var(--color-ink-subtle)]">
-          {orderedTopics.length} {isBn ? 'লার্নিং টপিক' : 'learning topics'} · {track.primaryStack.join(' · ')}
-        </p>
+      <div class="flex min-w-0 items-start gap-4">
+        <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-[var(--radius-lg)] bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)] text-[var(--color-primary)]">
+          <MaterialIcon name={trackIcon(track.id)} size={28} />
+        </span>
+        <div>
+          <h1 class="font-[family-name:var(--font-display)] text-3xl font-semibold text-[var(--color-text)]">
+            {isBn ? track.titleBn : track.title}
+          </h1>
+          <p class="mt-3 max-w-2xl text-[var(--color-text-secondary)]">{isBn ? track.summaryBn : track.summary}</p>
+          <p class="mt-2 text-sm text-[var(--color-text-muted)]">
+            {orderedTopics.length} {isBn ? 'লার্নিং টপিক' : 'learning topics'} · {track.primaryStack.join(' · ')}
+          </p>
+        </div>
       </div>
-      <a class="btn btn-primary" href={localePath(locale, `tracks/${track.slug}/assessment`)}>
-        {isBn ? 'Assessment শুরু করুন' : 'Start assessment'}
-      </a>
+      <div class="flex flex-wrap gap-2">
+        <a class="btn btn-primary" href={localePath(locale, `tracks/${track.slug}/assessment`)}>
+          <MaterialIcon name="assignment" size={18} />
+          {isBn ? 'Assessment শুরু করুন' : 'Start assessment'}
+        </a>
+        <a class="btn btn-secondary" href={localePath(locale, 'projects')}>
+          <MaterialIcon name="code" size={18} />
+          {isBn ? 'প্রজেক্ট' : 'Projects'}
+        </a>
+      </div>
     </div>
 
     <div class="mt-6">
@@ -161,6 +175,30 @@ const trackProjects = projectsForTrack(
     </section>
 
     <TrackProjectsSection client:load locale={locale} trackId={track.id} projects={trackProjects} />
+
+    {
+      track.id !== 'ai-framework' && (
+        <section class="mt-10">
+          <h2 class="text-xl font-semibold text-[var(--color-ink)]">
+            {isBn ? 'এই রোলে নিরাপদে AI ব্যবহার' : 'Using AI safely in this role'}
+          </h2>
+          <p class="mt-2 text-sm text-[var(--color-ink-muted)]">
+            {
+              isBn
+                ? 'রোল-নির্দিষ্ট AI workflow—যাচাই ও evidence ছাড়া merge নয়।'
+                : 'Role-specific AI workflows—never merge without verification evidence.'
+            }
+          </p>
+          <p class="mt-3 text-sm">
+            <a href={localePath(locale, 'ai')}>{isBn ? 'AI and Framework hub' : 'AI and Framework hub'}</a>
+            {' · '}
+            <a href={localePath(locale, 'ai/verify')}>{isBn ? 'Verify playbook' : 'Verify playbook'}</a>
+            {' · '}
+            <a href={localePath(locale, 'ai/prompt-recipes')}>{isBn ? 'Prompt recipes' : 'Prompt recipes'}</a>
+          </p>
+        </section>
+      )
+    }
 
     <section class="mt-10">
       <h2 class="text-xl font-semibold text-[var(--color-ink)]">{isBn ? 'স্কিল গ্রাফ' : 'Skill graph'}</h2>

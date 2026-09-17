@@ -1,0 +1,25 @@
+---
+import { withBase } from '../../i18n/config';
+import { siteConfig } from '../../config/site';
+
+interface Props {
+  variant?: 'wordmark' | 'icon';
+  class?: string;
+  height?: number;
+}
+
+const { variant = 'wordmark', class: className = '', height } = Astro.props;
+const src = withBase(variant === 'icon' ? siteConfig.brand.icon : siteConfig.brand.wordmark);
+const h = height ?? (variant === 'icon' ? 36 : 40);
+const w = variant === 'icon' ? h : Math.round(h * 3.2);
+---
+
+<img
+  src={src}
+  alt={siteConfig.siteName}
+  width={w}
+  height={h}
+  class:list={['block object-contain', className]}
+  decoding="async"
+  loading="eager"
+/>

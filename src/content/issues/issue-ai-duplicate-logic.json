@@ -1,0 +1,20 @@
+{
+  "id": "issue-ai-duplicate-logic",
+  "title": "Duplicate existing logic",
+  "technology": "AI / GenAI",
+  "platform": "Any",
+  "symptoms": [
+    "Agent reimplements helpers already in repo."
+  ],
+  "cause": "Agent reimplements helpers already in repo.",
+  "solution": "Search codebase first; reuse modules.",
+  "status": "VERIFIED",
+  "relatedTopics": [
+    "AI-SECURITY-OWASP",
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "sources": [
+    "OWASP-LLM-TOP10-2025"
+  ],
+  "lastVerified": "2026-09-16"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "PROMPT-IMPLEMENT-MILESTONE",
+  "title": "Implement one milestone",
+  "track": "ai-framework",
+  "taskType": "implementation",
+  "difficulty": "beginner",
+  "whenToUse": "You already have a plan and want a single slice.",
+  "whenNotToUse": "You ask for the entire product in one shot.",
+  "requiredInputs": [
+    "Milestone text",
+    "Acceptance criteria"
+  ],
+  "promptTemplate": "GOAL:\nImplement ONLY milestone {{milestoneId}}: {{milestoneTitle}}.\n\nCONTEXT:\nFollow existing patterns in {{paths}}.\n\nINPUT:\nAcceptance: {{acceptance}}.\n\nCONSTRAINTS:\n- No unrelated refactors\n- No new deps unless justified and verified\n- Keep diff reviewable\n\nOUTPUT:\nCode changes + how to test\n\nACCEPTANCE:\nMilestone validation checklist passes.\n\nVERIFICATION:\nCommands to run + expected evidence.",
+  "badPrompt": "Build everything in the plan now.",
+  "improvedPrompt": "Implement only M01 auth middleware; do not touch UI; no new packages; show test command.",
+  "expectedOutput": "A small diff with test steps.",
+  "verificationChecklist": [
+    "Diff limited to milestone",
+    "Dependencies verified",
+    "Tests listed"
+  ],
+  "failureModes": [
+    "Silent dependency upgrades",
+    "Overbroad refactor"
+  ],
+  "privacySecurityNotes": [
+    "No secrets in prompts"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "relatedProjects": [
+    "PBL-AI-B-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "PROMPT-SQL-EXPLAIN",
+  "title": "SQL/EXPLAIN analysis",
+  "track": "database",
+  "taskType": "database",
+  "difficulty": "intermediate",
+  "whenToUse": "Query is slow or suspicious.",
+  "whenNotToUse": "No EXPLAIN output available and you invent one.",
+  "requiredInputs": [
+    "Query",
+    "EXPLAIN plan"
+  ],
+  "promptTemplate": "GOAL:\nInterpret EXPLAIN for {{queryPurpose}}.\n\nCONTEXT:\nEngine: {{engine}}.\n\nINPUT:\nSQL + EXPLAIN: {{explain}}\n\nCONSTRAINTS:\n- Do not invent plans\n- Propose indexes carefully\n\nOUTPUT:\nBottleneck + next experiment\n\nACCEPTANCE:\nAdvice tied to actual plan nodes.\n\nVERIFICATION:\nCite plan lines.",
+  "badPrompt": "Make it fast.",
+  "improvedPrompt": "Given this EXPLAIN ANALYZE, identify seq scan cause and propose one index experiment.",
+  "expectedOutput": "Plan-grounded tuning advice.",
+  "verificationChecklist": [
+    "Uses real EXPLAIN",
+    "One experiment"
+  ],
+  "failureModes": [
+    "Fabricated plans"
+  ],
+  "privacySecurityNotes": [
+    "Mask tenant data in samples"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-DATABASE"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

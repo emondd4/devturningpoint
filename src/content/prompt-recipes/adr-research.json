@@ -1,0 +1,37 @@
+{
+  "id": "PROMPT-ADR-RESEARCH",
+  "title": "Architecture decision research",
+  "track": "ai-framework",
+  "taskType": "architecture",
+  "difficulty": "advanced",
+  "whenToUse": "Compare options with criteria before committing.",
+  "whenNotToUse": "Popularity contests without criteria.",
+  "requiredInputs": [
+    "Problem",
+    "Constraints"
+  ],
+  "promptTemplate": "GOAL:\nADR research for {{decision}}.\n\nCONTEXT:\nConstraints: {{constraints}}.\n\nINPUT:\nOptions: {{options}}\n\nCONSTRAINTS:\n- Criteria first\n- Cite official docs\n- Include reject reasons\n\nOUTPUT:\nADR draft\n\nACCEPTANCE:\nDecision reversible notes included.\n\nVERIFICATION:\nLinks to official sources.",
+  "badPrompt": "Which is best?",
+  "improvedPrompt": "Compare pgvector vs managed vector DB for multi-tenant RAG; criteria: tenancy, ops, cost, lock-in.",
+  "expectedOutput": "ADR draft with criteria.",
+  "verificationChecklist": [
+    "Criteria explicit",
+    "Sources official"
+  ],
+  "failureModes": [
+    "Vendor trivia"
+  ],
+  "privacySecurityNotes": [],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-FRAMEWORKS-LANDSCAPE",
+    "AI-VECTOR-DATABASES"
+  ],
+  "relatedProjects": [
+    "PBL-AI-I-001"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

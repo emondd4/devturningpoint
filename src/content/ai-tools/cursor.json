@@ -1,0 +1,41 @@
+{
+  "id": "AI-TOOL-CURSOR",
+  "name": "Cursor",
+  "category": "coding-agents",
+  "description": "AI-native code editor with Agent, project Rules, AGENTS.md, Skills, and MCP integrations for repository-aware development.",
+  "bestFor": [
+    "Bounded feature implementation in an existing repo",
+    "Explaining unfamiliar codebases with @ context",
+    "Iterating with rules/skills that match team conventions"
+  ],
+  "notIdealFor": [
+    "Unattended production changes without human review",
+    "Tasks that need verified domain research the model cannot access",
+    "Bulk refactors without tests and diff review"
+  ],
+  "prerequisites": [
+    "AI-LLM-FUNDAMENTALS",
+    "AI-PROMPT-ENGINEERING"
+  ],
+  "officialUrl": "https://cursor.com",
+  "docsUrl": "https://cursor.com/docs",
+  "languageEcosystem": ["TypeScript", "Python", "multi-language"],
+  "localOrCloud": "both",
+  "openSourceStatus": "proprietary",
+  "costModelSummary": "Editor subscription tiers; model usage may incur separate provider costs depending on plan/settings.",
+  "securityNotes": [
+    "Review Agent diffs before commit",
+    "Do not paste secrets into prompts",
+    "Enable MCP servers with least privilege only",
+    "Treat agent-claimed test results as unverified until you run them"
+  ],
+  "relatedTopicIds": [
+    "AI-CODING-AGENTS-CURSOR",
+    "AI-PROMPT-ENGINEERING"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-B-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "PROMPT-FLUTTER-BUG",
+  "title": "Flutter bug/build analysis",
+  "track": "mobile-flutter",
+  "taskType": "mobile",
+  "difficulty": "intermediate",
+  "whenToUse": "Build/runtime Flutter errors need structured triage.",
+  "whenNotToUse": "You only say “app crashed.”",
+  "requiredInputs": [
+    "Error log",
+    "Flutter/Dart versions"
+  ],
+  "promptTemplate": "GOAL:\nDiagnose Flutter issue: {{summary}}.\n\nCONTEXT:\nVersions: {{versions}}. Platform: {{platform}}.\n\nINPUT:\nLogs: {{logs}}\n\nCONSTRAINTS:\n- Separate build vs runtime\n- Prefer official Flutter docs over guesses\n\nOUTPUT:\nRoot cause hypotheses + commands\n\nACCEPTANCE:\nNext command is concrete.\n\nVERIFICATION:\nExpected log signature.",
+  "badPrompt": "Fix Flutter.",
+  "improvedPrompt": "Analyze Gradle/Xcode failure from this log; propose one command; no random dependency bumps.",
+  "expectedOutput": "Flutter triage notes.",
+  "verificationChecklist": [
+    "Platform identified",
+    "Command listed"
+  ],
+  "failureModes": [
+    "Hallucinated Flutter APIs"
+  ],
+  "privacySecurityNotes": [
+    "No signing secrets in prompt"
+  ],
+  "relatedTools": [
+    "AI-TOOL-CURSOR"
+  ],
+  "relatedTopics": [
+    "AI-ASSISTED-FLUTTER"
+  ],
+  "relatedProjects": [],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}

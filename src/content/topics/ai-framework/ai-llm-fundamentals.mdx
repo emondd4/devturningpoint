@@ -1,0 +1,72 @@
+---
+id: AI-LLM-FUNDAMENTALS
+title: "LLM Fundamentals"
+titleBn: "LLM Fundamentals"
+description: "Tokens, context windows, sampling, and why models invent answers—before you pick a framework."
+descriptionBn: "Token, context window, sampling এবং কেন model উত্তর বানিয়ে ফেলে—framework বেছে নেওয়ার আগে।"
+track: ai-framework
+category: fundamentals
+difficulty: beginner
+estimatedMinutes: 45
+prerequisites: []
+unlocks:
+  - "AI-PROMPT-ENGINEERING"
+related:
+  - "AI-PROMPT-ENGINEERING"
+  - "AI-CODING-AGENTS-CURSOR"
+careers:
+  - "software-engineer"
+  - "fullstack-engineer"
+  - "backend-engineer"
+tags:
+  - "llm"
+  - "generative-ai"
+  - "tokens"
+status: published
+translationStatus: partial
+createdAt: "2026-09-16"
+updatedAt: "2026-09-16"
+lastVerified: "2026-09-16"
+sources:
+  - "OPENAI-API-DOCS"
+  - "OWASP-LLM-TOP10-2025"
+contributors:
+  - name: "Dev Turning Point"
+---
+
+import Callout from '../../../components/content/Callout.astro';
+
+<Callout type="info" title="Translation status">
+Bangla title/description may be partial; technical terms (LLM, token, context window) stay in English.
+</Callout>
+
+<Callout type="mental-model">
+An LLM predicts the next token given prior tokens. Fluency is not the same as truth, permission, or task completion.
+</Callout>
+
+## Why this matters
+
+Teams ship broken AI features when they treat chat demos as systems. You need a mental model of tokens, context limits, and failure modes before LangChain, RAG, or agents.
+
+## Mental model
+
+1. **Tokenization** — Text becomes tokens; cost and context limits are usually token-based.
+2. **Context window** — Only a finite prompt+history fits; overflow must be truncated or summarized deliberately.
+3. **Sampling** — Temperature/top-p change variability; lower variance helps structured tasks.
+4. **Training cutoff / missing tools** — Models do not inherently “know” your private repo or live docs unless you retrieve or attach them.
+5. **Hallucination** — Confident wrong answers are expected without grounding and verification (see OWASP LLM misinformation/output risks).
+
+## Practical checks
+
+- Estimate prompt size before sending huge files.
+- Prefer structured outputs with schemas when integrating with code.
+- Never trust a claim that “tests passed” without seeing command output.
+- Treat model suggestions for packages/APIs as hypotheses until verified against official docs.
+
+## Interview angle
+
+Be ready to explain: token vs character, why RAG exists, and how temperature affects reproducibility.
+
+## Sources
+
+Official provider docs and OWASP GenAI guidance linked in frontmatter.

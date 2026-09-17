@@ -1,0 +1,97 @@
+[
+  {
+    "id": "PS-MG-001",
+    "title": "Island Perimeter",
+    "category": "Matrix & Grid",
+    "difficulty": "Easy",
+    "pattern": "Grid Traversal",
+    "problemStatement": "You are given a grid of 0's (water) and 1's (land) forming exactly one island (no lakes, one connected component, no diagonal connections). Return the perimeter of the island.",
+    "examples": [
+      { "input": "grid = [[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]", "output": "16" }
+    ],
+    "constraints": ["1 <= rows, cols <= 100"],
+    "approachSteps": [
+      "Every land cell contributes up to 4 units of perimeter (its four edges) — but any edge it SHARES with a neighboring land cell is an internal edge, not part of the island's outer boundary.",
+      "For each land cell, start by adding 4 to the running perimeter total.",
+      "Then check its up neighbor and its left neighbor (only these two, to avoid double-counting each shared edge from both sides): if either is also land, subtract 2 from the total — 1 for this cell's edge that's no longer exposed, and 1 for the neighbor's matching edge.",
+      "Summing this across every land cell in the grid gives the total perimeter directly, with no separate boundary-tracing step needed."
+    ],
+    "bruteForce": { "approach": "There isn't a meaningfully different brute force — checking each land cell's neighbors is already the natural, optimal approach; the only variation is which neighbors you check to avoid double-counting shared edges.", "timeComplexity": "O(rows * cols)", "spaceComplexity": "O(1)" },
+    "optimalApproach": "For every land cell, add 4 to the perimeter, then subtract 2 for each land neighbor found by checking only up and left (each shared edge detected exactly once this way).",
+    "solutionCode": "def island_perimeter(grid):\n    rows, cols = len(grid), len(grid[0])\n    perimeter = 0\n\n    for r in range(rows):\n        for c in range(cols):\n            if grid[r][c] == 1:\n                perimeter += 4\n                if r > 0 and grid[r - 1][c] == 1:\n                    perimeter -= 2\n                if c > 0 and grid[r][c - 1] == 1:\n                    perimeter -= 2\n\n    return perimeter",
+    "timeComplexity": "O(rows * cols) — every cell is visited once.",
+    "spaceComplexity": "O(1) — a single running counter.",
+    "followUps": [
+      "Why is checking only up and left (not all 4 directions) enough to correctly avoid double-counting shared edges?",
+      "How would you adapt this if the grid could contain multiple islands and you needed the perimeter of the LARGEST one?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["matrix", "grid"],
+    "reportedAt": ["Chaldal"],
+    "sources": ["src-bd-interview-questions-repo"]
+  },
+  {
+    "id": "PS-MG-002",
+    "title": "Spiral Matrix",
+    "category": "Matrix & Grid",
+    "difficulty": "Medium",
+    "pattern": "Boundary Tracking",
+    "problemStatement": "Given an m x n matrix, return all elements of the matrix in spiral order (starting top-left, going right, then down, then left, then up, shrinking inward).",
+    "examples": [
+      { "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]", "output": "[1,2,3,6,9,8,7,4,5]" }
+    ],
+    "constraints": ["1 <= rows, cols <= 10"],
+    "approachSteps": [
+      "The spiral traces the outer boundary of a shrinking rectangle repeatedly — track that rectangle explicitly with four boundaries (top, bottom, left, right) instead of trying to compute a direction/turn logic per cell.",
+      "Traverse across the top row (left to right), then increment top (that row is now 'consumed').",
+      "Traverse down the right column (top to bottom), then decrement right.",
+      "If there are still rows left (top <= bottom), traverse across the bottom row (right to left), then decrement bottom.",
+      "If there are still columns left (left <= right), traverse up the left column (bottom to top), then increment left.",
+      "Repeat this four-sided sweep while top <= bottom and left <= right — the two 'if' guards on the second half of each lap prevent re-visiting cells on matrices that aren't square."
+    ],
+    "bruteForce": { "approach": "Simulate a walker with a direction vector, turning 90 degrees clockwise whenever the next cell is out of bounds or already visited (tracked in a separate visited grid).", "timeComplexity": "O(rows * cols)", "spaceComplexity": "O(rows * cols) for the visited grid" },
+    "optimalApproach": "Shrink four explicit boundaries (top/bottom/left/right) inward one full lap at a time, with guards to avoid re-traversing a row or column that's already been fully consumed.",
+    "solutionCode": "def spiral_order(matrix):\n    if not matrix or not matrix[0]:\n        return []\n\n    result = []\n    top, bottom = 0, len(matrix) - 1\n    left, right = 0, len(matrix[0]) - 1\n\n    while top <= bottom and left <= right:\n        for c in range(left, right + 1):\n            result.append(matrix[top][c])\n        top += 1\n\n        for r in range(top, bottom + 1):\n            result.append(matrix[r][right])\n        right -= 1\n\n        if top <= bottom:\n            for c in range(right, left - 1, -1):\n                result.append(matrix[bottom][c])\n            bottom -= 1\n\n        if left <= right:\n            for r in range(bottom, top - 1, -1):\n                result.append(matrix[r][left])\n            left += 1\n\n    return result",
+    "timeComplexity": "O(rows * cols) — every cell is visited exactly once.",
+    "spaceComplexity": "O(1) extra (excluding the output array) — no visited grid needed, unlike the direction-vector simulation.",
+    "followUps": [
+      "Why are the bottom-row and left-column traversals guarded with 'if top <= bottom' / 'if left <= right' but the top-row and right-column ones aren't?",
+      "How would you generate a spiral matrix (the reverse problem: fill an n x n grid with 1..n^2 in spiral order) using the same boundary-shrinking idea?"
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["matrix", "grid", "simulation"],
+    "reportedAt": ["Chaldal"],
+    "sources": ["src-bd-interview-questions-repo"]
+  },
+  {
+    "id": "PS-MG-003",
+    "title": "Rotate Image",
+    "category": "Matrix & Grid",
+    "difficulty": "Medium",
+    "pattern": "In-Place Matrix Transformation",
+    "problemStatement": "You are given an n x n 2D matrix representing an image. Rotate the image by 90 degrees clockwise, in-place (you must modify the input matrix directly, without allocating another matrix).",
+    "examples": [
+      { "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]", "output": "[[7,4,1],[8,5,2],[9,6,3]]" }
+    ],
+    "constraints": ["1 <= n <= 20"],
+    "approachSteps": [
+      "A 90-degree clockwise rotation can be decomposed into two simpler, well-known in-place operations instead of computing new coordinates directly cell by cell.",
+      "Step 1 — transpose the matrix: swap matrix[i][j] with matrix[j][i] for every pair above the diagonal, turning rows into columns.",
+      "Step 2 — reverse each row of the transposed matrix left-to-right.",
+      "The combination of 'transpose, then reverse each row' is mathematically equivalent to a 90-degree clockwise rotation — worth verifying by hand on a small 3x3 example to build confidence in why it works."
+    ],
+    "bruteForce": { "approach": "Allocate a new n x n matrix, and for each cell (i, j) in the original, place its value at (j, n-1-i) in the new matrix, then copy the new matrix back over the original.", "timeComplexity": "O(n^2)", "spaceComplexity": "O(n^2) for the new matrix" },
+    "optimalApproach": "Transpose the matrix in-place (swap across the diagonal), then reverse each row in-place — two simple, well-understood operations replacing a direct coordinate-mapping formula.",
+    "solutionCode": "def rotate(matrix):\n    n = len(matrix)\n\n    for i in range(n):\n        for j in range(i + 1, n):\n            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]\n\n    for row in matrix:\n        row.reverse()",
+    "timeComplexity": "O(n^2) — every cell is touched a constant number of times across the transpose and reverse steps.",
+    "spaceComplexity": "O(1) — modifies the input matrix directly, no second matrix allocated.",
+    "followUps": [
+      "How would you rotate 90 degrees COUNTERclockwise instead — does the same transpose-then-reverse trick apply with a different reverse direction?",
+      "Derive the direct coordinate formula (without transpose+reverse) for where matrix[i][j] ends up after a clockwise rotation, and confirm it matches this two-step approach."
+    ],
+    "relatedTopicIds": ["FOUNDATIONS-DATA-STRUCTURES-INTRO"],
+    "tags": ["matrix", "in-place"],
+    "reportedAt": ["Enosis Solutions"],
+    "sources": ["src-bd-interview-questions-repo"]
+  }
+]

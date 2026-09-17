@@ -1,0 +1,36 @@
+{
+  "id": "AI-TOOL-GITHUB-COPILOT",
+  "name": "GitHub Copilot",
+  "category": "coding-agents",
+  "description": "IDE-integrated coding assistant tightly coupled with GitHub workflows and PR review features.",
+  "bestFor": [
+    "Inline completion in IDEs",
+    "GitHub-centric teams"
+  ],
+  "notIdealFor": [
+    "Deep multi-file agent workflows without human verification"
+  ],
+  "prerequisites": [
+    "AI-PROMPT-ENGINEERING"
+  ],
+  "officialUrl": "https://github.com/features/copilot",
+  "docsUrl": "https://docs.github.com/en/copilot",
+  "languageEcosystem": [
+    "multi-language"
+  ],
+  "localOrCloud": "cloud",
+  "openSourceStatus": "proprietary",
+  "costModelSummary": "Subscription tiers; org policies may apply.",
+  "securityNotes": [
+    "Respect org content exclusion policies",
+    "Review suggested code for authz bugs"
+  ],
+  "relatedTopicIds": [
+    "AI-CODING-AGENTS-CURSOR"
+  ],
+  "relatedProjectIds": [
+    "PBL-AI-B-002"
+  ],
+  "lastVerified": "2026-09-16",
+  "status": "published"
+}
